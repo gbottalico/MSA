@@ -1,0 +1,28 @@
+{
+  "clienti": [
+    {
+      "proclie": "",
+      "nominativo": "Mario Rossi"
+    },
+    {
+      "proclie": "",
+      "nominativo": "Beppe Grillo"
+    },
+    {
+      "proclie": "",
+      "nominativo": "Alessia Verdi"
+    },
+    {
+      "proclie": "",
+      "nominativo": "Marco Verdi"
+    }
+  ],
+  "messages": [
+    {
+      "livello": "",
+      "codRaggruppamento": "",
+      "codAnomalia": "",
+      "testo": ""
+    }
+  ]
+}

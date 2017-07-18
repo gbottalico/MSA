@@ -1,0 +1,34 @@
+{
+  "listaDomini": [
+    {
+      "desDomi": "AUDI - 000161",
+      "valDomi": "000161",
+      "flagModi": true,
+      "listaValCampiDipendenti": []
+    },
+    {
+      "desDomi": "FERRARI - 000013",
+      "valDomi": "000013",
+      "flagModi": true,
+      "listaValCampiDipendenti": []
+    },
+    {
+      "desDomi": "FIAT - 000008",
+      "valDomi": "000008",
+      "flagModi": true,
+      "listaValCampiDipendenti": []
+    },
+    {
+      "desDomi": "FORD - 000039",
+      "valDomi": "000039",
+      "flagModi": true,
+      "listaValCampiDipendenti": []
+    },
+    {
+      "desDomi": "KIA - 000746",
+      "valDomi": "000746",
+      "flagModi": true,
+      "listaValCampiDipendenti": []
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "global":{
+    "title": "Deutsch Asia",
+    "agenzia" : "Agentur",
+    "riepilogoUtente" : "Benutzer Zusammenfassung",
+    "menu" : {
+      "HOME" : "Home",
+      "AGENZIELST" : "Agentur",
+      "ACCOUNT" : "Account"
+    }
+  },
+  "common":{
+    "search":{
+      "label": {
+        "search": "SUCHE"
+      },
+      "button":{
+        "upa": "UPA"
+      }
+    }
+  },
+  "home":{
+    "modules":{
+      "title": {
+        "situazione": "YOU & ITAS"
+      }
+    }
+  }
+}

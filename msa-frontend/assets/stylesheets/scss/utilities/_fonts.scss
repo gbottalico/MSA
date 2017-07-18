@@ -1,0 +1,86 @@
+@charset "UTF-8";
+
+//fonts (ATTENZIONE: i seguenti FONT name devono corrispondere esattamente ai FILE name nella cartella fonts )
+$font_blkCn: HelveticaNeueLTPro-BlkCn;
+$font_mdCn: HelveticaNeueLTPro-MdCn;
+$font_mdCnO: HelveticaNeueLTPro-MdCnO;
+$font_cn: HelveticaNeueLTPro-Cn;
+$font_ltCn: HelveticaNeueLTPro-LtCn;
+$font_ltCnO: HelveticaNeueLTPro-LtCnO;
+$font_bdCn: HelveticaNeueLTPro-BdCn;
+$font_lt: HelveticaNeueLTPro-Lt;
+$font_ari: Arial;
+$font_awe: FontAwesome;
+$font_sans: sans-serif;
+
+@font-face {
+  font-family: $font_blkCn;
+  src:  url(#{'../fonts/' + $font_blkCn + '?#iefix'})        format('embedded-opentype'),
+  url(#{'../fonts/' + $font_blkCn + '.otf'})                 format('opentype'),
+  url(#{'../fonts/' + $font_blkCn + '.woff'})                format('woff'),
+  url(#{'../fonts/' + $font_blkCn + '.ttf'})                 format('truetype'),
+  url(#{'../fonts/' + $font_blkCn + '.svg#' + $font_blkCn})  format('svg');
+}
+
+@font-face {
+  font-family: $font_mdCn;
+  src:  url(#{'../fonts/' + $font_mdCn + '?#iefix'})        format('embedded-opentype'),
+  url(#{'../fonts/' + $font_mdCn + '.otf'})                 format('opentype'),
+  url(#{'../fonts/' + $font_mdCn + '.woff'})                format('woff'),
+  url(#{'../fonts/' + $font_mdCn + '.ttf'})                 format('truetype'),
+  url(#{'../fonts/' + $font_mdCn + '.svg#' + $font_mdCn})   format('svg');
+}
+
+@font-face {
+  font-family: $font_ltCn;
+  src:  url(#{'../fonts/' + $font_ltCn + '?#iefix'})        format('embedded-opentype'),
+  url(#{'../fonts/' + $font_ltCn + '.otf'})                 format('opentype'),
+  url(#{'../fonts/' + $font_ltCn + '.woff'})                format('woff'),
+  url(#{'../fonts/' + $font_ltCn + '.ttf'})                 format('truetype'),
+  url(#{'../fonts/' + $font_ltCn + '.svg#' + $font_ltCn})   format('svg');
+}
+
+@font-face {
+  font-family: $font_sans;
+  src:  url(#{'../fonts/' + $font_sans + '?#iefix'})        format('embedded-opentype'),
+  url(#{'../fonts/' + $font_sans + '.otf'})                 format('opentype'),
+  url(#{'../fonts/' + $font_sans + '.woff'})                format('woff'),
+  url(#{'../fonts/' + $font_sans + '.ttf'})                 format('truetype'),
+  url(#{'../fonts/' + $font_sans + '.svg#' + $font_sans})   format('svg');
+}
+
+@font-face {
+  font-family: $font_lt;
+  src:  url(#{'../fonts/' + $font_lt + '?#iefix'})        format('embedded-opentype'),
+  url(#{'../fonts/' + $font_lt + '.otf'})                 format('opentype'),
+  url(#{'../fonts/' + $font_lt + '.woff'})                format('woff'),
+  url(#{'../fonts/' + $font_lt + '.ttf'})                 format('truetype'),
+  url(#{'../fonts/' + $font_lt + '.svg#' + $font_lt})   format('svg');
+}
+
+@font-face {
+  font-family: $font_bdCn;
+  src:  url(#{'../fonts/' + $font_bdCn + '?#iefix'})        format('embedded-opentype'),
+  url(#{'../fonts/' + $font_bdCn + '.otf'})                 format('opentype'),
+  url(#{'../fonts/' + $font_bdCn + '.woff'})                format('woff'),
+  url(#{'../fonts/' + $font_bdCn + '.ttf'})                 format('truetype'),
+  url(#{'../fonts/' + $font_bdCn + '.svg#' + $font_bdCn})   format('svg');
+}
+
+@font-face {
+  font-family: $font_mdCnO;
+  src:  url(#{'../fonts/' + $font_mdCnO + '?#iefix'})        format('embedded-opentype'),
+  url(#{'../fonts/' + $font_mdCnO + '.otf'})                 format('opentype'),
+  url(#{'../fonts/' + $font_mdCnO + '.woff'})                format('woff'),
+  url(#{'../fonts/' + $font_mdCnO + '.ttf'})                 format('truetype'),
+  url(#{'../fonts/' + $font_mdCnO + '.svg#' + $font_mdCnO})   format('svg');
+}
+
+@font-face {
+  font-family: $font_ltCnO;
+  src:  url(#{'../fonts/' + $font_ltCnO + '?#iefix'})        format('embedded-opentype'),
+  url(#{'../fonts/' + $font_ltCnO + '.otf'})                 format('opentype'),
+  url(#{'../fonts/' + $font_ltCnO + '.woff'})                format('woff'),
+  url(#{'../fonts/' + $font_ltCnO + '.ttf'})                 format('truetype'),
+  url(#{'../fonts/' + $font_ltCnO + '.svg#' + $font_ltCnO})   format('svg');
+}

@@ -1,0 +1,343 @@
+{
+  "elencoComapgnieCoassicurazione":[
+    {
+      "codice":"1",
+      "descrizione":"HDI ASSICURAZIONI S.P.A.  (EX BNC ASSICURAZIONI)"
+    },
+    {
+      "codice":"016",
+      "descrizione":"FATA ASSICURAZIONI DANNI"
+    },
+    {
+      "codice":"022",
+      "descrizione":"ITAS MUTUA"
+    },
+    {
+      "codice":"26",
+      "descrizione":"ALLIANZ SPA (NDS DI RIUNIONE ADRIATICA DI SICURTA')"
+    },
+    {
+      "codice":"27",
+      "descrizione":"INA ASSITALIA SPA"
+    },
+    {
+      "codice":"28",
+      "descrizione":"ASSICURAZIONI GENERALI"
+    },
+    {
+      "codice":"36",
+      "descrizione":"MILANO ASSICURAZIONI S.P.A."
+    },
+    {
+      "codice":"41",
+      "descrizione":"AXA ASSICURAZIONI S.P.A."
+    },
+    {
+      "codice":"45",
+      "descrizione":"DUOMO UNI ONE ASSICURAZIONI E RIASSICURAZIONI SPA"
+    },
+    {
+      "codice":"47",
+      "descrizione":"INA ASSITALIA SPA (NDS DI F.A.T.A. 31/12/06)"
+    },
+    {
+      "codice":"56",
+      "descrizione":"ITALIANA ASSICURAZIONI S.P.A."
+    },
+    {
+      "codice":"60",
+      "descrizione":"LIGURIA"
+    },
+    {
+      "codice":"67",
+      "descrizione":"CARIGE ASSICURAZIONI SPA"
+    },
+    {
+      "codice":"73",
+      "descrizione":"FONDIARIA - SAI (NDS SAI)"
+    },
+    {
+      "codice":"75",
+      "descrizione":"SARA ASSICURAZIONI S.P.A."
+    },
+    {
+      "codice":"78",
+      "descrizione":"ZURITEL SPA  (NDS LA SICURTA' 1879)"
+    },
+    {
+      "codice":"81",
+      "descrizione":"ALLEANZA TORO SPA (NDS DI TORO )"
+    },
+    {
+      "codice":"84",
+      "descrizione":"UNIPOL ASSICURAZIONI (NDS DI UGF EX UNIPOL)"
+    },
+    {
+      "codice":"85",
+      "descrizione":"VITTORIA ASSICURAZIONI S.P.A."
+    },
+    {
+      "codice":"93",
+      "descrizione":"NATIONALE SUISSE"
+    },
+    {
+      "codice":"102",
+      "descrizione":"XL INSURANCE COMPANY LIMITED"
+    },
+    {
+      "codice":"110",
+      "descrizione":"MEDIOLANUM ASSICURAZIONI S.P.A."
+    },
+    {
+      "codice":"114",
+      "descrizione":"AXA MPS ASS.NI DANNI SPA (NDS DI MONTEPASCHI DANNI)"
+    },
+    {
+      "codice":"117",
+      "descrizione":"GENERTEL (EX TRIESTE E VENEZIA ASSICURAZIONI)"
+    },
+    {
+      "codice":"122",
+      "descrizione":"ASSIMOCO S.P.A."
+    },
+    {
+      "codice":"125",
+      "descrizione":"EUROPA TUTELA GIUDIZIARIA SPA"
+    },
+    {
+      "codice":"127",
+      "descrizione":"UCA-ASSICURAZIONE SPESE LEGALI E PERITALI"
+    },
+    {
+      "codice":"130",
+      "descrizione":"SWISS RE ITALIA S.P.A."
+    },
+    {
+      "codice":"133",
+      "descrizione":"ABC ASSICURA S.P.A. (CDS DI VERONA ASSICURAZIONI SPA)"
+    },
+    {
+      "codice":"136",
+      "descrizione":"SCOR GLOBAL LIFE S.E."
+    },
+    {
+      "codice":"139",
+      "descrizione":"ERGO ASSICURAZIONI SPA (NDS DI BAYERISCHE ASSICURAZIONI)"
+    },
+    {
+      "codice":"141",
+      "descrizione":"SIAT"
+    },
+    {
+      "codice":"143",
+      "descrizione":"INCONTRA ASSICURAZIONI SPA (NDS DI CAPITALIA)"
+    },
+    {
+      "codice":"144",
+      "descrizione":"DIALOGO ASSICURAZIONI S.P.A."
+    },
+    {
+      "codice":"151",
+      "descrizione":"SOC. CATTOLICA DI ASSICURAZIONE"
+    },
+    {
+      "codice":"158",
+      "descrizione":"A.R.A.G."
+    },
+    {
+      "codice":"171",
+      "descrizione":"ITAS - IST.TRENTINO-ALTO ADIGE PER ASSICURAZIONI"
+    },
+    {
+      "codice":"172",
+      "descrizione":"ARA ASSICURAZIONI RISCHI AGRICOLI VMG 1857 SPA"
+    },
+    {
+      "codice":"174",
+      "descrizione":"PADANA ASSICURAZIONI S.P.A."
+    },
+    {
+      "codice":"176",
+      "descrizione":"SOCIETA' REALE MUTUA DI ASSICURAZIONI"
+    },
+    {
+      "codice":"177",
+      "descrizione":"ZURICH INVESTMENT LIFE (EX ZURIGO COMP.ASS.VITA)"
+    },
+    {
+      "codice":"178",
+      "descrizione":"ASSICURATRICE VAL PIAVE"
+    },
+    {
+      "codice":"181",
+      "descrizione":"LE ASSICURAZIONI DI ROMA   (EX ASCOROMA)"
+    },
+    {
+      "codice":"183",
+      "descrizione":"ITAS VITA S.P.A."
+    },
+    {
+      "codice":"208",
+      "descrizione":"AVIVA ITALIA S.P.A. (CDS DI COMMERCIAL UNION ITALIA SPA )"
+    },
+    {
+      "codice":"211",
+      "descrizione":"HELVETIA"
+    },
+    {
+      "codice":"213",
+      "descrizione":"CARIGE VITA NUOVA S.P.A. (EX BASILESE VITA NUOVA)"
+    },
+    {
+      "codice":"214",
+      "descrizione":"AIG EUROPE LTD"
+    },
+    {
+      "codice":"221",
+      "descrizione":"SEA INSURANCE COMPANY LTD"
+    },
+    {
+      "codice":"223",
+      "descrizione":"RSA - SUN INSURANCE OFFICE LTD. (NDS DI ROYAL & SUN)"
+    },
+    {
+      "codice":"231",
+      "descrizione":"ACE EUROPEAN GROUP LTD (EX CIGNA INSURANCE)"
+    },
+    {
+      "codice":"232",
+      "descrizione":"AXA MPS ASSICURAZIONI VITA SPA (NDS DI MONTEPASCHI VITA )"
+    },
+    {
+      "codice":"238",
+      "descrizione":"ITAS ASSICURAZIONI SPA"
+    },
+    {
+      "codice":"239",
+      "descrizione":"UNISALUTE S.P.A. (EX NORICUM)"
+    },
+    {
+      "codice":"240",
+      "descrizione":"CREDITRAS S.P.A.  (EX ADRIATICA DANNI)"
+    },
+    {
+      "codice":"241",
+      "descrizione":"NAVALE VITA SPA (NDS DI MMI VITA GIA'  FIDUCIARIA VITA)"
+    },
+    {
+      "codice":"263",
+      "descrizione":"R.B. VITA S.P.A.  (EX DIVAL VITA SPA)"
+    },
+    {
+      "codice":"267",
+      "descrizione":"TOKIO MARINE AND FIRE INSURANCE CO."
+    },
+    {
+      "codice":"291",
+      "descrizione":"MITSUI SUMIMOTO INSURANCE COMPANY LTD"
+    },
+    {
+      "codice":"294",
+      "descrizione":"SARA VITA S.P.A."
+    },
+    {
+      "codice":"304",
+      "descrizione":"UBI ASSICURAZIONI SPA"
+    },
+    {
+      "codice":"305",
+      "descrizione":"AXA INTERLIFE (EX ALLSECURES VITA - CDS DA 1998)"
+    },
+    {
+      "codice":"306",
+      "descrizione":"EURIZON VITA ( NDS DI A.I.P. SPA GIA' NORICUM VITA SPA)"
+    },
+    {
+      "codice":"309",
+      "descrizione":"HELVETIA VITA"
+    },
+    {
+      "codice":"314",
+      "descrizione":"UNIQA PREVIDENZA SPA (NDS DI CLARIS VITA DA 2007)"
+    },
+    {
+      "codice":"315",
+      "descrizione":"SYSTEMA COMPAGNIA DI ASSICURAZIONI S.P.A."
+    },
+    {
+      "codice":"317",
+      "descrizione":"NATIONALE SUISSE VITA"
+    },
+    {
+      "codice":"319",
+      "descrizione":"BNL VITA"
+    },
+    {
+      "codice":"320",
+      "descrizione":"AVIVA PREVIDENZA SPA (EX COMM.UNION PREVIDENZA)"
+    },
+    {
+      "codice":"323",
+      "descrizione":"AVIVA VITA SPA (NDS DI RISPARMIO VITA)"
+    },
+    {
+      "codice":"328",
+      "descrizione":"COFACE COMPAGNIA DI ASS.NI E RIASS. SPA (NDS DI VISCONTEA)"
+    },
+    {
+      "codice":"330",
+      "descrizione":"AVIVA ASSICURAZIONI VITA SPA (NDS DI UBI ASSICURAZIONI VITA)"
+    },
+    {
+      "codice":"331",
+      "descrizione":"CARDIF - ASSURANCE VIE S.A."
+    },
+    {
+      "codice":"332",
+      "descrizione":"CARDIF- ASSURANCE RISQUES DIVERS S.A."
+    },
+    {
+      "codice":"333",
+      "descrizione":"FIDEURAM ASSICURAZIONI S.P.A."
+    },
+    {
+      "codice":"334",
+      "descrizione":"MEDIOLANUM VITA S.P.A."
+    },
+    {
+      "codice":"337",
+      "descrizione":"APULIA PREVIDENZA  (NDS DI SWISS LIFE S.P.A.)"
+    },
+    {
+      "codice":"339",
+      "descrizione":"AVIVA S.P.A. (NDS DI COMMERCIAL UNION VITA SPA)"
+    },
+    {
+      "codice":"340",
+      "descrizione":"AXA SOLUZIONI VITA SPA (NDS DI UAP VITA 7/2006)"
+    },
+    {
+      "codice":"341",
+      "descrizione":"ARCA VITA"
+    },
+    {
+      "codice":"345",
+      "descrizione":"PRUMERICA LIFE (PRIMA PRICOA VITA SPA)"
+    },
+    {
+      "codice":"349",
+      "descrizione":"LIGURIA VITA"
+    },
+    {
+      "codice":"350",
+      "descrizione":"CREDIT AGRICOLE VITA SPA (NDS DI PO VITA ASS. S.P.A.)"
+    },
+    {
+      "codice":"353",
+      "descrizione":"SUMITOMO MARINE & FIRE INSURANCE COMPANY"
+    }
+  ],
+  "messages":[
+
+  ]
+}

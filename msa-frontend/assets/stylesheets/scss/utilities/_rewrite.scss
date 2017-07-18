@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+/* FONT Awesome default overwrite */
+
+.fa {
+  color: $color_celeste_approx
+}
+
+/* Rewrite colors for slider */
+.rzslider {
+  .rz-selection {
+    background-color: $itas_red;
+  }
+  .rz-pointer {
+    background-color: $itas_red;
+    &.rz-active{
+      &:after{
+        background-color: $white;
+      }
+    }
+  }
+}

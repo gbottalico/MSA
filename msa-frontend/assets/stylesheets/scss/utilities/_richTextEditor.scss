@@ -1,0 +1,164 @@
+@charset "UTF-8";
+
+/*START RICH TEXT*/
+.richTextWidthContainer {
+  .modal-dialog {
+    width: 80%!important;
+  }
+}
+.richTextEditor {
+  .editableContainer[data-editable$="true"]{
+    .editableTrue {
+      .btn-toolbar {
+        .btn-group {
+          .btn {
+            font-family: $font_ltCn!important;
+            text-align: center!important;
+            font-size: 14px!important;
+            background: $white!important;
+            border: 1px solid $delfino!important;
+            width: auto!important;
+            height: 40px!important;
+            -webkit-border-radius: 0!important;
+            -moz-border-radius: 0!important;
+            border-radius: 0!important;
+            line-height: 28px!important;
+            i {
+              color: #333!important;
+            }
+          }
+        }
+      }
+      .form-control {
+        border: 2px solid $white!important;
+        background: none!important;
+        font-family: $font_lt!important;
+        font-size: 2rem!important;
+        color: $black!important;
+        height: 100%!important;
+        border-radius: 0!important;
+        -moz-border-radius: 0!important;
+        -webkit-border-radius: 0!important;
+      }
+      .ta-scroll-window {
+        .popover {
+          .popover-content {
+            .btn-group {
+              .btn {
+                font-family: $font_ltCn;
+                width: auto;
+                text-align: left;
+                font-size: 14px;
+                line-height: 14px;
+                background: $white;
+                border: 1px solid $delfino;
+                height: 30px;
+                -webkit-border-radius: 0;
+                -moz-border-radius: 0;
+                border-radius: 0;
+                i {
+                  color: #333;
+                }
+              }
+              .btn:nth-child(3n) {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+    .editableFalse {
+      display: none!important;
+    }
+  }
+  .editableContainer[data-editable$="false"]{
+    .editableTrue {
+      display: none!important;
+    }
+    .editableFalse {
+      font-family: $font_lt!important;
+      font-size: 2rem!important;
+      color: $black!important;
+      width: 100%!important;
+      height: auto!important;
+      border: 0px!important;
+      background: transparent!important;
+      resize: none!important;
+      min-height: 200px!important;
+    }
+  }
+  .editableContainer[data-editable$="email"]{
+    .editableTrue {
+      .btn-toolbar {
+        .btn-group {
+          .btn {
+            font-family: $font_ltCn;
+            text-align: center;
+            font-size: 14px;
+            background: $white;
+            border: 1px solid $delfino;
+            width: auto;
+            height: 40px;
+            -webkit-border-radius: 0;
+            -moz-border-radius: 0;
+            border-radius: 0;
+            line-height: 28px;
+            i {
+              color: #333;
+            }
+          }
+        }
+      }
+      .form-control {
+        border: 2px solid $sand;
+        background: none;
+        font-family: $font_lt;
+        font-size: 2rem;
+        color: $black;
+        height: 100%;
+        border-radius: 0;
+        -moz-border-radius: 0;
+        -webkit-border-radius: 0;
+      }
+      .ta-scroll-window {
+        .popover {
+          .popover-content {
+            .btn-group {
+              .btn {
+                font-family: $font_ltCn;
+                width: auto;
+                text-align: left;
+                font-size: 14px;
+                line-height: 14px;
+                background: $white;
+                border: 1px solid $delfino;
+                height: 30px;
+                -webkit-border-radius: 0;
+                -moz-border-radius: 0;
+                border-radius: 0;
+                i {
+                  color: #333;
+                }
+              }
+              .btn:nth-child(3n) {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+    .editableFalse {
+      display: none;
+    }
+  }
+}
+
+.txtRichClass[ta-disabled="true"] >.ta-toolbar.btn-toolbar {
+  display: none;
+}
+.txtRichClass.disabled >.ta-toolbar.btn-toolbar {
+  display: none;
+}
+/*END RICH TEXT*/

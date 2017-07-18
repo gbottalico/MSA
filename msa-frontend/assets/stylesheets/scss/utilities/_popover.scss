@@ -1,0 +1,76 @@
+@charset "UTF-8";
+
+.popover {
+  background: $white;
+  border: solid 2px $itas_azure;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  font-family: $font_ltCn;
+  ul {
+    margin-bottom: 0;
+  }
+
+  .popover-content{
+    ul{
+      li {
+        white-space: nowrap;
+        &:before {
+          color: $itas_azure;
+          font-size: 1.7rem;
+          position: relative;
+          left: 0;
+          content: ">  ";
+          -webkit-transition: all 0.2s ease;
+          -moz-transition: all 0.2s ease;
+          -o-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+        }
+        a {
+          display: inline-block;
+          color: $itas_azure;
+          text-transform: uppercase;
+          padding-left: 0;
+          font-size: 1.7rem;
+          padding: 2px 0;
+          cursor: pointer;
+        }
+        &:hover {
+          &:before {
+            left: 2px;
+            color: $itas_azure;
+          }
+        }
+      }
+    }
+  }
+
+  &.bottom{
+    >.arrow {
+      border-bottom-color: $itas_azure;
+      &:after {
+        border-bottom-color: inherit;
+      }
+    }
+  }
+  &.top {
+    > .arrow {
+      border-top-color: $itas_azure;
+      &:after {
+        border-top-color: inherit;
+      }
+    }
+  }
+}
+
+/* popover testuale */
+.popover-text{
+  font-size: 1.5rem;
+  color: $itas_azure;
+  white-space: nowrap;
+  .glyphicon {
+  }
+  .popover-txt{
+  }
+}
+/* Fine popover testuale */

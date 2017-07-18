@@ -1,0 +1,26 @@
+{
+  "numContratto": "TPO05389072",
+  "scontoAutonomia": {
+    "numOggr": "1",
+    "scontiAutonomiaGar": [
+      {
+        "codRamo": "R2",
+        "codRisch": "1",
+        "codOgge": "54",
+        "desGaranzia": "INVALIDITA' PERMANENTE",
+        "premioAnnuoNetto": "677.28",
+        "autonomia": {
+          "scontoPercentuale": "10",
+          "flagScontoPercentuale": true,
+          "scontoAnnuo": "12",
+          "flagScontoAnnuo": true,
+          "autonomiaUtilizzata": "12",
+          "flagAutonomiaUtilizzata": true,
+          "diCuiSocio": "12",
+          "flagDiCuiSocio": true
+        },
+        "dataTariffa": "2013-12-21T00:00:00.000+0100"
+      }
+    ]
+  }
+}

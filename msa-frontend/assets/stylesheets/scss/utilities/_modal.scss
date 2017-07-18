@@ -1,0 +1,126 @@
+@charset "UTF-8";
+
+.modal{
+
+  .modal-content{
+    border-radius: 0;
+
+    .modal-header{
+      .modal-title{
+        color: $sand;
+        text-transform: uppercase;
+      }
+    }
+
+    .modal-body{
+
+      .modal-title-red{
+        color: $itas_red;
+        text-transform: uppercase;
+        font-family: $font_bdCn;
+      }
+
+      .textRed{
+        color: $itas_red;
+      }
+
+      @include itas-form;
+
+      .input-group,
+      .form-group {
+        label.control-label {
+        }
+        .form-control {
+          border-color: $itas_azure;
+          color: $black;
+        }
+      }
+
+      p.info-errore{
+        font-size: 2rem;
+      }
+      .first-line-modal{
+        h4, h3{
+          font-family: $font_mdCn;
+          line-height: normal;
+        }
+        .icon-error-level{
+          margin-right: 10px;
+        }
+        &.danger{
+          background-color: $danger;
+        }
+        &.error-level-0{
+          color: $error_level_0;
+        }
+        &.error-level-1{
+          color: $error_level_1;
+        }
+        &.error-level-1{
+          color: $error_level_1;
+        }
+      }
+
+
+      /*CSS ASSOCIATO ALLA COMPONENTE UIB-TAB*/
+      li.uib-tab.nav-item.active > a > uib-tab-heading {
+        font-weight: bold !important;
+        color: $itas_red !important;
+        font-size: 2rem;
+      }
+
+      li.uib-tab.nav-item > a > uib-tab-heading {
+        font-weight: bold;
+        color: #c0bfba;
+        font-size: 2rem;
+      }
+
+    }
+
+    .modal-footer{
+
+    }
+
+    .modal-custom-footer{
+      padding: 15px;
+      border-top: 1px solid #e5e5e5;
+
+      @include itas-form;
+      
+      .container-fluid {
+        .row {
+          div {
+            button {
+              float: right;
+            }
+            .visibleCheck[data-check$="false"] {
+              display: none;
+            }
+          }
+        }
+      }
+
+    }
+
+  }
+
+}
+/*PER MODALE RICH TEXT*/
+
+.modalClausoleEntitaContainer {
+  .modal-dialog {
+    width: 80%!important;
+  }
+}
+
+.noTableColor:hover{
+  background-color: white;
+}
+/*FINE MODALE CLAUSOLE ENTITA*//*END PER MODALE RICH TEXT*/
+
+
+.modal-wide{
+  @extend .modal-dialog;
+  width: 90%;
+}
+

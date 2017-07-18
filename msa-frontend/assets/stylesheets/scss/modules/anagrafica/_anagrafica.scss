@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+#anagrafica{
+
+  /* Tabs Nav */
+  .nav-pills{
+    font-size: 2.4rem;
+    font-family: $font_ltCn;
+    margin-bottom: 20px;
+    border-bottom: 1px solid $grey;
+    & > li{
+      border: 3px solid $color_amber_approx;
+      margin: 0 10px 20px 0;
+      & > a{
+        background: none;
+        color: $color_amber_approx;
+        border: none;
+        border-radius: 0;
+        padding: 6px 10px;
+        opacity: .8;
+        &:hover{
+          background: $color_amber_approx;
+          color: $white;
+          opacity: 1;
+          transition: all 0.2s linear;
+        }
+        &:focus{
+          background: $color_amber_approx;
+          color: $white;
+          outline: none;
+        }
+      }
+      &.active{
+        & > a{
+          background: $color_amber_approx;
+          color: $white;
+          opacity: 1;
+        }
+      }
+      &.disabled{
+        border-color: $grey;
+        & > a {
+          color: $grey;
+          padding: 6px 10px;
+          &:hover {
+            background: $white;
+            color: $grey;
+          }
+          &:focus {
+            background: $white;
+            color: $grey;
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+  /* End Tabs Nav*/
+
+  form {
+    @include itas-form;
+
+    .input-group,
+    .form-group {
+      label.control-label {
+      }
+      .form-control {
+        border-color: $itas_azure;
+        color: $black;
+      }
+    }
+  }
+
+  .sectionTitle {
+  	margin-top: 15px;
+  	margin-bottom: 15px;
+  }
+}

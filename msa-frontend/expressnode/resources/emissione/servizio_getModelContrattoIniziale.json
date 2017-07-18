@@ -1,0 +1,112 @@
+{
+  "numContratto": "TPO02829718",
+  "solTrad": true,
+  "contraente": {
+    "proclie": "E1678465",
+    "cf": "VRLFBA86H02L781P",
+    "pIva": null,
+    "ragioneSociale": null,
+    "nomeCliente": "FABIO",
+    "cognomeCliente": "VERLATO",
+    "tipoPersonaCliente": "F"
+  },
+  "soluzioniContratto": [
+    {
+      "idSoluzione": 1,
+      "ordine": 1,
+      "tipo": "T"
+    }
+  ],
+  "legamiDiPolizza": [
+    {
+      "numClie": null,
+      "proClie": "E1678465",
+      "desClie": "VERLATO|N=FABIO",
+      "codFisc": "VRLFBA86H02L781P",
+      "codPiva": null,
+      "desIndi": "VIA C.ERTA 1",
+      "numLink": "E1678465",
+      "codCana": 2,
+      "codRuol": 7,
+      "codRapp": 24,
+      "desLega": "INTESTATARIO AL P.R.A. O LOCATARIO IN CASO DI LEASING",
+      "flagReca": false,
+      "flagPers": false,
+      "flagCont": false,
+      "flagObbl": true,
+      "flagVinc": false,
+      "codVinc": null,
+      "desVinc": null,
+      "datScad": null,
+      "prgReca": 1,
+      "flagQues": false,
+      "txtVinc": null,
+      "flagVi99": false,
+      "flagPtf": false,
+      "codOgge": 0,
+      "flagEscl": false,
+      "numCart": null,
+      "desGrup": null,
+      "desNome": "VERLATO FABIO",
+      "flagFirm": false,
+      "flagDocp": false
+    },
+    {
+      "numClie": null,
+      "proClie": "E1678465",
+      "desClie": "VERLATO|N=FABIO",
+      "codFisc": "VRLFBA86H02L781P",
+      "codPiva": null,
+      "desIndi": "VIA C.ERTA 1 ",
+      "numLink": "E1678465",
+      "codCana": 2,
+      "codRuol": 1,
+      "codRapp": 1,
+      "desLega": "CONTRAENTE DI POLIZZA",
+      "flagReca": true,
+      "flagPers": false,
+      "flagCont": true,
+      "flagObbl": true,
+      "flagVinc": false,
+      "codVinc": null,
+      "desVinc": null,
+      "datScad": null,
+      "prgReca": 1,
+      "flagQues": false,
+      "txtVinc": null,
+      "flagVi99": false,
+      "flagPtf": false,
+      "codOgge": 0,
+      "flagEscl": false,
+      "numCart": null,
+      "desGrup": null,
+      "desNome": "VERLATO FABIO",
+      "flagFirm": false,
+      "flagDocp": false
+    }
+  ],
+  "cdf": {
+    "codFraz": "01",
+    "codTdur": 10,
+    "codTcon": "SA",
+    "desFrazionamento": "ANNUALE",
+    "desDurata": "ANNUALE",
+    "desTipoContratto": "SCADENZA AUTOMATICA",
+    "flagDefault": true
+  },
+  "datScad": "26/01/2018",
+  "informazioniAggiuntive": {
+    "flagSocio": false,
+    "flagRiassicurazione": false,
+    "flagEsente": false,
+    "flagIndicizzazione": false
+  },
+  "messages": [
+    {
+      "livello": null,
+      "codRaggruppamento": null,
+      "codAnomalia": null,
+      "testo": null
+    }
+  ]
+}

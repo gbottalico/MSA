@@ -1,0 +1,125 @@
+{
+  "proclie": "E394917",
+  "nominativo": "Mario Rossi",
+  "cf": "RSSMRO86H02L281P",
+  "residenza": "via vvvv n. 1. 38125 Trento (TN)",
+  "telefono": "+39333333333",
+  "email": "mario.rossi@yahoo.com",
+  "altriContatti": [
+    {
+      "tipo": "mail",
+      "descrizione": "area riservata",
+      "valore": "mario.rossi@yahoo.com"
+    },
+    {
+      "tipo": "consenso",
+      "descrizione": "consenso firma grafomtrica",
+      "valore": ""
+    }
+  ],
+  "soggettiCollegati": [
+    {
+      "tipoPersona": "Fisica",
+      "nominativo": "Marco Rossi",
+      "cf": "RSSMRO86H02L281P",
+      "sesso": "m"
+    },
+    {
+      "tipoPersona": "Fisica",
+      "nominativo": "Alessia Rossi",
+      "cf": "RSSMRO86H02L281P",
+      "sesso": "f"
+    }
+  ],
+  "rating": "1",
+  "statoCoperturex": [
+    {
+      "bene": "veicoli",
+      "coperto": true
+    },
+    {
+      "bene": "casa",
+      "coperto": false
+    },
+    {
+      "bene": "risparmio",
+      "coperto": true
+    }
+  ],
+  "coperture": [
+    {
+      "tipologia": "Tradizionale",
+      "numero": "1234556",
+      "dataEffetto": "01/01/2015",
+      "stato": "C",
+      "inCopertura": true,
+      "titoliEmessi": 1,
+      "appendiciLavorazione": "",
+      "dataScadenza": "01/01/2016",
+      "prodottiSoluzioni": [
+        {
+          "nome": "LA TUA FAMIGLIA",
+          "premio": "45",
+          "scadenza": "10/03/2020"
+        }
+      ]
+    }
+  ],
+  "sinistri": [
+    {
+      "numeroSinistro": "1234556",
+      "dataApertura": "01/01/2015",
+      "statoSinistro": "C",
+      "numeroPolizzaContratto": "123456",
+      "dataAccadimento": "01/01/2015",
+      "totali": "Pagato 234",
+      "dataDenuncia": "01/01/2015"
+    }
+  ],
+  "preventivi": [
+    {
+      "tipologia": "Preventivo",
+      "numero": "1234556",
+      "dataScadenza": "01/01/2016",
+      "prodottiSoluzioni": [
+        {
+          "nome": "LA TUA FAMIGLIA",
+          "premio": "45",
+          "scadenza": "10/03/2020"
+        }
+      ]
+    }
+  ],
+  "documenti": [
+    {
+      "docPersonali": [
+        {
+          "idDoc": "1234",
+          "tipologia": "Carta d’identita",
+          "dataScadenza": "01/01/2016"
+        }
+      ],
+      "consensiRevoche": [
+        {
+          "idCons": "1234",
+          "tipologia": "Consenso privacy",
+          "rilasciato": "01/01/2016"
+        }
+      ],
+      "documentiContrattuali": [
+        {
+          "numContratto": "123456",
+          "dataScadenza": "01/01/2016"
+        }
+      ]
+    }
+  ],
+  "messages": [
+    {
+      "livello": "",
+      "codRaggruppamento": "",
+      "codAnomalia": "",
+      "testo": ""
+    }
+  ]
+}

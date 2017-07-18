@@ -1,0 +1,133 @@
+{
+  "idAnagrafica": "hjkg76876",
+  "proclie": "pio8907cz",
+  "emettiAppendice": null,
+  "flgAppendiceResidenza": null,
+  "flgAppendiceDenominazione": null,
+  "datiNucleo": {
+    "tipoPersona": "F",
+    "cognome": "ROSSI",
+    "nome": "MARIO",
+    "dataNascita": "1982-02-27T23:00:00.000Z",
+    "sesso": "F",
+    "nazioneNascita": 4,
+    "provinciaNascita": 1,
+    "comuneNascita": "EE",
+    "capNascita": "00021",
+    "codiceFiscale": "RSSMRA85T10A562S",
+    "ragioneSociale": "Nuov Osteria",
+    "nomeEsteso": "Nuova Osteria",
+    "tipoSocieta": 2,
+    "nazione": 4,
+    "provincia": 1,
+    "numCcia": "123123213",
+    "pIva": "12345678911",
+    "flagModificato": false
+  },
+  "datiRecapito": {
+    "prgReca": null,
+    "nazioneRes": 4,
+    "provinciaRes": 1,
+    "comuneRes": "EE",
+    "localitaRes": "EE",
+    "capRes": "00000",
+    "toponimoRes": 1524,
+    "indirizzoRes": "via padova",
+    "numCivicoRes": "33",
+    "flagModificato": false
+  },
+  "altriDati": {
+    "lingua": "ITA",
+    "statoCivile": 1,
+    "istruzione": 80,
+    "titolo": 3,
+    "flagModificato": false
+  },
+  "consensi": [
+    {
+      "codConsenso": "T1",
+      "flagConsenso": true,
+      "flagModificato": false
+    },
+    {
+      "codConsenso": "C1",
+      "flagConsenso": true,
+      "flagModificato": false
+    },
+    {
+      "codConsenso": "C2",
+      "flagConsenso": true,
+      "flagModificato": false
+    },
+    {
+      "codConsenso": "T2",
+      "flagConsenso": true,
+      "flagModificato": false
+    }
+  ],
+  "contatti": [
+    {
+      "codtipoContatto": "1",
+      "contatto": "43242384923",
+      "note": "cellualre conatto",
+      "flagModificato": false
+    }
+  ],
+  "altriRecapiti": [
+    {
+      "tipoRecapito": "21",
+      "codNazione": "1",
+      "codProvincia": "1",
+      "codComune": "1",
+      "codLocalita": "1",
+      "cap": "00000",
+      "codToponimo": null,
+      "indirizzo": "via roma ",
+      "numCivico": "22",
+      "numTelefono": "2321332",
+      "numFax": "23232",
+      "flagModificato": false
+    }
+  ],
+  "documenti": [
+    {
+      "idFileTmp": null,
+      "tipoDocumento": 1,
+      "descDocumento": "CARTA DI IDENTITÀ",
+      "numDocumento": "PS 0504646 FC",
+      "enteRilascio": "Comune Milano",
+      "dataRilascio": "19-02-2016",
+      "dataScadenza": "19-02-2026",
+      "flagModificato": false,
+      "fileDocumentale": null
+    },
+    {
+      "idFileTmp": null,
+      "tipoDocumento": 2,
+      "descDocumento": "PASSAPORTO",
+      "numDocumento": "XY CRV654",
+      "enteRilascio": "Ambasciata Italiana",
+      "dataRilascio": "02-03-2016",
+      "dataScadenza": "01-04-2021",
+      "flagModificato": false,
+      "fileDocumentale": null
+    }
+  ],
+  "personeCollegate": [
+    {
+      "codtipoLegame": 1,
+      "denominazione": "Paolo Rossi",
+      "inizioRapporto": "19-02-2016",
+      "tipoPersona": "F"
+    }
+  ],
+  "attivita": [
+    {
+      "codSettore": 5,
+      "codProfessione": 30,
+      "codSpecialita": 0,
+      "attPrevalente": null,
+      "flagModificato": null
+    }
+  ]
+}

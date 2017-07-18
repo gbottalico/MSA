@@ -1,0 +1,58 @@
+[
+  {
+    "codSocieta": "1",
+    "descSocieta": "SOCIETA PER AZIONI"
+  },
+  {
+    "codSocieta": "10",
+    "descSocieta": "COOPERATIVA"
+  },
+  {
+    "codSocieta": "11",
+    "descSocieta": "POLISPORTIVA"
+  },
+  {
+    "codSocieta": "12",
+    "descSocieta": "SOCIETA COOPERATIVA A RESPONSABILITA LIMITATA"
+  },
+  {
+    "codSocieta": "2",
+    "descSocieta": "SOCIETA A RESPONSABILITA LIMITATA"
+  },
+  {
+    "codSocieta": "21",
+    "descSocieta": "ONLUS"
+  },
+  {
+    "codSocieta": "22",
+    "descSocieta": "SOCIETA SEMPLICE"
+  },
+  {
+    "codSocieta": "3",
+    "descSocieta": "SOCIETA IN NOME COLLETTIVO"
+  },
+  {
+    "codSocieta": "4",
+    "descSocieta": "SOCIETA IN ACCOMANDITA PER AZIONI"
+  },
+  {
+    "codSocieta": "5",
+    "descSocieta": "SOCIETA IN ACCOMANDITA SEMPLICE"
+  },
+  {
+    "codSocieta": "6",
+    "descSocieta": "ASSOCIAZIONE"
+  },
+  {
+    "codSocieta": "7",
+    "descSocieta": "CONDOMINIO"
+  },
+  {
+    "codSocieta": "8",
+    "descSocieta": "CONSORZIO"
+  },
+  {
+    "codSocieta": "9",
+    "descSocieta": "FONDAZIONE"
+  }
+]

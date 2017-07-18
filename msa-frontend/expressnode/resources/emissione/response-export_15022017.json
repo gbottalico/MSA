@@ -1,0 +1,3826 @@
+{
+  "messages": [],
+  "utenteLoggato": null,
+  "listaSezioni": [
+    {
+      "codSezione": "R6",
+      "desSezione": "SEZIONE RESPONSABILITA' CIVILE",
+      "listaGaranzie": [
+        {
+          "codRamo": "R6",
+          "codRisc": 1,
+          "codOgge": 202,
+          "desOgge": "DANNI A TERZI DA GELO",
+          "desRisc": "R.C.T. (DANNI A TERZI)",
+          "desGaranzia": "DANNI A TERZI DA GELO",
+          "obbligatoria": "2",
+          "flagPrimoPrezzo": null,
+          "ordine": 40,
+          "flagQuest": false,
+          "strCond": "D-R6-1-16;",
+          "cga": null,
+          "keyTari": "6676",
+          "listaFormeContrattuali": [
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "S",
+              "desFormaContrattuale": "STANDARD",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "R6-1-202-S-3952",
+                  "prgDizi": 3952,
+                  "desCamp": "LIMITE DI INDENNIZZO PER SINISTRO E PER ANNO ASSICURATIVO",
+                  "nomTabe": null,
+                  "nomColo": "VAL_LIM1",
+                  "flagClausola": false,
+                  "flagObbl": false,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 2,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                }
+              ]
+            }
+          ],
+          "listaCorrelazioniGaranzia": [
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "R6",
+              "codRisc": 1,
+              "codOgge": 16,
+              "tipologiaRel": "D"
+            }
+          ]
+        },
+        {
+          "codRamo": "R6",
+          "codRisc": 1,
+          "codOgge": 16,
+          "desOgge": "PROPRIETA' DEL FABBRICATO",
+          "desRisc": "R.C.T. (DANNI A TERZI)",
+          "desGaranzia": "R.C. FABBRICATO",
+          "obbligatoria": "2",
+          "flagPrimoPrezzo": null,
+          "ordine": 37,
+          "flagQuest": false,
+          "strCond": "P-R6-1-202;P-R6-9-226;",
+          "cga": null,
+          "keyTari": "6676",
+          "listaFormeContrattuali": [
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "1",
+              "desFormaContrattuale": "CON FRANCHIGIA",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "R6-1-16-1-1000000094",
+                  "prgDizi": 1000000094,
+                  "desCamp": "R.C. DELLA CONDUZIONE DA PARTE DI TERZI",
+                  "nomTabe": null,
+                  "nomColo": "CLAUSOLA",
+                  "flagClausola": true,
+                  "flagObbl": false,
+                  "flagModi": true,
+                  "pattern": null,
+                  "type": "checkBox",
+                  "tipoDato": "A",
+                  "numCara": 1,
+                  "numDeci": 0,
+                  "valCara": "N",
+                  "desCara": "NO",
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                },
+                {
+                  "idCarNfc": "R6-1-16-1-3949",
+                  "prgDizi": 3949,
+                  "desCamp": "MASSIMALE PER ANNO",
+                  "nomTabe": null,
+                  "nomColo": "MAX_ANNO",
+                  "flagClausola": false,
+                  "flagObbl": true,
+                  "flagModi": true,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                },
+                {
+                  "idCarNfc": "R6-1-16-1-3964",
+                  "prgDizi": 3964,
+                  "desCamp": "VALORE FRANCHIGIA",
+                  "nomTabe": null,
+                  "nomColo": "GAP_VAFR",
+                  "flagClausola": false,
+                  "flagObbl": true,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                },
+                {
+                  "idCarNfc": "R6-1-16-1-3962",
+                  "prgDizi": 3962,
+                  "desCamp": "FORMA FRANCHIGIA",
+                  "nomTabe": null,
+                  "nomColo": "COD_FOFR",
+                  "flagClausola": false,
+                  "flagObbl": false,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "N",
+                  "numCara": 2,
+                  "numDeci": 0,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                },
+                {
+                  "idCarNfc": "R6-1-16-1-3961",
+                  "prgDizi": 3961,
+                  "desCamp": "TIPO FRANCHIGIA",
+                  "nomTabe": null,
+                  "nomColo": "COD_TFRA",
+                  "flagClausola": false,
+                  "flagObbl": false,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "N",
+                  "numCara": 2,
+                  "numDeci": 0,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                }
+              ]
+            },
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "2",
+              "desFormaContrattuale": "SENZA FRANCHIGIA",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "R6-1-16-2-1000000094",
+                  "prgDizi": 1000000094,
+                  "desCamp": "R.C. DELLA CONDUZIONE DA PARTE DI TERZI",
+                  "nomTabe": null,
+                  "nomColo": "CLAUSOLA",
+                  "flagClausola": true,
+                  "flagObbl": false,
+                  "flagModi": true,
+                  "pattern": null,
+                  "type": "checkBox",
+                  "tipoDato": "A",
+                  "numCara": 1,
+                  "numDeci": 0,
+                  "valCara": "N",
+                  "desCara": "NO",
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                },
+                {
+                  "idCarNfc": "R6-1-16-2-3949",
+                  "prgDizi": 3949,
+                  "desCamp": "MASSIMALE PER ANNO",
+                  "nomTabe": null,
+                  "nomColo": "MAX_ANNO",
+                  "flagClausola": false,
+                  "flagObbl": true,
+                  "flagModi": true,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                }
+              ]
+            }
+          ],
+          "listaCorrelazioniGaranzia": [
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "R6",
+              "codRisc": 1,
+              "codOgge": 202,
+              "tipologiaRel": "P"
+            },
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "R6",
+              "codRisc": 9,
+              "codOgge": 226,
+              "tipologiaRel": "P"
+            }
+          ]
+        },
+        {
+          "codRamo": "R6",
+          "codRisc": 9,
+          "codOgge": 226,
+          "desOgge": "PATRIMONIO DELL'ASSICURATO",
+          "desRisc": "INQUINAMETO",
+          "desGaranzia": "PATRIMONIO DELL'ASSICURATO",
+          "obbligatoria": "2",
+          "flagPrimoPrezzo": null,
+          "ordine": 39,
+          "flagQuest": false,
+          "strCond": "D-R6-1-16;",
+          "cga": null,
+          "keyTari": "6676",
+          "listaFormeContrattuali": [
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "S",
+              "desFormaContrattuale": "STANDARD",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "R6-9-226-S-3964",
+                  "prgDizi": 3964,
+                  "desCamp": "VALORE FRANCHIGIA",
+                  "nomTabe": null,
+                  "nomColo": "GAP_VAFR",
+                  "flagClausola": false,
+                  "flagObbl": true,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                },
+                {
+                  "idCarNfc": "R6-9-226-S-3952",
+                  "prgDizi": 3952,
+                  "desCamp": "LIMITE DI INDENNIZZO PER SINISTRO E PER ANNO ASSICURATIVO",
+                  "nomTabe": null,
+                  "nomColo": "VAL_LIM1",
+                  "flagClausola": false,
+                  "flagObbl": false,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 2,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                }
+              ]
+            }
+          ],
+          "listaCorrelazioniGaranzia": [
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "R6",
+              "codRisc": 1,
+              "codOgge": 16,
+              "tipologiaRel": "D"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "codSezione": "RG",
+      "desSezione": "SEZIONE IMPIANTI SOLARI",
+      "listaGaranzie": [
+        {
+          "codRamo": "RG",
+          "codRisc": 32,
+          "codOgge": 109,
+          "desOgge": "IMPIANTI/OPERE",
+          "desRisc": "EVENTI SPECIALI",
+          "desGaranzia": "IMPIANTI SOLARI TERMICI E FOTOVOLTAICI - EVENTI SPECIALI",
+          "obbligatoria": "2",
+          "flagPrimoPrezzo": null,
+          "ordine": 12,
+          "flagQuest": false,
+          "strCond": "D-R0-1-1;D-R0-32-1;",
+          "cga": null,
+          "keyTari": "6676",
+          "listaFormeContrattuali": [
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "S",
+              "desFormaContrattuale": "STANDARD",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "RG-32-109-S-3964",
+                  "prgDizi": 3964,
+                  "desCamp": "VALORE FRANCHIGIA",
+                  "nomTabe": null,
+                  "nomColo": "GAP_VAFR",
+                  "flagClausola": false,
+                  "flagObbl": true,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                },
+                {
+                  "idCarNfc": "RG-32-109-S-3952",
+                  "prgDizi": 3952,
+                  "desCamp": "LIMITE DI INDENNIZZO PER SINISTRO E PER ANNO ASSICURATIVO",
+                  "nomTabe": null,
+                  "nomColo": "VAL_LIM1",
+                  "flagClausola": false,
+                  "flagObbl": false,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "text",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 2,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                }
+              ]
+            }
+          ],
+          "listaCorrelazioniGaranzia": [
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "R0",
+              "codRisc": 1,
+              "codOgge": 1,
+              "tipologiaRel": "D"
+            },
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "R0",
+              "codRisc": 32,
+              "codOgge": 1,
+              "tipologiaRel": "D"
+            }
+          ]
+        },
+        {
+          "codRamo": "RG",
+          "codRisc": 9,
+          "codOgge": 109,
+          "desOgge": "IMPIANTI/OPERE",
+          "desRisc": "FURTO/RAPINA",
+          "desGaranzia": "FURTO/RAPINA",
+          "obbligatoria": "2",
+          "flagPrimoPrezzo": null,
+          "ordine": 10,
+          "flagQuest": false,
+          "strCond": "D-R1-1-2;",
+          "cga": null,
+          "keyTari": "6676",
+          "listaFormeContrattuali": [
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "S",
+              "desFormaContrattuale": "STANDARD",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "RG-9-109-S-3964",
+                  "prgDizi": 3964,
+                  "desCamp": "VALORE FRANCHIGIA",
+                  "nomTabe": null,
+                  "nomColo": "GAP_VAFR",
+                  "flagClausola": false,
+                  "flagObbl": true,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                },
+                {
+                  "idCarNfc": "RG-9-109-S-3952",
+                  "prgDizi": 3952,
+                  "desCamp": "LIMITE DI INDENNIZZO PER SINISTRO E PER ANNO ASSICURATIVO",
+                  "nomTabe": null,
+                  "nomColo": "VAL_LIM1",
+                  "flagClausola": false,
+                  "flagObbl": false,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "text",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 2,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                }
+              ]
+            }
+          ],
+          "listaCorrelazioniGaranzia": [
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "R1",
+              "codRisc": 1,
+              "codOgge": 2,
+              "tipologiaRel": "D"
+            }
+          ]
+        },
+        {
+          "codRamo": "RG",
+          "codRisc": 6,
+          "codOgge": 109,
+          "desOgge": "IMPIANTI/OPERE",
+          "desRisc": "INCENDIO",
+          "desGaranzia": "IMPIANTI SOLARI TERMICI E FOTOVOLTAICI - INCENDIO",
+          "obbligatoria": "2",
+          "flagPrimoPrezzo": null,
+          "ordine": 9,
+          "flagQuest": false,
+          "strCond": "D-R0-1-1;",
+          "cga": null,
+          "keyTari": "6676",
+          "listaFormeContrattuali": [
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "S",
+              "desFormaContrattuale": "STANDARD",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "RG-6-109-S-3964",
+                  "prgDizi": 3964,
+                  "desCamp": "VALORE FRANCHIGIA",
+                  "nomTabe": null,
+                  "nomColo": "GAP_VAFR",
+                  "flagClausola": false,
+                  "flagObbl": true,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                },
+                {
+                  "idCarNfc": "RG-6-109-S-3952",
+                  "prgDizi": 3952,
+                  "desCamp": "LIMITE DI INDENNIZZO PER SINISTRO E PER ANNO ASSICURATIVO",
+                  "nomTabe": null,
+                  "nomColo": "VAL_LIM1",
+                  "flagClausola": false,
+                  "flagObbl": false,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "text",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 2,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                }
+              ]
+            }
+          ],
+          "listaCorrelazioniGaranzia": [
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "R0",
+              "codRisc": 1,
+              "codOgge": 1,
+              "tipologiaRel": "D"
+            }
+          ]
+        },
+        {
+          "codRamo": "RG",
+          "codRisc": 20,
+          "codOgge": 109,
+          "desOgge": "IMPIANTI/OPERE",
+          "desRisc": "ROTTURA IMPIANTO IDRICO",
+          "desGaranzia": "IMPIANTI SOLARI TERMICI E FOTOVOLTAICI - DANNI DA ACQUA",
+          "obbligatoria": "2",
+          "flagPrimoPrezzo": null,
+          "ordine": 11,
+          "flagQuest": false,
+          "strCond": "D-RF-1-1;",
+          "cga": null,
+          "keyTari": "6676",
+          "listaFormeContrattuali": [
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "S",
+              "desFormaContrattuale": "STANDARD",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "RG-20-109-S-3964",
+                  "prgDizi": 3964,
+                  "desCamp": "VALORE FRANCHIGIA",
+                  "nomTabe": null,
+                  "nomColo": "GAP_VAFR",
+                  "flagClausola": false,
+                  "flagObbl": true,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                },
+                {
+                  "idCarNfc": "RG-20-109-S-3952",
+                  "prgDizi": 3952,
+                  "desCamp": "LIMITE DI INDENNIZZO PER SINISTRO E PER ANNO ASSICURATIVO",
+                  "nomTabe": null,
+                  "nomColo": "VAL_LIM1",
+                  "flagClausola": false,
+                  "flagObbl": false,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "text",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 2,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                }
+              ]
+            }
+          ],
+          "listaCorrelazioniGaranzia": [
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "RF",
+              "codRisc": 1,
+              "codOgge": 1,
+              "tipologiaRel": "D"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "codSezione": "RF",
+      "desSezione": "SEZIONE DANNI DA ACQUA",
+      "listaGaranzie": [
+        {
+          "codRamo": "RF",
+          "codRisc": 1,
+          "codOgge": 1,
+          "desOgge": "FABBRICATO",
+          "desRisc": "DANNI DA ACQUA",
+          "desGaranzia": "SPARGIMENTO ACQUA - DANNI DIRETTI",
+          "obbligatoria": "2",
+          "flagPrimoPrezzo": null,
+          "ordine": 1,
+          "flagQuest": false,
+          "strCond": "P-RF-1-7;P-RF-12-1;P-RG-20-109;",
+          "cga": null,
+          "keyTari": "6676",
+          "listaFormeContrattuali": [
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "S",
+              "desFormaContrattuale": "STANDARD",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "RF-1-1-S-3967",
+                  "prgDizi": 3967,
+                  "desCamp": "MINIMO SCOPERTO",
+                  "nomTabe": null,
+                  "nomColo": "GAP_MISC",
+                  "flagClausola": false,
+                  "flagObbl": true,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                }
+              ]
+            }
+          ],
+          "listaCorrelazioniGaranzia": [
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "RF",
+              "codRisc": 1,
+              "codOgge": 7,
+              "tipologiaRel": "P"
+            },
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "RF",
+              "codRisc": 12,
+              "codOgge": 1,
+              "tipologiaRel": "P"
+            },
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "RG",
+              "codRisc": 20,
+              "codOgge": 109,
+              "tipologiaRel": "P"
+            }
+          ]
+        },
+        {
+          "codRamo": "RF",
+          "codRisc": 4,
+          "codOgge": 5,
+          "desOgge": "FABBRICATO / CONTENUTO",
+          "desRisc": "DANNI DA SPARGIMENTO",
+          "desGaranzia": "SPARGIMENTO ACQUA DIVERSO DA ROTTURA",
+          "obbligatoria": "2",
+          "flagPrimoPrezzo": null,
+          "ordine": 5,
+          "flagQuest": false,
+          "strCond": "P-RF-2-5;D-RF-2-5;",
+          "cga": null,
+          "keyTari": "6676",
+          "listaFormeContrattuali": [
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "S",
+              "desFormaContrattuale": "STANDARD",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "RF-4-5-S-3964",
+                  "prgDizi": 3964,
+                  "desCamp": "VALORE FRANCHIGIA",
+                  "nomTabe": null,
+                  "nomColo": "GAP_VAFR",
+                  "flagClausola": false,
+                  "flagObbl": true,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                },
+                {
+                  "idCarNfc": "RF-4-5-S-3952",
+                  "prgDizi": 3952,
+                  "desCamp": "LIMITE DI INDENNIZZO PER SINISTRO E PER ANNO ASSICURATIVO",
+                  "nomTabe": null,
+                  "nomColo": "VAL_LIM1",
+                  "flagClausola": false,
+                  "flagObbl": false,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 2,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                }
+              ]
+            }
+          ],
+          "listaCorrelazioniGaranzia": [
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "RF",
+              "codRisc": 2,
+              "codOgge": 5,
+              "tipologiaRel": "P"
+            },
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "RF",
+              "codRisc": 2,
+              "codOgge": 5,
+              "tipologiaRel": "D"
+            }
+          ]
+        },
+        {
+          "codRamo": "RF",
+          "codRisc": 12,
+          "codOgge": 1,
+          "desOgge": "FABBRICATO",
+          "desRisc": "ROTTURA",
+          "desGaranzia": "ROTTURA APPARECCHI DOMESTICI - PLUS A",
+          "obbligatoria": "2",
+          "flagPrimoPrezzo": null,
+          "ordine": 8,
+          "flagQuest": false,
+          "strCond": "D-R0-1-2;D-RF-1-1;",
+          "cga": null,
+          "keyTari": "6676",
+          "listaFormeContrattuali": [
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "S",
+              "desFormaContrattuale": "STANDARD",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "RF-12-1-S-3964",
+                  "prgDizi": 3964,
+                  "desCamp": "VALORE FRANCHIGIA",
+                  "nomTabe": null,
+                  "nomColo": "GAP_VAFR",
+                  "flagClausola": false,
+                  "flagObbl": true,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                },
+                {
+                  "idCarNfc": "RF-12-1-S-3952",
+                  "prgDizi": 3952,
+                  "desCamp": "LIMITE DI INDENNIZZO PER SINISTRO E PER ANNO ASSICURATIVO",
+                  "nomTabe": null,
+                  "nomColo": "VAL_LIM1",
+                  "flagClausola": false,
+                  "flagObbl": false,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 2,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                }
+              ]
+            }
+          ],
+          "listaCorrelazioniGaranzia": [
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "R0",
+              "codRisc": 1,
+              "codOgge": 2,
+              "tipologiaRel": "D"
+            },
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "RF",
+              "codRisc": 1,
+              "codOgge": 1,
+              "tipologiaRel": "D"
+            }
+          ]
+        },
+        {
+          "codRamo": "RF",
+          "codRisc": 3,
+          "codOgge": 5,
+          "desOgge": "FABBRICATO / CONTENUTO",
+          "desRisc": "DANNI DA OCCLUSIONE",
+          "desGaranzia": "OCCLUSIONE",
+          "obbligatoria": "2",
+          "flagPrimoPrezzo": null,
+          "ordine": 4,
+          "flagQuest": false,
+          "strCond": "P-RF-2-5;D-RF-2-5;",
+          "cga": null,
+          "keyTari": "6676",
+          "listaFormeContrattuali": [
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "S",
+              "desFormaContrattuale": "STANDARD",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "RF-3-5-S-3964",
+                  "prgDizi": 3964,
+                  "desCamp": "VALORE FRANCHIGIA",
+                  "nomTabe": null,
+                  "nomColo": "GAP_VAFR",
+                  "flagClausola": false,
+                  "flagObbl": true,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                },
+                {
+                  "idCarNfc": "RF-3-5-S-3952",
+                  "prgDizi": 3952,
+                  "desCamp": "LIMITE DI INDENNIZZO PER SINISTRO E PER ANNO ASSICURATIVO",
+                  "nomTabe": null,
+                  "nomColo": "VAL_LIM1",
+                  "flagClausola": false,
+                  "flagObbl": false,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 2,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                }
+              ]
+            }
+          ],
+          "listaCorrelazioniGaranzia": [
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "RF",
+              "codRisc": 2,
+              "codOgge": 5,
+              "tipologiaRel": "P"
+            },
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "RF",
+              "codRisc": 2,
+              "codOgge": 5,
+              "tipologiaRel": "D"
+            }
+          ]
+        },
+        {
+          "codRamo": "RF",
+          "codRisc": 5,
+          "codOgge": 5,
+          "desOgge": "FABBRICATO / CONTENUTO",
+          "desRisc": "ALLUVIONE",
+          "desGaranzia": "ALLUVIONE/ALLAGAMENTO",
+          "obbligatoria": "2",
+          "flagPrimoPrezzo": null,
+          "ordine": 6,
+          "flagQuest": false,
+          "strCond": "P-RF-2-5;D-RF-2-5;",
+          "cga": null,
+          "keyTari": "6676",
+          "listaFormeContrattuali": [
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "S",
+              "desFormaContrattuale": "STANDARD",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "RF-5-5-S-1000000003",
+                  "prgDizi": 1000000003,
+                  "desCamp": "ESTENSIONE ALLUVIONE A AUTO - PLUS B",
+                  "nomTabe": null,
+                  "nomColo": "CLAUSOLA",
+                  "flagClausola": true,
+                  "flagObbl": false,
+                  "flagModi": true,
+                  "pattern": null,
+                  "type": "checkBox",
+                  "tipoDato": "A",
+                  "numCara": 1,
+                  "numDeci": 0,
+                  "valCara": "N",
+                  "desCara": "NO",
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                },
+                {
+                  "idCarNfc": "RF-5-5-S-3964",
+                  "prgDizi": 3964,
+                  "desCamp": "VALORE FRANCHIGIA",
+                  "nomTabe": null,
+                  "nomColo": "GAP_VAFR",
+                  "flagClausola": false,
+                  "flagObbl": true,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                },
+                {
+                  "idCarNfc": "RF-5-5-S-3952",
+                  "prgDizi": 3952,
+                  "desCamp": "LIMITE DI INDENNIZZO PER SINISTRO E PER ANNO ASSICURATIVO",
+                  "nomTabe": null,
+                  "nomColo": "VAL_LIM1",
+                  "flagClausola": false,
+                  "flagObbl": false,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 2,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                }
+              ]
+            }
+          ],
+          "listaCorrelazioniGaranzia": [
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "RF",
+              "codRisc": 2,
+              "codOgge": 5,
+              "tipologiaRel": "P"
+            },
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "RF",
+              "codRisc": 2,
+              "codOgge": 5,
+              "tipologiaRel": "D"
+            }
+          ]
+        },
+        {
+          "codRamo": "RF",
+          "codRisc": 6,
+          "codOgge": 5,
+          "desOgge": "FABBRICATO / CONTENUTO",
+          "desRisc": "FRANE/VALANGHE",
+          "desGaranzia": "FRANE/VALANGHE",
+          "obbligatoria": "2",
+          "flagPrimoPrezzo": null,
+          "ordine": 7,
+          "flagQuest": false,
+          "strCond": "P-RF-2-5;D-RF-2-5;",
+          "cga": null,
+          "keyTari": "6676",
+          "listaFormeContrattuali": [
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "S",
+              "desFormaContrattuale": "STANDARD",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "RF-6-5-S-3964",
+                  "prgDizi": 3964,
+                  "desCamp": "VALORE FRANCHIGIA",
+                  "nomTabe": null,
+                  "nomColo": "GAP_VAFR",
+                  "flagClausola": false,
+                  "flagObbl": true,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                },
+                {
+                  "idCarNfc": "RF-6-5-S-3952",
+                  "prgDizi": 3952,
+                  "desCamp": "LIMITE DI INDENNIZZO PER SINISTRO E PER ANNO ASSICURATIVO",
+                  "nomTabe": null,
+                  "nomColo": "VAL_LIM1",
+                  "flagClausola": false,
+                  "flagObbl": false,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 2,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                }
+              ]
+            }
+          ],
+          "listaCorrelazioniGaranzia": [
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "RF",
+              "codRisc": 2,
+              "codOgge": 5,
+              "tipologiaRel": "P"
+            },
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "RF",
+              "codRisc": 2,
+              "codOgge": 5,
+              "tipologiaRel": "D"
+            }
+          ]
+        },
+        {
+          "codRamo": "RF",
+          "codRisc": 1,
+          "codOgge": 7,
+          "desOgge": "SPESE RICERCA E RIPRISTINO",
+          "desRisc": "DANNI DA ACQUA",
+          "desGaranzia": "RICERCA E RIPRISTINO",
+          "obbligatoria": "2",
+          "flagPrimoPrezzo": null,
+          "ordine": 2,
+          "flagQuest": false,
+          "strCond": "D-R0-1-1;D-RF-1-1;",
+          "cga": null,
+          "keyTari": "6676",
+          "listaFormeContrattuali": [
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "S",
+              "desFormaContrattuale": "STANDARD",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "RF-1-7-S-3952",
+                  "prgDizi": 3952,
+                  "desCamp": "LIMITE DI INDENNIZZO PER SINISTRO E PER ANNO ASSICURATIVO",
+                  "nomTabe": null,
+                  "nomColo": "VAL_LIM1",
+                  "flagClausola": false,
+                  "flagObbl": false,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 2,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                },
+                {
+                  "idCarNfc": "RF-1-7-S-3967",
+                  "prgDizi": 3967,
+                  "desCamp": "MINIMO SCOPERTO",
+                  "nomTabe": null,
+                  "nomColo": "GAP_MISC",
+                  "flagClausola": false,
+                  "flagObbl": false,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "text",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                },
+                {
+                  "idCarNfc": "RF-1-7-S-3966",
+                  "prgDizi": 3966,
+                  "desCamp": "PERCENTUALE SCOPERTO",
+                  "nomTabe": null,
+                  "nomColo": "GAP_PSCO",
+                  "flagClausola": false,
+                  "flagObbl": false,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "N",
+                  "numCara": 9,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                }
+              ]
+            }
+          ],
+          "listaCorrelazioniGaranzia": [
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "R0",
+              "codRisc": 1,
+              "codOgge": 1,
+              "tipologiaRel": "D"
+            },
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "RF",
+              "codRisc": 1,
+              "codOgge": 1,
+              "tipologiaRel": "D"
+            }
+          ]
+        },
+        {
+          "codRamo": "RF",
+          "codRisc": 2,
+          "codOgge": 5,
+          "desOgge": "FABBRICATO / CONTENUTO",
+          "desRisc": "DANNI DA GELO",
+          "desGaranzia": "GELO",
+          "obbligatoria": "2",
+          "flagPrimoPrezzo": null,
+          "ordine": 3,
+          "flagQuest": false,
+          "strCond": "P-RF-3-5;P-RF-4-5;P-RF-5-5;P-RF-6-5;D-RF-3-5;D-RF-4-5;D-RF-5-5;D-RF-6-5;",
+          "cga": null,
+          "keyTari": "6676",
+          "listaFormeContrattuali": [
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "S",
+              "desFormaContrattuale": "STANDARD",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "RF-2-5-S-3964",
+                  "prgDizi": 3964,
+                  "desCamp": "VALORE FRANCHIGIA",
+                  "nomTabe": null,
+                  "nomColo": "GAP_VAFR",
+                  "flagClausola": false,
+                  "flagObbl": true,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                },
+                {
+                  "idCarNfc": "RF-2-5-S-3952",
+                  "prgDizi": 3952,
+                  "desCamp": "LIMITE DI INDENNIZZO PER SINISTRO E PER ANNO ASSICURATIVO",
+                  "nomTabe": null,
+                  "nomColo": "VAL_LIM1",
+                  "flagClausola": false,
+                  "flagObbl": false,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 2,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                }
+              ]
+            }
+          ],
+          "listaCorrelazioniGaranzia": [
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "RF",
+              "codRisc": 3,
+              "codOgge": 5,
+              "tipologiaRel": "P"
+            },
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "RF",
+              "codRisc": 4,
+              "codOgge": 5,
+              "tipologiaRel": "P"
+            },
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "RF",
+              "codRisc": 5,
+              "codOgge": 5,
+              "tipologiaRel": "P"
+            },
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "RF",
+              "codRisc": 6,
+              "codOgge": 5,
+              "tipologiaRel": "P"
+            },
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "RF",
+              "codRisc": 3,
+              "codOgge": 5,
+              "tipologiaRel": "D"
+            },
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "RF",
+              "codRisc": 4,
+              "codOgge": 5,
+              "tipologiaRel": "D"
+            },
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "RF",
+              "codRisc": 5,
+              "codOgge": 5,
+              "tipologiaRel": "D"
+            },
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "RF",
+              "codRisc": 6,
+              "codOgge": 5,
+              "tipologiaRel": "D"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "codSezione": "R1",
+      "desSezione": "SEZIONE FURTO",
+      "listaGaranzie": [
+        {
+          "codRamo": "R1",
+          "codRisc": 1,
+          "codOgge": 2,
+          "desOgge": "CONTENUTO",
+          "desRisc": "FURTO/RAPINA",
+          "desGaranzia": "FURTO / RAPINA DEL CONTENUTO",
+          "obbligatoria": "2",
+          "flagPrimoPrezzo": null,
+          "ordine": 34,
+          "flagQuest": false,
+          "strCond": "P-R1-1-9;P-RG-9-109;",
+          "cga": null,
+          "keyTari": "6676",
+          "listaFormeContrattuali": [
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "1",
+              "desFormaContrattuale": "VALORE INTERO",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "R1-1-2-1-1000000008",
+                  "prgDizi": 1000000008,
+                  "desCamp": "INDENNITÀ DA RAPINA E ESTENSIONE TRUFFA - PLUS A",
+                  "nomTabe": null,
+                  "nomColo": "CLAUSOLA",
+                  "flagClausola": true,
+                  "flagObbl": false,
+                  "flagModi": true,
+                  "pattern": null,
+                  "type": "checkBox",
+                  "tipoDato": "A",
+                  "numCara": 1,
+                  "numDeci": 0,
+                  "valCara": "N",
+                  "desCara": "NO",
+                  "flagUnic": false,
+                  "codClau": 0,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                },
+                {
+                  "idCarNfc": "R1-1-2-1-3944",
+                  "prgDizi": 3944,
+                  "desCamp": "SOMMA ASSICURATA",
+                  "nomTabe": null,
+                  "nomColo": "GAP_SOAS",
+                  "flagClausola": false,
+                  "flagObbl": true,
+                  "flagModi": true,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": 0,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": true
+                },
+                {
+                  "idCarNfc": "R1-1-2-1-1000000009",
+                  "prgDizi": 1000000009,
+                  "desCamp": "AUMENTO LIMITI DI INDENNIZZO FURTO - PLUS B",
+                  "nomTabe": null,
+                  "nomColo": "CLAUSOLA",
+                  "flagClausola": true,
+                  "flagObbl": false,
+                  "flagModi": true,
+                  "pattern": null,
+                  "type": "checkBox",
+                  "tipoDato": "A",
+                  "numCara": 1,
+                  "numDeci": 0,
+                  "valCara": "N",
+                  "desCara": "NO",
+                  "flagUnic": false,
+                  "codClau": 0,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                }
+              ]
+            },
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "2",
+              "desFormaContrattuale": "PRIMO RISCHIO",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "R1-1-2-2-1000000008",
+                  "prgDizi": 1000000008,
+                  "desCamp": "INDENNITÀ DA RAPINA E ESTENSIONE TRUFFA - PLUS A",
+                  "nomTabe": null,
+                  "nomColo": "CLAUSOLA",
+                  "flagClausola": true,
+                  "flagObbl": false,
+                  "flagModi": true,
+                  "pattern": null,
+                  "type": "checkBox",
+                  "tipoDato": "A",
+                  "numCara": 1,
+                  "numDeci": 0,
+                  "valCara": "N",
+                  "desCara": "NO",
+                  "flagUnic": false,
+                  "codClau": 0,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                },
+                {
+                  "idCarNfc": "R1-1-2-2-3944",
+                  "prgDizi": 3944,
+                  "desCamp": "SOMMA ASSICURATA",
+                  "nomTabe": null,
+                  "nomColo": "GAP_SOAS",
+                  "flagClausola": false,
+                  "flagObbl": true,
+                  "flagModi": true,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": 0,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": true
+                },
+                {
+                  "idCarNfc": "R1-1-2-2-1000000009",
+                  "prgDizi": 1000000009,
+                  "desCamp": "AUMENTO LIMITI DI INDENNIZZO FURTO - PLUS B",
+                  "nomTabe": null,
+                  "nomColo": "CLAUSOLA",
+                  "flagClausola": true,
+                  "flagObbl": false,
+                  "flagModi": true,
+                  "pattern": null,
+                  "type": "checkBox",
+                  "tipoDato": "A",
+                  "numCara": 1,
+                  "numDeci": 0,
+                  "valCara": "N",
+                  "desCara": "NO",
+                  "flagUnic": false,
+                  "codClau": 0,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                }
+              ]
+            }
+          ],
+          "listaCorrelazioniGaranzia": [
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "R1",
+              "codRisc": 1,
+              "codOgge": 9,
+              "tipologiaRel": "P"
+            },
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "RG",
+              "codRisc": 9,
+              "codOgge": 109,
+              "tipologiaRel": "P"
+            }
+          ]
+        },
+        {
+          "codRamo": "R1",
+          "codRisc": 1,
+          "codOgge": 9,
+          "desOgge": "VALORI E PREZIOSI IN CASSAFORTE",
+          "desRisc": "FURTO/RAPINA",
+          "desGaranzia": "FURTO / RAPINA VALORI IN CASSAFORTE",
+          "obbligatoria": "2",
+          "flagPrimoPrezzo": null,
+          "ordine": 36,
+          "flagQuest": false,
+          "strCond": "D-R1-1-2;",
+          "cga": null,
+          "keyTari": "6676",
+          "listaFormeContrattuali": [
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "2",
+              "desFormaContrattuale": "PRIMO RISCHIO",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "R1-1-9-2-3944",
+                  "prgDizi": 3944,
+                  "desCamp": "SOMMA ASSICURATA",
+                  "nomTabe": null,
+                  "nomColo": "GAP_SOAS",
+                  "flagClausola": false,
+                  "flagObbl": true,
+                  "flagModi": true,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": 0,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": true
+                }
+              ]
+            }
+          ],
+          "listaCorrelazioniGaranzia": [
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "R1",
+              "codRisc": 1,
+              "codOgge": 2,
+              "tipologiaRel": "D"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "codSezione": "R0",
+      "desSezione": "SEZIONE INCENDIO",
+      "listaGaranzie": [
+        {
+          "codRamo": "R0",
+          "codRisc": 4,
+          "codOgge": 5,
+          "desOgge": "FABBRICATO / CONTENUTO",
+          "desRisc": "ALLUVIONE",
+          "desGaranzia": "ALLUVIONE",
+          "obbligatoria": "2",
+          "flagPrimoPrezzo": null,
+          "ordine": 27,
+          "flagQuest": false,
+          "strCond": null,
+          "cga": null,
+          "keyTari": "6676",
+          "listaFormeContrattuali": [
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "S",
+              "desFormaContrattuale": "STANDARD",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "R0-4-5-S-1000000002",
+                  "prgDizi": 1000000002,
+                  "desCamp": "ALLUVIONE, INONDAZIONE, ALLAGAMENTO",
+                  "nomTabe": null,
+                  "nomColo": "CLAUSOLA",
+                  "flagClausola": true,
+                  "flagObbl": true,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "checkBox",
+                  "tipoDato": "A",
+                  "numCara": 1,
+                  "numDeci": 0,
+                  "valCara": "S",
+                  "desCara": "SI",
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": "oracle.sql.CLOB@4c08b950",
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                },
+                {
+                  "idCarNfc": "R0-4-5-S-3944",
+                  "prgDizi": 3944,
+                  "desCamp": "SOMMA ASSICURATA",
+                  "nomTabe": null,
+                  "nomColo": "GAP_SOAS",
+                  "flagClausola": false,
+                  "flagObbl": true,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "text",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                },
+                {
+                  "idCarNfc": "R0-4-5-S-3967",
+                  "prgDizi": 3967,
+                  "desCamp": "MINIMO SCOPERTO",
+                  "nomTabe": null,
+                  "nomColo": "GAP_MISC",
+                  "flagClausola": false,
+                  "flagObbl": false,
+                  "flagModi": true,
+                  "pattern": null,
+                  "type": "text",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                },
+                {
+                  "idCarNfc": "R0-4-5-S-3966",
+                  "prgDizi": 3966,
+                  "desCamp": "PERCENTUALE SCOPERTO",
+                  "nomTabe": null,
+                  "nomColo": "GAP_PSCO",
+                  "flagClausola": false,
+                  "flagObbl": false,
+                  "flagModi": true,
+                  "pattern": null,
+                  "type": "text",
+                  "tipoDato": "N",
+                  "numCara": 9,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                },
+                {
+                  "idCarNfc": "R0-4-5-S-3952",
+                  "prgDizi": 3952,
+                  "desCamp": "LIMITE DI INDENNIZZO PER SINISTRO E PER ANNO ASSICURATIVO",
+                  "nomTabe": null,
+                  "nomColo": "VAL_LIM1",
+                  "flagClausola": false,
+                  "flagObbl": false,
+                  "flagModi": true,
+                  "pattern": null,
+                  "type": "text",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 2,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                }
+              ]
+            }
+          ],
+          "listaCorrelazioniGaranzia": null
+        },
+        {
+          "codRamo": "R0",
+          "codRisc": 2,
+          "codOgge": 5,
+          "desOgge": "FABBRICATO / CONTENUTO",
+          "desRisc": "DANNI ELETTRICI",
+          "desGaranzia": "DANNI ELETTRICI",
+          "obbligatoria": "2",
+          "flagPrimoPrezzo": null,
+          "ordine": 24,
+          "flagQuest": false,
+          "strCond": null,
+          "cga": null,
+          "keyTari": "6676",
+          "listaFormeContrattuali": [
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "2",
+              "desFormaContrattuale": "PRIMO RISCHIO",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "R0-2-5-2-3944",
+                  "prgDizi": 3944,
+                  "desCamp": "SOMMA ASSICURATA",
+                  "nomTabe": null,
+                  "nomColo": "GAP_SOAS",
+                  "flagClausola": false,
+                  "flagObbl": true,
+                  "flagModi": true,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                },
+                {
+                  "idCarNfc": "R0-2-5-2-3967",
+                  "prgDizi": 3967,
+                  "desCamp": "MINIMO SCOPERTO",
+                  "nomTabe": null,
+                  "nomColo": "GAP_MISC",
+                  "flagClausola": false,
+                  "flagObbl": false,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                },
+                {
+                  "idCarNfc": "R0-2-5-2-3966",
+                  "prgDizi": 3966,
+                  "desCamp": "PERCENTUALE SCOPERTO",
+                  "nomTabe": null,
+                  "nomColo": "GAP_PSCO",
+                  "flagClausola": false,
+                  "flagObbl": false,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "N",
+                  "numCara": 9,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                }
+              ]
+            }
+          ],
+          "listaCorrelazioniGaranzia": null
+        },
+        {
+          "codRamo": "R0",
+          "codRisc": 3,
+          "codOgge": 5,
+          "desOgge": "FABBRICATO / CONTENUTO",
+          "desRisc": "TERREMOTO",
+          "desGaranzia": "TERREMOTO",
+          "obbligatoria": "2",
+          "flagPrimoPrezzo": null,
+          "ordine": 26,
+          "flagQuest": false,
+          "strCond": "R-R0-3-227;",
+          "cga": null,
+          "keyTari": "6676",
+          "listaFormeContrattuali": [
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "S",
+              "desFormaContrattuale": "STANDARD",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "R0-3-5-S-3944",
+                  "prgDizi": 3944,
+                  "desCamp": "SOMMA ASSICURATA",
+                  "nomTabe": null,
+                  "nomColo": "GAP_SOAS",
+                  "flagClausola": false,
+                  "flagObbl": true,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "text",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                },
+                {
+                  "idCarNfc": "R0-3-5-S-1000000001",
+                  "prgDizi": 1000000001,
+                  "desCamp": "TERREMOTO",
+                  "nomTabe": null,
+                  "nomColo": "CLAUSOLA",
+                  "flagClausola": true,
+                  "flagObbl": true,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "checkBox",
+                  "tipoDato": "A",
+                  "numCara": 1,
+                  "numDeci": 0,
+                  "valCara": "S",
+                  "desCara": "SI",
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": "oracle.sql.CLOB@1e00e24b",
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                },
+                {
+                  "idCarNfc": "R0-3-5-S-3966",
+                  "prgDizi": 3966,
+                  "desCamp": "PERCENTUALE SCOPERTO",
+                  "nomTabe": null,
+                  "nomColo": "GAP_PSCO",
+                  "flagClausola": false,
+                  "flagObbl": false,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "N",
+                  "numCara": 9,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                },
+                {
+                  "idCarNfc": "R0-3-5-S-3967",
+                  "prgDizi": 3967,
+                  "desCamp": "MINIMO SCOPERTO",
+                  "nomTabe": null,
+                  "nomColo": "GAP_MISC",
+                  "flagClausola": false,
+                  "flagObbl": false,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                },
+                {
+                  "idCarNfc": "R0-3-5-S-3954",
+                  "prgDizi": 3954,
+                  "desCamp": "PERCENTUALE LIMITE INDENNIZZO PER SINISTRO/ANNO ASSICURATIVO",
+                  "nomTabe": null,
+                  "nomColo": "VAL_LIM2",
+                  "flagClausola": false,
+                  "flagObbl": false,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 2,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                },
+                {
+                  "idCarNfc": "R0-3-5-S-3952",
+                  "prgDizi": 3952,
+                  "desCamp": "LIMITE DI INDENNIZZO PER SINISTRO E PER ANNO ASSICURATIVO",
+                  "nomTabe": null,
+                  "nomColo": "VAL_LIM1",
+                  "flagClausola": false,
+                  "flagObbl": false,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "text",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 2,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                }
+              ]
+            }
+          ],
+          "listaCorrelazioniGaranzia": [
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "R0",
+              "codRisc": 3,
+              "codOgge": 227,
+              "tipologiaRel": "R"
+            }
+          ]
+        },
+        {
+          "codRamo": "R0",
+          "codRisc": 1,
+          "codOgge": 1,
+          "desOgge": "FABBRICATO",
+          "desRisc": "INCENDIO",
+          "desGaranzia": "INCENDIO DEL FABBRICATO",
+          "obbligatoria": "2",
+          "flagPrimoPrezzo": null,
+          "ordine": 13,
+          "flagQuest": false,
+          "strCond": "P-R0-32-1;P-RF-1-7;P-RG-6-109;P-RG-32-109;R-R0-1-3;",
+          "cga": null,
+          "keyTari": "6676",
+          "listaFormeContrattuali": [
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "1",
+              "desFormaContrattuale": "VALORE INTERO",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "R0-1-1-1-3944",
+                  "prgDizi": 3944,
+                  "desCamp": "SOMMA ASSICURATA",
+                  "nomTabe": null,
+                  "nomColo": "GAP_SOAS",
+                  "flagClausola": false,
+                  "flagObbl": true,
+                  "flagModi": true,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": 0,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": true
+                },
+                {
+                  "idCarNfc": "R0-1-1-1-1000000046",
+                  "prgDizi": 1000000046,
+                  "desCamp": "AUMENTO LIMITI DI INDENNIZZO INCENDIO E EVENTI SPECIALI",
+                  "nomTabe": null,
+                  "nomColo": "CLAUSOLA",
+                  "flagClausola": true,
+                  "flagObbl": false,
+                  "flagModi": true,
+                  "pattern": null,
+                  "type": "checkBox",
+                  "tipoDato": "A",
+                  "numCara": 1,
+                  "numDeci": 0,
+                  "valCara": "N",
+                  "desCara": "NO",
+                  "flagUnic": false,
+                  "codClau": 0,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                }
+              ]
+            },
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "2",
+              "desFormaContrattuale": "PRIMO RISCHIO",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "R0-1-1-2-3944",
+                  "prgDizi": 3944,
+                  "desCamp": "SOMMA ASSICURATA",
+                  "nomTabe": null,
+                  "nomColo": "GAP_SOAS",
+                  "flagClausola": false,
+                  "flagObbl": true,
+                  "flagModi": true,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": 0,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": true
+                },
+                {
+                  "idCarNfc": "R0-1-1-2-1000000046",
+                  "prgDizi": 1000000046,
+                  "desCamp": "AUMENTO LIMITI DI INDENNIZZO INCENDIO E EVENTI SPECIALI",
+                  "nomTabe": null,
+                  "nomColo": "CLAUSOLA",
+                  "flagClausola": true,
+                  "flagObbl": false,
+                  "flagModi": true,
+                  "pattern": null,
+                  "type": "checkBox",
+                  "tipoDato": "A",
+                  "numCara": 1,
+                  "numDeci": 0,
+                  "valCara": "N",
+                  "desCara": "NO",
+                  "flagUnic": false,
+                  "codClau": 0,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                }
+              ]
+            }
+          ],
+          "listaCorrelazioniGaranzia": [
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "R0",
+              "codRisc": 32,
+              "codOgge": 1,
+              "tipologiaRel": "P"
+            },
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "RF",
+              "codRisc": 1,
+              "codOgge": 7,
+              "tipologiaRel": "P"
+            },
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "RG",
+              "codRisc": 6,
+              "codOgge": 109,
+              "tipologiaRel": "P"
+            },
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "RG",
+              "codRisc": 32,
+              "codOgge": 109,
+              "tipologiaRel": "P"
+            },
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "R0",
+              "codRisc": 1,
+              "codOgge": 3,
+              "tipologiaRel": "R"
+            }
+          ]
+        },
+        {
+          "codRamo": "R0",
+          "codRisc": 1,
+          "codOgge": 2,
+          "desOgge": "CONTENUTO",
+          "desRisc": "INCENDIO",
+          "desGaranzia": "INCENDIO DEL CONTENUTO",
+          "obbligatoria": "2",
+          "flagPrimoPrezzo": null,
+          "ordine": 17,
+          "flagQuest": false,
+          "strCond": "P-R0-1-3;P-R0-32-2;P-RF-12-1;",
+          "cga": null,
+          "keyTari": "6676",
+          "listaFormeContrattuali": [
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "1",
+              "desFormaContrattuale": "VALORE INTERO",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "R0-1-2-1-3944",
+                  "prgDizi": 3944,
+                  "desCamp": "SOMMA ASSICURATA",
+                  "nomTabe": null,
+                  "nomColo": "GAP_SOAS",
+                  "flagClausola": false,
+                  "flagObbl": true,
+                  "flagModi": true,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": 0,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": true
+                },
+                {
+                  "idCarNfc": "R0-1-2-1-1000000046",
+                  "prgDizi": 1000000046,
+                  "desCamp": "AUMENTO LIMITI DI INDENNIZZO INCENDIO E EVENTI SPECIALI",
+                  "nomTabe": null,
+                  "nomColo": "CLAUSOLA",
+                  "flagClausola": true,
+                  "flagObbl": false,
+                  "flagModi": true,
+                  "pattern": null,
+                  "type": "checkBox",
+                  "tipoDato": "A",
+                  "numCara": 1,
+                  "numDeci": 0,
+                  "valCara": "N",
+                  "desCara": "NO",
+                  "flagUnic": false,
+                  "codClau": 0,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                }
+              ]
+            },
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "2",
+              "desFormaContrattuale": "PRIMO RISCHIO",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "R0-1-2-2-3944",
+                  "prgDizi": 3944,
+                  "desCamp": "SOMMA ASSICURATA",
+                  "nomTabe": null,
+                  "nomColo": "GAP_SOAS",
+                  "flagClausola": false,
+                  "flagObbl": true,
+                  "flagModi": true,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": 0,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": true
+                },
+                {
+                  "idCarNfc": "R0-1-2-2-1000000046",
+                  "prgDizi": 1000000046,
+                  "desCamp": "AUMENTO LIMITI DI INDENNIZZO INCENDIO E EVENTI SPECIALI",
+                  "nomTabe": null,
+                  "nomColo": "CLAUSOLA",
+                  "flagClausola": true,
+                  "flagObbl": false,
+                  "flagModi": true,
+                  "pattern": null,
+                  "type": "checkBox",
+                  "tipoDato": "A",
+                  "numCara": 1,
+                  "numDeci": 0,
+                  "valCara": "N",
+                  "desCara": "NO",
+                  "flagUnic": false,
+                  "codClau": 0,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                }
+              ]
+            }
+          ],
+          "listaCorrelazioniGaranzia": [
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "R0",
+              "codRisc": 1,
+              "codOgge": 3,
+              "tipologiaRel": "P"
+            },
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "R0",
+              "codRisc": 32,
+              "codOgge": 2,
+              "tipologiaRel": "P"
+            },
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "RF",
+              "codRisc": 12,
+              "codOgge": 1,
+              "tipologiaRel": "P"
+            }
+          ]
+        },
+        {
+          "codRamo": "R0",
+          "codRisc": 28,
+          "codOgge": 63,
+          "desOgge": "RIMBORSO SPESE",
+          "desRisc": "NEVE",
+          "desGaranzia": "SPESE DI RIMOZIONE DELLA NEVE",
+          "obbligatoria": "2",
+          "flagPrimoPrezzo": null,
+          "ordine": 32,
+          "flagQuest": false,
+          "strCond": "D-R0-28-1;P-R0-28-1;D-R0-32-1;",
+          "cga": null,
+          "keyTari": "6676",
+          "listaFormeContrattuali": [
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "S",
+              "desFormaContrattuale": "STANDARD",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "R0-28-63-S-3952",
+                  "prgDizi": 3952,
+                  "desCamp": "LIMITE DI INDENNIZZO PER SINISTRO E PER ANNO ASSICURATIVO",
+                  "nomTabe": null,
+                  "nomColo": "VAL_LIM1",
+                  "flagClausola": false,
+                  "flagObbl": false,
+                  "flagModi": true,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 2,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                }
+              ]
+            }
+          ],
+          "listaCorrelazioniGaranzia": [
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "R0",
+              "codRisc": 28,
+              "codOgge": 1,
+              "tipologiaRel": "D"
+            },
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "R0",
+              "codRisc": 28,
+              "codOgge": 1,
+              "tipologiaRel": "P"
+            },
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "R0",
+              "codRisc": 32,
+              "codOgge": 1,
+              "tipologiaRel": "D"
+            }
+          ]
+        },
+        {
+          "codRamo": "R0",
+          "codRisc": 32,
+          "codOgge": 2,
+          "desOgge": "CONTENUTO",
+          "desRisc": "EVENTI SPECIALI",
+          "desGaranzia": "EVENTI SPECIALI - DANNI AL CONTENUTO",
+          "obbligatoria": "2",
+          "flagPrimoPrezzo": null,
+          "ordine": 19,
+          "flagQuest": false,
+          "strCond": "D-R0-1-2;",
+          "cga": null,
+          "keyTari": "6676",
+          "listaFormeContrattuali": [
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "1",
+              "desFormaContrattuale": "VALORE INTERO",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "R0-32-2-1-3944",
+                  "prgDizi": 3944,
+                  "desCamp": "SOMMA ASSICURATA",
+                  "nomTabe": null,
+                  "nomColo": "GAP_SOAS",
+                  "flagClausola": false,
+                  "flagObbl": true,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "text",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": 0,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": true
+                }
+              ]
+            },
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "2",
+              "desFormaContrattuale": "PRIMO RISCHIO",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "R0-32-2-2-3944",
+                  "prgDizi": 3944,
+                  "desCamp": "SOMMA ASSICURATA",
+                  "nomTabe": null,
+                  "nomColo": "GAP_SOAS",
+                  "flagClausola": false,
+                  "flagObbl": true,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "text",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": 0,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": true
+                }
+              ]
+            }
+          ],
+          "listaCorrelazioniGaranzia": [
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "R0",
+              "codRisc": 1,
+              "codOgge": 2,
+              "tipologiaRel": "D"
+            }
+          ]
+        },
+        {
+          "codRamo": "R0",
+          "codRisc": 3,
+          "codOgge": 227,
+          "desOgge": "FABBRICATO/CONTENUTO COMUNI NON IN CLASSE 1,2",
+          "desRisc": "TERREMOTO",
+          "desGaranzia": "TERREMOTO CON LIMITE",
+          "obbligatoria": "2",
+          "flagPrimoPrezzo": null,
+          "ordine": 30,
+          "flagQuest": false,
+          "strCond": null,
+          "cga": null,
+          "keyTari": "6676",
+          "listaFormeContrattuali": [
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "S",
+              "desFormaContrattuale": "STANDARD",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "R0-3-227-S-3964",
+                  "prgDizi": 3964,
+                  "desCamp": "VALORE FRANCHIGIA",
+                  "nomTabe": null,
+                  "nomColo": "GAP_VAFR",
+                  "flagClausola": false,
+                  "flagObbl": true,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                },
+                {
+                  "idCarNfc": "R0-3-227-S-3952",
+                  "prgDizi": 3952,
+                  "desCamp": "LIMITE DI INDENNIZZO PER SINISTRO E PER ANNO ASSICURATIVO",
+                  "nomTabe": null,
+                  "nomColo": "VAL_LIM1",
+                  "flagClausola": false,
+                  "flagObbl": false,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 2,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                }
+              ]
+            }
+          ],
+          "listaCorrelazioniGaranzia": null
+        },
+        {
+          "codRamo": "R0",
+          "codRisc": 32,
+          "codOgge": 1,
+          "desOgge": "FABBRICATO",
+          "desRisc": "EVENTI SPECIALI",
+          "desGaranzia": "EVENTI SPECIALI - DANNI AL FABBRICATO",
+          "obbligatoria": "2",
+          "flagPrimoPrezzo": null,
+          "ordine": 15,
+          "flagQuest": false,
+          "strCond": "P-R0-8-201;P-R0-28-63;P-RG-32-109;D-R0-1-1;",
+          "cga": null,
+          "keyTari": "6676",
+          "listaFormeContrattuali": [
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "1",
+              "desFormaContrattuale": "VALORE INTERO",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "R0-32-1-1-3944",
+                  "prgDizi": 3944,
+                  "desCamp": "SOMMA ASSICURATA",
+                  "nomTabe": null,
+                  "nomColo": "GAP_SOAS",
+                  "flagClausola": false,
+                  "flagObbl": true,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "text",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": 0,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": true
+                }
+              ]
+            },
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "2",
+              "desFormaContrattuale": "PRIMO RISCHIO",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "R0-32-1-2-3944",
+                  "prgDizi": 3944,
+                  "desCamp": "SOMMA ASSICURATA",
+                  "nomTabe": null,
+                  "nomColo": "GAP_SOAS",
+                  "flagClausola": false,
+                  "flagObbl": true,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "text",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": 0,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": true
+                }
+              ]
+            }
+          ],
+          "listaCorrelazioniGaranzia": [
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "R0",
+              "codRisc": 8,
+              "codOgge": 201,
+              "tipologiaRel": "P"
+            },
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "R0",
+              "codRisc": 28,
+              "codOgge": 63,
+              "tipologiaRel": "P"
+            },
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "RG",
+              "codRisc": 32,
+              "codOgge": 109,
+              "tipologiaRel": "P"
+            },
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "R0",
+              "codRisc": 1,
+              "codOgge": 1,
+              "tipologiaRel": "D"
+            }
+          ]
+        },
+        {
+          "codRamo": "R0",
+          "codRisc": 28,
+          "codOgge": 1,
+          "desOgge": "FABBRICATO",
+          "desRisc": "NEVE",
+          "desGaranzia": "DANNI DA NEVE",
+          "obbligatoria": "2",
+          "flagPrimoPrezzo": null,
+          "ordine": 31,
+          "flagQuest": false,
+          "strCond": "D-R0-28-63;P-R0-28-63;",
+          "cga": null,
+          "keyTari": "6676",
+          "listaFormeContrattuali": [
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "S",
+              "desFormaContrattuale": "STANDARD",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "R0-28-1-S-3952",
+                  "prgDizi": 3952,
+                  "desCamp": "LIMITE DI INDENNIZZO PER SINISTRO E PER ANNO ASSICURATIVO",
+                  "nomTabe": null,
+                  "nomColo": "VAL_LIM1",
+                  "flagClausola": false,
+                  "flagObbl": false,
+                  "flagModi": true,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 2,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                },
+                {
+                  "idCarNfc": "R0-28-1-S-3967",
+                  "prgDizi": 3967,
+                  "desCamp": "MINIMO SCOPERTO",
+                  "nomTabe": null,
+                  "nomColo": "GAP_MISC",
+                  "flagClausola": false,
+                  "flagObbl": false,
+                  "flagModi": true,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                },
+                {
+                  "idCarNfc": "R0-28-1-S-3966",
+                  "prgDizi": 3966,
+                  "desCamp": "PERCENTUALE SCOPERTO",
+                  "nomTabe": null,
+                  "nomColo": "GAP_PSCO",
+                  "flagClausola": false,
+                  "flagObbl": false,
+                  "flagModi": true,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "N",
+                  "numCara": 9,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                }
+              ]
+            }
+          ],
+          "listaCorrelazioniGaranzia": [
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "R0",
+              "codRisc": 28,
+              "codOgge": 63,
+              "tipologiaRel": "D"
+            },
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "R0",
+              "codRisc": 28,
+              "codOgge": 63,
+              "tipologiaRel": "P"
+            }
+          ]
+        },
+        {
+          "codRamo": "R0",
+          "codRisc": 1,
+          "codOgge": 3,
+          "desOgge": "RISCHIO LOCATIVO",
+          "desRisc": "INCENDIO",
+          "desGaranzia": "RISCHIO LOCATIVO",
+          "obbligatoria": "2",
+          "flagPrimoPrezzo": null,
+          "ordine": 22,
+          "flagQuest": false,
+          "strCond": "D-R0-1-2;",
+          "cga": null,
+          "keyTari": "6676",
+          "listaFormeContrattuali": [
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "1",
+              "desFormaContrattuale": "VALORE INTERO",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "R0-1-3-1-3944",
+                  "prgDizi": 3944,
+                  "desCamp": "SOMMA ASSICURATA",
+                  "nomTabe": null,
+                  "nomColo": "GAP_SOAS",
+                  "flagClausola": false,
+                  "flagObbl": true,
+                  "flagModi": true,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": 0,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": true
+                }
+              ]
+            },
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "2",
+              "desFormaContrattuale": "PRIMO RISCHIO",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "R0-1-3-2-3944",
+                  "prgDizi": 3944,
+                  "desCamp": "SOMMA ASSICURATA",
+                  "nomTabe": null,
+                  "nomColo": "GAP_SOAS",
+                  "flagClausola": false,
+                  "flagObbl": true,
+                  "flagModi": true,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": 0,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": true
+                }
+              ]
+            }
+          ],
+          "listaCorrelazioniGaranzia": [
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "R0",
+              "codRisc": 1,
+              "codOgge": 2,
+              "tipologiaRel": "D"
+            }
+          ]
+        },
+        {
+          "codRamo": "R0",
+          "codRisc": 1,
+          "codOgge": 4,
+          "desOgge": "RICORSO TERZI",
+          "desRisc": "INCENDIO",
+          "desGaranzia": "RICORSO TERZI E/O LOCATARI",
+          "obbligatoria": "2",
+          "flagPrimoPrezzo": null,
+          "ordine": 21,
+          "flagQuest": false,
+          "strCond": null,
+          "cga": null,
+          "keyTari": "6676",
+          "listaFormeContrattuali": [
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "S",
+              "desFormaContrattuale": "STANDARD",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "R0-1-4-S-3949",
+                  "prgDizi": 3949,
+                  "desCamp": "MASSIMALE PER ANNO",
+                  "nomTabe": null,
+                  "nomColo": "MAX_ANNO",
+                  "flagClausola": false,
+                  "flagObbl": true,
+                  "flagModi": true,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": 0,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": true
+                }
+              ]
+            }
+          ],
+          "listaCorrelazioniGaranzia": null
+        },
+        {
+          "codRamo": "R0",
+          "codRisc": 1,
+          "codOgge": 6,
+          "desOgge": "SPESE DEMOLIZIONE E SGOMBERO",
+          "desRisc": "INCENDIO",
+          "desGaranzia": "DEMOLIZIONE E SGOMBERO",
+          "obbligatoria": "2",
+          "flagPrimoPrezzo": null,
+          "ordine": 25,
+          "flagQuest": false,
+          "strCond": null,
+          "cga": null,
+          "keyTari": "6676",
+          "listaFormeContrattuali": [
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "2",
+              "desFormaContrattuale": "PRIMO RISCHIO",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "R0-1-6-2-3944",
+                  "prgDizi": 3944,
+                  "desCamp": "SOMMA ASSICURATA",
+                  "nomTabe": null,
+                  "nomColo": "GAP_SOAS",
+                  "flagClausola": false,
+                  "flagObbl": true,
+                  "flagModi": true,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": 0,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": true
+                }
+              ]
+            }
+          ],
+          "listaCorrelazioniGaranzia": null
+        },
+        {
+          "codRamo": "R0",
+          "codRisc": 33,
+          "codOgge": 226,
+          "desOgge": "PATRIMONIO DELL'ASSICURATO",
+          "desRisc": "SINISTRO AI SENSI DI POLIZZA",
+          "desGaranzia": "ESENZIONE PAGAMENTO PREMI/RATE MUTUO",
+          "obbligatoria": "2",
+          "flagPrimoPrezzo": null,
+          "ordine": 28,
+          "flagQuest": false,
+          "strCond": null,
+          "cga": null,
+          "keyTari": "6676",
+          "listaFormeContrattuali": [
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "S",
+              "desFormaContrattuale": "STANDARD",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "R0-33-226-S-3949",
+                  "prgDizi": 3949,
+                  "desCamp": "MASSIMALE PER ANNO",
+                  "nomTabe": null,
+                  "nomColo": "MAX_ANNO",
+                  "flagClausola": false,
+                  "flagObbl": true,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                }
+              ]
+            }
+          ],
+          "listaCorrelazioniGaranzia": null
+        },
+        {
+          "codRamo": "R0",
+          "codRisc": 8,
+          "codOgge": 201,
+          "desOgge": "TENDE PARASOLE",
+          "desRisc": "EVENTI ATMOSFERICI",
+          "desGaranzia": "EVENTI ATMOSFERICI SU TENDE PARASOLE - PLUS F",
+          "obbligatoria": "2",
+          "flagPrimoPrezzo": null,
+          "ordine": 33,
+          "flagQuest": false,
+          "strCond": "D-R0-32-1;",
+          "cga": null,
+          "keyTari": "6676",
+          "listaFormeContrattuali": [
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "S",
+              "desFormaContrattuale": "STANDARD",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "R0-8-201-S-3944",
+                  "prgDizi": 3944,
+                  "desCamp": "SOMMA ASSICURATA",
+                  "nomTabe": null,
+                  "nomColo": "GAP_SOAS",
+                  "flagClausola": false,
+                  "flagObbl": true,
+                  "flagModi": false,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                },
+                {
+                  "idCarNfc": "R0-8-201-S-3967",
+                  "prgDizi": 3967,
+                  "desCamp": "MINIMO SCOPERTO",
+                  "nomTabe": null,
+                  "nomColo": "GAP_MISC",
+                  "flagClausola": false,
+                  "flagObbl": false,
+                  "flagModi": true,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                },
+                {
+                  "idCarNfc": "R0-8-201-S-3966",
+                  "prgDizi": 3966,
+                  "desCamp": "PERCENTUALE SCOPERTO",
+                  "nomTabe": null,
+                  "nomColo": "GAP_PSCO",
+                  "flagClausola": false,
+                  "flagObbl": false,
+                  "flagModi": true,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "N",
+                  "numCara": 9,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                },
+                {
+                  "idCarNfc": "R0-8-201-S-3952",
+                  "prgDizi": 3952,
+                  "desCamp": "LIMITE DI INDENNIZZO PER SINISTRO E PER ANNO ASSICURATIVO",
+                  "nomTabe": null,
+                  "nomColo": "VAL_LIM1",
+                  "flagClausola": false,
+                  "flagObbl": false,
+                  "flagModi": true,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 2,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": null,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": false
+                }
+              ]
+            }
+          ],
+          "listaCorrelazioniGaranzia": [
+            {
+              "codComp": "022",
+              "codProd": 2004,
+              "sysDate": 1330089420000,
+              "codTogg": "22",
+              "prgTogg": 5,
+              "codRamo": "R0",
+              "codRisc": 32,
+              "codOgge": 1,
+              "tipologiaRel": "D"
+            }
+          ]
+        },
+        {
+          "codRamo": "R0",
+          "codRisc": 16,
+          "codOgge": 23,
+          "desOgge": "CRISTALLI",
+          "desRisc": "ROTTURA CRISTALLI",
+          "desGaranzia": "CRISTALLI ED INSEGNE",
+          "obbligatoria": "2",
+          "flagPrimoPrezzo": null,
+          "ordine": 29,
+          "flagQuest": false,
+          "strCond": null,
+          "cga": null,
+          "keyTari": "6676",
+          "listaFormeContrattuali": [
+            {
+              "codSttr": null,
+              "codClss": null,
+              "codCate": null,
+              "codSpcz": null,
+              "codFcon": "2",
+              "desFormaContrattuale": "PRIMO RISCHIO",
+              "listaCaratteristiche": [
+                {
+                  "idCarNfc": "R0-16-23-2-3944",
+                  "prgDizi": 3944,
+                  "desCamp": "SOMMA ASSICURATA",
+                  "nomTabe": null,
+                  "nomColo": "GAP_SOAS",
+                  "flagClausola": false,
+                  "flagObbl": true,
+                  "flagModi": true,
+                  "pattern": null,
+                  "type": "comboBox",
+                  "tipoDato": "I",
+                  "numCara": 21,
+                  "numDeci": 6,
+                  "valCara": null,
+                  "desCara": null,
+                  "flagUnic": false,
+                  "codClau": 0,
+                  "desClob": null,
+                  "limiteInf": null,
+                  "limiteSup": null,
+                  "flagRange": true
+                }
+              ]
+            }
+          ],
+          "listaCorrelazioniGaranzia": null
+        }
+      ]
+    }
+  ],
+  "dipendenzeCaratteristicheGar": {
+    "R0-1-1-1-3944": {
+      "R0-32-1": {
+        "1": [
+          {
+            "tipoCalcolo": "C",
+            "percetuale": 100,
+            "idCarNfc": "R0-32-1-1-3944",
+            "idFormaContrattuale": "1",
+            "idGaranzia": "R0-32-1"
+          }
+        ],
+        "2": [
+          {
+            "tipoCalcolo": "C",
+            "percetuale": 100,
+            "idCarNfc": "R0-32-1-2-3944",
+            "idFormaContrattuale": "2",
+            "idGaranzia": "R0-32-1"
+          }
+        ]
+      }
+    },
+    "R0-1-1-2-3944": {
+      "R0-32-1": {
+        "1": [
+          {
+            "tipoCalcolo": "C",
+            "percetuale": 100,
+            "idCarNfc": "R0-32-1-1-3944",
+            "idFormaContrattuale": "1",
+            "idGaranzia": "R0-32-1"
+          }
+        ],
+        "2": [
+          {
+            "tipoCalcolo": "C",
+            "percetuale": 100,
+            "idCarNfc": "R0-32-1-2-3944",
+            "idFormaContrattuale": "2",
+            "idGaranzia": "R0-32-1"
+          }
+        ]
+      }
+    },
+    "R0-32-1-1-3944": {
+      "R0-1-1": {
+        "1": [
+          {
+            "tipoCalcolo": "C",
+            "percetuale": 100,
+            "idCarNfc": "R0-1-1-1-3944",
+            "idFormaContrattuale": "1",
+            "idGaranzia": "R0-1-1"
+          }
+        ],
+        "2": [
+          {
+            "tipoCalcolo": "C",
+            "percetuale": 100,
+            "idCarNfc": "R0-1-1-2-3944",
+            "idFormaContrattuale": "2",
+            "idGaranzia": "R0-1-1"
+          }
+        ]
+      },
+      "R0-8-201": {
+        "S": [
+          {
+            "tipoCalcolo": "C",
+            "percetuale": 100,
+            "idCarNfc": "R0-8-201-S-3944",
+            "idFormaContrattuale": "S",
+            "idGaranzia": "R0-8-201"
+          }
+        ]
+      }
+    },
+    "R0-32-1-2-3944": {
+      "R0-1-1": {
+        "1": [
+          {
+            "tipoCalcolo": "C",
+            "percetuale": 100,
+            "idCarNfc": "R0-1-1-1-3944",
+            "idFormaContrattuale": "1",
+            "idGaranzia": "R0-1-1"
+          }
+        ],
+        "2": [
+          {
+            "tipoCalcolo": "C",
+            "percetuale": 100,
+            "idCarNfc": "R0-1-1-2-3944",
+            "idFormaContrattuale": "2",
+            "idGaranzia": "R0-1-1"
+          }
+        ]
+      },
+      "R0-8-201": {
+        "S": [
+          {
+            "tipoCalcolo": "C",
+            "percetuale": 100,
+            "idCarNfc": "R0-8-201-S-3944",
+            "idFormaContrattuale": "S",
+            "idGaranzia": "R0-8-201"
+          }
+        ]
+      }
+    },
+    "R0-1-2-1-3944": {
+      "R0-32-2": {
+        "1": [
+          {
+            "tipoCalcolo": "C",
+            "percetuale": 100,
+            "idCarNfc": "R0-32-2-1-3944",
+            "idFormaContrattuale": "1",
+            "idGaranzia": "R0-32-2"
+          }
+        ],
+        "2": [
+          {
+            "tipoCalcolo": "C",
+            "percetuale": 100,
+            "idCarNfc": "R0-32-2-2-3944",
+            "idFormaContrattuale": "2",
+            "idGaranzia": "R0-32-2"
+          }
+        ]
+      }
+    },
+    "R0-1-2-2-3944": {
+      "R0-32-2": {
+        "1": [
+          {
+            "tipoCalcolo": "C",
+            "percetuale": 100,
+            "idCarNfc": "R0-32-2-1-3944",
+            "idFormaContrattuale": "1",
+            "idGaranzia": "R0-32-2"
+          }
+        ],
+        "2": [
+          {
+            "tipoCalcolo": "C",
+            "percetuale": 100,
+            "idCarNfc": "R0-32-2-2-3944",
+            "idFormaContrattuale": "2",
+            "idGaranzia": "R0-32-2"
+          }
+        ]
+      }
+    },
+    "R0-32-2-1-3944": {
+      "R0-1-2": {
+        "1": [
+          {
+            "tipoCalcolo": "C",
+            "percetuale": 100,
+            "idCarNfc": "R0-1-2-1-3944",
+            "idFormaContrattuale": "1",
+            "idGaranzia": "R0-1-2"
+          }
+        ],
+        "2": [
+          {
+            "tipoCalcolo": "C",
+            "percetuale": 100,
+            "idCarNfc": "R0-1-2-2-3944",
+            "idFormaContrattuale": "2",
+            "idGaranzia": "R0-1-2"
+          }
+        ]
+      }
+    },
+    "R0-32-2-2-3944": {
+      "R0-1-2": {
+        "1": [
+          {
+            "tipoCalcolo": "C",
+            "percetuale": 100,
+            "idCarNfc": "R0-1-2-1-3944",
+            "idFormaContrattuale": "1",
+            "idGaranzia": "R0-1-2"
+          }
+        ],
+        "2": [
+          {
+            "tipoCalcolo": "C",
+            "percetuale": 100,
+            "idCarNfc": "R0-1-2-2-3944",
+            "idFormaContrattuale": "2",
+            "idGaranzia": "R0-1-2"
+          }
+        ]
+      }
+    },
+    "R0-8-201-S-3944": {
+      "R0-32-1": {
+        "1": [
+          {
+            "tipoCalcolo": "C",
+            "percetuale": 100,
+            "idCarNfc": "R0-32-1-1-3944",
+            "idFormaContrattuale": "1",
+            "idGaranzia": "R0-32-1"
+          }
+        ],
+        "2": [
+          {
+            "tipoCalcolo": "C",
+            "percetuale": 100,
+            "idCarNfc": "R0-32-1-2-3944",
+            "idFormaContrattuale": "2",
+            "idGaranzia": "R0-32-1"
+          }
+        ]
+      }
+    }
+  }
+}

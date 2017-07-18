@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+/* Start Breadcrumb */
+.breadcrumb {
+  width: 100%;
+  float: left;
+  background: none;
+  padding: 15px;
+  border-radius: 0;
+  font-family: $font_ltCnO;
+  color: $silver;
+  margin: 0;
+  font-size: 1.6rem;
+  border-bottom: 1px solid #d0d1d1;
+  strong {
+    font-family: $font_mdCnO;
+  }
+  a {
+    color: $silver;
+    &:focus {
+      color: $silver;
+    }
+    &:visited {
+      color: $silver;
+    }
+    &.disabled {
+		pointer-events: none;
+		color: #AAAAAA !important;
+    	cursor: not-allowed !important;
+    	text-decoration: none !important;
+    }
+  }
+  > li{
+    &.active{
+      font-family: $font_mdCnO;
+    }
+    +li:before {
+      content: "-\00a0";
+    }
+    &:first-child+li:before{
+      content: " ";
+    }
+  }
+}
+/* End Breadcrumb */

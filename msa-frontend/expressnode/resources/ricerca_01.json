@@ -1,0 +1,70 @@
+{
+  "soggettiAnagrafici": [
+    {
+      "proClie": "654",
+      "cfPiva": "RSSMRA85T10A562S",
+      "tipoPers": "F",
+      "indirizzo": "Via Giro tondo"
+    }
+  ],
+  "contratti": [
+    {
+      "proClieContr": "654654",
+      "idContratto": "54asd54",
+      "listaSoluzioni": "???",
+      "ruoloAnagrafico": "XXX"
+    },    {
+      "proClieContr": "43256",
+      "idContratto": "654kjhgyut765j",
+      "listaSoluzioni": "!!!",
+      "ruoloAnagrafico": "YYYY"
+    }
+  ],
+  "preventivi": [
+    {}
+  ],
+  "sinistri": [
+    {}
+  ],
+  "bisogni": [
+    {
+      "nome": "xyz98",
+      "descrizione": "MIO CARO NIPOTE",
+      "iniVal": "01",
+      "finVal": "99",
+      "note": "xyz98 mio non so"
+    },    {
+      "nome": "kjhsadfg8976",
+      "descrizione": "MIO CARO ZIO",
+      "iniVal": "01",
+      "finVal": "99",
+      "note": "fatti una domanda"
+    },    {
+      "nome": "lkjli465",
+      "descrizione": "CASA IRRITATA",
+      "iniVal": "01",
+      "finVal": "99",
+      "note": "vedi tu"
+    }
+  ],
+  "soluzioni": [
+    {}
+  ],
+  "initas": [
+    {}
+  ],
+  "servNonAssicurativi": [
+    {}
+  ],
+  "polizze": [
+    {}
+  ],
+  "messages": [
+    {
+      "livello": null,
+      "codRaggruppamento": null,
+      "codAnomalia": null,
+      "testo": null
+    }
+  ]
+}

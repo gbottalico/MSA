@@ -1,0 +1,279 @@
+/api/soluzioni/getConfigurazioneAttrEntita
+
+INPUT:
+
+{
+   "numContratto":"TPO02829718",
+   "solTrad" : true,
+   "polizza":  
+      {
+			 "numOrdi":659839297373,
+			 "numPoli":"TPO02829718",
+			 "codProd":1001,
+			 "codComp":"022",
+			 "sysdate":"05/03/2007 10:49:13",
+			 "desProd":"DIMENSIONE AUTO",
+			 "codRamo":"50",
+			 "desRamo":"DIMENSIONE AUTO",   
+			 "ibdv":"S",
+			 "flagResi":false,
+			 "flagMonoentita": true, 			  
+			 "entita" : 
+			  {
+				"numOggr": 1,
+				"prgEntita": 1,
+				"tagEntita":"1 - Veicolo",  
+				"codTogg":"13",
+			    "prgTogg":1,
+				"desEntita":"SETTORE 1 - AUTOVETTURE",
+				"categoriaTariff":{ 
+					 "codSttr":"1",
+				     "codClss":"01",
+				     "codCate":"05",
+				     "codSpcz":"0",
+				     "desCate":"AUTOVETTURA NOLEGGIO CON CONDUCENTE"
+				}
+			  } 
+      }
+}
+
+
+OUTPUT:
+{
+"flagAggiuntivo":null,
+"listaAttributi": [
+	{  
+	  "prgDizi":"4817",
+	  "desCamp":"CODICE MARCA",
+	  "flagObbl":true,
+	  "flagModi":true,
+	  "riferimento":true,
+	  "tipoDato":"A",
+	  "numCara":"6",
+	  "numDeci":"0",
+	  "valCara":null,
+	  "desCara":null,
+	  "flagCarica": true,
+	  "listaCampiDipendentiFigli": [
+		 {
+			"camDipe":"4821"  --MODELLO
+		 },
+		 {
+			"camDipe":"4824" --ALLESTIMENTO
+		 }
+	   ],
+	   "listaCampiDipendentiPadri": [],
+	 "nomTabe": null,
+	 "nomColo": "COD_MARC"
+	},
+	{  
+	  "prgDizi":"4821",
+	  "desCamp":"CODICE MODELLO",
+	  "flagObbl":false,
+	  "flagModi":true,
+	  "riferimento":true,
+	  "tipoDato":"A",
+	  "numCara":"6",
+	  "numDeci":"0",
+	  "valCara":null,
+	  "desCara":null,
+	  "flagCarica": false,
+	  "listaCampiDipendentiFigli": [
+		 {
+			"camDipe":"4824" --ALLESTIMENTO
+		 }
+	   ],
+	   "listaCampiDipendentiPadri": [
+		  {
+			"camDipe":"4817"  --MARCA
+		  }
+	    ],
+	 "nomTabe": null,
+	 "nomColo": "COD_MODE"
+	},
+	{  
+	  "prgDizi":"4824",
+	  "desCamp":"CODICE ALLESTIMENTO",
+	  "flagObbl":false,
+	  "flagModi":true,
+	  "riferimento":true,
+	  "tipoDato":"A",
+	  "numCara":"10",
+	  "numDeci":"0",
+	  "valCara":null,
+	  "desCara":null,
+	  "flagCarica": false,
+	  "listaCampiDipendentiFigli": [
+		 {
+			"camDipe":"4815"  -- TIPO ALIMENTAZIONE
+		 },
+		 {
+			"camDipe":"4812"  -- CILINDRATA
+		 }
+	  ],
+	  "listaCampiDipendentiPadri": [
+		  {
+			"camDipe":"4817"  --MARCA
+		  },
+		  {
+			"camDipe":"4821"  --MODELLO
+		  }
+	  ],
+	 "nomTabe": null,
+	 "nomColo": "COD_ALLE"
+	},
+	{  
+	  "prgDizi":"4815",
+	  "desCamp":"TIPO ALIMENTAZIONE",
+	  "flagObbl":true,
+	  "flagModi":true,
+	  "riferimento":true,
+	  "tipoDato":"A",
+	  "numCara":"10",
+	  "numDeci":"0",
+	  "valCara":null,
+	  "desCara":null,
+	  "flagCarica": true,
+	  "listaCampiDipendentiFigli": null,
+	  "listaCampiDipendentiPadri": null,
+	 "nomTabe": null,
+	 "nomColo": "TIP_ALIM"
+	},
+	{  
+	  "prgDizi":"4812",
+	  "desCamp":"CILINDRATA",
+	  "flagObbl":false,
+	  "flagModi":true,
+	  "riferimento":false,
+	  "tipoDato":"A",
+	  "numCara":"10",
+	  "numDeci":"0",
+	  "valCara":null,
+	  "desCara":null,
+	  "flagCarica": true,
+	  "listaCampiDipendentiFigli": null,
+	  "listaCampiDipendentiPadri": null,
+	  "nomTabe": null,
+	  "nomColo": "NUM_CC00"
+	},
+
+
+
+
+
+"_comment": "--{key:A , action:text}",
+	{  
+	  "prgDizi":"3789",
+	  "desCamp":"TIPO VEICOLO",
+	  "flagObbl":true,
+	  "flagModi":true,
+	  "riferimento":true,
+	  "tipoDato":"A",
+	  "numCara":"2",
+	  "numDeci":"0",
+	  "valCara":"1",
+	  "desCara":"AUTOVETTURA",
+	  "flagCarica": true,
+	  "listaCampiDipendentiFigli": null,
+	  "listaCampiDipendentiPadri": null,
+	  "nomTabe": null,
+	  "nomColo": "TIP_VEIC"
+	},
+
+
+"_comment": "--{key:N , action:number }",
+   {  
+	  "prgDizi":"4813",
+	  "desCamp":"POTENZA KW",
+	  "flagObbl":true,
+	  "flagModi":true,
+	  "riferimento":false,
+	  "tipoDato":"N",
+	  "numCara":"5",
+	  "numDeci":"0",
+	  "valCara":null,
+	  "desCara":null,
+	  "flagCarica": true,
+	  "listaCampiDipendentiFigli": null,
+	  "listaCampiDipendentiPadri": null,
+	  "nomTabe": null,
+	  "nomColo": "NUM_KW00"
+	},
+
+
+
+"_comment": "--{key:I , action:importo }",
+{  
+	  "prgDizi":"7629",
+	  "desCamp":"IMPORTO ABITAZIONE",
+	  "flagObbl":true,
+	  "flagModi":true,
+	  "riferimento":false,
+	  "tipoDato":"I",
+	  "numCara":"10",  --COMPRESO I DECIMALI (MAX VALORE = 9999999,99)
+	  "numDeci":"2",
+	  "valCara":null,
+	  "desCara":null,
+	  "flagCarica": true,
+	  "listaCampiDipendentiFigli": null,
+	  "listaCampiDipendentiPadri": null,
+	  "nomTabe": null,
+	  "nomColo": "IMP_ABI"
+	},
+
+"_comment": "--{key:D , action:data }",
+{  
+	  "prgDizi":"3801",
+	  "desCamp":"PRIMA IMMATRICOLAZIONE",
+	  "flagObbl":true,
+	  "flagModi":true,
+	  "riferimento":false,
+	  "tipoDato":"D",
+	  "numCara":"8",
+	  "numDeci":"0",
+	  "valCara":null,
+	  "desCara":null,
+	  "flagCarica": true,
+	  "listaCampiDipendentiFigli": null,
+	  "listaCampiDipendentiPadri": null,
+	  "nomTabe": null,
+	  "nomColo": "DAT_IMM"
+	},
+
+
+"_comment": "--{key:M , action:textArea }",
+{  
+	  "prgDizi":"01010",
+	  "desCamp":"TEXT AREA PROVA",
+	  "flagObbl":false,
+	  "flagModi":true,
+	  "riferimento":false,
+	  "tipoDato":"M",
+	  "numCara":"4000",
+	  "numDeci":"0",
+	  "valCara":null,
+	  "desCara":null,
+	  "flagCarica": true,
+	  "listaCampiDipendentiFigli": null,
+	  "listaCampiDipendentiPadri": null,
+	  "nomTabe": null,
+	  "nomColo": "TXT_ARE"
+	}
+],
+"legamiDiEntita" : null,
+"listaClausoleEntita":null,
+"messages" : [
+{
+ "livello": "",
+ "codRaggruppamento": "",
+ "codAnomalia": "",
+ "testo": ""
+} 
+] 
+}
+
+
+
+
+
+

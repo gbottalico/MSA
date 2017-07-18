@@ -1,0 +1,212 @@
+#timeline {
+  .title {
+    color: $itas_red;
+    text-transform: uppercase;
+  }
+
+  .cs_timeline {
+    list-style: none;
+    position: relative;
+    margin: 0;
+  }
+
+  .cs_timeline:before {
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    content: " ";
+    width: 3px;
+    background-color: $lightgrey;
+    left: 25px;
+    margin-left: -1.5px;
+  }
+
+  .cs_timeline > li {
+    position: relative;
+  }
+
+  .cs_timeline > li > .cs_timeline-panel {
+    transform: translate(0, -40px);
+  }
+
+  .cs_timeline > li > .cs_timeline-badge {
+    width: 40px;
+    height: 40px;
+    line-height: 36px;
+    font-size: 1.4em;
+    text-align: center;
+    margin-left: 0;
+    z-index: 100;
+    border-top-right-radius: 50%;
+    border-top-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    cursor: pointer;
+    transform: translate(5px, 0);
+  }
+
+  .cs_timeline > li.cs_timeline-inverted > .cs_timeline-panel {
+    margin-left: 60px;
+  }
+
+  .cs_timeline-badge.primary {
+    background-color: $white;
+    border: 2px solid $sand;
+    color: $sand;
+  }
+  .cs_timeline-badge.red {
+    background-color: $itas_red;
+    border: 2px solid $itas_red;
+    color: $white;
+  }
+  .cs_timeline-badge:hover {
+    opacity: 0.7;
+  }
+
+  .cs_timeline-title {
+    margin-top: 0;
+    color: inherit;
+  }
+
+  .cs_timeline-body > p,
+  .cs_timeline-body > ul {
+    margin-bottom: 0;
+  }
+
+  .cs_timeline-body > p + p {
+    margin-top: 5px;
+  }
+
+  .cs_timeline-heading {
+    p {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    .data {
+      font-size: 1.6rem;
+      color: $darkgray;
+      font-family: $font_blkCn;
+    }
+    .datared {
+      font-size: 1.6rem;
+      color: $itas_red;
+      font-family: $font_blkCn;
+    }
+    .descrizione {
+      font-size: 1.6rem;
+      color: $black;
+      font-family: $font_blkCn;
+    }
+    .stato {
+      font-size: 1.6rem;
+      color: $black;
+    }
+    .statoaction {
+      font-size: 1.6rem;
+      color: $black;
+      cursor: pointer;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      span {
+        height: 1.6rem;
+        img {
+          height: inherit;
+          width: auto;
+          vertical-align: text-top;
+        }
+      }
+    }
+    .statoactionred {
+      font-size: 1.6rem;
+      color: $itas_red;
+      cursor: pointer;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      span {
+        height: 1.6rem;
+        img {
+          height: inherit;
+          width: auto;
+          vertical-align: text-top;
+        }
+      }
+    }
+    .statoaction:hover {
+      opacity: 0.7;
+    }
+    .voice {
+      padding-left: 15px;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      cursor: pointer;
+    }
+    .voice:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+.cs-premio-garanzia {
+  color: $color_conifer_approx;
+  font-size: 2.5rem;
+  float: right;
+  margin-top: -30px;
+  font-family: $font_ltCn;
+}
+
+.buttonConsultazione {
+  border: 0px solid;
+  background-color: transparent;
+  outline: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+}
+.buttonConsultazione:hover {
+  opacity: 0.7;
+}
+
+.addColor {
+  color: $sand;
+}
+
+.borderseparator {
+  border-right: 1px solid $sand;
+}
+
+.aggiustamentotitle {
+  margin-left: 22%;
+  position: relative;
+}
+
+.cs-input-right-btn {
+  position: absolute;
+  top: 9px;
+  right: -15px;
+  z-index: 3;
+}
+.cs-img-background {
+  background: transparent;
+  border: 0px solid;
+}
+
