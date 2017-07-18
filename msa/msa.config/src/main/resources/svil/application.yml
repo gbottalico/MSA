@@ -1,0 +1,32 @@
+ioc: null
+server:
+  contextPath: /msa
+  port: 8080
+spring:
+  batch:
+    initializer:
+      enabled: false
+    job:
+      enabled: false
+  profiles:
+    active: locale
+  datasource:
+    initialize: false
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  mvc:
+    date-format: ddMMyyyy
+    locale: it_IT
+logging:
+  level:
+    root: INFO
+    nfc: DEBUG
+    org.springframework.batch.core.launch.support: ERROR
+  file: /Sviluppo/msa_logs/log_console.log
+msa: 

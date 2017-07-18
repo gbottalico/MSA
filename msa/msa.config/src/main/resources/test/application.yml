@@ -1,0 +1,7 @@
+logging:
+  level: 
+    root: 'INFO'
+    nfc : 'DEBUG'
+    org.springframework.batch.core.launch.support : 'ERROR'
+    org.apache.activemq : 'ERROR'
+  file: '/Test/nfc_logs/log_console.log'
