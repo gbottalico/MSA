@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import msa.application.service.enumerator.Api;
+import msa.domain.Converter.MsaConverter;
 import msa.infrastructure.config.AbstractMsaPropertiesReader;
 
 public class BaseService {
@@ -16,6 +17,9 @@ public class BaseService {
 
 	@Autowired
 	protected AbstractMsaPropertiesReader properties;
+	
+	@Autowired
+	protected MsaConverter converter;	
 	
 	public BaseService(){
 		

@@ -5,11 +5,13 @@ import java.util.List;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
-import msa.infrastructure.persistence.NazioniDBO;
+import msa.infrastructure.persistence.NazioneDBO;
 
-public interface NazioniBaseRepository extends MongoRepository<NazioniDBO, Integer> {
+public interface NazioniBaseRepository extends MongoRepository<NazioneDBO, Integer> {
 
-	@Query("{nome: { $regex: ?0 }}")
-	List<NazioniDBO> findLikeByNome (String name);
+	@Query("{DescrizioneNazione: { $regex: ?0 }}")
+	List<NazioneDBO> findLikeNome (String name);
+	
+	
 	
 }
