@@ -94,6 +94,31 @@ http://itaswkf.gruppoitas.local/mediawiki/index.php?title=Frontend
 /@@@@@@@@@@@  END START UP FrontEnd   @@@@@@@@@@@@/
 /@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@/
 
+
+/*************************************************/
+/**************  Setup COMMITGIT  ****************/
+/*************************************************/
+
+    # Verificare nuove versioni
+
+    git status
+
+    # Assegnare modifiche
+
+    git add -A
+
+    # Aggiungere commento
+
+    git commit -am "Commento custom"
+
+    # Push
+
+    git push
+
+/@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@/
+/@@@@@@@@@@@   END setup COMMITGIT    @@@@@@@@@@@@/
+/@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@/
+
 Nella cartella expressnode è  disposizione un applicativo per invocare localmente
 i servizi remoti
 install
