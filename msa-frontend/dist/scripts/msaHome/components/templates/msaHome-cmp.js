@@ -30,6 +30,6 @@
 									alert("ok");
 								};
 
-							} ]
+							} ] 
 				});*/
 "use strict";
