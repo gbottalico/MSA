@@ -34,8 +34,14 @@ http://itaswkf.gruppoitas.local/mediawiki/index.php?title=Frontend
 /************** Setup ENVIRONMENT ****************/
 /*************************************************/
 
+    # Installare dipendenze npm
+    npm install
+
     # Installare Bower
     sudo npm install -g bower@1.6.5
+
+    # Installare moduli Bower
+    bower install
 
     # Installare Gulp
     sudo npm install -g gulp@3.9.1

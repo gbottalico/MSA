@@ -14,9 +14,9 @@ angular
         /**
          * Funzione di inizializzazione in cui viene effettuato il login
          */
-        ctrl.$onInit = function () {
+        /*ctrl.$onInit = function () {
             alert("FUNZIONA");
-        };
+        };*/
     
     }]
 } );

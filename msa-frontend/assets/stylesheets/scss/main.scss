@@ -1,16 +1,5 @@
 @charset "UTF-8";
 
-@import "_base",
-        "blocks/_bk_01",
-        "blocks/_bk_02",
-        "blocks/_bk_03",
-        "modules/hp/_home",
-        "modules/anagrafica/_anagrafica",
-        "modules/contratto/_contratto",
-        "modules/contratto/_consultazione.scss",
-        "modules/contratto/_consultazione_timeline";
-
-
-@import "utilities/_rewrite";
+@import "_base";
 
 @import "font-awesome.css";
