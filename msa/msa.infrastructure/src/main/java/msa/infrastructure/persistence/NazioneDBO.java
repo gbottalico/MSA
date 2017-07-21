@@ -12,26 +12,14 @@ public class NazioneDBO {
 	@Id
 	private String id;
 
-	@Field("SiglaNazione")
+	@Field("iniValidita")
+	private Date inizioValidita;
+	@Field("finValidita")
+	private Date fineValidita;
+	@Field("descrizione")
+	private String descrizione;
+	@Field("sigNazione")
 	private String sigla;
-	@Field("DescrizioneNazione")
-	private String descrizioneNazione;
-	@Field("CodIso")
-	private String codIso;
-	@Field("DataInserimento")
-	private Date dataInserimento;
-	@Field("DataVariazione")
-	private Date dataVariazione;
-	@Field("CodFornitore")
-	private String codFornitore;
-
-	public String getCodFornitore() {
-		return codFornitore;
-	}
-
-	public void setCodFornitore(String codFornitore) {
-		this.codFornitore = codFornitore;
-	}
 
 	public String getId() {
 		return id;
@@ -41,44 +29,36 @@ public class NazioneDBO {
 		this.id = id;
 	}
 
+	public Date getInizioValidita() {
+		return inizioValidita;
+	}
+
+	public void setInizioValidita(Date inizioValidita) {
+		this.inizioValidita = inizioValidita;
+	}
+
+	public Date getFineValidita() {
+		return fineValidita;
+	}
+
+	public void setFineValidita(Date fineValidita) {
+		this.fineValidita = fineValidita;
+	}
+
+	public String getDescrizione() {
+		return descrizione;
+	}
+
+	public void setDescrizione(String descrizione) {
+		this.descrizione = descrizione;
+	}
+
 	public String getSigla() {
 		return sigla;
 	}
 
 	public void setSigla(String sigla) {
 		this.sigla = sigla;
-	}
-
-	public String getDescrizioneNazione() {
-		return descrizioneNazione;
-	}
-
-	public void setDescrizioneNazione(String descrizioneNazione) {
-		this.descrizioneNazione = descrizioneNazione;
-	}
-
-	public String getCodIso() {
-		return codIso;
-	}
-
-	public void setCodIso(String codIso) {
-		this.codIso = codIso;
-	}
-
-	public Date getDataInserimento() {
-		return dataInserimento;
-	}
-
-	public void setDataInserimento(Date dataInserimento) {
-		this.dataInserimento = dataInserimento;
-	}
-
-	public Date getDataVariazione() {
-		return dataVariazione;
-	}
-
-	public void setDataVariazione(Date dataVariazione) {
-		this.dataVariazione = dataVariazione;
 	}
 
 }

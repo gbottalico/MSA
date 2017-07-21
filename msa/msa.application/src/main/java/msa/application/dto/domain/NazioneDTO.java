@@ -2,23 +2,15 @@ package msa.application.dto.domain;
 
 import java.util.Date;
 
+
 public class NazioneDTO {
 
 	private String id;
+
+	private Date inizioValidita;
+	private Date fineValidita;
+	private String descrizione;
 	private String sigla;
-	private String descrizioneNazione;
-	private String codIso;
-	private Date dataInserimento;
-	private Date dataVariazione;
-	private String codFornitore;
-
-	public String getCodFornitore() {
-		return codFornitore;
-	}
-
-	public void setCodFornitore(String codFornitore) {
-		this.codFornitore = codFornitore;
-	}
 
 	public String getId() {
 		return id;
@@ -28,44 +20,36 @@ public class NazioneDTO {
 		this.id = id;
 	}
 
+	public Date getInizioValidita() {
+		return inizioValidita;
+	}
+
+	public void setInizioValidita(Date inizioValidita) {
+		this.inizioValidita = inizioValidita;
+	}
+
+	public Date getFineValidita() {
+		return fineValidita;
+	}
+
+	public void setFineValidita(Date fineValidita) {
+		this.fineValidita = fineValidita;
+	}
+
+	public String getDescrizione() {
+		return descrizione;
+	}
+
+	public void setDescrizione(String descrizione) {
+		this.descrizione = descrizione;
+	}
+
 	public String getSigla() {
 		return sigla;
 	}
 
 	public void setSigla(String sigla) {
 		this.sigla = sigla;
-	}
-
-	public String getDescrizioneNazione() {
-		return descrizioneNazione;
-	}
-
-	public void setDescrizioneNazione(String descrizioneNazione) {
-		this.descrizioneNazione = descrizioneNazione;
-	}
-
-	public String getCodIso() {
-		return codIso;
-	}
-
-	public void setCodIso(String codIso) {
-		this.codIso = codIso;
-	}
-
-	public Date getDataInserimento() {
-		return dataInserimento;
-	}
-
-	public void setDataInserimento(Date dataInserimento) {
-		this.dataInserimento = dataInserimento;
-	}
-
-	public Date getDataVariazione() {
-		return dataVariazione;
-	}
-
-	public void setDataVariazione(Date dataVariazione) {
-		this.dataVariazione = dataVariazione;
 	}
 
 }

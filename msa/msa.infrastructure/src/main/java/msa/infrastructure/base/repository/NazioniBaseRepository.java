@@ -9,8 +9,8 @@ import msa.infrastructure.persistence.NazioneDBO;
 
 public interface NazioniBaseRepository extends MongoRepository<NazioneDBO, Integer> {
 
-	@Query("{DescrizioneNazione: { $regex: ?0 }}")
-	List<NazioneDBO> findLikeNome (String name);
+	@Query("{'descrizione': { $regex: '^?0'  }}")
+	List<NazioneDBO> findLikeNome(String name);
 	
 	
 	
