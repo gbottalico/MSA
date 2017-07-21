@@ -7300,3 +7300,83 @@ button.close {
 @font-face {
   font-family: HelveticaNeueLTPro-LtCnO;
   src: url(../fonts/HelveticaNeueLTPro-LtCnO?#iefix) format("embedded-opentype"), url(../fonts/HelveticaNeueLTPro-LtCnO.otf) format("opentype"), url(../fonts/HelveticaNeueLTPro-LtCnO.woff) format("woff"), url(../fonts/HelveticaNeueLTPro-LtCnO.ttf) format("truetype"), url(../fonts/HelveticaNeueLTPro-LtCnO.svg#HelveticaNeueLTPro-LtCnO) format("svg"); }
+
+/* line 3, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+html, body {
+  background-color: #f2f2f2; }
+
+/* line 7, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+section {
+  padding-left: 30px;
+  padding-right: 30px; }
+
+/* line 12, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+.header {
+  background-color: #f2f2f2;
+  color: #9d9d9d;
+  text-align: center;
+  height: 100px; }
+  /* line 17, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+  .header .container {
+    position: relative;
+    height: 100%; }
+    /* line 20, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+    .header .container .logo {
+      position: absolute;
+      left: 30px;
+      width: 120px;
+      top: 50%;
+      transform: translate(0, -50%);
+      cursor: pointer; }
+    /* line 28, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+    .header .container .logo:hover {
+      opacity: 0.7; }
+    /* line 31, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+    .header .container .title {
+      position: absolute;
+      width: 100%;
+      margin: 0;
+      top: 50%;
+      transform: translate(0, -50%);
+      z-index: 1;
+      left: 0;
+      right: 0; }
+
+/* line 44, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+.banner {
+  /* IE10 */
+  background-image: -ms-linear-gradient(top right, #0f8fd1 0%, #1e3877 100%);
+  /* Mozilla Firefox */
+  background-image: -moz-linear-gradient(top right, #0f8fd1 0%, #1e3877 100%);
+  /* Opera */
+  background-image: -o-linear-gradient(top right, #0f8fd1 0%, #1e3877 100%);
+  /* Webkit (Safari/Chrome 10) */
+  background-image: -webkit-gradient(linear, right top, left bottom, color-stop(0, #0f8fd1), color-stop(1, #1e3877));
+  /* Webkit (Chrome 11+) */
+  background-image: -webkit-linear-gradient(top right, #0f8fd1 0%, #1e3877 100%);
+  /* Regola standard */
+  background-image: linear-gradient(to top right, #0f8fd1 0%, #1e3877 100%);
+  color: #fff;
+  text-align: center;
+  height: 100px; }
+  /* line 60, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+  .banner .container {
+    position: relative;
+    height: 100%; }
+    /* line 63, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+    .banner .container .title {
+      position: absolute;
+      width: 100%;
+      margin: 0;
+      top: 50%;
+      transform: translate(0, -50%);
+      z-index: 1;
+      left: 0;
+      right: 0; }
+    /* line 73, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+    .banner .container .icon {
+      position: absolute;
+      right: 30px;
+      top: 0;
+      width: 100px;
+      height: auto; }

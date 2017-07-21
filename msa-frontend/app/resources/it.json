@@ -1,5 +1,15 @@
 {
-  "global": {
-    "title": "Msa"
-  }
+  	"global": {
+    	"title": "Msa",
+    	"header": {
+    		"labels": {
+	  			"title": "Gestione sinistri"
+	  		}
+    	},
+    	"banner": {
+	  		"labels": {
+	  			"title": "Cerca sinistro"
+	  		}
+		}
+  	}
 }
