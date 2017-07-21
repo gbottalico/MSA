@@ -7303,24 +7303,37 @@ button.close {
 
 /* line 3, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
 html, body {
-  background-color: #f2f2f2; }
+  background-color: #f2f2f2;
+  overflow-x: hidden; }
 
-/* line 7, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+/* line 8, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+  height: 7px; }
+
+/* line 13, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5); }
+
+/* line 19, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
 section {
   padding-left: 30px;
   padding-right: 30px; }
 
-/* line 12, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+/* line 24, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
 .header {
   background-color: #f2f2f2;
   color: #9d9d9d;
   text-align: center;
   height: 100px; }
-  /* line 17, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+  /* line 29, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
   .header .container {
     position: relative;
     height: 100%; }
-    /* line 20, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+    /* line 32, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
     .header .container .logo {
       position: absolute;
       left: 30px;
@@ -7328,10 +7341,10 @@ section {
       top: 50%;
       transform: translate(0, -50%);
       cursor: pointer; }
-    /* line 28, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+    /* line 40, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
     .header .container .logo:hover {
       opacity: 0.7; }
-    /* line 31, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+    /* line 43, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
     .header .container .title {
       position: absolute;
       width: 100%;
@@ -7342,7 +7355,7 @@ section {
       left: 0;
       right: 0; }
 
-/* line 44, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+/* line 56, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
 .banner {
   /* IE10 */
   background-image: -ms-linear-gradient(top right, #0f8fd1 0%, #1e3877 100%);
@@ -7359,11 +7372,11 @@ section {
   color: #fff;
   text-align: center;
   height: 100px; }
-  /* line 60, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+  /* line 72, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
   .banner .container {
     position: relative;
     height: 100%; }
-    /* line 63, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+    /* line 75, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
     .banner .container .title {
       position: absolute;
       width: 100%;
@@ -7373,7 +7386,7 @@ section {
       z-index: 1;
       left: 0;
       right: 0; }
-    /* line 73, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+    /* line 85, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
     .banner .container .icon {
       position: absolute;
       right: 30px;
