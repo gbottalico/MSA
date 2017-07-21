@@ -2,84 +2,72 @@ package msa.domain.object.dominio;
 
 import java.util.Date;
 
+
 public class ProvinciaDO {
 	private String id;
-	private String nomeProvincia;
-	private Integer cap;
-	private Integer codIvass;
-	private String siglaTargaProvincia;
-	private String siglaTargaProvv;
-	private String siglaTargaSita;
-	private Date dataInserimento;
-	private Date dataVariazione;
-	private Integer idNazione;
-	private String codFornitore;
+
+	private Integer codNazione;
+
+	private Integer codProvincia;
+	private Date iniValidita;
+	private Date finValidita;
+	private String descProvincia;
+	private String siglaProv;
+
 	public String getId() {
 		return id;
 	}
+
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getNomeProvincia() {
-		return nomeProvincia;
-	}
-	public void setNomeProvincia(String nomeProvincia) {
-		this.nomeProvincia = nomeProvincia;
-	}
-	public Integer getCap() {
-		return cap;
-	}
-	public void setCap(Integer cap) {
-		this.cap = cap;
-	}
-	public Integer getCodIvass() {
-		return codIvass;
-	}
-	public void setCodIvass(Integer codIvass) {
-		this.codIvass = codIvass;
-	}
-	public String getSiglaTargaProvincia() {
-		return siglaTargaProvincia;
-	}
-	public void setSiglaTargaProvincia(String siglaTargaProvincia) {
-		this.siglaTargaProvincia = siglaTargaProvincia;
-	}
-	public String getSiglaTargaProvv() {
-		return siglaTargaProvv;
-	}
-	public void setSiglaTargaProvv(String siglaTargaProvv) {
-		this.siglaTargaProvv = siglaTargaProvv;
-	}
-	public String getSiglaTargaSita() {
-		return siglaTargaSita;
-	}
-	public void setSiglaTargaSita(String siglaTargaSita) {
-		this.siglaTargaSita = siglaTargaSita;
-	}
-	public Date getDataInserimento() {
-		return dataInserimento;
-	}
-	public void setDataInserimento(Date dataInserimento) {
-		this.dataInserimento = dataInserimento;
-	}
-	public Date getDataVariazione() {
-		return dataVariazione;
-	}
-	public void setDataVariazione(Date dataVariazione) {
-		this.dataVariazione = dataVariazione;
-	}
-	public Integer getIdNazione() {
-		return idNazione;
-	}
-	public void setIdNazione(Integer idNazione) {
-		this.idNazione = idNazione;
-	}
-	public String getCodFornitore() {
-		return codFornitore;
-	}
-	public void setCodFornitore(String codFornitore) {
-		this.codFornitore = codFornitore;
+
+	public Integer getCodNazione() {
+		return codNazione;
 	}
 
+	public void setCodNazione(Integer codNazione) {
+		this.codNazione = codNazione;
+	}
+
+	public Integer getCodProvincia() {
+		return codProvincia;
+	}
+
+	public void setCodProvincia(Integer codProvincia) {
+		this.codProvincia = codProvincia;
+	}
+
+	public Date getIniValidita() {
+		return iniValidita;
+	}
+
+	public void setIniValidita(Date iniValidita) {
+		this.iniValidita = iniValidita;
+	}
+
+	public Date getFinValidita() {
+		return finValidita;
+	}
+
+	public void setFinValidita(Date finValidita) {
+		this.finValidita = finValidita;
+	}
+
+	public String getDescProvincia() {
+		return descProvincia;
+	}
+
+	public void setDescProvincia(String descProvincia) {
+		this.descProvincia = descProvincia;
+	}
+
+	public String getSiglaProv() {
+		return siglaProv;
+	}
+
+	public void setSiglaProv(String siglaProv) {
+		this.siglaProv = siglaProv;
+	}
 
 }
