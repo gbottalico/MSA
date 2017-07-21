@@ -1,4 +1,4 @@
-angular
+/*angular
 		.module('msa')
 		.component(
 				'msaHome',
@@ -21,14 +21,14 @@ angular
 									$sessionStorage) {
 
 								var ctrl = this;
-
+*/
 								/**
 								 * Funzione di inizializzazione in cui viene
 								 * effettuato il login
 								 */
-								ctrl.$onInit = function() {
+/*								ctrl.$onInit = function() {
 									alert("ok");
 								};
 
 							} ]
-				});
+				});*/
