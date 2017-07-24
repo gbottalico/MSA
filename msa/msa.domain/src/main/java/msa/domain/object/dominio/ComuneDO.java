@@ -13,6 +13,7 @@ public class ComuneDO {
 	private Date fineValidita;
 	private String descrizione;
 	private List<String> cap;
+	private String codFornitore;
 	public String getId() {
 		return id;
 	}

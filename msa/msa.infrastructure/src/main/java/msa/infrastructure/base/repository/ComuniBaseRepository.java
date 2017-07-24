@@ -9,6 +9,6 @@ import msa.infrastructure.persistence.ComuneDBO;
 
 public interface ComuniBaseRepository extends MongoRepository<ComuneDBO, Integer> {
 	
-	@Query("{'codNazione': ?0 , 'codProvincia': ?1,'descrizione':{$regex: '^?2'}, 'finValidita':null}")
+	@Query("{'codNazione': ?0 , 'codProvincia': ?1,'descrizione':{$regex: '^?2', $options: 'i'}, 'finValidita':null}")
 	List<ComuneDBO> findByDesc(Integer codNazione, Integer provincia, String name);
 }

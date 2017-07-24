@@ -13,6 +13,15 @@ public class ProvinciaDO {
 	private Date finValidita;
 	private String descProvincia;
 	private String siglaProv;
+	private String codFornitore;
+
+	public String getCodFornitore() {
+		return codFornitore;
+	}
+
+	public void setCodFornitore(String codFornitore) {
+		this.codFornitore = codFornitore;
+	}
 
 	public String getId() {
 		return id;

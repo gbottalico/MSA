@@ -10,7 +10,7 @@ import msa.infrastructure.persistence.ProvinciaDBO;
 public interface ProvinceBaseRepository extends MongoRepository<ProvinciaDBO, Integer> {
 
 
-	@Query("{'codNazione': ?0 , 'desProv': {$regex: '^?1'}, 'finValidita':null}")
+	@Query("{'codNazione': ?0 , 'desProv': {$regex: '^?1',$options:'i'}, 'finValidita':null}")
 
 	List<ProvinciaDBO> findByDesc(Integer idNazione, String descProvincia);
 }

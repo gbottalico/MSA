@@ -23,6 +23,7 @@ public class ComuneDBO {
 	private String descrizione;
 	@Field("cap")
 	private List<String> cap;
+	private String codFornitore;
 	public String getId() {
 		return id;
 	}
@@ -66,6 +67,11 @@ public class ComuneDBO {
 		this.cap = cap;
 	}
 
-	
+	public String getCodFornitore() {
+		return codFornitore;
+	}
 
+	public void setCodFornitore(String codFornitore) {
+		this.codFornitore = codFornitore;
+	}
 }

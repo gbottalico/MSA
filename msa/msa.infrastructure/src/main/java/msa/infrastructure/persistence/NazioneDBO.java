@@ -20,6 +20,15 @@ public class NazioneDBO {
 	private String descrizione;
 	@Field("sigNazione")
 	private String sigla;
+	private String codFornitore;
+
+	public String getCodFornitore() {
+		return codFornitore;
+	}
+
+	public void setCodFornitore(String codFornitore) {
+		this.codFornitore = codFornitore;
+	}
 
 	public String getId() {
 		return id;
