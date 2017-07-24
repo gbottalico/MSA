@@ -34,17 +34,38 @@ http://itaswkf.gruppoitas.local/mediawiki/index.php?title=Frontend
 /************** Setup ENVIRONMENT ****************/
 /*************************************************/
 
+    @Linux && OS
+
+    # Installare dipendenze npm
+    sudo npm install
+
+    # Installare Bower
+    sudo npm install bower
+    sudo npm install -g bower
+
+    # Installare moduli Bower
+    sudo bower install
+
+    # Installare Gulp
+    sudo npm install gulp
+    sudo npm install -g gulp
+
+
+    @Windows lanciare i comandi da cmd
+
     # Installare dipendenze npm
     npm install
 
     # Installare Bower
-    sudo npm install -g bower@1.6.5
+    npm install bower
+    npm install -g bower
 
     # Installare moduli Bower
     bower install
 
     # Installare Gulp
-    sudo npm install -g gulp@3.9.1
+    npm install gulp
+    npm install -g gulp
 
 /@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@/
 /@@@@@@@@@@@  END Setup ENVIRONMENT   @@@@@@@@@@@@/
@@ -71,6 +92,31 @@ http://itaswkf.gruppoitas.local/mediawiki/index.php?title=Frontend
 
 /@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@/
 /@@@@@@@@@@@  END START UP FrontEnd   @@@@@@@@@@@@/
+/@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@/
+
+
+/*************************************************/
+/**************  Setup COMMITGIT  ****************/
+/*************************************************/
+
+    # Verificare nuove versioni
+
+    git status
+
+    # Assegnare modifiche
+
+    git add -A
+
+    # Aggiungere commento
+
+    git commit -am "Commento custom"
+
+    # Push
+
+    git push
+
+/@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@/
+/@@@@@@@@@@@   END setup COMMITGIT    @@@@@@@@@@@@/
 /@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@/
 
 Nella cartella expressnode è  disposizione un applicativo per invocare localmente
