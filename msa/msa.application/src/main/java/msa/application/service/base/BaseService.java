@@ -1,7 +1,12 @@
 package msa.application.service.base;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
+import msa.application.config.Message;
+import msa.application.config.enumerator.MessageType;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -39,5 +44,8 @@ public class BaseService {
 	protected <T>T doPostCall(Class<T> clazz, Api api, Object objParam){
 		return null;
 	}
-	
+
+	protected List<Message> buildErrorMessageByText(MessageType type, final String... texts) {
+		return Arrays.stream(texts).map(e -> new Message(MessageType.ERROR,e)).collect(Collectors.toList());
+	}
 }
