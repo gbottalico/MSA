@@ -1,0 +1,16 @@
+
+.gitignore
+.idea/
+msa.application/bin/nfc.application.iml
+msa.application/msa.application.iml
+msa.batch/bin/nfc.batch.iml
+msa.batch/msa.batch.iml
+msa.config/bin/nfc.config.iml
+msa.config/msa.config.iml
+msa.domain/bin/nfc.domain.iml
+msa.domain/msa.domain.iml
+msa.iml
+msa.infrastructure/bin/nfc.infrastructure.iml
+msa.infrastructure/msa.infrastructure.iml
+msa.web/bin/nfc.web.iml
+msa.web/msa.web.iml
