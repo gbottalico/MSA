@@ -79,7 +79,7 @@ public class DomainRepository extends BaseRepository {
 	 * @throws IllegalAccessException
 	 * @throws InvocationTargetException
 	 */
-	public List<ComuneDO> getElencoComuni(Integer idNazione, String codProvincia, String desc)
+	public List<ComuneDO> getElencoComuni(Integer idNazione, Integer codProvincia, String desc)
 			throws InstantiationException, IllegalAccessException, InvocationTargetException {
 		List<ComuneDBO> result = comuniRepository.findByDesc(idNazione, codProvincia, desc);
 		List<ComuneDO> listaDO = converter.convertList(result, ComuneDO.class);

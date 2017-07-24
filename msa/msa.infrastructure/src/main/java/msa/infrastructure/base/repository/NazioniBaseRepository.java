@@ -1,3 +1,4 @@
+
 package msa.infrastructure.base.repository;
 
 import java.util.List;

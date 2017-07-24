@@ -68,7 +68,7 @@ public class DomainService extends BaseService {
 	 * @throws IllegalAccessException
 	 * @throws InvocationTargetException
 	 */
-	public List<ComuneDTO> getElencoComuni(Integer idNazione, String idProvincia, String desc)
+	public List<ComuneDTO> getElencoComuni(Integer idNazione, Integer idProvincia, String desc)
 			throws InstantiationException, IllegalAccessException, InvocationTargetException {
 		List<ComuneDO> result = domainRepository.getElencoComuni(idNazione, idProvincia, desc);
 		List<ComuneDTO> listaDto = converter.convertList(result, ComuneDTO.class);

@@ -11,13 +11,11 @@ import org.springframework.data.mongodb.core.mapping.Field;
 public class ComuneDBO {
 	@Id
 	private String id;
-	@Field("codLoca")
-	private String codLocalita;
-	@Field("codCata")
-	private String codCatasto;
-	@Field("codIstat")
-	private String codIstat;
-	@Field("codComu")
+	@Field("codNazione")
+	private String codNazione;
+	@Field("codProvincia")
+	private String codProvincia;
+	@Field("codComune")
 	private String codComune;
 	@Field("finValidita")
 	private Date fineValidita;
@@ -25,81 +23,49 @@ public class ComuneDBO {
 	private String descrizione;
 	@Field("cap")
 	private List<String> cap;
-
-	@Field("codProv")
-
-	private String codProvincia;
-
-	public String getCodProvincia() {
-		return codProvincia;
-	}
-
-	public void setCodProvincia(String codProvincia) {
-		this.codProvincia = codProvincia;
-	}
-
 	public String getId() {
 		return id;
 	}
-
 	public void setId(String id) {
 		this.id = id;
 	}
-
-	public String getCodLocalita() {
-		return codLocalita;
+	public String getCodNazione() {
+		return codNazione;
 	}
-
-	public void setCodLocalita(String codLocalita) {
-		this.codLocalita = codLocalita;
+	public void setCodNazione(String codNazione) {
+		this.codNazione = codNazione;
 	}
-
-	public String getCodCatasto() {
-		return codCatasto;
+	public String getCodProvincia() {
+		return codProvincia;
 	}
-
-	public void setCodCatasto(String codCatasto) {
-		this.codCatasto = codCatasto;
+	public void setCodProvincia(String codProvincia) {
+		this.codProvincia = codProvincia;
 	}
-
-	public String getCodIstat() {
-		return codIstat;
-	}
-
-	public void setCodIstat(String codIstat) {
-		this.codIstat = codIstat;
-	}
-
 	public String getCodComune() {
 		return codComune;
 	}
-
 	public void setCodComune(String codComune) {
 		this.codComune = codComune;
 	}
-
 	public Date getFineValidita() {
 		return fineValidita;
 	}
-
 	public void setFineValidita(Date fineValidita) {
 		this.fineValidita = fineValidita;
 	}
-
 	public String getDescrizione() {
 		return descrizione;
 	}
-
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
 	}
-
 	public List<String> getCap() {
 		return cap;
 	}
-
 	public void setCap(List<String> cap) {
 		this.cap = cap;
 	}
+
+	
 
 }

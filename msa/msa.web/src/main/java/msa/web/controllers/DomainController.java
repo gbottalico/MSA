@@ -84,7 +84,7 @@ public class DomainController extends BaseController {
 	@ApiOperation(value = "Metodo che recupera l'elenco dei comuni in base all'id della nazione, id della provincia e la descrizione")
 	@RequestMapping(value = "/comune/{nazione}/{provincia}/{desComune}", method = RequestMethod.GET)
 	public BaseDTO<List<ComuneDTO>> getElencoComuni(@PathVariable("nazione") Integer idNazione,
-			@PathVariable("provincia") String idProvincia, @PathVariable("desComune") String desComune)
+			@PathVariable("provincia") Integer idProvincia, @PathVariable("desComune") String desComune)
 			throws InstantiationException, IllegalAccessException, InvocationTargetException {
 		BaseDTO<List<ComuneDTO>> result = new BaseDTO<List<ComuneDTO>>();
 		result.setResult(domainService.getElencoComuni(idNazione, idProvincia, desComune));

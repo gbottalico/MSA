@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.repository.Query;
 import msa.infrastructure.persistence.ComuneDBO;
 
 public interface ComuniBaseRepository extends MongoRepository<ComuneDBO, Integer> {
-	//TODO cambiare la query
-	@Query("{'_id': { $regex: '^?1'  }}")
-	List<ComuneDBO> findByDesc(Integer codNazione, String provincia, String name);
+	
+	@Query("{'codNazione': ?0 , 'codProvincia': ?1,'descrizione':{$regex: '^?2'}, 'finValidita':null}")
+	List<ComuneDBO> findByDesc(Integer codNazione, Integer provincia, String name);
 }
