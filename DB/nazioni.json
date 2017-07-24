@@ -1,0 +1,347 @@
+{ "_id" : 1, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "ITALIA", "sigNazione" : "I" }
+{ "_id" : 2, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "AFGHANISTAN", "sigNazione" : "AFG" }
+{ "_id" : 3, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "descrizione" : "AFRICA DEL SUD-OVEST", "sigNazione" : "NAM" }
+{ "_id" : 4, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "ALBANIA", "sigNazione" : "AL" }
+{ "_id" : 5, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "ALGERIA", "sigNazione" : "DZ" }
+{ "_id" : 6, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "ANDORRA", "sigNazione" : "AND" }
+{ "_id" : 7, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1977-12-31T00:00:00.000+0000" }, "descrizione" : "ANGOLA", "sigNazione" : null }
+{ "_id" : 8, "iniValidita" : { "$date" : "1977-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "ANGOLA", "sigNazione" : null }
+{ "_id" : 9, "iniValidita" : { "$date" : "1980-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "ANGUILLA (ISOLA)", "sigNazione" : null }
+{ "_id" : 10, "iniValidita" : { "$date" : "1984-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "ANTIGUA E BARBUDA", "sigNazione" : null }
+{ "_id" : 11, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "descrizione" : "ANTILLE BRITANNICHE", "sigNazione" : null }
+{ "_id" : 12, "iniValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "finValidita" : { "$date" : "1977-12-31T00:00:00.000+0000" }, "descrizione" : "ANTILLE BRITANNICHE", "sigNazione" : null }
+{ "_id" : 13, "iniValidita" : { "$date" : "1977-12-31T00:00:00.000+0000" }, "finValidita" : { "$date" : "1980-12-31T00:00:00.000+0000" }, "descrizione" : "ANTILLE BRITANNICHE", "sigNazione" : null }
+{ "_id" : 14, "iniValidita" : { "$date" : "1980-12-31T00:00:00.000+0000" }, "finValidita" : { "$date" : "1984-12-31T00:00:00.000+0000" }, "descrizione" : "ANTILLE BRITANNICHE", "sigNazione" : null }
+{ "_id" : 15, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "ANTILLE OLANDESI", "sigNazione" : "NA" }
+{ "_id" : 16, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "descrizione" : "ARABIA MERIDIONALE FEDERAZIONE", "sigNazione" : null }
+{ "_id" : 17, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "descrizione" : "ARABIA MERIDIONALE PROTETTORATO", "sigNazione" : null }
+{ "_id" : 18, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "ARABIA SAUDITA", "sigNazione" : "SA" }
+{ "_id" : 19, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "ARGENTINA", "sigNazione" : "RA" }
+{ "_id" : 20, "iniValidita" : { "$date" : "1991-09-23T00:00:00.000+0000" }, "finValidita" : { "$date" : "1994-01-01T00:00:00.000+0000" }, "descrizione" : "ARMENIA", "sigNazione" : null }
+{ "_id" : 21, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "ARMENIA", "sigNazione" : null }
+{ "_id" : 22, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "AUSTRALIA", "sigNazione" : "AUS" }
+{ "_id" : 23, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "AUSTRIA", "sigNazione" : "A" }
+{ "_id" : 24, "iniValidita" : { "$date" : "1991-08-30T00:00:00.000+0000" }, "finValidita" : { "$date" : "1994-01-01T00:00:00.000+0000" }, "descrizione" : "AZERBAIGIAN", "sigNazione" : "AZ" }
+{ "_id" : 25, "iniValidita" : { "$date" : "1994-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "AZERBAIGIAN", "sigNazione" : "AZ" }
+{ "_id" : 26, "iniValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "BAHAMA", "sigNazione" : "BS" }
+{ "_id" : 27, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "descrizione" : "BAHAMA (ISOLE)", "sigNazione" : "BS" }
+{ "_id" : 28, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "descrizione" : "BAHREIN", "sigNazione" : "BRN" }
+{ "_id" : 29, "iniValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "BAHREIN", "sigNazione" : "BRN" }
+{ "_id" : 30, "iniValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "BANGLADESH", "sigNazione" : "BD" }
+{ "_id" : 31, "iniValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "BARBADOS", "sigNazione" : null }
+{ "_id" : 32, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1966-10-01T00:00:00.000+0000" }, "descrizione" : "BASUTOLAND-SUD AFRICA BRITANNICO", "sigNazione" : null }
+{ "_id" : 33, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1966-10-01T00:00:00.000+0000" }, "descrizione" : "BECIUANIA-SUD AFRICA BRITANNICO", "sigNazione" : null }
+{ "_id" : 34, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "BELGIO", "sigNazione" : "B" }
+{ "_id" : 35, "iniValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "finValidita" : { "$date" : "1984-12-31T00:00:00.000+0000" }, "descrizione" : "BELIZE", "sigNazione" : "BZ" }
+{ "_id" : 36, "iniValidita" : { "$date" : "1984-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "BELIZE", "sigNazione" : "BZ" }
+{ "_id" : 37, "iniValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "BENIN", "sigNazione" : "DY" }
+{ "_id" : 38, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "BERMUDA (ISOLE)", "sigNazione" : null }
+{ "_id" : 39, "iniValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "BHUTAN", "sigNazione" : null }
+{ "_id" : 40, "iniValidita" : { "$date" : "1991-08-25T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "BIELORUSSIA=RUSSIA BIANCA", "sigNazione" : "BY" }
+{ "_id" : 41, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "BIRMANIA", "sigNazione" : null }
+{ "_id" : 42, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "BOLIVIA", "sigNazione" : "BOL" }
+{ "_id" : 43, "iniValidita" : { "$date" : "1978-12-31T00:00:00.000+0000" }, "finValidita" : { "$date" : "1994-01-01T00:00:00.000+0000" }, "descrizione" : "BOPHUTHATSWANA", "sigNazione" : null }
+{ "_id" : 44, "iniValidita" : { "$date" : "1990-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "BOSNIA ED ERZEGOVINA", "sigNazione" : "BIH" }
+{ "_id" : 45, "iniValidita" : { "$date" : "1966-10-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "BOTSWANA", "sigNazione" : null }
+{ "_id" : 46, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "BRASILE", "sigNazione" : "BR" }
+{ "_id" : 47, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1984-12-31T00:00:00.000+0000" }, "descrizione" : "BRUNEI", "sigNazione" : "BRU" }
+{ "_id" : 48, "iniValidita" : { "$date" : "1984-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "BRUNEI", "sigNazione" : "BRU" }
+{ "_id" : 49, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "BULGARIA", "sigNazione" : "BG" }
+{ "_id" : 50, "iniValidita" : { "$date" : "1984-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "BURKINA", "sigNazione" : "BF" }
+{ "_id" : 51, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "BURUNDI", "sigNazione" : "RU" }
+{ "_id" : 52, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "CAMBOGIA", "sigNazione" : null }
+{ "_id" : 53, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "CAMERUN", "sigNazione" : "CAM" }
+{ "_id" : 54, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "CANADA", "sigNazione" : "CDN" }
+{ "_id" : 55, "iniValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "CAPO VERDE", "sigNazione" : null }
+{ "_id" : 56, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "descrizione" : "CAPO VERDE (ISOLE)", "sigNazione" : null }
+{ "_id" : 57, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1984-12-31T00:00:00.000+0000" }, "descrizione" : "CAROLINE (ISOLE)", "sigNazione" : null }
+{ "_id" : 58, "iniValidita" : { "$date" : "1984-12-31T00:00:00.000+0000" }, "finValidita" : { "$date" : "1990-12-22T00:00:00.000+0000" }, "descrizione" : "CAROLINE (ISOLE)=STATI FEDERATI DI MICRONESIA", "sigNazione" : null }
+{ "_id" : 59, "iniValidita" : { "$date" : "1980-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "CAYMAN (ISOLE)", "sigNazione" : null }
+{ "_id" : 60, "iniValidita" : { "$date" : "1993-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "CECA REPUBBLICA", "sigNazione" : null }
+{ "_id" : 61, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1993-01-01T00:00:00.000+0000" }, "descrizione" : "CECOSLOVACCHIA", "sigNazione" : "SK" }
+{ "_id" : 62, "iniValidita" : { "$date" : "1980-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "CENTRAFRICANA REPUBBLICA", "sigNazione" : "RCA" }
+{ "_id" : 63, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1977-12-31T00:00:00.000+0000" }, "descrizione" : "CENTROAFRICANA REPUBBLICA", "sigNazione" : "RCA" }
+{ "_id" : 64, "iniValidita" : { "$date" : "1977-12-31T00:00:00.000+0000" }, "finValidita" : { "$date" : "1980-12-31T00:00:00.000+0000" }, "descrizione" : "CENTROAFRICANO IMPERO", "sigNazione" : "RCA" }
+{ "_id" : 65, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "descrizione" : "CEYLON", "sigNazione" : "CL" }
+{ "_id" : 66, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "CHRISTMAS (ISOLA)", "sigNazione" : null }
+{ "_id" : 67, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "CIAD", "sigNazione" : "TCH" }
+{ "_id" : 68, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "CILE", "sigNazione" : "RCH" }
+{ "_id" : 69, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "CINA REPUBBLICA POPOLARE", "sigNazione" : "TJ" }
+{ "_id" : 70, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "CIPRO", "sigNazione" : "CY" }
+{ "_id" : 71, "iniValidita" : { "$date" : "1984-12-31T00:00:00.000+0000" }, "finValidita" : { "$date" : "1994-01-01T00:00:00.000+0000" }, "descrizione" : "CISKEI", "sigNazione" : null }
+{ "_id" : 72, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "CITTA' DEL VATICANO", "sigNazione" : "SCV" }
+{ "_id" : 73, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "COCOS (ISOLE)", "sigNazione" : null }
+{ "_id" : 74, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "COLOMBIA", "sigNazione" : "CO" }
+{ "_id" : 75, "iniValidita" : { "$date" : "1977-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "COMORE", "sigNazione" : null }
+{ "_id" : 76, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "descrizione" : "COMORE (ISOLE)", "sigNazione" : null }
+{ "_id" : 77, "iniValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "finValidita" : { "$date" : "1977-12-31T00:00:00.000+0000" }, "descrizione" : "COMORE (ISOLE)", "sigNazione" : null }
+{ "_id" : 78, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "descrizione" : "CONGO BRAZZAVILLE", "sigNazione" : "RCB" }
+{ "_id" : 79, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "descrizione" : "CONGO LEOPOLDVILLE", "sigNazione" : "RCB" }
+{ "_id" : 80, "iniValidita" : { "$date" : "1997-05-17T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "CONGO REPUBBLICA DEMOCRATICA", "sigNazione" : "RCB" }
+{ "_id" : 81, "iniValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "CONGO REPUBBLICA POPOLARE", "sigNazione" : "RCB" }
+{ "_id" : 82, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "COOK (ISOLE)", "sigNazione" : null }
+{ "_id" : 83, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "COREA DEL NORD", "sigNazione" : null }
+{ "_id" : 84, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "COREA DEL SUD", "sigNazione" : null }
+{ "_id" : 85, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "COSTA D'AVORIO", "sigNazione" : "CI" }
+{ "_id" : 86, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "descrizione" : "COSTA DEI PIRATI=TRUCIAL STATES", "sigNazione" : null }
+{ "_id" : 87, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "COSTA RICA", "sigNazione" : "CR" }
+{ "_id" : 88, "iniValidita" : { "$date" : "1991-10-08T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "CROAZIA", "sigNazione" : "HR" }
+{ "_id" : 89, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "CUBA", "sigNazione" : "C" }
+{ "_id" : 90, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "descrizione" : "DAHOMEY=BENIN", "sigNazione" : "DY" }
+{ "_id" : 91, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "DANIMARCA", "sigNazione" : "DK" }
+{ "_id" : 92, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "DIPENDENZE AUSTRALIANE", "sigNazione" : null }
+{ "_id" : 93, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "DIPENDENZE BRITANNICHE", "sigNazione" : null }
+{ "_id" : 94, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "DIPENDENZE CANADESI", "sigNazione" : null }
+{ "_id" : 95, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "DIPENDENZE FRANCESI", "sigNazione" : null }
+{ "_id" : 96, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "DIPENDENZE NEOZELANDESI", "sigNazione" : null }
+{ "_id" : 97, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "DIPENDENZE NORVEGESI ANTARTICHE", "sigNazione" : null }
+{ "_id" : 98, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "DIPENDENZE NORVEGESI ARTICHE", "sigNazione" : null }
+{ "_id" : 99, "iniValidita" : { "$date" : "1992-03-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "DIPENDENZE RUSSE", "sigNazione" : null }
+{ "_id" : 100, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1992-03-31T00:00:00.000+0000" }, "descrizione" : "DIPENDENZE SOVIETICHE", "sigNazione" : null }
+{ "_id" : 101, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "DIPENDENZE STATUNITENSI", "sigNazione" : null }
+{ "_id" : 102, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "DIPENDENZE SUDAFRICANE", "sigNazione" : null }
+{ "_id" : 103, "iniValidita" : { "$date" : "1980-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "DOMINICA", "sigNazione" : null }
+{ "_id" : 104, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "DOMINICANA REPUBBLICA", "sigNazione" : "DOM" }
+{ "_id" : 105, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "ECUADOR", "sigNazione" : "EC" }
+{ "_id" : 106, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "EGITTO", "sigNazione" : "ET" }
+{ "_id" : 107, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "EL SALVADOR", "sigNazione" : "ES" }
+{ "_id" : 108, "iniValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "EMIRATI ARABI UNITI", "sigNazione" : null }
+{ "_id" : 109, "iniValidita" : { "$date" : "1993-05-24T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "ERITREA", "sigNazione" : null }
+{ "_id" : 110, "iniValidita" : { "$date" : "1991-09-06T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "ESTONIA", "sigNazione" : "EST" }
+{ "_id" : 111, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1993-05-24T00:00:00.000+0000" }, "descrizione" : "ETIOPIA", "sigNazione" : "ETH" }
+{ "_id" : 112, "iniValidita" : { "$date" : "1993-05-24T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "ETIOPIA", "sigNazione" : "ETH" }
+{ "_id" : 113, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "FAER OER (ISOLE)", "sigNazione" : "FR" }
+{ "_id" : 114, "iniValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "FIGI=VITI", "sigNazione" : "FJI" }
+{ "_id" : 115, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "descrizione" : "FIGI=VITI (ISOLE)", "sigNazione" : "FJI" }
+{ "_id" : 116, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "FILIPPINE", "sigNazione" : "RP" }
+{ "_id" : 117, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "FINLANDIA", "sigNazione" : "FIN" }
+{ "_id" : 118, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "descrizione" : "FORMOSA=TAIWAN", "sigNazione" : null }
+{ "_id" : 119, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "FRANCIA", "sigNazione" : "F" }
+{ "_id" : 120, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "GABON", "sigNazione" : "G" }
+{ "_id" : 121, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "GAMBIA", "sigNazione" : "WAG" }
+{ "_id" : 122, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "GAZA (TERRITORIO DI)", "sigNazione" : null }
+{ "_id" : 123, "iniValidita" : { "$date" : "1991-09-09T00:00:00.000+0000" }, "finValidita" : { "$date" : "1994-01-01T00:00:00.000+0000" }, "descrizione" : "GEORGIA", "sigNazione" : "GE" }
+{ "_id" : 124, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "GEORGIA", "sigNazione" : "GE" }
+{ "_id" : 125, "iniValidita" : { "$date" : "1990-10-03T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "GERMANIA", "sigNazione" : "D" }
+{ "_id" : 126, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1990-10-03T00:00:00.000+0000" }, "descrizione" : "GERMANIA REPUBBLICA DEMOCRATICA", "sigNazione" : null }
+{ "_id" : 127, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1990-10-03T00:00:00.000+0000" }, "descrizione" : "GERMANIA REPUBBLICA FEDERALE", "sigNazione" : "D" }
+{ "_id" : 128, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "GHANA", "sigNazione" : "GH" }
+{ "_id" : 129, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "GIAMAICA", "sigNazione" : "JA" }
+{ "_id" : 130, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "GIAPPONE", "sigNazione" : "J" }
+{ "_id" : 131, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "GIBILTERRA", "sigNazione" : "GBZ" }
+{ "_id" : 132, "iniValidita" : { "$date" : "1977-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "GIBUTI", "sigNazione" : null }
+{ "_id" : 133, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1980-12-31T00:00:00.000+0000" }, "descrizione" : "GILBERT E ELLICE (ISOLE)", "sigNazione" : null }
+{ "_id" : 134, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "GIORDANIA", "sigNazione" : "HKJ" }
+{ "_id" : 135, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "GRAN BRETAGNA E IRLANDA DEL NORD", "sigNazione" : "GBJ" }
+{ "_id" : 136, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "GRECIA", "sigNazione" : "GR" }
+{ "_id" : 137, "iniValidita" : { "$date" : "1977-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "GRENADA", "sigNazione" : null }
+{ "_id" : 138, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "GROENLANDIA", "sigNazione" : null }
+{ "_id" : 139, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "GUADALUPA", "sigNazione" : null }
+{ "_id" : 140, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "GUAM (ISOLA)", "sigNazione" : null }
+{ "_id" : 141, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "GUATEMALA", "sigNazione" : "GCA" }
+{ "_id" : 142, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "descrizione" : "GUAYANA OLANDESE", "sigNazione" : "SME" }
+{ "_id" : 143, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "GUAYANA=GUIANA FRANCESE", "sigNazione" : "GUY" }
+{ "_id" : 144, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "GUINEA", "sigNazione" : "RG" }
+{ "_id" : 145, "iniValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "GUINEA BISSAU", "sigNazione" : "RG" }
+{ "_id" : 146, "iniValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "GUINEA EQUATORIALE", "sigNazione" : "RG" }
+{ "_id" : 147, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "descrizione" : "GUINEA PORTOGHESE", "sigNazione" : "RG" }
+{ "_id" : 148, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "descrizione" : "GUINEA SPAGNOLA", "sigNazione" : "RG" }
+{ "_id" : 149, "iniValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "GUYANA", "sigNazione" : null }
+{ "_id" : 150, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "descrizione" : "GUYANA BRITANNICA", "sigNazione" : null }
+{ "_id" : 151, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "HAITI", "sigNazione" : "RH" }
+{ "_id" : 152, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "HONDURAS", "sigNazione" : null }
+{ "_id" : 153, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "descrizione" : "HONDURAS BRITANNICO", "sigNazione" : "BZ" }
+{ "_id" : 154, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1997-07-01T00:00:00.000+0000" }, "descrizione" : "HONG KONG", "sigNazione" : "HK" }
+{ "_id" : 155, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "descrizione" : "IFNI", "sigNazione" : null }
+{ "_id" : 156, "iniValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "finValidita" : { "$date" : "1984-12-31T00:00:00.000+0000" }, "descrizione" : "IFNI", "sigNazione" : null }
+{ "_id" : 157, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "INDIA", "sigNazione" : "IND" }
+{ "_id" : 158, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "INDONESIA", "sigNazione" : "RI" }
+{ "_id" : 159, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "IRAN", "sigNazione" : "IR" }
+{ "_id" : 160, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "IRAQ", "sigNazione" : "IRQ" }
+{ "_id" : 161, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "IRIAN OCCIDENTALE", "sigNazione" : null }
+{ "_id" : 162, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "IRLANDA=EIRE", "sigNazione" : "IRL" }
+{ "_id" : 163, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "ISLANDA", "sigNazione" : "IS" }
+{ "_id" : 164, "iniValidita" : { "$date" : "1984-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "ISOLE CILENE (PASQUA E SALA Y GOMEZ)", "sigNazione" : null }
+{ "_id" : 165, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "ISRAELE", "sigNazione" : "IL" }
+{ "_id" : 166, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1991-09-15T00:00:00.000+0000" }, "descrizione" : "IUGOSLAVIA", "sigNazione" : null }
+{ "_id" : 167, "iniValidita" : { "$date" : "1991-09-15T00:00:00.000+0000" }, "finValidita" : { "$date" : "1991-10-08T00:00:00.000+0000" }, "descrizione" : "IUGOSLAVIA", "sigNazione" : null }
+{ "_id" : 168, "iniValidita" : { "$date" : "1991-10-08T00:00:00.000+0000" }, "finValidita" : { "$date" : "1992-03-03T00:00:00.000+0000" }, "descrizione" : "IUGOSLAVIA", "sigNazione" : null }
+{ "_id" : 169, "iniValidita" : { "$date" : "1992-03-03T00:00:00.000+0000" }, "finValidita" : { "$date" : "2003-02-04T00:00:00.000+0000" }, "descrizione" : "IUGOSLAVIA", "sigNazione" : null }
+{ "_id" : 170, "iniValidita" : { "$date" : "1991-12-16T00:00:00.000+0000" }, "finValidita" : { "$date" : "1994-01-01T00:00:00.000+0000" }, "descrizione" : "KAZAKISTAN", "sigNazione" : null }
+{ "_id" : 171, "iniValidita" : { "$date" : "1994-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "KAZAKISTAN", "sigNazione" : null }
+{ "_id" : 172, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "KENYA", "sigNazione" : "EAK" }
+{ "_id" : 173, "iniValidita" : { "$date" : "1991-08-31T00:00:00.000+0000" }, "finValidita" : { "$date" : "1994-01-01T00:00:00.000+0000" }, "descrizione" : "KIRGHIZISTAN", "sigNazione" : null }
+{ "_id" : 174, "iniValidita" : { "$date" : "1994-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "KIRGHIZISTAN", "sigNazione" : null }
+{ "_id" : 175, "iniValidita" : { "$date" : "1980-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "KIRIBATI", "sigNazione" : null }
+{ "_id" : 176, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "KUWAIT", "sigNazione" : "KWT" }
+{ "_id" : 177, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "LA REUNION (ISOLA)", "sigNazione" : null }
+{ "_id" : 178, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "LAOS", "sigNazione" : "LAO" }
+{ "_id" : 179, "iniValidita" : { "$date" : "1966-10-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "LESOTHO", "sigNazione" : null }
+{ "_id" : 180, "iniValidita" : { "$date" : "1991-09-06T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "LETTONIA", "sigNazione" : null }
+{ "_id" : 181, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "LIBANO", "sigNazione" : "RL" }
+{ "_id" : 182, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "LIBERIA", "sigNazione" : "LB" }
+{ "_id" : 183, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "LIBIA", "sigNazione" : "LAR" }
+{ "_id" : 184, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "LIECHTENSTEIN", "sigNazione" : "FL" }
+{ "_id" : 185, "iniValidita" : { "$date" : "1991-09-06T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "LITUANIA", "sigNazione" : "LT" }
+{ "_id" : 186, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "LUSSEMBURGO", "sigNazione" : "L" }
+{ "_id" : 187, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "MACAO", "sigNazione" : null }
+{ "_id" : 188, "iniValidita" : { "$date" : "1991-09-15T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "MACEDONIA", "sigNazione" : "MK" }
+{ "_id" : 189, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "MACQUARIE (ISOLE)", "sigNazione" : null }
+{ "_id" : 190, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "MADAGASCAR", "sigNazione" : "RM" }
+{ "_id" : 191, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "MALAWI", "sigNazione" : "MW" }
+{ "_id" : 192, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1966-10-01T00:00:00.000+0000" }, "descrizione" : "MALAYSIA", "sigNazione" : "MAL" }
+{ "_id" : 193, "iniValidita" : { "$date" : "1966-10-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "MALAYSIA", "sigNazione" : "MAL" }
+{ "_id" : 194, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "MALDIVE", "sigNazione" : null }
+{ "_id" : 195, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "MALI", "sigNazione" : "RMM" }
+{ "_id" : 196, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "MALTA", "sigNazione" : "M" }
+{ "_id" : 197, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "MALVINE=FALKLAND (ISOLE)", "sigNazione" : null }
+{ "_id" : 198, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "MAN (ISOLA)", "sigNazione" : null }
+{ "_id" : 199, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "descrizione" : "MARCUS (ISOLE)", "sigNazione" : null }
+{ "_id" : 200, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "MARIANNE (ISOLE)", "sigNazione" : null }
+{ "_id" : 201, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "MAROCCO", "sigNazione" : "MA" }
+{ "_id" : 202, "iniValidita" : { "$date" : "1990-12-22T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "MARSHALL", "sigNazione" : null }
+{ "_id" : 203, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1990-12-22T00:00:00.000+0000" }, "descrizione" : "MARSHALL (ISOLE)", "sigNazione" : null }
+{ "_id" : 204, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "MARTINICA", "sigNazione" : null }
+{ "_id" : 205, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "MAURITANIA", "sigNazione" : "RIM" }
+{ "_id" : 206, "iniValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "MAURIZIO", "sigNazione" : "MS" }
+{ "_id" : 207, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "descrizione" : "MAURIZIO (ISOLE)", "sigNazione" : "MS" }
+{ "_id" : 208, "iniValidita" : { "$date" : "1977-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "MAYOTTE (ISOLA)", "sigNazione" : null }
+{ "_id" : 209, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "MESSICO", "sigNazione" : "MEX" }
+{ "_id" : 210, "iniValidita" : { "$date" : "1990-12-22T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "MICRONESIA STATI FEDERATI", "sigNazione" : null }
+{ "_id" : 211, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "MIDWAY (ISOLE)", "sigNazione" : null }
+{ "_id" : 212, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "MOLDAVIA", "sigNazione" : null }
+{ "_id" : 213, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "MONACO", "sigNazione" : "MC" }
+{ "_id" : 214, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "MONGOLIA", "sigNazione" : null }
+{ "_id" : 215, "iniValidita" : { "$date" : "1980-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "MONTSERRAT", "sigNazione" : null }
+{ "_id" : 216, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "descrizione" : "MOZAMBICO", "sigNazione" : "MOC" }
+{ "_id" : 217, "iniValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "MOZAMBICO", "sigNazione" : "MOC" }
+{ "_id" : 218, "iniValidita" : { "$date" : "1978-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "NAMIBIA", "sigNazione" : "NAM" }
+{ "_id" : 219, "iniValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "finValidita" : { "$date" : "1978-12-31T00:00:00.000+0000" }, "descrizione" : "NAMIBIA=AFRICA DEL SUD OVEST", "sigNazione" : "NAM" }
+{ "_id" : 220, "iniValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "NAURU", "sigNazione" : "NAU" }
+{ "_id" : 221, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "descrizione" : "NAURU (ISOLE)", "sigNazione" : "NAU" }
+{ "_id" : 222, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "NEPAL", "sigNazione" : "NEP" }
+{ "_id" : 223, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "NICARAGUA", "sigNazione" : "NIC" }
+{ "_id" : 224, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "NIGER", "sigNazione" : null }
+{ "_id" : 225, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "NIGERIA", "sigNazione" : "RN" }
+{ "_id" : 226, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "NIUE=SAVAGE (ISOLE)", "sigNazione" : null }
+{ "_id" : 227, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "NORFOLK (ISOLE E ISOLE DEL MAR DEI CORALLI)", "sigNazione" : null }
+{ "_id" : 228, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "NORMANNE (ISOLE)=ISOLE DEL CANALE", "sigNazione" : null }
+{ "_id" : 229, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "NORVEGIA", "sigNazione" : "N" }
+{ "_id" : 230, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "NUOVA CALEDONIA (ISOLE E DIPENDENZE)", "sigNazione" : null }
+{ "_id" : 231, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "descrizione" : "NUOVA GUINEA", "sigNazione" : "PNG" }
+{ "_id" : 232, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "NUOVA ZELANDA", "sigNazione" : "NZ" }
+{ "_id" : 233, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1980-12-31T00:00:00.000+0000" }, "descrizione" : "NUOVE EBRIDI (ISOLE CONDOMINIO FRANCO-INGLESE)", "sigNazione" : null }
+{ "_id" : 234, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "OMAN", "sigNazione" : null }
+{ "_id" : 235, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "PAESI BASSI", "sigNazione" : "NL" }
+{ "_id" : 236, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "PAKISTAN", "sigNazione" : "PK" }
+{ "_id" : 237, "iniValidita" : { "$date" : "1997-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "PALAU REPUBBLICA", "sigNazione" : null }
+{ "_id" : 238, "iniValidita" : { "$date" : "1984-12-31T00:00:00.000+0000" }, "finValidita" : { "$date" : "1997-01-01T00:00:00.000+0000" }, "descrizione" : "PALAU REPUBBLICA", "sigNazione" : null }
+{ "_id" : 239, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "PANAMA'", "sigNazione" : "PA" }
+{ "_id" : 240, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1980-12-31T00:00:00.000+0000" }, "descrizione" : "PANAMA ZONA DEL CANALE", "sigNazione" : "PA" }
+{ "_id" : 241, "iniValidita" : { "$date" : "1980-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "PANAMA ZONA DEL CANALE", "sigNazione" : "PA" }
+{ "_id" : 242, "iniValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "PAPUA NUOVA GUINEA", "sigNazione" : "PNG" }
+{ "_id" : 243, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "descrizione" : "PAPUASIA", "sigNazione" : null }
+{ "_id" : 244, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "PARAGUAY", "sigNazione" : "PY" }
+{ "_id" : 245, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1984-12-31T00:00:00.000+0000" }, "descrizione" : "PASQUA (ISOLA)", "sigNazione" : null }
+{ "_id" : 246, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "PERU'", "sigNazione" : "PE" }
+{ "_id" : 247, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "PITCAIRN (E DIPENDENZE)", "sigNazione" : null }
+{ "_id" : 248, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "POLINESIA FRANCESE (ISOLE)", "sigNazione" : null }
+{ "_id" : 249, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1989-12-31T00:00:00.000+0000" }, "descrizione" : "POLONIA", "sigNazione" : "PL" }
+{ "_id" : 250, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "PORTOGALLO", "sigNazione" : "P" }
+{ "_id" : 251, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "PUERTO RICO", "sigNazione" : null }
+{ "_id" : 252, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "descrizione" : "QATAR", "sigNazione" : "Q" }
+{ "_id" : 253, "iniValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "QATAR", "sigNazione" : "Q" }
+{ "_id" : 254, "iniValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "REPUBBLICA DELLA CINA NAZIONALE=TAIWAN", "sigNazione" : null }
+{ "_id" : 255, "iniValidita" : { "$date" : "1989-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "REPUBBLICA DI POLONIA", "sigNazione" : "PL" }
+{ "_id" : 256, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1980-12-31T00:00:00.000+0000" }, "descrizione" : "RHODESIA", "sigNazione" : "ZW" }
+{ "_id" : 257, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "ROMANIA", "sigNazione" : "RO" }
+{ "_id" : 258, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "RUANDA", "sigNazione" : "RWA" }
+{ "_id" : 259, "iniValidita" : { "$date" : "1992-03-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "RUSSIA=FEDERAZIONE RUSSA", "sigNazione" : null }
+{ "_id" : 260, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "descrizione" : "RYUKYU (ISOLE)", "sigNazione" : null }
+{ "_id" : 261, "iniValidita" : { "$date" : "1977-12-31T00:00:00.000+0000" }, "finValidita" : { "$date" : "1984-12-31T00:00:00.000+0000" }, "descrizione" : "SAHARA MERIDIONALE", "sigNazione" : null }
+{ "_id" : 262, "iniValidita" : { "$date" : "1977-12-31T00:00:00.000+0000" }, "finValidita" : { "$date" : "1984-12-31T00:00:00.000+0000" }, "descrizione" : "SAHARA SETTENTRIONALE", "sigNazione" : null }
+{ "_id" : 263, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1977-12-31T00:00:00.000+0000" }, "descrizione" : "SAHARA SPAGNOLO", "sigNazione" : null }
+{ "_id" : 264, "iniValidita" : { "$date" : "1984-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "SAINT KITTS E NEVIS=SAINT CHRISTOPHER E NEVIS", "sigNazione" : null }
+{ "_id" : 265, "iniValidita" : { "$date" : "1980-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "SAINT LUCIA", "sigNazione" : null }
+{ "_id" : 266, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "SAINT PIERRE ET MIQUELON (ISOLE)", "sigNazione" : null }
+{ "_id" : 267, "iniValidita" : { "$date" : "1980-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "SAINT VINCENT E GRENADINE", "sigNazione" : null }
+{ "_id" : 268, "iniValidita" : { "$date" : "1978-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "SALOMONE", "sigNazione" : null }
+{ "_id" : 269, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1978-12-31T00:00:00.000+0000" }, "descrizione" : "SALOMONE (ISOLE)", "sigNazione" : null }
+{ "_id" : 270, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "SAMOA", "sigNazione" : null }
+{ "_id" : 271, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "SAMOA AMERICANE (ISOLE)", "sigNazione" : null }
+{ "_id" : 272, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "SAN MARINO", "sigNazione" : "RSM" }
+{ "_id" : 273, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "SANT'ELENA (ISOLA)", "sigNazione" : null }
+{ "_id" : 274, "iniValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "SAO TOME' E PRINCIPE", "sigNazione" : null }
+{ "_id" : 275, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "descrizione" : "SAO TOME' E PRINCIPE (ISOLE)", "sigNazione" : null }
+{ "_id" : 276, "iniValidita" : { "$date" : "1977-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "SEICELLE", "sigNazione" : "SY" }
+{ "_id" : 277, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1977-12-31T00:00:00.000+0000" }, "descrizione" : "SEICELLE (ISOLE)", "sigNazione" : "SY" }
+{ "_id" : 278, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "SENEGAL", "sigNazione" : "SN" }
+{ "_id" : 279, "iniValidita" : { "$date" : "2003-02-04T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "SERBIA E MONTENEGRO", "sigNazione" : null }
+{ "_id" : 280, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "SIERRA LEONE", "sigNazione" : "WAL" }
+{ "_id" : 281, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "descrizione" : "SIKKIM", "sigNazione" : null }
+{ "_id" : 282, "iniValidita" : { "$date" : "1966-10-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "SINGAPORE", "sigNazione" : null }
+{ "_id" : 283, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "SIRIA", "sigNazione" : null }
+{ "_id" : 284, "iniValidita" : { "$date" : "1993-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "SLOVACCHIA", "sigNazione" : "SK" }
+{ "_id" : 285, "iniValidita" : { "$date" : "1991-10-08T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "SLOVENIA", "sigNazione" : "SLO" }
+{ "_id" : 286, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "SOMALIA", "sigNazione" : "SO" }
+{ "_id" : 287, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "descrizione" : "SOMALIA FRANCESE", "sigNazione" : null }
+{ "_id" : 288, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "SPAGNA", "sigNazione" : "E" }
+{ "_id" : 289, "iniValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "SRI LANKA", "sigNazione" : "CL" }
+{ "_id" : 290, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "STATI UNITI D'AMERICA", "sigNazione" : "USA" }
+{ "_id" : 291, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1978-12-31T00:00:00.000+0000" }, "descrizione" : "SUDAFRICANA REPUBBLICA", "sigNazione" : "ZA" }
+{ "_id" : 292, "iniValidita" : { "$date" : "1978-12-31T00:00:00.000+0000" }, "finValidita" : { "$date" : "1980-12-31T00:00:00.000+0000" }, "descrizione" : "SUDAFRICANA REPUBBLICA", "sigNazione" : "ZA" }
+{ "_id" : 293, "iniValidita" : { "$date" : "1980-12-31T00:00:00.000+0000" }, "finValidita" : { "$date" : "1984-12-31T00:00:00.000+0000" }, "descrizione" : "SUDAFRICANA REPUBBLICA", "sigNazione" : "ZA" }
+{ "_id" : 294, "iniValidita" : { "$date" : "1984-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "SUDAFRICANA REPUBBLICA", "sigNazione" : "ZA" }
+{ "_id" : 295, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "SUDAN", "sigNazione" : "SUD" }
+{ "_id" : 296, "iniValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "SURINAME", "sigNazione" : "SME" }
+{ "_id" : 297, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "SVEZIA", "sigNazione" : "S" }
+{ "_id" : 298, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "SVIZZERA", "sigNazione" : "CH" }
+{ "_id" : 299, "iniValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "SWAZILAND", "sigNazione" : "SD" }
+{ "_id" : 300, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "descrizione" : "SWAZILAND-SUDAFRICA BRITANNICO", "sigNazione" : "SD" }
+{ "_id" : 301, "iniValidita" : { "$date" : "1991-09-09T00:00:00.000+0000" }, "finValidita" : { "$date" : "1994-01-01T00:00:00.000+0000" }, "descrizione" : "TAGIKISTAN", "sigNazione" : null }
+{ "_id" : 302, "iniValidita" : { "$date" : "1994-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "TAGIKISTAN", "sigNazione" : null }
+{ "_id" : 303, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1966-10-01T00:00:00.000+0000" }, "descrizione" : "TANGANICA", "sigNazione" : null }
+{ "_id" : 304, "iniValidita" : { "$date" : "1966-10-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "TANZANIA", "sigNazione" : null }
+{ "_id" : 305, "iniValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "finValidita" : { "$date" : "1977-12-31T00:00:00.000+0000" }, "descrizione" : "TERRITORIO FRANCESE DEGLI AFAR E DEGLI ISSA", "sigNazione" : null }
+{ "_id" : 306, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "THAILANDIA", "sigNazione" : "T" }
+{ "_id" : 307, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1978-12-31T00:00:00.000+0000" }, "descrizione" : "TIMOR (ISOLA)", "sigNazione" : null }
+{ "_id" : 308, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "TOGO", "sigNazione" : "TG" }
+{ "_id" : 309, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "TOKELAU=ISOLE DELL'UNIONE", "sigNazione" : null }
+{ "_id" : 310, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "descrizione" : "TONGA=DEGLI AMICI (ISOLE)", "sigNazione" : null }
+{ "_id" : 311, "iniValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "TONGA=ISOLE DEGLI AMICI", "sigNazione" : null }
+{ "_id" : 312, "iniValidita" : { "$date" : "1978-12-31T00:00:00.000+0000" }, "finValidita" : { "$date" : "1994-01-01T00:00:00.000+0000" }, "descrizione" : "TRANSKEI", "sigNazione" : null }
+{ "_id" : 313, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "TRINIDAD E TOBAGO", "sigNazione" : "TT" }
+{ "_id" : 314, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "TUNISIA", "sigNazione" : "TN" }
+{ "_id" : 315, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "TURCHIA", "sigNazione" : "TR" }
+{ "_id" : 316, "iniValidita" : { "$date" : "1991-10-29T00:00:00.000+0000" }, "finValidita" : { "$date" : "1994-01-01T00:00:00.000+0000" }, "descrizione" : "TURKEMENISTAN", "sigNazione" : null }
+{ "_id" : 317, "iniValidita" : { "$date" : "1994-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "TURKEMENISTAN", "sigNazione" : "TMN" }
+{ "_id" : 318, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "TURKS E CAICOS (ISOLE)", "sigNazione" : null }
+{ "_id" : 319, "iniValidita" : { "$date" : "1980-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "TUVALU", "sigNazione" : null }
+{ "_id" : 320, "iniValidita" : { "$date" : "1991-08-24T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "UCRAINA", "sigNazione" : "UA" }
+{ "_id" : 321, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "UGANDA", "sigNazione" : "EAU" }
+{ "_id" : 322, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "UNGHERIA", "sigNazione" : "H" }
+{ "_id" : 323, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1991-08-24T00:00:00.000+0000" }, "descrizione" : "UNIONE REPUBBLICHE SOCIALISTE SOVIETICHE", "sigNazione" : null }
+{ "_id" : 324, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "URUGUAY", "sigNazione" : "ROU" }
+{ "_id" : 325, "iniValidita" : { "$date" : "1991-08-31T00:00:00.000+0000" }, "finValidita" : { "$date" : "1994-01-01T00:00:00.000+0000" }, "descrizione" : "UZBEKISTAN", "sigNazione" : "UZ" }
+{ "_id" : 326, "iniValidita" : { "$date" : "1994-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "UZBEKISTAN", "sigNazione" : "UZ" }
+{ "_id" : 327, "iniValidita" : { "$date" : "1980-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "VANUATU", "sigNazione" : null }
+{ "_id" : 328, "iniValidita" : { "$date" : "1980-12-31T00:00:00.000+0000" }, "finValidita" : { "$date" : "1994-01-01T00:00:00.000+0000" }, "descrizione" : "VENDA", "sigNazione" : null }
+{ "_id" : 329, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "VENEZUELA", "sigNazione" : "YV" }
+{ "_id" : 330, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "VERGINI AMERICANE (ISOLE)", "sigNazione" : null }
+{ "_id" : 331, "iniValidita" : { "$date" : "1978-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "VERGINI BRITANNICHE (ISOLE)", "sigNazione" : null }
+{ "_id" : 332, "iniValidita" : { "$date" : "1977-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "VIETNAM", "sigNazione" : "VN" }
+{ "_id" : 333, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1977-12-31T00:00:00.000+0000" }, "descrizione" : "VIETNAM DEL NORD", "sigNazione" : "VN" }
+{ "_id" : 334, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1977-12-31T00:00:00.000+0000" }, "descrizione" : "VIETNAM DEL SUD", "sigNazione" : null }
+{ "_id" : 335, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1984-12-31T00:00:00.000+0000" }, "descrizione" : "VOLTA=ALTOVOLTA", "sigNazione" : "BF" }
+{ "_id" : 336, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "WALLIS E FUTUNA (ISOLE)", "sigNazione" : null }
+{ "_id" : 337, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "YEMEN", "sigNazione" : "YAR" }
+{ "_id" : 338, "iniValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "finValidita" : { "$date" : "1990-05-22T00:00:00.000+0000" }, "descrizione" : "YEMEN REPUBBLICA DEMOCRATICA POPOLARE", "sigNazione" : null }
+{ "_id" : 339, "iniValidita" : { "$date" : "1975-12-31T00:00:00.000+0000" }, "finValidita" : { "$date" : "1997-05-17T00:00:00.000+0000" }, "descrizione" : "ZAIRE", "sigNazione" : "RCB" }
+{ "_id" : 340, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "ZAMBIA", "sigNazione" : "Z" }
+{ "_id" : 341, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "1966-10-01T00:00:00.000+0000" }, "descrizione" : "ZANZIBAR", "sigNazione" : null }
+{ "_id" : 342, "iniValidita" : { "$date" : "1980-12-31T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "ZIMBABWE", "sigNazione" : "ZW" }
+{ "_id" : 343, "iniValidita" : { "$date" : "2006-06-03T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "SERBIA", "sigNazione" : "SE" }
+{ "_id" : 344, "iniValidita" : { "$date" : "2006-06-03T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "MONTENEGRO", "sigNazione" : null }
+{ "_id" : 347, "iniValidita" : { "$date" : "2008-08-21T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "TERRITORI DELL'AUTONOMIA PALESTINESE", "sigNazione" : null }
+{ "_id" : 346, "iniValidita" : { "$date" : "2008-03-17T00:00:00.000+0000" }, "finValidita" : null, "descrizione" : "KOSOVO", "sigNazione" : null }
+{ "_id" : 345, "iniValidita" : { "$date" : "1900-01-01T00:00:00.000+0000" }, "finValidita" : { "$date" : "2006-06-02T00:00:00.000+0000" }, "descrizione" : "SERBIA E MONTENEGRO", "sigNazione" : "SE" }
