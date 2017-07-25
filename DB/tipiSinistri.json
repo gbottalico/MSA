@@ -1,0 +1,36 @@
+{ 
+    "_id" : NumberInt(1), 
+    "desSinistro" : "RC Auto"
+}
+{ 
+    "_id" : NumberInt(2), 
+    "desSinistro" : "Incendio"
+}
+{ 
+    "_id" : NumberInt(3), 
+    "desSinistro" : "Furto totale"
+}
+{ 
+    "_id" : NumberInt(4), 
+    "desSinistro" : "Furto parziale"
+}
+{ 
+    "_id" : NumberInt(5), 
+    "desSinistro" : "Atti vandalici"
+}
+{ 
+    "_id" : NumberInt(6), 
+    "desSinistro" : "Eventi atmosferici"
+}
+{ 
+    "_id" : NumberInt(7), 
+    "desSinistro" : "Kasko"
+}
+{ 
+    "_id" : NumberInt(8), 
+    "desSinistro" : "Cristalli"
+}
+{ 
+    "_id" : NumberInt(9), 
+    "desSinistro" : "infortuni al conducente"
+}
