@@ -1,13 +1,15 @@
 package msa.infrastructure.repository;
 
-import java.lang.reflect.InvocationTargetException;
-import java.util.List;
-
+import msa.domain.Converter.MsaConverter;
 import msa.domain.object.dominio.*;
 import msa.infrastructure.base.repository.*;
 import msa.infrastructure.persistence.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import java.lang.reflect.InvocationTargetException;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class DomainRepository extends BaseRepository {
@@ -94,7 +96,18 @@ public class DomainRepository extends BaseRepository {
      */
     public List<CompagniaDO> getElencoCompagnie(String desc) throws IllegalAccessException, InvocationTargetException, InstantiationException {
         List<CompagniaDBO> result = compagniaRepository.findByDescrizioneIgnoreCase(desc);
-        return converter.convertList(result, CompagniaDO.class);
+        return converter.convertObject(result,(CompagniaDBO compagniaDBO) ->  {
+            CompagniaDO compagniaDO = new CompagniaDO();
+            compagniaDO.setCodFornitore(compagniaDBO.getCodFornitore());
+            compagniaDO.setConvenzioneCid(compagniaDBO.getConvenzioneCid());
+            compagniaDO.setDataInCard(converter.convertObject(compagniaDBO.getDataInCard(), MsaConverter.Utils.convertStringToLocaldate));
+            compagniaDO.setDataOutCard(converter.convertObject(compagniaDBO.getDataOutCard(), MsaConverter.Utils.convertStringToLocaldate));
+            compagniaDO.setDescrizione(compagniaDBO.getDescrizione());
+            compagniaDO.setEstera(compagniaDBO.getEstera());
+            compagniaDO.setId(compagniaDBO.getId());
+            compagniaDO.setLiquidazioneCoatta(compagniaDBO.getLiquidazioneCoatta());
+            return compagniaDO;
+        });
     }
 
     /**

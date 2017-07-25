@@ -17,7 +17,7 @@ public class CompagniaDBO {
     private Character convenzioneCid;
     @Field("Estera")
     private Character estera;
-    @Field("Data_in_Card")
+    @Field("Data_In_Card")
     private String dataInCard;
     @Field("Data_OUT_Card")
     private String dataOutCard;
