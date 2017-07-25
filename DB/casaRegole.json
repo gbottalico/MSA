@@ -1,0 +1,1 @@
+{ "_id" : 1, "descrizioneCompagnia" : "prova", "aperturaSenzaCopertura" : false, "garanzieDefaultSenzaCopertura" : [ { "codiceGaranzia" : 1.0, "descrizioneGaranzia" : "prova" } ], "sita" : false, "sic" : false, "carrozzeriaConvenzionata" : false, "incaricoPerito" : false, "aperturaSxFuoriCopertura" : false, "campiObbligatoriRicerca" : [ "boh" ] }
