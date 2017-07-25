@@ -7,7 +7,6 @@ import msa.domain.object.dominio.*;
 import msa.infrastructure.base.repository.*;
 import msa.infrastructure.persistence.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.stereotype.Repository;
 
 @Repository

@@ -36,7 +36,7 @@ public class DomainService extends BaseService {
             List<NazioneDO> result = domainRepository.getListaNazioni(nome);
             return converter.convertList(result, NazioneDTO.class);
 
-        } catch (IllegalAccessException | InvocationTargetException | InstantiationException e) {
+        }       catch (IllegalAccessException | InvocationTargetException | InstantiationException e) {
             throw new InternalMsaException(e, buildErrorMessageByText(MessageType.ERROR, Constants.DEFAULT_DOMAIN_ERROR_MESSAGE + "nazioni"));
         }
 
