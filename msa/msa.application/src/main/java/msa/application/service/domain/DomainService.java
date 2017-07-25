@@ -30,8 +30,8 @@ public class DomainService extends BaseService {
     public List<NazioneDTO> getElencoNazioni(String nome) throws InternalMsaException {
 
         try {
-            List<NazioneDO> result = domainRepository.getListaNazioni(nome);
-            return converter.convertList(result, NazioneDTO.class);
+
+            return converter.convertList(domainRepository.getListaNazioni(nome), NazioneDTO.class);
 
         } catch (Exception e) {
             throw new InternalMsaException(e, buildErrorMessageByText(MessageType.ERROR, Constants.DEFAULT_DOMAIN_ERROR_MESSAGE + "nazioni"));
@@ -50,8 +50,8 @@ public class DomainService extends BaseService {
      */
     public List<ProvinciaDTO> getElencoProvince(Integer idNazione, String descProvincia) throws InternalMsaException {
         try {
-            List<ProvinciaDO> result = domainRepository.getElencoProvince(idNazione, descProvincia);
-            return converter.convertList(result, ProvinciaDTO.class);
+
+            return converter.convertList(domainRepository.getElencoProvince(idNazione, descProvincia), ProvinciaDTO.class);
         } catch (Exception e) {
             throw new InternalMsaException(e, buildErrorMessageByText(MessageType.ERROR, Constants.DEFAULT_DOMAIN_ERROR_MESSAGE + "provincie"));
         }
@@ -69,8 +69,8 @@ public class DomainService extends BaseService {
      */
     public List<ComuneDTO> getElencoComuni(Integer idNazione, Integer idProvincia, String desc) throws InternalMsaException {
         try {
-            List<ComuneDO> result = domainRepository.getElencoComuni(idNazione, idProvincia, desc);
-            return converter.convertList(result, ComuneDTO.class);
+
+            return converter.convertList(domainRepository.getElencoComuni(idNazione, idProvincia, desc), ComuneDTO.class);
         } catch (Exception e) {
             throw new InternalMsaException(e, buildErrorMessageByText(MessageType.ERROR, Constants.DEFAULT_DOMAIN_ERROR_MESSAGE + "comuni"));
         }
@@ -83,10 +83,10 @@ public class DomainService extends BaseService {
      * @throws InternalMsaException
      */
     public List<AutoritaDTO> getElencoAutorita() throws InternalMsaException {
-        List<AutoritaDO> result = null;
+
         try {
-            result = domainRepository.getElencoAutorita();
-            return converter.convertList(result, AutoritaDTO.class);
+
+            return converter.convertList(domainRepository.getElencoAutorita(), AutoritaDTO.class);
         } catch (Exception e) {
             throw new InternalMsaException(e, buildErrorMessageByText(MessageType.ERROR, Constants.DEFAULT_DOMAIN_ERROR_MESSAGE + "autorità"));
 
@@ -95,7 +95,8 @@ public class DomainService extends BaseService {
     }
 
     /**
-     * Utilizza il DomainRepository per ottenere la lista delle compagnie la cui descrizione contiene
+     * Utilizza il DomainRepository per ottenere la lista delle
+     * la cui descrizione contiene
      * al suo interno la stringa passata come parametro
      *
      * @param desc la stringa da cercare
@@ -103,11 +104,12 @@ public class DomainService extends BaseService {
      * @throws InternalMsaException
      */
     public List<CompagniaDTO> getElencoCompagnie(String desc) throws InternalMsaException {
-        List<CompagniaDO> result = null;
+
         try {
-            return converter.convertList(result, CompagniaDTO.class);
+            return converter.convertList(domainRepository.getElencoCompagnie(desc), CompagniaDTO.class);
 
         } catch (Exception e) {
+            e.printStackTrace();
             throw new InternalMsaException(e, buildErrorMessageByText(MessageType.ERROR, Constants.DEFAULT_DOMAIN_ERROR_MESSAGE + "compagnie"));
 
         }
@@ -120,10 +122,8 @@ public class DomainService extends BaseService {
      * @throws InternalMsaException
      */
     public List<MezzoComunicazioneDTO> getElencoMezziComunicazione() throws InternalMsaException {
-        List<MezzoComunicazioneDO> result = null;
         try {
-            result = domainRepository.getElencoMezziComunicazione();
-            return converter.convertList(result, MezzoComunicazioneDTO.class);
+            return converter.convertList(domainRepository.getElencoMezziComunicazione(), MezzoComunicazioneDTO.class);
 
         } catch (Exception e) {
             throw new InternalMsaException(e, buildErrorMessageByText(MessageType.ERROR, Constants.DEFAULT_DOMAIN_ERROR_MESSAGE + "mezzi di comunicazione"));
@@ -138,10 +138,9 @@ public class DomainService extends BaseService {
      * @throws InternalMsaException
      */
     public List<CausaRotturaCristalliDTO> getCauseRotturaCristalli() throws InternalMsaException {
-        List<CausaRotturaCristalliDO> result = null;
+
         try {
-            result = domainRepository.getElencoCauseRotturaCristalli();
-            return converter.convertList(result, CausaRotturaCristalliDTO.class);
+            return converter.convertList(domainRepository.getElencoCauseRotturaCristalli(), CausaRotturaCristalliDTO.class);
         } catch (Exception e) {
             throw new InternalMsaException(e, buildErrorMessageByText(MessageType.ERROR, Constants.DEFAULT_DOMAIN_ERROR_MESSAGE + "causa rottura cristalli"));
 
@@ -155,10 +154,9 @@ public class DomainService extends BaseService {
      * @throws InternalMsaException
      */
     public List<TipoVeicoloDTO> getElencoTipoVeicoli() throws InternalMsaException {
-        List<TipoVeicoloDO> result = null;
+
         try {
-            result = domainRepository.getElencoTipoVeicoli();
-            return converter.convertList(result, TipoVeicoloDTO.class);
+            return converter.convertList(domainRepository.getElencoTipoVeicoli(), TipoVeicoloDTO.class);
         } catch (Exception e) {
             e.printStackTrace();
             throw new InternalMsaException(e, buildErrorMessageByText(MessageType.ERROR, Constants.DEFAULT_DOMAIN_ERROR_MESSAGE + "tipologia veicolo "));
@@ -172,10 +170,9 @@ public class DomainService extends BaseService {
      * @throws InternalMsaException
      */
     public List<TipoTargaDTO> getElencoTipoTarghe() throws InternalMsaException {
-        List<TipoTargaDO> result = null;
         try {
-            result = domainRepository.getElencoTipoTarga();
-            return converter.convertList(result, TipoTargaDTO.class);
+
+            return converter.convertList(domainRepository.getElencoTipoTarga(), TipoTargaDTO.class);
         } catch (Exception e) {
             throw new InternalMsaException(e, buildErrorMessageByText(MessageType.ERROR, Constants.DEFAULT_DOMAIN_ERROR_MESSAGE + "tipologia targhe "));
 
@@ -189,10 +186,10 @@ public class DomainService extends BaseService {
      * @throws InternalMsaException
      */
     public List<CasaRegoleDTO> getElencoRegole() throws InternalMsaException {
-        List<CasaRegoleDO> result = null;
+
         try {
-            result = domainRepository.getElencoRegole();
-            return converter.convertList(result, CasaRegoleDTO.class);
+
+            return converter.convertList(domainRepository.getElencoRegole(), CasaRegoleDTO.class);
         } catch (Exception e) {
             throw new InternalMsaException(e, buildErrorMessageByText(MessageType.ERROR, Constants.DEFAULT_DOMAIN_ERROR_MESSAGE + "casa delle regole  "));
         }

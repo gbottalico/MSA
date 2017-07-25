@@ -14,3 +14,4 @@ msa.infrastructure/bin/nfc.infrastructure.iml
 msa.infrastructure/msa.infrastructure.iml
 msa.web/bin/nfc.web.iml
 msa.web/msa.web.iml
+msa*/target/
