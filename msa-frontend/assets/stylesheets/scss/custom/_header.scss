@@ -4,30 +4,74 @@
 	background-color: $light_gray;
 	color: $gray;
 	text-align: center;
-	height: 100px;
 	.container {
 		position: relative;
 		height: 100%;
-		.logo {
-			position: absolute;
-			left: 30px;
-			width: 120px;
-			top: 50%;
-			transform: translate(0, -50%);
-			cursor: pointer;
-		}
-		.logo:hover {
-			opacity: 0.7;
-		}
-		.title {
-			position: absolute;
-			width: 100%;
-			margin: 0;
-			top: 50%;
-			transform: translate(0, -50%);
-		    z-index: 1;
-		    left: 0;
-		    right: 0;
+		div {
+			height: 70px;
+			position: relative;
+			.logo {
+				position: absolute;
+				left: 30px;
+				width: 120px;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+				cursor: pointer;
+			}
+			.logo:hover {
+				opacity: 0.7;
+			}
+			.title {
+				position: absolute;
+				width: 100%;
+				margin: 0;
+				top: 50%;
+				transform: translate(0, -50%);
+			    left: 0;
+			    right: 0;
+		        white-space: nowrap;
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;		        
+			}
+			.user {
+				display: inline-block;
+				position: absolute;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				left: 50%;
+				line-height: 1;
+			    white-space: nowrap;
+			    margin: 0;
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+				.usericon {
+					color: $light_blue;
+				}
+				.menu {
+					color: $light_blue;
+					-webkit-user-select: none;
+					-khtml-user-select: none;
+					-moz-user-select: none;
+					-ms-user-select: none;
+					user-select: none;
+					cursor: pointer;
+				}
+				.menu:hover {
+					opacity: 0.7;
+				}
+			}
 		}
 	}
 }
