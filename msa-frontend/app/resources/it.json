@@ -1,6 +1,9 @@
 {
   	"global": {
     	"title": "Msa",
+    	"generic": {
+    		"cerca": "Cerca"
+    	},
     	"header": {
     		"labels": {
 	  			"title": "Gestione sinistri"
@@ -10,6 +13,23 @@
 	  		"labels": {
 	  			"title": "Cerca sinistro"
 	  		}
-		}
+		},
+		"polizza": {
+			"title": "Polizza",
+			"labels": {
+				"cognome": "Cognome",
+				"nome": "Nome",
+				"fisica": "Fisica",
+				"giuridica": "Giuridica",
+				"persona": "Persona",
+				"numpoli": "Numero polizza",
+				"numsin": "Numero sinistro",
+				"dataevento": "Data evento",
+				"targa": "Targa",
+				"numprov": "Numero provvisorio",
+				"numpre": "Numero preapertura",
+				"compagnia": "Compagnia"
+			}
+		} 
   	}
 }

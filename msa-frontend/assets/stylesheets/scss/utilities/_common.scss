@@ -3,6 +3,7 @@
 html, body {
 	background-color: $light_gray;
     overflow-x: hidden;
+    height: 100%;
 }
 
 ::-webkit-scrollbar {
@@ -19,6 +20,18 @@ html, body {
 section {
 	padding-left: 30px;
 	padding-right: 30px;
+}
+
+.boxShadow {
+	box-shadow: 2px 2px 15px #888888;
+	padding: 0;
+}
+
+.noPaddingLeft {
+	padding-left: 0;
+}
+.noPaddingRight {
+	padding-right: 0;
 }
 
 .header {
@@ -88,6 +101,184 @@ section {
 		    top: 0;
 		    width: 100px;
 		    height: auto;
+		}
+	}
+}
+
+.homeContainer {
+	background-color: $light_gray;
+	.container {
+		position: relative;
+		height: 100%;
+	}
+}
+
+.polizza {
+	.containerHeader {
+	    clear: both;
+	    width: 100%;
+	    margin-top: 30px;
+		.container {
+			.header {
+				/* IE10 */
+				background-image: -ms-linear-gradient(top right, $light_blue 0%, $blue 100%);
+				/* Mozilla Firefox */
+				background-image: -moz-linear-gradient(top right, $light_blue 0%, $blue 100%);
+				/* Opera */
+				background-image: -o-linear-gradient(top right, $light_blue 0%, $blue 100%);
+				/* Webkit (Safari/Chrome 10) */
+				background-image: -webkit-gradient(linear, right top, left bottom, color-stop(0, $light_blue), color-stop(1, $blue));
+				/* Webkit (Chrome 11+) */
+				background-image: -webkit-linear-gradient(top right, $light_blue 0%, $blue 100%);
+				/* Regola standard */
+				background-image: linear-gradient(to top right, $light_blue 0%, $blue 100%);
+				color: $white;
+				text-align: center;
+				height: 60px;
+				position: relative;
+				.titleSection {
+					position: absolute;
+					width: 100%;
+					margin: 0;
+					top: 50%;
+					transform: translate(0, -50%);
+					z-index: 1;
+					left: 0;
+					right: 0;
+					font-size: 2.5rem;
+				}
+			}
+			.body {
+				background-color: $white;
+				color: $gray;
+				font-size: 2rem;
+			}
+		}
+	}
+	.containerBody {
+		clear: both;
+		width: 100%;
+		margin-bottom: 30px;
+		display: inline-block;
+		.container {
+			.body {
+				background-color: $white;
+				color: $gray;
+				font-size: 2rem;
+				height: 100%;
+				display: flow-root;
+				width: 100%;
+			}
+		}
+	}
+}
+
+.classicInputText {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	input[type="text"] {
+		width: 100%;
+		border: 0px solid;
+		height: 40px;
+		border-radius: 5px;
+		background: $light_gray;
+		padding: 10px;
+	}
+	input:focus {
+		outline: none;
+		border: 2px solid $light_blue;
+		box-sizing: border-box;
+    	-moz-box-sizing: border-box;
+    	-webkit-box-sizing: border-box;
+		border-radius: 5px;
+	}
+	.targa {
+		text-transform: uppercase;
+	}
+	label {
+		font-weight: normal;
+		font-size: 1.5rem;
+		margin-top: 5px;
+		width: 100%;
+	}
+}
+.classicInputRadio {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	div {
+		height: 40px;
+		input {
+			position: absolute;
+			top: 50%;
+			transform: translate(0, -50%);
+			margin: 0;
+			z-index: 1;
+			cursor: pointer;
+		}
+		input[type='radio']:after {
+			width: 2rem;
+			height: 2rem;
+			border-radius: 50%;
+			top: -4px;
+			left: -4px;
+			position: relative;
+			background-color: $light_gray;
+			content: '';
+			display: inline-block;
+			visibility: visible;
+			border: 2px solid $light_gray;
+			-moz-box-sizing: border-box;
+    		-webkit-box-sizing: border-box;
+		}
+		input[type='radio']:checked:after {
+			width: 2rem;
+			height: 2rem;
+			border-radius: 50%;
+			top: -4px;
+			left: -4px;
+			position: relative;
+			background-color: $light_blue;
+			content: '';
+			display: inline-block;
+			visibility: visible;
+			border: 4px solid $light_gray;
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+		}
+		.rightLabel {
+			top: 50%;
+			transform: translate(0, -50%);
+			position: absolute;
+			text-indent: 20px;
+			margin-top: 0;
+		}
+	}
+	label {
+		font-weight: normal;
+		font-size: 1.5rem;
+		margin-top: 5px;
+		width: 100%;
+	}
+}
+.classicButton {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	.blueButton {
+		text-align: center;
+		a {
+			color: $white;
+			background: $light_blue;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			padding-left: 20px;
+			padding-right: 20px;
+			border-radius: 5px;
+			text-decoration: none;
+			cursor: pointer;
+			font-size: 1.8rem;
+		}
+		a:hover {
+			opacity: 0.7;
 		}
 	}
 }

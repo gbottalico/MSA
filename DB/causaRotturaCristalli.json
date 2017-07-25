@@ -1,0 +1,6 @@
+{ "_id" : 1, "DataInserimento" : null, "DataVariazione" : null, "DescrizioneCausaRottura" : "Pietra" }
+{ "_id" : 2, "DataInserimento" : null, "DataVariazione" : null, "DescrizioneCausaRottura" : "Neve" }
+{ "_id" : 3, "DataInserimento" : null, "DataVariazione" : null, "DescrizioneCausaRottura" : "Grandine" }
+{ "_id" : 4, "DataInserimento" : null, "DataVariazione" : null, "DescrizioneCausaRottura" : "Atti vandalici" }
+{ "_id" : 5, "DataInserimento" : null, "DataVariazione" : null, "DescrizioneCausaRottura" : "Tentato furto" }
+{ "_id" : 6, "DataInserimento" : null, "DataVariazione" : null, "DescrizioneCausaRottura" : "Altro" }

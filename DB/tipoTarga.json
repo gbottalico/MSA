@@ -1,0 +1,6 @@
+{ "_id" : 0, "descrizione" : "ITALIANA", "codAnia" : "T", "codNewAge" : 1 }
+{ "_id" : 1, "descrizione" : "ESTERA", "codAnia" : "E", "codNewAge" : 7 }
+{ "_id" : 2, "descrizione" : "PROVA", "codAnia" : "X", "codNewAge" : 3 }
+{ "_id" : 3, "descrizione" : "PROVV", "codAnia" : "Y", "codNewAge" : 2 }
+{ "_id" : 4, "descrizione" : "SPECIALE", "codAnia" : "T", "codNewAge" : 1 }
+{ "_id" : 5, "descrizione" : "FILOBUS", "codAnia" : "J", "codNewAge" : "" }
