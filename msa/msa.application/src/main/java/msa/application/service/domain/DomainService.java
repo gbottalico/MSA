@@ -16,21 +16,20 @@ import msa.infrastructure.repository.DomainRepository;
 
 @Service
 public class DomainService extends BaseService {
-	@Autowired
-	DomainRepository domainRepository;
+    @Autowired
+    DomainRepository domainRepository;
 
-	/**
-	 * Utilizza il DomainRepository per ottenere la lista delle nazioni che iniziano
-	 * per una data stringa
-	 * 
-	 * @param nome
-	 *            la stringa da cercare
-	 * @return una lista di NazioneDTO
-	 * @throws IllegalAccessException
-	 * @throws InvocationTargetException
-	 * @throws InstantiationException
-	 */
-	public List<NazioneDTO> getElencoNazioni(String nome) throws InternalMsaException {
+    /**
+     * Utilizza il DomainRepository per ottenere la lista delle nazioni che iniziano
+     * per una data stringa
+     *
+     * @param nome la stringa da cercare
+     * @return una lista di NazioneDTO
+     * @throws IllegalAccessException
+     * @throws InvocationTargetException
+     * @throws InstantiationException
+     */
+    public List<NazioneDTO> getElencoNazioni(String nome) throws InternalMsaException {
 
         try {
             List<NazioneDO> result = domainRepository.getListaNazioni(nome);
@@ -82,6 +81,7 @@ public class DomainService extends BaseService {
             throw new InternalMsaException(e, buildErrorMessageByText(MessageType.ERROR, Constants.DEFAULT_DOMAIN_ERROR_MESSAGE + "comuni"));
         }
     }
+
     /**
      * Utilizza il DomainRepository per ottenere la lista delle autorità
      *
@@ -112,10 +112,9 @@ public class DomainService extends BaseService {
     public List<CompagniaDTO> getElencoCompagnie(String desc) throws InternalMsaException {
         List<CompagniaDO> result = null;
         try {
-            result = domainRepository.getElencoCompagnie(desc);
             return converter.convertList(result, CompagniaDTO.class);
 
-        } catch (IllegalAccessException | InvocationTargetException | InstantiationException e) {
+        } catch (Exception e) {
             throw new InternalMsaException(e, buildErrorMessageByText(MessageType.ERROR, Constants.DEFAULT_DOMAIN_ERROR_MESSAGE + "compagnie"));
 
         }

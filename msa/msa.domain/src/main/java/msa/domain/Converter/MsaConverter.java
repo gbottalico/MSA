@@ -1,6 +1,9 @@
 package msa.domain.Converter;
 
 import java.lang.reflect.InvocationTargetException;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -41,6 +44,17 @@ public class MsaConverter {
 
     public <T, S> List<T> convertObject(List<S> source, Function<S, T> conversionFunction) {
         return source.stream().map(e -> convertObject(e, conversionFunction)).collect(Collectors.toList());
+    }
+
+    public static class Utils {
+        private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
+
+        public final static Function<String,Date> convertStringToLocaldate = s -> {
+            if(s == null) {
+                return null;
+            }
+            return Date.valueOf(LocalDate.parse(s, FORMATTER));
+        };
     }
 
 }
