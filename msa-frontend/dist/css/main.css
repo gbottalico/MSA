@@ -7304,36 +7304,50 @@ button.close {
 /* line 3, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
 html, body {
   background-color: #f2f2f2;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  height: 100%; }
 
-/* line 8, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+/* line 9, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
 ::-webkit-scrollbar {
   -webkit-appearance: none;
   width: 7px;
   height: 7px; }
 
-/* line 13, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+/* line 14, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
 ::-webkit-scrollbar-thumb {
   border-radius: 4px;
   background-color: rgba(0, 0, 0, 0.5);
   -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5); }
 
-/* line 19, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+/* line 20, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
 section {
   padding-left: 30px;
   padding-right: 30px; }
 
-/* line 24, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+/* line 25, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+.boxShadow {
+  box-shadow: 2px 2px 15px #888888;
+  padding: 0; }
+
+/* line 30, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+.noPaddingLeft {
+  padding-left: 0; }
+
+/* line 33, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+.noPaddingRight {
+  padding-right: 0; }
+
+/* line 37, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
 .header {
   background-color: #f2f2f2;
   color: #9d9d9d;
   text-align: center;
   height: 100px; }
-  /* line 29, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+  /* line 42, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
   .header .container {
     position: relative;
     height: 100%; }
-    /* line 32, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+    /* line 45, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
     .header .container .logo {
       position: absolute;
       left: 30px;
@@ -7341,10 +7355,10 @@ section {
       top: 50%;
       transform: translate(0, -50%);
       cursor: pointer; }
-    /* line 40, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+    /* line 53, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
     .header .container .logo:hover {
       opacity: 0.7; }
-    /* line 43, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+    /* line 56, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
     .header .container .title {
       position: absolute;
       width: 100%;
@@ -7355,7 +7369,7 @@ section {
       left: 0;
       right: 0; }
 
-/* line 56, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+/* line 69, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
 .banner {
   /* IE10 */
   background-image: -ms-linear-gradient(top right, #0f8fd1 0%, #1e3877 100%);
@@ -7372,11 +7386,11 @@ section {
   color: #fff;
   text-align: center;
   height: 100px; }
-  /* line 72, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+  /* line 85, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
   .banner .container {
     position: relative;
     height: 100%; }
-    /* line 75, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+    /* line 88, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
     .banner .container .title {
       position: absolute;
       width: 100%;
@@ -7386,10 +7400,160 @@ section {
       z-index: 1;
       left: 0;
       right: 0; }
-    /* line 85, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+    /* line 98, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
     .banner .container .icon {
       position: absolute;
       right: 30px;
       top: 0;
       width: 100px;
       height: auto; }
+
+/* line 108, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+.homeContainer {
+  background-color: #f2f2f2; }
+  /* line 110, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+  .homeContainer .container {
+    position: relative;
+    height: 100%; }
+
+/* line 117, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+.polizza .containerHeader {
+  clear: both;
+  width: 100%;
+  margin-top: 30px; }
+  /* line 122, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+  .polizza .containerHeader .container .header {
+    /* IE10 */
+    background-image: -ms-linear-gradient(top right, #0f8fd1 0%, #1e3877 100%);
+    /* Mozilla Firefox */
+    background-image: -moz-linear-gradient(top right, #0f8fd1 0%, #1e3877 100%);
+    /* Opera */
+    background-image: -o-linear-gradient(top right, #0f8fd1 0%, #1e3877 100%);
+    /* Webkit (Safari/Chrome 10) */
+    background-image: -webkit-gradient(linear, right top, left bottom, color-stop(0, #0f8fd1), color-stop(1, #1e3877));
+    /* Webkit (Chrome 11+) */
+    background-image: -webkit-linear-gradient(top right, #0f8fd1 0%, #1e3877 100%);
+    /* Regola standard */
+    background-image: linear-gradient(to top right, #0f8fd1 0%, #1e3877 100%);
+    color: #fff;
+    text-align: center;
+    height: 60px;
+    position: relative; }
+    /* line 139, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+    .polizza .containerHeader .container .header .titleSection {
+      position: absolute;
+      width: 100%;
+      margin: 0;
+      top: 50%;
+      transform: translate(0, -50%);
+      z-index: 1;
+      left: 0;
+      right: 0;
+      font-size: 2.5rem; }
+  /* line 151, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+  .polizza .containerHeader .container .body {
+    background-color: #fff;
+    color: #9d9d9d;
+    font-size: 2rem; }
+
+/* line 158, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+.polizza .containerBody {
+  clear: both;
+  width: 100%; }
+  /* line 162, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+  .polizza .containerBody .container .body {
+    background-color: #fff;
+    color: #9d9d9d;
+    font-size: 2rem;
+    height: 100%;
+    display: flow-root;
+    width: 100%; }
+
+/* line 174, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+.classicInputText {
+  margin-top: 15px;
+  margin-bottom: 15px; }
+  /* line 177, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+  .classicInputText input[type="text"] {
+    width: 100%;
+    border: 0px solid;
+    height: 40px;
+    border-radius: 5px;
+    background: #f2f2f2;
+    padding: 10px; }
+  /* line 185, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+  .classicInputText input:focus {
+    outline: none;
+    border: 2px solid #0f8fd1;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border-radius: 5px; }
+  /* line 193, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+  .classicInputText .targa {
+    text-transform: uppercase; }
+  /* line 196, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+  .classicInputText label {
+    font-weight: normal;
+    font-size: 1.5rem;
+    margin-top: 5px;
+    width: 100%; }
+
+/* line 203, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+.classicInputRadio {
+  margin-top: 15px;
+  margin-bottom: 15px; }
+  /* line 206, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+  .classicInputRadio div {
+    height: 40px; }
+    /* line 208, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+    .classicInputRadio div input {
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+      margin: 0;
+      z-index: 1;
+      cursor: pointer; }
+    /* line 216, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+    .classicInputRadio div input[type='radio']:after {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      top: -4px;
+      left: -4px;
+      position: relative;
+      background-color: #f2f2f2;
+      content: '';
+      display: inline-block;
+      visibility: visible;
+      border: 2px solid #f2f2f2;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box; }
+    /* line 231, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+    .classicInputRadio div input[type='radio']:checked:after {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      top: -4px;
+      left: -4px;
+      position: relative;
+      background-color: #0f8fd1;
+      content: '';
+      display: inline-block;
+      visibility: visible;
+      border: 4px solid #f2f2f2;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box; }
+    /* line 246, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+    .classicInputRadio div .rightLabel {
+      top: 50%;
+      transform: translate(0, -50%);
+      position: absolute;
+      text-indent: 20px;
+      margin-top: 0; }
+  /* line 254, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+  .classicInputRadio label {
+    font-weight: normal;
+    font-size: 1.5rem;
+    margin-top: 5px;
+    width: 100%; }
