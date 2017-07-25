@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+.header {
+	background-color: $light_gray;
+	color: $gray;
+	text-align: center;
+	height: 100px;
+	.container {
+		position: relative;
+		height: 100%;
+		.logo {
+			position: absolute;
+			left: 30px;
+			width: 120px;
+			top: 50%;
+			transform: translate(0, -50%);
+			cursor: pointer;
+		}
+		.logo:hover {
+			opacity: 0.7;
+		}
+		.title {
+			position: absolute;
+			width: 100%;
+			margin: 0;
+			top: 50%;
+			transform: translate(0, -50%);
+		    z-index: 1;
+		    left: 0;
+		    right: 0;
+		}
+	}
+}
