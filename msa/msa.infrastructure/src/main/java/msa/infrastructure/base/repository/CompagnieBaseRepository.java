@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.repository.Query;
 
 import java.util.List;
 
-public interface CompagniaBaseRepository  extends MongoRepository<CompagniaDBO,Integer>{
+public interface CompagnieBaseRepository extends MongoRepository<CompagniaDBO,Integer>{
    @Query("{ 'DescrizioneCompagnia' : { $regex: ?0, $options: 'i'}}")
     List<CompagniaDBO> findByDescrizioneIgnoreCase(String desc);
 }
