@@ -200,6 +200,7 @@ section {
 		font-size: 1.5rem;
 		margin-top: 5px;
 		width: 100%;
+		white-space: nowrap;
 	}
 }
 .classicInputRadio {
@@ -251,6 +252,44 @@ section {
 			position: absolute;
 			text-indent: 20px;
 			margin-top: 0;
+		}
+	}
+	label {
+		font-weight: normal;
+		font-size: 1.5rem;
+		margin-top: 5px;
+		width: 100%;
+	}
+}
+.classicInputTextList {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	.containerArrow {
+		position: relative;
+		i {
+			position: absolute;
+			top: 50%;
+			transform: translate(0, -50%);
+			width: 100%;
+			padding: 10px;
+			text-align: right;
+			cursor: pointer;
+		}
+		input[type="text"] {
+			width: 100%;
+			border: 0px solid;
+			height: 40px;
+			border-radius: 5px;
+			background: $light_gray;
+			padding: 10px;
+		}
+		input:focus {
+			outline: none;
+			border: 2px solid $light_blue;
+			box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			border-radius: 5px;
 		}
 	}
 	label {

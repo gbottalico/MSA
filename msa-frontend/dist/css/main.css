@@ -7499,16 +7499,17 @@ section {
     font-weight: normal;
     font-size: 1.5rem;
     margin-top: 5px;
-    width: 100%; }
+    width: 100%;
+    white-space: nowrap; }
 
-/* line 205, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+/* line 206, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
 .classicInputRadio {
   margin-top: 15px;
   margin-bottom: 15px; }
-  /* line 208, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+  /* line 209, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
   .classicInputRadio div {
     height: 40px; }
-    /* line 210, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+    /* line 211, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
     .classicInputRadio div input {
       position: absolute;
       top: 50%;
@@ -7516,7 +7517,7 @@ section {
       margin: 0;
       z-index: 1;
       cursor: pointer; }
-    /* line 218, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+    /* line 219, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
     .classicInputRadio div input[type='radio']:after {
       width: 2rem;
       height: 2rem;
@@ -7531,7 +7532,7 @@ section {
       border: 2px solid #f2f2f2;
       -moz-box-sizing: border-box;
       -webkit-box-sizing: border-box; }
-    /* line 233, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+    /* line 234, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
     .classicInputRadio div input[type='radio']:checked:after {
       width: 2rem;
       height: 2rem;
@@ -7546,28 +7547,67 @@ section {
       border: 4px solid #f2f2f2;
       -moz-box-sizing: border-box;
       -webkit-box-sizing: border-box; }
-    /* line 248, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+    /* line 249, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
     .classicInputRadio div .rightLabel {
       top: 50%;
       transform: translate(0, -50%);
       position: absolute;
       text-indent: 20px;
       margin-top: 0; }
-  /* line 256, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+  /* line 257, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
   .classicInputRadio label {
     font-weight: normal;
     font-size: 1.5rem;
     margin-top: 5px;
     width: 100%; }
 
-/* line 263, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+/* line 264, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+.classicInputTextList {
+  margin-top: 15px;
+  margin-bottom: 15px; }
+  /* line 267, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+  .classicInputTextList .containerArrow {
+    position: relative; }
+    /* line 269, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+    .classicInputTextList .containerArrow i {
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+      width: 100%;
+      padding: 10px;
+      text-align: right;
+      cursor: pointer; }
+    /* line 278, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+    .classicInputTextList .containerArrow input[type="text"] {
+      width: 100%;
+      border: 0px solid;
+      height: 40px;
+      border-radius: 5px;
+      background: #f2f2f2;
+      padding: 10px; }
+    /* line 286, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+    .classicInputTextList .containerArrow input:focus {
+      outline: none;
+      border: 2px solid #0f8fd1;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      border-radius: 5px; }
+  /* line 295, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+  .classicInputTextList label {
+    font-weight: normal;
+    font-size: 1.5rem;
+    margin-top: 5px;
+    width: 100%; }
+
+/* line 302, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
 .classicButton {
   margin-top: 30px;
   margin-bottom: 30px; }
-  /* line 266, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+  /* line 305, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
   .classicButton .blueButton {
     text-align: center; }
-    /* line 268, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+    /* line 307, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
     .classicButton .blueButton a {
       color: #fff;
       background: #0f8fd1;
@@ -7579,6 +7619,6 @@ section {
       text-decoration: none;
       cursor: pointer;
       font-size: 1.8rem; }
-    /* line 280, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+    /* line 319, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
     .classicButton .blueButton a:hover {
       opacity: 0.7; }
