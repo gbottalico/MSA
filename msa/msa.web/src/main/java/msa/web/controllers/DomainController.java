@@ -132,8 +132,7 @@ public class DomainController extends BaseController {
      * @throws InstantiationException
      */
     @ApiOperation(value = " Metodo che ottiene l'elenco di tutti i mezzi di comunicazione")
-    @RequestMapping(value = "/mezzicomunicazione/", method = RequestMethod.GET)
-
+    @RequestMapping(value = "/mezzicomunicazione", method = RequestMethod.GET)
     public BaseDTO<List<MezzoComunicazioneDTO>> getElencoMezziComunicazione() throws  InternalMsaException {
         BaseDTO<List<MezzoComunicazioneDTO>> result = new BaseDTO<>();
         result.setResult(domainService.getElencoMezziComunicazione());
