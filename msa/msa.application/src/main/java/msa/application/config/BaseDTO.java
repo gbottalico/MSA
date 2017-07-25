@@ -15,18 +15,17 @@ public class BaseDTO<T> implements Serializable {
 
 
     private HttpStatus status;
+    private T result;
+    private List<Message> messaggi = new ArrayList<>();
 
-    public HttpStatus getStatus() {
-        return status != null ? status : HttpStatus.OK;
+
+    public Integer getStatus() {
+        return status != null ? status.value() : HttpStatus.OK.value();
     }
 
     public void setStatus(HttpStatus status) {
         this.status = status;
     }
-
-    private T result;
-    private List<Message> messaggi = new ArrayList<>();
-
 
     public List<Message> getMessaggi() {
         return messaggi;

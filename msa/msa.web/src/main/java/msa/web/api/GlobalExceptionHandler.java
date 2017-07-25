@@ -5,30 +5,31 @@ import msa.application.config.BaseDTO;
 import msa.application.exceptions.BaseException;
 import msa.application.exceptions.InternalMsaException;
 import msa.application.exceptions.NotFoundMsaException;
-import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.ClassUtils;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
-
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * Created by simon.calabrese on 24/07/2017.
  */
-@ControllerAdvice
-public class GlobalExceptionHandler {
+public abstract class GlobalExceptionHandler {
 
+
+
+    @ResponseBody
     @ExceptionHandler(value = BaseException.class)
-    public <E extends BaseException> BaseDTO errorHandler(final HttpServletRequest request, E exception) {
-        return new SuperConverter<>(exception,
-                e -> {
+    public BaseDTO generalException(HttpServletResponse response, HttpServletResponse request, BaseException e) {
+        return new SuperConverter<>(e,
+                exception -> {
                     final BaseDTO dto = new BaseDTO();
-                    dto.setMessaggi(e.getMessages());
-                    if(ClassUtils.isAssignable(e.getClass(), InternalMsaException.class)) {
+                    dto.setMessaggi(exception.getMessages());
+                    if(ClassUtils.isAssignable(exception.getClass(), InternalMsaException.class)) {
                         dto.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
-                    } else if (ClassUtils.isAssignable(e.getClass(), NotFoundMsaException.class)) {
+                    } else if (ClassUtils.isAssignable(exception.getClass(), NotFoundMsaException.class)) {
                         dto.setStatus(HttpStatus.NOT_FOUND);
                     }
                     return dto;
