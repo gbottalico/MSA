@@ -112,10 +112,6 @@ public class DomainService extends BaseService {
     public List<CompagniaDTO> getElencoCompagnie(String desc) throws InternalMsaException {
         List<CompagniaDO> result = null;
         try {
-            Integer a = null;
-            int b = 2;
-            a = a+2;
-            result = domainRepository.getElencoCompagnie(desc);
             return converter.convertList(result, CompagniaDTO.class);
 
         } catch (Exception e) {
