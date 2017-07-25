@@ -31,6 +31,8 @@ public class DomainRepository extends BaseRepository {
     TipoVeicoloBaseRepository tipoVeicoloRepository;
     @Autowired
     TipoTargaBaseRepository tipoTargaRepository;
+    @Autowired
+    CasaRegoleBaseRepository casaRegoleRepository;
 
     /**
      * Effettua la ricerca delle nazioni il cui nome inizia con la stringa passata
@@ -155,5 +157,14 @@ public class DomainRepository extends BaseRepository {
     public List<TipoTargaDO> getElencoTipoTarga() {
         List<TipoTargaDBO> result = tipoTargaRepository.findAll();
         return converter.convertList(result, TipoTargaDO.class);
+    }
+
+    /**
+     * Ottiene la lista delle regole contenute nella casa delle regole
+     * @return
+     */
+    public List<CasaRegoleDO> getElencoRegole() {
+        List<CasaRegoleDBO> result = casaRegoleRepository.findAll();
+        return converter.convertList(result, CasaRegoleDO.class);
     }
 }

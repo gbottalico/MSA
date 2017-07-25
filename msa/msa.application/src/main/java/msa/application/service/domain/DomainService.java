@@ -167,6 +167,7 @@ public class DomainService extends BaseService {
 
     /**
      * Utilizza il DomainRepository per ottenere la lista delle tipoologie targa
+     *
      * @return
      * @throws InternalMsaException
      */
@@ -178,6 +179,22 @@ public class DomainService extends BaseService {
         } catch (Exception e) {
             throw new InternalMsaException(e, buildErrorMessageByText(MessageType.ERROR, Constants.DEFAULT_DOMAIN_ERROR_MESSAGE + "tipologia targhe "));
 
+        }
+    }
+
+    /**
+     * Utilizza il DomainRepository per ottenere la lista delle regole presenti nella casa delle regole
+     *
+     * @return
+     * @throws InternalMsaException
+     */
+    public List<CasaRegoleDTO> getElencoRegole() throws InternalMsaException {
+        List<CasaRegoleDO> result = null;
+        try {
+            result = domainRepository.getElencoRegole();
+            return converter.convertList(result, CasaRegoleDTO.class);
+        } catch (Exception e) {
+            throw new InternalMsaException(e, buildErrorMessageByText(MessageType.ERROR, Constants.DEFAULT_DOMAIN_ERROR_MESSAGE + "casa delle regole  "));
         }
     }
 }

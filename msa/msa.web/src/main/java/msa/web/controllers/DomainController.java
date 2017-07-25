@@ -158,6 +158,7 @@ public class DomainController extends BaseController {
 
     /**
      * Ottiene la lista di tutte le tipologie di targhe
+     *
      * @return
      * @throws InternalMsaException
      */
@@ -168,6 +169,21 @@ public class DomainController extends BaseController {
         result.setResult(domainService.getElencoTipoTarghe());
         return result;
     }
+
+    /**
+     * Ottiene la lista delle regole presenti nella casa delle regole
+     * @return un BaseDTO contente le informazioni richieste
+     * @throws InternalMsaException
+     */
+    @ApiOperation(value = "Metodo che ottiene l'elenco di tutte le regole presenti nella casa delle regole")
+    @RequestMapping(value = "/casaregole", method = RequestMethod.GET)
+    public BaseDTO<List<CasaRegoleDTO>> getElencoRegole() throws InternalMsaException {
+        BaseDTO<List<CasaRegoleDTO>> result = new BaseDTO<>();
+        result.setResult(domainService.getElencoRegole());
+        return result;
+    }
 }
+
+
 
 
