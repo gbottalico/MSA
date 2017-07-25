@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+.banner {
+	/* IE10 */
+	background-image: -ms-linear-gradient(top right, $light_blue 0%, $blue 100%);
+	/* Mozilla Firefox */
+	background-image: -moz-linear-gradient(top right, $light_blue 0%, $blue 100%);
+	/* Opera */
+	background-image: -o-linear-gradient(top right, $light_blue 0%, $blue 100%);
+	/* Webkit (Safari/Chrome 10) */
+	background-image: -webkit-gradient(linear, right top, left bottom, color-stop(0, $light_blue), color-stop(1, $blue));
+	/* Webkit (Chrome 11+) */
+	background-image: -webkit-linear-gradient(top right, $light_blue 0%, $blue 100%);
+	/* Regola standard */
+	background-image: linear-gradient(to top right, $light_blue 0%, $blue 100%);
+	color: $white;
+	text-align: center;
+	height: 100px;
+	.container {
+		position: relative;
+		height: 100%;
+		.title {
+			position: absolute;
+			width: 100%;
+			margin: 0;
+			top: 50%;
+			transform: translate(0, -50%);
+		    z-index: 1;
+		    left: 0;
+		    right: 0;
+		}
+		.icon {
+			position: absolute;
+		    right: 30px;
+		    top: 0;
+		    width: 100px;
+		    height: auto;
+		}
+	}
+}

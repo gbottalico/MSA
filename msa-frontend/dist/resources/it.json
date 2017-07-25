@@ -14,7 +14,7 @@
 	  			"title": "Cerca sinistro"
 	  		}
 		},
-		"polizza": {
+		"polizzasearch": {
 			"title": "Polizza",
 			"labels": {
 				"cognome": "Cognome",
@@ -28,7 +28,8 @@
 				"targa": "Targa",
 				"numprov": "Numero provvisorio",
 				"numpre": "Numero preapertura",
-				"compagnia": "Compagnia"
+				"compagnia": "Compagnia",
+				"istruzioni": "Cerca e seleziona una polizza per procedere"
 			}
 		} 
   	}
