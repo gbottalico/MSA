@@ -10,8 +10,8 @@ public class CompagniaDTO {
     private String descrizione;
     private Character convenzioneCid;
     private Character estera;
-    private LocalDate dataInCard;
-    private LocalDate dataOutCard;
+    private Date dataInCard;
+    private Date dataOutCard;
     private Integer liquidazioneCoatta;
     private String codFornitore;
 
@@ -55,19 +55,19 @@ public class CompagniaDTO {
         this.estera = estera;
     }
 
-    public LocalDate getDataInCard() {
+    public Date getDataInCard() {
         return dataInCard;
     }
 
-    public void setDataInCard(LocalDate dataInCard) {
+    public void setDataInCard(Date dataInCard) {
         this.dataInCard = dataInCard;
     }
 
-    public LocalDate getDataOutCard() {
+    public Date getDataOutCard() {
         return dataOutCard;
     }
 
-    public void setDataOutCard(LocalDate dataOutCard) {
+    public void setDataOutCard(Date dataOutCard) {
         this.dataOutCard = dataOutCard;
     }
 
