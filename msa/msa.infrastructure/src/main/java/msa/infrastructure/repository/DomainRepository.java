@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Repository
 public class DomainRepository extends BaseRepository {
@@ -23,9 +22,15 @@ public class DomainRepository extends BaseRepository {
     @Autowired
     AutoritaBaseRepository autoritaRepository;
     @Autowired
-    CompagniaBaseRepository compagniaRepository;
+    CompagnieBaseRepository compagniaRepository;
     @Autowired
     MezziComunicazioneBaseRepository mezziRepository;
+    @Autowired
+    CauseRotturaCristalliBaseRepository causaRotturaCristalliRepository;
+    @Autowired
+    TipoVeicoloBaseRepository tipoVeicoloRepository;
+    @Autowired
+    TipoTargaBaseRepository tipoTargaRepository;
 
     /**
      * Effettua la ricerca delle nazioni il cui nome inizia con la stringa passata
@@ -36,8 +41,7 @@ public class DomainRepository extends BaseRepository {
      * @throws InvocationTargetException
      * @throws InstantiationException
      */
-    public List<NazioneDO> getListaNazioni(String nome)
-            throws IllegalAccessException, InvocationTargetException, InstantiationException {
+    public List<NazioneDO> getListaNazioni(String nome) {
         List<NazioneDBO> result = nazioniRepository.findLikeNome(nome);
         return converter.convertList(result, NazioneDO.class);
     }
@@ -53,8 +57,7 @@ public class DomainRepository extends BaseRepository {
      * @throws IllegalAccessException
      * @throws InvocationTargetException
      */
-    public List<ProvinciaDO> getElencoProvince(Integer idNazione, String descProvincia)
-            throws InstantiationException, IllegalAccessException, InvocationTargetException {
+    public List<ProvinciaDO> getElencoProvince(Integer idNazione, String descProvincia) {
         List<ProvinciaDBO> result = provinceRepository.findByDesc(idNazione, descProvincia);
         return converter.convertList(result, ProvinciaDO.class);
     }
@@ -71,8 +74,7 @@ public class DomainRepository extends BaseRepository {
      * @throws IllegalAccessException
      * @throws InvocationTargetException
      */
-    public List<ComuneDO> getElencoComuni(Integer idNazione, Integer codProvincia, String desc)
-            throws InstantiationException, IllegalAccessException, InvocationTargetException {
+    public List<ComuneDO> getElencoComuni(Integer idNazione, Integer codProvincia, String desc) {
         List<ComuneDBO> result = comuniRepository.findByDesc(idNazione, codProvincia, desc);
         return converter.convertList(result, ComuneDO.class);
     }
@@ -82,7 +84,7 @@ public class DomainRepository extends BaseRepository {
      *
      * @return una lista di oggetti AutoritaDTO
      */
-    public List<AutoritaDO> getElencoAutorita() throws IllegalAccessException, InvocationTargetException, InstantiationException {
+    public List<AutoritaDO> getElencoAutorita() {
         List<AutoritaDBO> result = autoritaRepository.findAll();
         return converter.convertList(result, AutoritaDO.class);
     }
@@ -94,9 +96,9 @@ public class DomainRepository extends BaseRepository {
      * @param desc la stringa da cercare
      * @return una lista di oggetti CompagniaDO
      */
-    public List<CompagniaDO> getElencoCompagnie(String desc) throws IllegalAccessException, InvocationTargetException, InstantiationException {
+    public List<CompagniaDO> getElencoCompagnie(String desc) {
         List<CompagniaDBO> result = compagniaRepository.findByDescrizioneIgnoreCase(desc);
-        return converter.convertObject(result,(CompagniaDBO compagniaDBO) ->  {
+        return converter.convertObject(result, (CompagniaDBO compagniaDBO) -> {
             CompagniaDO compagniaDO = new CompagniaDO();
             compagniaDO.setCodFornitore(compagniaDBO.getCodFornitore());
             compagniaDO.setConvenzioneCid(compagniaDBO.getConvenzioneCid());
@@ -118,8 +120,40 @@ public class DomainRepository extends BaseRepository {
      * @throws InvocationTargetException
      * @throws InstantiationException
      */
-    public List<MezzoComunicazioneDO> getElencoMezziComunicazione() throws IllegalAccessException, InvocationTargetException, InstantiationException {
+    public List<MezzoComunicazioneDO> getElencoMezziComunicazione() {
         List<MezzoComunicazioneDBO> result = mezziRepository.findAll();
         return converter.convertList(result, MezzoComunicazioneDO.class);
+
+    }
+
+    /**
+     * Ottiene tutte le cause di rottura cristalli
+     *
+     * @return una lista di oggetti CausaRotturaCristalliDO
+     */
+    public List<CausaRotturaCristalliDO> getElencoCauseRotturaCristalli() {
+        List<CausaRotturaCristalliDBO> result = causaRotturaCristalliRepository.findAll();
+        return converter.convertList(result, CausaRotturaCristalliDO.class);
+
+    }
+
+    /**
+     * Ottiene la lista delle tipologie di veicoli
+     *
+     * @return
+     */
+    public List<TipoVeicoloDO> getElencoTipoVeicoli() {
+        List<TipoVeicoloDBO> result = tipoVeicoloRepository.findAll();
+        return converter.convertList(result, TipoVeicoloDO.class);
+    }
+
+    /**
+     * Ottiene la lista di tipologie di targhe
+     *
+     * @return
+     */
+    public List<TipoTargaDO> getElencoTipoTarga() {
+        List<TipoTargaDBO> result = tipoTargaRepository.findAll();
+        return converter.convertList(result, TipoTargaDO.class);
     }
 }
