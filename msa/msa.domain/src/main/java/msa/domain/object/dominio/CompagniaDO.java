@@ -1,8 +1,6 @@
 package msa.domain.object.dominio;
 
-import org.springframework.cglib.core.Local;
 
-import java.time.LocalDate;
 import java.util.Date;
 
 public class CompagniaDO {
