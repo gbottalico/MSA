@@ -7326,7 +7326,7 @@ section {
 
 /* line 25, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
 .boxShadow {
-  box-shadow: 2px 2px 15px #888888;
+  box-shadow: 2px 2px 15px #9d9d9d;
   padding: 0; }
 
 /* line 30, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
@@ -7439,19 +7439,22 @@ section {
       position: absolute;
       top: 50%;
       transform: translate(0, -50%);
-      width: 100%;
       padding: 10px;
       text-align: right;
-      cursor: pointer; }
-    /* line 139, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+      cursor: pointer;
+      right: 0;
+      /*DA CHIEDEDRE CONFERMA*/
+      width: 100%; }
+    /* line 141, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
     .classicInputTextList .containerArrow input[type="text"] {
       width: 100%;
       border: 0px solid;
       height: 40px;
       border-radius: 5px;
       background: #f2f2f2;
-      padding: 10px; }
-    /* line 147, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+      padding: 10px;
+      padding-right: 40px; }
+    /* line 150, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
     .classicInputTextList .containerArrow input:focus {
       outline: none;
       border: 2px solid #0f8fd1;
@@ -7459,21 +7462,45 @@ section {
       -moz-box-sizing: border-box;
       -webkit-box-sizing: border-box;
       border-radius: 5px; }
-  /* line 156, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+  /* line 159, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
   .classicInputTextList label {
     font-weight: normal;
     font-size: 1.5rem;
     margin-top: 5px;
     width: 100%; }
+  /* line 165, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+  .classicInputTextList ul {
+    list-style: none;
+    margin: 0;
+    position: absolute;
+    background: #fff;
+    top: 40px;
+    left: 15px;
+    right: 15px;
+    max-height: 130px;
+    font-size: 1.7rem;
+    box-shadow: 2px 5px 15px #9d9d9d;
+    padding: 0 10px;
+    border-radius: 0px 0px 5px 5px;
+    overflow-y: auto;
+    overflow-x: hidden; }
+    /* line 180, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+    .classicInputTextList ul li {
+      cursor: pointer;
+      padding-top: 5px;
+      padding-bottom: 5px; }
+    /* line 185, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+    .classicInputTextList ul li:hover {
+      opacity: 0.7; }
 
-/* line 163, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+/* line 190, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
 .classicButton {
   margin-top: 30px;
   margin-bottom: 30px; }
-  /* line 166, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+  /* line 193, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
   .classicButton .blueButton {
     text-align: center; }
-    /* line 168, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+    /* line 195, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
     .classicButton .blueButton a {
       color: #fff;
       background: #0f8fd1;
@@ -7485,7 +7512,7 @@ section {
       text-decoration: none;
       cursor: pointer;
       font-size: 1.8rem; }
-    /* line 180, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+    /* line 207, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
     .classicButton .blueButton a:hover {
       opacity: 0.7; }
 
