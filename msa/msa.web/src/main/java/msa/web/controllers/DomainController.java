@@ -6,6 +6,7 @@ import java.util.List;
 
 import io.swagger.annotations.Api;
 import msa.application.dto.domain.*;
+import msa.application.dto.domain.baremes.BaremesDTO;
 import msa.application.exceptions.InternalMsaException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -180,6 +181,19 @@ public class DomainController extends BaseController {
     public BaseDTO<List<CasaRegoleDTO>> getElencoRegole() throws InternalMsaException {
         BaseDTO<List<CasaRegoleDTO>> result = new BaseDTO<>();
         result.setResult(domainService.getElencoRegole());
+        return result;
+    }
+
+    /**
+     * Metodo che ottiene la lista di tutti i baremes
+     * @return
+     * @throws InternalMsaException
+     */
+    @ApiOperation(value=" Metodo che ottiene la lista di tutti i baremes")
+    @RequestMapping(value = "/baremes", method = RequestMethod.GET)
+    public BaseDTO<List<BaremesDTO>> getElencoBaremes() throws InternalMsaException {
+        BaseDTO<List<BaremesDTO>> result = new BaseDTO<>();
+        result.setResult(domainService.getElencoBaremes());
         return result;
     }
 }
