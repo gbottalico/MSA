@@ -2,19 +2,19 @@ package msa.web.controllers;
 
 import io.swagger.annotations.ApiOperation;
 import msa.application.config.BaseDTO;
+import msa.application.dto.ricerca.InputRicercaDTO;
 import msa.application.dto.sinistro.aperturaSinistro.InputAperturaSinistroDTO;
 import msa.application.dto.sinistro.cai.InputCaiDTO;
 import msa.application.dto.sinistro.constatazioneAmichevole.InputConstatazioneAmichevoleDTO;
+import msa.application.dto.sinistro.dannoRca.DanniDTO;
 import msa.application.dto.sinistro.dannoRca.InputDannoRcaDTO;
 import msa.application.dto.sinistro.eventoRca.InputEventoDTO;
-import msa.application.dto.ricerca.InputRicercaDTO;
 import msa.application.dto.sinistro.segnalazione.InputSegnalazioneDTO;
 import msa.application.service.sinistri.SinistriService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/api/sinistro")
@@ -99,11 +99,24 @@ public class SinistroController {
 
     }
 
+    /**
+     * Metodo che salva i danni riportati
+     * @param input
+     * @param numeroSinistro
+     * @return
+     */
     @ApiOperation(value = "Metodo che salva i danni riportati")
     @RequestMapping(value = "/{numero}/dannoRCA", method = RequestMethod.POST)
     public BaseDTO salvaDanniRca(InputDannoRcaDTO input, @PathVariable("numero") String numeroSinistro) {
         return sinistriService.salvaDannoRca(input);
     }
 
+    //TODO rimuoverlo
+    @RequestMapping(value = "/testdanni", method =RequestMethod.POST)
+    public BaseDTO testDanni(@RequestBody DanniDTO input){
+
+        System.out.println();
+        return null;
+    }
 
 }

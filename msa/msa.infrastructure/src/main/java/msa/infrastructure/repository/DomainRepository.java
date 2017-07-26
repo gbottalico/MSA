@@ -33,7 +33,8 @@ public class DomainRepository extends BaseRepository {
     TipoTargaBaseRepository tipoTargaRepository;
     @Autowired
     CasaRegoleBaseRepository casaRegoleRepository;
-
+    @Autowired
+    BaremesBaseRepository baremesRepository;
     /**
      * Effettua la ricerca delle nazioni il cui nome inizia con la stringa passata
      *
@@ -142,7 +143,7 @@ public class DomainRepository extends BaseRepository {
     /**
      * Ottiene la lista delle tipologie di veicoli
      *
-     * @return
+     * @return una lista di oggetti TipoVeicoloDO
      */
     public List<TipoVeicoloDO> getElencoTipoVeicoli() {
         List<TipoVeicoloDBO> result = tipoVeicoloRepository.findAll();
@@ -152,7 +153,7 @@ public class DomainRepository extends BaseRepository {
     /**
      * Ottiene la lista di tipologie di targhe
      *
-     * @return
+     * @return una lista di oggetti TipoTargaDO
      */
     public List<TipoTargaDO> getElencoTipoTarga() {
         List<TipoTargaDBO> result = tipoTargaRepository.findAll();
@@ -161,10 +162,19 @@ public class DomainRepository extends BaseRepository {
 
     /**
      * Ottiene la lista delle regole contenute nella casa delle regole
-     * @return
+     * @return una lista di oggetti CasaRegoleDO
      */
     public List<CasaRegoleDO> getElencoRegole() {
         List<CasaRegoleDBO> result = casaRegoleRepository.findAll();
         return converter.convertList(result, CasaRegoleDO.class);
+    }
+
+    /**
+     * Metodo che ottiene la lista di tutti i baremes
+     * @return una lista di oggetti BaremesDO
+     */
+    public List<BaremesDO> getElencoBaremes(){
+        List<BaremesDBO> result = baremesRepository.findAll();
+        return converter.convertList(result,BaremesDO.class);
     }
 }

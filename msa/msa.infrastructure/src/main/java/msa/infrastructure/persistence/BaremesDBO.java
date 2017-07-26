@@ -1,0 +1,29 @@
+package msa.infrastructure.persistence;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+
+@Document(collection = "baremes")
+public class BaremesDBO {
+    @Id
+    private Integer id;
+    @Field("descrizioneBaremes")
+    private String descrizione;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getDescrizione() {
+        return descrizione;
+    }
+
+    public void setDescrizione(String descrizione) {
+        this.descrizione = descrizione;
+    }
+}

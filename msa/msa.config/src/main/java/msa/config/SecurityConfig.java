@@ -16,16 +16,16 @@ import msa.config.interceptors.RestAuthenticationEntryPoint;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-	
-	@Autowired
-	private SecurityFilter filter;
-	
-	@Autowired 
-	private RestAuthenticationEntryPoint authenticationEntryPoint;
-	
-	@Override
-	public void configure(HttpSecurity http) throws Exception {
 
+    @Autowired
+    private SecurityFilter filter;
+
+    @Autowired
+    private RestAuthenticationEntryPoint authenticationEntryPoint;
+
+    @Override
+    public void configure(HttpSecurity http) throws Exception {
+        http.csrf().disable();
 //		http
 //		.csrf().disable().authorizeRequests()
 //				.antMatchers("/*", "/403.html", "/api/login/user", "/api/v2/api-docs", "/metrics/*", "/env" , "/img/*").permitAll()
@@ -35,6 +35,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .addFilterBefore(filter, BasicAuthenticationFilter.class)
 //                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 //                .and().httpBasic().authenticationEntryPoint(authenticationEntryPoint);
-	}
-	
+    }
+
 }
