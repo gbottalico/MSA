@@ -17,6 +17,7 @@
 		"polizzasearch": {
 			"title": "Ricerca polizza",
 			"labels": {
+				"alert": "* Campo obbligarotrio",
 				"cognome": "Cognome",
 				"nome": "Nome",
 				"fisica": "Fisica",
