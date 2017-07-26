@@ -1,4 +1,4 @@
-<section class="row polizzaSearch">
+<section class="row polizzaSearch" ng-show="$ctrl.valoriRicerca == undefined">
 
 	<div class="containerHeader">
 		<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
@@ -127,3 +127,6 @@
 	</div>
 
 </section>
+
+<msa-polizza-result data-valori-ricerca="$ctrl.valoriRicerca" ng-show="$ctrl.valoriRicerca != undefined"></msa-polizza-result>
+<msa-polizze-sinistri data-valori-ricerca="$ctrl.valoriRicerca" ng-show="$ctrl.valoriRicerca != undefined"></msa-polizze-sinistri>

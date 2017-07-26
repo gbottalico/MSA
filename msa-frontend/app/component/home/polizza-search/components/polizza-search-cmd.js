@@ -40,10 +40,10 @@
 	        	ctrl.open.compagnia = !ctrl.open.compagnia;
 	        };
 
-	        ctrl.valoriricerca = undefined;
+	        ctrl.valoriRicerca = undefined;
 
 	        ctrl.cerca = function() {
-		        ctrl.valoriricerca = {
+		        ctrl.valoriRicerca = {
 		        	cognome: ctrl.ricercapolizza.cognome,
 		        	nome: ctrl.ricercapolizza.nome,
 		        	tipopersona: ctrl.ricercapolizza.tipopersona,

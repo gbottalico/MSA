@@ -7534,7 +7534,7 @@ section {
   margin-top: 30px;
   margin-bottom: 30px; }
   /* line 230, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
-  .classicButton button.blueButton {
+  .classicButton button.blueDarkButton {
     border: none;
     background: transparent;
     padding: 0;
@@ -7544,6 +7544,53 @@ section {
     text-align: center;
     outline: none; }
     /* line 239, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+    .classicButton button.blueDarkButton a {
+      color: #fff;
+      background: #1e3877;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 20px;
+      padding-right: 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      cursor: pointer;
+      font-size: 1.8rem; }
+    /* line 251, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+    .classicButton button.blueDarkButton a:hover {
+      opacity: 0.7; }
+  /* line 255, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+  .classicButton button[disabled].blueDarkButton {
+    border: none;
+    background: transparent;
+    padding: 0;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    text-align: center; }
+    /* line 263, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+    .classicButton button[disabled].blueDarkButton a {
+      color: #fff;
+      background: #9d9d9d;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 20px;
+      padding-right: 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      cursor: not-allowed;
+      font-size: 1.8rem;
+      opacity: 0.7; }
+  /* line 277, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+  .classicButton button.blueButton {
+    border: none;
+    background: transparent;
+    padding: 0;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    text-align: center;
+    outline: none; }
+    /* line 286, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
     .classicButton button.blueButton a {
       color: #fff;
       background: #0f8fd1;
@@ -7555,10 +7602,10 @@ section {
       text-decoration: none;
       cursor: pointer;
       font-size: 1.8rem; }
-    /* line 251, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+    /* line 298, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
     .classicButton button.blueButton a:hover {
       opacity: 0.7; }
-  /* line 255, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+  /* line 302, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
   .classicButton button[disabled].blueButton {
     border: none;
     background: transparent;
@@ -7567,7 +7614,7 @@ section {
     left: 50%;
     transform: translate(-50%, 0);
     text-align: center; }
-    /* line 263, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
+    /* line 310, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/utilities/_common.scss */
     .classicButton button[disabled].blueButton a {
       color: #fff;
       background: #9d9d9d;
@@ -7752,6 +7799,116 @@ section {
   display: inline-block; }
   /* line 51, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/custom/_polizza_search.scss */
   .polizzaSearch .containerBody .container .body {
+    background-color: #fff;
+    color: #9d9d9d;
+    font-size: 2rem;
+    height: 100%;
+    display: flow-root;
+    width: 100%; }
+
+/* line 4, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/custom/_polizza_result.scss */
+.polizzaResult .containerHeader {
+  clear: both;
+  width: 100%;
+  margin-top: 30px; }
+  /* line 9, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/custom/_polizza_result.scss */
+  .polizzaResult .containerHeader .container .header {
+    /* IE10 */
+    background-image: -ms-linear-gradient(top right, #0f8fd1 0%, #1e3877 100%);
+    /* Mozilla Firefox */
+    background-image: -moz-linear-gradient(top right, #0f8fd1 0%, #1e3877 100%);
+    /* Opera */
+    background-image: -o-linear-gradient(top right, #0f8fd1 0%, #1e3877 100%);
+    /* Webkit (Safari/Chrome 10) */
+    background-image: -webkit-gradient(linear, right top, left bottom, color-stop(0, #0f8fd1), color-stop(1, #1e3877));
+    /* Webkit (Chrome 11+) */
+    background-image: -webkit-linear-gradient(top right, #0f8fd1 0%, #1e3877 100%);
+    /* Regola standard */
+    background-image: linear-gradient(to top right, #0f8fd1 0%, #1e3877 100%);
+    color: #fff;
+    text-align: center;
+    height: 60px;
+    position: relative; }
+    /* line 26, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/custom/_polizza_result.scss */
+    .polizzaResult .containerHeader .container .header .titleSection {
+      position: absolute;
+      width: 100%;
+      margin: 0;
+      top: 50%;
+      transform: translate(0, -50%);
+      z-index: 1;
+      left: 0;
+      right: 0;
+      font-size: 2.5rem; }
+  /* line 38, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/custom/_polizza_result.scss */
+  .polizzaResult .containerHeader .container .body {
+    background-color: #fff;
+    color: #9d9d9d;
+    font-size: 2rem; }
+
+/* line 45, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/custom/_polizza_result.scss */
+.polizzaResult .containerBody {
+  clear: both;
+  width: 100%;
+  margin-bottom: 30px;
+  display: inline-block; }
+  /* line 51, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/custom/_polizza_result.scss */
+  .polizzaResult .containerBody .container .body {
+    background-color: #fff;
+    color: #9d9d9d;
+    font-size: 2rem;
+    height: 100%;
+    display: flow-root;
+    width: 100%; }
+
+/* line 4, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/custom/_polizze_sinistri.scss */
+.polizzeSinistri .containerHeader {
+  clear: both;
+  width: 100%;
+  margin-top: 30px; }
+  /* line 9, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/custom/_polizze_sinistri.scss */
+  .polizzeSinistri .containerHeader .container .header {
+    /* IE10 */
+    background-image: -ms-linear-gradient(top right, #0f8fd1 0%, #1e3877 100%);
+    /* Mozilla Firefox */
+    background-image: -moz-linear-gradient(top right, #0f8fd1 0%, #1e3877 100%);
+    /* Opera */
+    background-image: -o-linear-gradient(top right, #0f8fd1 0%, #1e3877 100%);
+    /* Webkit (Safari/Chrome 10) */
+    background-image: -webkit-gradient(linear, right top, left bottom, color-stop(0, #0f8fd1), color-stop(1, #1e3877));
+    /* Webkit (Chrome 11+) */
+    background-image: -webkit-linear-gradient(top right, #0f8fd1 0%, #1e3877 100%);
+    /* Regola standard */
+    background-image: linear-gradient(to top right, #0f8fd1 0%, #1e3877 100%);
+    color: #fff;
+    text-align: center;
+    height: 60px;
+    position: relative; }
+    /* line 26, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/custom/_polizze_sinistri.scss */
+    .polizzeSinistri .containerHeader .container .header .titleSection {
+      position: absolute;
+      width: 100%;
+      margin: 0;
+      top: 50%;
+      transform: translate(0, -50%);
+      z-index: 1;
+      left: 0;
+      right: 0;
+      font-size: 2.5rem; }
+  /* line 38, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/custom/_polizze_sinistri.scss */
+  .polizzeSinistri .containerHeader .container .body {
+    background-color: #fff;
+    color: #9d9d9d;
+    font-size: 2rem; }
+
+/* line 45, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/custom/_polizze_sinistri.scss */
+.polizzeSinistri .containerBody {
+  clear: both;
+  width: 100%;
+  margin-bottom: 30px;
+  display: inline-block; }
+  /* line 51, C:/Users/Giacomo Rossi/Desktop/Sinistri/MSA/msa-frontend/assets/stylesheets/scss/custom/_polizze_sinistri.scss */
+  .polizzeSinistri .containerBody .container .body {
     background-color: #fff;
     color: #9d9d9d;
     font-size: 2rem;

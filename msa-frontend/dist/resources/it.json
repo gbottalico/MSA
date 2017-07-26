@@ -2,7 +2,8 @@
   	"global": {
     	"title": "Msa",
     	"generic": {
-    		"cerca": "Cerca"
+    		"cerca": "Cerca",
+    		"annulla": "Annulla ricerca"
     	},
     	"header": {
     		"labels": {
@@ -31,6 +32,18 @@
 				"numpre": "Numero preapertura",
 				"compagnia": "Compagnia",
 				"istruzioni": "Cerca e seleziona una polizza per procedere"
+			}
+		},
+		"polizzaresult": {
+			"title": "Anagrafica",
+			"labels": {
+				
+			}
+		},
+		"polizzesinistri": {
+			"title": "Polizze e sinistri",
+			"labels": {
+				
 			}
 		} 
   	}
