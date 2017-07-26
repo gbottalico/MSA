@@ -2,7 +2,8 @@
   	"global": {
     	"title": "Msa",
     	"generic": {
-    		"cerca": "Cerca"
+    		"cerca": "Cerca",
+    		"annulla": "Annulla ricerca"
     	},
     	"header": {
     		"labels": {
@@ -17,6 +18,7 @@
 		"polizzasearch": {
 			"title": "Ricerca polizza",
 			"labels": {
+				"alert": "* Campo obbligarotrio",
 				"cognome": "Cognome",
 				"nome": "Nome",
 				"fisica": "Fisica",
@@ -30,6 +32,18 @@
 				"numpre": "Numero preapertura",
 				"compagnia": "Compagnia",
 				"istruzioni": "Cerca e seleziona una polizza per procedere"
+			}
+		},
+		"polizzaresult": {
+			"title": "Anagrafica",
+			"labels": {
+				
+			}
+		},
+		"polizzesinistri": {
+			"title": "Polizze e sinistri",
+			"labels": {
+				
 			}
 		} 
   	}

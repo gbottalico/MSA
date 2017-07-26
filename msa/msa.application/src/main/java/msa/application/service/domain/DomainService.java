@@ -6,6 +6,7 @@ import java.util.List;
 import msa.application.commons.Constants;
 import msa.application.config.enumerator.MessageType;
 import msa.application.dto.domain.*;
+import msa.application.dto.domain.baremes.BaremesDTO;
 import msa.application.exceptions.InternalMsaException;
 import msa.domain.object.dominio.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -150,7 +151,7 @@ public class DomainService extends BaseService {
     /**
      * Utilizza il DomainRepository per ottenere la lista delle tipologie di veicoli
      *
-     * @return
+     * @return una lista di oggetti TipoVeicoloDTO
      * @throws InternalMsaException
      */
     public List<TipoVeicoloDTO> getElencoTipoVeicoli() throws InternalMsaException {
@@ -166,7 +167,7 @@ public class DomainService extends BaseService {
     /**
      * Utilizza il DomainRepository per ottenere la lista delle tipoologie targa
      *
-     * @return
+     * @return una lista di oggetti TipoTargaDTO
      * @throws InternalMsaException
      */
     public List<TipoTargaDTO> getElencoTipoTarghe() throws InternalMsaException {
@@ -182,7 +183,7 @@ public class DomainService extends BaseService {
     /**
      * Utilizza il DomainRepository per ottenere la lista delle regole presenti nella casa delle regole
      *
-     * @return
+     * @return un elenco di oggetti CasaRegoleDTO
      * @throws InternalMsaException
      */
     public List<CasaRegoleDTO> getElencoRegole() throws InternalMsaException {
@@ -192,6 +193,20 @@ public class DomainService extends BaseService {
             return converter.convertList(domainRepository.getElencoRegole(), CasaRegoleDTO.class);
         } catch (Exception e) {
             throw new InternalMsaException(e, buildErrorMessageByText(MessageType.ERROR, Constants.DEFAULT_DOMAIN_ERROR_MESSAGE + "casa delle regole  "));
+        }
+    }
+
+    /**
+     * Utilizza il DomainRepository per ottenere l'elenco di tutti i Baremes
+     * @return un elenco di oggetti BaremesDTO
+     * @throws InternalMsaException
+     */
+    public List<BaremesDTO> getElencoBaremes() throws InternalMsaException {
+        try {
+            return converter.convertList(domainRepository.getElencoBaremes(), BaremesDTO.class);
+        } catch (Exception e) {
+            throw new InternalMsaException(e, buildErrorMessageByText(MessageType.ERROR, Constants.DEFAULT_DOMAIN_ERROR_MESSAGE + "baremes "));
+
         }
     }
 }
