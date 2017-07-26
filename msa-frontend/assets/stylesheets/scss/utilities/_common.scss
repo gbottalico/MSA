@@ -149,6 +149,9 @@ section {
 	margin-bottom: 15px;
 	.containerArrow {
 		position: relative;
+		height: 40px;
+		background: $light_gray;
+		border-radius: 5px;
 		i {
 			position: absolute;
 			top: 50%;
@@ -157,17 +160,17 @@ section {
 			text-align: right;
 			cursor: pointer;
 			right: 0;
-			/*DA CHIEDEDRE CONFERMA*/
-			width: 100%;
+			z-index: 1;
 		}
 		input[type="text"] {
 			width: 100%;
 			border: 0px solid;
 			height: 40px;
-			border-radius: 5px;
-			background: $light_gray;
+			background: transparent;
 			padding: 10px;
 		    padding-right: 40px;
+		    position: absolute;
+		    z-index: 2;
 		}
 		input:focus {
 			outline: none;
@@ -209,7 +212,7 @@ section {
 		border-radius: 0px 0px 5px 5px;
 		overflow-y: auto;
 		overflow-x: hidden;
-	    z-index: 1;
+	    z-index: 3;
 		li {
 			cursor: pointer;
 			padding-top: 5px;

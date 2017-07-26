@@ -9,17 +9,17 @@
 	            
 	        var ctrl = this;
 
-	        var listacompagnie = {
-	        	compagnia1: 'Prova 1',
-	        	compagnia2: 'Prova 2',
-	        	compagnia3: 'Prova 3',
-	        	compagnia4: 'Prova 4',
-	        	compagnia5: 'Prova 5',
-	        	compagnia6: 'Prova 6',
-	        	compagnia7: 'Prova 7',
-	        	compagnia8: 'Prova 8',
-	        	compagnia9: 'Prova 9'
-	        };
+	        ctrl.listacompagnie = [
+	        	'Compagnia con il nome molto lungo',
+				'Come corto',
+				'Ciao',
+				'Gianluca spa',
+				'Ammaccabanana',
+				'Prova per filtro',
+				'Termostato',
+				'Elenco',
+				'Funziona'
+	        ];
 
 	        ctrl.ricercapolizza = {
 	        	cognome: '',
@@ -31,8 +31,8 @@
 	        	targa: '',
 	        	numprov: '',
 	        	numpre: '',
-	        	compagnie: listacompagnie,
-	        	compagniaselected: undefined,
+	        	compagnie: {elenco: ctrl.listacompagnie},
+	        	compagniaselected: undefined
 	        };
 
 	        ctrl.compagniaSelected = function(compagnia) {
@@ -40,18 +40,22 @@
 	        	ctrl.open.compagnia = !ctrl.open.compagnia;
 	        };
 
-	        ctrl.valoriricerca = {
-	        	cognome: ctrl.ricercapolizza.cognome,
-	        	nome: ctrl.ricercapolizza.nome,
-	        	tipopersona: ctrl.ricercapolizza.tipopersona,
-	        	numpoli: ctrl.ricercapolizza.numpoli,
-	        	numsin: ctrl.ricercapolizza.numsin,
-	        	dataevento: ctrl.ricercapolizza.dataevento,
-	        	targa: ctrl.ricercapolizza.targa,
-	        	numprov: ctrl.ricercapolizza.numprov,
-	        	numpre: ctrl.ricercapolizza.numpre,
-	        	compagnia: ctrl.ricercapolizza.compagniaselected
-	        };
+	        ctrl.valoriricerca = undefined;
+
+	        ctrl.cerca = function() {
+		        ctrl.valoriricerca = {
+		        	cognome: ctrl.ricercapolizza.cognome,
+		        	nome: ctrl.ricercapolizza.nome,
+		        	tipopersona: ctrl.ricercapolizza.tipopersona,
+		        	numpoli: ctrl.ricercapolizza.numpoli,
+		        	numsin: ctrl.ricercapolizza.numsin,
+		        	dataevento: ctrl.ricercapolizza.dataevento,
+		        	targa: ctrl.ricercapolizza.targa,
+		        	numprov: ctrl.ricercapolizza.numprov,
+		        	numpre: ctrl.ricercapolizza.numpre,
+		        	compagnia: ctrl.ricercapolizza.compagniaselected
+		        };
+		    };
 
 	    }])
 	});
