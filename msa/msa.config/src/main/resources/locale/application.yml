@@ -31,4 +31,9 @@ spring:
 logging:
   file: /Sviluppo/msa_logs/msa.log
 msa:
-  profile: locale 
+  profile: locale
+  data:
+      mongodb:
+        host: localhost
+        port: 27017
+        database: msa

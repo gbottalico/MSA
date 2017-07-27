@@ -28,11 +28,9 @@ public class DomainService extends BaseService {
     public List<NazioneDTO> getElencoNazioni(String nome) throws InternalMsaException {
 
         try {
-
             return converter.convertList(domainRepository.getListaNazioni(nome), NazioneDTO.class);
-
         } catch (Exception e) {
-            throw new InternalMsaException(e, buildErrorMessageByText(MessageType.ERROR, Constants.DEFAULT_DOMAIN_ERROR_MESSAGE + "nazioni"));
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR,"MSA001"));
         }
 
     }
@@ -51,7 +49,7 @@ public class DomainService extends BaseService {
 
             return converter.convertList(domainRepository.getElencoProvince(idNazione, descProvincia), ProvinciaDTO.class);
         } catch (Exception e) {
-            throw new InternalMsaException(e, buildErrorMessageByText(MessageType.ERROR, Constants.DEFAULT_DOMAIN_ERROR_MESSAGE + "provincie"));
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR,"MSA001"));
         }
 
     }
@@ -70,7 +68,7 @@ public class DomainService extends BaseService {
 
             return converter.convertList(domainRepository.getElencoComuni(idNazione, idProvincia, desc), ComuneDTO.class);
         } catch (Exception e) {
-            throw new InternalMsaException(e, buildErrorMessageByText(MessageType.ERROR, Constants.DEFAULT_DOMAIN_ERROR_MESSAGE + "comuni"));
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR,"MSA001"));
         }
     }
 
@@ -86,7 +84,7 @@ public class DomainService extends BaseService {
 
             return converter.convertList(domainRepository.getElencoAutorita(), AutoritaDTO.class);
         } catch (Exception e) {
-            throw new InternalMsaException(e, buildErrorMessageByText(MessageType.ERROR, Constants.DEFAULT_DOMAIN_ERROR_MESSAGE + "autorità"));
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR,"MSA001"));
 
         }
 
@@ -108,7 +106,7 @@ public class DomainService extends BaseService {
 
         } catch (Exception e) {
             e.printStackTrace();
-            throw new InternalMsaException(e, buildErrorMessageByText(MessageType.ERROR, Constants.DEFAULT_DOMAIN_ERROR_MESSAGE + "compagnie"));
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR,"MSA001"));
 
         }
     }
@@ -124,7 +122,7 @@ public class DomainService extends BaseService {
             return converter.convertList(domainRepository.getElencoMezziComunicazione(), MezzoComunicazioneDTO.class);
 
         } catch (Exception e) {
-            throw new InternalMsaException(e, buildErrorMessageByText(MessageType.ERROR, Constants.DEFAULT_DOMAIN_ERROR_MESSAGE + "mezzi di comunicazione"));
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR,"MSA001"));
 
         }
     }
@@ -140,7 +138,7 @@ public class DomainService extends BaseService {
         try {
             return converter.convertList(domainRepository.getElencoCauseRotturaCristalli(), CausaRotturaCristalliDTO.class);
         } catch (Exception e) {
-            throw new InternalMsaException(e, buildErrorMessageByText(MessageType.ERROR, Constants.DEFAULT_DOMAIN_ERROR_MESSAGE + "causa rottura cristalli"));
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR,"MSA001"));
 
         }
     }
@@ -157,7 +155,7 @@ public class DomainService extends BaseService {
             return converter.convertList(domainRepository.getElencoTipoVeicoli(), TipoVeicoloDTO.class);
         } catch (Exception e) {
             e.printStackTrace();
-            throw new InternalMsaException(e, buildErrorMessageByText(MessageType.ERROR, Constants.DEFAULT_DOMAIN_ERROR_MESSAGE + "tipologia veicolo "));
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR,"MSA001"));
         }
     }
 
@@ -172,7 +170,7 @@ public class DomainService extends BaseService {
 
             return converter.convertList(domainRepository.getElencoTipoTarga(), TipoTargaDTO.class);
         } catch (Exception e) {
-            throw new InternalMsaException(e, buildErrorMessageByText(MessageType.ERROR, Constants.DEFAULT_DOMAIN_ERROR_MESSAGE + "tipologia targhe "));
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR,"MSA001"));
 
         }
     }
@@ -189,7 +187,7 @@ public class DomainService extends BaseService {
 
             return converter.convertList(domainRepository.getElencoRegole(), CasaRegoleDTO.class);
         } catch (Exception e) {
-            throw new InternalMsaException(e, buildErrorMessageByText(MessageType.ERROR, Constants.DEFAULT_DOMAIN_ERROR_MESSAGE + "casa delle regole  "));
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR,"MSA001"));
         }
     }
 
@@ -202,7 +200,7 @@ public class DomainService extends BaseService {
         try {
             return converter.convertList(domainRepository.getElencoBaremes(), BaremesDTO.class);
         } catch (Exception e) {
-            throw new InternalMsaException(e, buildErrorMessageByText(MessageType.ERROR, Constants.DEFAULT_DOMAIN_ERROR_MESSAGE + "baremes "));
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR,"MSA001"));
 
         }
     }

@@ -5,6 +5,7 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
@@ -12,6 +13,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import reactor.Environment;
 
 @SpringBootApplication
 @EnableCaching
@@ -24,6 +26,11 @@ public abstract class BaseMsaApplication {
 	@Autowired
 	private ObjectMapper jacksonMapper;
 
+
+	@Bean
+	public Environment env() {
+		return Environment.initializeIfEmpty().assignErrorJournal();
+	}
 
 	@PostConstruct
 	public void initApp() {
