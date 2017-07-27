@@ -37,7 +37,17 @@
 		"polizzaresult": {
 			"title": "Anagrafica",
 			"labels": {
-				
+				"cognome": "Cognome",
+				"nome": "Nome",
+				"cf": "Codice fiscale",
+				"luogonascita": "Luogo di nascita",
+				"provincia": "Provincia",
+				"datanascita": "Data di nascita",
+				"residenza": "Residenza",
+				"indirizzo": "Indirizzo",
+				"telefono": "Telefono",
+				"cellulare": "Cellulare",
+				"email": "Email"
 			}
 		},
 		"polizzesinistri": {

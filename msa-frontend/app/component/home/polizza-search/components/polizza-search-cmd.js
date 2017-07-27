@@ -43,7 +43,7 @@
 	        ctrl.valoriRicerca = undefined;
 
 	        ctrl.cerca = function() {
-		        ctrl.valoriRicerca = {
+		        ctrl.inputRicerca = {
 		        	cognome: ctrl.ricercapolizza.cognome,
 		        	nome: ctrl.ricercapolizza.nome,
 		        	tipopersona: ctrl.ricercapolizza.tipopersona,
@@ -54,6 +54,21 @@
 		        	numprov: ctrl.ricercapolizza.numprov,
 		        	numpre: ctrl.ricercapolizza.numpre,
 		        	compagnia: ctrl.ricercapolizza.compagniaselected
+		        };
+
+		        ctrl.valoriRicerca = {
+		        	cognome: 'Piras',
+		        	nome: 'Dario',
+		        	cf: 'PRSDRA87E28B157S',
+		        	luogonascita: 'Brescia',
+		        	provincianascita: 'BS',
+		        	datanascita: '15/01/1960',
+		        	residenza: 'Brescia',
+		        	provinciaresidenza: 'BS',
+		        	indirizzo: 'Via Raffaello Sanzio, 11',
+		        	telefono: '0331123456',
+		        	cellulare: '3332363880',
+		        	email: 'info@email.it'
 		        };
 		    };
 

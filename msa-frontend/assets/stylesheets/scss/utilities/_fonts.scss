@@ -1,86 +1,116 @@
 @charset "UTF-8";
 
 //fonts (ATTENZIONE: i seguenti FONT name devono corrispondere esattamente ai FILE name nella cartella fonts )
-$font_blkCn: HelveticaNeueLTPro-BlkCn;
-$font_mdCn: HelveticaNeueLTPro-MdCn;
-$font_mdCnO: HelveticaNeueLTPro-MdCnO;
-$font_cn: HelveticaNeueLTPro-Cn;
-$font_ltCn: HelveticaNeueLTPro-LtCn;
-$font_ltCnO: HelveticaNeueLTPro-LtCnO;
-$font_bdCn: HelveticaNeueLTPro-BdCn;
-$font_lt: HelveticaNeueLTPro-Lt;
-$font_ari: Arial;
+$font_montblack: Montserrat-Black;
+$font_montitablack: Montserrat-BlackItalic;
+$font_montbold: Montserrat-Bold;
+$font_montboldita: Montserrat-BoldItalic;
+$font_montextrabold: Montserrat-ExtraBold;
+$font_montextraboldita: Montserrat-ExtraBoldItalic;
+$font_montextralight: Montserrat-ExtraLight;
+$font_montita: Montserrat-Italic;
+$font_montlight: Montserrat-Light;
+$font_montlightita: Montserrat-LightItalic;
+$font_montmedium: Montserrat-Medium;
+$font_montmediumita: Montserrat-MediumItalic;
+$font_montregular: Montserrat-Regular;
+$font_montsemibold: Montserrat-SemiBold;
+$font_montsemiboldita: Montserrat-SemiBoldItalic;
+$font_montthin: Montserrat-Thin;
+$font_monthinita: Montserrat-ThinItalic;
+
 $font_awe: FontAwesome;
+
 $font_sans: sans-serif;
 
 @font-face {
-  font-family: $font_blkCn;
-  src:  url(#{'../fonts/' + $font_blkCn + '?#iefix'})        format('embedded-opentype'),
-  url(#{'../fonts/' + $font_blkCn + '.otf'})                 format('opentype'),
-  url(#{'../fonts/' + $font_blkCn + '.woff'})                format('woff'),
-  url(#{'../fonts/' + $font_blkCn + '.ttf'})                 format('truetype'),
-  url(#{'../fonts/' + $font_blkCn + '.svg#' + $font_blkCn})  format('svg');
+  font-family: $font_montblack;
+  src:  url(#{'../fonts/' + $font_montblack + '?#iefix'})        format('embedded-opentype'),
+  url(#{'../fonts/' + $font_montblack + '.otf'})                 format('opentype')
+}
+@font-face {
+  font-family: $font_montitablack;
+  src:  url(#{'../fonts/' + $font_montitablack + '?#iefix'})        format('embedded-opentype'),
+  url(#{'../fonts/' + $font_montitablack + '.otf'})                 format('opentype')
+}
+@font-face {
+  font-family: $font_montbold;
+  src:  url(#{'../fonts/' + $font_montbold + '?#iefix'})        format('embedded-opentype'),
+  url(#{'../fonts/' + $font_montbold + '.otf'})                 format('opentype')
+}
+@font-face {
+  font-family: $font_montboldita;
+  src:  url(#{'../fonts/' + $font_montboldita + '?#iefix'})        format('embedded-opentype'),
+  url(#{'../fonts/' + $font_montboldita + '.otf'})                 format('opentype')
+}
+@font-face {
+  font-family: $font_montextrabold;
+  src:  url(#{'../fonts/' + $font_montextrabold + '?#iefix'})        format('embedded-opentype'),
+  url(#{'../fonts/' + $font_montextrabold + '.otf'})                 format('opentype')
+}
+@font-face {
+  font-family: $font_montextraboldita;
+  src:  url(#{'../fonts/' + $font_montextraboldita + '?#iefix'})        format('embedded-opentype'),
+  url(#{'../fonts/' + $font_montextraboldita + '.otf'})                 format('opentype')
+}
+@font-face {
+  font-family: $font_montextralight;
+  src:  url(#{'../fonts/' + $font_montextralight + '?#iefix'})        format('embedded-opentype'),
+  url(#{'../fonts/' + $font_montextralight + '.otf'})                 format('opentype')
+}
+@font-face {
+  font-family: $font_montita;
+  src:  url(#{'../fonts/' + $font_montita + '?#iefix'})        format('embedded-opentype'),
+  url(#{'../fonts/' + $font_montita + '.otf'})                 format('opentype')
+}
+@font-face {
+  font-family: $font_montlight;
+  src:  url(#{'../fonts/' + $font_montlight + '?#iefix'})        format('embedded-opentype'),
+  url(#{'../fonts/' + $font_montlight + '.otf'})                 format('opentype')
+}
+@font-face {
+  font-family: $font_montlightita;
+  src:  url(#{'../fonts/' + $font_montlightita + '?#iefix'})        format('embedded-opentype'),
+  url(#{'../fonts/' + $font_montlightita + '.otf'})                 format('opentype')
+}
+@font-face {
+  font-family: $font_montmedium;
+  src:  url(#{'../fonts/' + $font_montmedium + '?#iefix'})        format('embedded-opentype'),
+  url(#{'../fonts/' + $font_montmedium + '.otf'})                 format('opentype')
+}
+@font-face {
+  font-family: $font_montmediumita;
+  src:  url(#{'../fonts/' + $font_montmediumita + '?#iefix'})        format('embedded-opentype'),
+  url(#{'../fonts/' + $font_montmediumita + '.otf'})                 format('opentype')
+}
+@font-face {
+  font-family: $font_montregular;
+  src:  url(#{'../fonts/' + $font_montregular + '?#iefix'})        format('embedded-opentype'),
+  url(#{'../fonts/' + $font_montregular + '.otf'})                 format('opentype')
+}
+@font-face {
+  font-family: $font_montsemibold;
+  src:  url(#{'../fonts/' + $font_montsemibold + '?#iefix'})        format('embedded-opentype'),
+  url(#{'../fonts/' + $font_montsemibold + '.otf'})                 format('opentype')
+}
+@font-face {
+  font-family: $font_montsemiboldita;
+  src:  url(#{'../fonts/' + $font_montsemiboldita + '?#iefix'})        format('embedded-opentype'),
+  url(#{'../fonts/' + $font_montsemiboldita + '.otf'})                 format('opentype')
+}
+@font-face {
+  font-family: $font_montthin;
+  src:  url(#{'../fonts/' + $font_montthin + '?#iefix'})        format('embedded-opentype'),
+  url(#{'../fonts/' + $font_montthin + '.otf'})                 format('opentype')
+}
+@font-face {
+  font-family: $font_monthinita;
+  src:  url(#{'../fonts/' + $font_monthinita + '?#iefix'})        format('embedded-opentype'),
+  url(#{'../fonts/' + $font_monthinita + '.otf'})                 format('opentype')
 }
 
 @font-face {
-  font-family: $font_mdCn;
-  src:  url(#{'../fonts/' + $font_mdCn + '?#iefix'})        format('embedded-opentype'),
-  url(#{'../fonts/' + $font_mdCn + '.otf'})                 format('opentype'),
-  url(#{'../fonts/' + $font_mdCn + '.woff'})                format('woff'),
-  url(#{'../fonts/' + $font_mdCn + '.ttf'})                 format('truetype'),
-  url(#{'../fonts/' + $font_mdCn + '.svg#' + $font_mdCn})   format('svg');
-}
-
-@font-face {
-  font-family: $font_ltCn;
-  src:  url(#{'../fonts/' + $font_ltCn + '?#iefix'})        format('embedded-opentype'),
-  url(#{'../fonts/' + $font_ltCn + '.otf'})                 format('opentype'),
-  url(#{'../fonts/' + $font_ltCn + '.woff'})                format('woff'),
-  url(#{'../fonts/' + $font_ltCn + '.ttf'})                 format('truetype'),
-  url(#{'../fonts/' + $font_ltCn + '.svg#' + $font_ltCn})   format('svg');
-}
-
-@font-face {
-  font-family: $font_sans;
-  src:  url(#{'../fonts/' + $font_sans + '?#iefix'})        format('embedded-opentype'),
-  url(#{'../fonts/' + $font_sans + '.otf'})                 format('opentype'),
-  url(#{'../fonts/' + $font_sans + '.woff'})                format('woff'),
-  url(#{'../fonts/' + $font_sans + '.ttf'})                 format('truetype'),
-  url(#{'../fonts/' + $font_sans + '.svg#' + $font_sans})   format('svg');
-}
-
-@font-face {
-  font-family: $font_lt;
-  src:  url(#{'../fonts/' + $font_lt + '?#iefix'})        format('embedded-opentype'),
-  url(#{'../fonts/' + $font_lt + '.otf'})                 format('opentype'),
-  url(#{'../fonts/' + $font_lt + '.woff'})                format('woff'),
-  url(#{'../fonts/' + $font_lt + '.ttf'})                 format('truetype'),
-  url(#{'../fonts/' + $font_lt + '.svg#' + $font_lt})   format('svg');
-}
-
-@font-face {
-  font-family: $font_bdCn;
-  src:  url(#{'../fonts/' + $font_bdCn + '?#iefix'})        format('embedded-opentype'),
-  url(#{'../fonts/' + $font_bdCn + '.otf'})                 format('opentype'),
-  url(#{'../fonts/' + $font_bdCn + '.woff'})                format('woff'),
-  url(#{'../fonts/' + $font_bdCn + '.ttf'})                 format('truetype'),
-  url(#{'../fonts/' + $font_bdCn + '.svg#' + $font_bdCn})   format('svg');
-}
-
-@font-face {
-  font-family: $font_mdCnO;
-  src:  url(#{'../fonts/' + $font_mdCnO + '?#iefix'})        format('embedded-opentype'),
-  url(#{'../fonts/' + $font_mdCnO + '.otf'})                 format('opentype'),
-  url(#{'../fonts/' + $font_mdCnO + '.woff'})                format('woff'),
-  url(#{'../fonts/' + $font_mdCnO + '.ttf'})                 format('truetype'),
-  url(#{'../fonts/' + $font_mdCnO + '.svg#' + $font_mdCnO})   format('svg');
-}
-
-@font-face {
-  font-family: $font_ltCnO;
-  src:  url(#{'../fonts/' + $font_ltCnO + '?#iefix'})        format('embedded-opentype'),
-  url(#{'../fonts/' + $font_ltCnO + '.otf'})                 format('opentype'),
-  url(#{'../fonts/' + $font_ltCnO + '.woff'})                format('woff'),
-  url(#{'../fonts/' + $font_ltCnO + '.ttf'})                 format('truetype'),
-  url(#{'../fonts/' + $font_ltCnO + '.svg#' + $font_ltCnO})   format('svg');
+  font-family: $font_awe;
+  src:  url(#{'../fonts/' + $font_awe + '?#iefix'})        format('embedded-opentype'),
+  url(#{'../fonts/' + $font_awe + '.otf'})                 format('opentype')
 }
