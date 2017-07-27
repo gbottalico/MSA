@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
-import msa.infrastructure.persistence.ProvinciaDBO;
+import msa.infrastructure.persistence.domain.ProvinciaDBO;
 
 public interface ProvinceBaseRepository extends MongoRepository<ProvinciaDBO, Integer> {
 

@@ -1,6 +1,6 @@
 package msa.infrastructure.base.repository;
 
-import msa.infrastructure.persistence.CompagniaDBO;
+import msa.infrastructure.persistence.domain.CompagniaDBO;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 

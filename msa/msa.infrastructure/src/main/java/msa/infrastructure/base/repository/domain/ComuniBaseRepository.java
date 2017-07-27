@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
-import msa.infrastructure.persistence.ComuneDBO;
+import msa.infrastructure.persistence.domain.ComuneDBO;
 
 public interface ComuniBaseRepository extends MongoRepository<ComuneDBO, Integer> {
 	
