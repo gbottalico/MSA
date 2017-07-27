@@ -1,7 +1,7 @@
 
 <msa-header></msa-header>
-<msa-banner-search ng-show="$ctrl.bannerSearch == true && $ctrl.bannerDenuncia == false"></msa-banner-search>
-<msa-banner-denuncia ng-show="$ctrl.bannerSearch == false && $ctrl.bannerDenuncia == true"></msa-banner-denuncia>
+<msa-banner-search ng-if="$ctrl.bannerSearch == true && $ctrl.bannerDenuncia == false"></msa-banner-search>
+<msa-banner-denuncia ng-if="$ctrl.bannerSearch == false && $ctrl.bannerDenuncia == true"></msa-banner-denuncia>
 
 <msa-home data-banner-search="$ctrl.bannerSearch" data-banner-denuncia="$ctrl.bannerDenuncia"></msa-home>
 
