@@ -1,11 +1,6 @@
-package msa.infrastructure.persistence.sinistro;
+package msa.domain.object.sinistro;
 
-import org.springframework.data.mongodb.core.mapping.Document;
-
-@Document
-public class DenuncianteDBO {
-
-
+public class BaseAnagraficaDO {
     private String nome;
     private String cognome;
     private String codRuolo;
