@@ -6,7 +6,6 @@ import msa.application.config.enumerator.MessageType;
 import msa.application.service.enumerator.Api;
 import msa.domain.Converter.MsaConverter;
 import msa.infrastructure.config.AbstractMsaPropertiesReader;
-import msa.infrastructure.persistence.errori.ErroriDBO;
 import msa.infrastructure.repository.ErroriRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -39,9 +38,13 @@ public class BaseService {
         this.properties = properties;
     }
 
-    protected String getErrorMessageByCod(final String codErrore) {
-        //return erroriRepository.findAll().stream().filter(e -> e.getCodErrore().equals(codErrore)).map(ErroriDBO::getTesto).findFirst().orElse(null);
+    private String getErrorMessageByCod(final String codErrore) {
         return erroriRepository.findByCodErrore(codErrore).getTesto();
+    }
+
+    protected List<Message> getErrorMessagesByCodErrore(MessageType type, final String... cods) {
+        return buildErrorMessageByText(type, Arrays.stream(cods).map(this::getErrorMessageByCod).collect(Collectors.toList()));
+
     }
 
 
@@ -53,7 +56,7 @@ public class BaseService {
         return null;
     }
 
-    protected List<Message> buildErrorMessageByText(MessageType type, final String... texts) {
-        return Arrays.stream(texts).map(e -> new Message(MessageType.ERROR, e)).collect(Collectors.toList());
+    private List<Message> buildErrorMessageByText(MessageType type, final List<String> texts) {
+        return texts.stream().map(e -> new Message(type, e)).collect(Collectors.toList());
     }
 }

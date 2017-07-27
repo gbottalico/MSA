@@ -1,6 +1,6 @@
 package msa.infrastructure.repository;
 
-import msa.infrastructure.base.repository.BaseRepository;
+import msa.infrastructure.base.repository.domain.BaseRepository;
 import msa.infrastructure.persistence.errori.ErroriDBO;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
