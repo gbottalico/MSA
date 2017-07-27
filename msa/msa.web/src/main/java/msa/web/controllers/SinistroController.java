@@ -14,8 +14,6 @@ import msa.application.service.sinistri.SinistriService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Map;
-
 @RestController
 @RequestMapping(value = "/api/sinistro")
 public class SinistroController {
@@ -118,5 +116,7 @@ public class SinistroController {
         System.out.println();
         return null;
     }
+
+
 
 }

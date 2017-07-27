@@ -1,4 +1,4 @@
-package msa.infrastructure.persistence;
+package msa.infrastructure.persistence.domain;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

@@ -1,4 +1,4 @@
-package msa.infrastructure.persistence;
+package msa.infrastructure.persistence.domain;
 
 import java.util.Date;
 import java.util.List;

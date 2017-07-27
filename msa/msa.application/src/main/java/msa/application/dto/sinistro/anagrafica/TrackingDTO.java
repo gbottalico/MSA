@@ -8,6 +8,7 @@ public class TrackingDTO {
     private String telefono;
     private String cellulare;
     private String mail;
+    private String indirizzo;
 
     @Override
     public boolean equals(Object o) {
@@ -22,7 +23,8 @@ public class TrackingDTO {
         if (cap != null ? !cap.equals(that.cap) : that.cap != null) return false;
         if (telefono != null ? !telefono.equals(that.telefono) : that.telefono != null) return false;
         if (cellulare != null ? !cellulare.equals(that.cellulare) : that.cellulare != null) return false;
-        return mail != null ? mail.equals(that.mail) : that.mail == null;
+        if (mail != null ? !mail.equals(that.mail) : that.mail != null) return false;
+        return indirizzo != null ? indirizzo.equals(that.indirizzo) : that.indirizzo == null;
     }
 
     @Override
@@ -34,7 +36,17 @@ public class TrackingDTO {
         result = 31 * result + (telefono != null ? telefono.hashCode() : 0);
         result = 31 * result + (cellulare != null ? cellulare.hashCode() : 0);
         result = 31 * result + (mail != null ? mail.hashCode() : 0);
+        result = 31 * result + (indirizzo != null ? indirizzo.hashCode() : 0);
         return result;
+    }
+
+    public String getIndirizzo() {
+
+        return indirizzo;
+    }
+
+    public void setIndirizzo(String indirizzo) {
+        this.indirizzo = indirizzo;
     }
 
     public String getTelefono() {

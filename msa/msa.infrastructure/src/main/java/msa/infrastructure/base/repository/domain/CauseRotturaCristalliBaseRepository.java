@@ -1,4 +1,4 @@
-package msa.infrastructure.base.repository;
+package msa.infrastructure.base.repository.domain;
 
 import msa.infrastructure.persistence.domain.CausaRotturaCristalliDBO;
 import org.springframework.data.mongodb.repository.MongoRepository;

@@ -1,4 +1,4 @@
-package msa.infrastructure.base.repository;
+package msa.infrastructure.base.repository.domain;
 
 import java.util.List;
 

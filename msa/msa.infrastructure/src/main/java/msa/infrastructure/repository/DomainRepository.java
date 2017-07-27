@@ -2,8 +2,8 @@ package msa.infrastructure.repository;
 
 import msa.domain.Converter.MsaConverter;
 import msa.domain.object.dominio.*;
-import msa.infrastructure.base.repository.*;
-import msa.infrastructure.persistence.*;
+import msa.infrastructure.base.repository.domain.*;
+import msa.infrastructure.persistence.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
