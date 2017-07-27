@@ -11,6 +11,9 @@ angular
 
         var ctrl = this;
 
+        ctrl.bannerSearch = true;
+        ctrl.bannerDenuncia = false;
+
         /**
          * Funzione di inizializzazione in cui viene effettuato il login
          */

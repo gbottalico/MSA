@@ -1,4 +1,4 @@
-<section class="row polizzaSearch" ng-show="$ctrl.valoriRicerca == undefined">
+<section class="row polizzaSearch" ng-show="$ctrl.valoriRicerca == undefined && $ctrl.bannerSearch == true && $ctrl.bannerDenuncia == false">
 
 	<div class="containerHeader">
 		<div class="col-lg-1 col-md-1 col-sm-0 col-xs-0"></div>
@@ -128,5 +128,8 @@
 
 </section>
 
-<msa-polizza-result data-valori-ricerca="$ctrl.valoriRicerca" ng-show="$ctrl.valoriRicerca != undefined"></msa-polizza-result>
-<msa-polizze-sinistri data-valori-ricerca="$ctrl.valoriRicerca" ng-show="$ctrl.valoriRicerca != undefined"></msa-polizze-sinistri>
+<msa-polizza-result data-valori-ricerca="$ctrl.valoriRicerca" ng-show="$ctrl.valoriRicerca != undefined && $ctrl.bannerSearch == true && $ctrl.bannerDenuncia == false"></msa-polizza-result>
+<msa-polizze-sinistri data-valori-ricerca="$ctrl.valoriRicerca" data-banner-search="$ctrl.bannerSearch" data-banner-denuncia="$ctrl.bannerDenuncia" ng-show="$ctrl.valoriRicerca != undefined && $ctrl.bannerSearch == true && $ctrl.bannerDenuncia == false"></msa-polizze-sinistri>
+
+<msa-step ng-show="$ctrl.bannerSearch == false && $ctrl.bannerDenuncia == true"></msa-step>
+<msa-segnalazione ng-show="$ctrl.bannerSearch == false && $ctrl.bannerDenuncia == true"></msa-segnalazione>

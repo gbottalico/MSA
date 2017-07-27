@@ -3,7 +3,10 @@
 
 	app.component('msaPolizzaSearch', {
 	    templateUrl: '../../app/component/home/polizza-search/components/templates/polizza-search-tpl.html',
-	    bindings: {},
+	    bindings: {
+	    	bannerSearch: '=',
+	    	bannerDenuncia: '='
+	    },
 	    controller: ("polizzaSearchController", ['$rootScope', '$translate', '$log', 'AccountUserSvc', 'toastr', '$analytics', '$location', '$cookies', '$window', '$sessionStorage', 
 	        function($rootScope, $translate, $log, AccountUserSvc, toastr, $analytics, location, $cookies, $window, $sessionStorage) {
 	            
@@ -57,6 +60,8 @@
 		        };
 
 		        ctrl.valoriRicerca = {
+		        	bannersearch: ctrl.bannersearch,
+					bannerdenuncia: ctrl.bannerdenuncia,
 		        	user: {
 			        	cognome: 'Piras',
 			        	nome: 'Dario',

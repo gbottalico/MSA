@@ -1,8 +1,9 @@
 
 <msa-header></msa-header>
-<msa-banner></msa-banner>
+<msa-banner-search ng-show="$ctrl.bannerSearch == true && $ctrl.bannerDenuncia == false"></msa-banner-search>
+<msa-banner-denuncia ng-show="$ctrl.bannerSearch == false && $ctrl.bannerDenuncia == true"></msa-banner-denuncia>
 
-<msa-home></msa-home>
+<msa-home data-banner-search="$ctrl.bannerSearch" data-banner-denuncia="$ctrl.bannerDenuncia"></msa-home>
 
 <!--<div class="cg-busy">
 

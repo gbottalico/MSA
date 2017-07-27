@@ -12,7 +12,8 @@
     	},
     	"banner": {
 	  		"labels": {
-	  			"title": "Cerca sinistro"
+	  			"titlesearch": "Cerca sinistro",
+	  			"titledenuncia":  "Denuncia sinistro"
 	  		}
 		},
 		"polizzasearch": {
