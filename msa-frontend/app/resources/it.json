@@ -67,7 +67,9 @@
 				"tipo": "Tipo",
 				"evento": "Evento",
 				"denunciatoda": "Denunciato da",
-				"stato": "Stato"
+				"stato": "Stato",
+				"consultapolizza": "Consulta polizza",
+				"denunciasinistro": "Denuncia sinistro"
 			}
 		} 
   	}
