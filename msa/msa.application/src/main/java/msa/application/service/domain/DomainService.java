@@ -28,11 +28,9 @@ public class DomainService extends BaseService {
     public List<NazioneDTO> getElencoNazioni(String nome) throws InternalMsaException {
 
         try {
-
             return converter.convertList(domainRepository.getListaNazioni(nome), NazioneDTO.class);
-
         } catch (Exception e) {
-            throw new InternalMsaException(e, buildErrorMessageByText(MessageType.ERROR, Constants.DEFAULT_DOMAIN_ERROR_MESSAGE + "nazioni"));
+            throw new InternalMsaException(e, buildErrorMessageByText(MessageType.ERROR, getErrorMessageByCod("MSA001")+ "nazioni"));
         }
 
     }

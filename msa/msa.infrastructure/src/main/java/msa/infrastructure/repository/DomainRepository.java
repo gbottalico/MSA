@@ -45,8 +45,7 @@ public class DomainRepository extends BaseRepository {
      * @throws InstantiationException
      */
     public List<NazioneDO> getListaNazioni(String nome) {
-        List<NazioneDBO> result = nazioniRepository.findLikeNome(nome);
-        return converter.convertList(result, NazioneDO.class);
+        return converter.convertList(nazioniRepository.findLikeNome(nome), NazioneDO.class);
     }
 
     /**
@@ -61,8 +60,7 @@ public class DomainRepository extends BaseRepository {
      * @throws InvocationTargetException
      */
     public List<ProvinciaDO> getElencoProvince(Integer idNazione, String descProvincia) {
-        List<ProvinciaDBO> result = provinceRepository.findByDesc(idNazione, descProvincia);
-        return converter.convertList(result, ProvinciaDO.class);
+        return converter.convertList(provinceRepository.findByDesc(idNazione, descProvincia), ProvinciaDO.class);
     }
 
     /**
@@ -78,8 +76,7 @@ public class DomainRepository extends BaseRepository {
      * @throws InvocationTargetException
      */
     public List<ComuneDO> getElencoComuni(Integer idNazione, Integer codProvincia, String desc) {
-        List<ComuneDBO> result = comuniRepository.findByDesc(idNazione, codProvincia, desc);
-        return converter.convertList(result, ComuneDO.class);
+        return converter.convertList(comuniRepository.findByDesc(idNazione, codProvincia, desc), ComuneDO.class);
     }
 
     /**
@@ -88,8 +85,7 @@ public class DomainRepository extends BaseRepository {
      * @return una lista di oggetti AutoritaDTO
      */
     public List<AutoritaDO> getElencoAutorita() {
-        List<AutoritaDBO> result = autoritaRepository.findAll();
-        return converter.convertList(result, AutoritaDO.class);
+        return converter.convertList(autoritaRepository.findAll(), AutoritaDO.class);
     }
 
     /**
@@ -100,8 +96,7 @@ public class DomainRepository extends BaseRepository {
      * @return una lista di oggetti CompagniaDO
      */
     public List<CompagniaDO> getElencoCompagnie(String desc) {
-        List<CompagniaDBO> result = compagniaRepository.findByDescrizioneIgnoreCase(desc);
-        return converter.convertObject(result, (CompagniaDBO compagniaDBO) -> {
+        return converter.convertObject(compagniaRepository.findByDescrizioneIgnoreCase(desc), (CompagniaDBO compagniaDBO) -> {
             CompagniaDO compagniaDO = new CompagniaDO();
             compagniaDO.setCodFornitore(compagniaDBO.getCodFornitore());
             compagniaDO.setConvenzioneCid(compagniaDBO.getConvenzioneCid());
@@ -124,8 +119,7 @@ public class DomainRepository extends BaseRepository {
      * @throws InstantiationException
      */
     public List<MezzoComunicazioneDO> getElencoMezziComunicazione() {
-        List<MezzoComunicazioneDBO> result = mezziRepository.findAll();
-        return converter.convertList(result, MezzoComunicazioneDO.class);
+        return converter.convertList(mezziRepository.findAll(), MezzoComunicazioneDO.class);
 
     }
 
@@ -135,8 +129,7 @@ public class DomainRepository extends BaseRepository {
      * @return una lista di oggetti CausaRotturaCristalliDO
      */
     public List<CausaRotturaCristalliDO> getElencoCauseRotturaCristalli() {
-        List<CausaRotturaCristalliDBO> result = causaRotturaCristalliRepository.findAll();
-        return converter.convertList(result, CausaRotturaCristalliDO.class);
+        return converter.convertList(causaRotturaCristalliRepository.findAll(), CausaRotturaCristalliDO.class);
 
     }
 
@@ -146,8 +139,7 @@ public class DomainRepository extends BaseRepository {
      * @return una lista di oggetti TipoVeicoloDO
      */
     public List<TipoVeicoloDO> getElencoTipoVeicoli() {
-        List<TipoVeicoloDBO> result = tipoVeicoloRepository.findAll();
-        return converter.convertList(result, TipoVeicoloDO.class);
+        return converter.convertList(tipoVeicoloRepository.findAll(), TipoVeicoloDO.class);
     }
 
     /**
@@ -156,25 +148,24 @@ public class DomainRepository extends BaseRepository {
      * @return una lista di oggetti TipoTargaDO
      */
     public List<TipoTargaDO> getElencoTipoTarga() {
-        List<TipoTargaDBO> result = tipoTargaRepository.findAll();
-        return converter.convertList(result, TipoTargaDO.class);
+        return converter.convertList(tipoTargaRepository.findAll(), TipoTargaDO.class);
     }
 
     /**
      * Ottiene la lista delle regole contenute nella casa delle regole
+     *
      * @return una lista di oggetti CasaRegoleDO
      */
     public List<CasaRegoleDO> getElencoRegole() {
-        List<CasaRegoleDBO> result = casaRegoleRepository.findAll();
-        return converter.convertList(result, CasaRegoleDO.class);
+        return converter.convertList(casaRegoleRepository.findAll(), CasaRegoleDO.class);
     }
 
     /**
      * Metodo che ottiene la lista di tutti i baremes
+     *
      * @return una lista di oggetti BaremesDO
      */
-    public List<BaremesDO> getElencoBaremes(){
-        List<BaremesDBO> result = baremesRepository.findAll();
-        return converter.convertList(result,BaremesDO.class);
+    public List<BaremesDO> getElencoBaremes() {
+        return converter.convertList(baremesRepository.findAll(), BaremesDO.class);
     }
 }
