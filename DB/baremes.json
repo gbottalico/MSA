@@ -1,0 +1,18 @@
+{ "_id" : 0, "descrizioneBaremes" : "Non indicato" }
+{ "_id" : 1, "descrizioneBaremes" : "Veicolo in sosta o in fermata" }
+{ "_id" : 2, "descrizioneBaremes" : "Ripartiva dopo una sosta/apriva una portiera" }
+{ "_id" : 3, "descrizioneBaremes" : "Stava parcheggiando" }
+{ "_id" : 4, "descrizioneBaremes" : "Usciva da un parcheggio, da un luogo privato, da una strada vicinale" }
+{ "_id" : 5, "descrizioneBaremes" : "Entrava in un parcheggio, in un luogo privato, in una strada vicinale" }
+{ "_id" : 6, "descrizioneBaremes" : "Si immetteva in una piazza a senso rotatorio" }
+{ "_id" : 7, "descrizioneBaremes" : "Circolava su una piazza a senso rotatorio" }
+{ "_id" : 8, "descrizioneBaremes" : "Tamponava procedendo nello stesso senso o nella stessa fila" }
+{ "_id" : 9, "descrizioneBaremes" : "Procedeva nello stesso senso, ma in fila diversa" }
+{ "_id" : 10, "descrizioneBaremes" : "Cambiava fila" }
+{ "_id" : 11, "descrizioneBaremes" : "Sorpassava" }
+{ "_id" : 12, "descrizioneBaremes" : "Girava a destra" }
+{ "_id" : 13, "descrizioneBaremes" : "Girava a sinistra" }
+{ "_id" : 14, "descrizioneBaremes" : "Retrocedeva" }
+{ "_id" : 15, "descrizioneBaremes" : "Invadeva la sede stradale riservata alla circolazione in senso inverso" }
+{ "_id" : 16, "descrizioneBaremes" : "Proveniva da destra" }
+{ "_id" : 17, "descrizioneBaremes" : "Non aveva osservato il segnale di precedenza o di semaforo rosso" }
