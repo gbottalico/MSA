@@ -16,8 +16,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class SinistriService extends BaseService{
     @Autowired
-    SinistriRepository sinistriRepository;
-    @Autowired
+    private SinistriRepository sinistriRepository;
 
     /**
      * Metodo che effettua la ricerca le coperture in base ai parametri passati in input

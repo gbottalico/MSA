@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 public class SinistroController {
 
     @Autowired
-    SinistriService sinistriService;
+   private SinistriService sinistriService;
 
     /**
      * Metodo che effettua l'apertura di un sinistro in base ai dati ricevuti in input

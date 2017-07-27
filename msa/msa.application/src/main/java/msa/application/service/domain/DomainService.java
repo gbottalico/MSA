@@ -15,7 +15,7 @@ import java.util.List;
 @Service
 public class DomainService extends BaseService {
     @Autowired
-    DomainRepository domainRepository;
+   private  DomainRepository domainRepository;
 
     /**
      * Utilizza il DomainRepository per ottenere la lista delle nazioni che iniziano

@@ -14,27 +14,27 @@ import java.util.List;
 public class DomainRepository extends BaseRepository {
 
     @Autowired
-    NazioniBaseRepository nazioniRepository;
+   private NazioniBaseRepository nazioniRepository;
     @Autowired
-    ProvinceBaseRepository provinceRepository;
+    private ProvinceBaseRepository provinceRepository;
     @Autowired
-    ComuniBaseRepository comuniRepository;
+    private ComuniBaseRepository comuniRepository;
     @Autowired
-    AutoritaBaseRepository autoritaRepository;
+    private AutoritaBaseRepository autoritaRepository;
     @Autowired
-    CompagnieBaseRepository compagniaRepository;
+    private CompagnieBaseRepository compagniaRepository;
     @Autowired
-    MezziComunicazioneBaseRepository mezziRepository;
+    private MezziComunicazioneBaseRepository mezziRepository;
     @Autowired
-    CauseRotturaCristalliBaseRepository causaRotturaCristalliRepository;
+    private CauseRotturaCristalliBaseRepository causaRotturaCristalliRepository;
     @Autowired
-    TipoVeicoloBaseRepository tipoVeicoloRepository;
+    private TipoVeicoloBaseRepository tipoVeicoloRepository;
     @Autowired
-    TipoTargaBaseRepository tipoTargaRepository;
+    private TipoTargaBaseRepository tipoTargaRepository;
     @Autowired
-    CasaRegoleBaseRepository casaRegoleRepository;
+    private CasaRegoleBaseRepository casaRegoleRepository;
     @Autowired
-    BaremesBaseRepository baremesRepository;
+    private BaremesBaseRepository baremesRepository;
     /**
      * Effettua la ricerca delle nazioni il cui nome inizia con la stringa passata
      *
