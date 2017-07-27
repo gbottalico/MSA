@@ -1,24 +1,21 @@
 package msa.application.service.domain;
 
-import java.lang.reflect.InvocationTargetException;
-import java.util.List;
-
 import msa.application.commons.Constants;
 import msa.application.config.enumerator.MessageType;
 import msa.application.dto.domain.*;
 import msa.application.dto.domain.baremes.BaremesDTO;
 import msa.application.exceptions.InternalMsaException;
-import msa.domain.object.dominio.*;
+import msa.application.service.base.BaseService;
+import msa.infrastructure.repository.DomainRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import msa.application.service.base.BaseService;
-import msa.infrastructure.repository.DomainRepository;
+import java.util.List;
 
 @Service
 public class DomainService extends BaseService {
     @Autowired
-    DomainRepository domainRepository;
+   private  DomainRepository domainRepository;
 
     /**
      * Utilizza il DomainRepository per ottenere la lista delle nazioni che iniziano

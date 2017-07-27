@@ -8,14 +8,15 @@ import msa.application.dto.sinistro.dannoRca.InputDannoRcaDTO;
 import msa.application.dto.sinistro.eventoRca.InputEventoDTO;
 import msa.application.dto.ricerca.InputRicercaDTO;
 import msa.application.dto.sinistro.segnalazione.InputSegnalazioneDTO;
+import msa.application.service.base.BaseService;
 import msa.infrastructure.repository.SinistriRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class SinistriService {
+public class SinistriService extends BaseService{
     @Autowired
-    SinistriRepository sinistriRepository;
+    private SinistriRepository sinistriRepository;
 
     /**
      * Metodo che effettua la ricerca le coperture in base ai parametri passati in input

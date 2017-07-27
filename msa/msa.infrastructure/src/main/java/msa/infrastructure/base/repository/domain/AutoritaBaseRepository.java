@@ -1,6 +1,6 @@
-package msa.infrastructure.base.repository;
+package msa.infrastructure.base.repository.domain;
 
-import msa.infrastructure.persistence.AutoritaDBO;
+import msa.infrastructure.persistence.domain.AutoritaDBO;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;

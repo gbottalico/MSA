@@ -1,6 +1,6 @@
-package msa.infrastructure.base.repository;
+package msa.infrastructure.base.repository.domain;
 
-import msa.infrastructure.persistence.TipoTargaDBO;
+import msa.infrastructure.persistence.domain.TipoTargaDBO;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;

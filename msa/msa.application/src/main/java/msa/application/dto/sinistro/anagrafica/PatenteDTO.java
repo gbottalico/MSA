@@ -1,9 +1,10 @@
 package msa.application.dto.sinistro.anagrafica;
 
+import org.springframework.data.mongodb.core.mapping.Field;
+
 import java.util.Date;
 
 public class PatenteDTO {
-
     private String patente;
     private Date scadenza;
 

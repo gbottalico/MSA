@@ -1,4 +1,4 @@
-package msa.infrastructure.persistence;
+package msa.infrastructure.persistence.domain;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -6,13 +6,11 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.Date;
 
-@Document(collection = "mezziComunicazione")
-public class MezzoComunicazioneDBO {
-
-
+@Document(collection = "autorita")
+public class AutoritaDBO {
     @Id
-    private Integer id;
-    @Field("DescrizioneMezzo")
+    private String id;
+    @Field("DescrizioneAutorita")
     private String descrizione;
     @Field("DataInserimento")
     private Date dataInserimento;
@@ -20,11 +18,19 @@ public class MezzoComunicazioneDBO {
     private Date dataVariazione;
     private String codFornitore;
 
-    public Integer getId() {
+    public String getCodFornitore() {
+        return codFornitore;
+    }
+
+    public void setCodFornitore(String codFornitore) {
+        this.codFornitore = codFornitore;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -52,11 +58,4 @@ public class MezzoComunicazioneDBO {
         this.dataVariazione = dataVariazione;
     }
 
-    public String getCodFornitore() {
-        return codFornitore;
-    }
-
-    public void setCodFornitore(String codFornitore) {
-        this.codFornitore = codFornitore;
-    }
 }

@@ -1,0 +1,5 @@
+{ 
+    "_id" : NumberInt(0), 
+    "codErrore" : "MSA001", 
+    "testo" : "Attenzione: Errore durante il recupero del dominio:"
+}
