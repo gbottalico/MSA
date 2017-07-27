@@ -13,7 +13,7 @@
 
 	        ctrl.back = function() {
 	        	ctrl.valoriRicerca = undefined;
-	        }
+	        };
 
 	    }])
 	});
