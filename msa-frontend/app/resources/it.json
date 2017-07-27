@@ -53,7 +53,21 @@
 		"polizzesinistri": {
 			"title": "Polizze e sinistri",
 			"labels": {
-				
+				"numpoli": "Numero polizza",
+				"attivazione": "Attivazione",
+				"scadenza": "Scadenza",
+				"prodotto": "Prodotto",
+				"compagnia": "Compagnia",
+				"targabene": "Targa/Bene",
+				"contraente": "Contraente",
+				"stato": "Stato",
+				"variazione": "Variazione",
+				"numsin":  "Numero sinistro",
+				"data": "Data",
+				"tipo": "Tipo",
+				"evento": "Evento",
+				"denunciatoda": "Denunciato da",
+				"stato": "Stato"
 			}
 		} 
   	}

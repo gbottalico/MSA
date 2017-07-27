@@ -87,28 +87,28 @@
 			        				nome: 'Sinistro',
 			        				numsin: '100012058380',
 			        				data: '23/03/2016',
-			        				tipo: 'Lorem',
+			        				tipo: 'A',
 			        				evento: 'Amet',
 			        				denunciatoda: 'Piras Dario',
-			        				stato: 'Lorem'
+			        				stato: 'Attivo'
 			        			},
 			        			{
 			        				nome: 'Sinistro provvisorio',
 			        				numsin: '100017432380',
 			        				data: '20/05/2016',
-			        				tipo: 'Ipsum',
+			        				tipo: 'B',
 			        				evento: 'Consectetur',
 			        				denunciatoda: 'Piras Dario',
-			        				stato: 'Ipsum'
+			        				stato: 'Attivo'
 			        			},
 			        			{
 			        				nome: 'Pre-codifica',
 			        				numsin: '103212058363',
 			        				data: '03/01/2017',
-			        				tipo: 'Dolor sit',
+			        				tipo: 'C',
 			        				evento: 'Super alta',
 			        				denunciatoda: 'Anna Rossi',
-			        				stato: 'Dolor sit'
+			        				stato: 'Attivo'
 			        			}
 			        		]
 			        	},
@@ -127,37 +127,37 @@
 			        				nome: 'Sinistro',
 			        				numsin: '100012058380',
 			        				data: '23/03/2016',
-			        				tipo: 'Lorem',
+			        				tipo: 'A',
 			        				evento: 'Amet',
 			        				denunciatoda: 'Piras Dario',
-			        				stato: 'Lorem'
+			        				stato: 'Attivo'
 			        			},
 			        			{
 			        				nome: 'Sinistro provvisorio',
 			        				numsin: '100017432380',
 			        				data: '20/05/2016',
-			        				tipo: 'Ipsum',
+			        				tipo: 'B',
 			        				evento: 'Consectetur',
 			        				denunciatoda: 'Piras Dario',
-			        				stato: 'Ipsum'
+			        				stato: 'Attivo'
 			        			},
 			        			{
 			        				nome: 'Pre-codifica',
 			        				numsin: '103212058363',
 			        				data: '03/01/2017',
-			        				tipo: 'Dolor sit',
+			        				tipo: 'C',
 			        				evento: 'Super alta',
 			        				denunciatoda: 'Anna Rossi',
-			        				stato: 'Dolor sit'
+			        				stato: 'Attivo'
 			        			},
 			        			{
 			        				nome: 'Pre-codifica',
 			        				numsin: '103212058363',
 			        				data: '03/01/2017',
-			        				tipo: 'Dolor sit',
+			        				tipo: 'C',
 			        				evento: 'Super alta',
 			        				denunciatoda: 'Anna Rossi',
-			        				stato: 'Dolor sit'
+			        				stato: 'Attivo'
 			        			}
 			        		]
 			        	},
@@ -176,28 +176,28 @@
 			        				nome: 'Sinistro',
 			        				numsin: '100012058380',
 			        				data: '23/03/2016',
-			        				tipo: 'Lorem',
+			        				tipo: 'A',
 			        				evento: 'Amet',
 			        				denunciatoda: 'Piras Dario',
-			        				stato: 'Lorem'
+			        				stato: 'Attivo'
 			        			},
 			        			{
 			        				nome: 'Sinistro provvisorio',
 			        				numsin: '100017432380',
 			        				data: '20/05/2016',
-			        				tipo: 'Ipsum',
+			        				tipo: 'B',
 			        				evento: 'Consectetur',
 			        				denunciatoda: 'Piras Dario',
-			        				stato: 'Ipsum'
+			        				stato: 'Attivo'
 			        			},
 			        			{
 			        				nome: 'Pre-codifica',
 			        				numsin: '103212058363',
 			        				data: '03/01/2017',
-			        				tipo: 'Dolor sit',
+			        				tipo: 'C',
 			        				evento: 'Super alta',
 			        				denunciatoda: 'Anna Rossi',
-			        				stato: 'Dolor sit'
+			        				stato: 'Attivo'
 			        			}
 			        		]
 			        	}
