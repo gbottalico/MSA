@@ -57,18 +57,20 @@
 		        };
 
 		        ctrl.valoriRicerca = {
-		        	cognome: 'Piras',
-		        	nome: 'Dario',
-		        	cf: 'PRSDRA87E28B157S',
-		        	luogonascita: 'Brescia',
-		        	provincianascita: 'BS',
-		        	datanascita: '15/01/1960',
-		        	residenza: 'Brescia',
-		        	provinciaresidenza: 'BS',
-		        	indirizzo: 'Via Raffaello Sanzio, 11',
-		        	telefono: '0331123456',
-		        	cellulare: '3332363880',
-		        	email: 'info@email.it'
+		        	user: {
+			        	cognome: 'Piras',
+			        	nome: 'Dario',
+			        	cf: 'PRSDRA87E28B157S',
+			        	luogonascita: 'Brescia',
+			        	provincianascita: 'BS',
+			        	datanascita: '15/01/1960',
+			        	residenza: 'Brescia',
+			        	provinciaresidenza: 'BS',
+			        	indirizzo: 'Via Raffaello Sanzio, 11',
+			        	telefono: '0331123456',
+			        	cellulare: '3332363880',
+			        	email: 'info@email.it'
+			        }
 		        };
 		    };
 
