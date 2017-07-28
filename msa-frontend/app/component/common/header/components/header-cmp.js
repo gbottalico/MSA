@@ -11,7 +11,7 @@
 
 			ctrl.reloadRoute = function() {
 				$window.location.reload();
-			}
+			};
 
 	    }])
 	});
