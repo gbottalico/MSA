@@ -18,7 +18,7 @@
 	        	nascita: "Brescia (BS) 15/01/1960",
 	        	residenza: "Via Raffaello Sanzio, 11 Brescia (BS)",
 	        	recapiti: "3332363880 info@email.it"
-	        }
+	        };
 
 	    }])
 	});
