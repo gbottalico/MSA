@@ -11,4 +11,5 @@ public abstract class AbstractMsaPropertiesReader {
     public abstract String getMongoDbName();
 
     public abstract Map<String,String> getRestUrlMap();
+    public abstract String getBasePath();
 }

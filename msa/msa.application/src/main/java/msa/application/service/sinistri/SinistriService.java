@@ -26,6 +26,7 @@ public class SinistriService extends BaseService{
      */
     public BaseDTO ricercaCopertura(InputRicercaDTO input) {
         return null;
+
     }
 
     /**

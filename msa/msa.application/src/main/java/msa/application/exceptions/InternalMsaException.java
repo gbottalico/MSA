@@ -13,4 +13,8 @@ public class InternalMsaException extends BaseException {
     public InternalMsaException(Exception exceptionThrowed, List<Message> messages) {
         super(exceptionThrowed, messages);
     }
+
+    public InternalMsaException(List<Message> messages) {
+        super(null,messages);
+    }
 }

@@ -41,4 +41,9 @@ public class PropertiesConfig extends AbstractMsaPropertiesReader {
     public Map<String,String> getRestUrlMap() {
         return restUrl;
     }
+
+    @Override
+    public String getBasePath() {
+        return this.basePath;
+    }
 }
