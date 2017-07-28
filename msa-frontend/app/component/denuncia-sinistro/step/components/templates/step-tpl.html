@@ -1,12 +1,19 @@
-<img class="logo" src="images/step/1.svg" alt="" ng-click="$ctrl.reloadRoute()">
-<img class="logo" src="images/step/2.svg" alt="" ng-click="$ctrl.reloadRoute()">
-<img class="logo" src="images/step/3.svg" alt="" ng-click="$ctrl.reloadRoute()">
-<img class="logo" src="images/step/4.svg" alt="" ng-click="$ctrl.reloadRoute()">
-<img class="logo" src="images/step/5.svg" alt="" ng-click="$ctrl.reloadRoute()">
-<img class="logo" src="images/step/6.svg" alt="" ng-click="$ctrl.reloadRoute()">
-<img class="logo" src="images/step/7.svg" alt="" ng-click="$ctrl.reloadRoute()">
-<img class="logo" src="images/step/8.svg" alt="" ng-click="$ctrl.reloadRoute()">
+<!--PROGRESS GRAPHIC-->
+<code>{{$ctrl.step = 1}}</code>
 
+<div class="containerBody">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 stepContainer noPadding">
+		<img class="step" src="images/step/1.svg" alt="" ng-if="$ctrl.step == 1">
+		<img class="step" src="images/step/2.svg" alt="" ng-if="$ctrl.step == 2">
+		<img class="step" src="images/step/3.svg" alt="" ng-if="$ctrl.step == 3">
+		<img class="step" src="images/step/4.svg" alt="" ng-if="$ctrl.step == 4">
+		<img class="step" src="images/step/5.svg" alt="" ng-if="$ctrl.step == 5">
+		<img class="step" src="images/step/6.svg" alt="" ng-if="$ctrl.step == 6">
+		<img class="step" src="images/step/7.svg" alt="" ng-if="$ctrl.step == 7">
+		<img class="step" src="images/step/8.svg" alt="" ng-if="$ctrl.step == 8">
+	</div>
+</div>
+<!--END PROGRESS GRAPHIC-->
 
 <!--USER-->
 <div class="containerBody">
