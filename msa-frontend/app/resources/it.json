@@ -3,7 +3,9 @@
     	"title": "Msa",
     	"generic": {
     		"cerca": "Cerca",
-    		"annulla": "Annulla ricerca"
+    		"annulla": "Annulla ricerca",
+    		"salva": "Salva",
+    		"help": "Help"
     	},
     	"header": {
     		"labels": {
@@ -71,6 +73,21 @@
 				"stato": "Stato",
 				"consultapolizza": "Consulta polizza",
 				"denunciasinistro": "Denuncia sinistro"
+			}
+		},
+		"step": {
+			"labels": {
+				"nascita": "Nascita",
+				"residenza": "Residenza",
+				"recapiti": "Recapiti",
+				"segnalazione": "Segnalazione",
+				"evento": "Evento RCA",
+				"constatazione": "Constatazione amichevole",
+				"danno": "Danno RCA",
+				"terzeparti": "Terze parti",
+				"legale": "Legale",
+				"daticonsultivi": "Dati consultivi",
+				"riepilogo": "Riepilogo"
 			}
 		} 
   	}
