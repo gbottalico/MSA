@@ -22,7 +22,7 @@ public class HttpPathParameterBuilder extends AbstractHttpParamBuilder<HttpPathP
 
     public HttpPathParameterBuilder(final Api url) {
         parameter = new ArrayList<>();
-        this.url = properties.getRestUrlMap().get(url.getValue());
+        this.url = properties.getRestUrlMap().getApi().get(url.getValue());
     }
 
 

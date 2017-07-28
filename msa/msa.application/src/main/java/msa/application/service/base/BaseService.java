@@ -1,6 +1,7 @@
 package msa.application.service.base;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jdk.internal.org.objectweb.asm.TypeReference;
 import msa.application.config.Message;
 import msa.application.config.enumerator.MessageType;
 import msa.application.exceptions.InternalMsaException;
@@ -44,17 +45,40 @@ public class BaseService {
         this.properties = properties;
     }
 
-    protected <T> T doGetCall(final Class<T> clazz, final Api api, final AbstractHttpParamBuilder param) {
-        final String url = properties.getRestUrlMap().get(api.getValue());
-        final String params = param.build();
-        //TODO call
-        return null;
+    protected <T> T doGetCall(final Class<T> clazz, final Api api, final AbstractHttpParamBuilder param) throws InternalMsaException {
+        HttpURLConnection connection;
+        final URL url;
+        try {
+
+            if (param.getClass().isAssignableFrom(HttpPathParameterBuilder.class)) {
+
+                url = new URL(param.build());
+
+
+            } else {
+                url = new URL(properties.getRestUrlMap().getApi().get(api.getValue()) + param.build());
+            }
+
+            connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+            connection.setRequestProperty("Accept", "application/json");
+            if (connection.getResponseCode() == 200) {
+                return objectMapper.readValue(copyInputStream(connection.getInputStream()), clazz);
+            } else {
+                throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA002"));
+
+            }
+        } catch (IOException e) {
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA000"));
+
+        }
+
     }
 
     protected <T> T doPostCall(Class<T> clazz, Api api, Object objParam) throws InternalMsaException {
         try {
             String json = objectMapper.writeValueAsString(objParam);
-            String baseUrl = properties.getRestUrlMap().get(api.getValue());
+            String baseUrl = properties.getRestUrlMap().getApi().get(api.getValue());
 
             final URL url = new URL(properties.getBasePath() + baseUrl);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();

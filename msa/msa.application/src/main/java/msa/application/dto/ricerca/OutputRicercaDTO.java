@@ -3,6 +3,7 @@ package msa.application.dto.ricerca;
 import msa.application.dto.sinistro.SinistroDTO;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class OutputRicercaDTO implements Serializable {
     private static final long serialVersionUID = 4248903662200448918L;

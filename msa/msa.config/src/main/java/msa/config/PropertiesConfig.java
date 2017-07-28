@@ -1,5 +1,7 @@
 package msa.config;
 
+import msa.infrastructure.config.AbstractMsaApiMap;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
@@ -23,8 +25,9 @@ public class PropertiesConfig extends AbstractMsaPropertiesReader {
     @Value("${msa.basePath}")
     private String basePath;
 
-    @Value("${msa.getRestUrlMap}")
-    private Map<String,String> restUrl;
+    @Autowired
+    private MsaApiMap msaApiMap;
+
 
     public String getMongoUrl() {
         return url;
@@ -38,8 +41,8 @@ public class PropertiesConfig extends AbstractMsaPropertiesReader {
         return dbName;
     }
     @Override
-    public Map<String,String> getRestUrlMap() {
-        return restUrl;
+    public AbstractMsaApiMap getRestUrlMap() {
+        return msaApiMap;
     }
 
     @Override

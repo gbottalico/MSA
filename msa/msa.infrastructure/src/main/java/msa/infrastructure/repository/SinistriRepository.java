@@ -4,7 +4,6 @@ import msa.infrastructure.base.repository.domain.BaseRepository;
 import msa.infrastructure.base.repository.sinistri.SinistriBaseRepository;
 import msa.infrastructure.persistence.sinistro.SinistroDBO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
