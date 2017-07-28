@@ -32,8 +32,6 @@ logging:
   file: /Sviluppo/msa_logs/msa.log
 msa:
   profile: locale
-  data:
-      mongodb:
-        host: localhost
-        port: 27017
-        database: msa
+  basePath: localhost:8080/msa
+  restUrl:
+    ricercaAnagrafica : /api/dominio/nazione/

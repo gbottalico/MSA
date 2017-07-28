@@ -38,6 +38,21 @@ public class BaseService {
         this.properties = properties;
     }
 
+    protected <T> T doGetCall(final Class<T> clazz, final Api api, final HttpGetParameterBuilder param) {
+        final String url = properties.getRestUrlMap().get(api.getValue());
+        final String params = param.build();
+        //TODO call
+        return null;
+    }
+
+    protected <T> T doPostCall(Class<T> clazz, Api api, Object objParam) {
+        return null;
+    }
+
+    protected HttpGetParameterBuilder getGetParamsBuilder() {
+        return new HttpGetParameterBuilder();
+    }
+
     private String getErrorMessageByCod(final String codErrore) {
         return erroriRepository.findByCodErrore(codErrore).getTesto();
     }
@@ -45,15 +60,6 @@ public class BaseService {
     protected List<Message> getErrorMessagesByCodErrore(MessageType type, final String... cods) {
         return buildErrorMessageByText(type, Arrays.stream(cods).map(this::getErrorMessageByCod).collect(Collectors.toList()));
 
-    }
-
-
-    protected <T> T doGetCall(Class<T> clazz, Api api, Map<String, Object> param) {
-        return null;
-    }
-
-    protected <T> T doPostCall(Class<T> clazz, Api api, Object objParam) {
-        return null;
     }
 
     private List<Message> buildErrorMessageByText(MessageType type, final List<String> texts) {

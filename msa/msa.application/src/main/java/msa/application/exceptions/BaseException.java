@@ -1,6 +1,8 @@
 package msa.application.exceptions;
 
 import msa.application.config.Message;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
@@ -11,8 +13,9 @@ public class BaseException extends Exception {
 
     private Exception exceptionThrowed;
     private List<Message> messages;
-
+    private static final Logger LOGGER = LoggerFactory.getLogger(BaseException.class);
     public BaseException(Exception exceptionThrowed, List<Message> messages) {
+        LOGGER.error(exceptionThrowed.getMessage());
         this.exceptionThrowed = exceptionThrowed;
         this.messages = messages;
 

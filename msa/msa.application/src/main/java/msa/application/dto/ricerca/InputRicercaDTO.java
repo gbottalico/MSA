@@ -7,6 +7,7 @@ public class InputRicercaDTO implements Serializable{
     private static final long serialVersionUID = 6248082871486818955L;
     private String cognome;
     private String nome;
+
     private String tipoPersona;
     private String numeroPolizza;
     private String numeroSinistro;
@@ -137,5 +138,4 @@ public class InputRicercaDTO implements Serializable{
         result = 31 * result + (numeroPreapertura != null ? numeroPreapertura.hashCode() : 0);
         result = 31 * result + (compagnia != null ? compagnia.hashCode() : 0);
         return result;
-    }
-}
+    }}

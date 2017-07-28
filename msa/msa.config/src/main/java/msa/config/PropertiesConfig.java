@@ -6,6 +6,8 @@ import org.springframework.stereotype.Component;
 
 import msa.infrastructure.config.AbstractMsaPropertiesReader;
 
+import java.util.Map;
+
 @Component(value = "PropertiesConfig")
 @ConfigurationProperties
 public class PropertiesConfig extends AbstractMsaPropertiesReader {
@@ -18,15 +20,25 @@ public class PropertiesConfig extends AbstractMsaPropertiesReader {
     @Value("${spring.data.mongodb.database}")
     private String dbName;
 
-    public String getUrl() {
+    @Value("${msa.basePath}")
+    private String basePath;
+
+    @Value("${msa.getRestUrlMap}")
+    private Map<String,String> restUrl;
+
+    public String getMongoUrl() {
         return url;
     }
 
-    public String getPort() {
+    public String getMongoPort() {
         return port;
     }
 
-    public String getDbName() {
+    public String getMongoDbName() {
         return dbName;
+    }
+    @Override
+    public Map<String,String> getRestUrlMap() {
+        return restUrl;
     }
 }
