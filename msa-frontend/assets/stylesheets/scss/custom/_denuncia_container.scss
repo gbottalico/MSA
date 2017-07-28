@@ -1,0 +1,124 @@
+@charset "UTF-8";
+
+.denunciaSinistro {
+	.leftContainer {
+		.containerHeader {
+		    clear: both;
+		    width: 100%;
+		    margin-top: 30px;
+			.container {
+				.header {
+					/* IE10 */
+					background-image: -ms-linear-gradient(top right, $light_blue 0%, $blue 100%);
+					/* Mozilla Firefox */
+					background-image: -moz-linear-gradient(top right, $light_blue 0%, $blue 100%);
+					/* Opera */
+					background-image: -o-linear-gradient(top right, $light_blue 0%, $blue 100%);
+					/* Webkit (Safari/Chrome 10) */
+					background-image: -webkit-gradient(linear, right top, left bottom, color-stop(0, $light_blue), color-stop(1, $blue));
+					/* Webkit (Chrome 11+) */
+					background-image: -webkit-linear-gradient(top right, $light_blue 0%, $blue 100%);
+					/* Regola standard */
+					background-image: linear-gradient(to top right, $light_blue 0%, $blue 100%);
+					color: $white;
+					text-align: center;
+					height: 60px;
+					position: relative;
+					.titleSection {
+						position: absolute;
+						width: 100%;
+						margin: 0;
+						top: 50%;
+						transform: translate(0, -50%);
+						z-index: 1;
+						left: 0;
+						right: 0;
+						font-size: 2.5rem;
+					}
+				}
+				.body {
+					background-color: $white;
+					color: $gray;
+					font-size: 2rem;
+				}
+			}
+		}
+		.containerBody {
+			clear: both;
+			width: 100%;
+			margin-bottom: 30px;
+			display: inline-block;
+			.container {
+				.body {
+					background-color: $white;
+					color: $gray;
+					font-size: 2rem;
+					height: 100%;
+					display: flow-root;
+					width: 100%;
+				    padding-top: 15px;
+				}
+			}
+		}
+	}
+	.rightContainer {
+		.containerHeader {
+		    clear: both;
+		    width: 100%;
+		    margin-top: 30px;
+			.container {
+				.header {
+					/* IE10 */
+					background-image: -ms-linear-gradient(top right, $light_blue 0%, $blue 100%);
+					/* Mozilla Firefox */
+					background-image: -moz-linear-gradient(top right, $light_blue 0%, $blue 100%);
+					/* Opera */
+					background-image: -o-linear-gradient(top right, $light_blue 0%, $blue 100%);
+					/* Webkit (Safari/Chrome 10) */
+					background-image: -webkit-gradient(linear, right top, left bottom, color-stop(0, $light_blue), color-stop(1, $blue));
+					/* Webkit (Chrome 11+) */
+					background-image: -webkit-linear-gradient(top right, $light_blue 0%, $blue 100%);
+					/* Regola standard */
+					background-image: linear-gradient(to top right, $light_blue 0%, $blue 100%);
+					color: $white;
+					text-align: center;
+					height: 60px;
+					position: relative;
+					.titleSection {
+						position: absolute;
+						width: 100%;
+						margin: 0;
+						top: 50%;
+						transform: translate(0, -50%);
+						z-index: 1;
+						left: 0;
+						right: 0;
+						font-size: 2.5rem;
+					}
+				}
+				.body {
+					background-color: $white;
+					color: $gray;
+					font-size: 2rem;
+				}
+			}
+		}
+		.containerBody {
+			clear: both;
+			width: 100%;
+			margin-bottom: 30px;
+			display: inline-block;
+			.container {
+				.body {
+					background-color: $white;
+					color: $gray;
+					font-size: 2rem;
+					height: 100%;
+					display: flow-root;
+					width: 100%;
+				    padding-top: 15px;
+				}
+			}
+		}
+	}
+}

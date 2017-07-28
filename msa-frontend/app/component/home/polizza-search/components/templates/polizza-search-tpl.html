@@ -123,7 +123,6 @@
 			</div>
 		</div>
 		<div class="col-lg-1 col-md-1 col-sm-0 col-xs-0"></div>
-
 	</div>
 
 </section>
@@ -131,5 +130,4 @@
 <msa-polizza-result data-valori-ricerca="$ctrl.valoriRicerca" ng-if="$ctrl.valoriRicerca != undefined && $ctrl.bannerSearch == true && $ctrl.bannerDenuncia == false"></msa-polizza-result>
 <msa-polizze-sinistri data-valori-ricerca="$ctrl.valoriRicerca" data-banner-search="$ctrl.bannerSearch" data-banner-denuncia="$ctrl.bannerDenuncia" ng-if="$ctrl.valoriRicerca != undefined && $ctrl.bannerSearch == true && $ctrl.bannerDenuncia == false"></msa-polizze-sinistri>
 
-<msa-step ng-if="$ctrl.bannerSearch == false && $ctrl.bannerDenuncia == true"></msa-step>
-<msa-segnalazione ng-if="$ctrl.bannerSearch == false && $ctrl.bannerDenuncia == true"></msa-segnalazione>
+<msa-denuncia-container ng-if="$ctrl.bannerSearch == false && $ctrl.bannerDenuncia == true"></msa-denuncia-container>
