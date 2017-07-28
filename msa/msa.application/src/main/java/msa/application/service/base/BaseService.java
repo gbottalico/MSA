@@ -4,6 +4,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import msa.application.config.Message;
 import msa.application.config.enumerator.MessageType;
 import msa.application.exceptions.InternalMsaException;
+import msa.application.service.base.paramBuilder.AbstractHttpParamBuilder;
+import msa.application.service.base.paramBuilder.HttpPathParameterBuilder;
+import msa.application.service.base.paramBuilder.HttpQueryParameterBuilder;
 import msa.application.service.enumerator.Api;
 import msa.domain.Converter.MsaConverter;
 import msa.infrastructure.config.AbstractMsaPropertiesReader;
@@ -41,7 +44,7 @@ public class BaseService {
         this.properties = properties;
     }
 
-    protected <T> T doGetCall(final Class<T> clazz, final Api api, final HttpGetParameterBuilder param) {
+    protected <T> T doGetCall(final Class<T> clazz, final Api api, final AbstractHttpParamBuilder param) {
         final String url = properties.getRestUrlMap().get(api.getValue());
         final String params = param.build();
         //TODO call
@@ -77,8 +80,12 @@ public class BaseService {
 
     }
 
-    protected HttpGetParameterBuilder getGetParamsBuilder() {
-        return new HttpGetParameterBuilder();
+    protected AbstractHttpParamBuilder<HttpQueryParameterBuilder.HttpQueryParam> getGetParamsBuilder() {
+        return new HttpQueryParameterBuilder();
+    }
+
+    protected AbstractHttpParamBuilder<HttpPathParameterBuilder.HttpPathParam> getGetParamsBuilder(final Api url) {
+        return new HttpPathParameterBuilder(url);
     }
 
     private String getErrorMessageByCod(final String codErrore) {

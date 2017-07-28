@@ -6,6 +6,8 @@ import msa.application.dto.domain.*;
 import msa.application.dto.domain.baremes.BaremesDTO;
 import msa.application.exceptions.InternalMsaException;
 import msa.application.service.base.BaseService;
+import msa.application.service.base.paramBuilder.AbstractHttpParamBuilder;
+import msa.application.service.base.paramBuilder.HttpQueryParameterBuilder;
 import msa.infrastructure.repository.DomainRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

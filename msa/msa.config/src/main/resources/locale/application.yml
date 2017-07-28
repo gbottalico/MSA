@@ -34,4 +34,4 @@ msa:
   profile: locale
   basePath: localhost:8080/msa
   restUrl:
-    ricercaAnagrafica : /api/dominio/nazione/
+    ricercaAnagrafica : /api/dominio/nazione/<nazione>
