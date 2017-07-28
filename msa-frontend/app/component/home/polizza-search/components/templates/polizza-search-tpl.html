@@ -94,19 +94,14 @@
 				<!--END INPUT TEXT-->
 
 				<!--INPUT LIST-->
-				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 classicInputTextList">
-					<label>{{'global.polizzasearch.labels.compagnia' | translate}}</label>
-					<div class="containerArrow" ng-click="$ctrl.open.compagnia = !$ctrl.open.compagnia">
-						<i aria-hidden="true" ng-class="{'fa fa-chevron-up': $ctrl.open.compagnia, 'fa fa-chevron-down': !$ctrl.open.compagnia}"></i>
-						<input type="text" name="compagnia" ng-model="$ctrl.ricercapolizza.compagniaselected">
-					</div>
-					<label class="alert campoobbligatorio" ng-show="$ctrl.ricercapolizza.compagniaselected == undefined || $ctrl.ricercapolizza.compagniaselected.length == 0">{{'global.polizzasearch.labels.alert' | translate}}</label>
-					<ul ng-show="$ctrl.open.compagnia">
-						<li ng-repeat="compagnia in $ctrl.ricercapolizza.compagnie.elenco | filter : $ctrl.ricercapolizza.compagniaselected" 
-							ng-click="$ctrl.compagniaSelected(compagnia)">
-							{{compagnia}}
-						</li>
-					</ul>
+				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 classicInputText">
+                    <label>{{'global.polizzasearch.labels.compagnia' | translate}}</label>
+                    <input name="compagnia" type="text" ng-model="$ctrl.ricercapolizza.compagniaselected" uib-typeahead="compagnia for compagnia in getListaCompagnie($viewValue)" typeahead-loading="loadingLocations" typeahead-no-results="noResults">
+                    <label class="alert campoobbligatorio" ng-show="$ctrl.ricercapolizza.compagniaselected == undefined || $ctrl.ricercapolizza.compagniaselected.length == 0">{{'global.polizzasearch.labels.alert' | translate}}</label>
+                    <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
+                    <div ng-show="noResults">
+                        <i class="glyphicon glyphicon-remove"></i> No Results Found
+                    </div>
 				</div>
 				<!--END INPUT LIST-->
 

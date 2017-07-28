@@ -112,3 +112,42 @@ app
  * Configure the top level routed App Component.
  */
 app.value('$routerRootComponent', 'msa');
+
+
+/**
+ * Intercettazione globale dei messaggi nelle chiamate asincrone.
+ *
+ */
+
+app.factory('messageInterceptor', function ($rootScope) {
+
+    return {
+        'response': function (response) {
+            if (hasMessages(response)) {
+                $rootScope.messages = getMessages(response);
+            }
+            return response;
+        },
+        'responseError': function (response) {
+            //TODO gestire?
+            return response;
+        }
+    };
+
+    function hasMessages(response) {
+        return (response.data !== undefined &&
+            response.data !== null &&
+            response.data.messaggi !== undefined &&
+            response.data.messaggi !== null &&
+            response.data.messaggi.length > 0);
+    }
+
+    function getMessages(response) {
+        return response.data.messaggi;
+    }
+});
+
+
+app.config(['$httpProvider', function ($httpProvider) {
+    $httpProvider.interceptors.push("messageInterceptor");
+}]);
