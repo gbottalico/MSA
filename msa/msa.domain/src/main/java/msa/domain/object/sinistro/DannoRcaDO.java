@@ -1,6 +1,7 @@
 package msa.domain.object.sinistro;
 
 public class DannoRcaDO {
+    private Boolean lesioniConducente;
     private FullAnagraficaDO anagraficaConducente;
     private FullAnagraficaControparteDO anagraficaControparte;
     private DanniDO danniCliente;
