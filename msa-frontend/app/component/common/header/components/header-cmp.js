@@ -9,6 +9,10 @@
 	            
 	        var ctrl = this;
 
+			ctrl.reloadRoute = function() {
+				$window.location.reload();
+			};
+
 	    }])
 	});
 

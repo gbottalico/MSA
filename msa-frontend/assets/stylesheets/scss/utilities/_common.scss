@@ -32,6 +32,10 @@ section {
 	text-transform: uppercase;
 }
 
+
+.noPadding {
+	padding: 0;
+}
 .noPaddingLeft {
 	padding-left: 0;
 }
@@ -82,7 +86,7 @@ section {
 .classicInputRadio {
 	margin-top: 15px;
 	margin-bottom: 15px;
-	div {
+	div{
 		height: 40px;
 		input {
 			position: absolute;
@@ -148,6 +152,9 @@ section {
 	label.alert.campoobbligatorio {
 		color: $light_blue;
 	}
+    li {
+      display: inline;
+    }
 }
 .classicInputTextList {
 	margin-top: 15px;
@@ -326,4 +333,76 @@ section {
 			opacity: 0.7;
 		}
 	}
+}
+
+.blueLine {
+  border-top: 1px solid $light_blue;
+}
+
+.subsectionTitle {
+  color: $light_blue;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+}
+
+.subsectionHint {
+  color: $blue;
+  font-size: 1.5rem;
+  /*font-style: italic;*/
+  font-family: $font_montlightita;
+}
+
+
+/* TODO: SPOSTARE */
+.garanzieDisponibili {
+  .garanziaBox {
+    width: 100px;
+    height: 100px;
+    margin: 20px auto;
+  }
+  input[type=radio] {
+    display: none;
+  }
+  label {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    color: $light_blue;
+    height:100px;
+    p {
+      position: relative;
+      width:100px;
+      text-align: center;
+      font-size: 3.5rem;
+      line-height: 9.5rem;
+    }
+  }
+  label:before {
+    content: "";
+    display: inline-block;
+
+    width: 100px;
+    height: 100px;
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: $light_gray;
+    border-radius: 50%;
+  }
+
+  input[type=radio]:checked+label:before {
+    background: $light_blue;
+  }
+  input[type=radio]:checked+label {
+    color: $white;
+  }
+  p {
+    font-weight: normal;
+    font-size: 1.5rem;
+    margin-top: 5px;
+    width: 100%;
+    white-space: nowrap;
+    text-align: center;
+  }
 }

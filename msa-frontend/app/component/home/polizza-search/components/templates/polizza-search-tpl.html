@@ -1,4 +1,4 @@
-<section class="row polizzaSearch" ng-show="$ctrl.valoriRicerca == undefined">
+<section class="row polizzaSearch" ng-if="$ctrl.valoriRicerca == undefined && $ctrl.bannerSearch == true && $ctrl.bannerDenuncia == false">
 
 	<div class="containerHeader">
 		<div class="col-lg-1 col-md-1 col-sm-0 col-xs-0"></div>
@@ -94,24 +94,19 @@
 				<!--END INPUT TEXT-->
 
 				<!--INPUT LIST-->
-				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 classicInputTextList">
-					<label>{{'global.polizzasearch.labels.compagnia' | translate}}</label>
-					<div class="containerArrow" ng-click="$ctrl.open.compagnia = !$ctrl.open.compagnia">
-						<i aria-hidden="true" ng-class="{'fa fa-chevron-up': $ctrl.open.compagnia, 'fa fa-chevron-down': !$ctrl.open.compagnia}"></i>
-						<input type="text" name="compagnia" ng-model="$ctrl.ricercapolizza.compagniaselected">
-					</div>
-					<label class="alert campoobbligatorio" ng-show="$ctrl.ricercapolizza.compagniaselected == undefined || $ctrl.ricercapolizza.compagniaselected.length == 0">{{'global.polizzasearch.labels.alert' | translate}}</label>
-					<ul ng-show="$ctrl.open.compagnia">
-						<li ng-repeat="compagnia in $ctrl.ricercapolizza.compagnie.elenco | filter : $ctrl.ricercapolizza.compagniaselected" 
-							ng-click="$ctrl.compagniaSelected(compagnia)">
-							{{compagnia}}
-						</li>
-					</ul>
+				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 classicInputText">
+                    <label>{{'global.polizzasearch.labels.compagnia' | translate}}</label>
+                    <input name="compagnia" type="text" ng-model="$ctrl.ricercapolizza.compagniaselected" uib-typeahead="compagnia for compagnia in getListaCompagnie($viewValue)" typeahead-loading="loadingLocations" typeahead-no-results="noResults">
+                    <label class="alert campoobbligatorio" ng-show="$ctrl.ricercapolizza.compagniaselected == undefined || $ctrl.ricercapolizza.compagniaselected.length == 0">{{'global.polizzasearch.labels.alert' | translate}}</label>
+                    <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
+                    <div ng-show="noResults">
+                        <i class="glyphicon glyphicon-remove"></i> No Results Found
+                    </div>
 				</div>
 				<!--END INPUT LIST-->
 
 				<!--COMMON SEARCH BUTTON-->
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicButton">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 classicButton">
 					<button class="blueButton"
 							ng-disabled="$ctrl.ricercapolizza.cognome.length == 0 || $ctrl.ricercapolizza.nome.length == 0 || $ctrl.ricercapolizza.tipopersona == undefined || $ctrl.ricercapolizza.numpoli == 0 || $ctrl.ricercapolizza.numsin.length == 0 || $ctrl.ricercapolizza.dataevento.length == 0 || $ctrl.ricercapolizza.targa.length == 0 || $ctrl.ricercapolizza.numprov.length == 0 || $ctrl.ricercapolizza.numpre.length == 0 || $ctrl.ricercapolizza.compagniaselected == undefined || $ctrl.ricercapolizza.compagniaselected.length == 0"
 							ng-click="$ctrl.cerca()">
@@ -120,13 +115,23 @@
 				</div>		
 				<!--END COMMON SEARCH BUTTON-->
 
+				<!--COMMON NUOVO SINISTRO BUTTON-->
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 classicButton">
+					<button class="blueButton"
+							ng-click="$ctrl.denuncia()">
+						<a><i class="fa fa-plus" aria-hidden="true"></i> Denuncia Sinistro</a>
+					</button>
+				</div>
+				<!--END COMMON NUOVO SINISTRO BUTTON-->
+
 			</div>
 		</div>
 		<div class="col-lg-1 col-md-1 col-sm-0 col-xs-0"></div>
-
 	</div>
 
 </section>
 
-<msa-polizza-result data-valori-ricerca="$ctrl.valoriRicerca" ng-show="$ctrl.valoriRicerca != undefined"></msa-polizza-result>
-<msa-polizze-sinistri data-valori-ricerca="$ctrl.valoriRicerca" ng-show="$ctrl.valoriRicerca != undefined"></msa-polizze-sinistri>
+<msa-polizza-result data-valori-ricerca="$ctrl.valoriRicerca" ng-if="$ctrl.valoriRicerca != undefined && $ctrl.bannerSearch == true && $ctrl.bannerDenuncia == false"></msa-polizza-result>
+<msa-polizze-sinistri data-valori-ricerca="$ctrl.valoriRicerca" data-banner-search="$ctrl.bannerSearch" data-banner-denuncia="$ctrl.bannerDenuncia" ng-if="$ctrl.valoriRicerca != undefined && $ctrl.bannerSearch == true && $ctrl.bannerDenuncia == false"></msa-polizze-sinistri>
+
+<msa-denuncia-container ng-if="$ctrl.bannerSearch == false && $ctrl.bannerDenuncia == true"></msa-denuncia-container>

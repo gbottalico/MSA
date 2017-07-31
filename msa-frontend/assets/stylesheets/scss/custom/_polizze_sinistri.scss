@@ -4,7 +4,6 @@
 	.containerHeader {
 	    clear: both;
 	    width: 100%;
-	    margin-top: 30px;
 		.container {
 			.header {
 				/* IE10 */
@@ -55,6 +54,130 @@
 				height: 100%;
 				display: flow-root;
 				width: 100%;
+				.risultati {
+					margin-top: 15px;
+					.polizzacontainer {
+						display: inline-block;
+						padding-bottom: 15px;
+						border-bottom: 1px solid $light_gray;
+						width: calc(100% - 30px);
+						margin-left: 15px;
+						margin-right: 15px;
+						position: relative;
+						.polizze {
+							div {
+								label {
+									font-weight: normal;
+									font-size: 1.5rem;
+									margin-top: 5px;
+									width: 100%;
+									color: $light_blue;
+								}
+								p {
+									color: $black;
+									font-size: 1.5rem;
+								    margin: 5px 0;
+								}
+							}
+						}
+					}
+					.consulta {
+						position: relative;
+						height: 80px;
+						text-align: center;
+						border-bottom: 1px solid $light_gray;
+						width: calc(100% - 30px);
+						margin-left: 15px;
+						margin-right: 15px;
+						margin-bottom: 15px;
+						margin-top: -5px;
+						p {
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							transform: translate(-50%, -50%);
+							font-size: 1.5rem;
+							color: $light_blue;
+							-webkit-user-select: none;
+							-khtml-user-select: none;
+							-moz-user-select: none;
+							-ms-user-select: none;
+							user-select: none;
+							cursor: pointer;
+						}
+						p:hover {
+							opacity: 0.7;
+						}
+					}
+					.sinistrotitlecontainer {
+						margin-top: 30px;
+						display: inline-block;
+						width: 100%;
+						padding-left: 15px;
+						padding-right: 15px;
+						.sinistrotitle {
+							font-size: 1.5rem;
+							color: $light_blue;
+						}
+					}
+					.sinistrocontainer {
+						height: 80px;
+						border-bottom: 1px solid $light_gray;
+						width: calc(100% - 30px);
+						margin: 0 auto;
+						/* COMMENTO PER ABILITARE IPOTETICO HOVER DELLA SEZIONE PER CLICK
+						-webkit-user-select: none;
+						-khtml-user-select: none;
+						-moz-user-select: none;
+						-ms-user-select: none;
+						user-select: none;
+						cursor: pointer;*/
+						.sinistro {
+							position: relative;
+							height: 100%;
+							p {
+								font-size: 1.5rem;
+								position: absolute;
+								top: 50%;
+								transform: translate(0, -50%);
+							}
+						}
+					}
+					/*.sinistrocontainer:hover {
+						opacity: 0.7;
+						background: $light_blue;
+						.sinistro {
+							color: $white;
+						}
+					}*/
+					.denuncia {
+						position: relative;
+						height: 80px;
+						text-align: center;
+						border-bottom: 1px solid $light_gray;
+						width: calc(100% - 30px);
+						margin-left: 15px;
+						margin-right: 15px;
+						margin-bottom: 15px;
+						p {
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							transform: translate(-50%, -50%);
+							font-size: 1.5rem;
+							color: $light_blue;
+							-webkit-user-select: none;
+							-khtml-user-select: none;
+							-moz-user-select: none;
+							-ms-user-select: none;
+							user-select: none;
+							cursor: pointer;
+						}
+						p:hover {
+							opacity: 0.7;
+						}
+					}
+				}
 			}
 		}
 	}
