@@ -1,5 +1,7 @@
 package msa.domain.object.sinistro;
 
+import java.util.List;
+
 public class SinistroDO {
     private static final long serialVersionUID = 1665918958997727249L;
     private String id;
@@ -12,6 +14,15 @@ public class SinistroDO {
     private ConstatazioneAmichevoleDO constatazioneAmichevole;
     private CaiDO cai;
     private DannoRcaDO dannoRca;
+    private List<AnagraficaTerzePartiDO> anagraficaTerzeParti;
+
+    public List<AnagraficaTerzePartiDO> getAnagraficaTerzeParti() {
+        return anagraficaTerzeParti;
+    }
+
+    public void setAnagraficaTerzeParti(List<AnagraficaTerzePartiDO> anagraficaTerzeParti) {
+        this.anagraficaTerzeParti = anagraficaTerzeParti;
+    }
 
     public static long getSerialVersionUID() {
         return serialVersionUID;

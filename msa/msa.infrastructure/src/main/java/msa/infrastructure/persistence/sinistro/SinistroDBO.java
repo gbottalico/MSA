@@ -4,6 +4,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.util.List;
+
 @Document(collection = "sinistri")
 public class SinistroDBO {
     @Id
@@ -11,7 +13,7 @@ public class SinistroDBO {
     @Field("numeroPolizza")
     private String numeroPolizza;
     @Field("compagnia")
-    private Integer compagnia;
+    private String compagnia;
     @Field("nominativoContraente")
     private String nominativoContraente;
     @Field("segnalazione")
@@ -24,6 +26,16 @@ public class SinistroDBO {
     private CaiDBO cai;
     @Field("dannoRCA")
     private DanniRcaDBO dannoRca;
+    @Field("terzeParti")
+    private List<AnagraficaTerzePartiDBO> anagraficaTerzeParti;
+
+    public List<AnagraficaTerzePartiDBO> getAnagraficaTerzeParti() {
+        return anagraficaTerzeParti;
+    }
+
+    public void setAnagraficaTerzeParti(List<AnagraficaTerzePartiDBO> anagraficaTerzeParti) {
+        this.anagraficaTerzeParti = anagraficaTerzeParti;
+    }
     @Field("numSinistroProvv")
     private Integer numSinistroProvv;
 
@@ -43,11 +55,11 @@ public class SinistroDBO {
         this.numeroPolizza = numeroPolizza;
     }
 
-    public Integer getCompagnia() {
+    public String getCompagnia() {
         return compagnia;
     }
 
-    public void setCompagnia(Integer compagnia) {
+    public void setCompagnia(String compagnia) {
         this.compagnia = compagnia;
     }
 

@@ -2,6 +2,7 @@ package msa.infrastructure.repository;
 
 import msa.domain.Converter.MsaConverter;
 import msa.domain.object.dominio.*;
+import msa.domain.object.sinistro.RuoliDO;
 import msa.infrastructure.base.repository.domain.*;
 import msa.infrastructure.persistence.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ import java.util.List;
 public class DomainRepository extends BaseRepository {
 
     @Autowired
-   private NazioniBaseRepository nazioniRepository;
+    private NazioniBaseRepository nazioniRepository;
     @Autowired
     private ProvinceBaseRepository provinceRepository;
     @Autowired
@@ -35,6 +36,9 @@ public class DomainRepository extends BaseRepository {
     private CasaRegoleBaseRepository casaRegoleRepository;
     @Autowired
     private BaremesBaseRepository baremesRepository;
+    @Autowired
+    private RuoliBaseRepository ruoliRepository;
+
     /**
      * Effettua la ricerca delle nazioni il cui nome inizia con la stringa passata
      *
@@ -167,5 +171,14 @@ public class DomainRepository extends BaseRepository {
      */
     public List<BaremesDO> getElencoBaremes() {
         return converter.convertList(baremesRepository.findAll(), BaremesDO.class);
+    }
+
+    /**
+     * Metodo che ottiene la lista di tutti i ruoli
+     *
+     * @return
+     */
+    public List<RuoliDO> getElencoRuoli() {
+        return converter.convertList(ruoliRepository.findAll(), RuoliDO.class);
     }
 }
