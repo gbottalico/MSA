@@ -25,7 +25,7 @@ public class SinistroDBO {
     @Field("cai")
     private CaiDBO cai;
     @Field("dannoRCA")
-    private DanniRcaDBO dannoRca;
+    private DannoRcaDBO dannoRca;
     @Field("terzeParti")
     private List<AnagraficaTerzePartiDBO> anagraficaTerzeParti;
 
@@ -103,11 +103,11 @@ public class SinistroDBO {
         this.cai = cai;
     }
 
-    public DanniRcaDBO getDannoRca() {
+    public DannoRcaDBO getDannoRca() {
         return dannoRca;
     }
 
-    public void setDannoRca(DanniRcaDBO dannoRca) {
+    public void setDannoRca(DannoRcaDBO dannoRca) {
         this.dannoRca = dannoRca;
     }
 
