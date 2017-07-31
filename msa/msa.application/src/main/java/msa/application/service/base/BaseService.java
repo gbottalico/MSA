@@ -1,7 +1,6 @@
 package msa.application.service.base;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jdk.internal.org.objectweb.asm.TypeReference;
 import msa.application.config.Message;
 import msa.application.config.enumerator.MessageType;
 import msa.application.exceptions.InternalMsaException;

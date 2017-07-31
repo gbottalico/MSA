@@ -7,7 +7,6 @@ public class InputRicercaDTO implements Serializable{
     private static final long serialVersionUID = 6248082871486818955L;
     private String cognome;
     private String nome;
-
     private String tipoPersona;
     private String numeroPolizza;
     private String numeroSinistro;
@@ -15,7 +14,7 @@ public class InputRicercaDTO implements Serializable{
     private String targa;
     private String numeroProvvisorio;
     private String numeroPreapertura;
-    private String compagnia;
+    private Integer compagnia;
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -93,11 +92,11 @@ public class InputRicercaDTO implements Serializable{
         this.numeroPreapertura = numeroPreapertura;
     }
 
-    public String getCompagnia() {
+    public Integer getCompagnia() {
         return compagnia;
     }
 
-    public void setCompagnia(String compagnia) {
+    public void setCompagnia(Integer compagnia) {
         this.compagnia = compagnia;
     }
 

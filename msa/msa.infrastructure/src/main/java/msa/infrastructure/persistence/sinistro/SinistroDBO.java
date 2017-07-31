@@ -11,7 +11,7 @@ public class SinistroDBO {
     @Field("numeroPolizza")
     private String numeroPolizza;
     @Field("compagnia")
-    private String compagnia;
+    private Integer compagnia;
     @Field("nominativoContraente")
     private String nominativoContraente;
     @Field("segnalazione")
@@ -24,6 +24,8 @@ public class SinistroDBO {
     private CaiDBO cai;
     @Field("dannoRCA")
     private DanniRcaDBO dannoRca;
+    @Field("numSinistroProvv")
+    private Integer numSinistroProvv;
 
     public String getId() {
         return id;
@@ -41,11 +43,11 @@ public class SinistroDBO {
         this.numeroPolizza = numeroPolizza;
     }
 
-    public String getCompagnia() {
+    public Integer getCompagnia() {
         return compagnia;
     }
 
-    public void setCompagnia(String compagnia) {
+    public void setCompagnia(Integer compagnia) {
         this.compagnia = compagnia;
     }
 
@@ -95,5 +97,13 @@ public class SinistroDBO {
 
     public void setDannoRca(DanniRcaDBO dannoRca) {
         this.dannoRca = dannoRca;
+    }
+
+    public Integer getNumSinistroProvv() {
+        return numSinistroProvv;
+    }
+
+    public void setNumSinistroProvv(Integer numSinistroProvv) {
+        this.numSinistroProvv = numSinistroProvv;
     }
 }

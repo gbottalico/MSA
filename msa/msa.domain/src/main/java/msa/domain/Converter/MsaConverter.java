@@ -18,9 +18,14 @@ public class MsaConverter {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    public <T, S> T convertObject(S source, Class<T> claz) throws IllegalAccessException, InvocationTargetException, InstantiationException {
-        T dest = claz.newInstance();
-        BeanUtils.copyProperties(dest, source);
+    public <T, S> T convertObject(S source, Class<T> claz) {
+        T dest = null;
+        try {
+            dest = claz.newInstance();
+            BeanUtils.copyProperties(dest, source);
+        }catch (IllegalAccessException| InvocationTargetException| InstantiationException e) {
+            return dest;
+        }
         return dest;
     }
 

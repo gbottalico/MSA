@@ -1,17 +1,24 @@
 package msa.application.service.sinistri;
 
+import msa.application.commons.functions.FunctionUtils;
 import msa.application.config.BaseDTO;
+import msa.application.config.enumerator.MessageType;
+import msa.application.dto.ricerca.InputRicercaDTO;
 import msa.application.dto.sinistro.aperturaSinistro.InputAperturaSinistroDTO;
 import msa.application.dto.sinistro.cai.InputCaiDTO;
 import msa.application.dto.sinistro.constatazioneAmichevole.InputConstatazioneAmichevoleDTO;
 import msa.application.dto.sinistro.dannoRca.InputDannoRcaDTO;
 import msa.application.dto.sinistro.eventoRca.InputEventoDTO;
-import msa.application.dto.ricerca.InputRicercaDTO;
 import msa.application.dto.sinistro.segnalazione.InputSegnalazioneDTO;
+import msa.application.exceptions.InternalMsaException;
 import msa.application.service.base.BaseService;
+import msa.domain.object.sinistro.InputRicercaDO;
+import msa.domain.object.sinistro.SinistroDO;
 import msa.infrastructure.repository.SinistriRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class SinistriService extends BaseService{
@@ -24,9 +31,19 @@ public class SinistriService extends BaseService{
      * @param input un oggetto di tipo InputRicercaDTO che contiene le informazioni con cui effettuare la ricerca
      * @return
      */
-    public BaseDTO ricercaCopertura(InputRicercaDTO input) {
+    public BaseDTO ricercaCopertura(InputRicercaDTO input) throws InternalMsaException {
+        if(FunctionUtils.checkIsNotNull(input.getCompagnia(),input.getDataEvento())) {
+            throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA003"));
+        }
+        InputRicercaDO inputRicercaDO = converter.convertObject(input, InputRicercaDO.class);
+        List<SinistroDO> elencoSinistriProvvisori = sinistriRepository.getElencoSinistriProvvisori(inputRicercaDO);
+
         return null;
 
+    }
+
+    private Integer getMaxNumSinistroProvv() {
+        return sinistriRepository.getMaxNumSinisProvv();
     }
 
     /**
