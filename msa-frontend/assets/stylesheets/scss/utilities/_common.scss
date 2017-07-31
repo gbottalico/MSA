@@ -54,6 +54,9 @@ section {
 		background: $light_gray;
 		padding: 10px;
 	}
+    input[type="text"]:disabled, select:disabled {
+      opacity: 0.25;
+    }
 	input:focus {
 		outline: none;
 		border: 2px solid $light_blue;
@@ -100,6 +103,7 @@ section {
     margin: 0;
   }
 }
+
 .classicInputRadio {
 	margin-top: 15px;
 	margin-bottom: 15px;
