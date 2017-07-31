@@ -1,0 +1,48 @@
+{ 
+    "_id" : NumberInt(1), 
+    "desRuolo" : "Pedone"
+}
+{ 
+    "_id" : NumberInt(2), 
+    "desRuolo" : "Ostacolo Fisso"
+}
+{ 
+    "_id" : NumberInt(3), 
+    "desRuolo" : "Altro Veicolo"
+}
+{ 
+    "_id" : NumberInt(4), 
+    "desRuolo" : "Testimone Assicurato"
+}
+{ 
+    "_id" : NumberInt(5), 
+    "desRuolo" : "Testimone Controparte"
+}
+{ 
+    "_id" : NumberInt(6), 
+    "desRuolo" : "Terzo Trasportato Veicolo Assicurato"
+}
+{ 
+    "_id" : NumberInt(7), 
+    "desRuolo" : "Terzo Trasportato Veicolo Controparte"
+}
+{ 
+    "_id" : NumberInt(8), 
+    "desRuolo" : "Cose Trasportate Proprietario/Conducente Veicolo Assicurato"
+}
+{ 
+    "_id" : NumberInt(9), 
+    "desRuolo" : "Cose Trasportate Proprietario/Conducente Veicolo Controparte"
+}
+{ 
+    "_id" : NumberInt(10), 
+    "desRuolo" : "Cose Trasportate Terzi Veicolo Assicurato"
+}
+{ 
+    "_id" : NumberInt(11), 
+    "desRuolo" : "Cose Trasportate Terzi Veicolo Controparte"
+}
+{ 
+    "_id" : NumberInt(12), 
+    "desRuolo" : "Conducente Altro Veicolo"
+}

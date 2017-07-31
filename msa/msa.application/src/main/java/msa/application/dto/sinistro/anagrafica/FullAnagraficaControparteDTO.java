@@ -5,8 +5,8 @@ private String tipoPersona;
 private String compagnia;
 private String veioolo;
 private String targa;
-private boolean targaEstera;
-private boolean targaSpeciale;
+private Boolean targaEstera;
+private Boolean targaSpeciale;
 
     @Override
     public boolean equals(Object o) {
@@ -69,19 +69,19 @@ private boolean targaSpeciale;
         this.targa = targa;
     }
 
-    public boolean isTargaEstera() {
+    public Boolean isTargaEstera() {
         return targaEstera;
     }
 
-    public void setTargaEstera(boolean targaEstera) {
+    public void setTargaEstera(Boolean targaEstera) {
         this.targaEstera = targaEstera;
     }
 
-    public boolean isTargaSpeciale() {
+    public Boolean isTargaSpeciale() {
         return targaSpeciale;
     }
 
-    public void setTargaSpeciale(boolean targaSpeciale) {
+    public void setTargaSpeciale(Boolean targaSpeciale) {
         this.targaSpeciale = targaSpeciale;
     }
 }

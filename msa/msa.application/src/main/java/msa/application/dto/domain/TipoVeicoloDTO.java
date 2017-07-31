@@ -16,11 +16,11 @@ public class TipoVeicoloDTO {
 
     private Character codAnia;
 
-    private boolean gestioneCid;
+    private Boolean gestioneCid;
 
-    private boolean gestioneCtt;
+    private Boolean gestioneCtt;
 
-    private boolean targaObbligatori;
+    private Boolean targaObbligatori;
 
     private Character codTipologiaVeicoloForfaitCard;
     private String codFornitore;
@@ -73,27 +73,27 @@ public class TipoVeicoloDTO {
         this.codAnia = codAnia;
     }
 
-    public boolean isGestioneCid() {
+    public Boolean isGestioneCid() {
         return gestioneCid;
     }
 
-    public void setGestioneCid(boolean gestioneCid) {
+    public void setGestioneCid(Boolean gestioneCid) {
         this.gestioneCid = gestioneCid;
     }
 
-    public boolean isGestioneCtt() {
+    public Boolean isGestioneCtt() {
         return gestioneCtt;
     }
 
-    public void setGestioneCtt(boolean gestioneCtt) {
+    public void setGestioneCtt(Boolean gestioneCtt) {
         this.gestioneCtt = gestioneCtt;
     }
 
-    public boolean isTargaObbligatori() {
+    public Boolean isTargaObbligatori() {
         return targaObbligatori;
     }
 
-    public void setTargaObbligatori(boolean targaObbligatori) {
+    public void setTargaObbligatori(Boolean targaObbligatori) {
         this.targaObbligatori = targaObbligatori;
     }
 
