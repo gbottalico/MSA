@@ -1,94 +1,123 @@
 {
-  	"global": {
-    	"title": "Msa",
-    	"generic": {
-    		"cerca": "Cerca",
-    		"annulla": "Annulla ricerca",
-    		"salva": "Salva",
-    		"help": "Help"
-    	},
-    	"header": {
-    		"labels": {
-	  			"title": "Gestione sinistri"
-	  		}
-    	},
-    	"banner": {
-	  		"labels": {
-	  			"titlesearch": "Cerca sinistro",
-	  			"titledenuncia":  "Denuncia sinistro"
-	  		}
-		},
-		"polizzasearch": {
-			"title": "Ricerca polizza",
-			"labels": {
-				"alert": "* Campo obbligarotrio",
-				"cognome": "Cognome",
-				"nome": "Nome",
-				"fisica": "Fisica",
-				"giuridica": "Giuridica",
-				"persona": "Persona",
-				"numpoli": "Numero polizza",
-				"numsin": "Numero sinistro",
-				"dataevento": "Data evento",
-				"targa": "Targa",
-				"numprov": "Numero provvisorio",
-				"numpre": "Numero preapertura",
-				"compagnia": "Compagnia",
-				"istruzioni": "Cerca e seleziona una polizza per procedere"
-			}
-		},
-		"polizzaresult": {
-			"title": "Anagrafica",
-			"labels": {
-				"cognome": "Cognome",
-				"nome": "Nome",
-				"cf": "Codice fiscale",
-				"luogonascita": "Luogo di nascita",
-				"provincia": "Provincia",
-				"datanascita": "Data di nascita",
-				"residenza": "Residenza",
-				"indirizzo": "Indirizzo",
-				"telefono": "Telefono",
-				"cellulare": "Cellulare",
-				"email": "Email"
-			}
-		},
-		"polizzesinistri": {
-			"title": "Polizze e sinistri",
-			"labels": {
-				"numpoli": "Numero polizza",
-				"attivazione": "Attivazione",
-				"scadenza": "Scadenza",
-				"prodotto": "Prodotto",
-				"compagnia": "Compagnia",
-				"targabene": "Targa/Bene",
-				"contraente": "Contraente",
-				"stato": "Stato",
-				"variazione": "Variazione",
-				"numsin":  "Numero sinistro",
-				"data": "Data",
-				"tipo": "Tipo",
-				"evento": "Evento",
-				"denunciatoda": "Denunciato da",
-				"stato": "Stato",
-				"consultapolizza": "Consulta polizza",
-				"denunciasinistro": "Denuncia sinistro"
-			}
-		},
-		"step": {
-			"labels": {
-				"nascita": "Nascita",
-				"residenza": "Residenza",
-				"recapiti": "Recapiti",
-				"segnalazione": "Segnalazione",
-				"evento": "Evento RCA",
-				"constatazione": "Constatazione amichevole",
-				"danno": "Danno RCA",
-				"terzeparti": "Terze parti",
-				"legale": "Legale",
-				"daticonsultivi": "Dati consultivi",
-				"riepilogo": "Riepilogo"
-			}
-		} 
-  	}
+  "global": {
+    "title": "Msa",
+    "generic": {
+      "cerca": "Cerca",
+      "annulla": "Annulla ricerca",
+      "salva": "Salva",
+      "help": "Help"
+    },
+    "header": {
+      "labels": {
+        "title": "Gestione sinistri"
+      }
+    },
+    "banner": {
+      "labels": {
+        "titlesearch": "Cerca sinistro",
+        "titledenuncia": "Denuncia sinistro"
+      }
+    },
+    "polizzasearch": {
+      "title": "Ricerca polizza",
+      "labels": {
+        "alert": "* Campo obbligarotrio",
+        "cognome": "Cognome",
+        "nome": "Nome",
+        "fisica": "Fisica",
+        "giuridica": "Giuridica",
+        "persona": "Persona",
+        "numpoli": "Numero polizza",
+        "numsin": "Numero sinistro",
+        "dataevento": "Data evento",
+        "targa": "Targa",
+        "numprov": "Numero provvisorio",
+        "numpre": "Numero preapertura",
+        "compagnia": "Compagnia",
+        "istruzioni": "Cerca e seleziona una polizza per procedere"
+      }
+    },
+    "polizzaresult": {
+      "title": "Anagrafica",
+      "labels": {
+        "cognome": "Cognome",
+        "nome": "Nome",
+        "cf": "Codice fiscale",
+        "luogonascita": "Luogo di nascita",
+        "provincia": "Provincia",
+        "datanascita": "Data di nascita",
+        "residenza": "Residenza",
+        "indirizzo": "Indirizzo",
+        "telefono": "Telefono",
+        "cellulare": "Cellulare",
+        "email": "Email"
+      }
+    },
+    "polizzesinistri": {
+      "title": "Polizze e sinistri",
+      "labels": {
+        "numpoli": "Numero polizza",
+        "attivazione": "Attivazione",
+        "scadenza": "Scadenza",
+        "prodotto": "Prodotto",
+        "compagnia": "Compagnia",
+        "targabene": "Targa/Bene",
+        "contraente": "Contraente",
+        "stato": "Stato",
+        "variazione": "Variazione",
+        "numsin": "Numero sinistro",
+        "data": "Data",
+        "tipo": "Tipo",
+        "evento": "Evento",
+        "denunciatoda": "Denunciato da",
+        "stato": "Stato",
+        "consultapolizza": "Consulta polizza",
+        "denunciasinistro": "Denuncia sinistro"
+      }
+    },
+    "denunciasinitro": {
+      "title": "Denuncia Sinistro",
+      "labels": {
+        "datiDenunciante": "Dati Denunciante",
+        "suggerimentoNome": "Potrebbe cortesemente dirmi il suo nome?",
+        "recapitoTracking": "Dati Denunciante",
+        "suggerimentoTracking": "I dati del Tracking sono corretti?",
+        "provenienzaSegnalazione": "Provenienza Segnalazione",
+        "garanzieDisponibili": "Garanzie Disponibili",
+        "luogoSinistro": "Luogo Sinistro",
+        "suggerimentoLuogoSinistro": "Dove è avvenuto il sinistro?",
+        "segnalazione": "Segnalazione",
+        "cognome": "Cognome",
+        "nome": "Nome",
+        "telefono": "Telefono",
+        "ruolo": "Ruolo",
+        "cellulare": "Cellulare",
+        "email": "Email",
+        "mezzo": "Mezzo",
+        "dataDenuncia": "Data Denuncia",
+        "dataSinistro": "Data Sinistro",
+        "oraSinistro": "Ora Sinistro",
+        "nazione": "Nazione",
+        "provincia": "Provincia",
+        "comune": "Comune",
+        "cap": "CAP",
+        "indirizzo": "Indirizzo"
+      }
+    },
+    "step": {
+      "labels": {
+        "nascita": "Nascita",
+        "residenza": "Residenza",
+        "recapiti": "Recapiti",
+        "segnalazione": "Segnalazione",
+        "evento": "Evento RCA",
+        "constatazione": "Constatazione amichevole",
+        "danno": "Danno RCA",
+        "terzeparti": "Terze parti",
+        "legale": "Legale",
+        "daticonsultivi": "Dati consultivi",
+        "riepilogo": "Riepilogo"
+      }
+    }
+  }
 }

@@ -58,6 +58,12 @@
 
                 ctrl.valoriRicerca = undefined;
 
+                ctrl.denuncia = function() {
+                    ctrl.bannerSearch = false;
+                    ctrl.bannerDenuncia = true;
+                };
+
+
                 ctrl.cerca = function () {
                     ctrl.inputRicerca = {
                         cognome: ctrl.ricercapolizza.cognome,
