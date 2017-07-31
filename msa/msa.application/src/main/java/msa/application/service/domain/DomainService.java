@@ -206,4 +206,19 @@ public class DomainService extends BaseService {
 
         }
     }
+
+    /**
+     * Utilizza il DomainRepository per ottenere l'elenco di tutti i ruoli
+     * @return un eleneco  di oggetti RuoliDTO
+     * @throws InternalMsaException
+     */
+    public List<RuoliDTO> getElencoRuoli() throws InternalMsaException {
+    try{
+        return converter.convertList(domainRepository.getElencoRuoli(), RuoliDTO.class);
+    }
+    catch(Exception e ){
+        throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR,"MSA001"));
+
+    }
+    }
 }
