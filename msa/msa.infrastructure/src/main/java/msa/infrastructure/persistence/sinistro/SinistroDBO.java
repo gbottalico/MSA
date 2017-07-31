@@ -4,6 +4,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.util.List;
+
 @Document(collection = "sinistri")
 public class SinistroDBO {
     @Id
@@ -24,6 +26,16 @@ public class SinistroDBO {
     private CaiDBO cai;
     @Field("dannoRCA")
     private DanniRcaDBO dannoRca;
+    @Field("terzeParti")
+    private List<AnagraficaTerzePartiDBO> anagraficaTerzeParti;
+
+    public List<AnagraficaTerzePartiDBO> getAnagraficaTerzeParti() {
+        return anagraficaTerzeParti;
+    }
+
+    public void setAnagraficaTerzeParti(List<AnagraficaTerzePartiDBO> anagraficaTerzeParti) {
+        this.anagraficaTerzeParti = anagraficaTerzeParti;
+    }
 
     public String getId() {
         return id;
