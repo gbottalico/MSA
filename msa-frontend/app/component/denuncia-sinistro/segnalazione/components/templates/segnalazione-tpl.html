@@ -31,7 +31,11 @@
                 <label>{{'global.denunciasinitro.labels.telefono' | translate}}</label>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
-                <input type="text" name="nome" ng-model="$ctrl.ricercapolizza.nome">
+                <!--input type="text" name="nome" ng-model="$ctrl.ricercapolizza.nome"-->
+                <select>
+                    <option>A</option>
+                    <option>B</option>
+                </select>
                 <label>{{'global.denunciasinitro.labels.ruolo' | translate}}</label>
             </div>
             <div class="col-lg-12">
@@ -61,36 +65,29 @@
             <div class="col-lg-12"><span class="subsectionTitle">{{'global.denunciasinitro.labels.provenienzaSegnalazione' | translate}}</span>
             </div>
             <div class="col-lg-12 classicInputRadio">
-                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12 noPaddingLeft">
-                    <input type="radio" ng-model="$ctrl.ricercapolizza.tipopersona" value="fisica">
-                    <label class="rightLabel">{{'global.polizzasearch.labels.fisica' | translate}}</label>
+                <div class="col-lg-1 col-md-2 col-sm-6 col-xs-12 noPaddingLeft" ng-repeat="mezzo in $ctrl.mezzicomunicazione">
+                    <input type="radio" value="{{mezzo.id}}" name="mezzocomunicazione">
+                    <label class="rightLabel">{{mezzo.descrizione}}</label>
                 </div>
-                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12 noPaddingLeft">
-                    <input type="radio" ng-model="$ctrl.ricercapolizza.tipopersona" value="fisica">
-                    <label class="rightLabel">{{'global.polizzasearch.labels.fisica' | translate}}</label>
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12 noPaddingLeft">
-                    <input type="radio" ng-model="$ctrl.ricercapolizza.tipopersona" value="fisica">
-                    <label class="rightLabel">{{'global.polizzasearch.labels.fisica' | translate}}</label>
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12 noPaddingLeft">
-                    <input type="radio" ng-model="$ctrl.ricercapolizza.tipopersona" value="fisica">
-                    <label class="rightLabel">{{'global.polizzasearch.labels.fisica' | translate}}</label>
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12 noPaddingLeft">
-                    <input type="radio" ng-model="$ctrl.ricercapolizza.tipopersona" value="fisica">
-                    <label class="rightLabel">{{'global.polizzasearch.labels.fisica' | translate}}</label>
-                </div>
-                <div class="col-lg-12"><label>{{'global.denunciasinitro.labels.mezzo' | translate}}</label></div>
             </div>
 
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
-                <input type="text" name="nome" ng-model="$ctrl.ricercapolizza.nome">
+                <p class="input-group">
+                    <input type="text" uib-datepicker-popup="{{$ctrl.format}}" ng-model="$ctrl.dataDenuncia" is-open="$ctrl.popup1.opened" datepicker-options="$ctrl.dateOptions" ng-required="true" close-text="Chiudi" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="$ctrl.openDataDenuncia()"><i class="fa fa-calendar-o" aria-hidden="true"></i></button>
+                    </span>
+                </p>
                 <label>{{'global.denunciasinitro.labels.dataDenuncia' | translate}}</label>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
-                <input type="text" name="nome" ng-model="$ctrl.ricercapolizza.nome">
-                <label>{{'global.denunciasinitro.labels.dataSinistro' | translate}}</label>
+                <p class="input-group">
+                    <input type="text" uib-datepicker-popup="{{$ctrl.format}}" ng-model="$ctrl.dataSinistro" is-open="$ctrl.popup2.opened" datepicker-options="$ctrl.dateOptions" ng-required="true" close-text="Chiudi" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="$ctrl.openDataSinistro()"><i class="fa fa-calendar-o" aria-hidden="true"></i></button>
+                    </span>
+                </p>
+                <label>{{'global.denunciasinitro.labels.dataDenuncia' | translate}}</label>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
                 <input type="text" name="nome" ng-model="$ctrl.ricercapolizza.nome">
@@ -103,6 +100,8 @@
             <!-- Luogo Sinistro -->
             <div class="col-lg-12"><span class="subsectionTitle">{{'global.denunciasinitro.labels.luogoSinistro' | translate}}</span>
             </div>
+
+
             <div class="col-lg-12">
                 <span class="subsectionHint">
                     <i class="fa fa-comments" aria-hidden="true"></i>
@@ -110,19 +109,36 @@
                 </span>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
-                <input type="text" name="nome" ng-model="$ctrl.ricercapolizza.nome">
+                <input type="text"
+                       ng-model="$ctrl.nazioneSelezionata"
+                       uib-typeahead="nazione as nazione.descrizione for nazione in $ctrl.getNazioni($viewValue)"
+                       typeahead-loading="loadingNazioni">
+                <i ng-show="loadingNazioni" class="glyphicon glyphicon-refresh"></i>
+
                 <label>{{'global.denunciasinitro.labels.nazione' | translate}}</label>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
-                <input type="text" name="nome" ng-model="$ctrl.ricercapolizza.nome">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText" >
+                <input type="text"
+                       ng-model="$ctrl.provinciaSelezionata"
+                       uib-typeahead="provincia as provincia.descProvincia for provincia in $ctrl.getProvince($viewValue)"
+                       typeahead-loading="loadingProvince"
+                       ng-disabled="$ctrl.nazioneSelezionata.id > 1">
+                <i ng-show="loadingProvince" class="glyphicon glyphicon-refresh"></i>
                 <label>{{'global.denunciasinitro.labels.provincia' | translate}}</label>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
-                <input type="text" name="nome" ng-model="$ctrl.ricercapolizza.nome">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText" ng-disabled="$ctrl.nazioneSelezionata.id > 1">
+                <input type="text"
+                       ng-model="$ctrl.comuneSelezionato"
+                       uib-typeahead="comune as comune.descrizione for comune in $ctrl.getComuni($viewValue)"
+                       typeahead-loading="loadingComuni"
+                       ng-disabled="$ctrl.nazioneSelezionata.id > 1">
+                <i ng-show="loadingComuni" class="glyphicon glyphicon-refresh"></i>
                 <label>{{'global.denunciasinitro.labels.comune' | translate}}</label>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
-                <input type="text" name="nome" ng-model="$ctrl.ricercapolizza.nome">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText" ng-disabled="$ctrl.nazioneSelezionata.id > 1">
+                <select ng-disabled="$ctrl.nazioneSelezionata.id > 1">
+                    <option ng-repeat="cap in $ctrl.caps">{{cap}}</option>
+                </select>
                 <label>{{'global.denunciasinitro.labels.cap' | translate}}</label>
             </div>
 
@@ -147,19 +163,81 @@
             </div>
             <div class="garanzieDisponibili col-lg-2">
                 <div class="garanziaBox noPadding">
-                    <input id="male" type="radio" name="gender" value="male">
-                    <label for="male"><p>Rca</p></label>
+                    <input id="rca" type="radio" name="garanzie" value="rca" checked>
+                    <label for="rca"><p>Rca</p></label>
                 </div>
-                <p>Ciao</p>
+                <p>RCA</p>
             </div>
             <div class="garanzieDisponibili col-lg-2">
                 <div class="garanziaBox noPadding">
-                    <input id="female" type="radio" name="gender" value="female">
-                    <label for="female"><p>F&amp;I</p></label>
+                    <input id="fei" type="radio" name="garanzie" value="fei">
+                    <label for="fei"><p>F&amp;I</p></label>
                 </div>
-                <p>Ciao</p>
+                <p>Furto e Incendio</p>
+            </div>
+            <div class="garanzieDisponibili col-lg-2">
+                <div class="garanziaBox noPadding">
+                    <input id="van" type="radio" name="garanzie" value="van">
+                    <label for="van"><p>Van</p></label>
+                </div>
+                <p>Atti Vandalici</p>
+            </div>
+            <div class="garanzieDisponibili col-lg-2">
+                <div class="garanziaBox noPadding">
+                    <input id="nat" type="radio" name="garanzie" value="nat">
+                    <label for="nat"><p>Nat</p></label>
+                </div>
+                <p>Eventi Naturali</p>
+            </div>
+            <div class="garanzieDisponibili col-lg-2">
+                <div class="garanziaBox noPadding">
+                    <input id="col" type="radio" name="garanzie" value="col">
+                    <label for="col"><p>Col</p></label>
+                </div>
+                <p>Collisione</p>
+            </div>
+            <div class="garanzieDisponibili col-lg-2">
+                <div class="garanziaBox noPadding">
+                    <input id="kas" type="radio" name="garanzie" value="kas">
+                    <label for="kas"><p>Kas</p></label>
+                </div>
+                <p>Kasko</p>
+            </div>
+            <div class="garanzieDisponibili col-lg-2">
+                <div class="garanziaBox noPadding">
+                    <input id="cri" type="radio" name="garanzie" value="cri">
+                    <label for="cri"><p>Cri</p></label>
+                </div>
+                <p>Cristalli</p>
+            </div>
+            <div class="garanzieDisponibili col-lg-2">
+                <div class="garanziaBox noPadding">
+                    <input id="con" type="radio" name="garanzie" value="con">
+                    <label for="con"><p>Con</p></label>
+                </div>
+                <p>Infortuni Conducente</p>
+            </div>
+            <div class="garanzieDisponibili col-lg-2">
+                <div class="garanziaBox noPadding">
+                    <input id="leg" type="radio" name="garanzie" value="leg">
+                    <label for="leg"><p>Leg</p></label>
+                </div>
+                <p>Tutela Legale</p>
+            </div>
+            <div class="garanzieDisponibili col-lg-2">
+                <div class="garanziaBox noPadding">
+                    <input id="str" type="radio" name="garanzie" value="str">
+                    <label for="str"><p>Str</p></label>
+                </div>
+                <p>Assistenza Stradale</p>
             </div>
 
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicButton">
+                <button class="blueButton"
+                        ng-click="$ctrl.denuncia()">
+                    <a><i class="fa fa-plus" aria-hidden="true"></i> Salva e Continua</a>
+                </button>
+            </div>
 
         </div>
     </div>
