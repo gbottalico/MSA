@@ -7,8 +7,8 @@
             bannerSearch: '=',
             bannerDenuncia: '='
         },
-        controller: ("polizzaSearchController", ["$scope", '$rootScope', '$translate', '$log', 'AccountUserSvc', "CompagnieSvc", 'CasaRegoleSvc', 'toastr', '$analytics', '$location', '$anchorScroll', '$cookies', '$window', '$sessionStorage',
-            function ($scope, $rootScope, $translate, $log, AccountUserSvc, CompagnieSvc, CasaRegoleSvc, toastr, $analytics, $location, $anchorScroll, $cookies, $window, $sessionStorage) {
+        controller: ("polizzaSearchController", ["$scope", '$rootScope', '$translate', '$log', 'AccountUserSvc', "CompagnieSvc", 'CasaRegoleSvc', 'toastr', '$analytics', '$location', '$anchorScroll', '$uibModal', '$cookies', '$window', '$sessionStorage',
+            function ($scope, $rootScope, $translate, $log, AccountUserSvc, CompagnieSvc, CasaRegoleSvc, toastr, $analytics, $location, $anchorScroll, $uibModal, $cookies, $window, $sessionStorage) {
 
                 var ctrl = this;
 
@@ -104,6 +104,30 @@
                     ctrl.bannerDenuncia = true;
                 };
 
+                ctrl.open = function () {
+                    $uibModal.open({
+                        templateUrl: 'myModalContent.html', // loads the template
+                        backdrop: 'static', // setting backdrop allows us to close the modal window on clicking outside the modal window
+                        windowClass: 'yolo', // windowClass - additional CSS class(es) to be added to a modal window template
+                        controller: function ($scope, $uibModalInstance , $log, user) {
+                            $scope.user = user;
+                            $scope.submit = function () {
+                                $log.log('Submiting user info.'); // kinda console logs this statement
+                                $log.log(user);
+                                ctrl.denuncia();
+                                $uibModalInstance.dismiss('cancel'); // dismiss(reason) - a method that can be used to dismiss a modal, passing a reason
+                            }
+                            $scope.cancel = function () {
+                                $uibModalInstance.dismiss('cancel');
+                            };
+                        },
+                        resolve: {
+                            user: function () {
+                                return $scope.user;
+                            }
+                        }
+                    });//end of modal.open
+                };
 
                 ctrl.cerca = function () {
 
