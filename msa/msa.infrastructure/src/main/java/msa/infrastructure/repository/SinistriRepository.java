@@ -4,6 +4,7 @@ import msa.domain.object.sinistro.InputRicercaDO;
 import msa.domain.object.sinistro.SinistroDO;
 import msa.infrastructure.base.repository.domain.BaseRepository;
 import msa.infrastructure.base.repository.sinistri.SinistriBaseRepository;
+import msa.infrastructure.costanti.MsaCostanti;
 import msa.infrastructure.persistence.sinistro.SinistroDBO;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Repository;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Repository

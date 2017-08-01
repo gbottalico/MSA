@@ -4,6 +4,7 @@ import msa.application.commons.functions.FunctionUtils;
 import msa.application.config.BaseDTO;
 import msa.application.config.enumerator.MessageType;
 import msa.application.dto.ricerca.InputRicercaDTO;
+import msa.application.dto.sinistro.SinistroDTO;
 import msa.application.dto.sinistro.aperturaSinistro.InputAperturaSinistroDTO;
 import msa.application.dto.sinistro.cai.InputCaiDTO;
 import msa.application.dto.sinistro.constatazioneAmichevole.InputConstatazioneAmichevoleDTO;
@@ -36,10 +37,7 @@ public class SinistriService extends BaseService{
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA003"));
         }
         InputRicercaDO inputRicercaDO = converter.convertObject(input, InputRicercaDO.class);
-        List<SinistroDO> elencoSinistriProvvisori = sinistriRepository.getElencoSinistriProvvisori(inputRicercaDO);
-
-        return null;
-
+        return new BaseDTO<>(converter.convertList(sinistriRepository.getElencoSinistriProvvisori(inputRicercaDO), SinistroDTO.class));
     }
 
     private Integer getMaxNumSinistroProvv() {
