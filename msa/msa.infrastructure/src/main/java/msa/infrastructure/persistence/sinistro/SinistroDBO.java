@@ -13,7 +13,7 @@ public class SinistroDBO {
     @Field("numeroPolizza")
     private String numeroPolizza;
     @Field("compagnia")
-    private String compagnia;
+    private Integer compagnia;
     @Field("nominativoContraente")
     private String nominativoContraente;
     @Field("segnalazione")
@@ -55,11 +55,11 @@ public class SinistroDBO {
         this.numeroPolizza = numeroPolizza;
     }
 
-    public String getCompagnia() {
+    public Integer getCompagnia() {
         return compagnia;
     }
 
-    public void setCompagnia(String compagnia) {
+    public void setCompagnia(Integer compagnia) {
         this.compagnia = compagnia;
     }
 

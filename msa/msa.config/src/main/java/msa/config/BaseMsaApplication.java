@@ -2,6 +2,7 @@ package msa.config;
 
 import javax.annotation.PostConstruct;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
@@ -25,6 +26,11 @@ public abstract class BaseMsaApplication {
 
 	@Autowired
 	private ObjectMapper jacksonMapper;
+
+	@Bean
+	public ModelMapper modelMapper() {
+		return new ModelMapper();
+	}
 
 
 	@Bean
