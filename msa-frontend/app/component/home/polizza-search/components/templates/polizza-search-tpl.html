@@ -43,11 +43,11 @@
                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 classicInputRadio">
                         <label>{{'global.polizzasearch.labels.persona' | translate}}</label>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 noPaddingLeft">
-                            <input type="radio" ng-model="$ctrl.ricercapolizza.tipopersona" value="fisica" ng-required="$ctrl.campiObbligatori.tipopersona">
+                            <input type="radio" ng-model="$ctrl.ricercapolizza.tipopersona" value="fisica" ng-required="$ctrl.campiObbligatori.tipoPersona && !$ctrl.ricercapolizza.tipopersona">
                             <label class="rightLabel">{{'global.polizzasearch.labels.fisica' | translate}}</label>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 noPaddingRight">
-                            <input type="radio" ng-model="$ctrl.ricercapolizza.tipopersona" value="giuridica">
+                            <input type="radio" ng-model="$ctrl.ricercapolizza.tipopersona" value="giuridica" ng-required="$ctrl.campiObbligatori.tipoPersona && !$ctrl.ricercapolizza.tipopersona">
                             <label class="rightLabel">{{'global.polizzasearch.labels.giuridica' | translate}}</label>
                         </div>
                         <label class="alert campoobbligatorio" ng-show="$ctrl.campiObbligatori.tipoPersona">{{'global.polizzasearch.labels.alert' | translate}}</label>
