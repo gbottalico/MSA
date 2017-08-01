@@ -25,8 +25,8 @@ public class SinistriRepository extends BaseRepository {
         //doToJson.put("compagnia", new AbstractMap.SimpleEntry<>(true, "compagnia"));
         doToJson.put("dataEvento", new AbstractMap.SimpleEntry<>(true, "segnalazione.dataDenuncia"));
         //se persona giuridica il cognome rappresenta la rag. sociale
-        doToJson.put("cognome", new AbstractMap.SimpleEntry<>(false, "segnalazione.denunciante.cognome"));
-        doToJson.put("nome", new AbstractMap.SimpleEntry<>(false, "segnalazione.denunciante.nome"));
+        doToJson.put("cognome", new AbstractMap.SimpleEntry<>(false, "contraente.cognome"));
+        doToJson.put("nome", new AbstractMap.SimpleEntry<>(false, "contraente.nome"));
         doToJson.put("numeroPolizza", new AbstractMap.SimpleEntry<>(false, "numeroPolizza"));
         //doToJson.put("numeroSinistro", "numeroSinistro");
         doToJson.put("targa", new AbstractMap.SimpleEntry<>(false, "targa"));
