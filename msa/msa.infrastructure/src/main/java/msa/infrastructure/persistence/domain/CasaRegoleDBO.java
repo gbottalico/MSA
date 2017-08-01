@@ -4,6 +4,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.util.List;
+
 @Document(collection = "casaRegole")
 public class CasaRegoleDBO {
     //TODO da implementare
@@ -13,11 +15,11 @@ public class CasaRegoleDBO {
     private String descrizioneCompagnia;
 
     @Field("campiObbligatoriRicerca")
-    private String[] campiObbligatoriRicerca;
+    private List<CampiObbligatoriDBO> campiObbligatoriRicerca;
     @Field("aperturaSenzaCopertura")
     private boolean aperturaSenzaCopertura;
     @Field("garanzieDefaultSenzaCopertura")
-    private String[] garanzieDefaultSenzaCopertura;
+    private List<Integer> garanzieDefaultSenzaCopertura;
     @Field("sita")
     private boolean sita;
     @Field("sic")
@@ -26,8 +28,6 @@ public class CasaRegoleDBO {
     private boolean carrozzeriaConvenzionata;
     @Field("incaricoPerito")
     private boolean incaricoPerito;
-    @Field("aperturaSxFuoriCopertura")
-    private boolean aperturaSxFuoriCopertura;
 
     public String getIdCompagnia() {
         return idCompagnia;
@@ -45,11 +45,11 @@ public class CasaRegoleDBO {
         this.descrizioneCompagnia = descrizioneCompagnia;
     }
 
-    public String[] getCampiObbligatoriRicerca() {
+    public List<CampiObbligatoriDBO> getCampiObbligatoriRicerca() {
         return campiObbligatoriRicerca;
     }
 
-    public void setCampiObbligatoriRicerca(String[] campiObbligatoriRicerca) {
+    public void setCampiObbligatoriRicerca(List<CampiObbligatoriDBO> campiObbligatoriRicerca) {
         this.campiObbligatoriRicerca = campiObbligatoriRicerca;
     }
 
@@ -61,11 +61,11 @@ public class CasaRegoleDBO {
         this.aperturaSenzaCopertura = aperturaSenzaCopertura;
     }
 
-    public String[] getGaranzieDefaultSenzaCopertura() {
+    public List<Integer> getGaranzieDefaultSenzaCopertura() {
         return garanzieDefaultSenzaCopertura;
     }
 
-    public void setGaranzieDefaultSenzaCopertura(String[] garanzieDefaultSenzaCopertura) {
+    public void setGaranzieDefaultSenzaCopertura(List<Integer> garanzieDefaultSenzaCopertura) {
         this.garanzieDefaultSenzaCopertura = garanzieDefaultSenzaCopertura;
     }
 
@@ -99,13 +99,5 @@ public class CasaRegoleDBO {
 
     public void setIncaricoPerito(boolean incaricoPerito) {
         this.incaricoPerito = incaricoPerito;
-    }
-
-    public boolean isAperturaSxFuoriCopertura() {
-        return aperturaSxFuoriCopertura;
-    }
-
-    public void setAperturaSxFuoriCopertura(boolean aperturaSxFuoriCopertura) {
-        this.aperturaSxFuoriCopertura = aperturaSxFuoriCopertura;
     }
 }

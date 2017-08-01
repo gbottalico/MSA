@@ -1,16 +1,17 @@
 package msa.domain.object.dominio;
 
+import java.util.List;
+
 public class CasaRegoleDO {
     private String idCompagnia;
     private String descrizioneCompagnia;
-    private String[] campiObbligatoriRicerca;
+    private List<CampiObbligatoriDO> campiObbligatoriRicerca;
     private boolean aperturaSenzaCopertura;
-    private String[] garanzieDefaultSenzaCopertura;
+    private List<Integer> garanzieDefaultSenzaCopertura;
     private boolean sita;
     private boolean sic;
     private boolean carrozzeriaConvenzionata;
     private boolean incaricoPerito;
-    private boolean aperturaSxFuoriCopertura;
 
     public String getIdCompagnia() {
         return idCompagnia;
@@ -28,11 +29,11 @@ public class CasaRegoleDO {
         this.descrizioneCompagnia = descrizioneCompagnia;
     }
 
-    public String[] getCampiObbligatoriRicerca() {
+    public List<CampiObbligatoriDO> getCampiObbligatoriRicerca() {
         return campiObbligatoriRicerca;
     }
 
-    public void setCampiObbligatoriRicerca(String[] campiObbligatoriRicerca) {
+    public void setCampiObbligatoriRicerca(List<CampiObbligatoriDO> campiObbligatoriRicerca) {
         this.campiObbligatoriRicerca = campiObbligatoriRicerca;
     }
 
@@ -44,11 +45,11 @@ public class CasaRegoleDO {
         this.aperturaSenzaCopertura = aperturaSenzaCopertura;
     }
 
-    public String[] getGaranzieDefaultSenzaCopertura() {
+    public List<Integer> getGaranzieDefaultSenzaCopertura() {
         return garanzieDefaultSenzaCopertura;
     }
 
-    public void setGaranzieDefaultSenzaCopertura(String[] garanzieDefaultSenzaCopertura) {
+    public void setGaranzieDefaultSenzaCopertura(List<Integer> garanzieDefaultSenzaCopertura) {
         this.garanzieDefaultSenzaCopertura = garanzieDefaultSenzaCopertura;
     }
 
@@ -82,13 +83,5 @@ public class CasaRegoleDO {
 
     public void setIncaricoPerito(boolean incaricoPerito) {
         this.incaricoPerito = incaricoPerito;
-    }
-
-    public boolean isAperturaSxFuoriCopertura() {
-        return aperturaSxFuoriCopertura;
-    }
-
-    public void setAperturaSxFuoriCopertura(boolean aperturaSxFuoriCopertura) {
-        this.aperturaSxFuoriCopertura = aperturaSxFuoriCopertura;
     }
 }

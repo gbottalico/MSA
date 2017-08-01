@@ -1,18 +1,18 @@
 package msa.application.dto.domain;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class CasaRegoleDTO {
     private String idCompagnia;
     private String descrizioneCompagnia;
-    private String[] campiObbligatoriRicerca;
+    private List<CampiObbligatoriDTO> campiObbligatoriRicerca;
     private Boolean aperturaSenzaCopertura;
-    private String[] garanzieDefaultSenzaCopertura;
+    private List<Integer> garanzieDefaultSenzaCopertura;
     private Boolean sita;
     private Boolean sic;
     private Boolean carrozzeriaConvenzionata;
     private Boolean incaricoPerito;
-    private Boolean aperturaSxFuoriCopertura;
 
     public String getIdCompagnia() {
         return idCompagnia;
@@ -30,15 +30,15 @@ public class CasaRegoleDTO {
         this.descrizioneCompagnia = descrizioneCompagnia;
     }
 
-    public String[] getCampiObbligatoriRicerca() {
+    public List<CampiObbligatoriDTO> getCampiObbligatoriRicerca() {
         return campiObbligatoriRicerca;
     }
 
-    public void setCampiObbligatoriRicerca(String[] campiObbligatoriRicerca) {
+    public void setCampiObbligatoriRicerca(List<CampiObbligatoriDTO> campiObbligatoriRicerca) {
         this.campiObbligatoriRicerca = campiObbligatoriRicerca;
     }
 
-    public Boolean isAperturaSenzaCopertura() {
+    public Boolean getAperturaSenzaCopertura() {
         return aperturaSenzaCopertura;
     }
 
@@ -46,15 +46,15 @@ public class CasaRegoleDTO {
         this.aperturaSenzaCopertura = aperturaSenzaCopertura;
     }
 
-    public String[] getGaranzieDefaultSenzaCopertura() {
+    public List<Integer> getGaranzieDefaultSenzaCopertura() {
         return garanzieDefaultSenzaCopertura;
     }
 
-    public void setGaranzieDefaultSenzaCopertura(String[] garanzieDefaultSenzaCopertura) {
+    public void setGaranzieDefaultSenzaCopertura(List<Integer> garanzieDefaultSenzaCopertura) {
         this.garanzieDefaultSenzaCopertura = garanzieDefaultSenzaCopertura;
     }
 
-    public Boolean isSita() {
+    public Boolean getSita() {
         return sita;
     }
 
@@ -62,7 +62,7 @@ public class CasaRegoleDTO {
         this.sita = sita;
     }
 
-    public Boolean isSic() {
+    public Boolean getSic() {
         return sic;
     }
 
@@ -70,7 +70,7 @@ public class CasaRegoleDTO {
         this.sic = sic;
     }
 
-    public Boolean isCarrozzeriaConvenzionata() {
+    public Boolean getCarrozzeriaConvenzionata() {
         return carrozzeriaConvenzionata;
     }
 
@@ -78,7 +78,7 @@ public class CasaRegoleDTO {
         this.carrozzeriaConvenzionata = carrozzeriaConvenzionata;
     }
 
-    public Boolean isIncaricoPerito() {
+    public Boolean getIncaricoPerito() {
         return incaricoPerito;
     }
 
@@ -86,13 +86,6 @@ public class CasaRegoleDTO {
         this.incaricoPerito = incaricoPerito;
     }
 
-    public Boolean isAperturaSxFuoriCopertura() {
-        return aperturaSxFuoriCopertura;
-    }
-
-    public void setAperturaSxFuoriCopertura(Boolean aperturaSxFuoriCopertura) {
-        this.aperturaSxFuoriCopertura = aperturaSxFuoriCopertura;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -101,33 +94,33 @@ public class CasaRegoleDTO {
 
         CasaRegoleDTO that = (CasaRegoleDTO) o;
 
-        if (aperturaSenzaCopertura != that.aperturaSenzaCopertura) return false;
-        if (sita != that.sita) return false;
-        if (sic != that.sic) return false;
-        if (carrozzeriaConvenzionata != that.carrozzeriaConvenzionata) return false;
-        if (incaricoPerito != that.incaricoPerito) return false;
-        if (aperturaSxFuoriCopertura != that.aperturaSxFuoriCopertura) return false;
         if (idCompagnia != null ? !idCompagnia.equals(that.idCompagnia) : that.idCompagnia != null) return false;
         if (descrizioneCompagnia != null ? !descrizioneCompagnia.equals(that.descrizioneCompagnia) : that.descrizioneCompagnia != null)
             return false;
-        // Probably incorrect - comparing Object[] arrays with Arrays.equals
-        if (!Arrays.equals(campiObbligatoriRicerca, that.campiObbligatoriRicerca)) return false;
-        // Probably incorrect - comparing Object[] arrays with Arrays.equals
-        return Arrays.equals(garanzieDefaultSenzaCopertura, that.garanzieDefaultSenzaCopertura);
+        if (campiObbligatoriRicerca != null ? !campiObbligatoriRicerca.equals(that.campiObbligatoriRicerca) : that.campiObbligatoriRicerca != null)
+            return false;
+        if (aperturaSenzaCopertura != null ? !aperturaSenzaCopertura.equals(that.aperturaSenzaCopertura) : that.aperturaSenzaCopertura != null)
+            return false;
+        if (garanzieDefaultSenzaCopertura != null ? !garanzieDefaultSenzaCopertura.equals(that.garanzieDefaultSenzaCopertura) : that.garanzieDefaultSenzaCopertura != null)
+            return false;
+        if (sita != null ? !sita.equals(that.sita) : that.sita != null) return false;
+        if (sic != null ? !sic.equals(that.sic) : that.sic != null) return false;
+        if (carrozzeriaConvenzionata != null ? !carrozzeriaConvenzionata.equals(that.carrozzeriaConvenzionata) : that.carrozzeriaConvenzionata != null)
+            return false;
+        return incaricoPerito != null ? incaricoPerito.equals(that.incaricoPerito) : that.incaricoPerito == null;
     }
 
     @Override
     public int hashCode() {
         int result = idCompagnia != null ? idCompagnia.hashCode() : 0;
         result = 31 * result + (descrizioneCompagnia != null ? descrizioneCompagnia.hashCode() : 0);
-        result = 31 * result + Arrays.hashCode(campiObbligatoriRicerca);
-        result = 31 * result + (aperturaSenzaCopertura ? 1 : 0);
-        result = 31 * result + Arrays.hashCode(garanzieDefaultSenzaCopertura);
-        result = 31 * result + (sita ? 1 : 0);
-        result = 31 * result + (sic ? 1 : 0);
-        result = 31 * result + (carrozzeriaConvenzionata ? 1 : 0);
-        result = 31 * result + (incaricoPerito ? 1 : 0);
-        result = 31 * result + (aperturaSxFuoriCopertura ? 1 : 0);
+        result = 31 * result + (campiObbligatoriRicerca != null ? campiObbligatoriRicerca.hashCode() : 0);
+        result = 31 * result + (aperturaSenzaCopertura != null ? aperturaSenzaCopertura.hashCode() : 0);
+        result = 31 * result + (garanzieDefaultSenzaCopertura != null ? garanzieDefaultSenzaCopertura.hashCode() : 0);
+        result = 31 * result + (sita != null ? sita.hashCode() : 0);
+        result = 31 * result + (sic != null ? sic.hashCode() : 0);
+        result = 31 * result + (carrozzeriaConvenzionata != null ? carrozzeriaConvenzionata.hashCode() : 0);
+        result = 31 * result + (incaricoPerito != null ? incaricoPerito.hashCode() : 0);
         return result;
     }
 }
