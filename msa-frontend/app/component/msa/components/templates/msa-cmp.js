@@ -36,12 +36,5 @@ angular
                         }
                     }, true);
 
-                    /**
-                     * Funzione di inizializzazione in cui viene effettuato il login
-                     */
-                    /*ctrl.$onInit = function () {
-                        alert("FUNZIONA");
-                    };*/
-
                 }]
         });

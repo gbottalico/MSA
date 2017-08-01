@@ -144,7 +144,7 @@
 
             <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 classicInputText">
                 <select>
-                    <option ng-repeat="tipoStrada in $ctrl"></option>
+                    <option ng-repeat="tipoStrada in $ctrl.tipiStrada">{{tipoStrada}}</option>
                 </select>
                 <label>{{'global.denunciasinitro.labels.indirizzo' | translate}}</label>
             </div>

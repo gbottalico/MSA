@@ -7,8 +7,8 @@
             bannerSearch: '=',
             bannerDenuncia: '='
         },
-        controller: ("polizzaSearchController", ["$scope", '$rootScope', '$translate', '$log', 'AccountUserSvc', "CompagnieSvc", 'CasaRegoleSvc', 'toastr', '$analytics', '$location', '$cookies', '$window', '$sessionStorage',
-            function ($scope, $rootScope, $translate, $log, AccountUserSvc, CompagnieSvc, CasaRegoleSvc, toastr, $analytics, location, $cookies, $window, $sessionStorage) {
+        controller: ("polizzaSearchController", ["$scope", '$rootScope', '$translate', '$log', 'AccountUserSvc', "CompagnieSvc", 'CasaRegoleSvc', 'toastr', '$analytics', '$location', '$anchorScroll', '$cookies', '$window', '$sessionStorage',
+            function ($scope, $rootScope, $translate, $log, AccountUserSvc, CompagnieSvc, CasaRegoleSvc, toastr, $analytics, $location, $anchorScroll, $cookies, $window, $sessionStorage) {
 
                 var ctrl = this;
 
@@ -256,6 +256,8 @@
                             }
                         ]
                     };
+                    $location.hash('polizzaResult');
+                    $anchorScroll();
                 };
 
             }])
