@@ -129,7 +129,7 @@ app.factory('messageInterceptor', function ($rootScope) {
             return response;
         },
         'responseError': function (response) {
-            //TODO gestire?
+            $rootScope.errors = response;
             return response;
         }
     };

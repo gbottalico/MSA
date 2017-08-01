@@ -67,14 +67,14 @@
             ctrl.getNazioni = function(nomeNazione) {
                 return PlacesSvc.getNazioni(nomeNazione).then(function (response) {
                     return response.data.result;
-                })
+                });
             };
 
             ctrl.getProvince = function(nomeProvincia) {
               if(ctrl.hasId(ctrl.nazioneSelezionata)) {
                   return PlacesSvc.getProvince(ctrl.nazioneSelezionata.id, nomeProvincia).then(function (response) {
                       return response.data.result;
-                  })
+                  });
               } else {
                   return [{
                       id: "-1",
@@ -86,8 +86,8 @@
             ctrl.getComuni = function(nomeComune) {
               if(ctrl.hasId(ctrl.nazioneSelezionata) && ctrl.hasId(ctrl.provinciaSelezionata)) {
                   return PlacesSvc.getComuni(ctrl.nazioneSelezionata.id, ctrl.provinciaSelezionata.codProvincia, nomeComune).then(function (response) {
-                      return response.data.result
-                  })
+                      return response.data.result;
+                  });
               } else {
                   return [{
                       id: "-1",
@@ -136,15 +136,12 @@
                 }, true
             );
 
-
-            //TODO: funzione per sblancare i campi non più validi
-
             ctrl.hasId = function (obj) {
                 return(
                     obj !== undefined &&
                     obj !== null &&
                     obj.id !== undefined &&
-                    obj.id !== null)
+                    obj.id !== null);
             };
 
 	        ctrl.back = function() {
