@@ -136,6 +136,10 @@
                 }, true
             );
 
+            ctrl.tipiStrada = ['Via', 'Viale', 'Piazza'];
+
+            /* Utilities */
+
             ctrl.hasId = function (obj) {
                 return(
                     obj !== undefined &&

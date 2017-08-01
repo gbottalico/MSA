@@ -4,7 +4,7 @@
 		<div class="col-lg-1 col-md-1 col-sm-0 col-xs-0"></div>
 		<div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 container boxShadow">
 			<div class="header">
-				<h1 class="titleSection">{{'global.polizzasearch.title' | translate}}</h1>			
+				<h1 class="titleSection">{{'global.polizzasearch.title' | translate}}</h1>
 			</div>
 		</div>
 		<div class="col-lg-1 col-md-1 col-sm-0 col-xs-0"></div>
@@ -14,116 +14,112 @@
 		<div class="col-lg-1 col-md-1 col-sm-0 col-xs-0"></div>
 		<div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 container boxShadow">
 			<div class="body">
-
-				<!--INPUT TEXT-->
-				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 classicInputText">
-					<label>{{'global.polizzasearch.labels.cognome' | translate}}</label>
-					<input type="text" name="cognome" ng-model="$ctrl.ricercapolizza.cognome">
-					<label class="alert campoobbligatorio" ng-show="$ctrl.ricercapolizza.cognome.length == 0">{{'global.polizzasearch.labels.alert' | translate}}</label>
-				</div>	
-				<!--END INPUT TEXT-->
-
-				<!--INPUT TEXT-->
-				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 classicInputText">
-					<label>{{'global.polizzasearch.labels.nome' | translate}}</label>
-					<input type="text" name="nome" ng-model="$ctrl.ricercapolizza.nome">
-					<label class="alert campoobbligatorio" ng-show="$ctrl.ricercapolizza.nome.length == 0">{{'global.polizzasearch.labels.alert' | translate}}</label>
-				</div>	
-				<!--END INPUT TEXT-->
-
-				<!--INPUT RADIO-->
-				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 classicInputRadio">
-					<label>{{'global.polizzasearch.labels.persona' | translate}}</label>
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 noPaddingLeft">
-						<input type="radio" ng-model="$ctrl.ricercapolizza.tipopersona" value="fisica">
-						<label class="rightLabel">{{'global.polizzasearch.labels.fisica' | translate}}</label>
-					</div>
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 noPaddingRight">
-						<input type="radio" ng-model="$ctrl.ricercapolizza.tipopersona" value="giuridica"> 
-						<label class="rightLabel">{{'global.polizzasearch.labels.giuridica' | translate}}</label>
-					</div>
-					<label class="alert campoobbligatorio" ng-show="$ctrl.ricercapolizza.tipopersona == undefined">{{'global.polizzasearch.labels.alert' | translate}}</label>
-				</div>	
-				<!--END INPUT RADIO-->
-
-				<!--INPUT TEXT-->
-				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 classicInputText">
-					<label>{{'global.polizzasearch.labels.numpoli' | translate}}</label>
-					<input type="text" name="numpoli" ng-model="$ctrl.ricercapolizza.numpoli">
-					<label class="alert campoobbligatorio" ng-show="$ctrl.ricercapolizza.numpoli.length == 0">{{'global.polizzasearch.labels.alert' | translate}}</label>
-				</div>
-				<!--END INPUT TEXT-->
-
-				<!--INPUT TEXT-->
-				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 classicInputText noPaddingLeft">
-						<label>{{'global.polizzasearch.labels.numsin' | translate}}</label>
-						<input type="text" name="numsin" ng-model="$ctrl.ricercapolizza.numsin">
-						<label class="alert campoobbligatorio" ng-show="$ctrl.ricercapolizza.numsin.length == 0">{{'global.polizzasearch.labels.alert' | translate}}</label>
-					</div>
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 classicInputText noPaddingRight">
-						<label>{{'global.polizzasearch.labels.dataevento' | translate}}</label>
-						<input type="text" name="dataevento" ng-model="$ctrl.ricercapolizza.dataevento">
-						<label class="alert campoobbligatorio" ng-show="$ctrl.ricercapolizza.dataevento.length == 0">{{'global.polizzasearch.labels.alert' | translate}}</label>
-					</div>
-				</div>	
-				<!--END INPUT TEXT-->
-
-				<!--INPUT TEXT-->
-				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 classicInputText">
-					<label>{{'global.polizzasearch.labels.targa' | translate}}</label>
-					<input type="text" name="targa" class="targa" ng-model="$ctrl.ricercapolizza.targa">
-					<label class="alert campoobbligatorio" ng-show="$ctrl.ricercapolizza.targa.length == 0">{{'global.polizzasearch.labels.alert' | translate}}</label>
-				</div>
-				<!--END INPUT TEXT-->
-
-				<!--INPUT TEXT-->
-				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 classicInputText">
-					<label>{{'global.polizzasearch.labels.numprov' | translate}}</label>
-					<input type="text" name="numprov" ng-model="$ctrl.ricercapolizza.numprov">
-					<label class="alert campoobbligatorio" ng-show="$ctrl.ricercapolizza.numprov.length == 0">{{'global.polizzasearch.labels.alert' | translate}}</label>
-				</div>	
-				<!--END INPUT TEXT-->
-
-				<!--INPUT TEXT-->
-				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 classicInputText">
-					<label>{{'global.polizzasearch.labels.numpre' | translate}}</label>
-					<input type="text" name="numpre" ng-model="$ctrl.ricercapolizza.numpre">
-					<label class="alert campoobbligatorio" ng-show="$ctrl.ricercapolizza.numpre.length == 0">{{'global.polizzasearch.labels.alert' | translate}}</label>
-				</div>	
-				<!--END INPUT TEXT-->
-
-				<!--INPUT LIST-->
-				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 classicInputText">
-                    <label>{{'global.polizzasearch.labels.compagnia' | translate}}</label>
-                    <input name="compagnia" type="text" ng-model="$ctrl.ricercapolizza.compagniaselected" uib-typeahead="compagnia for compagnia in getListaCompagnie($viewValue)" typeahead-loading="loadingLocations" typeahead-no-results="noResults">
-                    <label class="alert campoobbligatorio" ng-show="$ctrl.ricercapolizza.compagniaselected == undefined || $ctrl.ricercapolizza.compagniaselected.length == 0">{{'global.polizzasearch.labels.alert' | translate}}</label>
-                    <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
-                    <div ng-show="noResults">
-                        <i class="glyphicon glyphicon-remove"></i> No Results Found
+                <form name="polizzaSearchForm" novalidate>
+                <!--INPUT LIST-->
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 classicInputText">
+                        <label>{{'global.polizzasearch.labels.compagnia' | translate}}</label>
+                        <input name="compagnia" type="text" ng-model="$ctrl.compagniaSelezionata" uib-typeahead="regola as regola.descrizioneCompagnia for regola in $ctrl.casaRegole | filter:{descrizioneCompagnia:$viewValue}"  ng-required="true">
+                        <label class="alert campoobbligatorio">{{'global.polizzasearch.labels.alert' | translate}}</label>
                     </div>
-				</div>
-				<!--END INPUT LIST-->
+                    <!--END INPUT LIST-->
 
-				<!--COMMON SEARCH BUTTON-->
-				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 classicButton">
-					<button class="blueButton"
-							ng-disabled="$ctrl.ricercapolizza.cognome.length == 0 || $ctrl.ricercapolizza.nome.length == 0 || $ctrl.ricercapolizza.tipopersona == undefined || $ctrl.ricercapolizza.numpoli == 0 || $ctrl.ricercapolizza.numsin.length == 0 || $ctrl.ricercapolizza.dataevento.length == 0 || $ctrl.ricercapolizza.targa.length == 0 || $ctrl.ricercapolizza.numprov.length == 0 || $ctrl.ricercapolizza.numpre.length == 0 || $ctrl.ricercapolizza.compagniaselected == undefined || $ctrl.ricercapolizza.compagniaselected.length == 0"
-							ng-click="$ctrl.cerca()">
-						<a><i class="fa fa-search" aria-hidden="true"></i> {{'global.generic.cerca' | translate}}</a>
-					</button>
-				</div>		
-				<!--END COMMON SEARCH BUTTON-->
+                    <!--INPUT TEXT-->
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 classicInputText">
+                        <label>{{'global.polizzasearch.labels.cognome' | translate}}</label>
+                        <input type="text" name="cognome" ng-model="$ctrl.ricercapolizza.cognome" ng-required="$ctrl.campiObbligatori.cognome">
+                        <label class="alert campoobbligatorio" ng-show="$ctrl.campiObbligatori.cognome">{{'global.polizzasearch.labels.alert' | translate}}</label>
+                    </div>
+                    <!--END INPUT TEXT-->
 
-				<!--COMMON NUOVO SINISTRO BUTTON-->
-				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 classicButton">
-					<button class="blueButton"
-							ng-click="$ctrl.denuncia()">
-						<a><i class="fa fa-plus" aria-hidden="true"></i> Denuncia Sinistro</a>
-					</button>
-				</div>
+                    <!--INPUT TEXT-->
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 classicInputText">
+                        <label>{{'global.polizzasearch.labels.nome' | translate}}</label>
+                        <input type="text" name="nome" ng-model="$ctrl.ricercapolizza.nome" ng-required="$ctrl.campiObbligatori.nome">
+                        <label class="alert campoobbligatorio" ng-show="$ctrl.campiObbligatori.nome">{{'global.polizzasearch.labels.alert' | translate}}</label>
+                    </div>
+                    <!--END INPUT TEXT-->
+
+                    <!--INPUT RADIO-->
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 classicInputRadio">
+                        <label>{{'global.polizzasearch.labels.persona' | translate}}</label>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 noPaddingLeft">
+                            <input type="radio" ng-model="$ctrl.ricercapolizza.tipopersona" value="fisica" ng-required="$ctrl.campiObbligatori.tipopersona">
+                            <label class="rightLabel">{{'global.polizzasearch.labels.fisica' | translate}}</label>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 noPaddingRight">
+                            <input type="radio" ng-model="$ctrl.ricercapolizza.tipopersona" value="giuridica">
+                            <label class="rightLabel">{{'global.polizzasearch.labels.giuridica' | translate}}</label>
+                        </div>
+                        <label class="alert campoobbligatorio" ng-show="$ctrl.campiObbligatori.tipoPersona">{{'global.polizzasearch.labels.alert' | translate}}</label>
+                    </div>
+                    <!--END INPUT RADIO-->
+
+                    <!--INPUT TEXT-->
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 classicInputText">
+                        <label>{{'global.polizzasearch.labels.numpoli' | translate}}</label>
+                        <input type="text" name="numpoli" ng-model="$ctrl.ricercapolizza.numpoli" ng-required="$ctrl.campiObbligatori.numeroPolizza">
+                        <label class="alert campoobbligatorio" ng-show="$ctrl.campiObbligatori.numeroPolizza">{{'global.polizzasearch.labels.alert' | translate}}</label>
+                    </div>
+                    <!--END INPUT TEXT-->
+
+                    <!--INPUT TEXT-->
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 classicInputText noPaddingLeft">
+                            <label>{{'global.polizzasearch.labels.numsin' | translate}}</label>
+                            <input type="text" name="numsin" ng-model="$ctrl.ricercapolizza.numsin" ng-required="$ctrl.campiObbligatori.numeroSinistro">
+                            <label class="alert campoobbligatorio" ng-show="$ctrl.campiObbligatori.numeroSinistro">{{'global.polizzasearch.labels.alert' | translate}}</label>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 classicInputText noPaddingRight">
+                            <label>{{'global.polizzasearch.labels.dataevento' | translate}}</label>
+                            <input type="text" name="dataevento" ng-model="$ctrl.ricercapolizza.dataevento" ng-required="$ctrl.campiObbligatori.dataEvento">
+                            <label class="alert campoobbligatorio" ng-show="$ctrl.campiObbligatori.dataEvento">{{'global.polizzasearch.labels.alert' | translate}}</label>
+                        </div>
+                    </div>
+                    <!--END INPUT TEXT-->
+
+                    <!--INPUT TEXT-->
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 classicInputText">
+                        <label>{{'global.polizzasearch.labels.targa' | translate}}</label>
+                        <input type="text" name="targa" class="targa" ng-model="$ctrl.ricercapolizza.targa" ng-required="$ctrl.campiObbligatori.targa">
+                        <label class="alert campoobbligatorio" ng-show="$ctrl.campiObbligatori.targa">{{'global.polizzasearch.labels.alert' | translate}}</label>
+                    </div>
+                    <!--END INPUT TEXT-->
+
+                    <!--INPUT TEXT-->
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 classicInputText">
+                        <label>{{'global.polizzasearch.labels.numprov' | translate}}</label>
+                        <input type="text" name="numprov" ng-model="$ctrl.ricercapolizza.numprov" ng-required="$ctrl.campiObbligatori.numeroProvvisorio">
+                        <label class="alert campoobbligatorio" ng-show="$ctrl.campiObbligatori.numeroProvvisorio">{{'global.polizzasearch.labels.alert' | translate}}</label>
+                    </div>
+                    <!--END INPUT TEXT-->
+
+                    <!--INPUT TEXT-->
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 classicInputText">
+                        <label>{{'global.polizzasearch.labels.numpre' | translate}}</label>
+                        <input type="text" name="numpre" ng-model="$ctrl.ricercapolizza.numpre" ng-required="$ctrl.campiObbligatori.numeroPreapertura">
+                        <label class="alert campoobbligatorio" ng-show="$ctrl.campiObbligatori.numeroPreapertura">{{'global.polizzasearch.labels.alert' | translate}}</label>
+                    </div>
+                    <!--END INPUT TEXT-->
+
+                    <!--COMMON SEARCH BUTTON-->
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 classicButton">
+                        <button class="blueButton"
+                                ng-disabled="polizzaSearchForm.$invalid"
+                                ng-click="$ctrl.cerca()">
+                            <a><i class="fa fa-search" aria-hidden="true"></i> {{'global.generic.cerca' | translate}}</a>
+                        </button>
+                    </div>
+                    <!--END COMMON SEARCH BUTTON-->
+
+                    <!--COMMON NUOVO SINISTRO BUTTON-->
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 classicButton">
+                        <button class="blueButton"
+                                ng-click="$ctrl.denuncia()">
+                            <a><i class="fa fa-plus" aria-hidden="true"></i> Denuncia Sinistro</a>
+                        </button>
+                    </div>
 				<!--END COMMON NUOVO SINISTRO BUTTON-->
-
+                </form>
 			</div>
 		</div>
 		<div class="col-lg-1 col-md-1 col-sm-0 col-xs-0"></div>

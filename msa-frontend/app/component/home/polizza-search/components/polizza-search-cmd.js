@@ -7,35 +7,84 @@
             bannerSearch: '=',
             bannerDenuncia: '='
         },
-        controller: ("polizzaSearchController", ["$scope", '$rootScope', '$translate', '$log', 'AccountUserSvc', "CompagnieSvc", 'toastr', '$analytics', '$location', '$cookies', '$window', '$sessionStorage',
-            function ($scope, $rootScope, $translate, $log, AccountUserSvc, CompagnieSvc, toastr, $analytics, location, $cookies, $window, $sessionStorage) {
+        controller: ("polizzaSearchController", ["$scope", '$rootScope', '$translate', '$log', 'AccountUserSvc', "CompagnieSvc", 'CasaRegoleSvc', 'toastr', '$analytics', '$location', '$cookies', '$window', '$sessionStorage',
+            function ($scope, $rootScope, $translate, $log, AccountUserSvc, CompagnieSvc, CasaRegoleSvc, toastr, $analytics, location, $cookies, $window, $sessionStorage) {
 
                 var ctrl = this;
 
-                $scope.getListaCompagnie = function (nomeCompagnia) {
+                ctrl.casaRegole = undefined;
 
-                    if (nomeCompagnia.length >= 3) {
-                        return CompagnieSvc.getCompagnie(nomeCompagnia).then(function (response) {
-                            return response.data.result.map(function (item) {
-                                return item.descrizione;
-                            });
-                        });
-                    } else {
-                        return [];
-                    }
+                ctrl.$onInit = function () {
+                    CasaRegoleSvc.getElencoRegole().then(function (response) {
+                        ctrl.casaRegole = response.data.result;
+                    });
                 };
 
-                ctrl.listacompagnie = [
-                    'Compagnia con il nome molto lungo',
-                    'Come corto',
-                    'Ciao',
-                    'Gianluca spa',
-                    'Ammaccabanana',
-                    'Prova per filtro',
-                    'Termostato',
-                    'Elenco',
-                    'Funziona'
-                ];
+                ctrl.compagniaSelezionata = undefined;
+                ctrl.campiObbligatori = {
+                    cognome: false,
+                    nome: false,
+                    tipoPersona: false,
+                    numeroPolizza: false,
+                    numeroSinistro: false,
+                    dataEvento: false,
+                    targa: false,
+                    numeroProvvisorio: false,
+                    numeroPreapertura: false
+                };
+
+                $scope.$watch(
+                    function watch(scope) {
+                        return {
+                            compagniaSelezionata: ctrl.compagniaSelezionata
+                        };
+                    },
+                    function handleChanges(newValue, oldValue) {
+
+                        if(newValue.compagniaSelezionata !== oldValue.compagniaSelezionata)  {
+                            if(newValue.compagniaSelezionata instanceof Object
+                                && newValue.compagniaSelezionata !== null) {
+
+                                // Eseguo il binding dei campi obbligatori.
+                                var campiObbligatoriRicerca = newValue.compagniaSelezionata.campiObbligatoriRicerca;
+                                for (var i = 0; i < campiObbligatoriRicerca.length; i++) {
+                                    switch(campiObbligatoriRicerca[i].idFE) {
+                                        case 1:
+                                            ctrl.campiObbligatori.cognome = campiObbligatoriRicerca[i].required;
+                                            break;
+                                        case 2:
+                                            ctrl.campiObbligatori.nome = campiObbligatoriRicerca[i].required;
+                                            break;
+                                        case 3:
+                                            ctrl.campiObbligatori.tipoPersona = campiObbligatoriRicerca[i].required;
+                                            break;
+                                        case 4:
+                                            ctrl.campiObbligatori.numeroPolizza = campiObbligatoriRicerca[i].required;
+                                            break;
+                                        case 5:
+                                            ctrl.campiObbligatori.numeroSinistro = campiObbligatoriRicerca[i].required;
+                                            break;
+                                        case 6:
+                                            ctrl.campiObbligatori.dataEvento = campiObbligatoriRicerca[i].required;
+                                            break;
+                                        case 7:
+                                            ctrl.campiObbligatori.targa = campiObbligatoriRicerca[i].required;
+                                            break;
+                                        case 8:
+                                            ctrl.campiObbligatori.numeroProvvisorio = campiObbligatoriRicerca[i].required;
+                                            break;
+                                        case 9:
+                                            ctrl.campiObbligatori.numeroPreapertura = campiObbligatoriRicerca[i].required;
+                                            break;
+
+                                    }
+                                }
+                            }
+                        }
+
+                    }, true
+                );
+
 
                 ctrl.ricercapolizza = {
                     cognome: '',
@@ -51,14 +100,9 @@
                     compagniaselected: undefined
                 };
 
-                ctrl.compagniaSelected = function (compagnia) {
-                    ctrl.ricercapolizza.compagniaselected = compagnia;
-                    ctrl.open.compagnia = !ctrl.open.compagnia;
-                };
-
                 ctrl.valoriRicerca = undefined;
 
-                ctrl.denuncia = function() {
+                ctrl.denuncia = function () {
                     ctrl.bannerSearch = false;
                     ctrl.bannerDenuncia = true;
                 };
