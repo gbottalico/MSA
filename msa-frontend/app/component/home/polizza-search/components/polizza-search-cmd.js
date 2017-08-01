@@ -44,8 +44,8 @@
                     function handleChanges(newValue, oldValue) {
 
                         if(newValue.compagniaSelezionata !== oldValue.compagniaSelezionata)  {
-                            if(newValue.compagniaSelezionata instanceof Object
-                                && newValue.compagniaSelezionata !== null) {
+                            if(newValue.compagniaSelezionata instanceof Object &&
+                                newValue.compagniaSelezionata !== null) {
 
                                 // Eseguo il binding dei campi obbligatori.
                                 var campiObbligatoriRicerca = newValue.compagniaSelezionata.campiObbligatoriRicerca;
@@ -116,7 +116,7 @@
                                 $log.log(user);
                                 ctrl.denuncia();
                                 $uibModalInstance.dismiss('cancel'); // dismiss(reason) - a method that can be used to dismiss a modal, passing a reason
-                            }
+                            };
                             $scope.cancel = function () {
                                 $uibModalInstance.dismiss('cancel');
                             };
