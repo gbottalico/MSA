@@ -13,14 +13,16 @@
                 var ctrl = this;
 
                 ctrl.casaRegole = undefined;
+                ctrl.compagniaSelezionata = undefined;
+                ctrl.valoriRicerca = undefined;
 
                 ctrl.$onInit = function () {
                     CasaRegoleSvc.getElencoRegole().then(function (response) {
                         ctrl.casaRegole = response.data.result;
                     });
+
                 };
 
-                ctrl.compagniaSelezionata = undefined;
                 ctrl.campiObbligatori = {
                     cognome: false,
                     nome: false,
@@ -85,22 +87,17 @@
                     }, true
                 );
 
-
                 ctrl.ricercapolizza = {
                     cognome: '',
                     nome: '',
-                    tipopersona: undefined,
-                    numpoli: '',
-                    numsin: '',
-                    dataevento: '',
+                    tipoPersona: undefined,
+                    numeroPolizza: '',
+                    numeroSinistro: '',
+                    dataEvento: '',
                     targa: '',
-                    numprov: '',
-                    numpre: '',
-                    compagnie: {elenco: ctrl.listacompagnie},
-                    compagniaselected: undefined
+                    numeroProvvisorio: '',
+                    numeroPreapertura: '',
                 };
-
-                ctrl.valoriRicerca = undefined;
 
                 ctrl.denuncia = function () {
                     ctrl.bannerSearch = false;
@@ -109,24 +106,12 @@
 
 
                 ctrl.cerca = function () {
-                    ctrl.inputRicerca = {
-                        cognome: ctrl.ricercapolizza.cognome,
-                        nome: ctrl.ricercapolizza.nome,
-                        tipopersona: ctrl.ricercapolizza.tipopersona,
-                        numpoli: ctrl.ricercapolizza.numpoli,
-                        numsin: ctrl.ricercapolizza.numsin,
-                        dataevento: ctrl.ricercapolizza.dataevento,
-                        targa: ctrl.ricercapolizza.targa,
-                        numprov: ctrl.ricercapolizza.numprov,
-                        numpre: ctrl.ricercapolizza.numpre,
-                        compagnia: ctrl.ricercapolizza.compagniaselected
-                    };
 
                     ctrl.valoriRicerca = {
                         bannersearch: ctrl.bannersearch,
                         bannerdenuncia: ctrl.bannerdenuncia,
                         user: {
-                            cognome: 'Piras',
+                            cognome: ctrl.ricercapolizza.cognome,
                             nome: 'Dario',
                             cf: 'PRSDRA87E28B157S',
                             luogonascita: 'Brescia',

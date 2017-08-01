@@ -43,11 +43,11 @@
                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 classicInputRadio">
                         <label>{{'global.polizzasearch.labels.persona' | translate}}</label>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 noPaddingLeft">
-                            <input type="radio" ng-model="$ctrl.ricercapolizza.tipopersona" value="fisica" ng-required="$ctrl.campiObbligatori.tipoPersona && !$ctrl.ricercapolizza.tipopersona">
+                            <input type="radio" ng-model="$ctrl.ricercapolizza.tipoPersona" value="fisica" ng-required="$ctrl.campiObbligatori.tipoPersona && !$ctrl.ricercapolizza.tipopersona">
                             <label class="rightLabel">{{'global.polizzasearch.labels.fisica' | translate}}</label>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 noPaddingRight">
-                            <input type="radio" ng-model="$ctrl.ricercapolizza.tipopersona" value="giuridica" ng-required="$ctrl.campiObbligatori.tipoPersona && !$ctrl.ricercapolizza.tipopersona">
+                            <input type="radio" ng-model="$ctrl.ricercapolizza.tipoPersona" value="giuridica" ng-required="$ctrl.campiObbligatori.tipoPersona && !$ctrl.ricercapolizza.tipopersona">
                             <label class="rightLabel">{{'global.polizzasearch.labels.giuridica' | translate}}</label>
                         </div>
                         <label class="alert campoobbligatorio" ng-show="$ctrl.campiObbligatori.tipoPersona">{{'global.polizzasearch.labels.alert' | translate}}</label>
@@ -57,7 +57,7 @@
                     <!--INPUT TEXT-->
                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 classicInputText">
                         <label>{{'global.polizzasearch.labels.numpoli' | translate}}</label>
-                        <input type="text" name="numpoli" ng-model="$ctrl.ricercapolizza.numpoli" ng-required="$ctrl.campiObbligatori.numeroPolizza">
+                        <input type="text" name="numpoli" ng-model="$ctrl.ricercapolizza.numeroPolizza" ng-required="$ctrl.campiObbligatori.numeroPolizza">
                         <label class="alert campoobbligatorio" ng-show="$ctrl.campiObbligatori.numeroPolizza">{{'global.polizzasearch.labels.alert' | translate}}</label>
                     </div>
                     <!--END INPUT TEXT-->
@@ -66,12 +66,12 @@
                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 classicInputText noPaddingLeft">
                             <label>{{'global.polizzasearch.labels.numsin' | translate}}</label>
-                            <input type="text" name="numsin" ng-model="$ctrl.ricercapolizza.numsin" ng-required="$ctrl.campiObbligatori.numeroSinistro">
+                            <input type="text" name="numsin" ng-model="$ctrl.ricercapolizza.numeroSinistro" ng-required="$ctrl.campiObbligatori.numeroSinistro">
                             <label class="alert campoobbligatorio" ng-show="$ctrl.campiObbligatori.numeroSinistro">{{'global.polizzasearch.labels.alert' | translate}}</label>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 classicInputText noPaddingRight">
                             <label>{{'global.polizzasearch.labels.dataevento' | translate}}</label>
-                            <input type="text" name="dataevento" ng-model="$ctrl.ricercapolizza.dataevento" ng-required="$ctrl.campiObbligatori.dataEvento">
+                            <input type="text" name="dataevento" ng-model="$ctrl.ricercapolizza.dataEvento" ng-required="$ctrl.campiObbligatori.dataEvento">
                             <label class="alert campoobbligatorio" ng-show="$ctrl.campiObbligatori.dataEvento">{{'global.polizzasearch.labels.alert' | translate}}</label>
                         </div>
                     </div>
@@ -88,7 +88,7 @@
                     <!--INPUT TEXT-->
                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 classicInputText">
                         <label>{{'global.polizzasearch.labels.numprov' | translate}}</label>
-                        <input type="text" name="numprov" ng-model="$ctrl.ricercapolizza.numprov" ng-required="$ctrl.campiObbligatori.numeroProvvisorio">
+                        <input type="text" name="numprov" ng-model="$ctrl.ricercapolizza.numeroProvvisorio" ng-required="$ctrl.campiObbligatori.numeroProvvisorio">
                         <label class="alert campoobbligatorio" ng-show="$ctrl.campiObbligatori.numeroProvvisorio">{{'global.polizzasearch.labels.alert' | translate}}</label>
                     </div>
                     <!--END INPUT TEXT-->
@@ -96,7 +96,7 @@
                     <!--INPUT TEXT-->
                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 classicInputText">
                         <label>{{'global.polizzasearch.labels.numpre' | translate}}</label>
-                        <input type="text" name="numpre" ng-model="$ctrl.ricercapolizza.numpre" ng-required="$ctrl.campiObbligatori.numeroPreapertura">
+                        <input type="text" name="numpre" ng-model="$ctrl.ricercapolizza.numeroPreapertura" ng-required="$ctrl.campiObbligatori.numeroPreapertura">
                         <label class="alert campoobbligatorio" ng-show="$ctrl.campiObbligatori.numeroPreapertura">{{'global.polizzasearch.labels.alert' | translate}}</label>
                     </div>
                     <!--END INPUT TEXT-->
