@@ -10,6 +10,7 @@ import msa.application.dto.sinistro.dannoRca.DanniDTO;
 import msa.application.dto.sinistro.dannoRca.InputDannoRcaDTO;
 import msa.application.dto.sinistro.eventoRca.InputEventoDTO;
 import msa.application.dto.sinistro.segnalazione.InputSegnalazioneDTO;
+import msa.application.exceptions.InternalMsaException;
 import msa.application.service.sinistri.SinistriService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -41,7 +42,7 @@ public class SinistroController {
      */
     @ApiOperation(value = "Metodo che effettua la ricerca di una copertura in base ai dati ricevuti in input")
     @RequestMapping(value = "/ricerca", method = RequestMethod.POST)
-    public BaseDTO ricercaCopertura(InputRicercaDTO input) {
+    public BaseDTO ricercaCopertura(@RequestBody InputRicercaDTO input) throws InternalMsaException {
         return sinistriService.ricercaCopertura(input);
     }
 
@@ -109,13 +110,12 @@ public class SinistroController {
         return sinistriService.salvaDannoRca(input);
     }
 
-    //TODO rimuoverlo
-    @RequestMapping(value = "/testdanni", method =RequestMethod.POST)
-    public BaseDTO testDanni(@RequestBody DanniDTO input){
+/*    //TODO rimuoverlo
+    @RequestMapping(value = "/testdanni", method =RequestMethod.GET)
+    public Integer testDanni(){
 
-        System.out.println();
-        return null;
-    }
+        //return sinistriService.getMaxNumSinistroProvv();
+    }*/
 
 
 

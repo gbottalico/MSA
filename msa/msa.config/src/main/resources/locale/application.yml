@@ -25,15 +25,13 @@ spring:
     locale: it_IT
   data: 
     mongodb: 
-      host: localhost
+      host: 172.25.14.169
       port: 27017
       database: msa
 logging:
   file: /Sviluppo/msa_logs/msa.log
 msa:
   profile: locale
-  data:
-      mongodb:
-        host: localhost
-        port: 27017
-        database: msa
+  basePath: localhost:8080/msa
+  restUrl:
+    ricercaAnagrafica : /api/dominio/nazione/<nazione>
