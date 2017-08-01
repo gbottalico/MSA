@@ -1,10 +1,12 @@
 package msa.domain.object.sinistro;
 
+import java.util.List;
+
 public class SinistroDO {
     private static final long serialVersionUID = 1665918958997727249L;
     private String id;
     private String numeroPolizza;
-    private String compagnia;
+    private Integer compagnia;
     private String targa;
     private String nominativoCliente;
     private SegnalazioneDO segnalazione;
@@ -12,6 +14,15 @@ public class SinistroDO {
     private ConstatazioneAmichevoleDO constatazioneAmichevole;
     private CaiDO cai;
     private DannoRcaDO dannoRca;
+    private List<AnagraficaTerzePartiDO> anagraficaTerzeParti;
+
+    public List<AnagraficaTerzePartiDO> getAnagraficaTerzeParti() {
+        return anagraficaTerzeParti;
+    }
+
+    public void setAnagraficaTerzeParti(List<AnagraficaTerzePartiDO> anagraficaTerzeParti) {
+        this.anagraficaTerzeParti = anagraficaTerzeParti;
+    }
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -33,11 +44,11 @@ public class SinistroDO {
         this.numeroPolizza = numeroPolizza;
     }
 
-    public String getCompagnia() {
+    public Integer getCompagnia() {
         return compagnia;
     }
 
-    public void setCompagnia(String compagnia) {
+    public void setCompagnia(Integer compagnia) {
         this.compagnia = compagnia;
     }
 

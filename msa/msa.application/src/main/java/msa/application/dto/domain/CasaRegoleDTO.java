@@ -6,13 +6,13 @@ public class CasaRegoleDTO {
     private String idCompagnia;
     private String descrizioneCompagnia;
     private String[] campiObbligatoriRicerca;
-    private boolean aperturaSenzaCopertura;
+    private Boolean aperturaSenzaCopertura;
     private String[] garanzieDefaultSenzaCopertura;
-    private boolean sita;
-    private boolean sic;
-    private boolean carrozzeriaConvenzionata;
-    private boolean incaricoPerito;
-    private boolean aperturaSxFuoriCopertura;
+    private Boolean sita;
+    private Boolean sic;
+    private Boolean carrozzeriaConvenzionata;
+    private Boolean incaricoPerito;
+    private Boolean aperturaSxFuoriCopertura;
 
     public String getIdCompagnia() {
         return idCompagnia;
@@ -38,11 +38,11 @@ public class CasaRegoleDTO {
         this.campiObbligatoriRicerca = campiObbligatoriRicerca;
     }
 
-    public boolean isAperturaSenzaCopertura() {
+    public Boolean isAperturaSenzaCopertura() {
         return aperturaSenzaCopertura;
     }
 
-    public void setAperturaSenzaCopertura(boolean aperturaSenzaCopertura) {
+    public void setAperturaSenzaCopertura(Boolean aperturaSenzaCopertura) {
         this.aperturaSenzaCopertura = aperturaSenzaCopertura;
     }
 
@@ -54,43 +54,43 @@ public class CasaRegoleDTO {
         this.garanzieDefaultSenzaCopertura = garanzieDefaultSenzaCopertura;
     }
 
-    public boolean isSita() {
+    public Boolean isSita() {
         return sita;
     }
 
-    public void setSita(boolean sita) {
+    public void setSita(Boolean sita) {
         this.sita = sita;
     }
 
-    public boolean isSic() {
+    public Boolean isSic() {
         return sic;
     }
 
-    public void setSic(boolean sic) {
+    public void setSic(Boolean sic) {
         this.sic = sic;
     }
 
-    public boolean isCarrozzeriaConvenzionata() {
+    public Boolean isCarrozzeriaConvenzionata() {
         return carrozzeriaConvenzionata;
     }
 
-    public void setCarrozzeriaConvenzionata(boolean carrozzeriaConvenzionata) {
+    public void setCarrozzeriaConvenzionata(Boolean carrozzeriaConvenzionata) {
         this.carrozzeriaConvenzionata = carrozzeriaConvenzionata;
     }
 
-    public boolean isIncaricoPerito() {
+    public Boolean isIncaricoPerito() {
         return incaricoPerito;
     }
 
-    public void setIncaricoPerito(boolean incaricoPerito) {
+    public void setIncaricoPerito(Boolean incaricoPerito) {
         this.incaricoPerito = incaricoPerito;
     }
 
-    public boolean isAperturaSxFuoriCopertura() {
+    public Boolean isAperturaSxFuoriCopertura() {
         return aperturaSxFuoriCopertura;
     }
 
-    public void setAperturaSxFuoriCopertura(boolean aperturaSxFuoriCopertura) {
+    public void setAperturaSxFuoriCopertura(Boolean aperturaSxFuoriCopertura) {
         this.aperturaSxFuoriCopertura = aperturaSxFuoriCopertura;
     }
 

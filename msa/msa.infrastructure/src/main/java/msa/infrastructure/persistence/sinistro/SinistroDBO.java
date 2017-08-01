@@ -4,6 +4,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.util.List;
+
 @Document(collection = "sinistri")
 public class SinistroDBO {
     @Id
@@ -11,7 +13,7 @@ public class SinistroDBO {
     @Field("numeroPolizza")
     private String numeroPolizza;
     @Field("compagnia")
-    private String compagnia;
+    private Integer compagnia;
     @Field("nominativoContraente")
     private String nominativoContraente;
     @Field("segnalazione")
@@ -23,7 +25,19 @@ public class SinistroDBO {
     @Field("cai")
     private CaiDBO cai;
     @Field("dannoRCA")
-    private DanniRcaDBO dannoRca;
+    private DannoRcaDBO dannoRca;
+    @Field("terzeParti")
+    private List<AnagraficaTerzePartiDBO> anagraficaTerzeParti;
+
+    public List<AnagraficaTerzePartiDBO> getAnagraficaTerzeParti() {
+        return anagraficaTerzeParti;
+    }
+
+    public void setAnagraficaTerzeParti(List<AnagraficaTerzePartiDBO> anagraficaTerzeParti) {
+        this.anagraficaTerzeParti = anagraficaTerzeParti;
+    }
+    @Field("numSinistroProvv")
+    private Integer numSinistroProvv;
 
     public String getId() {
         return id;
@@ -41,11 +55,11 @@ public class SinistroDBO {
         this.numeroPolizza = numeroPolizza;
     }
 
-    public String getCompagnia() {
+    public Integer getCompagnia() {
         return compagnia;
     }
 
-    public void setCompagnia(String compagnia) {
+    public void setCompagnia(Integer compagnia) {
         this.compagnia = compagnia;
     }
 
@@ -89,11 +103,19 @@ public class SinistroDBO {
         this.cai = cai;
     }
 
-    public DanniRcaDBO getDannoRca() {
+    public DannoRcaDBO getDannoRca() {
         return dannoRca;
     }
 
-    public void setDannoRca(DanniRcaDBO dannoRca) {
+    public void setDannoRca(DannoRcaDBO dannoRca) {
         this.dannoRca = dannoRca;
+    }
+
+    public Integer getNumSinistroProvv() {
+        return numSinistroProvv;
+    }
+
+    public void setNumSinistroProvv(Integer numSinistroProvv) {
+        this.numSinistroProvv = numSinistroProvv;
     }
 }

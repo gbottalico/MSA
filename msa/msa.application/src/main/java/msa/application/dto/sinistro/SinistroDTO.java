@@ -5,8 +5,10 @@ import msa.application.dto.sinistro.constatazioneAmichevole.ConstatazioneAmichev
 import msa.application.dto.sinistro.dannoRca.DannoRcaDTO;
 import msa.application.dto.sinistro.eventoRca.EventoRcaDTO;
 import msa.application.dto.sinistro.segnalazione.SegnalazioneDTO;
+import msa.infrastructure.persistence.sinistro.AnagraficaTerzePartiDBO;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class SinistroDTO implements Serializable {
     private static final long serialVersionUID = 1665918958997727249L;
@@ -20,44 +22,10 @@ public class SinistroDTO implements Serializable {
     private ConstatazioneAmichevoleDTO constatazioneAmichevole;
     private CaiDTO cai;
     private DannoRcaDTO dannoRca;
+    private List<AnagraficaTerzePartiDBO> anagraficaTerzeParti;
 
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
 
-        SinistroDTO that = (SinistroDTO) o;
-
-        if (id != null ? !id.equals(that.id) : that.id != null) return false;
-        if (numeroPolizza != null ? !numeroPolizza.equals(that.numeroPolizza) : that.numeroPolizza != null)
-            return false;
-        if (compagnia != null ? !compagnia.equals(that.compagnia) : that.compagnia != null) return false;
-        if (targa != null ? !targa.equals(that.targa) : that.targa != null) return false;
-        if (nominativoCliente != null ? !nominativoCliente.equals(that.nominativoCliente) : that.nominativoCliente != null)
-            return false;
-        if (segnalazione != null ? !segnalazione.equals(that.segnalazione) : that.segnalazione != null) return false;
-        if (eventoRca != null ? !eventoRca.equals(that.eventoRca) : that.eventoRca != null) return false;
-        if (constatazioneAmichevole != null ? !constatazioneAmichevole.equals(that.constatazioneAmichevole) : that.constatazioneAmichevole != null)
-            return false;
-        if (cai != null ? !cai.equals(that.cai) : that.cai != null) return false;
-        return dannoRca != null ? dannoRca.equals(that.dannoRca) : that.dannoRca == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (numeroPolizza != null ? numeroPolizza.hashCode() : 0);
-        result = 31 * result + (compagnia != null ? compagnia.hashCode() : 0);
-        result = 31 * result + (targa != null ? targa.hashCode() : 0);
-        result = 31 * result + (nominativoCliente != null ? nominativoCliente.hashCode() : 0);
-        result = 31 * result + (segnalazione != null ? segnalazione.hashCode() : 0);
-        result = 31 * result + (eventoRca != null ? eventoRca.hashCode() : 0);
-        result = 31 * result + (constatazioneAmichevole != null ? constatazioneAmichevole.hashCode() : 0);
-        result = 31 * result + (cai != null ? cai.hashCode() : 0);
-        result = 31 * result + (dannoRca != null ? dannoRca.hashCode() : 0);
-        return result;
-    }
 
     public static long getSerialVersionUID() {
 
@@ -142,5 +110,52 @@ public class SinistroDTO implements Serializable {
 
     public void setDannoRca(DannoRcaDTO dannoRca) {
         this.dannoRca = dannoRca;
+    }
+
+    public List<AnagraficaTerzePartiDBO> getAnagraficaTerzeParti() {
+        return anagraficaTerzeParti;
+    }
+
+    public void setAnagraficaTerzeParti(List<AnagraficaTerzePartiDBO> anagraficaTerzeParti) {
+        this.anagraficaTerzeParti = anagraficaTerzeParti;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        SinistroDTO that = (SinistroDTO) o;
+
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
+        if (numeroPolizza != null ? !numeroPolizza.equals(that.numeroPolizza) : that.numeroPolizza != null)
+            return false;
+        if (compagnia != null ? !compagnia.equals(that.compagnia) : that.compagnia != null) return false;
+        if (targa != null ? !targa.equals(that.targa) : that.targa != null) return false;
+        if (nominativoCliente != null ? !nominativoCliente.equals(that.nominativoCliente) : that.nominativoCliente != null)
+            return false;
+        if (segnalazione != null ? !segnalazione.equals(that.segnalazione) : that.segnalazione != null) return false;
+        if (eventoRca != null ? !eventoRca.equals(that.eventoRca) : that.eventoRca != null) return false;
+        if (constatazioneAmichevole != null ? !constatazioneAmichevole.equals(that.constatazioneAmichevole) : that.constatazioneAmichevole != null)
+            return false;
+        if (cai != null ? !cai.equals(that.cai) : that.cai != null) return false;
+        if (dannoRca != null ? !dannoRca.equals(that.dannoRca) : that.dannoRca != null) return false;
+        return anagraficaTerzeParti != null ? anagraficaTerzeParti.equals(that.anagraficaTerzeParti) : that.anagraficaTerzeParti == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (numeroPolizza != null ? numeroPolizza.hashCode() : 0);
+        result = 31 * result + (compagnia != null ? compagnia.hashCode() : 0);
+        result = 31 * result + (targa != null ? targa.hashCode() : 0);
+        result = 31 * result + (nominativoCliente != null ? nominativoCliente.hashCode() : 0);
+        result = 31 * result + (segnalazione != null ? segnalazione.hashCode() : 0);
+        result = 31 * result + (eventoRca != null ? eventoRca.hashCode() : 0);
+        result = 31 * result + (constatazioneAmichevole != null ? constatazioneAmichevole.hashCode() : 0);
+        result = 31 * result + (cai != null ? cai.hashCode() : 0);
+        result = 31 * result + (dannoRca != null ? dannoRca.hashCode() : 0);
+        result = 31 * result + (anagraficaTerzeParti != null ? anagraficaTerzeParti.hashCode() : 0);
+        return result;
     }
 }

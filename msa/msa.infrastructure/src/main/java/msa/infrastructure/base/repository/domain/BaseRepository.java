@@ -1,5 +1,6 @@
 package msa.infrastructure.base.repository.domain;
 
+import msa.infrastructure.config.AbstractMsaPropertiesReader;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import msa.domain.Converter.MsaConverter;

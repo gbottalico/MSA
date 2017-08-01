@@ -18,9 +18,4 @@ public class ErroriRepository extends BaseRepository {
         Query query = getCriteriaQueryBuilder().addCriteria(Criteria.where("codErrore").is(codErrore));
         return mongoTemplate.findOne(query,ErroriDBO.class);
     }
-
-    public List<ErroriDBO> findAll() {
-        Query query = getCriteriaQueryBuilder();
-        return mongoTemplate.findAll(ErroriDBO.class);
-    }
 }

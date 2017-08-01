@@ -13,6 +13,12 @@ public class BaseDTO<T> implements Serializable {
      */
     private static final long serialVersionUID = -1479480688346891374L;
 
+    public BaseDTO(T result) {
+        this.result = result;
+    }
+
+    public BaseDTO() {
+    }
 
     private HttpStatus status;
     private T result;

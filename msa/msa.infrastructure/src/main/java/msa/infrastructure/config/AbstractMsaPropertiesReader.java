@@ -1,10 +1,15 @@
 package msa.infrastructure.config;
 
+import java.util.Map;
+
 public abstract class AbstractMsaPropertiesReader {
 
-    public abstract String getUrl();
+    public abstract String getMongoUrl();
 
-    public abstract String getPort();
+    public abstract String getMongoPort();
 
-    public abstract String getDbName();
+    public abstract String getMongoDbName();
+
+    public abstract AbstractMsaApiMap getRestUrlMap();
+    public abstract String getBasePath();
 }

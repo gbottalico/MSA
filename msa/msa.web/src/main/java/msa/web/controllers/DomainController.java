@@ -173,6 +173,7 @@ public class DomainController extends BaseController {
 
     /**
      * Ottiene la lista delle regole presenti nella casa delle regole
+     *
      * @return un BaseDTO contente le informazioni richieste
      * @throws InternalMsaException
      */
@@ -186,14 +187,28 @@ public class DomainController extends BaseController {
 
     /**
      * Metodo che ottiene la lista di tutti i baremes
-     * @return
+     *
+     * @return un BaseDTO contente le informazioni richieste
      * @throws InternalMsaException
      */
-    @ApiOperation(value=" Metodo che ottiene la lista di tutti i baremes")
+    @ApiOperation(value = " Metodo che ottiene la lista di tutti i baremes")
     @RequestMapping(value = "/baremes", method = RequestMethod.GET)
     public BaseDTO<List<BaremesDTO>> getElencoBaremes() throws InternalMsaException {
         BaseDTO<List<BaremesDTO>> result = new BaseDTO<>();
         result.setResult(domainService.getElencoBaremes());
+        return result;
+    }
+
+    /**
+     * Metodo che ottiene la lista di tutti i ruoli
+     * @return un BaseDTO contente le informazioni richieste
+     * @throws InternalMsaException
+     */
+    @ApiOperation(value = " Metodo chef ottiene la lista di tutti i ruoli")
+    @RequestMapping(value = "/ruoli", method = RequestMethod.GET)
+    public BaseDTO<List<RuoliDTO>> getElencoRuoli() throws InternalMsaException {
+        BaseDTO<List<RuoliDTO>> result = new BaseDTO<>();
+        result.setResult(domainService.getElencoRuoli());
         return result;
     }
 }
