@@ -15,6 +15,15 @@ public class SinistroDO {
     private CaiDO cai;
     private DannoRcaDO dannoRca;
     private List<AnagraficaTerzePartiDO> anagraficaTerzeParti;
+    private FullAnagraficaDO contraente;
+
+    public FullAnagraficaDO getContraente() {
+        return contraente;
+    }
+
+    public void setContraente(FullAnagraficaDO contraente) {
+        this.contraente = contraente;
+    }
 
     public List<AnagraficaTerzePartiDO> getAnagraficaTerzeParti() {
         return anagraficaTerzeParti;

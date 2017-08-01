@@ -1,11 +1,40 @@
 package msa.domain.object.sinistro;
 
+import java.util.Date;
+
 public class BaseAnagraficaDO {
     private String nome;
     private String cognome;
     private String codRuolo;
+    private Integer codComuneNascita;
+    private String descComuneNascita;
+    private Date dataNascita;
+
+    public Date getDataNascita() {
+        return dataNascita;
+    }
+
+    public void setDataNascita(Date dataNascita) {
+        this.dataNascita = dataNascita;
+    }
 
     private String cf;
+
+    public Integer getCodComuneNascita() {
+        return codComuneNascita;
+    }
+
+    public void setCodComuneNascita(Integer codComuneNascita) {
+        this.codComuneNascita = codComuneNascita;
+    }
+
+    public String getDescComuneNascita() {
+        return descComuneNascita;
+    }
+
+    public void setDescComuneNascita(String descComuneNascita) {
+        this.descComuneNascita = descComuneNascita;
+    }
 
     public String getNome() {
         return nome;
@@ -38,4 +67,6 @@ public class BaseAnagraficaDO {
     public void setCf(String cf) {
         this.cf = cf;
     }
+
 }
+

@@ -2,7 +2,9 @@ package msa.infrastructure.persistence.sinistro;
 
 import org.springframework.data.mongodb.core.mapping.Field;
 
-public class BaseAnagraficaDBO  {
+import java.util.Date;
+
+public class BaseAnagraficaDBO {
     @Field("nome")
     private String nome;
     @Field("cognome")
@@ -11,6 +13,36 @@ public class BaseAnagraficaDBO  {
     private String codRuolo;
     @Field("cf")
     private String cf;
+    @Field("desComuneNascita")
+    private String descComuneNascita;
+    @Field("codComuneNascita")
+    private String codComuneNascita;
+    @Field("dataNascita")
+    private Date dataNascita;
+
+    public Date getDataNascita() {
+        return dataNascita;
+    }
+
+    public void setDataNascita(Date dataNascita) {
+        this.dataNascita = dataNascita;
+    }
+
+    public String getDescComuneNascita() {
+        return descComuneNascita;
+    }
+
+    public void setDescComuneNascita(String descComuneNascita) {
+        this.descComuneNascita = descComuneNascita;
+    }
+
+    public String getCodComuneNascita() {
+        return codComuneNascita;
+    }
+
+    public void setCodComuneNascita(String codComuneNascita) {
+        this.codComuneNascita = codComuneNascita;
+    }
 
     public String getNome() {
         return nome;

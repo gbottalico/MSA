@@ -28,6 +28,16 @@ public class SinistroDBO {
     private DannoRcaDBO dannoRca;
     @Field("terzeParti")
     private List<AnagraficaTerzePartiDBO> anagraficaTerzeParti;
+    @Field("contraente")
+    private FullAnagraficaDBO contraente;
+
+    public FullAnagraficaDBO getContraente() {
+        return contraente;
+    }
+
+    public void setContraente(FullAnagraficaDBO contraente) {
+        this.contraente = contraente;
+    }
 
     public List<AnagraficaTerzePartiDBO> getAnagraficaTerzeParti() {
         return anagraficaTerzeParti;
