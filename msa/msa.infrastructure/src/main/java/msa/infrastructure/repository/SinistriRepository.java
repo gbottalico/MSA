@@ -48,11 +48,11 @@ public class SinistriRepository extends BaseRepository {
      */
     public Integer insertSinistroProvvisorio(SinistroDO input) {
         Integer numProvv;
-        if (input.getNumSinistroProvv() == null) {
+        if (input.getNumSinistroProvv() == -1) {
             numProvv = getNextNumSinistroProvv();
             input.setNumSinistroProvv(numProvv);
 
-            mongoTemplate.insert(input);
+            mongoTemplate.insert(converter.convertObject(input,SinistroDBO.class));
         } else {
 
             numProvv = input.getNumSinistroProvv();
