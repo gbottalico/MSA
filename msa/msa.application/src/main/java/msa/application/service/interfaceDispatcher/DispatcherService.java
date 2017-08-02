@@ -13,15 +13,14 @@ import org.springframework.stereotype.Service;
  * Created by simon.calabrese on 01/08/2017.
  */
 @Service
-public class DispatcherService extends BaseService {
+public class DispatcherService extends DispatcherUtils {
 
     @Autowired
     private DispatcherRepository dispatcherRepository;
 
     public BaseDTO<DispatcherDTO> getNextInterface(final DispatcherDTO view) throws InternalMsaException {
         DispatcherDO dispatcherDO = converter.convertObject(view, DispatcherDO.class);
-        view.setNextView(dispatcherRepository.getNextInterface(dispatcherDO).getNextView());
-
+        view.setNextView(dispatcherRepository.getNextInterface(getParameterIfSubDispatching(dispatcherDO)).getNextView());
         return new BaseDTO<>(view);
     }
 }

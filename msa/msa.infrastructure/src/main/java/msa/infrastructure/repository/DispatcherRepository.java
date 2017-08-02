@@ -16,12 +16,14 @@ public class DispatcherRepository extends BaseRepository {
     public DispatcherDO getNextInterface(final DispatcherDO path) {
         final Criteria criteria = Criteria
                 .where(getMongoNameByAttributeName("garanzia", AlberInterfacceDBO.class))
-                .is(path.getGaranziaSelected());
+                .is(String.valueOf(path.getGaranziaSelected()));
         final Query criteriaQuery = getCriteriaQueryBuilder().addCriteria(criteria);
-        AlberInterfacceDBO next = mongoTemplate.findOne(criteriaQuery, AlberInterfacceDBO.class);
-        FogliaDBO fogliaDBO = next.getNextTree().stream()
+        FogliaDBO fogliaDBO = mongoTemplate.findOne(criteriaQuery, AlberInterfacceDBO.class)
+                .getNextTree().stream()
                 .filter(foglia -> (foglia.getThisView().equals(path.getThisView()))
-                        && foglia.getParameter().equals(path.getParam())).findFirst().orElse(null);
+                        && foglia.getParameter().equals(path.getParam()))
+                .findFirst()
+                .orElse(null);
         path.setNextView(fogliaDBO.getNextView());
         return path;
     }

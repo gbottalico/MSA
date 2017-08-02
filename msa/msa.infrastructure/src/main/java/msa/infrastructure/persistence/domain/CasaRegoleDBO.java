@@ -17,17 +17,17 @@ public class CasaRegoleDBO {
     @Field("campiObbligatoriRicerca")
     private List<CampiObbligatoriDBO> campiObbligatoriRicerca;
     @Field("aperturaSenzaCopertura")
-    private boolean aperturaSenzaCopertura;
+    private Boolean aperturaSenzaCopertura;
     @Field("garanzieDefaultSenzaCopertura")
     private List<Integer> garanzieDefaultSenzaCopertura;
     @Field("sita")
-    private boolean sita;
+    private Boolean sita;
     @Field("sic")
-    private boolean sic;
+    private Boolean sic;
     @Field("carrozzeriaConvenzionata")
-    private boolean carrozzeriaConvenzionata;
+    private Boolean carrozzeriaConvenzionata;
     @Field("incaricoPerito")
-    private boolean incaricoPerito;
+    private Boolean incaricoPerito;
 
     public String getIdCompagnia() {
         return idCompagnia;
@@ -53,11 +53,11 @@ public class CasaRegoleDBO {
         this.campiObbligatoriRicerca = campiObbligatoriRicerca;
     }
 
-    public boolean isAperturaSenzaCopertura() {
+    public Boolean getAperturaSenzaCopertura() {
         return aperturaSenzaCopertura;
     }
 
-    public void setAperturaSenzaCopertura(boolean aperturaSenzaCopertura) {
+    public void setAperturaSenzaCopertura(Boolean aperturaSenzaCopertura) {
         this.aperturaSenzaCopertura = aperturaSenzaCopertura;
     }
 
@@ -69,35 +69,35 @@ public class CasaRegoleDBO {
         this.garanzieDefaultSenzaCopertura = garanzieDefaultSenzaCopertura;
     }
 
-    public boolean isSita() {
+    public Boolean getSita() {
         return sita;
     }
 
-    public void setSita(boolean sita) {
+    public void setSita(Boolean sita) {
         this.sita = sita;
     }
 
-    public boolean isSic() {
+    public Boolean getSic() {
         return sic;
     }
 
-    public void setSic(boolean sic) {
+    public void setSic(Boolean sic) {
         this.sic = sic;
     }
 
-    public boolean isCarrozzeriaConvenzionata() {
+    public Boolean getCarrozzeriaConvenzionata() {
         return carrozzeriaConvenzionata;
     }
 
-    public void setCarrozzeriaConvenzionata(boolean carrozzeriaConvenzionata) {
+    public void setCarrozzeriaConvenzionata(Boolean carrozzeriaConvenzionata) {
         this.carrozzeriaConvenzionata = carrozzeriaConvenzionata;
     }
 
-    public boolean isIncaricoPerito() {
+    public Boolean getIncaricoPerito() {
         return incaricoPerito;
     }
 
-    public void setIncaricoPerito(boolean incaricoPerito) {
+    public void setIncaricoPerito(Boolean incaricoPerito) {
         this.incaricoPerito = incaricoPerito;
     }
 }
