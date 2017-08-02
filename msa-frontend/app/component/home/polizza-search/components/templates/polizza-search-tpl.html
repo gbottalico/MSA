@@ -17,58 +17,43 @@
         <div class="modal-body ">
 
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicInputText">
+                <input type="text" name="cognome" ng-model="denunciante.nome">
                 <label>{{'global.denunciasinitro.labels.cognome' | translate}}</label>
-                <input type="text" name="compagnia">
-                <label class="alert campoobbligatorio">{{'global.polizzasearch.labels.alert' | translate}}</label>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicInputText">
+                <input type="text" name="nome" ng-model="denunciante.cognome">
                 <label>{{'global.denunciasinitro.labels.nome' | translate}}</label>
-                <input type="text" name="compagnia">
-                <label class="alert campoobbligatorio">{{'global.polizzasearch.labels.alert' | translate}}</label>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputText">
+                <input type="text" name="cf" ng-model="denunciante.cf">
                 <label>{{'global.denunciasinitro.labels.cfopiva' | translate}}</label>
-                <input type="text" name="compagnia">
-                <label class="alert campoobbligatorio">{{'global.polizzasearch.labels.alert' | translate}}</label>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputText">
-                <label>{{'global.denunciasinitro.labels.nazione' | translate}}</label>
-                <input type="text">
-                <label class="alert campoobbligatorio">{{'global.polizzasearch.labels.alert' | translate}}</label>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputText" >
-                <label>{{'global.denunciasinitro.labels.provincia' | translate}}</label>
-                <input type="text">
-                <label class="alert campoobbligatorio">{{'global.polizzasearch.labels.alert' | translate}}</label>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputText">
-                <label>{{'global.denunciasinitro.labels.comune' | translate}}</label>
-                <input type="text">
-                <label class="alert campoobbligatorio">{{'global.polizzasearch.labels.alert' | translate}}</label>
-            </div>
+
+            <msa-place result="denunciante.residenza"></msa-place>
 
             <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 classicInputText">
-                <label>{{'global.denunciasinitro.labels.indirizzo' | translate}}</label>
-                <select>
+                <select ng-model="denunciante.residenza.indirizzo.tipostrada" name="tipoStrada">
                     <option ng-repeat="tipoStrada in $ctrl.tipiStrada">{{tipoStrada}}</option>
                 </select>
-                <label class="alert campoobbligatorio">{{'global.polizzasearch.labels.alert' | translate}}</label>
+                <label>{{'global.denunciasinitro.labels.indirizzo' | translate}}</label>
             </div>
-            <div class="col-lg-9 col-md-9 col-sm-4 col-xs-12 classicInputText">
+            <div class="col-lg-8 col-md-8 col-sm-4 col-xs-12 classicInputText">
+                <input type="text" name="denominazioneStrada" ng-model="denunciante.residenza.indirizzo.denominazione">
                 <label>&nbsp;</label>
-                <input type="text" name="nome">
 
             </div>
-            <div class="col-lg-1 col-md-1 col-sm-4 col-xs-12 classicInputText">
+            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 classicInputText">
+                <input type="text" name="numeroCivico" ng-model="denunciante.residenza.indirizzo.civico">
                 <label>&nbsp;</label>
-                <input type="text" name="nome">
             </div>
 
         </div>
-
+        <div class="col-lg-12">
+            <hr class="blueLine"/>
+        </div>
         <div class="modal-footer">
-            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
-            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+            <button class="btn grayButton" type="button" ng-click="cancel()">Cancel</button>
+            <button class="btn blueButton" type="button" ng-click="ok()">OK</button>
         </div>
 
     </script>
@@ -191,6 +176,7 @@
                             <a><i class="fa fa-plus" aria-hidden="true"></i> Denuncia Sinistro</a>
                         </button>
                     </div>
+
 				<!--END COMMON NUOVO SINISTRO BUTTON-->
                 </form>
 			</div>

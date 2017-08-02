@@ -1,0 +1,33 @@
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
+    <input type="text"
+           ng-model="$ctrl.nazioneSelezionata"
+           uib-typeahead="nazione as nazione.descrizione for nazione in $ctrl.getNazioni($viewValue)"
+           typeahead-loading="loadingNazioni">
+    <i ng-show="loadingNazioni" class="glyphicon glyphicon-refresh"></i>
+
+    <label>{{'global.denunciasinitro.labels.nazione' | translate}}</label>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText" >
+    <input type="text"
+           ng-model="$ctrl.provinciaSelezionata"
+           uib-typeahead="provincia as provincia.descProvincia for provincia in $ctrl.getProvince($viewValue)"
+           typeahead-loading="loadingProvince"
+           ng-disabled="$ctrl.nazioneSelezionata.id > 1">
+    <i ng-show="loadingProvince" class="glyphicon glyphicon-refresh"></i>
+    <label>{{'global.denunciasinitro.labels.provincia' | translate}}</label>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText" ng-disabled="$ctrl.nazioneSelezionata.id > 1">
+    <input type="text"
+           ng-model="$ctrl.comuneSelezionato"
+           uib-typeahead="comune as comune.descrizione for comune in $ctrl.getComuni($viewValue)"
+           typeahead-loading="loadingComuni"
+           ng-disabled="$ctrl.nazioneSelezionata.id > 1">
+    <i ng-show="loadingComuni" class="glyphicon glyphicon-refresh"></i>
+    <label>{{'global.denunciasinitro.labels.comune' | translate}}</label>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText" ng-disabled="$ctrl.nazioneSelezionata.id > 1">
+    <select ng-disabled="$ctrl.nazioneSelezionata.id > 1">
+        <option ng-repeat="cap in $ctrl.caps">{{cap}}</option>
+    </select>
+    <label>{{'global.denunciasinitro.labels.cap' | translate}}</label>
+</div>

@@ -111,11 +111,12 @@
                         backdrop: 'static', // Evita che il modal sia chiuso cliccando sullo sfondo.
                         windowClass: 'msaModal',
                         size: 'lg',
-                        controller: function ($scope, $uibModalInstance , $log, user) {
-                            $scope.user = user;
+                        controller: function ($scope, $uibModalInstance , $log, denunciante) {
+
+                            $scope.denunciante = denunciante;
 
                             $scope.ok = function () {
-                                $uibModalInstance.close($scope.user);
+                                $uibModalInstance.close($scope.denunciante);
                             };
 
                             $scope.cancel = function () {
@@ -123,17 +124,18 @@
                             };
                         },
                         resolve: {
-                            user: function () {
-                                return $scope.user;
+                            denunciante: function () {
+                                return $scope.denunciante;
                             }
                         }
                     });//end of modal.open
 
                     modalInstance.result.then(function (result) {
                         console.log("Success");
-                        console.log(user);
+                        console.log(result);
                     }, function () {
                         console.log("Error");
+                        toastr.info("Operazione annullata.")
                     });
 
                 };
