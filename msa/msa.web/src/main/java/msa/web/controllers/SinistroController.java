@@ -3,10 +3,10 @@ package msa.web.controllers;
 import io.swagger.annotations.ApiOperation;
 import msa.application.config.BaseDTO;
 import msa.application.dto.ricerca.InputRicercaDTO;
+import msa.application.dto.sinistro.SinistroDTO;
 import msa.application.dto.sinistro.aperturaSinistro.InputAperturaSinistroDTO;
 import msa.application.dto.sinistro.cai.InputCaiDTO;
 import msa.application.dto.sinistro.constatazioneAmichevole.InputConstatazioneAmichevoleDTO;
-import msa.application.dto.sinistro.dannoRca.DanniDTO;
 import msa.application.dto.sinistro.dannoRca.InputDannoRcaDTO;
 import msa.application.dto.sinistro.eventoRca.InputEventoDTO;
 import msa.application.dto.sinistro.segnalazione.InputSegnalazioneDTO;
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 public class SinistroController {
 
     @Autowired
-   private SinistriService sinistriService;
+    private SinistriService sinistriService;
 
     /**
      * Metodo che effettua l'apertura di un sinistro in base ai dati ricevuti in input
@@ -30,9 +30,10 @@ public class SinistroController {
      */
     @ApiOperation(value = "Metodo che effettua l'apertura di un sinistro in base ai dati ricevuti in input")
     @RequestMapping(value = "/apertura", method = RequestMethod.PUT)
-    public BaseDTO apriSinistro(InputAperturaSinistroDTO input) {
-        return sinistriService.apriSinistro(input);
+    public BaseDTO<SinistroDTO> apriSinistro(@RequestBody SinistroDTO input) throws InternalMsaException {
+    return sinistriService.apriSinistro(input);
     }
+
 
     /**
      * Metodo che effettua la ricerca di una copertura in base ai parametri ricevuti in input
@@ -100,6 +101,7 @@ public class SinistroController {
 
     /**
      * Metodo che salva i danni riportati
+     *
      * @param input
      * @param numeroSinistro
      * @return
@@ -109,14 +111,6 @@ public class SinistroController {
     public BaseDTO salvaDanniRca(InputDannoRcaDTO input, @PathVariable("numero") String numeroSinistro) {
         return sinistriService.salvaDannoRca(input);
     }
-
-/*    //TODO rimuoverlo
-    @RequestMapping(value = "/testdanni", method =RequestMethod.GET)
-    public Integer testDanni(){
-
-        //return sinistriService.getMaxNumSinistroProvv();
-    }*/
-
 
 
 }

@@ -8,7 +8,6 @@ public class SinistroDO {
     private String numeroPolizza;
     private Integer compagnia;
     private String targa;
-    private String nominativoCliente;
     private SegnalazioneDO segnalazione;
     private EventoRcaDO eventoRca;
     private ConstatazioneAmichevoleDO constatazioneAmichevole;
@@ -16,6 +15,15 @@ public class SinistroDO {
     private DannoRcaDO dannoRca;
     private List<AnagraficaTerzePartiDO> anagraficaTerzeParti;
     private FullAnagraficaDO contraente;
+    private Integer numSinistroProvv;
+
+    public Integer getNumSinistroProvv() {
+        return numSinistroProvv;
+    }
+
+    public void setNumSinistroProvv(Integer numSinistroProvv) {
+        this.numSinistroProvv = numSinistroProvv;
+    }
 
     public FullAnagraficaDO getContraente() {
         return contraente;
@@ -69,13 +77,6 @@ public class SinistroDO {
         this.targa = targa;
     }
 
-    public String getNominativoCliente() {
-        return nominativoCliente;
-    }
-
-    public void setNominativoCliente(String nominativoCliente) {
-        this.nominativoCliente = nominativoCliente;
-    }
 
     public SegnalazioneDO getSegnalazione() {
         return segnalazione;

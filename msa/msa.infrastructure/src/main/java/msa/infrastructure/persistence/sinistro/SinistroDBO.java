@@ -14,8 +14,6 @@ public class SinistroDBO {
     private String numeroPolizza;
     @Field("compagnia")
     private Integer compagnia;
-    @Field("nominativoContraente")
-    private String nominativoContraente;
     @Field("segnalazione")
     private SegnalazioneDBO segnalazione;
     @Field("eventoRCA")
@@ -30,6 +28,8 @@ public class SinistroDBO {
     private List<AnagraficaTerzePartiDBO> anagraficaTerzeParti;
     @Field("contraente")
     private FullAnagraficaDBO contraente;
+    @Field("numSinistroProvv")
+    private Integer numSinistroProvv;
 
     public FullAnagraficaDBO getContraente() {
         return contraente;
@@ -46,8 +46,7 @@ public class SinistroDBO {
     public void setAnagraficaTerzeParti(List<AnagraficaTerzePartiDBO> anagraficaTerzeParti) {
         this.anagraficaTerzeParti = anagraficaTerzeParti;
     }
-    @Field("numSinistroProvv")
-    private Integer numSinistroProvv;
+
 
     public String getId() {
         return id;
@@ -73,13 +72,7 @@ public class SinistroDBO {
         this.compagnia = compagnia;
     }
 
-    public String getNominativoContraente() {
-        return nominativoContraente;
-    }
 
-    public void setNominativoContraente(String nominativoContraente) {
-        this.nominativoContraente = nominativoContraente;
-    }
 
     public SegnalazioneDBO getSegnalazione() {
         return segnalazione;

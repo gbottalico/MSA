@@ -5,7 +5,6 @@ import msa.application.config.BaseDTO;
 import msa.application.config.enumerator.MessageType;
 import msa.application.dto.ricerca.InputRicercaDTO;
 import msa.application.dto.sinistro.SinistroDTO;
-import msa.application.dto.sinistro.aperturaSinistro.InputAperturaSinistroDTO;
 import msa.application.dto.sinistro.cai.InputCaiDTO;
 import msa.application.dto.sinistro.constatazioneAmichevole.InputConstatazioneAmichevoleDTO;
 import msa.application.dto.sinistro.dannoRca.InputDannoRcaDTO;
@@ -19,10 +18,8 @@ import msa.infrastructure.repository.SinistriRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
-public class SinistriService extends BaseService{
+public class SinistriService extends BaseService {
     @Autowired
     private SinistriRepository sinistriRepository;
 
@@ -33,15 +30,16 @@ public class SinistriService extends BaseService{
      * @return
      */
     public BaseDTO ricercaCopertura(InputRicercaDTO input) throws InternalMsaException {
-        if(FunctionUtils.checkIsNotNull(input.getCompagnia(),input.getDataEvento())) {
+        if (FunctionUtils.checkIsNotNull(input.getCompagnia(), input.getDataEvento())) {
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA003"));
         }
         InputRicercaDO inputRicercaDO = converter.convertObject(input, InputRicercaDO.class);
         return new BaseDTO<>(converter.convertList(sinistriRepository.getElencoSinistriProvvisori(inputRicercaDO), SinistroDTO.class));
     }
 
+
     private Integer getMaxNumSinistroProvv() {
-        return sinistriRepository.getMaxNumSinisProvv();
+        return sinistriRepository.getNextNumSinistroProvv();
     }
 
     /**
@@ -50,8 +48,20 @@ public class SinistriService extends BaseService{
      * @param input
      * @return
      */
-    public BaseDTO apriSinistro(InputAperturaSinistroDTO input) {
-        return null;
+    public BaseDTO<SinistroDTO> apriSinistro(SinistroDTO input) throws InternalMsaException {
+
+
+        Integer numProvv = sinistriRepository.insertSinistroProvvisorio(converter.convertObject(input, SinistroDO.class));
+        // facciamo la get per verificare che lo abbia inserito
+        SinistroDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numProvv);
+        if (sinistroByNumProvv != null) {
+            SinistroDTO sinistroDTO = converter.convertObject(sinistroByNumProvv, SinistroDTO.class);
+            return new BaseDTO<>(sinistroDTO);
+        } else {
+            throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA004"));
+        }
+
+
     }
 
     /**
@@ -59,6 +69,7 @@ public class SinistriService extends BaseService{
      *
      * @return
      */
+
     public BaseDTO inviaSegnalazione(InputSegnalazioneDTO input) {
         return null;
     }
@@ -100,6 +111,10 @@ public class SinistriService extends BaseService{
      */
     public BaseDTO salvaDannoRca(InputDannoRcaDTO input) {
         return null;
+    }
+
+    public SinistroDTO getSinistroByNumProvvisorio(Integer numProvvisorio) {
+        return converter.convertObject(sinistriRepository.getSinistroByNumProvv(numProvvisorio), SinistroDTO.class);
     }
 
 }

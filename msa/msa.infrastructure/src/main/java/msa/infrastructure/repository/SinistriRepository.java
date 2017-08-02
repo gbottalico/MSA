@@ -21,6 +21,10 @@ public class SinistriRepository extends BaseRepository {
     SinistriBaseRepository sinistriRepository;
     private static final Map<String, Map.Entry<Boolean, String>> doToJson = new HashMap<>();
 
+    /**
+     * Mappa per associare il nome attributo del DTO ad i campi del JSON
+     * se true va in IS, altrimenti la query va in LIKE
+     */
     static {
         //doToJson.put("compagnia", new AbstractMap.SimpleEntry<>(true, "compagnia"));
         doToJson.put("dataEvento", new AbstractMap.SimpleEntry<>(true, "segnalazione.dataDenuncia"));
@@ -33,6 +37,20 @@ public class SinistriRepository extends BaseRepository {
         doToJson.put("numeroProvvisorio", new AbstractMap.SimpleEntry<>(false, "numSinistroProvv"));
         //doToJson.put("numeroPreapertura", "numeroPreapertura");
         //doToJson.put("tipoPersona", "tipoPersona");
+    }
+
+    /**
+     * Metodo di save or update per l'inserimento di un sinsitro provvisorio
+     *
+     * @param input i dati da inserire
+     * @return
+     */
+    public Integer insertSinistroProvvisorio(SinistroDO input) {
+        Integer numProvv = getNextNumSinistroProvv();
+        input.setNumSinistroProvv(numProvv);
+        mongoTemplate.insert(converter.convertObject(input, SinistroDBO.class));
+        return numProvv;
+
     }
 
     private Query getQueryFromNotNullValues(InputRicercaDO inputRicerca) {
@@ -67,22 +85,35 @@ public class SinistriRepository extends BaseRepository {
                                 (a, b) -> a));
     }
 
+    /**
+     * Ottiene l'elenco dei sinistri provvisori in base ad i parametri passati in input
+     */
     public List<SinistroDO> getElencoSinistriProvvisori(final InputRicercaDO inputRicerca) {
         Query queryFromNotNullValues = getQueryFromNotNullValues(inputRicerca);
         List<SinistroDBO> sinistroDBOS = mongoTemplate.find(queryFromNotNullValues, SinistroDBO.class);
         return converter.convertList(sinistroDBOS, SinistroDO.class);
     }
 
-    public Integer getMaxNumSinisProvv() {
-        return mongoTemplate.findOne(
+    /**
+     * Metodo che serve ad ottenere l'ultimo ID inserito nel database
+     *
+     * @return
+     */
+    public Integer getNextNumSinistroProvv() {
+        SinistroDBO numSinistroProvv = mongoTemplate.findOne(
                 getCriteriaQueryBuilder()
                         .with(new Sort(Sort.Direction.DESC, "numSinistroProvv"))
                         .limit(1),
-                SinistroDBO.class).getNumSinistroProvv();
+                SinistroDBO.class);
+        return numSinistroProvv != null ? numSinistroProvv.getNumSinistroProvv()+1 : 0;
     }
 
     private boolean isNotNull(Object value) {
         return Objects.nonNull(value);
     }
 
+
+    public SinistroDO getSinistroByNumProvv(Integer numProvv) {
+        return converter.convertObject(mongoTemplate.findOne(getCriteriaQueryBuilder().addCriteria(Criteria.where(getMongoNameByAttributeName("numSinistroProvv", SinistroDBO.class)).is(numProvv)), SinistroDBO.class), SinistroDO.class);
+    }
 }

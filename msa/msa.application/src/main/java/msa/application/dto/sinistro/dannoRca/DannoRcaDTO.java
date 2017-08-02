@@ -75,14 +75,6 @@ public class DannoRcaDTO  implements Serializable{
         return danniControparte != null ? danniControparte.equals(that.danniControparte) : that.danniControparte == null;
     }
 
-    @Override
-    public int hashCode() {
-        int result = lesioniConducente != null ? lesioniConducente.hashCode() : 0;
-        result = 31 * result + (anagraficaConducente != null ? anagraficaConducente.hashCode() : 0);
-        result = 31 * result + (anagraficaControparte != null ? anagraficaControparte.hashCode() : 0);
-        result = 31 * result + (danniCliente != null ? danniCliente.hashCode() : 0);
-        result = 31 * result + (danniControparte != null ? danniControparte.hashCode() : 0);
-        return result;
-    }
+
 }
 
