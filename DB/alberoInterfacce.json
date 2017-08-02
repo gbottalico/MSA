@@ -1,6 +1,12 @@
 { 
-    "_id" : ObjectId("59818e9bd161384094b22a4f"), 
+    "_id" : ObjectId("59818e9bd161384094b22a4f"),
+    
     "nextTree" : [
+        {
+            "thisView" : "M11", 
+            "parameter" : "0", 
+            "nextView" : "M12"
+        }, 
         {
             "thisView" : "M12", 
             "parameter" : "S", 
