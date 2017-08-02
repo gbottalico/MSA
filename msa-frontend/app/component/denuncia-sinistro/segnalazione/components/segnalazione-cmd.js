@@ -4,7 +4,8 @@
 	app.component('msaSegnalazione', {
 	    templateUrl: '../../app/component/denuncia-sinistro/segnalazione/components/templates/segnalazione-tpl.html',
 	    bindings: {
-	    	valoriRicerca: '='
+	    	valoriRicerca: '=',
+            denunciaProvvisoria: "="
 	    },
 	    controller: ("segnalazioneController", ['$scope', '$rootScope', '$translate', '$log', 'AccountUserSvc', 'MezziComunicazioneSvc', 'PlacesSvc', 'toastr', '$analytics', '$location', '$cookies', '$window', '$sessionStorage',
 	        function($scope, $rootScope, $translate, $log, AccountUserSvc, MezziComunicazioneSvc, PlacesSvc, toastr, $analytics, location, $cookies, $window, $sessionStorage) {

@@ -7,8 +7,8 @@
             bannerSearch: '=',
             bannerDenuncia: '='
         },
-        controller: ("polizzaSearchController", ["$scope", '$rootScope', '$translate', '$log', 'AccountUserSvc', "CompagnieSvc", 'CasaRegoleSvc', 'toastr', '$analytics', '$location', '$anchorScroll', '$uibModal', '$cookies', '$window', '$sessionStorage',
-            function ($scope, $rootScope, $translate, $log, AccountUserSvc, CompagnieSvc, CasaRegoleSvc, toastr, $analytics, $location, $anchorScroll, $uibModal, $cookies, $window, $sessionStorage) {
+        controller: ("polizzaSearchController", ["$scope", '$rootScope', '$translate', '$log', 'AccountUserSvc', "CompagnieSvc", 'CasaRegoleSvc', 'SinistriSvc', 'toastr', '$analytics', '$location', '$anchorScroll', '$uibModal', '$cookies', '$window', '$sessionStorage',
+            function ($scope, $rootScope, $translate, $log, AccountUserSvc, CompagnieSvc, CasaRegoleSvc, SinistriSvc, toastr, $analytics, $location, $anchorScroll, $uibModal, $cookies, $window, $sessionStorage) {
 
                 var ctrl = this;
                 var modalInstance = undefined;
@@ -16,6 +16,8 @@
                 ctrl.casaRegole = undefined;
                 ctrl.compagniaSelezionata = undefined;
                 ctrl.valoriRicerca = undefined;
+
+                ctrl.denunciaProvvisoria = undefined;
 
                 ctrl.$onInit = function () {
                     CasaRegoleSvc.getElencoRegole().then(function (response) {
@@ -132,15 +134,23 @@
 
                     modalInstance.result.then(function (result) {
                         console.log("Success");
-                        console.log(result);
+                        console.log(JSON.stringify(result));
+                        ctrl.denunciaProvvisoria = result;
+                        ctrl.apriSinistroProvvisorio(result)
                     }, function () {
                         console.log("Error");
-                        toastr.info("Operazione annullata.")
+                        toastr.info("Operazione annullata.");
                     });
 
                 };
 
 
+                ctrl.apriSinistroProvvisorio = function (datiContraente) {
+                    SinistriSvc.apriSinistroProvvisorio(datiContraente).then(function (response) {
+                        console.log(response);
+                        console.log(JSON.stringify(response));
+                    });
+                };
 
                 ctrl.cerca = function () {
 
