@@ -17,7 +17,7 @@
                 ctrl.compagniaSelezionata = undefined;
                 ctrl.valoriRicerca = undefined;
 
-                ctrl.denunciaProvvisoria = undefined;
+                ctrl.numSinistroProvv = undefined;
 
                 ctrl.$onInit = function () {
                     CasaRegoleSvc.getElencoRegole().then(function (response) {
@@ -99,12 +99,7 @@
                     dataEvento: '',
                     targa: '',
                     numeroProvvisorio: '',
-                    numeroPreapertura: '',
-                };
-
-                ctrl.denuncia = function () {
-                    ctrl.bannerSearch = false;
-                    ctrl.bannerDenuncia = true;
+                    numeroPreapertura: ''
                 };
 
                 ctrl.open = function () {
@@ -133,12 +128,8 @@
                     });//end of modal.open
 
                     modalInstance.result.then(function (result) {
-                        console.log("Success");
-                        console.log(JSON.stringify(result));
-                        ctrl.denunciaProvvisoria = result;
                         ctrl.apriSinistroProvvisorio(result)
                     }, function () {
-                        console.log("Error");
                         toastr.info("Operazione annullata.");
                     });
 
@@ -148,8 +139,14 @@
                 ctrl.apriSinistroProvvisorio = function (datiContraente) {
                     SinistriSvc.apriSinistroProvvisorio(datiContraente).then(function (response) {
                         console.log(response);
-                        console.log(JSON.stringify(response));
+                        ctrl.numSinistroProvv = response.data.result.numSinistroProvv;
+                        ctrl.denuncia();
                     });
+                };
+
+                ctrl.denuncia = function () {
+                    ctrl.bannerSearch = false;
+                    ctrl.bannerDenuncia = true;
                 };
 
                 ctrl.cerca = function () {
