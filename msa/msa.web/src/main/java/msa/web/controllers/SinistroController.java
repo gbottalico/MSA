@@ -30,7 +30,7 @@ public class SinistroController {
     @ApiOperation(value = "Metodo che effettua l'apertura di un sinistro in base ai dati ricevuti in input")
     @RequestMapping(value = "/apertura", method = RequestMethod.PUT)
     public BaseDTO<SinistroDTO> apriSinistro(@RequestBody SinistroDTO input) throws InternalMsaException {
-    return sinistriService.apriSinistro(input);
+    return sinistriService.salvaSinistro(input);
     }
 
 
@@ -55,7 +55,7 @@ public class SinistroController {
      */
     @ApiOperation(value = "Metodo che effettua l'inserimento di una segnalazione ")
     @RequestMapping(value = "/{numero}/segnalazione", method = RequestMethod.POST)
-    public BaseDTO salvaSegnalazione(@RequestBody  SegnalazioneDTO input, @PathVariable("numero") Integer numeroSinistro) {
+    public BaseDTO salvaSegnalazione(@RequestBody  SegnalazioneDTO input, @PathVariable("numero") Integer numeroSinistro) throws InternalMsaException {
         return sinistriService.inviaSegnalazione(input, numeroSinistro);
     }
 

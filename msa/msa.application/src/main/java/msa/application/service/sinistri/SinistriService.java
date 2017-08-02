@@ -11,17 +11,13 @@ import msa.application.dto.sinistro.dannoRca.DannoRcaDTO;
 import msa.application.dto.sinistro.eventoRca.EventoRcaDTO;
 import msa.application.dto.sinistro.segnalazione.SegnalazioneDTO;
 import msa.application.exceptions.InternalMsaException;
-import msa.application.service.base.BaseService;
 import msa.domain.object.sinistro.InputRicercaDO;
 import msa.domain.object.sinistro.SinistroDO;
-import msa.infrastructure.repository.SinistriRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class SinistriService extends BaseService {
-    @Autowired
-    private SinistriRepository sinistriRepository;
+public class SinistriService extends BaseSinistroService {
+
 
     /**
      * Metodo che effettua la ricerca le coperture in base ai parametri passati in input
@@ -37,43 +33,54 @@ public class SinistriService extends BaseService {
         return new BaseDTO<>(converter.convertList(sinistriRepository.getElencoSinistriProvvisori(inputRicercaDO), SinistroDTO.class));
     }
 
-
-    private Integer getMaxNumSinistroProvv() {
-        return sinistriRepository.getNextNumSinistroProvv();
+    /**
+     * Metodo esposto per l' inserimento del sinistro alla prima fase
+     * @param input
+     * @return
+     * @throws InternalMsaException
+     */
+    public BaseDTO<SinistroDTO> salvaSinistro(SinistroDTO input) throws InternalMsaException {
+        return this.salvaSinistro(converter.convertObject(input,SinistroDO.class));
     }
 
     /**
-     * Metodo che stacca il numero di un nuovo sinistro provvisorio
+     * Metodo centralizzato per salvataggio o modifica sinistro
      *
      * @param input
      * @return
      */
-    public BaseDTO<SinistroDTO> apriSinistro(SinistroDTO input) throws InternalMsaException {
+    private BaseDTO<SinistroDTO> salvaSinistro(SinistroDO input) throws InternalMsaException {
 
-
-        Integer numProvv = sinistriRepository.insertSinistroProvvisorio(converter.convertObject(input, SinistroDO.class));
-        // facciamo la get per verificare che lo abbia inserito
-        SinistroDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numProvv);
-        if (sinistroByNumProvv != null) {
-            SinistroDTO sinistroDTO = converter.convertObject(sinistroByNumProvv, SinistroDTO.class);
-            return new BaseDTO<>(sinistroDTO);
+        SinistroDO sinistroByNumProvv;
+        if(input.getNumSinistroProvv() == null) {
+            try {
+                sinistroByNumProvv = sinistriRepository.insertSinistroProvvisorio(input);
+            } catch (Exception e) {
+                throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR,"MSA004"));
+            }
         } else {
-            throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA004"));
+            try{
+                sinistroByNumProvv = sinistriRepository.updateSinistroProvvisorio(input);
+            } catch (Exception e) {
+                throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR,"MSA005"));
+            }
         }
-
+        SinistroDTO sinistroDTO = converter.convertObject(sinistroByNumProvv, SinistroDTO.class);
+        return new BaseDTO<>(sinistroDTO);
 
     }
 
     /**
      * Metodo che salva i dati di segnalazione sinistro
      *
-     * @return
      * @param input
      * @param numSinistroProvv
+     * @return
      */
 
-    public BaseDTO inviaSegnalazione(SegnalazioneDTO input, Integer numSinistroProvv) {
-        return null;
+    public BaseDTO inviaSegnalazione(SegnalazioneDTO input, Integer numSinistroProvv) throws InternalMsaException {
+        final SinistroDO sinistroDOByDTO = getSinistroDOByDTO(0, input, numSinistroProvv);
+        return salvaSinistro(sinistroDOByDTO);
     }
 
     /**
@@ -90,9 +97,9 @@ public class SinistriService extends BaseService {
     /**
      * Metodo che salva i dati della constatazione amichevole nel caso in cui i veicoli coinvolti siano più di 2
      *
-     * @return
      * @param input
      * @param numSinistroProvv
+     * @return
      */
     public BaseDTO salvaConstatazioneAmichevole(ConstatazioneAmichevoleDTO input, Integer numSinistroProvv) {
         return null;
@@ -118,10 +125,6 @@ public class SinistriService extends BaseService {
      */
     public BaseDTO salvaDannoRca(DannoRcaDTO input, Integer numSinistroProvv) {
         return null;
-    }
-
-    public SinistroDTO getSinistroByNumProvvisorio(Integer numProvvisorio) {
-        return converter.convertObject(sinistriRepository.getSinistroByNumProvv(numProvvisorio), SinistroDTO.class);
     }
 
 }
