@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
 
 import java.lang.reflect.InvocationTargetException;
@@ -46,9 +47,17 @@ public class SinistriRepository extends BaseRepository {
      * @return
      */
     public Integer insertSinistroProvvisorio(SinistroDO input) {
-        Integer numProvv = getNextNumSinistroProvv();
-        input.setNumSinistroProvv(numProvv);
-        mongoTemplate.insert(converter.convertObject(input, SinistroDBO.class));
+        Integer numProvv;
+        if (input.getNumSinistroProvv() == null) {
+            numProvv = getNextNumSinistroProvv();
+            input.setNumSinistroProvv(numProvv);
+
+            mongoTemplate.insert(input);
+        } else {
+
+            numProvv = input.getNumSinistroProvv();
+            mongoTemplate.updateFirst(getQueryFindByNumProvv(numProvv), getUpdateFromObject(converter.convertObject(input, SinistroDBO.class)), SinistroDBO.class);
+        }
         return numProvv;
 
     }
@@ -105,7 +114,7 @@ public class SinistriRepository extends BaseRepository {
                         .with(new Sort(Sort.Direction.DESC, "numSinistroProvv"))
                         .limit(1),
                 SinistroDBO.class);
-        return numSinistroProvv != null ? numSinistroProvv.getNumSinistroProvv()+1 : 0;
+        return numSinistroProvv != null ? numSinistroProvv.getNumSinistroProvv() + 1 : 0;
     }
 
     private boolean isNotNull(Object value) {
@@ -114,6 +123,10 @@ public class SinistriRepository extends BaseRepository {
 
 
     public SinistroDO getSinistroByNumProvv(Integer numProvv) {
-        return converter.convertObject(mongoTemplate.findOne(getCriteriaQueryBuilder().addCriteria(Criteria.where(getMongoNameByAttributeName("numSinistroProvv", SinistroDBO.class)).is(numProvv)), SinistroDBO.class), SinistroDO.class);
+        return converter.convertObject(mongoTemplate.findOne(getQueryFindByNumProvv(numProvv), SinistroDBO.class), SinistroDO.class);
+    }
+
+    private Query getQueryFindByNumProvv(Integer numProvv) {
+        return getCriteriaQueryBuilder().addCriteria(Criteria.where(getMongoNameByAttributeName("numSinistroProvv", SinistroDBO.class)).is(numProvv));
     }
 }
