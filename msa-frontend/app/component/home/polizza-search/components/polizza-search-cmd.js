@@ -11,6 +11,7 @@
             function ($scope, $rootScope, $translate, $log, AccountUserSvc, CompagnieSvc, CasaRegoleSvc, toastr, $analytics, $location, $anchorScroll, $uibModal, $cookies, $window, $sessionStorage) {
 
                 var ctrl = this;
+                var modalInstance = undefined;
 
                 ctrl.casaRegole = undefined;
                 ctrl.compagniaSelezionata = undefined;
@@ -105,18 +106,18 @@
                 };
 
                 ctrl.open = function () {
-                    $uibModal.open({
-                        templateUrl: 'myModalContent.html', // loads the template
-                        backdrop: 'static', // setting backdrop allows us to close the modal window on clicking outside the modal window
-                        windowClass: 'yolo', // windowClass - additional CSS class(es) to be added to a modal window template
+                    modalInstance = $uibModal.open({
+                        templateUrl: 'denunciaSinistroModal',
+                        backdrop: 'static', // Evita che il modal sia chiuso cliccando sullo sfondo.
+                        windowClass: 'msaModal',
+                        size: 'lg',
                         controller: function ($scope, $uibModalInstance , $log, user) {
                             $scope.user = user;
-                            $scope.submit = function () {
-                                $log.log('Submiting user info.'); // kinda console logs this statement
-                                $log.log(user);
-                                ctrl.denuncia();
-                                $uibModalInstance.dismiss('cancel'); // dismiss(reason) - a method that can be used to dismiss a modal, passing a reason
+
+                            $scope.ok = function () {
+                                $uibModalInstance.close($scope.user);
                             };
+
                             $scope.cancel = function () {
                                 $uibModalInstance.dismiss('cancel');
                             };
@@ -127,7 +128,17 @@
                             }
                         }
                     });//end of modal.open
+
+                    modalInstance.result.then(function (result) {
+                        console.log("Success");
+                        console.log(user);
+                    }, function () {
+                        console.log("Error");
+                    });
+
                 };
+
+
 
                 ctrl.cerca = function () {
 
