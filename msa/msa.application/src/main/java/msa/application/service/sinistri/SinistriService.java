@@ -5,11 +5,11 @@ import msa.application.config.BaseDTO;
 import msa.application.config.enumerator.MessageType;
 import msa.application.dto.ricerca.InputRicercaDTO;
 import msa.application.dto.sinistro.SinistroDTO;
-import msa.application.dto.sinistro.cai.InputCaiDTO;
-import msa.application.dto.sinistro.constatazioneAmichevole.InputConstatazioneAmichevoleDTO;
-import msa.application.dto.sinistro.dannoRca.InputDannoRcaDTO;
-import msa.application.dto.sinistro.eventoRca.InputEventoDTO;
-import msa.application.dto.sinistro.segnalazione.InputSegnalazioneDTO;
+import msa.application.dto.sinistro.cai.CaiDTO;
+import msa.application.dto.sinistro.constatazioneAmichevole.ConstatazioneAmichevoleDTO;
+import msa.application.dto.sinistro.dannoRca.DannoRcaDTO;
+import msa.application.dto.sinistro.eventoRca.EventoRcaDTO;
+import msa.application.dto.sinistro.segnalazione.SegnalazioneDTO;
 import msa.application.exceptions.InternalMsaException;
 import msa.application.service.base.BaseService;
 import msa.domain.object.sinistro.InputRicercaDO;
@@ -68,9 +68,11 @@ public class SinistriService extends BaseService {
      * Metodo che salva i dati di segnalazione sinistro
      *
      * @return
+     * @param input
+     * @param numSinistroProvv
      */
 
-    public BaseDTO inviaSegnalazione(InputSegnalazioneDTO input) {
+    public BaseDTO inviaSegnalazione(SegnalazioneDTO input, Integer numSinistroProvv) {
         return null;
     }
 
@@ -78,9 +80,10 @@ public class SinistriService extends BaseService {
      * Metodo che salva i dati dell'evento RCA
      *
      * @param input
+     * @param numSinistroProvv
      * @return
      */
-    public BaseDTO salvaEventoRca(InputEventoDTO input) {
+    public BaseDTO salvaEventoRca(EventoRcaDTO input, Integer numSinistroProvv) {
         return null;
     }
 
@@ -88,8 +91,10 @@ public class SinistriService extends BaseService {
      * Metodo che salva i dati della constatazione amichevole nel caso in cui i veicoli coinvolti siano più di 2
      *
      * @return
+     * @param input
+     * @param numSinistroProvv
      */
-    public BaseDTO salvaConstatazioneAmichevole(InputConstatazioneAmichevoleDTO input) {
+    public BaseDTO salvaConstatazioneAmichevole(ConstatazioneAmichevoleDTO input, Integer numSinistroProvv) {
         return null;
     }
 
@@ -97,9 +102,10 @@ public class SinistriService extends BaseService {
      * Metodo che calcola la responsabilità in base ai baremes inseriti
      *
      * @param input
+     * @param numSInistroProvv
      * @return
      */
-    public BaseDTO salvaCAI(InputCaiDTO input) {
+    public BaseDTO salvaCAI(CaiDTO input, Integer numSInistroProvv) {
         return null;
     }
 
@@ -107,9 +113,10 @@ public class SinistriService extends BaseService {
      * Metodo che salva i danni riportati
      *
      * @param input
+     * @param numSinistroProvv
      * @return
      */
-    public BaseDTO salvaDannoRca(InputDannoRcaDTO input) {
+    public BaseDTO salvaDannoRca(DannoRcaDTO input, Integer numSinistroProvv) {
         return null;
     }
 

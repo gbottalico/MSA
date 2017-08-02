@@ -4,12 +4,11 @@ import io.swagger.annotations.ApiOperation;
 import msa.application.config.BaseDTO;
 import msa.application.dto.ricerca.InputRicercaDTO;
 import msa.application.dto.sinistro.SinistroDTO;
-import msa.application.dto.sinistro.aperturaSinistro.InputAperturaSinistroDTO;
-import msa.application.dto.sinistro.cai.InputCaiDTO;
-import msa.application.dto.sinistro.constatazioneAmichevole.InputConstatazioneAmichevoleDTO;
-import msa.application.dto.sinistro.dannoRca.InputDannoRcaDTO;
-import msa.application.dto.sinistro.eventoRca.InputEventoDTO;
-import msa.application.dto.sinistro.segnalazione.InputSegnalazioneDTO;
+import msa.application.dto.sinistro.cai.CaiDTO;
+import msa.application.dto.sinistro.constatazioneAmichevole.ConstatazioneAmichevoleDTO;
+import msa.application.dto.sinistro.dannoRca.DannoRcaDTO;
+import msa.application.dto.sinistro.eventoRca.EventoRcaDTO;
+import msa.application.dto.sinistro.segnalazione.SegnalazioneDTO;
 import msa.application.exceptions.InternalMsaException;
 import msa.application.service.sinistri.SinistriService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,8 +55,8 @@ public class SinistroController {
      */
     @ApiOperation(value = "Metodo che effettua l'inserimento di una segnalazione ")
     @RequestMapping(value = "/{numero}/segnalazione", method = RequestMethod.POST)
-    public BaseDTO salvaSegnalazione(InputSegnalazioneDTO input, @PathVariable("numero") String numeroSinistro) {
-        return sinistriService.inviaSegnalazione(input);
+    public BaseDTO salvaSegnalazione(@RequestBody  SegnalazioneDTO input, @PathVariable("numero") Integer numeroSinistro) {
+        return sinistriService.inviaSegnalazione(input, numeroSinistro);
     }
 
     /**
@@ -69,8 +68,8 @@ public class SinistroController {
      */
     @ApiOperation(value = " Metodo che salva i dati dell'evento RCA")
     @RequestMapping(value = "/{numero}/RCA", method = RequestMethod.POST)
-    public BaseDTO salvaEventoRca(InputEventoDTO input, @PathVariable("numero") String numeroSinistro) {
-        return sinistriService.salvaEventoRca(input);
+    public BaseDTO salvaEventoRca(@RequestBody  EventoRcaDTO input, @PathVariable("numero") Integer numeroSinistro) {
+        return sinistriService.salvaEventoRca(input,numeroSinistro);
     }
 
     /**
@@ -81,8 +80,8 @@ public class SinistroController {
      */
     @ApiOperation(value = "Metoto che salva i dati della constatazione amichevole")
     @RequestMapping(value = "/{numero/constatazioneAmichevole", method = RequestMethod.POST)
-    public BaseDTO salvaConstatazioneAmichevole(InputConstatazioneAmichevoleDTO input) {
-        return sinistriService.salvaConstatazioneAmichevole(input);
+    public BaseDTO salvaConstatazioneAmichevole(@RequestBody ConstatazioneAmichevoleDTO input, @PathVariable("numero") Integer numeroSinistro) {
+        return sinistriService.salvaConstatazioneAmichevole(input, numeroSinistro);
     }
 
     /**
@@ -94,8 +93,8 @@ public class SinistroController {
      */
     @ApiOperation(value = "Metodo che calcola la responsabilità e salva il CAI in base ai baremes inseriti")
     @RequestMapping(value = "/{numero}/CAI", method = RequestMethod.POST)
-    public BaseDTO salvaCAI(InputCaiDTO input, @PathVariable("numero") String numeroSinistro) {
-        return sinistriService.salvaCAI(input);
+    public BaseDTO salvaCAI(@RequestBody  CaiDTO input, @PathVariable("numero") Integer numeroSinistro) {
+        return sinistriService.salvaCAI(input, numeroSinistro);
 
     }
 
@@ -108,8 +107,8 @@ public class SinistroController {
      */
     @ApiOperation(value = "Metodo che salva i danni riportati")
     @RequestMapping(value = "/{numero}/dannoRCA", method = RequestMethod.POST)
-    public BaseDTO salvaDanniRca(InputDannoRcaDTO input, @PathVariable("numero") String numeroSinistro) {
-        return sinistriService.salvaDannoRca(input);
+    public BaseDTO salvaDanniRca(@RequestBody DannoRcaDTO input, @PathVariable("numero") Integer numeroSinistro) {
+        return sinistriService.salvaDannoRca(input, numeroSinistro);
     }
 
 
