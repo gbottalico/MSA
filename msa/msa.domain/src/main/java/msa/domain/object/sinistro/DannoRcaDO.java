@@ -1,41 +1,42 @@
 package msa.domain.object.sinistro;
 
+import java.util.List;
+
 public class DannoRcaDO {
     private Boolean lesioniConducente;
-    private FullAnagraficaDO anagraficaConducente;
-    private FullAnagraficaControparteDO anagraficaControparte;
-    private DanniDO danniCliente;
-    private DanniDO danniControparte;
+    private AnagraficaDanniDO anagraficaDanniCliente;
+    private AnagraficaDanniDO anagraficaDanniControparte;
+    private List<AnagraficaDanniDO> altreControparti;
 
-    public FullAnagraficaDO getAnagraficaConducente() {
-        return anagraficaConducente;
+    public Boolean getLesioniConducente() {
+        return lesioniConducente;
     }
 
-    public void setAnagraficaConducente(FullAnagraficaDO anagraficaConducente) {
-        this.anagraficaConducente = anagraficaConducente;
+    public void setLesioniConducente(Boolean lesioniConducente) {
+        this.lesioniConducente = lesioniConducente;
     }
 
-    public FullAnagraficaControparteDO getAnagraficaControparte() {
-        return anagraficaControparte;
+    public AnagraficaDanniDO getAnagraficaDanniCliente() {
+        return anagraficaDanniCliente;
     }
 
-    public void setAnagraficaControparte(FullAnagraficaControparteDO anagraficaControparte) {
-        this.anagraficaControparte = anagraficaControparte;
+    public void setAnagraficaDanniCliente(AnagraficaDanniDO anagraficaDanniCliente) {
+        this.anagraficaDanniCliente = anagraficaDanniCliente;
     }
 
-    public DanniDO getDanniCliente() {
-        return danniCliente;
+    public AnagraficaDanniDO getAnagraficaDanniControparte() {
+        return anagraficaDanniControparte;
     }
 
-    public void setDanniCliente(DanniDO danniCliente) {
-        this.danniCliente = danniCliente;
+    public void setAnagraficaDanniControparte(AnagraficaDanniDO anagraficaDanniControparte) {
+        this.anagraficaDanniControparte = anagraficaDanniControparte;
     }
 
-    public DanniDO getDanniControparte() {
-        return danniControparte;
+    public List<AnagraficaDanniDO> getAltreControparti() {
+        return altreControparti;
     }
 
-    public void setDanniControparte(DanniDO danniControparte) {
-        this.danniControparte = danniControparte;
+    public void setAltreControparti(List<AnagraficaDanniDO> altreControparti) {
+        this.altreControparti = altreControparti;
     }
 }

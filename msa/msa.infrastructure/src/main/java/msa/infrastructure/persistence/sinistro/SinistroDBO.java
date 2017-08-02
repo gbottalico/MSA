@@ -26,10 +26,12 @@ public class SinistroDBO {
     private DannoRcaDBO dannoRca;
     @Field("terzeParti")
     private List<AnagraficaTerzePartiDBO> anagraficaTerzeParti;
+
     @Field("contraente")
     private FullAnagraficaDBO contraente;
     @Field("numSinistroProvv")
     private Integer numSinistroProvv;
+
 
     public FullAnagraficaDBO getContraente() {
         return contraente;

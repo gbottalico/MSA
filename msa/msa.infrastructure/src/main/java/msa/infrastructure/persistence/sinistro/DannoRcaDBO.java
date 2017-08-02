@@ -2,17 +2,18 @@ package msa.infrastructure.persistence.sinistro;
 
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.util.List;
+
 public class DannoRcaDBO {
     @Field("lesioniConducente")
     private Boolean lesioniConducente;
-    @Field("anagraficaConducente")
-    private FullAnagraficaDBO anagraficaConducente;
-    @Field("anagraficaControparte")
-    private FullAnagraficaControparteDBO anagraficaControparte;
-    @Field("danniCliente")
-    private DanniDBO danniCliente;
-    @Field("danniControparte")
-    private DanniDBO danniControparte;
+    @Field("anagraficaDanniCliente")
+    private AnagraficaDanniDBO anagraficaDanniCliente;
+    @Field("anagraficaDanniControparte")
+    private AnagraficaDanniDBO anagraficaDanniControparte;
+    @Field("altreControparti")
+    private List<AnagraficaDanniDBO> altreControparti;
+
 
     public Boolean getLesioniConducente() {
         return lesioniConducente;
@@ -22,35 +23,27 @@ public class DannoRcaDBO {
         this.lesioniConducente = lesioniConducente;
     }
 
-    public FullAnagraficaDBO getAnagraficaConducente() {
-        return anagraficaConducente;
+    public AnagraficaDanniDBO getAnagraficaDanniCliente() {
+        return anagraficaDanniCliente;
     }
 
-    public void setAnagraficaConducente(FullAnagraficaDBO anagraficaConducente) {
-        this.anagraficaConducente = anagraficaConducente;
+    public void setAnagraficaDanniCliente(AnagraficaDanniDBO anagraficaDanniCliente) {
+        this.anagraficaDanniCliente = anagraficaDanniCliente;
     }
 
-    public FullAnagraficaControparteDBO getAnagraficaControparte() {
-        return anagraficaControparte;
+    public AnagraficaDanniDBO getAnagraficaDanniControparte() {
+        return anagraficaDanniControparte;
     }
 
-    public void setAnagraficaControparte(FullAnagraficaControparteDBO anagraficaControparte) {
-        this.anagraficaControparte = anagraficaControparte;
+    public void setAnagraficaDanniControparte(AnagraficaDanniDBO anagraficaDanniControparte) {
+        this.anagraficaDanniControparte = anagraficaDanniControparte;
     }
 
-    public DanniDBO getDanniCliente() {
-        return danniCliente;
+    public List<AnagraficaDanniDBO> getAltreControparti() {
+        return altreControparti;
     }
 
-    public void setDanniCliente(DanniDBO danniCliente) {
-        this.danniCliente = danniCliente;
-    }
-
-    public DanniDBO getDanniControparte() {
-        return danniControparte;
-    }
-
-    public void setDanniControparte(DanniDBO danniControparte) {
-        this.danniControparte = danniControparte;
+    public void setAltreControparti(List<AnagraficaDanniDBO> altreControparti) {
+        this.altreControparti = altreControparti;
     }
 }

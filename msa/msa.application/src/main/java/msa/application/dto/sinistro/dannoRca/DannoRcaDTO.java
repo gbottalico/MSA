@@ -4,14 +4,15 @@ import msa.application.dto.sinistro.anagrafica.FullAnagraficaControparteDTO;
 import msa.application.dto.sinistro.anagrafica.FullAnagraficaDTO;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class DannoRcaDTO  implements Serializable{
     private static final long serialVersionUID = 2999366958849613093L;
     private Boolean lesioniConducente;
-    private FullAnagraficaDTO anagraficaConducente;
-    private FullAnagraficaControparteDTO anagraficaControparte;
-    private DanniDTO danniCliente;
-    private DanniDTO danniControparte;
+    private AnagraficaDanniDTO anagraficaDanniCliente;
+    private AnagraficaDanniDTO anagraficaDanniControparte;
+    private List<AnagraficaDanniDTO> altreControparti;
+
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -25,37 +26,28 @@ public class DannoRcaDTO  implements Serializable{
         this.lesioniConducente = lesioniConducente;
     }
 
-    public FullAnagraficaDTO getAnagraficaConducente() {
-        return anagraficaConducente;
+    public AnagraficaDanniDTO getAnagraficaDanniCliente() {
+        return anagraficaDanniCliente;
     }
 
-    public void setAnagraficaConducente(FullAnagraficaDTO anagraficaConducente) {
-        this.anagraficaConducente = anagraficaConducente;
+    public void setAnagraficaDanniCliente(AnagraficaDanniDTO anagraficaDanniCliente) {
+        this.anagraficaDanniCliente = anagraficaDanniCliente;
     }
 
-    public FullAnagraficaControparteDTO getAnagraficaControparte() {
-        return anagraficaControparte;
+    public AnagraficaDanniDTO getAnagraficaDanniControparte() {
+        return anagraficaDanniControparte;
     }
 
-    public void setAnagraficaControparte(FullAnagraficaControparteDTO anagraficaControparte) {
-        this.anagraficaControparte = anagraficaControparte;
+    public void setAnagraficaDanniControparte(AnagraficaDanniDTO anagraficaDanniControparte) {
+        this.anagraficaDanniControparte = anagraficaDanniControparte;
     }
 
-    public DanniDTO getDanniCliente() {
-        return danniCliente;
+    public List<AnagraficaDanniDTO> getAltreControparti() {
+        return altreControparti;
     }
 
-    public void setDanniCliente(DanniDTO danniCliente) {
-        this.danniCliente = danniCliente;
-    }
-
-    public DanniDTO getDanniControparte() {
-        return danniControparte;
-    }
-
-    public void setDanniControparte(DanniDTO danniControparte) {
-        this.danniControparte = danniControparte;
-
+    public void setAltreControparti(List<AnagraficaDanniDTO> altreControparti) {
+        this.altreControparti = altreControparti;
     }
 
     @Override
@@ -67,12 +59,11 @@ public class DannoRcaDTO  implements Serializable{
 
         if (lesioniConducente != null ? !lesioniConducente.equals(that.lesioniConducente) : that.lesioniConducente != null)
             return false;
-        if (anagraficaConducente != null ? !anagraficaConducente.equals(that.anagraficaConducente) : that.anagraficaConducente != null)
+        if (anagraficaDanniCliente != null ? !anagraficaDanniCliente.equals(that.anagraficaDanniCliente) : that.anagraficaDanniCliente != null)
             return false;
-        if (anagraficaControparte != null ? !anagraficaControparte.equals(that.anagraficaControparte) : that.anagraficaControparte != null)
+        if (anagraficaDanniControparte != null ? !anagraficaDanniControparte.equals(that.anagraficaDanniControparte) : that.anagraficaDanniControparte != null)
             return false;
-        if (danniCliente != null ? !danniCliente.equals(that.danniCliente) : that.danniCliente != null) return false;
-        return danniControparte != null ? danniControparte.equals(that.danniControparte) : that.danniControparte == null;
+        return altreControparti != null ? altreControparti.equals(that.altreControparti) : that.altreControparti == null;
     }
 
 
