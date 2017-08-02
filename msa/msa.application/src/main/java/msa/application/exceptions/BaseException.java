@@ -21,6 +21,9 @@ public class BaseException extends Exception {
 
     }
 
+    public BaseException() {
+    }
+
     public BaseException(List<Message> messages) {
 
         this.messages = messages;

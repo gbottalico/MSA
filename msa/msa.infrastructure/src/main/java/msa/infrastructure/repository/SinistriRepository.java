@@ -36,7 +36,7 @@ public class SinistriRepository extends BaseRepository {
         doToJson.put("numeroPolizza", new AbstractMap.SimpleEntry<>(false, "numeroPolizza"));
         //doToJson.put("numeroSinistro", "numeroSinistro");
         doToJson.put("targa", new AbstractMap.SimpleEntry<>(false, "targa"));
-        doToJson.put("numeroProvvisorio", new AbstractMap.SimpleEntry<>(false, "numSinistroProvv"));
+        doToJson.put("numeroProvvisorio", new AbstractMap.SimpleEntry<>(true, "numSinistroProvv"));
         //doToJson.put("numeroPreapertura", "numeroPreapertura");
         //doToJson.put("tipoPersona", "tipoPersona");
     }
@@ -50,7 +50,6 @@ public class SinistriRepository extends BaseRepository {
     public SinistroDO insertSinistroProvvisorio(SinistroDO input) throws Exception {
         final Integer numProvv = getNextNumSinistroProvv();
         input.setNumSinistroProvv(numProvv);
-
         mongoTemplate.insert(converter.convertObject(input, SinistroDBO.class));
         return getSinistroByNumProvv(numProvv);
 
@@ -60,8 +59,7 @@ public class SinistriRepository extends BaseRepository {
     public SinistroDO updateSinistroProvvisorio(SinistroDO input) throws Exception {
         final Integer numProvv = input.getNumSinistroProvv();
         mongoTemplate.updateFirst(getQueryFindByNumProvv(numProvv), getUpdateFromObject(converter.convertObject(input, SinistroDBO.class)), SinistroDBO.class);
-        final SinistroDO sinistroByNumProvv = getSinistroByNumProvv(numProvv);
-        return sinistroByNumProvv;
+        return input;
     }
 
     private Query getQueryFromNotNullValues(InputRicercaDO inputRicerca) {

@@ -17,4 +17,7 @@ public class InternalMsaException extends BaseException {
     public InternalMsaException(List<Message> messages) {
         super(null,messages);
     }
+
+    public InternalMsaException() {
+    }
 }

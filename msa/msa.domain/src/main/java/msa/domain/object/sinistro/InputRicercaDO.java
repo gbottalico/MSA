@@ -13,7 +13,7 @@ public class InputRicercaDO {
     private String numeroSinistro;
     private Date dataEvento;
     private String targa;
-    private String numeroProvvisorio;
+    private Integer numeroProvvisorio;
     private String numeroPreapertura;
     private Integer compagnia;
 
@@ -74,11 +74,11 @@ public class InputRicercaDO {
         this.targa = targa;
     }
 
-    public String getNumeroProvvisorio() {
+    public Integer getNumeroProvvisorio() {
         return numeroProvvisorio;
     }
 
-    public void setNumeroProvvisorio(String numeroProvvisorio) {
+    public void setNumeroProvvisorio(Integer numeroProvvisorio) {
         this.numeroProvvisorio = numeroProvvisorio;
     }
 

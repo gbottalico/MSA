@@ -26,7 +26,7 @@ public class SinistriService extends BaseSinistroService {
      * @return
      */
     public BaseDTO ricercaCopertura(InputRicercaDTO input) throws InternalMsaException {
-        if (FunctionUtils.checkIsNotNull(input.getCompagnia(), input.getDataEvento())) {
+        if (FunctionUtils.checkIsNotNull(input.getCompagnia()/**, input.getDataEvento()*/)) {
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA003"));
         }
         InputRicercaDO inputRicercaDO = converter.convertObject(input, InputRicercaDO.class);
@@ -35,12 +35,13 @@ public class SinistriService extends BaseSinistroService {
 
     /**
      * Metodo esposto per l' inserimento del sinistro alla prima fase
+     *
      * @param input
      * @return
      * @throws InternalMsaException
      */
     public BaseDTO<SinistroDTO> salvaSinistro(SinistroDTO input) throws InternalMsaException {
-        return this.salvaSinistro(converter.convertObject(input,SinistroDO.class));
+        return this.salvaSinistro(converter.convertObject(input, SinistroDO.class));
     }
 
     /**
@@ -52,17 +53,17 @@ public class SinistriService extends BaseSinistroService {
     private BaseDTO<SinistroDTO> salvaSinistro(SinistroDO input) throws InternalMsaException {
 
         SinistroDO sinistroByNumProvv;
-        if(input.getNumSinistroProvv() == null) {
+        if (input.getNumSinistroProvv() == null) {
             try {
                 sinistroByNumProvv = sinistriRepository.insertSinistroProvvisorio(input);
             } catch (Exception e) {
-                throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR,"MSA004"));
+                throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA004"));
             }
         } else {
-            try{
+            try {
                 sinistroByNumProvv = sinistriRepository.updateSinistroProvvisorio(input);
             } catch (Exception e) {
-                throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR,"MSA005"));
+                throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005"));
             }
         }
         SinistroDTO sinistroDTO = converter.convertObject(sinistroByNumProvv, SinistroDTO.class);
@@ -79,7 +80,7 @@ public class SinistriService extends BaseSinistroService {
      */
 
     public BaseDTO inviaSegnalazione(SegnalazioneDTO input, Integer numSinistroProvv) throws InternalMsaException {
-        final SinistroDO sinistroDOByDTO = getSinistroDOByDTO(0, input, numSinistroProvv);
+        final SinistroDO sinistroDOByDTO = getSinistroDOByDTO(input, numSinistroProvv);
         return salvaSinistro(sinistroDOByDTO);
     }
 

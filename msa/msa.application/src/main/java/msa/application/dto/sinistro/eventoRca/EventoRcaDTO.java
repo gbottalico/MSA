@@ -1,14 +1,17 @@
 package msa.application.dto.sinistro.eventoRca;
 
+import msa.application.dto.sinistro.BaseSinistroDTO;
+
 import java.util.Date;
 
-public class EventoRcaDTO {
-private Boolean collisione;
-private Integer numVeicoli;
-private Boolean interventoAutorita;
-private Integer codAutorita;
-private String comandoAutorita;
-private Date dataDenuncia;
+public class EventoRcaDTO extends BaseSinistroDTO {
+    private static final long serialVersionUID = 1892216877924480979L;
+    private Boolean collisione;
+    private Integer numVeicoli;
+    private Boolean interventoAutorita;
+    private Integer codAutorita;
+    private String comandoAutorita;
+    private Date dataDenuncia;
 
     @Override
     public boolean equals(Object o) {
