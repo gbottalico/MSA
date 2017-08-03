@@ -128,21 +128,22 @@
                     });//end of modal.open
 
                     modalInstance.result.then(function (result) {
-                        ctrl.apriSinistroProvvisorio(result, 200); //FIXME rimuovere, mockup
+                        ctrl.apriSinistroProvvisorio(result);
                     }, function () {
                         toastr.info("Operazione annullata.");
                     });
 
                 };
 
-
                 ctrl.apriSinistroProvvisorio = function (datiContraente) {
-                    SinistriSvc.apriSinistroProvvisorio(datiContraente).then(function (response) {
-                        console.log(response);
+                    SinistriSvc.apriSinistroProvvisorio(datiContraente, 37).then(function (response) {
+                        //FIXME rimuovere 37, mockup
                         ctrl.numSinistroProvv = response.data.result.numSinistroProvv;
                         ctrl.denuncia();
                     });
                 };
+
+                /* Navigazione */
 
                 ctrl.denuncia = function () {
                     ctrl.bannerSearch = false;

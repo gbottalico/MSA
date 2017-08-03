@@ -25,6 +25,10 @@ angular.module('msa').service(
                 return $http.get(msaServicesApiUrls.comune + idNazione + "/" + idProvincia + "/" + nomeComune);
             };
 
+            $svc.getTipiStrada = function () {
+                return ['Via', 'Viale', 'Piazza'];
+            }
+
         }
     ]
 );
