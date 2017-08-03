@@ -32,7 +32,7 @@
                     });
                 } else {
                     return [{
-                        id: "-1",
+                        id: null,
                         descProvincia: "Nazione non valida."
                     }];
                 }
@@ -45,7 +45,7 @@
                     });
                 } else {
                     return [{
-                        id: "-1",
+                        id: null,
                         descrizione: "Provincia non valida."
                     }];
                 }
@@ -65,8 +65,14 @@
 
                     if (newValue.nazsel !== oldValue.nazsel) {
                         if (!(newValue.nazsel instanceof Object)) {
+                            ctrl.result.nazione = undefined;
+
                             ctrl.provinciaSelezionata = undefined;
+                            ctrl.result.provincia = undefined;
+
                             ctrl.comuneSelezionato = undefined;
+                            ctrl.result.comune = undefined;
+
                             ctrl.caps = [];
                         } else {
                             ctrl.result.nazione = newValue.nazsel;
@@ -75,7 +81,11 @@
 
                     if (newValue.provsel !== oldValue.provsel) {
                         if (!(newValue.provsel instanceof Object)) {
+                            ctrl.result.provincia = undefined;
+
                             ctrl.comuneSelezionato = undefined;
+                            ctrl.result.comune = undefined;
+
                             ctrl.caps = [];
                         } else {
                             ctrl.result.provincia = newValue.provsel;
@@ -84,6 +94,8 @@
 
                     if (newValue.comsel !== oldValue.comsel) {
                         if (!(newValue.comsel instanceof Object)) {
+                            ctrl.result.comune = undefined;
+
                             ctrl.caps = [];
                         } else {
                             ctrl.caps = newValue.comsel.cap;
@@ -91,6 +103,7 @@
                         }
                     }
 
+                    ctrl.result.$valid = PlacesSvc.isValidPlace(ctrl.result.nazione, ctrl.result.provincia, ctrl.result.comune);
 
                 }, true
             );

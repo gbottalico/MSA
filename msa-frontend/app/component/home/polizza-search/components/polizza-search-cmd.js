@@ -7,8 +7,8 @@
             bannerSearch: '=',
             bannerDenuncia: '='
         },
-        controller: ("polizzaSearchController", ["$scope", '$rootScope', '$translate', '$log', 'AccountUserSvc', "CompagnieSvc", 'CasaRegoleSvc', 'SinistriSvc', 'toastr', '$analytics', '$location', '$anchorScroll', '$uibModal', '$cookies', '$window', '$sessionStorage',
-            function ($scope, $rootScope, $translate, $log, AccountUserSvc, CompagnieSvc, CasaRegoleSvc, SinistriSvc, toastr, $analytics, $location, $anchorScroll, $uibModal, $cookies, $window, $sessionStorage) {
+        controller: ("polizzaSearchController", ["$scope", '$rootScope', '$translate', '$log', 'AccountUserSvc', "CompagnieSvc", 'CasaRegoleSvc', 'SinistriSvc', 'PlacesSvc', 'toastr', '$analytics', '$location', '$anchorScroll', '$uibModal', '$cookies', '$window', '$sessionStorage',
+            function ($scope, $rootScope, $translate, $log, AccountUserSvc, CompagnieSvc, CasaRegoleSvc, SinistriSvc, PlacesSvc, toastr, $analytics, $location, $anchorScroll, $uibModal, $cookies, $window, $sessionStorage) {
 
                 var ctrl = this;
                 var modalInstance = undefined;
@@ -108,9 +108,10 @@
                         backdrop: 'static', // Evita che il modal sia chiuso cliccando sullo sfondo.
                         windowClass: 'msaModal',
                         size: 'lg',
-                        controller: function ($scope, $uibModalInstance , $log, denunciante) {
+                        controller: function ($scope, $uibModalInstance , PlacesSvc, denunciante) {
 
                             $scope.denunciante = denunciante;
+                            $scope.tipiStrada = PlacesSvc.getTipiStrada();
 
                             $scope.ok = function () {
                                 $uibModalInstance.close($scope.denunciante);

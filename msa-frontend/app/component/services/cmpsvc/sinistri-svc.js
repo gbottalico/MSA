@@ -34,19 +34,21 @@ angular.module('msa').service(
                 data.contraente.cognome = datiContraente.cognome;
                 data.contraente.cf = datiContraente.cf;
 
-                data.contraente.luogonascita = {};
+                data.contraente.luogoNascita = {};
                 if(UtilSvc.isDefined(datiContraente.nascita.nazione)) {
-                    data.contraente.luogonascita.codNazione = datiContraente.nascita.nazione.id;
-                    data.contraente.luogonascita.descrizioneNazione = datiContraente.nascita.nazione.descrizione;
+                    data.contraente.luogoNascita.codNazione = datiContraente.nascita.nazione.id;
+                    data.contraente.luogoNascita.descrizioneNazione = datiContraente.nascita.nazione.descrizione;
                 }
                 if(UtilSvc.isDefined(datiContraente.nascita.provincia)) {
-                    data.contraente.luogonascita.codProvincia = datiContraente.nascita.provincia.codProvincia;
-                    data.contraente.luogonascita.descrizioneProvincia = datiContraente.nascita.provincia.desProv;
+                    data.contraente.luogoNascita.codProvincia = datiContraente.nascita.provincia.codProvincia;
+                    data.contraente.luogoNascita.descrizioneProvincia = datiContraente.nascita.provincia.desProv;
                 }
                 if(UtilSvc.isDefined(datiContraente.nascita.comune)) {
-                    data.contraente.luogonascita.codComune = datiContraente.nascita.comune.codComune;
-                    data.contraente.luogonascita.descrizioneComune = datiContraente.nascita.comune.descrizione;
+                    data.contraente.luogoNascita.codComune = datiContraente.nascita.comune.codComune;
+                    data.contraente.luogoNascita.descrizioneComune = datiContraente.nascita.comune.descrizione;
                 }
+
+                data.contraente.dataNascita = datiContraente.nascita.data;
 
                 data.contraente.tracking = {};
                 if(UtilSvc.isDefined(datiContraente.residenza.nazione)) {
