@@ -27,5 +27,6 @@ app.service('msaServicesApiUrls', function ($MSAC) {
     /* SINISTRI */
 
     this.aperturasinitro        = apiPath + "/sinistro/apertura/"
+    this.ricercasinitro         = apiPath + "/sinistro/ricerca/"
 
 });

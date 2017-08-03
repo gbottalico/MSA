@@ -128,7 +128,7 @@
                     });//end of modal.open
 
                     modalInstance.result.then(function (result) {
-                        ctrl.apriSinistroProvvisorio(result)
+                        ctrl.apriSinistroProvvisorio(result, 200); //FIXME rimuovere, mockup
                     }, function () {
                         toastr.info("Operazione annullata.");
                     });

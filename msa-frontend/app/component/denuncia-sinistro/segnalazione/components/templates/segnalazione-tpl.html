@@ -9,6 +9,10 @@
 <div class="containerBody">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container boxShadow">
         <div class="body">
+
+            <pre class="col-lg-12">{{$ctrl.sinistro}}</pre>
+            <input type="text" name="nome" ng-model="$ctrl.numeroSinistroProvvisorio">
+
             <!-- Dati Segnalante -->
             <div class="col-lg-12"><span class="subsectionTitle">{{'global.denunciasinitro.labels.datiDenunciante' | translate}}</span>
             </div>
@@ -19,20 +23,19 @@
                 </span>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
-                <input type="text" name="nome" ng-model="$ctrl.denunciasinistro.nome">
+                <input type="text" name="nome" ng-model="$ctrl.sinistro.segnalazione.nome">
                 <label>{{'global.denunciasinitro.labels.nome' | translate}}</label>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
-                <input type="text" name="nome" ng-model="$ctrl.denunciasinistro.nome">
+                <input type="text" name="cognome" ng-model="$ctrl.sinistro.segnalazione.cognome">
                 <label>{{'global.denunciasinitro.labels.cognome' | translate}}</label>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
-                <input type="text" name="nome" ng-model="$ctrl.denunciasinistro.nome">
+                <input type="text" name="telefono" ng-model="$ctrl.sinistro.segnalazione.telefono">
                 <label>{{'global.denunciasinitro.labels.telefono' | translate}}</label>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
-                <!--input type="text" name="nome" ng-model="$ctrl.denunciasinistro.nome"-->
-                <select name="ruolo">
+                <select name="ruolo" ng-model="$ctrl.sinistro.segnalazione.ruolo">
                     <option ng-repeat="ruolo in $ctrl.ruoli" value="{{ruolo.id}}">{{ruolo.descrizioneRuolo}}</option>
                 </select>
                 <label>{{'global.denunciasinitro.labels.ruolo' | translate}}</label>
@@ -50,11 +53,11 @@
                 </span>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
-                <input type="text" name="nome" ng-model="$ctrl.denunciasinistro.nome">
+                <input type="text" name="cellulare" ng-model="$ctrl.sinistro.tracking.cellulare">
                 <label>{{'global.denunciasinitro.labels.cellulare' | translate}}</label>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
-                <input type="text" name="nome" ng-model="$ctrl.denunciasinistro.nome">
+                <input type="text" name="email" ng-model="$ctrl.sinistro.tracking.email">
                 <label>{{'global.denunciasinitro.labels.email' | translate}}</label>
             </div>
             <div class="col-lg-12">
@@ -65,14 +68,14 @@
             </div>
             <div class="col-lg-12 classicInputRadio">
                 <div class="col-lg-1 col-md-2 col-sm-6 col-xs-12 noPaddingLeft" ng-repeat="mezzo in $ctrl.mezzicomunicazione">
-                    <input type="radio" value="{{mezzo.id}}" name="mezzocomunicazione">
+                    <input type="radio" value="{{mezzo.id}}" name="mezzocomunicazione" ng-model="$ctrl.sinistro.provenzienza.mezzoComunicazione">
                     <label class="rightLabel">{{mezzo.descrizione}}</label>
                 </div>
             </div>
 
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
                 <p class="input-group">
-                    <input type="text" uib-datepicker-popup="{{$ctrl.format}}" ng-model="$ctrl.dataDenuncia" is-open="$ctrl.popup1.opened" datepicker-options="$ctrl.dateOptions" ng-required="true" close-text="Chiudi" />
+                    <input type="text" name="datadenuncia" uib-datepicker-popup="{{$ctrl.format}}" ng-model="$ctrl.sinistro.provenzienza.dataDenuncia" is-open="$ctrl.popup1.opened" datepicker-options="$ctrl.dateOptions" ng-required="true" close-text="Chiudi" />
                     <span class="input-group-btn">
                         <button type="button" class="btn btn-default" ng-click="$ctrl.openDataDenuncia()"><i class="fa fa-calendar-o" aria-hidden="true"></i></button>
                     </span>
@@ -81,15 +84,15 @@
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
                 <p class="input-group">
-                    <input type="text" uib-datepicker-popup="{{$ctrl.format}}" ng-model="$ctrl.dataSinistro" is-open="$ctrl.popup2.opened" datepicker-options="$ctrl.dateOptions" ng-required="true" close-text="Chiudi" />
+                    <input type="text" name="datasinistro" uib-datepicker-popup="{{$ctrl.format}}" ng-model="$ctrl.sinistro.provenzienza.dataSinistro" is-open="$ctrl.popup2.opened" datepicker-options="$ctrl.dateOptions" ng-required="true" close-text="Chiudi" />
                     <span class="input-group-btn">
                         <button type="button" class="btn btn-default" ng-click="$ctrl.openDataSinistro()"><i class="fa fa-calendar-o" aria-hidden="true"></i></button>
                     </span>
                 </p>
-                <label>{{'global.denunciasinitro.labels.dataDenuncia' | translate}}</label>
+                <label>{{'global.denunciasinitro.labels.dataSinistro' | translate}}</label>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
-                <input type="text" name="nome" ng-model="$ctrl.denunciasinistro.nome">
+                <input type="text" name="orasinistro" ng-model="$ctrl.sinistro.provenzienza.oraSinistro">
                 <label>{{'global.denunciasinitro.labels.oraSinistro' | translate}}</label>
             </div>
 
@@ -111,17 +114,17 @@
             <msa-place result="$ctrl.sinistro.luogo"></msa-place>
 
             <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 classicInputText">
-                <select>
+                <select ng-model="$ctrl.sinistro.luogo.tipostrada" name="tipostrada">
                     <option ng-repeat="tipoStrada in $ctrl.tipiStrada">{{tipoStrada}}</option>
                 </select>
                 <label>{{'global.denunciasinitro.labels.indirizzo' | translate}}</label>
             </div>
             <div class="col-lg-9 col-md-9 col-sm-4 col-xs-12 classicInputText">
-                <input type="text" name="nome" ng-model="$ctrl.denunciasinistro.nome">
+                <input type="text" name="denominazione" ng-model="$ctrl.sinistro.luogo.denominazione">
                 <label></label>
             </div>
             <div class="col-lg-1 col-md-1 col-sm-4 col-xs-12 classicInputText">
-                <input type="text" name="nome" ng-model="$ctrl.denunciasinistro.nome">
+                <input type="text" name="civico" ng-model="$ctrl.sinistro.luogo.civico">
                 <label></label>
             </div>
 

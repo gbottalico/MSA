@@ -8,6 +8,12 @@ angular.module('msa').service(
                 return obj !== undefined;
             };
 
+            $svc.arrayHasElements = function (array) {
+                return (typeof array != "undefined"
+                    && array != null
+                    && array.length != null
+                    && array.length > 0)
+            }
 
         }
     ]
