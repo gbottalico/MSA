@@ -18,6 +18,11 @@ html, body {
 	-webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
 }
 
+*:focus, *:active:focus, *.active:focus,
+*.focus, *:active.focus, *.active.focus {
+  outline: none;
+}
+
 section {
 	padding-left: 30px;
 	padding-right: 30px;
@@ -432,5 +437,23 @@ section {
   }
   button.grayButton {
     background: $gray;
+  }
+}
+
+/* Date Picker */
+.uib-datepicker {
+  button {
+    border: 0;
+    box-shadow: none!important;
+  }
+  button[disabled] {
+    opacity: 0.1;
+  }
+  button.btn-info.active, button.btn-info {
+    background: $light_blue!important;
+    box-shadow: none;
+    span {
+      color: $white!important;
+    }
   }
 }
