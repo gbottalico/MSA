@@ -31,16 +31,21 @@ public class BaseSinistroService extends BaseService {
         coupleFunctions.add(new Function<>(EventoRcaDTO.class, EVENTORCA));
         coupleFunctions.add(new Function<>(DannoRcaDTO.class, DANNORCA));
 
-        coupleFunctions.add(new Function<>(ConstatazioneAmichevoleDTO.class,CONSTATAZIONE_AMICHEVOLE));
+        coupleFunctions.add(new Function<>(ConstatazioneAmichevoleDTO.class, CONSTATAZIONE_AMICHEVOLE));
     }
 
+    protected <T extends BaseSinistroDTO> SinistroDO getSinistroDOByDTO(T dto, Integer numProvv, MsaBiFunction<T, SinistroDO, SinistroDO> andThen) throws InternalMsaException {
+        return andThen.apply(dto,GETSINISTRO.apply(numProvv));
+    }
+
+
     protected <T extends BaseSinistroDTO> SinistroDO getSinistroDOByDTO(T dto, Integer numProvv) throws InternalMsaException {
-        final MsaBiFunction<T,Integer,SinistroDO> msaBiFunction = this.coupleFunctions.stream()
+        final MsaBiFunction<T, Integer, SinistroDO> msaBiFunction = this.coupleFunctions.stream()
                 .filter(e -> e.getClazz().equals(dto.getClass()))
                 .reduce(null,
-                        (a,b) -> b.getBiFunction(),
-                        (a,b) -> b);
-        return msaBiFunction.apply(dto,numProvv);
+                        (a, b) -> b.getBiFunction(),
+                        (a, b) -> b);
+        return msaBiFunction.apply(dto, numProvv);
     }
 
     public class Function<T extends BaseSinistroDTO> {
@@ -61,6 +66,15 @@ public class BaseSinistroService extends BaseService {
         }
     }
 
+
+    private final MsaFunction<Integer, SinistroDO> GETSINISTRO =
+            numSinistroProvv -> {
+                try {
+                    return sinistriRepository.getSinistroByNumProvv(numSinistroProvv);
+                } catch (Exception e) {
+                    throw new InternalMsaException();
+                }
+            };
 
     private final MsaBiFunction<SegnalazioneDTO, Integer, SinistroDO> SEGNALAZIONE =
             (o, numSinistroProvv) -> {
@@ -92,7 +106,7 @@ public class BaseSinistroService extends BaseService {
                     throw new InternalMsaException();
                 }
             };
-    private final MsaBiFunction<ConstatazioneAmichevoleDTO,Integer,SinistroDO> CONSTATAZIONE_AMICHEVOLE =
+    private final MsaBiFunction<ConstatazioneAmichevoleDTO, Integer, SinistroDO> CONSTATAZIONE_AMICHEVOLE =
             (constatazioneAmichevoleDTO, numSinistroProvv) -> {
                 try {
                     final SinistroDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv);
