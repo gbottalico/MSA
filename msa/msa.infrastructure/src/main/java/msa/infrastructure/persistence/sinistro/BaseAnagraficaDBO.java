@@ -1,7 +1,6 @@
 package msa.infrastructure.persistence.sinistro;
 
 import org.springframework.data.mongodb.core.mapping.Field;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -15,38 +14,11 @@ public class BaseAnagraficaDBO {
     private String codRuolo;
     @Field("cf")
     private String cf;
-    @Field("desComuneNascita")
-    private String desComuneNascita;
-    @Field("codComuneNascita")
-    private String codComuneNascita;
-
     @Field("dataNascita")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private Date dataNascita;
-
-    public Date getDataNascita() {
-        return dataNascita;
-    }
-
-    public void setDataNascita(Date dataNascita) {
-        this.dataNascita = dataNascita;
-    }
-
-    public String getDesComuneNascita() {
-        return desComuneNascita;
-    }
-
-    public void setDesComuneNascita(String desComuneNascita) {
-        this.desComuneNascita = desComuneNascita;
-    }
-
-    public String getCodComuneNascita() {
-        return codComuneNascita;
-    }
-
-    public void setCodComuneNascita(String codComuneNascita) {
-        this.codComuneNascita = codComuneNascita;
-    }
+    @Field("luogoNascita")
+    private LuogoDBO luogoNascita;
 
     public String getNome() {
         return nome;
@@ -78,5 +50,21 @@ public class BaseAnagraficaDBO {
 
     public void setCf(String cf) {
         this.cf = cf;
+    }
+
+    public Date getDataNascita() {
+        return dataNascita;
+    }
+
+    public void setDataNascita(Date dataNascita) {
+        this.dataNascita = dataNascita;
+    }
+
+    public LuogoDBO getLuogoNascita() {
+        return luogoNascita;
+    }
+
+    public void setLuogoNascita(LuogoDBO luogoNascita) {
+        this.luogoNascita = luogoNascita;
     }
 }
