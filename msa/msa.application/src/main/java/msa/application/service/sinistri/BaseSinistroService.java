@@ -2,6 +2,7 @@ package msa.application.service.sinistri;
 
 import msa.application.dto.sinistro.BaseSinistroDTO;
 import msa.application.dto.sinistro.constatazioneAmichevole.ConstatazioneAmichevoleDTO;
+import msa.application.dto.sinistro.dannoRca.AnagraficaDanniDTO;
 import msa.application.dto.sinistro.dannoRca.DannoRcaDTO;
 import msa.application.dto.sinistro.eventoRca.EventoRcaDTO;
 import msa.application.dto.sinistro.segnalazione.SegnalazioneDTO;
@@ -29,8 +30,8 @@ public class BaseSinistroService extends BaseService {
         coupleFunctions = new ArrayList<>();
         coupleFunctions.add(new Function<>(SegnalazioneDTO.class, SEGNALAZIONE));
         coupleFunctions.add(new Function<>(EventoRcaDTO.class, EVENTORCA));
-        coupleFunctions.add(new Function<>(DannoRcaDTO.class, DANNORCA));
-
+        coupleFunctions.add(new Function<>(DannoRcaDTO.class, DANNORCA_CONDUCENTE));
+        coupleFunctions.add(new Function<>(AnagraficaDanniDTO.class, DANNORCA_CONTROPARTE));
         coupleFunctions.add(new Function<>(ConstatazioneAmichevoleDTO.class, CONSTATAZIONE_AMICHEVOLE));
     }
 
@@ -96,11 +97,24 @@ public class BaseSinistroService extends BaseService {
                     throw new InternalMsaException();
                 }
             };
-    private final MsaBiFunction<DannoRcaDTO, Integer, SinistroDO> DANNORCA =
+    private final MsaBiFunction<DannoRcaDTO, Integer, SinistroDO> DANNORCA_CONDUCENTE =
             (o, numSinistroProvv) -> {
                 try {
                     final SinistroDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv);
                     sinistroByNumProvv.setDannoRca(converter.convertObject(o, DannoRcaDO.class));
+
+                    return sinistroByNumProvv;
+                } catch (Exception e) {
+                    throw new InternalMsaException();
+                }
+            };
+
+    private final MsaBiFunction<AnagraficaDanniDTO, Integer, SinistroDO> DANNORCA_CONTROPARTE =
+            (o, numSinistroProvv) -> {
+                try {
+                    final SinistroDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv);
+                    sinistroByNumProvv.getDannoRca().setAnagraficaDanniControparte(converter.convertObject(o, AnagraficaDanniDO.class));
+
                     return sinistroByNumProvv;
                 } catch (Exception e) {
                     throw new InternalMsaException();

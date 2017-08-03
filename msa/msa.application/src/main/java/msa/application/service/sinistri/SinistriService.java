@@ -7,10 +7,13 @@ import msa.application.dto.ricerca.InputRicercaDTO;
 import msa.application.dto.sinistro.SinistroDTO;
 import msa.application.dto.sinistro.cai.CaiDTO;
 import msa.application.dto.sinistro.constatazioneAmichevole.ConstatazioneAmichevoleDTO;
+import msa.application.dto.sinistro.dannoRca.AnagraficaDanniDTO;
 import msa.application.dto.sinistro.dannoRca.DannoRcaDTO;
 import msa.application.dto.sinistro.eventoRca.EventoRcaDTO;
 import msa.application.dto.sinistro.segnalazione.SegnalazioneDTO;
 import msa.application.exceptions.InternalMsaException;
+import msa.domain.object.sinistro.AnagraficaDanniDO;
+import msa.domain.object.sinistro.DannoRcaDO;
 import msa.domain.object.sinistro.InputRicercaDO;
 import msa.domain.object.sinistro.SinistroDO;
 import org.springframework.stereotype.Service;
@@ -93,7 +96,7 @@ public class SinistriService extends BaseSinistroService {
      */
     public BaseDTO<SinistroDTO> salvaEventoRca(EventoRcaDTO input, Integer numSinistroProvv) throws InternalMsaException {
 
-        final SinistroDO sinistroDOByDTO = getSinistroDOByDTO(input,numSinistroProvv);
+        final SinistroDO sinistroDOByDTO = getSinistroDOByDTO(input, numSinistroProvv);
         return salvaSinistro(sinistroDOByDTO);
     }
 
@@ -105,7 +108,7 @@ public class SinistriService extends BaseSinistroService {
      * @return
      */
     public BaseDTO<SinistroDTO> salvaConstatazioneAmichevole(ConstatazioneAmichevoleDTO input, Integer numSinistroProvv) throws InternalMsaException {
-        return salvaSinistro(getSinistroDOByDTO(input,numSinistroProvv));
+        return salvaSinistro(getSinistroDOByDTO(input, numSinistroProvv));
     }
 
     /**
@@ -127,9 +130,35 @@ public class SinistriService extends BaseSinistroService {
      * @return
      */
     public BaseDTO<SinistroDTO> salvaDannoRca(DannoRcaDTO input, Integer numSinistroProvv) throws InternalMsaException {
-        final SinistroDO sinistroDOByDTO = getSinistroDOByDTO(input,numSinistroProvv);
+        final SinistroDO sinistroDOByDTO = getSinistroDOByDTO(input, numSinistroProvv);
         return salvaSinistro(sinistroDOByDTO);
     }
 
+    public BaseDTO<SinistroDTO> salvaDannoRcaConducente(DannoRcaDTO input, Integer numSinistro) throws InternalMsaException {
+
+        SinistroDO sinistroDOByDTO = getSinistroDOByDTO(input,numSinistro);
+        return salvaSinistro(sinistroDOByDTO);
+      /*  final SinistroDO sinistroDOByDTO = getSinistroDOByDTO(input, numSinistro, (a, b) -> {
+            if (b.getDannoRca() == null) {
+                b.setDannoRca(new DannoRcaDO());
+            }
+            b.getDannoRca().setAnagraficaDanniCliente(converter.convertObject(a, AnagraficaDanniDO.class));
+            return b;
+        });
+        return salvaSinistro(sinistroDOByDTO);*/
+
+    }
+
+    public BaseDTO<SinistroDTO> salvaDannoRcaControparte(AnagraficaDanniDTO input, Integer numSinistro) throws InternalMsaException {
+       /* final SinistroDO sinistroDOByDTO = getSinistroDOByDTO(input, numSinistro, (a, b) -> {
+            if (b.getDannoRca() == null) {
+                b.setDannoRca(new DannoRcaDO());
+            }
+            b.getDannoRca().setAnagraficaDanniControparte(converter.convertObject(a, AnagraficaDanniDO.class));
+            return b;
+        });*/
+       SinistroDO sinistroDOByDTO = getSinistroDOByDTO(input,numSinistro);
+        return salvaSinistro(sinistroDOByDTO);
+    }
 }
 

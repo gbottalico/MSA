@@ -6,11 +6,13 @@ import msa.application.dto.ricerca.InputRicercaDTO;
 import msa.application.dto.sinistro.SinistroDTO;
 import msa.application.dto.sinistro.cai.CaiDTO;
 import msa.application.dto.sinistro.constatazioneAmichevole.ConstatazioneAmichevoleDTO;
+import msa.application.dto.sinistro.dannoRca.AnagraficaDanniDTO;
 import msa.application.dto.sinistro.dannoRca.DannoRcaDTO;
 import msa.application.dto.sinistro.eventoRca.EventoRcaDTO;
 import msa.application.dto.sinistro.segnalazione.SegnalazioneDTO;
 import msa.application.exceptions.InternalMsaException;
 import msa.application.service.sinistri.SinistriService;
+import msa.domain.object.sinistro.DannoRcaDO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -109,11 +111,24 @@ public class SinistroController {
      * @param numeroSinistro
      * @return
      */
-    @ApiOperation(value = "Metodo che salva i danni riportati")
+   /* @ApiOperation(value = "Metodo che salva i danni riportati")
     @RequestMapping(value = "/{numero}/dannoRCA", method = RequestMethod.POST)
     public BaseDTO salvaDanniRca(@RequestBody DannoRcaDTO input, @PathVariable("numero") Integer numeroSinistro) throws InternalMsaException {
         return sinistriService.salvaDannoRca(input, numeroSinistro);
+    }*/
+    @ApiOperation(value = "Metodo che salva i danni riportati dalla controparte e l'anagrafica")
+    @RequestMapping(value = "/{numero}/dannoRCA/controparte", method = RequestMethod.POST)
+    public BaseDTO salvaDanniRcaControparte(@RequestBody AnagraficaDanniDTO input, @PathVariable("numero") Integer numeroSinistro) throws InternalMsaException {
+
+        return sinistriService.salvaDannoRcaControparte(input, numeroSinistro);
+
     }
 
+    @ApiOperation(value = "Metodo che salva i danni riportati dal conducente e l'anagrafica")
+    @RequestMapping(value = "/{numero}/dannoRCA/conducente", method = RequestMethod.POST)
+    public BaseDTO salvaDanniRcaConducente(@RequestBody DannoRcaDTO input, @PathVariable("numero") Integer numeroSinistro) throws InternalMsaException {
 
+        return sinistriService.salvaDannoRcaConducente(input, numeroSinistro);
+
+    }
 }
