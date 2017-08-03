@@ -1,12 +1,13 @@
 package msa.application.dto.sinistro.dannoRca;
 
+import msa.application.dto.sinistro.BaseSinistroDTO;
 import msa.application.dto.sinistro.anagrafica.FullAnagraficaControparteDTO;
 import msa.application.dto.sinistro.anagrafica.FullAnagraficaDTO;
 
 import java.io.Serializable;
 import java.util.List;
 
-public class DannoRcaDTO  implements Serializable{
+public class DannoRcaDTO  extends BaseSinistroDTO{
     private static final long serialVersionUID = 2999366958849613093L;
     private Boolean lesioniConducente;
     private AnagraficaDanniDTO anagraficaDanniCliente;

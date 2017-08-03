@@ -91,8 +91,10 @@ public class SinistriService extends BaseSinistroService {
      * @param numSinistroProvv
      * @return
      */
-    public BaseDTO salvaEventoRca(EventoRcaDTO input, Integer numSinistroProvv) {
-        return null;
+    public BaseDTO<SinistroDTO> salvaEventoRca(EventoRcaDTO input, Integer numSinistroProvv) throws InternalMsaException {
+
+        final SinistroDO sinistroDOByDTO = getSinistroDOByDTO(input,numSinistroProvv);
+        return salvaSinistro(sinistroDOByDTO);
     }
 
     /**
@@ -102,7 +104,7 @@ public class SinistriService extends BaseSinistroService {
      * @param numSinistroProvv
      * @return
      */
-    public BaseDTO salvaConstatazioneAmichevole(ConstatazioneAmichevoleDTO input, Integer numSinistroProvv) throws InternalMsaException {
+    public BaseDTO<SinistroDTO> salvaConstatazioneAmichevole(ConstatazioneAmichevoleDTO input, Integer numSinistroProvv) throws InternalMsaException {
         return salvaSinistro(getSinistroDOByDTO(input,numSinistroProvv));
     }
 
@@ -124,8 +126,9 @@ public class SinistriService extends BaseSinistroService {
      * @param numSinistroProvv
      * @return
      */
-    public BaseDTO salvaDannoRca(DannoRcaDTO input, Integer numSinistroProvv) {
-        return null;
+    public BaseDTO<SinistroDTO> salvaDannoRca(DannoRcaDTO input, Integer numSinistroProvv) throws InternalMsaException {
+        final SinistroDO sinistroDOByDTO = getSinistroDOByDTO(input,numSinistroProvv);
+        return salvaSinistro(sinistroDOByDTO);
     }
 
 }

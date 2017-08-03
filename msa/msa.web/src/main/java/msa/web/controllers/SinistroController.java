@@ -72,7 +72,7 @@ public class SinistroController {
      */
     @ApiOperation(value = " Metodo che salva i dati dell'evento RCA")
     @RequestMapping(value = "/{numero}/RCA", method = RequestMethod.POST)
-    public BaseDTO salvaEventoRca(@RequestBody EventoRcaDTO input, @PathVariable("numero") Integer numeroSinistro) {
+    public BaseDTO salvaEventoRca(@RequestBody EventoRcaDTO input, @PathVariable("numero") Integer numeroSinistro) throws InternalMsaException {
         return sinistriService.salvaEventoRca(input, numeroSinistro);
     }
 
@@ -111,7 +111,7 @@ public class SinistroController {
      */
     @ApiOperation(value = "Metodo che salva i danni riportati")
     @RequestMapping(value = "/{numero}/dannoRCA", method = RequestMethod.POST)
-    public BaseDTO salvaDanniRca(@RequestBody DannoRcaDTO input, @PathVariable("numero") Integer numeroSinistro) {
+    public BaseDTO salvaDanniRca(@RequestBody DannoRcaDTO input, @PathVariable("numero") Integer numeroSinistro) throws InternalMsaException {
         return sinistriService.salvaDannoRca(input, numeroSinistro);
     }
 
