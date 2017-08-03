@@ -5,6 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 import java.util.Date;
 
 public class BaseAnagraficaDBO {
+
     @Field("nome")
     private String nome;
     @Field("cognome")
@@ -14,7 +15,7 @@ public class BaseAnagraficaDBO {
     @Field("cf")
     private String cf;
     @Field("desComuneNascita")
-    private String descComuneNascita;
+    private String desComuneNascita;
     @Field("codComuneNascita")
     private String codComuneNascita;
     @Field("dataNascita")
@@ -28,12 +29,12 @@ public class BaseAnagraficaDBO {
         this.dataNascita = dataNascita;
     }
 
-    public String getDescComuneNascita() {
-        return descComuneNascita;
+    public String getDesComuneNascita() {
+        return desComuneNascita;
     }
 
-    public void setDescComuneNascita(String descComuneNascita) {
-        this.descComuneNascita = descComuneNascita;
+    public void setDesComuneNascita(String desComuneNascita) {
+        this.desComuneNascita = desComuneNascita;
     }
 
     public String getCodComuneNascita() {
