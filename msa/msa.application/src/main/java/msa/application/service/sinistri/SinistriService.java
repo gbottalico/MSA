@@ -121,7 +121,7 @@ public class SinistriService extends BaseSinistroService {
      * @return
      */
     public BaseDTO salvaCAI(CaiDTO input, Integer numSInistroProvv) throws InternalMsaException {
-        SinistroDO sinistroDOByDTO = getSinistroDOByDTO(input,numSInistroProvv);
+        SinistroDO sinistroDOByDTO = getSinistroDOByDTO(input, numSInistroProvv);
         //Inserire logica baremes
         return salvaSinistro(sinistroDOByDTO);
     }
@@ -153,18 +153,8 @@ public class SinistriService extends BaseSinistroService {
     }
 
     public BaseDTO<SinistroDTO> salvaDannoRcaTerzeParti(List<AnagraficaTerzePartiDTO> input, Integer numSinistro) throws InternalMsaException {
-        List<SinistroDO> sinistroDOByDTO = getSinistroDOByDTO(input, numSinistro);
-        SinistroDO first = sinistroDOByDTO.remove(0);
-        first.getDannoRca()
-                .getTerzeParti()
-                .addAll(sinistroDOByDTO
-                        .stream()
-                        .flatMap(e -> e.getDannoRca()
-                                .getTerzeParti()
-                                .stream())
-                        .collect(Collectors.toList()));
 
-        return salvaSinistro(first);
+        return salvaSinistro(getSinistroDOByDTO(input, numSinistro));
     }
 }
 

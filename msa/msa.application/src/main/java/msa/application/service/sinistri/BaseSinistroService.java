@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.function.BiFunction;
+import java.util.stream.Collectors;
 
 /**
  * Created by simon.calabrese on 02/08/2017.
@@ -37,21 +38,39 @@ public class BaseSinistroService extends BaseService {
         coupleFunctions.add(new Function<>(DannoRcaDTO.class, DANNORCA_CONDUCENTE));
         coupleFunctions.add(new Function<>(AnagraficaDanniDTO.class, DANNORCA_CONTROPARTE));
         coupleFunctions.add(new Function<>(ConstatazioneAmichevoleDTO.class, CONSTATAZIONE_AMICHEVOLE));
-        coupleFunctions.add(new Function<>(AnagraficaTerzePartiDTO.class,TERZE_PARTI));
-        coupleFunctions.add(new Function<>(CaiDTO.class,CAI));
+        coupleFunctions.add(new Function<>(AnagraficaTerzePartiDTO.class, TERZE_PARTI));
+        coupleFunctions.add(new Function<>(CaiDTO.class, CAI));
     }
 
     protected <T extends BaseSinistroDTO> SinistroDO getSinistroDOByDTO(T dto, Integer numProvv, MsaBiFunction<T, SinistroDO, SinistroDO> andThen) throws InternalMsaException {
-        return andThen.apply(dto,GETSINISTRO.apply(numProvv));
+        return andThen.apply(dto, GETSINISTRO.apply(numProvv));
     }
 
 
-    protected <T extends BaseSinistroDTO> List<SinistroDO> getSinistroDOByDTO(List<T> dto, Integer numProvv) throws InternalMsaException {
+    protected <T extends BaseSinistroDTO> SinistroDO getSinistroDOByDTO(List<T> dto, Integer numProvv) throws InternalMsaException {
+        return dto.stream()
+                .collect(Collectors.toMap(e -> e, e -> numProvv))
+                .entrySet()
+                .stream()
+                .map(e -> {
+                    try {
+                        return getSinistroDOByDTO(e.getKey(), e.getValue());
+                    } catch (InternalMsaException e1) {
+                        return null;
+                    }
+                }).reduce((sinistroDO, sinistroDO2) -> {
+                    if (CollectionUtils.isEmpty(sinistroDO.getDannoRca().getTerzeParti())) {
+                        sinistroDO.getDannoRca().setTerzeParti(new ArrayList<>());
+                    }
+                    sinistroDO.getDannoRca().getTerzeParti().addAll(sinistroDO2.getDannoRca().getTerzeParti());
+                    return sinistroDO;
+                }).orElse(null);
+        /*
         List<SinistroDO> toReturn = new ArrayList<>();
         for(T elem : dto) {
             toReturn.add(getSinistroDOByDTO(elem,numProvv));
         }
-        return toReturn;
+        return toReturn;*/
     }
 
     protected <T extends BaseSinistroDTO> SinistroDO getSinistroDOByDTO(T dto, Integer numProvv) throws InternalMsaException {
