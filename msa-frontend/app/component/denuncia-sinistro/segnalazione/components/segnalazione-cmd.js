@@ -78,11 +78,12 @@
 
                 ctrl.getSinistroProvvisorio = function (numeroSinistroProvvisorio) {
                     SinistriSvc.cercaSinistroProvvisorio(37, numeroSinistroProvvisorio).then(function (response) {
-                        //FIXME rimuovere il 200, mockup
+                        //FIXME rimuovere il 37, mockup
                         console.log(response.data.result);
                         if(UtilSvc.arrayHasElements(response.data.result)) {
                             var result = response.data.result[0];
                             ctrl.sinistro.segnalazione.nome = result.contraente.nome;
+                            ctrl.sinistro.segnalazione.cognome = result.contraente.cognome;
                         }
                     });
                 };
