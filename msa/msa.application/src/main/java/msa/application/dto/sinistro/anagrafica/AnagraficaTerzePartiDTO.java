@@ -1,10 +1,6 @@
 package msa.application.dto.sinistro.anagrafica;
 
-import msa.domain.object.sinistro.FullAnagraficaDO;
-
-import java.io.Serializable;
-
-public class AnagraficaTerzePartiDTO extends FullAnagraficaDTO implements Serializable{
+public class AnagraficaTerzePartiDTO extends FullAnagraficaDTO {
     private static final long serialVersionUID = -5033305975768471583L;
     private String note;
 

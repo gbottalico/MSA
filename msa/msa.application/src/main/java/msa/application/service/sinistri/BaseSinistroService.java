@@ -46,6 +46,9 @@ public class BaseSinistroService extends BaseService {
         return andThen.apply(dto, GETSINISTRO.apply(numProvv));
     }
 
+    protected <T extends BaseSinistroDTO> SinistroDO getSinistroDOByDTOAndFunction(T dto, Integer numProvv, MsaBiFunction<T, Integer, SinistroDO> andThen) throws InternalMsaException {
+        return andThen.apply(dto, numProvv);
+    }
 
     protected <T extends BaseSinistroDTO> SinistroDO getSinistroDOByDTO(List<T> dto, Integer numProvv) throws InternalMsaException {
         return dto.stream()
@@ -65,12 +68,6 @@ public class BaseSinistroService extends BaseService {
                     sinistroDO.getDannoRca().getTerzeParti().addAll(sinistroDO2.getDannoRca().getTerzeParti());
                     return sinistroDO;
                 }).orElse(null);
-        /*
-        List<SinistroDO> toReturn = new ArrayList<>();
-        for(T elem : dto) {
-            toReturn.add(getSinistroDOByDTO(elem,numProvv));
-        }
-        return toReturn;*/
     }
 
     protected <T extends BaseSinistroDTO> SinistroDO getSinistroDOByDTO(T dto, Integer numProvv) throws InternalMsaException {
@@ -169,6 +166,17 @@ public class BaseSinistroService extends BaseService {
                     final SinistroDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv);
                     AnagraficaTerzePartiDO anagraficaTerzePartiDO = converter.convertObject(O, AnagraficaTerzePartiDO.class);
                     sinistroByNumProvv.getDannoRca().setTerzeParti(Collections.singletonList(anagraficaTerzePartiDO));
+                    return sinistroByNumProvv;
+                } catch (Exception e) {
+                    throw new InternalMsaException();
+                }
+            };
+    protected final MsaBiFunction<AnagraficaTerzePartiDTO, Integer, SinistroDO> LEGALE =
+            (O, numSinistroProvv) -> {
+                try {
+                    final SinistroDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv);
+                    AnagraficaTerzePartiDO anagraficaTerzePartiDO = converter.convertObject(O, AnagraficaTerzePartiDO.class);
+                    sinistroByNumProvv.getDannoRca().getTerzeParti().add(anagraficaTerzePartiDO);
                     return sinistroByNumProvv;
                 } catch (Exception e) {
                     throw new InternalMsaException();

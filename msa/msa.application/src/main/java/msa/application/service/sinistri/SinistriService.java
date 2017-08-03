@@ -156,5 +156,10 @@ public class SinistriService extends BaseSinistroService {
 
         return salvaSinistro(getSinistroDOByDTO(input, numSinistro));
     }
+
+    public BaseDTO<SinistroDTO> salvaDannoRcaLegale(AnagraficaTerzePartiDTO input, Integer numeroSinistro) throws InternalMsaException {
+        return salvaSinistro(getSinistroDOByDTOAndFunction(input,numeroSinistro,LEGALE));
+
+    }
 }
 
