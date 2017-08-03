@@ -1,6 +1,7 @@
 package msa.infrastructure.persistence.sinistro;
 
 import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -18,7 +19,9 @@ public class BaseAnagraficaDBO {
     private String desComuneNascita;
     @Field("codComuneNascita")
     private String codComuneNascita;
+
     @Field("dataNascita")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private Date dataNascita;
 
     public Date getDataNascita() {

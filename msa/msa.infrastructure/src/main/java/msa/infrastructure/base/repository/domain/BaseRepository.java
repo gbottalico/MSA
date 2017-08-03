@@ -2,6 +2,7 @@ package msa.infrastructure.base.repository.domain;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
 import com.mongodb.util.JSON;
 import msa.infrastructure.config.AbstractMsaPropertiesReader;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import msa.domain.Converter.MsaConverter;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
@@ -46,6 +48,8 @@ public class BaseRepository {
 
     protected <T> DBObject getDBObjectFromDBO(final T object) throws JsonProcessingException {
 
+
+        //return new BasicDBObject(object.getClass().getAnnotation(Document.class).collection(),object);
         return (DBObject) JSON.parse(mapper.writeValueAsString(object));
     }
 
