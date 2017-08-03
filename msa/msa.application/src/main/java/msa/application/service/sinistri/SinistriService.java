@@ -79,7 +79,7 @@ public class SinistriService extends BaseSinistroService {
      * @return
      */
 
-    public BaseDTO inviaSegnalazione(SegnalazioneDTO input, Integer numSinistroProvv) throws InternalMsaException {
+    public BaseDTO<SinistroDTO> inviaSegnalazione(SegnalazioneDTO input, Integer numSinistroProvv) throws InternalMsaException {
         final SinistroDO sinistroDOByDTO = getSinistroDOByDTO(input, numSinistroProvv);
         return salvaSinistro(sinistroDOByDTO);
     }
@@ -102,8 +102,8 @@ public class SinistriService extends BaseSinistroService {
      * @param numSinistroProvv
      * @return
      */
-    public BaseDTO salvaConstatazioneAmichevole(ConstatazioneAmichevoleDTO input, Integer numSinistroProvv) {
-        return null;
+    public BaseDTO salvaConstatazioneAmichevole(ConstatazioneAmichevoleDTO input, Integer numSinistroProvv) throws InternalMsaException {
+        return salvaSinistro(getSinistroDOByDTO(input,numSinistroProvv));
     }
 
     /**

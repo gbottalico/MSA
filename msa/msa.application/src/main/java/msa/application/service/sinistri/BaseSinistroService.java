@@ -1,10 +1,12 @@
 package msa.application.service.sinistri;
 
 import msa.application.dto.sinistro.BaseSinistroDTO;
+import msa.application.dto.sinistro.constatazioneAmichevole.ConstatazioneAmichevoleDTO;
 import msa.application.dto.sinistro.eventoRca.EventoRcaDTO;
 import msa.application.dto.sinistro.segnalazione.SegnalazioneDTO;
 import msa.application.exceptions.InternalMsaException;
 import msa.application.service.base.BaseService;
+import msa.domain.object.sinistro.ConstatazioneAmichevoleDO;
 import msa.domain.object.sinistro.EventoRcaDO;
 import msa.domain.object.sinistro.SegnalazioneDO;
 import msa.domain.object.sinistro.SinistroDO;
@@ -13,7 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.BiFunction;
 
 /**
  * Created by simon.calabrese on 02/08/2017.
@@ -29,6 +30,7 @@ public class BaseSinistroService extends BaseService {
         coupleFunctions = new ArrayList<>();
         coupleFunctions.add(new Function<>(SegnalazioneDTO.class, SEGNALAZIONE));
         coupleFunctions.add(new Function<>(EventoRcaDTO.class, EVENTORCA));
+        coupleFunctions.add(new Function<>(ConstatazioneAmichevoleDTO.class,CONSTATAZIONE_AMICHEVOLE));
     }
 
     protected <T extends BaseSinistroDTO> SinistroDO getSinistroDOByDTO(T dto, Integer numProvv) throws InternalMsaException {
@@ -74,6 +76,16 @@ public class BaseSinistroService extends BaseService {
                 try {
                     final SinistroDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv);
                     sinistroByNumProvv.setEventoRca(converter.convertObject(o, EventoRcaDO.class));
+                    return sinistroByNumProvv;
+                } catch (Exception e) {
+                    throw new InternalMsaException();
+                }
+            };
+    private final MsaBiFunction<ConstatazioneAmichevoleDTO,Integer,SinistroDO> CONSTATAZIONE_AMICHEVOLE =
+            (constatazioneAmichevoleDTO, numSinistroProvv) -> {
+                try {
+                    final SinistroDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv);
+                    sinistroByNumProvv.setConstatazioneAmichevole(converter.convertObject(constatazioneAmichevoleDTO, ConstatazioneAmichevoleDO.class));
                     return sinistroByNumProvv;
                 } catch (Exception e) {
                     throw new InternalMsaException();

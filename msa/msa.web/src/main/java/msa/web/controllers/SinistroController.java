@@ -30,7 +30,7 @@ public class SinistroController {
     @ApiOperation(value = "Metodo che effettua l'apertura di un sinistro in base ai dati ricevuti in input")
     @RequestMapping(value = "/apertura", method = RequestMethod.PUT)
     public BaseDTO<SinistroDTO> apriSinistro(@RequestBody SinistroDTO input) throws InternalMsaException {
-    return sinistriService.salvaSinistro(input);
+        return sinistriService.salvaSinistro(input);
     }
 
 
@@ -55,7 +55,7 @@ public class SinistroController {
      */
     @ApiOperation(value = "Metodo che effettua l'inserimento di una segnalazione ")
     @RequestMapping(value = "/{numero}/segnalazione", method = RequestMethod.POST)
-    public BaseDTO salvaSegnalazione(@RequestBody  SegnalazioneDTO input, @PathVariable("numero") Integer numeroSinistro) throws InternalMsaException {
+    public BaseDTO<SinistroDTO> salvaSegnalazione(@RequestBody SegnalazioneDTO input, @PathVariable("numero") Integer numeroSinistro) throws InternalMsaException {
         return sinistriService.inviaSegnalazione(input, numeroSinistro);
     }
 
@@ -68,8 +68,8 @@ public class SinistroController {
      */
     @ApiOperation(value = " Metodo che salva i dati dell'evento RCA")
     @RequestMapping(value = "/{numero}/RCA", method = RequestMethod.POST)
-    public BaseDTO salvaEventoRca(@RequestBody  EventoRcaDTO input, @PathVariable("numero") Integer numeroSinistro) {
-        return sinistriService.salvaEventoRca(input,numeroSinistro);
+    public BaseDTO salvaEventoRca(@RequestBody EventoRcaDTO input, @PathVariable("numero") Integer numeroSinistro) {
+        return sinistriService.salvaEventoRca(input, numeroSinistro);
     }
 
     /**
@@ -79,8 +79,8 @@ public class SinistroController {
      * @return
      */
     @ApiOperation(value = "Metoto che salva i dati della constatazione amichevole")
-    @RequestMapping(value = "/{numero/constatazioneAmichevole", method = RequestMethod.POST)
-    public BaseDTO salvaConstatazioneAmichevole(@RequestBody ConstatazioneAmichevoleDTO input, @PathVariable("numero") Integer numeroSinistro) {
+    @RequestMapping(value = "/{numero/ca", method = RequestMethod.POST)
+    public BaseDTO salvaConstatazioneAmichevole(@RequestBody ConstatazioneAmichevoleDTO input, @PathVariable("numero") Integer numeroSinistro) throws InternalMsaException {
         return sinistriService.salvaConstatazioneAmichevole(input, numeroSinistro);
     }
 
@@ -93,7 +93,7 @@ public class SinistroController {
      */
     @ApiOperation(value = "Metodo che calcola la responsabilità e salva il CAI in base ai baremes inseriti")
     @RequestMapping(value = "/{numero}/CAI", method = RequestMethod.POST)
-    public BaseDTO salvaCAI(@RequestBody  CaiDTO input, @PathVariable("numero") Integer numeroSinistro) {
+    public BaseDTO salvaCAI(@RequestBody CaiDTO input, @PathVariable("numero") Integer numeroSinistro) {
         return sinistriService.salvaCAI(input, numeroSinistro);
 
     }
