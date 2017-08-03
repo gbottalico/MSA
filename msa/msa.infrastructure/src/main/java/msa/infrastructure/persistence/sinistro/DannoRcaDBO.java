@@ -11,8 +11,8 @@ public class DannoRcaDBO {
     private AnagraficaDanniDBO anagraficaDanniCliente;
     @Field("anagraficaDanniControparte")
     private AnagraficaDanniDBO anagraficaDanniControparte;
-    @Field("altreControparti")
-    private List<AnagraficaDanniDBO> altreControparti;
+    @Field("terzeParti")
+    private List<AnagraficaTerzePartiDBO> terzeParti;
 
 
     public Boolean getLesioniConducente() {
@@ -39,11 +39,11 @@ public class DannoRcaDBO {
         this.anagraficaDanniControparte = anagraficaDanniControparte;
     }
 
-    public List<AnagraficaDanniDBO> getAltreControparti() {
-        return altreControparti;
+    public List<AnagraficaTerzePartiDBO> getTerzeParti() {
+        return terzeParti;
     }
 
-    public void setAltreControparti(List<AnagraficaDanniDBO> altreControparti) {
-        this.altreControparti = altreControparti;
+    public void setTerzeParti(List<AnagraficaTerzePartiDBO> terzeParti) {
+        this.terzeParti = terzeParti;
     }
 }

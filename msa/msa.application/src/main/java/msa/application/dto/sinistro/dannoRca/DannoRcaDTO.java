@@ -1,6 +1,7 @@
 package msa.application.dto.sinistro.dannoRca;
 
 import msa.application.dto.sinistro.BaseSinistroDTO;
+import msa.application.dto.sinistro.anagrafica.AnagraficaTerzePartiDTO;
 import msa.application.dto.sinistro.anagrafica.FullAnagraficaControparteDTO;
 import msa.application.dto.sinistro.anagrafica.FullAnagraficaDTO;
 
@@ -12,12 +13,8 @@ public class DannoRcaDTO  extends BaseSinistroDTO{
     private Boolean lesioniConducente;
     private AnagraficaDanniDTO anagraficaDanniCliente;
     private AnagraficaDanniDTO anagraficaDanniControparte;
-    private List<AnagraficaDanniDTO> altreControparti;
+    private List<AnagraficaTerzePartiDTO> terzeParti;
 
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
 
     public Boolean getLesioniConducente() {
         return lesioniConducente;
@@ -43,12 +40,12 @@ public class DannoRcaDTO  extends BaseSinistroDTO{
         this.anagraficaDanniControparte = anagraficaDanniControparte;
     }
 
-    public List<AnagraficaDanniDTO> getAltreControparti() {
-        return altreControparti;
+    public List<AnagraficaTerzePartiDTO> getTerzeParti() {
+        return terzeParti;
     }
 
-    public void setAltreControparti(List<AnagraficaDanniDTO> altreControparti) {
-        this.altreControparti = altreControparti;
+    public void setTerzeParti(List<AnagraficaTerzePartiDTO> terzeParti) {
+        this.terzeParti = terzeParti;
     }
 
     @Override
@@ -64,9 +61,16 @@ public class DannoRcaDTO  extends BaseSinistroDTO{
             return false;
         if (anagraficaDanniControparte != null ? !anagraficaDanniControparte.equals(that.anagraficaDanniControparte) : that.anagraficaDanniControparte != null)
             return false;
-        return altreControparti != null ? altreControparti.equals(that.altreControparti) : that.altreControparti == null;
+        return terzeParti != null ? terzeParti.equals(that.terzeParti) : that.terzeParti == null;
     }
 
-
+    @Override
+    public int hashCode() {
+        int result = lesioniConducente != null ? lesioniConducente.hashCode() : 0;
+        result = 31 * result + (anagraficaDanniCliente != null ? anagraficaDanniCliente.hashCode() : 0);
+        result = 31 * result + (anagraficaDanniControparte != null ? anagraficaDanniControparte.hashCode() : 0);
+        result = 31 * result + (terzeParti != null ? terzeParti.hashCode() : 0);
+        return result;
+    }
 }
 

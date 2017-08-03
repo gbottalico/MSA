@@ -4,6 +4,7 @@ import io.swagger.annotations.ApiOperation;
 import msa.application.config.BaseDTO;
 import msa.application.dto.ricerca.InputRicercaDTO;
 import msa.application.dto.sinistro.SinistroDTO;
+import msa.application.dto.sinistro.anagrafica.AnagraficaTerzePartiDTO;
 import msa.application.dto.sinistro.cai.CaiDTO;
 import msa.application.dto.sinistro.constatazioneAmichevole.ConstatazioneAmichevoleDTO;
 import msa.application.dto.sinistro.dannoRca.AnagraficaDanniDTO;
@@ -19,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api/sinistro")
@@ -99,7 +102,7 @@ public class SinistroController {
      */
     @ApiOperation(value = "Metodo che calcola la responsabilità e salva il CAI in base ai baremes inseriti")
     @RequestMapping(value = "/{numero}/CAI", method = RequestMethod.POST)
-    public BaseDTO salvaCAI(@RequestBody CaiDTO input, @PathVariable("numero") Integer numeroSinistro) {
+    public BaseDTO salvaCAI(@RequestBody CaiDTO input, @PathVariable("numero") Integer numeroSinistro) throws InternalMsaException {
         return sinistriService.salvaCAI(input, numeroSinistro);
 
     }
@@ -129,6 +132,13 @@ public class SinistroController {
     public BaseDTO salvaDanniRcaConducente(@RequestBody DannoRcaDTO input, @PathVariable("numero") Integer numeroSinistro) throws InternalMsaException {
 
         return sinistriService.salvaDannoRcaConducente(input, numeroSinistro);
+
+    }
+    @ApiOperation(value = "Metodo che salva i dati delle terze parti")
+    @RequestMapping(value = "/{numero}/dannoRCA/terzeParti", method = RequestMethod.POST)
+    public BaseDTO salvaDanniRcaTerzeParti(@RequestBody List<AnagraficaTerzePartiDTO> input, @PathVariable("numero") Integer numeroSinistro) throws InternalMsaException {
+
+        return sinistriService.salvaDannoRcaTerzeParti(input, numeroSinistro);
 
     }
 }

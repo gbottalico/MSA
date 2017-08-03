@@ -1,9 +1,11 @@
 package msa.application.dto.sinistro.cai;
 
+import msa.application.dto.sinistro.BaseSinistroDTO;
+
 import java.io.Serializable;
 import java.util.Map;
 
-public class CaiDTO implements Serializable {
+public class CaiDTO extends BaseSinistroDTO {
     private static final long serialVersionUID = -2575869510337533595L;
     private Map<Integer, Boolean> baremesCliente;
     private Map<Integer, Boolean> baremesControparte;

@@ -6,7 +6,7 @@ public class DannoRcaDO {
     private Boolean lesioniConducente;
     private AnagraficaDanniDO anagraficaDanniCliente;
     private AnagraficaDanniDO anagraficaDanniControparte;
-    private List<AnagraficaDanniDO> altreControparti;
+    private List<AnagraficaTerzePartiDO> terzeParti;
 
     public Boolean getLesioniConducente() {
         return lesioniConducente;
@@ -32,11 +32,11 @@ public class DannoRcaDO {
         this.anagraficaDanniControparte = anagraficaDanniControparte;
     }
 
-    public List<AnagraficaDanniDO> getAltreControparti() {
-        return altreControparti;
+    public List<AnagraficaTerzePartiDO> getTerzeParti() {
+        return terzeParti;
     }
 
-    public void setAltreControparti(List<AnagraficaDanniDO> altreControparti) {
-        this.altreControparti = altreControparti;
+    public void setTerzeParti(List<AnagraficaTerzePartiDO> terzeParti) {
+        this.terzeParti = terzeParti;
     }
 }
