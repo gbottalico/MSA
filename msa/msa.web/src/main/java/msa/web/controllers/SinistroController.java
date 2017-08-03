@@ -12,7 +12,11 @@ import msa.application.dto.sinistro.segnalazione.SegnalazioneDTO;
 import msa.application.exceptions.InternalMsaException;
 import msa.application.service.sinistri.SinistriService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value = "/api/sinistro")
@@ -79,7 +83,7 @@ public class SinistroController {
      * @return
      */
     @ApiOperation(value = "Metoto che salva i dati della constatazione amichevole")
-    @RequestMapping(value = "/{numero/ca", method = RequestMethod.POST)
+    @RequestMapping(value = "/{numero}/CA", method = RequestMethod.POST)
     public BaseDTO salvaConstatazioneAmichevole(@RequestBody ConstatazioneAmichevoleDTO input, @PathVariable("numero") Integer numeroSinistro) throws InternalMsaException {
         return sinistriService.salvaConstatazioneAmichevole(input, numeroSinistro);
     }

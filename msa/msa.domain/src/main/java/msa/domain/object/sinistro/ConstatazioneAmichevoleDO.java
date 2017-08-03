@@ -1,22 +1,22 @@
 package msa.domain.object.sinistro;
 
 public class ConstatazioneAmichevoleDO {
-    private Boolean isCaCompilata;
-    private Boolean isCaCompilataControparte;
+    private Boolean caCompilata;
+    private Boolean caCompilataControparte;
 
     public Boolean getCaCompilata() {
-        return isCaCompilata;
+        return caCompilata;
     }
 
     public void setCaCompilata(Boolean caCompilata) {
-        isCaCompilata = caCompilata;
+        this.caCompilata = caCompilata;
     }
 
     public Boolean getCaCompilataControparte() {
-        return isCaCompilataControparte;
+        return caCompilataControparte;
     }
 
     public void setCaCompilataControparte(Boolean caCompilataControparte) {
-        isCaCompilataControparte = caCompilataControparte;
+        this.caCompilataControparte = caCompilataControparte;
     }
 }

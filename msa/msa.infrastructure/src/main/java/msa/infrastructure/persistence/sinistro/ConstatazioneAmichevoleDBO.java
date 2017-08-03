@@ -3,24 +3,24 @@ package msa.infrastructure.persistence.sinistro;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 public class ConstatazioneAmichevoleDBO {
-    @Field("isCaCompilata")
-    private Boolean isCaCompilata;
-    @Field("isCaCompilataControparte")
-    private Boolean isCaCompilataControparte;
+    @Field("caCompilata")
+    private Boolean caCompilata;
+    @Field("caCompilataControparte")
+    private Boolean caCompilataControparte;
 
     public Boolean getCaCompilata() {
-        return isCaCompilata;
+        return caCompilata;
     }
 
     public void setCaCompilata(Boolean caCompilata) {
-        isCaCompilata = caCompilata;
+        this.caCompilata = caCompilata;
     }
 
     public Boolean getCaCompilataControparte() {
-        return isCaCompilataControparte;
+        return caCompilataControparte;
     }
 
     public void setCaCompilataControparte(Boolean caCompilataControparte) {
-        isCaCompilataControparte = caCompilataControparte;
+        this.caCompilataControparte = caCompilataControparte;
     }
 }
