@@ -45,20 +45,4 @@ public class BaseRepository {
             return null;
         }
     }
-
-    protected <T> DBObject getDBObjectFromDBO(final T object) throws JsonProcessingException {
-
-
-        //return new BasicDBObject(object.getClass().getAnnotation(Document.class).collection(),object);
-        return (DBObject) JSON.parse(mapper.writeValueAsString(object));
-    }
-
-    protected <T> Update getUpdateFromObject(final T object) {
-        try {
-            return Update.fromDBObject(getDBObjectFromDBO(object),"id");
-        } catch (JsonProcessingException e) {
-            LOGGER.error(e.getMessage());
-            return null;
-        }
-    }
 }

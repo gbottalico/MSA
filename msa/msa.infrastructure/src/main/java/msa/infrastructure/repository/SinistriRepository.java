@@ -56,8 +56,7 @@ public class SinistriRepository extends BaseRepository {
 
 
     public SinistroDO updateSinistroProvvisorio(SinistroDO input) throws Exception {
-        final Integer numProvv = input.getNumSinistroProvv();
-        mongoTemplate.updateFirst(getQueryFindByNumProvv(numProvv), getUpdateFromObject(converter.convertObject(input, SinistroDBO.class)), SinistroDBO.class);
+        mongoTemplate.save(converter.convertObject(input, SinistroDBO.class));
         return input;
     }
 
@@ -114,10 +113,6 @@ public class SinistriRepository extends BaseRepository {
                         .limit(1),
                 SinistroDBO.class);
         return numSinistroProvv != null ? numSinistroProvv.getNumSinistroProvv() + 1 : 0;
-    }
-
-    private boolean isNotNull(Object value) {
-        return Objects.nonNull(value);
     }
 
 
