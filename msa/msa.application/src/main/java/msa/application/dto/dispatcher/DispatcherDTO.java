@@ -3,6 +3,7 @@ package msa.application.dto.dispatcher;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.io.Serializable;
+import java.util.Map;
 
 /**
  * Created by simon.calabrese on 01/08/2017.
@@ -12,7 +13,7 @@ public class DispatcherDTO implements Serializable{
     private static final long serialVersionUID = 7956107530079706346L;
     private Integer garanziaSelected;
     private String thisView;
-    private String param;
+    private Map<String,String> paramMap;
     private String nextView;
 
 
@@ -40,11 +41,11 @@ public class DispatcherDTO implements Serializable{
         this.nextView = nextView;
     }
 
-    public String getParam() {
-        return param;
+    public Map<String, String> getParamMap() {
+        return paramMap;
     }
 
-    public void setParam(String param) {
-        this.param = param;
+    public void setParamMap(Map<String, String> paramMap) {
+        this.paramMap = paramMap;
     }
 }

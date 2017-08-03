@@ -16,4 +16,8 @@ public final class FunctionUtils {
     public static<T> Boolean checkIsNotNull(final T...object) {
         return Arrays.stream(object).noneMatch(checkIsNotNull);
     }
+
+    public static<T extends Number> T numberConverter(String value, Function<String,T> function) {
+        return function.apply(value);
+    }
 }

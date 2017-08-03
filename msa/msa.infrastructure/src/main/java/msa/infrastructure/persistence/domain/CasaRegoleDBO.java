@@ -1,5 +1,6 @@
 package msa.infrastructure.persistence.domain;
 
+import msa.infrastructure.persistence.AbstractDBO;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -7,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 import java.util.List;
 
 @Document(collection = "casaRegole")
-public class CasaRegoleDBO {
+public class CasaRegoleDBO extends AbstractDBO {
     //TODO da implementare
     @Id
     private String idCompagnia;

@@ -1,6 +1,7 @@
 package msa.infrastructure.persistence.sinistro;
 
 import com.mongodb.DBObject;
+import msa.infrastructure.persistence.AbstractDBO;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -8,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 import java.util.List;
 
 @Document(collection = "sinistri")
-public class SinistroDBO {
+public class SinistroDBO extends AbstractDBO{
     @Id
     private String id;
     @Field("numeroPolizza")

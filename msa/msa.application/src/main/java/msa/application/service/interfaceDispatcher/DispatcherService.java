@@ -20,7 +20,8 @@ public class DispatcherService extends DispatcherUtils {
 
     public BaseDTO<DispatcherDTO> getNextInterface(final DispatcherDTO view) throws InternalMsaException {
         DispatcherDO dispatcherDO = converter.convertObject(view, DispatcherDO.class);
-        view.setNextView(dispatcherRepository.getNextInterface(getParameterIfSubDispatching(dispatcherDO)).getNextView());
+        dispatcherDO.setParam(getCodeForNextView(dispatcherDO));
+        view.setNextView(dispatcherRepository.getNextInterface(dispatcherDO).getNextView());
         return new BaseDTO<>(view);
     }
 }

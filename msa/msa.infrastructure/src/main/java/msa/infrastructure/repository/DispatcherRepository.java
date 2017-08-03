@@ -18,10 +18,12 @@ public class DispatcherRepository extends BaseRepository {
                 .where(getMongoNameByAttributeName("garanzia", AlberInterfacceDBO.class))
                 .is(String.valueOf(path.getGaranziaSelected()));
         final Query criteriaQuery = getCriteriaQueryBuilder().addCriteria(criteria);
-        FogliaDBO fogliaDBO = mongoTemplate.findOne(criteriaQuery, AlberInterfacceDBO.class)
+        final FogliaDBO fogliaDBO = mongoTemplate.findOne(criteriaQuery, AlberInterfacceDBO.class)
                 .getNextTree().stream()
-                .filter(foglia -> (foglia.getThisView().equals(path.getThisView()))
-                        && foglia.getParameter().equals(path.getParam()))
+                .filter(foglia -> (foglia.getThisView().equals(path.getThisView())))
+                .filter(foglia -> {
+                    return path.getParam() == null || foglia.getParameter().equals(path.getParam());
+                })
                 .findFirst()
                 .orElse(null);
         path.setNextView(fogliaDBO.getNextView());
