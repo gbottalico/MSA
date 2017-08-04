@@ -83,7 +83,7 @@
                 <!--INPUT LIST-->
                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 classicInputText">
                         <label>{{'global.polizzasearch.labels.compagnia' | translate}}</label>
-                        <input name="compagnia" type="text" ng-model="$ctrl.compagniaSelezionata" uib-typeahead="regola as regola.descrizioneCompagnia for regola in $ctrl.casaRegole | filter:{descrizioneCompagnia:$viewValue}"  ng-required="true">
+                        <input name="compagnia" type="text" ng-model="$ctrl.compagniaSelezionata" uib-typeahead="regola as regola.descrizioneCompagnia for regola in $ctrl.casaRegole | filter:{descrizioneCompagnia:$viewValue}"  ng-required="true" autocomplete="off">
                         <label class="alert campoobbligatorio">{{'global.polizzasearch.labels.alert' | translate}}</label>
                     </div>
                     <!--END INPUT LIST-->
@@ -191,10 +191,6 @@
                         </button>
                     </div>
 
-                    <pre>{{$ctrl.testDate}}</pre>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 classicInputText">
-                        <msa-date-selector data-result="$ctrl.testDate" data-required="true"></msa-date-selector>
-                    </div>
 				<!--END COMMON NUOVO SINISTRO BUTTON-->
                 </form>
 			</div>
