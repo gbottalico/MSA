@@ -155,12 +155,12 @@ public class SinistriService extends BaseSinistroService {
 
     public BaseDTO<SinistroDTO> salvaDannoRcaTerzeParti(List<AnagraficaTerzePartiDTO> input, Integer numSinistro) throws InternalMsaException {
 
-        return salvaSinistro(getSinistroDOByDTO(input, numSinistro,(sinistroDO, sinistroDO2) -> {
-            if (CollectionUtils.isEmpty(sinistroDO.getDannoRca().getTerzeParti())) {
-                sinistroDO.getDannoRca().setTerzeParti(new ArrayList<>());
+        return salvaSinistro(getSinistroDOByDTO(input, numSinistro,(output, aggregatore) -> {
+            if (CollectionUtils.isEmpty(output.getDannoRca().getTerzeParti())) {
+                output.getDannoRca().setTerzeParti(new ArrayList<>());
             }
-            sinistroDO.getDannoRca().getTerzeParti().addAll(sinistroDO2.getDannoRca().getTerzeParti());
-            return sinistroDO;
+            output.getDannoRca().getTerzeParti().addAll(aggregatore.getDannoRca().getTerzeParti());
+            return output;
         }));
     }
 
