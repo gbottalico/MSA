@@ -1,114 +1,121 @@
-{
-    "garanzia": 0,
-    "nextTree":[{
-            "thisView": "M11",
-            "parameter": "0",
-            "nextView": "M12"
-        },
+{ 
+    "_id" : ObjectId("59833fbdd161384094b22b5e"), 
+    "garanzia" : "0", 
+    "nextTree" : [
         {
-            "thisView": "M12",
-            "parameter": "S",
-            "nextView": "M13"
-        },
+            "thisView" : "M11", 
+            "parameter" : "0", 
+            "nextView" : "M12"
+        }, 
         {
-            "thisView": "M12",
-            "parameter": "N",
-            "nextView": "M14"
-        },
+            "thisView" : "M12", 
+            "parameter" : "S", 
+            "nextView" : "M13"
+        }, 
         {
-            "thisView": "M13",
-            "parameter": null,
-            "nextView": "M14"
-        },
+            "thisView" : "M12", 
+            "parameter" : "N", 
+            "nextView" : "M14"
+        }, 
         {
-            "thisView": "M14",
-            "parameter": null,
-            "nextView": "M15"
-        },
+            "thisView" : "M13", 
+            "parameter" : null, 
+            "nextView" : "M14"
+        }, 
         {
-            "thisView": "M15",
-            "parameter": "0",
-            "nextView": "M16"
-        },
+            "thisView" : "M14", 
+            "parameter" : null, 
+            "nextView" : "M15"
+        }, 
         {
-            "thisView": "M15",
-            "parameter": "1",
-            "nextView": "M17"
-        },
+            "thisView" : "M15", 
+            "parameter" : "0", 
+            "nextView" : "M16"
+        }, 
         {
-            "thisView": "M15",
-            "parameter": "2",
-            "nextView": "M20"
-        },
+            "thisView" : "M15", 
+            "parameter" : "1", 
+            "nextView" : "M17"
+        }, 
         {
-            "thisView": "M16",
-            "parameter": "0",
-            "nextView": "M17"
-        },
+            "thisView" : "M15", 
+            "parameter" : "2", 
+            "nextView" : "M20"
+        }, 
         {
-            "thisView": "M16",
-            "parameter": "1",
-            "nextView": "M20"
-        },
+            "thisView" : "M16", 
+            "parameter" : "0", 
+            "nextView" : "M17"
+        }, 
         {
-            "thisView": "M17",
-            "parameter": null,
-            "nextView": "M18"
-        },
+            "thisView" : "M16", 
+            "parameter" : "1", 
+            "nextView" : "M20"
+        }, 
         {
-            "thisView": "M18",
-            "parameter": "S",
-            "nextView": "M19"
-        },
+            "thisView" : "M17", 
+            "parameter" : null, 
+            "nextView" : "M18"
+        }, 
         {
-            "thisView": "M18",
-            "parameter": "N",
-            "nextView": "M20"
-        },
+            "thisView" : "M18", 
+            "parameter" : "S", 
+            "nextView" : "M19"
+        }, 
         {
-            "thisView": "M19",
-            "parameter": null,
-            "nextView": "M20"
-        },
+            "thisView" : "M18", 
+            "parameter" : "N", 
+            "nextView" : "M20"
+        }, 
         {
-            "thisView": "M20",
-            "parameter": "S",
-            "nextView": "M21"
-        },
+            "thisView" : "M19", 
+            "parameter" : null, 
+            "nextView" : "M20"
+        }, 
         {
-            "thisView": "M20",
-            "parameter": "N",
-            "nextView": "M22"
-        },
+            "thisView" : "M20", 
+            "parameter" : "S", 
+            "nextView" : "M21"
+        }, 
         {
-            "thisView": "M21",
-            "parameter": null,
-            "nextView": "M22"
-        },
+            "thisView" : "M20", 
+            "parameter" : "N", 
+            "nextView" : "M22"
+        }, 
         {
-            "thisView": "M22",
-            "parameter": "0",
-            "nextView": "M23"
-        },
+            "thisView" : "M21", 
+            "parameter" : null, 
+            "nextView" : "M22"
+        }, 
         {
-            "thisView": "M22",
-            "parameter": "1",
-            "nextView": "M25"
-        },
+            "thisView" : "M22", 
+            "parameter" : "0", 
+            "nextView" : "M23"
+        }, 
         {
-            "thisView": "M22",
-            "parameter": "2",
-            "nextView": "M26"
-        },
+            "thisView" : "M22", 
+            "parameter" : "1", 
+            "nextView" : "M25"
+        }, 
         {
-            "thisView": "M23",
-            "parameter": "0",
-            "nextView": "M25"
-        },
+            "thisView" : "M22", 
+            "parameter" : "2", 
+            "nextView" : "M26"
+        }, 
         {
-            "thisView": "M23",
-            "parameter": "1",
-            "nextView": "M26"
+            "thisView" : "M23", 
+            "parameter" : "0", 
+            "nextView" : "M25"
+        }, 
+        {
+            "thisView" : "M23", 
+            "parameter" : "1", 
+            "nextView" : "M26"
+        }, 
+        {
+            "thisView" : "M25", 
+            "parameter" : null, 
+            "nextView" : "M26"
         }
     ]
 }
