@@ -13,12 +13,13 @@ import msa.application.dto.sinistro.dannoRca.DannoRcaDTO;
 import msa.application.dto.sinistro.eventoRca.EventoRcaDTO;
 import msa.application.dto.sinistro.segnalazione.SegnalazioneDTO;
 import msa.application.exceptions.InternalMsaException;
-import msa.domain.Converter.MsaConverter;
-import msa.domain.object.sinistro.*;
+import msa.domain.object.sinistro.InputRicercaDO;
+import msa.domain.object.sinistro.SinistroDO;
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class SinistriService extends BaseSinistroService {
@@ -154,7 +155,13 @@ public class SinistriService extends BaseSinistroService {
 
     public BaseDTO<SinistroDTO> salvaDannoRcaTerzeParti(List<AnagraficaTerzePartiDTO> input, Integer numSinistro) throws InternalMsaException {
 
-        return salvaSinistro(getSinistroDOByDTO(input, numSinistro));
+        return salvaSinistro(getSinistroDOByDTO(input, numSinistro,(sinistroDO, sinistroDO2) -> {
+            if (CollectionUtils.isEmpty(sinistroDO.getDannoRca().getTerzeParti())) {
+                sinistroDO.getDannoRca().setTerzeParti(new ArrayList<>());
+            }
+            sinistroDO.getDannoRca().getTerzeParti().addAll(sinistroDO2.getDannoRca().getTerzeParti());
+            return sinistroDO;
+        }));
     }
 
     public BaseDTO<SinistroDTO> salvaDannoRcaLegale(AnagraficaTerzePartiDTO input, Integer numeroSinistro) throws InternalMsaException {
