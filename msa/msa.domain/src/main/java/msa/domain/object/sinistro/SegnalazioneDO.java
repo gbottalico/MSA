@@ -7,6 +7,7 @@ public class SegnalazioneDO {
     private Integer codMezzo;
     private Date dataDenuncia;
     private Date dataOraSinistro;
+    private String oraSinistro;
     private Integer codNazione;
     private Integer codProvincia;
     private Integer codComune;
@@ -16,6 +17,14 @@ public class SegnalazioneDO {
 
     public BaseAnagraficaDO getDenunciante() {
         return denunciante;
+    }
+
+    public String getOraSinistro() {
+        return oraSinistro;
+    }
+
+    public void setOraSinistro(String oraSinistro) {
+        this.oraSinistro = oraSinistro;
     }
 
     public void setDenunciante(BaseAnagraficaDO denunciante) {
