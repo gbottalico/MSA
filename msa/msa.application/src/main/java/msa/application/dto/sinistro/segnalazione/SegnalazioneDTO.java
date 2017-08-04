@@ -12,6 +12,7 @@ public class SegnalazioneDTO extends BaseSinistroDTO {
     private Integer codMezzo;
     private Date dataDenuncia;
     private Date dataOraSinistro;
+    private String oraSinistro;
     private Integer codNazione;
     private Integer codProvincia;
     private Integer codComune;
@@ -104,6 +105,14 @@ public class SegnalazioneDTO extends BaseSinistroDTO {
 
     }
 
+    public String getOraSinistro() {
+        return oraSinistro;
+    }
+
+    public void setOraSinistro(String oraSinistro) {
+        this.oraSinistro = oraSinistro;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -116,6 +125,7 @@ public class SegnalazioneDTO extends BaseSinistroDTO {
         if (dataDenuncia != null ? !dataDenuncia.equals(that.dataDenuncia) : that.dataDenuncia != null) return false;
         if (dataOraSinistro != null ? !dataOraSinistro.equals(that.dataOraSinistro) : that.dataOraSinistro != null)
             return false;
+        if (oraSinistro != null ? !oraSinistro.equals(that.oraSinistro) : that.oraSinistro != null) return false;
         if (codNazione != null ? !codNazione.equals(that.codNazione) : that.codNazione != null) return false;
         if (codProvincia != null ? !codProvincia.equals(that.codProvincia) : that.codProvincia != null) return false;
         if (codComune != null ? !codComune.equals(that.codComune) : that.codComune != null) return false;
@@ -130,6 +140,7 @@ public class SegnalazioneDTO extends BaseSinistroDTO {
         result = 31 * result + (codMezzo != null ? codMezzo.hashCode() : 0);
         result = 31 * result + (dataDenuncia != null ? dataDenuncia.hashCode() : 0);
         result = 31 * result + (dataOraSinistro != null ? dataOraSinistro.hashCode() : 0);
+        result = 31 * result + (oraSinistro != null ? oraSinistro.hashCode() : 0);
         result = 31 * result + (codNazione != null ? codNazione.hashCode() : 0);
         result = 31 * result + (codProvincia != null ? codProvincia.hashCode() : 0);
         result = 31 * result + (codComune != null ? codComune.hashCode() : 0);

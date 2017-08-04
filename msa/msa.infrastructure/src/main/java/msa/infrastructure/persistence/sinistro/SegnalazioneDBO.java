@@ -18,6 +18,8 @@ public class SegnalazioneDBO {
     @Field("dataOraSinistro")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private Date dataOraSinistro;
+    @Field("oraSinistro")
+    private String oraSinistro;
     @Field("codNazione")
     private Integer codNazione;
     @Field("codProvincia")
@@ -31,6 +33,13 @@ public class SegnalazioneDBO {
     @Field("garanziaSelected")
     private String garanziaSelected;
 
+    public String getOraSinistro() {
+        return oraSinistro;
+    }
+
+    public void setOraSinistro(String oraSinistro) {
+        this.oraSinistro = oraSinistro;
+    }
 
     public BaseAnagraficaDBO getDenunciante() {
         return denunciante;
