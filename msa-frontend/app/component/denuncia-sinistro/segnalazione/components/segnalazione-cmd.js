@@ -35,6 +35,12 @@
 
                 /* Utilities */
 
+                ctrl.apriSegnalazione = function () {
+                    SinistriSvc.apriSegnalazione(ctrl.numeroSinistroProvvisorio, ctrl.sinistro).then(function (response) {
+                        console.log(response.data.result);
+                    })
+                };
+
                 ctrl.back = function () {
                     ctrl.valoriRicerca = undefined;
                 };

@@ -80,6 +80,46 @@ angular.module('msa').service(
 
             };
 
+            $svc.apriSegnalazione = function (idSinistroProvvisorio, datiSegnalazione) {
+
+                var data = {};
+                data.denunciante = {};
+
+                data.denunciante.nome = datiSegnalazione.segnalazione.nome;
+                data.denunciante.cognome = datiSegnalazione.segnalazione.cognome;
+                data.denunciante.telefono = datiSegnalazione.segnalazione.telefono;
+                data.denunciante.codRuolo = datiSegnalazione.segnalazione.ruolo;
+
+                data.denunciante.cellulare = datiSegnalazione.tracking.cellulare;
+                data.denunciante.email = datiSegnalazione.tracking.email;
+
+                data.codMezzo = datiSegnalazione.provenienza.mezzoComunicazione;
+                data.dataDenuncia = datiSegnalazione.provenienza.dataDenuncia.date;
+                data.dataOraSinistro = datiSegnalazione.provenienza.dataSinistro.date;
+                data.oraSinistro = datiSegnalazione.provenienza.oraSinistro;
+
+                data.codNazione = datiSegnalazione.luogo.nazione.id;
+                if(UtilSvc.hasId(datiSegnalazione.luogo.provincia)) {
+                    data.codProvincia = datiSegnalazione.luogo.provincia.codProvincia;
+                } else {
+                    data.codProvincia = -1;
+                }
+                if(UtilSvc.hasId(datiSegnalazione.luogo.comune)) {
+                    data.codComune = datiSegnalazione.luogo.comune.codComune;
+                } else {
+                    data.codComune = -1;
+                }
+                data.cap = datiSegnalazione.luogo.cap;
+                data.indirizzo = datiSegnalazione.luogo.tipostrada + " " + datiSegnalazione.luogo.denominazione + ", " + datiSegnalazione.luogo.civico;
+                data.garanziaSelected = datiSegnalazione.garanzia;
+
+                console.log(JSON.stringify(data));
+
+                var url = UtilSvc.stringFormat(msaServicesApiUrls.aprisegnalazione, idSinistroProvvisorio);
+                console.log(url);
+                return $http.post(url, data);
+
+            }
 
         }
     ]

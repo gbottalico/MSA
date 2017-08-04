@@ -10,7 +10,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container boxShadow">
         <div class="body">
 
-            <pre class="col-lg-12">{{$ctrl.sinistro}}</pre>
+            <pre class="col-lg-12">{{$ctrl.numeroSinistroProvvisorio}}: {{$ctrl.sinistro}}</pre>
             <input type="text" name="nome" ng-model="$ctrl.numeroSinistroProvvisorio">
 
             <!-- Dati Segnalante -->
@@ -68,7 +68,7 @@
             </div>
             <div class="col-lg-12 classicInputRadio">
                 <div class="col-lg-1 col-md-2 col-sm-6 col-xs-12 noPaddingLeft" ng-repeat="mezzo in $ctrl.mezzicomunicazione">
-                    <input type="radio" value="{{mezzo.id}}" name="mezzocomunicazione" ng-model="$ctrl.sinistro.provenzienza.mezzoComunicazione">
+                    <input type="radio" value="{{mezzo.id}}" name="mezzocomunicazione" ng-model="$ctrl.sinistro.provenienza.mezzoComunicazione">
                     <label class="rightLabel">{{mezzo.descrizione}}</label>
                 </div>
             </div>
@@ -82,7 +82,7 @@
                 <label>{{'global.denunciasinitro.labels.dataSinistro' | translate}}</label>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
-                <input type="text" name="orasinistro" ng-model="$ctrl.sinistro.provenzienza.oraSinistro">
+                <input type="text" name="orasinistro" ng-model="$ctrl.sinistro.provenienza.oraSinistro">
                 <label>{{'global.denunciasinitro.labels.oraSinistro' | translate}}</label>
             </div>
 
@@ -126,70 +126,70 @@
             </div>
             <div class="garanzieDisponibili col-lg-2">
                 <div class="garanziaBox noPadding">
-                    <input id="rca" type="radio" name="garanzie" value="rca" checked>
+                    <input id="rca" type="radio" name="garanzie" value="rca" ng-model="$ctrl.sinistro.garanzia" checked>
                     <label for="rca"><p>Rca</p></label>
                 </div>
                 <p>RCA</p>
             </div>
             <div class="garanzieDisponibili col-lg-2">
                 <div class="garanziaBox noPadding">
-                    <input id="fei" type="radio" name="garanzie" value="fei">
+                    <input id="fei" type="radio" name="garanzie" value="fei" ng-model="$ctrl.sinistro.garanzia">
                     <label for="fei"><p>F&amp;I</p></label>
                 </div>
                 <p>Furto e Incendio</p>
             </div>
             <div class="garanzieDisponibili col-lg-2">
                 <div class="garanziaBox noPadding">
-                    <input id="van" type="radio" name="garanzie" value="van">
+                    <input id="van" type="radio" name="garanzie" value="van" ng-model="$ctrl.sinistro.garanzia">
                     <label for="van"><p>Van</p></label>
                 </div>
                 <p>Atti Vandalici</p>
             </div>
             <div class="garanzieDisponibili col-lg-2">
                 <div class="garanziaBox noPadding">
-                    <input id="nat" type="radio" name="garanzie" value="nat">
+                    <input id="nat" type="radio" name="garanzie" value="nat" ng-model="$ctrl.sinistro.garanzia">
                     <label for="nat"><p>Nat</p></label>
                 </div>
                 <p>Eventi Naturali</p>
             </div>
             <div class="garanzieDisponibili col-lg-2">
                 <div class="garanziaBox noPadding">
-                    <input id="col" type="radio" name="garanzie" value="col">
+                    <input id="col" type="radio" name="garanzie" value="col" ng-model="$ctrl.sinistro.garanzia">
                     <label for="col"><p>Col</p></label>
                 </div>
                 <p>Collisione</p>
             </div>
             <div class="garanzieDisponibili col-lg-2">
                 <div class="garanziaBox noPadding">
-                    <input id="kas" type="radio" name="garanzie" value="kas">
+                    <input id="kas" type="radio" name="garanzie" value="kas" ng-model="$ctrl.sinistro.garanzia">
                     <label for="kas"><p>Kas</p></label>
                 </div>
                 <p>Kasko</p>
             </div>
             <div class="garanzieDisponibili col-lg-2">
                 <div class="garanziaBox noPadding">
-                    <input id="cri" type="radio" name="garanzie" value="cri">
+                    <input id="cri" type="radio" name="garanzie" value="cri" ng-model="$ctrl.sinistro.garanzia">
                     <label for="cri"><p>Cri</p></label>
                 </div>
                 <p>Cristalli</p>
             </div>
             <div class="garanzieDisponibili col-lg-2">
                 <div class="garanziaBox noPadding">
-                    <input id="con" type="radio" name="garanzie" value="con">
+                    <input id="con" type="radio" name="garanzie" value="con" ng-model="$ctrl.sinistro.garanzia">
                     <label for="con"><p>Con</p></label>
                 </div>
                 <p>Infortuni Conducente</p>
             </div>
             <div class="garanzieDisponibili col-lg-2">
                 <div class="garanziaBox noPadding">
-                    <input id="leg" type="radio" name="garanzie" value="leg">
+                    <input id="leg" type="radio" name="garanzie" value="leg" ng-model="$ctrl.sinistro.garanzia">
                     <label for="leg"><p>Leg</p></label>
                 </div>
                 <p>Tutela Legale</p>
             </div>
             <div class="garanzieDisponibili col-lg-2">
                 <div class="garanziaBox noPadding">
-                    <input id="str" type="radio" name="garanzie" value="str">
+                    <input id="str" type="radio" name="garanzie" value="str" ng-model="$ctrl.sinistro.garanzia">
                     <label for="str"><p>Str</p></label>
                 </div>
                 <p>Assistenza Stradale</p>
@@ -197,7 +197,7 @@
 
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicButton">
                 <button class="blueButton"
-                        ng-click="$ctrl.denuncia()">
+                        ng-click="$ctrl.apriSegnalazione()">
                     <a><i class="fa fa-plus" aria-hidden="true"></i> Salva e Continua</a>
                 </button>
             </div>

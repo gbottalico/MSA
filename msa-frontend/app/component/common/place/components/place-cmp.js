@@ -12,6 +12,7 @@ app.component('msaPlace', {
         ctrl.nazioneSelezionata = undefined;
         ctrl.provinciaSelezionata = undefined;
         ctrl.comuneSelezionato = undefined;
+        ctrl.capSelezionato = undefined;
         ctrl.caps = [];
 
         if (ctrl.result === undefined) {
@@ -55,7 +56,8 @@ app.component('msaPlace', {
                 return {
                     nazsel: ctrl.nazioneSelezionata,
                     provsel: ctrl.provinciaSelezionata,
-                    comsel: ctrl.comuneSelezionato
+                    comsel: ctrl.comuneSelezionato,
+                    capsel: ctrl.capSelezionato
                 };
             },
             function handlePlacesChange(newValue, oldValue) {
@@ -98,9 +100,14 @@ app.component('msaPlace', {
                         ctrl.caps = [];
                     } else {
                         ctrl.caps = newValue.comsel.cap;
+                        if(newValue.comsel.cap.length === 1) {
+                            ctrl.capSelezionato = newValue.comsel.cap[0];
+                        }
                         ctrl.result.comune = newValue.comsel;
                     }
                 }
+
+                ctrl.result.cap = newValue.capsel;
 
                 ctrl.result.$valid = PlacesSvc.isValidPlace(ctrl.result.nazione, ctrl.result.provincia, ctrl.result.comune);
 

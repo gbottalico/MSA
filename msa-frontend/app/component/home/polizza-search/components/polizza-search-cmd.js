@@ -158,7 +158,7 @@
                         bannersearch: ctrl.bannersearch,
                         bannerdenuncia: ctrl.bannerdenuncia,
                         user: {
-                            cognome: ctrl.ricercapolizza.cognome,
+                            cognome: "Piras",
                             nome: 'Dario',
                             cf: 'PRSDRA87E28B157S',
                             luogonascita: 'Brescia',

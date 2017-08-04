@@ -1,3 +1,4 @@
+<div class="col-lg-12"><pre>{{$ctrl.result}}</pre></div>
 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
     <input type="text"
            ng-model="$ctrl.nazioneSelezionata"
@@ -22,7 +23,7 @@
     <label>{{'global.denunciasinitro.labels.comune' | translate}}</label>
 </div>
 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText" ng-disabled="$ctrl.nazioneSelezionata.id > 1">
-    <select ng-disabled="$ctrl.nazioneSelezionata.id > 1 || $ctrl.caps.length <= 1">
+    <select ng-disabled="$ctrl.nazioneSelezionata.id > 1" ng-model="$ctrl.capSelezionato">
         <option ng-repeat="cap in $ctrl.caps">{{cap}}</option>
     </select>
     <label>{{'global.denunciasinitro.labels.cap' | translate}}</label>
