@@ -1,6 +1,6 @@
 package msa.application.service.interfaceDispatcher;
 
-import msa.application.commons.functions.FunctionUtils;
+import msa.domain.Converter.FunctionUtils;
 import msa.application.exceptions.InternalMsaException;
 import msa.application.service.base.BaseService;
 import msa.application.service.sinistri.MsaFunction;

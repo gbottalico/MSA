@@ -9,6 +9,7 @@ public class EventoRcaDO {
     private Integer codAutorita;
     private String comandoAutorita;
     private Date dataDenuncia;
+    private Boolean flagCard;
 
     public Boolean getCollisione() {
         return collisione;
@@ -56,5 +57,13 @@ public class EventoRcaDO {
 
     public void setDataDenuncia(Date dataDenuncia) {
         this.dataDenuncia = dataDenuncia;
+    }
+
+    public Boolean getFlagCard() {
+        return flagCard;
+    }
+
+    public void setFlagCard(Boolean flagCard) {
+        this.flagCard = flagCard;
     }
 }

@@ -12,37 +12,9 @@ public class EventoRcaDTO extends BaseSinistroDTO {
     private Integer codAutorita;
     private String comandoAutorita;
     private Date dataDenuncia;
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        EventoRcaDTO that = (EventoRcaDTO) o;
-
-        if (collisione != null ? !collisione.equals(that.collisione) : that.collisione != null) return false;
-        if (numVeicoli != null ? !numVeicoli.equals(that.numVeicoli) : that.numVeicoli != null) return false;
-        if (interventoAutorita != null ? !interventoAutorita.equals(that.interventoAutorita) : that.interventoAutorita != null)
-            return false;
-        if (codAutorita != null ? !codAutorita.equals(that.codAutorita) : that.codAutorita != null) return false;
-        if (comandoAutorita != null ? !comandoAutorita.equals(that.comandoAutorita) : that.comandoAutorita != null)
-            return false;
-        return dataDenuncia != null ? dataDenuncia.equals(that.dataDenuncia) : that.dataDenuncia == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = collisione != null ? collisione.hashCode() : 0;
-        result = 31 * result + (numVeicoli != null ? numVeicoli.hashCode() : 0);
-        result = 31 * result + (interventoAutorita != null ? interventoAutorita.hashCode() : 0);
-        result = 31 * result + (codAutorita != null ? codAutorita.hashCode() : 0);
-        result = 31 * result + (comandoAutorita != null ? comandoAutorita.hashCode() : 0);
-        result = 31 * result + (dataDenuncia != null ? dataDenuncia.hashCode() : 0);
-        return result;
-    }
+    private Boolean flagCard;
 
     public Boolean getCollisione() {
-
         return collisione;
     }
 
@@ -88,5 +60,43 @@ public class EventoRcaDTO extends BaseSinistroDTO {
 
     public void setDataDenuncia(Date dataDenuncia) {
         this.dataDenuncia = dataDenuncia;
+    }
+
+    public Boolean getFlagCard() {
+        return flagCard;
+    }
+
+    public void setFlagCard(Boolean flagCard) {
+        this.flagCard = flagCard;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        EventoRcaDTO that = (EventoRcaDTO) o;
+
+        if (collisione != null ? !collisione.equals(that.collisione) : that.collisione != null) return false;
+        if (numVeicoli != null ? !numVeicoli.equals(that.numVeicoli) : that.numVeicoli != null) return false;
+        if (interventoAutorita != null ? !interventoAutorita.equals(that.interventoAutorita) : that.interventoAutorita != null)
+            return false;
+        if (codAutorita != null ? !codAutorita.equals(that.codAutorita) : that.codAutorita != null) return false;
+        if (comandoAutorita != null ? !comandoAutorita.equals(that.comandoAutorita) : that.comandoAutorita != null)
+            return false;
+        if (dataDenuncia != null ? !dataDenuncia.equals(that.dataDenuncia) : that.dataDenuncia != null) return false;
+        return flagCard != null ? flagCard.equals(that.flagCard) : that.flagCard == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = collisione != null ? collisione.hashCode() : 0;
+        result = 31 * result + (numVeicoli != null ? numVeicoli.hashCode() : 0);
+        result = 31 * result + (interventoAutorita != null ? interventoAutorita.hashCode() : 0);
+        result = 31 * result + (codAutorita != null ? codAutorita.hashCode() : 0);
+        result = 31 * result + (comandoAutorita != null ? comandoAutorita.hashCode() : 0);
+        result = 31 * result + (dataDenuncia != null ? dataDenuncia.hashCode() : 0);
+        result = 31 * result + (flagCard != null ? flagCard.hashCode() : 0);
+        return result;
     }
 }

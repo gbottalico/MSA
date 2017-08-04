@@ -1,8 +1,10 @@
 package msa.infrastructure.repository;
 
+import msa.domain.Converter.FunctionUtils;
 import msa.domain.Converter.MsaConverter;
 import msa.domain.object.dominio.*;
 import msa.domain.object.sinistro.RuoliDO;
+import msa.domain.object.sinistro.SinistroDO;
 import msa.infrastructure.base.repository.domain.*;
 import msa.infrastructure.persistence.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -104,8 +106,8 @@ public class DomainRepository extends BaseRepository {
             CompagniaDO compagniaDO = new CompagniaDO();
             compagniaDO.setCodFornitore(compagniaDBO.getCodFornitore());
             compagniaDO.setConvenzioneCid(compagniaDBO.getConvenzioneCid());
-            compagniaDO.setDataInCard(converter.convertObject(compagniaDBO.getDataInCard(), MsaConverter.Utils.convertStringToLocaldate));
-            compagniaDO.setDataOutCard(converter.convertObject(compagniaDBO.getDataOutCard(), MsaConverter.Utils.convertStringToLocaldate));
+            compagniaDO.setDataInCard(converter.convertObject(compagniaDBO.getDataInCard(), FunctionUtils.convertStringToLocaldate));
+            compagniaDO.setDataOutCard(converter.convertObject(compagniaDBO.getDataOutCard(), FunctionUtils.convertStringToLocaldate));
             compagniaDO.setDescrizione(compagniaDBO.getDescrizione());
             compagniaDO.setEstera(compagniaDBO.getEstera());
             compagniaDO.setId(compagniaDBO.getId());
@@ -180,5 +182,9 @@ public class DomainRepository extends BaseRepository {
      */
     public List<RuoliDO> getElencoRuoli() {
         return converter.convertList(ruoliRepository.findAll(), RuoliDO.class);
+    }
+
+    public CompagniaDO getCompagniaByCodCompagnia(final Integer codCompagnia) {
+        return converter.convertObject(mongoTemplate.findById(codCompagnia, CompagniaDBO.class), CompagniaDO.class);
     }
 }

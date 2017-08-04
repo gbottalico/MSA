@@ -39,15 +39,4 @@ public class MsaConverter {
         return source.stream().map(e -> convertObject(e, conversionFunction)).collect(Collectors.toList());
     }
 
-    public static class Utils {
-        private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
-
-        public final static Function<String, Date> convertStringToLocaldate = s -> {
-            if (s == null) {
-                return null;
-            }
-            return Date.valueOf(LocalDate.parse(s, FORMATTER));
-        };
-    }
-
 }

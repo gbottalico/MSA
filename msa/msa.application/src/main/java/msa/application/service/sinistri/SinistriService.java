@@ -1,6 +1,6 @@
 package msa.application.service.sinistri;
 
-import msa.application.commons.functions.FunctionUtils;
+import msa.domain.Converter.FunctionUtils;
 import msa.application.config.BaseDTO;
 import msa.application.config.enumerator.MessageType;
 import msa.application.dto.ricerca.InputRicercaDTO;
@@ -13,9 +13,13 @@ import msa.application.dto.sinistro.dannoRca.DannoRcaDTO;
 import msa.application.dto.sinistro.eventoRca.EventoRcaDTO;
 import msa.application.dto.sinistro.segnalazione.SegnalazioneDTO;
 import msa.application.exceptions.InternalMsaException;
+import msa.domain.Converter.MsaConverter;
+import msa.domain.object.dominio.CompagniaDO;
 import msa.domain.object.sinistro.InputRicercaDO;
 import msa.domain.object.sinistro.SinistroDO;
+import msa.infrastructure.repository.DomainRepository;
 import org.apache.commons.collections.CollectionUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -24,6 +28,8 @@ import java.util.List;
 @Service
 public class SinistriService extends BaseSinistroService {
 
+    @Autowired
+    private DomainRepository domainRepository;
 
     /**
      * Metodo che effettua la ricerca le coperture in base ai parametri passati in input
@@ -100,6 +106,12 @@ public class SinistriService extends BaseSinistroService {
     public BaseDTO<SinistroDTO> salvaEventoRca(EventoRcaDTO input, Integer numSinistroProvv) throws InternalMsaException {
 
         final SinistroDO sinistroDOByDTO = getSinistroDOByDTO(input, numSinistroProvv);
+        CompagniaDO compagnia = domainRepository.getCompagniaByCodCompagnia(sinistroDOByDTO.getCompagnia());
+        sinistroDOByDTO.getEventoRca().setFlagCard(FunctionUtils.between(
+                FunctionUtils.nowAsDate(),
+                compagnia.getDataInCard(),
+                compagnia.getDataOutCard(),
+                true));
         return salvaSinistro(sinistroDOByDTO);
     }
 
@@ -155,7 +167,7 @@ public class SinistriService extends BaseSinistroService {
 
     public BaseDTO<SinistroDTO> salvaDannoRcaTerzeParti(List<AnagraficaTerzePartiDTO> input, Integer numSinistro) throws InternalMsaException {
 
-        return salvaSinistro(getSinistroDOByDTO(input, numSinistro,(output, aggregatore) -> {
+        return salvaSinistro(getSinistroDOByDTO(input, numSinistro, (output, aggregatore) -> {
             if (CollectionUtils.isEmpty(output.getDannoRca().getTerzeParti())) {
                 output.getDannoRca().setTerzeParti(new ArrayList<>());
             }
@@ -165,7 +177,7 @@ public class SinistriService extends BaseSinistroService {
     }
 
     public BaseDTO<SinistroDTO> salvaDannoRcaLegale(AnagraficaTerzePartiDTO input, Integer numeroSinistro) throws InternalMsaException {
-        return salvaSinistro(getSinistroDOByDTOAndFunction(input,numeroSinistro,LEGALE));
+        return salvaSinistro(getSinistroDOByDTOAndFunction(input, numeroSinistro, LEGALE));
 
     }
 }
