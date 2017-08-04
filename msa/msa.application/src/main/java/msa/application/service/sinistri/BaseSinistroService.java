@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.function.BiFunction;
+import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
 
 /**
@@ -42,15 +43,11 @@ public class BaseSinistroService extends BaseService {
         coupleFunctions.add(new Function<>(CaiDTO.class, CAI));
     }
 
-    protected <T extends BaseSinistroDTO> SinistroDO getSinistroDOByDTO(T dto, Integer numProvv, MsaBiFunction<T, SinistroDO, SinistroDO> andThen) throws InternalMsaException {
-        return andThen.apply(dto, GETSINISTRO.apply(numProvv));
-    }
-
     protected <T extends BaseSinistroDTO> SinistroDO getSinistroDOByDTOAndFunction(T dto, Integer numProvv, MsaBiFunction<T, Integer, SinistroDO> andThen) throws InternalMsaException {
         return andThen.apply(dto, numProvv);
     }
 
-    protected <T extends BaseSinistroDTO> SinistroDO getSinistroDOByDTO(List<T> dto, Integer numProvv) throws InternalMsaException {
+    protected <T extends BaseSinistroDTO> SinistroDO getSinistroDOByDTO(List<T> dto, Integer numProvv, BinaryOperator<SinistroDO> binaryOperator) throws InternalMsaException {
         return dto.stream()
                 .collect(Collectors.toMap(e -> e, e -> numProvv))
                 .entrySet()
@@ -61,13 +58,7 @@ public class BaseSinistroService extends BaseService {
                     } catch (InternalMsaException e1) {
                         return null;
                     }
-                }).reduce((sinistroDO, sinistroDO2) -> {
-                    if (CollectionUtils.isEmpty(sinistroDO.getDannoRca().getTerzeParti())) {
-                        sinistroDO.getDannoRca().setTerzeParti(new ArrayList<>());
-                    }
-                    sinistroDO.getDannoRca().getTerzeParti().addAll(sinistroDO2.getDannoRca().getTerzeParti());
-                    return sinistroDO;
-                }).orElse(null);
+                }).reduce(binaryOperator).orElse(null);
     }
 
     protected <T extends BaseSinistroDTO> SinistroDO getSinistroDOByDTO(T dto, Integer numProvv) throws InternalMsaException {
@@ -98,7 +89,7 @@ public class BaseSinistroService extends BaseService {
     }
 
 
-    protected final MsaFunction<Integer, SinistroDO> GETSINISTRO =
+    private final MsaFunction<Integer, SinistroDO> GETSINISTRO =
             numSinistroProvv -> {
                 try {
                     return sinistriRepository.getSinistroByNumProvv(numSinistroProvv);
