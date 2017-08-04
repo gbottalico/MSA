@@ -9,11 +9,11 @@ angular.module('msa').service(
             };
 
             $svc.arrayHasElements = function (array) {
-                return (typeof array != "undefined"
-                    && array != null
-                    && array.length != null
-                    && array.length > 0)
-            }
+                return (typeof array != "undefined" &&
+                    array != null &&
+                    array.length != null &&
+                    array.length > 0);
+            };
 
         }
     ]

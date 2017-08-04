@@ -20,7 +20,7 @@ angular.module('msa').service(
                     "numeroProvvisorio" : undefined,
                     "numeroPreapertura" : undefined,
                     "compagnia" : undefined
-                }
+                };
 
             };
 

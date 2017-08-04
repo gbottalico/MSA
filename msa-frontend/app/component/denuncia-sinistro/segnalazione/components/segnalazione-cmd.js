@@ -33,46 +33,6 @@
 
                 ctrl.tipiStrada = PlacesSvc.getTipiStrada();
 
-                /* Gestione calendari */
-                ctrl.today = function () {
-                    ctrl.dataDenuncia = new Date();
-                    ctrl.dataSinistro = new Date();
-
-                };
-
-                ctrl.today();
-
-                ctrl.dateOptions = {
-                    formatYear: 'yy',
-                    startingDay: 1
-                };
-                ctrl.openDataDenuncia = function () {
-                    ctrl.popup1.opened = true;
-
-                };
-                ctrl.openDataSinistro = function () {
-                    ctrl.popup2.opened = true;
-
-                };
-                ctrl.setDataDenuncia = function (year, month, day) {
-                    ctrl.dataDenuncia = new Date(year, month, day);
-
-                };
-                ctrl.setDataSinistro = function (year, month, day) {
-                    ctrl.dataSinistro = new Date(year, month, day);
-
-                };
-
-                ctrl.format = "dd-MM-yyyy";
-
-                ctrl.popup1 = {
-                    opened: false
-                };
-
-                ctrl.popup2 = {
-                    opened: false
-                };
-
                 /* Utilities */
 
                 ctrl.back = function () {
