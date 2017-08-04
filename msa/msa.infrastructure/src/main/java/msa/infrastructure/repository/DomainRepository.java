@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
+import java.util.function.Function;
 
 @Repository
 public class DomainRepository extends BaseRepository {
@@ -94,6 +95,19 @@ public class DomainRepository extends BaseRepository {
         return converter.convertList(autoritaRepository.findAll(), AutoritaDO.class);
     }
 
+    private final Function<CompagniaDBO,CompagniaDO> compagniaDBOToDO = (CompagniaDBO compagniaDBO) -> {
+        CompagniaDO compagniaDO = new CompagniaDO();
+        compagniaDO.setCodFornitore(compagniaDBO.getCodFornitore());
+        compagniaDO.setConvenzioneCid(compagniaDBO.getConvenzioneCid());
+        compagniaDO.setDataInCard(converter.convertObject(compagniaDBO.getDataInCard(), FunctionUtils.convertStringToLocaldate));
+        compagniaDO.setDataOutCard(converter.convertObject(compagniaDBO.getDataOutCard(), FunctionUtils.convertStringToLocaldate));
+        compagniaDO.setDescrizione(compagniaDBO.getDescrizione());
+        compagniaDO.setEstera(compagniaDBO.getEstera());
+        compagniaDO.setId(compagniaDBO.getId());
+        compagniaDO.setLiquidazioneCoatta(compagniaDBO.getLiquidazioneCoatta());
+        return compagniaDO;
+    };
+
     /**
      * Effettua la ricerca delle compagnie la cui descrizione contiene al suo interno
      * la stringa passata come parametro
@@ -102,18 +116,7 @@ public class DomainRepository extends BaseRepository {
      * @return una lista di oggetti CompagniaDO
      */
     public List<CompagniaDO> getElencoCompagnie(String desc) {
-        return converter.convertObject(compagniaRepository.findByDescrizioneIgnoreCase(desc), (CompagniaDBO compagniaDBO) -> {
-            CompagniaDO compagniaDO = new CompagniaDO();
-            compagniaDO.setCodFornitore(compagniaDBO.getCodFornitore());
-            compagniaDO.setConvenzioneCid(compagniaDBO.getConvenzioneCid());
-            compagniaDO.setDataInCard(converter.convertObject(compagniaDBO.getDataInCard(), FunctionUtils.convertStringToLocaldate));
-            compagniaDO.setDataOutCard(converter.convertObject(compagniaDBO.getDataOutCard(), FunctionUtils.convertStringToLocaldate));
-            compagniaDO.setDescrizione(compagniaDBO.getDescrizione());
-            compagniaDO.setEstera(compagniaDBO.getEstera());
-            compagniaDO.setId(compagniaDBO.getId());
-            compagniaDO.setLiquidazioneCoatta(compagniaDBO.getLiquidazioneCoatta());
-            return compagniaDO;
-        });
+        return converter.convertObject(compagniaRepository.findByDescrizioneIgnoreCase(desc), compagniaDBOToDO);
     }
 
     /**
@@ -185,6 +188,6 @@ public class DomainRepository extends BaseRepository {
     }
 
     public CompagniaDO getCompagniaByCodCompagnia(final Integer codCompagnia) {
-        return converter.convertObject(mongoTemplate.findById(codCompagnia, CompagniaDBO.class), CompagniaDO.class);
+        return converter.convertObject(mongoTemplate.findById(codCompagnia, CompagniaDBO.class), compagniaDBOToDO);
     }
 }
