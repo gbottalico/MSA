@@ -44,6 +44,6 @@ app.component('msaDateSelector', {
             } else {
                 ctrl.result.$valid = true;
             }
-        })
+        });
     }])
 });

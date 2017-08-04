@@ -119,7 +119,7 @@ angular.module('msa').service(
                 console.log(url);
                 return $http.post(url, data);
 
-            }
+            };
 
         }
     ]

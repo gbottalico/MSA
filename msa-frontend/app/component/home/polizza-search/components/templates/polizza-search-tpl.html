@@ -191,6 +191,11 @@
                         </button>
                     </div>
 
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 classicInputCheckBox">
+                        <input type="checkbox" id="checkbox">
+                        <label for="checkbox">CSS Checkboxx!</label>
+                    </div>
+
 				<!--END COMMON NUOVO SINISTRO BUTTON-->
                 </form>
 			</div>
@@ -204,3 +209,5 @@
 <msa-polizze-sinistri data-valori-ricerca="$ctrl.valoriRicerca" data-banner-search="$ctrl.bannerSearch" data-banner-denuncia="$ctrl.bannerDenuncia" ng-if="$ctrl.valoriRicerca != undefined && $ctrl.bannerSearch == true && $ctrl.bannerDenuncia == false"></msa-polizze-sinistri>
 
 <msa-denuncia-container numero-sinistro-provvisorio="$ctrl.numSinistroProvv" ng-if="$ctrl.bannerSearch == false && $ctrl.bannerDenuncia == true"></msa-denuncia-container>
+
+<msa-evento-rca class="msaModule"></msa-evento-rca>
