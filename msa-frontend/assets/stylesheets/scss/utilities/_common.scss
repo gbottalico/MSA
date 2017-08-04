@@ -545,6 +545,10 @@ section {
       width: 20px;
       height: 20px;
       background: $light_gray;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      
     }
 
     // Hoverato
@@ -554,7 +558,7 @@ section {
 
     // Focussato
     &:focus + label:before {
-      box-shadow: 0 0 0 3px $light_blue;
+      box-shadow: 0 0 0 2px $light_blue;
     }
 
     // Checcato
@@ -578,7 +582,7 @@ section {
     &:checked + label:after {
       content: '';
       position: absolute;
-      left: 5px;
+      left: 4px;
       top: 11px;
       background: $light_blue;
       width: 3px;
