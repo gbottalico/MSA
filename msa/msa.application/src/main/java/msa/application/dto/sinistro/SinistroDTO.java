@@ -19,6 +19,7 @@ public class SinistroDTO implements Serializable {
     private String compagnia;
     private String targa;
     private SegnalazioneDTO segnalazione;
+
     private EventoRcaDTO eventoRca;
     private ConstatazioneAmichevoleDTO constatazioneAmichevole;
     private CaiDTO cai;

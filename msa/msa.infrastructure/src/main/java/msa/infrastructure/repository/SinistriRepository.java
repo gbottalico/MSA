@@ -46,18 +46,28 @@ public class SinistriRepository extends BaseRepository {
      * @param input i dati da inserire
      * @return
      */
-    public SinistroDO insertSinistroProvvisorio(SinistroDO input) throws Exception {
+    public Boolean insertSinistroProvvisorio(SinistroDO input) throws Exception {
         final Integer numProvv = getNextNumSinistroProvv();
         input.setNumSinistroProvv(numProvv);
-        mongoTemplate.insert(converter.convertObject(input, SinistroDBO.class));
-        return getSinistroByNumProvv(numProvv);
+        insert(input);
+        return Boolean.TRUE;
+    }
 
+    private void insert(SinistroDO input) throws Exception {
+        mongoTemplate.insert(converter.convertObject(input, SinistroDBO.class));
+    }
+
+    public Integer insertSinistroProvvisorioAndGetNum(SinistroDO input) throws Exception {
+        final Integer numProvv = getNextNumSinistroProvv();
+        input.setNumSinistroProvv(numProvv);
+        insert(input);
+        return numProvv;
     }
 
 
-    public SinistroDO updateSinistroProvvisorio(SinistroDO input) throws Exception {
+    public Boolean updateSinistroProvvisorio(SinistroDO input) throws Exception {
         mongoTemplate.save(converter.convertObject(input, SinistroDBO.class));
-        return input;
+        return Boolean.TRUE;
     }
 
     private Query getQueryFromNotNullValues(InputRicercaDO inputRicerca) {

@@ -89,7 +89,7 @@ public class BaseSinistroService extends BaseService {
     }
 
 
-    private final MsaFunction<Integer, SinistroDO> GETSINISTRO =
+    protected final MsaFunction<Integer, SinistroDO> GETSINISTRO =
             numSinistroProvv -> {
                 try {
                     return sinistriRepository.getSinistroByNumProvv(numSinistroProvv);

@@ -8,6 +8,7 @@ import msa.application.service.base.paramBuilder.AbstractHttpParamBuilder;
 import msa.application.service.base.paramBuilder.HttpPathParameterBuilder;
 import msa.application.service.base.paramBuilder.HttpQueryParameterBuilder;
 import msa.application.service.enumerator.Api;
+import msa.application.service.sinistri.BaseSinistroService;
 import msa.domain.Converter.MsaConverter;
 import msa.infrastructure.config.AbstractMsaPropertiesReader;
 import msa.infrastructure.repository.ErroriRepository;
@@ -17,7 +18,9 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class BaseService {
@@ -115,8 +118,13 @@ public class BaseService {
         return erroriRepository.findByCodErrore(codErrore).getTesto();
     }
 
-    protected List<Message> getErrorMessagesByCodErrore(MessageType type, final String... cods) {
-        return buildErrorMessageByText(type, Arrays.stream(cods).map(this::getErrorMessageByCod).collect(Collectors.toList()));
+    protected List<Message> getErrorMessagesByCodErrore(MessageType type, final String cod) {
+        return buildErrorMessageByText(type, Collections.singletonList(getErrorMessageByCod(cod)));
+
+    }
+
+    protected List<Message> getErrorMessagesByCodErrore(MessageType type, final String cod, Function<String,String> specMessage) {
+        return buildErrorMessageByText(type, Collections.singletonList(specMessage.apply(getErrorMessageByCod(cod))));
 
     }
 

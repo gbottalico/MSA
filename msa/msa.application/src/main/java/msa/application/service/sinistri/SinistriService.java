@@ -24,6 +24,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
 public class SinistriService extends BaseSinistroService {
@@ -52,8 +55,13 @@ public class SinistriService extends BaseSinistroService {
      * @return
      * @throws InternalMsaException
      */
-    public BaseDTO<SinistroDTO> salvaSinistro(SinistroDTO input) throws InternalMsaException {
-        return this.salvaSinistro(converter.convertObject(input, SinistroDO.class));
+    public BaseDTO<Map<String, Integer>> salvaSinistro(SinistroDTO input) throws InternalMsaException {
+        try {
+            final Integer numSinis = sinistriRepository.insertSinistroProvvisorioAndGetNum(converter.convertObject(input, SinistroDO.class));
+            return new BaseDTO(Stream.of(numSinis).collect(Collectors.toMap(e -> "numSinistroProvvisorio", String::valueOf)));
+        } catch (Exception e) {
+            throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA004"));
+        }
     }
 
     /**
@@ -62,25 +70,21 @@ public class SinistriService extends BaseSinistroService {
      * @param input
      * @return
      */
-    private BaseDTO<SinistroDTO> salvaSinistro(SinistroDO input) throws InternalMsaException {
+    private Boolean salvaSinistro(SinistroDO input) throws InternalMsaException {
 
-        SinistroDO sinistroByNumProvv;
         if (input.getNumSinistroProvv() == null) {
             try {
-                sinistroByNumProvv = sinistriRepository.insertSinistroProvvisorio(input);
+                return sinistriRepository.insertSinistroProvvisorio(input);
             } catch (Exception e) {
                 throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA004"));
             }
         } else {
             try {
-                sinistroByNumProvv = sinistriRepository.updateSinistroProvvisorio(input);
+                return sinistriRepository.updateSinistroProvvisorio(input);
             } catch (Exception e) {
                 throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005"));
             }
         }
-        SinistroDTO sinistroDTO = converter.convertObject(sinistroByNumProvv, SinistroDTO.class);
-        return new BaseDTO<>(sinistroDTO);
-
     }
 
     /**
@@ -91,9 +95,13 @@ public class SinistriService extends BaseSinistroService {
      * @return
      */
 
-    public BaseDTO<SinistroDTO> inviaSegnalazione(SegnalazioneDTO input, Integer numSinistroProvv) throws InternalMsaException {
+    public BaseDTO<Map<String, String>> inviaSegnalazione(SegnalazioneDTO input, Integer numSinistroProvv) throws InternalMsaException {
         final SinistroDO sinistroDOByDTO = getSinistroDOByDTO(input, numSinistroProvv);
-        return salvaSinistro(sinistroDOByDTO);
+
+        if (salvaSinistro(sinistroDOByDTO)) {
+            return new BaseDTO(Stream.of("").collect(Collectors.toMap(e -> "tipoSinistro", e -> "TODO")));
+        } else
+            throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione segnalazione")));
     }
 
     /**
@@ -103,16 +111,21 @@ public class SinistriService extends BaseSinistroService {
      * @param numSinistroProvv
      * @return
      */
-    public BaseDTO<SinistroDTO> salvaEventoRca(EventoRcaDTO input, Integer numSinistroProvv) throws InternalMsaException {
+    public BaseDTO<Map<String, String>> salvaEventoRca(EventoRcaDTO input, Integer numSinistroProvv) throws InternalMsaException {
 
         final SinistroDO sinistroDOByDTO = getSinistroDOByDTO(input, numSinistroProvv);
         CompagniaDO compagnia = domainRepository.getCompagniaByCodCompagnia(sinistroDOByDTO.getCompagnia());
-        sinistroDOByDTO.getEventoRca().setFlagCard(FunctionUtils.between(
+        Boolean isCard = FunctionUtils.between(
                 FunctionUtils.nowAsDate(),
                 compagnia.getDataInCard(),
                 compagnia.getDataOutCard(),
-                true));
-        return salvaSinistro(sinistroDOByDTO);
+                true);
+        sinistroDOByDTO.getEventoRca().setFlagCard(isCard);
+        if (salvaSinistro(sinistroDOByDTO)) {
+            return new BaseDTO(Stream.of(isCard)
+                    .collect(Collectors.toMap(e -> "flagCard", String::valueOf)));
+        } else
+            throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione Evento RCA")));
     }
 
     /**
@@ -122,8 +135,13 @@ public class SinistriService extends BaseSinistroService {
      * @param numSinistroProvv
      * @return
      */
-    public BaseDTO<SinistroDTO> salvaConstatazioneAmichevole(ConstatazioneAmichevoleDTO input, Integer numSinistroProvv) throws InternalMsaException {
-        return salvaSinistro(getSinistroDOByDTO(input, numSinistroProvv));
+    public BaseDTO salvaConstatazioneAmichevole(ConstatazioneAmichevoleDTO input, Integer numSinistroProvv) throws InternalMsaException {
+        Boolean res = salvaSinistro(getSinistroDOByDTO(input, numSinistroProvv));
+        if (res) {
+            return new BaseDTO<>();
+        } else {
+            throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione Constatazione Amichevole")));
+        }
     }
 
     /**
@@ -135,49 +153,56 @@ public class SinistriService extends BaseSinistroService {
      */
     public BaseDTO salvaCAI(CaiDTO input, Integer numSInistroProvv) throws InternalMsaException {
         SinistroDO sinistroDOByDTO = getSinistroDOByDTO(input, numSInistroProvv);
-        //Inserire logica baremes
-        return salvaSinistro(sinistroDOByDTO);
+        if (salvaSinistro(sinistroDOByDTO)) {
+            //Inserire logica baremes
+            return new BaseDTO<>(Stream.of("").collect(Collectors.toMap(e -> "responsabilità", e -> "TODO")));
+        } else {
+            throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione CAI")));
+        }
     }
 
-    /**
-     * Metodo che salva i danni riportati
-     *
-     * @param input
-     * @param numSinistroProvv
-     * @return
-     */
-    public BaseDTO<SinistroDTO> salvaDannoRca(DannoRcaDTO input, Integer numSinistroProvv) throws InternalMsaException {
-        final SinistroDO sinistroDOByDTO = getSinistroDOByDTO(input, numSinistroProvv);
-        return salvaSinistro(sinistroDOByDTO);
-    }
-
-    public BaseDTO<SinistroDTO> salvaDannoRcaConducente(DannoRcaDTO input, Integer numSinistro) throws InternalMsaException {
+    public BaseDTO salvaDannoRcaConducente(DannoRcaDTO input, Integer numSinistro) throws InternalMsaException {
 
         SinistroDO sinistroDOByDTO = getSinistroDOByDTO(input, numSinistro);
-        return salvaSinistro(sinistroDOByDTO);
-
+        if (salvaSinistro(sinistroDOByDTO)) {
+            return new BaseDTO<>();
+        } else {
+            throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione Salvataggio Danni Conducente")));
+        }
 
     }
 
     public BaseDTO<SinistroDTO> salvaDannoRcaControparte(AnagraficaDanniDTO input, Integer numSinistro) throws InternalMsaException {
-
         SinistroDO sinistroDOByDTO = getSinistroDOByDTO(input, numSinistro);
-        return salvaSinistro(sinistroDOByDTO);
+        if (salvaSinistro(sinistroDOByDTO)) {
+            return new BaseDTO<>();
+        } else {
+            throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione Salvataggio Danni Controparte")));
+        }
     }
 
     public BaseDTO<SinistroDTO> salvaDannoRcaTerzeParti(List<AnagraficaTerzePartiDTO> input, Integer numSinistro) throws InternalMsaException {
-
-        return salvaSinistro(getSinistroDOByDTO(input, numSinistro, (output, aggregatore) -> {
+        final Boolean insertResult = salvaSinistro(getSinistroDOByDTO(input, numSinistro, (output, aggregatore) -> {
             if (CollectionUtils.isEmpty(output.getDannoRca().getTerzeParti())) {
                 output.getDannoRca().setTerzeParti(new ArrayList<>());
             }
             output.getDannoRca().getTerzeParti().addAll(aggregatore.getDannoRca().getTerzeParti());
             return output;
         }));
+        if (insertResult) {
+            return new BaseDTO<>();
+        } else {
+            throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione Salvataggio Danni Terze Parti")));
+        }
+
     }
 
     public BaseDTO<SinistroDTO> salvaDannoRcaLegale(AnagraficaTerzePartiDTO input, Integer numeroSinistro) throws InternalMsaException {
-        return salvaSinistro(getSinistroDOByDTOAndFunction(input, numeroSinistro, LEGALE));
+        if (salvaSinistro(getSinistroDOByDTOAndFunction(input, numeroSinistro, LEGALE))) {
+            return new BaseDTO<>();
+        } else {
+            throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione Salvataggio Legale")));
+        }
 
     }
 }
