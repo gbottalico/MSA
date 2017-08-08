@@ -11,7 +11,7 @@
             function ($scope, $rootScope, $translate, $log, AccountUserSvc, CompagnieSvc, CasaRegoleSvc, SinistriSvc, PlacesSvc, toastr, $analytics, $location, $anchorScroll, $uibModal, $cookies, $window, $sessionStorage) {
 
                 var ctrl = this;
-                var modalInstance = undefined;
+                //var modalInstance = undefined;
 
                 ctrl.casaRegole = undefined;
                 ctrl.compagniaSelezionata = undefined;
