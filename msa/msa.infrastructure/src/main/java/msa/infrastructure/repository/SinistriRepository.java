@@ -15,6 +15,7 @@ import org.springframework.stereotype.Repository;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Repository
 public class SinistriRepository extends BaseRepository {
@@ -107,7 +108,11 @@ public class SinistriRepository extends BaseRepository {
      */
     public List<SinistroDO> getElencoSinistriProvvisori(final InputRicercaDO inputRicerca) {
         Query queryFromNotNullValues = getQueryFromNotNullValues(inputRicerca);
-        List<SinistroDBO> sinistroDBOS = mongoTemplate.find(queryFromNotNullValues, SinistroDBO.class);
+        List<SinistroDBO> sinistroDBOS = mongoTemplate.find(queryFromNotNullValues, SinistroDBO.class)
+                .stream()
+                .filter(e -> inputRicerca.getUserLogged().getAmministratore()
+                        || inputRicerca.getUserLogged().getIdUser().equalsIgnoreCase(e.getUserLogged().getIdUser()))
+                .collect(Collectors.toList());
         return converter.convertList(sinistroDBOS, SinistroDO.class);
     }
 

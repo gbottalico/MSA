@@ -11,8 +11,10 @@ import msa.application.dto.sinistro.dannoRca.AnagraficaDanniDTO;
 import msa.application.dto.sinistro.dannoRca.DannoRcaDTO;
 import msa.application.dto.sinistro.eventoRca.EventoRcaDTO;
 import msa.application.dto.sinistro.segnalazione.SegnalazioneDTO;
+import msa.application.dto.user.UserLoggedDTO;
 import msa.application.exceptions.InternalMsaException;
 import msa.application.service.sinistri.SinistriService;
+import msa.web.api.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +22,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api/sinistro")
-public class SinistroController {
+public class SinistroController extends BaseController{
 
     @Autowired
     private SinistriService sinistriService;
@@ -33,7 +35,9 @@ public class SinistroController {
      */
     @ApiOperation(value = "Metodo che effettua l'apertura di un sinistro in base ai dati ricevuti in input")
     @RequestMapping(value = "/apertura", method = RequestMethod.PUT)
-    public BaseDTO apriSinistro(@RequestBody SinistroDTO input) throws InternalMsaException {
+    public BaseDTO apriSinistro(@RequestBody SinistroDTO input,
+                                @RequestHeader(name = "user") final String userHeader) throws InternalMsaException {
+        input.parseUserLogged(userHeader);
         return sinistriService.salvaSinistro(input);
     }
 
@@ -46,7 +50,9 @@ public class SinistroController {
      */
     @ApiOperation(value = "Metodo che effettua la ricerca di una copertura in base ai dati ricevuti in input")
     @RequestMapping(value = "/ricerca", method = RequestMethod.POST)
-    public BaseDTO ricercaCopertura(@RequestBody InputRicercaDTO input) throws InternalMsaException {
+    public BaseDTO ricercaCopertura(@RequestBody InputRicercaDTO input,
+                                    @RequestHeader(value = "user") final String userHeader) throws InternalMsaException {
+        input.parseUserLogged(userHeader);
         return sinistriService.ricercaCopertura(input);
     }
 

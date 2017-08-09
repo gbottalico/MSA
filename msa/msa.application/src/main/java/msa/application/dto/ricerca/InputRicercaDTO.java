@@ -1,9 +1,10 @@
 package msa.application.dto.ricerca;
 
-import java.io.Serializable;
+import msa.application.dto.sinistro.BaseSinistroDTO;
+
 import java.util.Date;
 
-public class InputRicercaDTO implements Serializable{
+public class InputRicercaDTO extends BaseSinistroDTO{
     private static final long serialVersionUID = 6248082871486818955L;
     private String cognome;
     private String nome;

@@ -1,13 +1,11 @@
-package msa.application.dto.user;
+package msa.domain.object.sinistro;
 
-import java.io.Serializable;
-
-public class UserLoggedDTO implements Serializable {
-
-    private static final long serialVersionUID = 6368146793985495290L;
+/**
+ * Created by simon.calabrese on 09/08/2017.
+ */
+public class UserLoggedDO {
     private String idUser;
     private Boolean amministratore;
-
 
     public String getIdUser() {
         return idUser;

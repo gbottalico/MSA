@@ -11,7 +11,7 @@ import msa.infrastructure.persistence.sinistro.AnagraficaTerzePartiDBO;
 import java.io.Serializable;
 import java.util.List;
 
-public class SinistroDTO implements Serializable {
+public class SinistroDTO extends BaseSinistroDTO {
     private static final long serialVersionUID = 1665918958997727249L;
     private String id;
     private FullAnagraficaDTO contraente;

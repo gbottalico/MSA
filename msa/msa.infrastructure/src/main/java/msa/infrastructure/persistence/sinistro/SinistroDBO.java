@@ -34,7 +34,6 @@ public class SinistroDBO extends AbstractDBO{
     @Field("numSinistroProvv")
     private Integer numSinistroProvv;
 
-
     public FullAnagraficaDBO getContraente() {
         return contraente;
     }

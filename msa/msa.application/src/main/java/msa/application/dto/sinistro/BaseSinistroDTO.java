@@ -1,5 +1,10 @@
 package msa.application.dto.sinistro;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import msa.application.dto.user.UserLoggedDTO;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.io.IOException;
 import java.io.Serializable;
 
 /**
@@ -7,4 +12,21 @@ import java.io.Serializable;
  */
 public abstract class BaseSinistroDTO implements Serializable {
     private static final long serialVersionUID = -4723717242690952155L;
+
+    private UserLoggedDTO userLogged;
+
+    public UserLoggedDTO getUserLogged() {
+        return userLogged;
+    }
+
+    public void setUserLogged(UserLoggedDTO userLogged) {
+        this.userLogged = userLogged;
+    }
+    public void parseUserLogged(String userLogged) {
+        try {
+            this.userLogged = new ObjectMapper().readValue(userLogged,UserLoggedDTO.class);
+        } catch (IOException e) {
+            //Do nothing
+        }
+    }
 }
