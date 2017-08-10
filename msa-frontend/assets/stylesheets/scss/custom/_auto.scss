@@ -1,0 +1,51 @@
+.autoContainer {
+	background-image: url('../images/auto/bg.svg');
+    height: 250px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin-bottom: 50px;
+    .arrow {
+    	position: absolute;
+    }
+    .topLeft {
+		left: 0;
+		top: 0;
+		transform: rotate(135deg);
+    }
+    .topCenter {
+    	left: 50%;
+		top: 0;
+		transform: rotate(180deg) translate(50%, 0px);
+    }
+    .topRight {
+	    right: 0;
+		top: 0;
+		transform: rotate(-135deg);
+    }
+    .middleLeft {
+	    left: 0;
+		top: 50%;
+		transform: rotate(90deg) translate(-50%, 0);
+    }
+    .middleRight {
+	    right: 0;
+		top: 50%;
+		transform: rotate(-90deg) translate(50%, 0);
+    }
+    .bottomLeft {
+		left: 0;
+		bottom: 0;
+		transform: rotate(45deg);
+    }
+    .bottomCenter {
+    	left: 50%;
+		bottom: 0;
+		transform: rotate(0deg) translate(-50%, 0px);
+    }
+    .bottomRight {
+	    right: 0;
+		bottom: 0;
+		transform: rotate(-45deg);
+    }
+}
