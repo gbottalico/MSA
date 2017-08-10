@@ -44,7 +44,7 @@ public class UtilsService {
     };
 
     private String modificaNC(String stringa, boolean cod) {
-        String nuovastringa = "";
+        /*String nuovastringa = "";
         stringa = stringa.trim().toUpperCase();
 
         String consonanti = getConsonanti(stringa);      // Ottengo tutte le consonanti e tutte le vocali della stringa
@@ -75,6 +75,7 @@ public class UtilsService {
             else nuovastringa = consonanti.charAt(0) + "" + consonanti.charAt(2) + "" + consonanti.charAt(3);
         }
 
-        return nuovastringa;
+        return nuovastringa;*/
+        return null;
     }
 }
