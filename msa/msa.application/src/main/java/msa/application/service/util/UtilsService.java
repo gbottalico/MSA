@@ -1,81 +1,72 @@
 package msa.application.service.util;
 
 import msa.application.dto.sinistro.anagrafica.BaseAnagraficaDTO;
-import org.apache.commons.lang3.ArrayUtils;
+import msa.application.exceptions.InternalMsaException;
+import msa.application.service.base.BaseService;
+import msa.application.service.enumerator.Api;
+import org.springframework.stereotype.Service;
+import org.w3c.dom.Document;
+import org.xml.sax.InputSource;
 
+import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.StringReader;
 import java.util.Arrays;
+import java.util.Base64;
+import java.util.Calendar;
 import java.util.List;
-import java.util.function.Function;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 
 /**
  * Created by simon.calabrese on 10/08/2017.
  */
-public class UtilsService {
+@Service
+public class UtilsService extends BaseService {
 
     private static final List<String> vocali = Arrays.asList("A", "E", "I", "O", "U");
     private static final List<String> consonanti = Arrays.asList("B", "C", "D", "F", "G", "H", "J", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "V", "W", "X", "Y", "Z");
 
-    public String calcolaCodiceFiscale(final BaseAnagraficaDTO anagrafica) {
+    public String calcolaCodiceFiscale(final BaseAnagraficaDTO anagrafica) throws InternalMsaException {
+        try {
+            String descrizioneComune = anagrafica.getLuogoNascita().getDescrizioneComune().replaceAll(" ", "%20");
+            Document parse = DocumentBuilderFactory
+                    .newInstance()
+                    .newDocumentBuilder()
+                    .parse(new InputSource(
+                            new StringReader(
+                                    doGetCallXml(Api.ID_CITTA_CODICE_FISCALE,
+                                            getGetParamsBuilder()
+                                                    .appendParam("mask", descrizioneComune)
+                                    )
+                            )
+                    ));
+            parse.normalizeDocument();
+            String idCitta = parse.getDocumentElement()
+                    .getChildNodes()
+                    .item(0)
+                    .getNextSibling()
+                    .getAttributes()
+                    .getNamedItem("id")
+                    .getNodeValue();
+            String nomeCitta = parse.getDocumentElement()
+                    .getChildNodes()
+                    .item(0)
+                    .getNextSibling()
+                    .getFirstChild()
+                    .getNodeValue();
+            Calendar instance = Calendar.getInstance();
+            instance.setTime(anagrafica.getDataNascita());
 
-
-        return null;
-    }
-
-    Function<String, String> stringToConsonantiOrConsPiuVoc = stringa -> {
-        if(stringa.length() < 3) {
-            return stringa.concat("XXX").substring(0,3);
+            return doPostCallFormData(Api.CODICE_FISCALE, getFormDataBuilder()
+                    .appendParam("name", new String(Base64.getEncoder().encode(anagrafica.getNome().getBytes())))
+                    .appendParam("surname", new String(Base64.getEncoder().encode(anagrafica.getCognome().getBytes())))
+                    .appendParam("day", instance.get(Calendar.DAY_OF_MONTH))
+                    .appendParam("month", instance.get(Calendar.MONTH))
+                    .appendParam("year", instance.get(Calendar.YEAR))
+                    .appendParam("gender", String.valueOf(anagrafica.getSesso()))
+                    .appendParam("city", nomeCitta)
+                    .appendParam("idcity", idCitta));
+        } catch (Exception e) {
+            throw new InternalMsaException();
         }
-
-        final String cons = Arrays.stream(ArrayUtils.toObject(stringa.toCharArray()))
-                .map(String::valueOf)
-                .filter(consonanti::contains)
-                .collect(Collectors.joining());
-
-        if (cons.length() > 3) {
-            return cons.substring(0, 3);
-        } else {
-            return cons.concat(Arrays.stream(ArrayUtils.toObject(stringa.toCharArray()))
-                    .map(String::valueOf)
-                    .filter(vocali::contains)
-                    .collect(Collectors.joining())).substring(0,3);
-        }
-    };
-
-    private String modificaNC(String stringa, boolean cod) {
-        /*String nuovastringa = "";
-        stringa = stringa.trim().toUpperCase();
-
-        String consonanti = getConsonanti(stringa);      // Ottengo tutte le consonanti e tutte le vocali della stringa
-        String vocali = getVocali(stringa);
-
-        // Controlla i possibili casi
-        if (consonanti.length() == 3) {                   // La stringa contiene solo 3 consonanti, quindi ho gia" la modifica
-            nuovastringa = consonanti;
-        }
-        // Le consonanti non sono sufficienti, e la stinga e" più lunga o
-        // uguale a 3 caratteri [aggiungo le vocali mancanti]
-        else if ((consonanti.length() < 3) && (stringa.length() >= 3)) {
-            nuovastringa = consonanti;
-            nuovastringa = aggiungiVocali(nuovastringa, vocali);
-        }
-        // Le consonanti non sono sufficienti, e la stringa
-        //contiene meno di 3 caratteri [aggiungo consonanti e vocali, e le x]
-        else if ((consonanti.length() < 3) && (stringa.length() < 3)) {
-            nuovastringa = consonanti;
-            nuovastringa += vocali;
-            nuovastringa = aggiungiX(nuovastringa);
-        }
-        // Le consonanti sono in eccesso, prendo solo le
-        //prime 3 nel caso del cognome; nel caso del nome la 0, 2, 3
-        else if (consonanti.length() > 3) {
-            // true indica il nome e false il cognome
-            if (!cod) nuovastringa = consonanti.substring(0, 3);
-            else nuovastringa = consonanti.charAt(0) + "" + consonanti.charAt(2) + "" + consonanti.charAt(3);
-        }
-
-        return nuovastringa;*/
-        return null;
     }
 }

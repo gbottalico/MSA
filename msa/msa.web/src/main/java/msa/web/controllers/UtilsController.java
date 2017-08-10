@@ -3,7 +3,9 @@ package msa.web.controllers;
 import io.swagger.annotations.ApiOperation;
 import msa.application.dto.sinistro.anagrafica.BaseAnagraficaDTO;
 import msa.application.exceptions.InternalMsaException;
+import msa.application.service.util.UtilsService;
 import msa.web.api.BaseController;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,9 +19,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class UtilsController extends BaseController{
 
 
-    @ApiOperation(value = "Metodo che recupera l'elenco delle nazioni che matchano il nome passato come parametro")
-    @RequestMapping(value = "/nazione/{name}", method = RequestMethod.POST)
-    public void getCodiceFiscale(@RequestBody BaseAnagraficaDTO anagrafica)throws InternalMsaException {
+    @Autowired
+    private UtilsService utilsService;
 
+    @ApiOperation(value = "Metodo che calcola il cf")
+    @RequestMapping(value = "/calcolaCf", method = RequestMethod.POST)
+    public String getCodiceFiscale(@RequestBody BaseAnagraficaDTO anagrafica)throws InternalMsaException {
+        return utilsService.calcolaCodiceFiscale(anagrafica);
     }
 }

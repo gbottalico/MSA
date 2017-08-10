@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Map;
 import java.util.function.Function;
 
 /**
@@ -51,6 +52,11 @@ public class HttpPathParameterBuilder extends AbstractHttpParamBuilder<HttpPathP
                         (a, b) -> a);
     }
 
+
+    @Override
+    public Map<String,String> build(String url) {
+        return null;
+    }
 
     public class HttpPathParam extends HttpParam {
 

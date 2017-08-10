@@ -2,7 +2,8 @@ package msa.application.service.enumerator;
 
 public enum Api {
 
-	ANAGRAFICA("ricercaAnagrafica");
+	CODICE_FISCALE("codiceFiscale"),
+	ID_CITTA_CODICE_FISCALE("idCittaCodiceFiscale");
 
 	private String value;
 

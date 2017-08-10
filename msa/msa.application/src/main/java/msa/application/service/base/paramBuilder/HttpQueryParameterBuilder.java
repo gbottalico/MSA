@@ -2,9 +2,9 @@ package msa.application.service.base.paramBuilder;
 
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.Date;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Date;
+import java.util.Map;
 import java.util.function.Function;
 
 /**
@@ -52,7 +52,10 @@ public class HttpQueryParameterBuilder extends AbstractHttpParamBuilder<HttpQuer
     }
 
 
-
+    @Override
+    public Map<String,String> build(String url) {
+        return null;
+    }
 
     public class HttpQueryParam extends HttpParam{
 

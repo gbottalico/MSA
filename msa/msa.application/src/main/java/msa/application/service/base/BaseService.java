@@ -5,10 +5,10 @@ import msa.application.config.Message;
 import msa.application.config.enumerator.MessageType;
 import msa.application.exceptions.InternalMsaException;
 import msa.application.service.base.paramBuilder.AbstractHttpParamBuilder;
+import msa.application.service.base.paramBuilder.FormDataParamBuilder;
 import msa.application.service.base.paramBuilder.HttpPathParameterBuilder;
 import msa.application.service.base.paramBuilder.HttpQueryParameterBuilder;
 import msa.application.service.enumerator.Api;
-import msa.application.service.sinistri.BaseSinistroService;
 import msa.domain.Converter.MsaConverter;
 import msa.infrastructure.config.AbstractMsaPropertiesReader;
 import msa.infrastructure.repository.ErroriRepository;
@@ -17,9 +17,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Arrays;
+import java.net.URLEncoder;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -47,21 +48,24 @@ public class BaseService {
         this.properties = properties;
     }
 
+    private HttpURLConnection buildConnection(AbstractHttpParamBuilder param, Api api) throws IOException {
+        URL url;
+        if (param.getClass().isAssignableFrom(HttpPathParameterBuilder.class)) {
+
+            url = new URL(param.build());
+
+
+        } else {
+            url = new URL("http://" + properties.getRestUrlMap().getApi().get(api.getValue()) + param.build());
+        }
+
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        return connection;
+    }
+
     protected <T> T doGetCall(final Class<T> clazz, final Api api, final AbstractHttpParamBuilder param) throws InternalMsaException {
-        HttpURLConnection connection;
-        final URL url;
         try {
-
-            if (param.getClass().isAssignableFrom(HttpPathParameterBuilder.class)) {
-
-                url = new URL(param.build());
-
-
-            } else {
-                url = new URL(properties.getRestUrlMap().getApi().get(api.getValue()) + param.build());
-            }
-
-            connection = (HttpURLConnection) url.openConnection();
+            HttpURLConnection connection = buildConnection(param, api);
             connection.setRequestMethod("GET");
             connection.setRequestProperty("Accept", "application/json");
             if (connection.getResponseCode() == 200) {
@@ -103,8 +107,53 @@ public class BaseService {
             throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA000"));
         }
 
+    }
+
+    protected String doPostCallFormData(Api api, FormDataParamBuilder builder) throws InternalMsaException {
+        try {
+            Map<String, String> build = builder.build(properties.getRestUrlMap().getApi().get(api.getValue()));
+            String body = build.entrySet().stream().reduce(new StringBuilder(),
+                    (a, b) -> {
+                        if (a.length() != 0) {
+                            a = a.append("&");
+                        }
+                        return a.append(b.getKey())
+                                .append("=").append(b.getValue());
+
+                    },
+                    (a, b) -> a).toString();
+            URL url = new URL("http://" + properties.getRestUrlMap().getApi().get(api.getValue()));
+            HttpURLConnection conn= (HttpURLConnection) url.openConnection();
+            conn.setDoOutput(true);
+            conn.setInstanceFollowRedirects(false);
+            conn.setRequestMethod("POST");
+            conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            conn.setRequestProperty("charset", "utf-8");
+            try(DataOutputStream wr = new DataOutputStream(conn.getOutputStream())) {
+                wr.write(body.getBytes());
+            }
+            if (conn.getResponseCode() == 200) {
+                return new BufferedReader(new InputStreamReader(copyInputStream(conn.getInputStream()))).lines().collect(Collectors.joining());
+            } else {
+                throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA000"));
+            }
+
+        } catch (IOException e) {
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA000"));
+        }
+    }
+
+    protected String doGetCallXml(Api api, HttpQueryParameterBuilder builder) throws InternalMsaException {
+        try {
+            HttpURLConnection connection = buildConnection(builder, api);
+            connection.setRequestMethod("GET");
+            return new BufferedReader(new InputStreamReader(copyInputStream(connection.getInputStream()))).lines().collect(Collectors.joining());
+        } catch (IOException e) {
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA000"));
+        }
 
     }
+
 
     protected AbstractHttpParamBuilder<HttpQueryParameterBuilder.HttpQueryParam> getGetParamsBuilder() {
         return new HttpQueryParameterBuilder();
@@ -112,6 +161,10 @@ public class BaseService {
 
     protected AbstractHttpParamBuilder<HttpPathParameterBuilder.HttpPathParam> getGetParamsBuilder(final Api url) {
         return new HttpPathParameterBuilder(url);
+    }
+
+    protected AbstractHttpParamBuilder<FormDataParamBuilder.FormDataParam> getFormDataBuilder() {
+        return new FormDataParamBuilder();
     }
 
     private String getErrorMessageByCod(final String codErrore) {
@@ -123,7 +176,7 @@ public class BaseService {
 
     }
 
-    protected List<Message> getErrorMessagesByCodErrore(MessageType type, final String cod, Function<String,String> specMessage) {
+    protected List<Message> getErrorMessagesByCodErrore(MessageType type, final String cod, Function<String, String> specMessage) {
         return buildErrorMessageByText(type, Collections.singletonList(specMessage.apply(getErrorMessageByCod(cod))));
 
     }
