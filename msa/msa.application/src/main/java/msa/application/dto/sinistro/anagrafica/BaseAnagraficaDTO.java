@@ -6,7 +6,7 @@ import msa.application.dto.sinistro.LuogoDTO;
 import java.io.Serializable;
 import java.util.Date;
 
-public class BaseAnagraficaDTO extends BaseSinistroDTO{
+public class BaseAnagraficaDTO extends BaseSinistroDTO {
 
 
     private static final long serialVersionUID = -3128726274922115214L;
@@ -14,7 +14,7 @@ public class BaseAnagraficaDTO extends BaseSinistroDTO{
     private String nome;
     private String cognome;
     private String codRuolo;
-
+    private Character sesso;
     private String cf;
     private LuogoDTO luogoNascita;
     private Date dataNascita;
@@ -45,6 +45,14 @@ public class BaseAnagraficaDTO extends BaseSinistroDTO{
 
     public void setCodRuolo(String codRuolo) {
         this.codRuolo = codRuolo;
+    }
+
+    public Character getSesso() {
+        return sesso;
+    }
+
+    public void setSesso(Character sesso) {
+        this.sesso = sesso;
     }
 
     public String getCf() {

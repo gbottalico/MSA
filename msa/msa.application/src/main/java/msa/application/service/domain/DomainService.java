@@ -1,23 +1,29 @@
 package msa.application.service.domain;
 
-import msa.application.commons.Constants;
 import msa.application.config.enumerator.MessageType;
 import msa.application.dto.domain.*;
 import msa.application.dto.domain.baremes.BaremesDTO;
 import msa.application.exceptions.InternalMsaException;
 import msa.application.service.base.BaseService;
-import msa.application.service.base.paramBuilder.AbstractHttpParamBuilder;
-import msa.application.service.base.paramBuilder.HttpQueryParameterBuilder;
+import msa.domain.object.dominio.ComuneDO;
 import msa.infrastructure.repository.DomainRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static msa.application.commons.Constants.ROW_TO_CODICI_CATASTALI;
 
 @Service
 public class DomainService extends BaseService {
     @Autowired
-   private  DomainRepository domainRepository;
+    private DomainRepository domainRepository;
 
     /**
      * Utilizza il DomainRepository per ottenere la lista delle nazioni che iniziano
@@ -32,7 +38,7 @@ public class DomainService extends BaseService {
         try {
             return converter.convertList(domainRepository.getListaNazioni(nome), NazioneDTO.class);
         } catch (Exception e) {
-            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR,"MSA001"));
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA001"));
         }
 
     }
@@ -51,7 +57,7 @@ public class DomainService extends BaseService {
 
             return converter.convertList(domainRepository.getElencoProvince(idNazione, descProvincia), ProvinciaDTO.class);
         } catch (Exception e) {
-            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR,"MSA001"));
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA001"));
         }
 
     }
@@ -70,7 +76,7 @@ public class DomainService extends BaseService {
 
             return converter.convertList(domainRepository.getElencoComuni(idNazione, idProvincia, desc), ComuneDTO.class);
         } catch (Exception e) {
-            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR,"MSA001"));
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA001"));
         }
     }
 
@@ -86,7 +92,7 @@ public class DomainService extends BaseService {
 
             return converter.convertList(domainRepository.getElencoAutorita(), AutoritaDTO.class);
         } catch (Exception e) {
-            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR,"MSA001"));
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA001"));
 
         }
 
@@ -108,7 +114,7 @@ public class DomainService extends BaseService {
 
         } catch (Exception e) {
             e.printStackTrace();
-            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR,"MSA001"));
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA001"));
 
         }
     }
@@ -124,7 +130,7 @@ public class DomainService extends BaseService {
             return converter.convertList(domainRepository.getElencoMezziComunicazione(), MezzoComunicazioneDTO.class);
 
         } catch (Exception e) {
-            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR,"MSA001"));
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA001"));
 
         }
     }
@@ -140,7 +146,7 @@ public class DomainService extends BaseService {
         try {
             return converter.convertList(domainRepository.getElencoCauseRotturaCristalli(), CausaRotturaCristalliDTO.class);
         } catch (Exception e) {
-            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR,"MSA001"));
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA001"));
 
         }
     }
@@ -157,7 +163,7 @@ public class DomainService extends BaseService {
             return converter.convertList(domainRepository.getElencoTipoVeicoli(), TipoVeicoloDTO.class);
         } catch (Exception e) {
             e.printStackTrace();
-            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR,"MSA001"));
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA001"));
         }
     }
 
@@ -172,7 +178,7 @@ public class DomainService extends BaseService {
 
             return converter.convertList(domainRepository.getElencoTipoTarga(), TipoTargaDTO.class);
         } catch (Exception e) {
-            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR,"MSA001"));
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA001"));
 
         }
     }
@@ -189,12 +195,13 @@ public class DomainService extends BaseService {
 
             return converter.convertList(domainRepository.getElencoRegole(), CasaRegoleDTO.class);
         } catch (Exception e) {
-            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR,"MSA001"));
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA001"));
         }
     }
 
     /**
      * Utilizza il DomainRepository per ottenere l'elenco di tutti i Baremes
+     *
      * @return un elenco di oggetti BaremesDTO
      * @throws InternalMsaException
      */
@@ -202,23 +209,55 @@ public class DomainService extends BaseService {
         try {
             return converter.convertList(domainRepository.getElencoBaremes(), BaremesDTO.class);
         } catch (Exception e) {
-            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR,"MSA001"));
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA001"));
 
         }
     }
 
     /**
      * Utilizza il DomainRepository per ottenere l'elenco di tutti i ruoli
+     *
      * @return un eleneco  di oggetti RuoliDTO
      * @throws InternalMsaException
      */
     public List<RuoliDTO> getElencoRuoli() throws InternalMsaException {
-    try{
-        return converter.convertList(domainRepository.getElencoRuoli(), RuoliDTO.class);
-    }
-    catch(Exception e ){
-        throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR,"MSA001"));
+        try {
+            return converter.convertList(domainRepository.getElencoRuoli(), RuoliDTO.class);
+        } catch (Exception e) {
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA001"));
 
+        }
     }
+
+    public Boolean caricaExcel() throws InternalMsaException {
+        try {
+            List<CodiciCatastaliPojo> collect = Files.lines(Paths.get(getClass()
+                    .getClassLoader()
+                    .getResource("codiciCatastali.csv")
+                    .getPath()
+                    .substring(1)))
+                    .map(ROW_TO_CODICI_CATASTALI)
+                    .collect(Collectors.toList());
+            final List<ComuneDO> newComuni = domainRepository.getElencoComuni()
+                    .stream()
+                    .map(e -> {
+                        //TODO check what is wrong
+                        Optional<CodiciCatastaliPojo> first = collect.stream()
+                                .filter(a -> a.getNomeComune()
+                                        .equalsIgnoreCase(e.getDescrizione()))
+                                .findFirst();
+
+                        e.setCodCatastale(first.isPresent()
+                                ? first.map(CodiciCatastaliPojo::getCodCatastale).get()
+                                : null);
+                        return e;
+                    }).collect(Collectors.toList());
+            domainRepository.updateComuni(newComuni);
+            return Boolean.TRUE;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return Boolean.FALSE;
+        }
+
     }
 }

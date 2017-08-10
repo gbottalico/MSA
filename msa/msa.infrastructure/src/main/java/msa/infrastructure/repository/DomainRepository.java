@@ -8,11 +8,14 @@ import msa.domain.object.sinistro.SinistroDO;
 import msa.infrastructure.base.repository.domain.*;
 import msa.infrastructure.persistence.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Repository
 public class DomainRepository extends BaseRepository {
@@ -85,6 +88,15 @@ public class DomainRepository extends BaseRepository {
     public List<ComuneDO> getElencoComuni(Integer idNazione, Integer codProvincia, String desc) {
         return converter.convertList(comuniRepository.findByDesc(idNazione, codProvincia, desc), ComuneDO.class);
     }
+
+    public List<ComuneDO> getElencoComuni() {
+        return converter.convertList(comuniRepository.findAll(),ComuneDO.class);
+    }
+
+    public void updateComuni(List<ComuneDO> comuni) {
+        update(comuni,ComuneDBO.class);
+    }
+
 
     /**
      * Ottiene tutte le autorità presenti nel database

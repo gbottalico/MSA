@@ -211,6 +211,12 @@ public class DomainController extends BaseController {
         result.setResult(domainService.getElencoRuoli());
         return result;
     }
+
+    @ApiOperation(value = "Metodo per il caricamento dei codici catastali nella tabella dei comuni")
+    @RequestMapping(value = "/codCatastali", method = RequestMethod.GET)
+    public BaseDTO<Boolean> caricaDaCSV() throws InternalMsaException {
+        return new BaseDTO<>(domainService.caricaExcel());
+    }
 }
 
 

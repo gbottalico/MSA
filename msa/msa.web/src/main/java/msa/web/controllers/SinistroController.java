@@ -14,6 +14,7 @@ import msa.application.dto.sinistro.segnalazione.SegnalazioneDTO;
 import msa.application.dto.user.UserLoggedDTO;
 import msa.application.exceptions.InternalMsaException;
 import msa.application.service.sinistri.SinistriService;
+import msa.domain.object.sinistro.BaseDO;
 import msa.web.api.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

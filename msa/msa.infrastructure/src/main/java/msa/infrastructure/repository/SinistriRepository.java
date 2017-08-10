@@ -55,7 +55,7 @@ public class SinistriRepository extends BaseRepository {
     }
 
     private void insert(SinistroDO input) throws Exception {
-        mongoTemplate.insert(converter.convertObject(input, SinistroDBO.class));
+        insert(input,SinistroDBO.class);
     }
 
     public Integer insertSinistroProvvisorioAndGetNum(SinistroDO input) throws Exception {

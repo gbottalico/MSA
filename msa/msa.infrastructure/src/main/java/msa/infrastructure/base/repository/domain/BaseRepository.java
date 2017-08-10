@@ -1,21 +1,15 @@
 package msa.infrastructure.base.repository.domain;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mongodb.BasicDBObject;
-import com.mongodb.DBObject;
-import com.mongodb.util.JSON;
-import msa.infrastructure.config.AbstractMsaPropertiesReader;
+import msa.domain.Converter.MsaConverter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import msa.domain.Converter.MsaConverter;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.data.mongodb.core.query.Update;
+
+import java.util.List;
 
 
 public class BaseRepository {
@@ -44,5 +38,26 @@ public class BaseRepository {
             LOGGER.error(e.getMessage());
             return null;
         }
+    }
+
+    protected <K,T> void insert(K elem,Class<T> dboClass) {
+        mongoTemplate.insert(converter.convertObject(elem,dboClass));
+    }
+
+    protected <K,T> void update(K elem,Class<T> dboClass) {
+        mongoTemplate.save(converter.convertObject(elem, dboClass));
+    }
+
+    protected <K,T> void update(List<K> elem,Class<T> dboClass) {
+        elem.forEach(e -> mongoTemplate.save(converter.convertObject(e, dboClass)));
+    }
+
+    protected <K,T> void insert(List<K> elem, Class<T> dboClass) {
+        elem.forEach(e -> mongoTemplate.insert(converter.convertObject(e,dboClass)));
+
+    }
+
+    protected <T> void findAnddelete(Query query,Class<T> dboClass) {
+        mongoTemplate.findAllAndRemove(query, dboClass);
     }
 }
