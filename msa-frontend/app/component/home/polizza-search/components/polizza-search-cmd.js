@@ -7,82 +7,158 @@
             bannerSearch: '=',
             bannerDenuncia: '='
         },
-        controller: ("polizzaSearchController", ["$scope", '$rootScope', '$translate', '$log', 'AccountUserSvc', "CompagnieSvc", 'toastr', '$analytics', '$location', '$cookies', '$window', '$sessionStorage',
-            function ($scope, $rootScope, $translate, $log, AccountUserSvc, CompagnieSvc, toastr, $analytics, location, $cookies, $window, $sessionStorage) {
+        controller: ("polizzaSearchController", ["$scope", '$rootScope', '$translate', '$log', 'AccountUserSvc', "CompagnieSvc", 'CasaRegoleSvc', 'SinistriSvc', 'PlacesSvc', 'toastr', '$analytics', '$location', '$anchorScroll', '$uibModal', '$cookies', '$window', '$sessionStorage',
+            function ($scope, $rootScope, $translate, $log, AccountUserSvc, CompagnieSvc, CasaRegoleSvc, SinistriSvc, PlacesSvc, toastr, $analytics, $location, $anchorScroll, $uibModal, $cookies, $window, $sessionStorage) {
 
                 var ctrl = this;
+                //var modalInstance = undefined;
 
-                $scope.getListaCompagnie = function (nomeCompagnia) {
+                ctrl.casaRegole = undefined;
+                ctrl.compagniaSelezionata = undefined;
+                ctrl.valoriRicerca = undefined;
+                ctrl.testDate = undefined; //FIXME remove
 
-                    if (nomeCompagnia.length >= 3) {
-                        return CompagnieSvc.getCompagnie(nomeCompagnia).then(function (response) {
-                            return response.data.result.map(function (item) {
-                                return item.descrizione;
-                            });
-                        });
-                    } else {
-                        return [];
-                    }
+                ctrl.numSinistroProvv = undefined;
+
+                ctrl.$onInit = function () {
+                    CasaRegoleSvc.getElencoRegole().then(function (response) {
+                        ctrl.casaRegole = response.data.result;
+                    });
+
                 };
 
-                ctrl.listacompagnie = [
-                    'Compagnia con il nome molto lungo',
-                    'Come corto',
-                    'Ciao',
-                    'Gianluca spa',
-                    'Ammaccabanana',
-                    'Prova per filtro',
-                    'Termostato',
-                    'Elenco',
-                    'Funziona'
-                ];
+                ctrl.campiObbligatori = {
+                    cognome: false,
+                    nome: false,
+                    tipoPersona: false,
+                    numeroPolizza: false,
+                    numeroSinistro: false,
+                    dataEvento: false,
+                    targa: false,
+                    numeroProvvisorio: false,
+                    numeroPreapertura: false
+                };
+
+                $scope.$watch(
+                    function watch(scope) {
+                        return {
+                            compagniaSelezionata: ctrl.compagniaSelezionata
+                        };
+                    },
+                    function handleChanges(newValue, oldValue) {
+
+                        if(newValue.compagniaSelezionata !== oldValue.compagniaSelezionata)  {
+                            if(newValue.compagniaSelezionata instanceof Object &&
+                                newValue.compagniaSelezionata !== null) {
+
+                                // Eseguo il binding dei campi obbligatori.
+                                var campiObbligatoriRicerca = newValue.compagniaSelezionata.campiObbligatoriRicerca;
+                                for (var i = 0; i < campiObbligatoriRicerca.length; i++) {
+                                    switch(campiObbligatoriRicerca[i].idFE) {
+                                        case 1:
+                                            ctrl.campiObbligatori.cognome = campiObbligatoriRicerca[i].required;
+                                            break;
+                                        case 2:
+                                            ctrl.campiObbligatori.nome = campiObbligatoriRicerca[i].required;
+                                            break;
+                                        case 3:
+                                            ctrl.campiObbligatori.tipoPersona = campiObbligatoriRicerca[i].required;
+                                            break;
+                                        case 4:
+                                            ctrl.campiObbligatori.numeroPolizza = campiObbligatoriRicerca[i].required;
+                                            break;
+                                        case 5:
+                                            ctrl.campiObbligatori.numeroSinistro = campiObbligatoriRicerca[i].required;
+                                            break;
+                                        case 6:
+                                            ctrl.campiObbligatori.dataEvento = campiObbligatoriRicerca[i].required;
+                                            break;
+                                        case 7:
+                                            ctrl.campiObbligatori.targa = campiObbligatoriRicerca[i].required;
+                                            break;
+                                        case 8:
+                                            ctrl.campiObbligatori.numeroProvvisorio = campiObbligatoriRicerca[i].required;
+                                            break;
+                                        case 9:
+                                            ctrl.campiObbligatori.numeroPreapertura = campiObbligatoriRicerca[i].required;
+                                            break;
+
+                                    }
+                                }
+                            }
+                        }
+
+                    }, true
+                );
 
                 ctrl.ricercapolizza = {
                     cognome: '',
                     nome: '',
-                    tipopersona: undefined,
-                    numpoli: '',
-                    numsin: '',
-                    dataevento: '',
+                    tipoPersona: undefined,
+                    numeroPolizza: '',
+                    numeroSinistro: '',
+                    dataEvento: '',
                     targa: '',
-                    numprov: '',
-                    numpre: '',
-                    compagnie: {elenco: ctrl.listacompagnie},
-                    compagniaselected: undefined
+                    numeroProvvisorio: '',
+                    numeroPreapertura: ''
                 };
 
-                ctrl.compagniaSelected = function (compagnia) {
-                    ctrl.ricercapolizza.compagniaselected = compagnia;
-                    ctrl.open.compagnia = !ctrl.open.compagnia;
+                ctrl.open = function () {
+                    modalInstance = $uibModal.open({
+                        templateUrl: 'denunciaSinistroModal',
+                        backdrop: 'static', // Evita che il modal sia chiuso cliccando sullo sfondo.
+                        windowClass: 'msaModal',
+                        size: 'lg',
+                        controller: function ($scope, $uibModalInstance , PlacesSvc, denunciante) {
+
+                            $scope.denunciante = denunciante;
+                            $scope.tipiStrada = PlacesSvc.getTipiStrada();
+
+                            $scope.ok = function () {
+                                $uibModalInstance.close($scope.denunciante);
+                            };
+
+                            $scope.cancel = function () {
+                                $uibModalInstance.dismiss('cancel');
+                            };
+                        },
+                        resolve: {
+                            denunciante: function () {
+                                return $scope.denunciante;
+                            }
+                        }
+                    });//end of modal.open
+
+                    modalInstance.result.then(function (result) {
+                        ctrl.apriSinistroProvvisorio(result);
+                    }, function () {
+                        toastr.info("Operazione annullata.");
+                    });
+
                 };
 
-                ctrl.valoriRicerca = undefined;
+                ctrl.apriSinistroProvvisorio = function (datiContraente) {
+                    SinistriSvc.apriSinistroProvvisorio(datiContraente, 37).then(function (response) {
+                        //FIXME rimuovere 37, mockup
+                        ctrl.numSinistroProvv = response.data.result.numSinistroProvv;
+                        ctrl.denuncia();
+                    });
+                };
 
-                ctrl.denuncia = function() {
+                /* Navigazione */
+
+                ctrl.denuncia = function () {
                     ctrl.bannerSearch = false;
                     ctrl.bannerDenuncia = true;
                 };
 
-
                 ctrl.cerca = function () {
-                    ctrl.inputRicerca = {
-                        cognome: ctrl.ricercapolizza.cognome,
-                        nome: ctrl.ricercapolizza.nome,
-                        tipopersona: ctrl.ricercapolizza.tipopersona,
-                        numpoli: ctrl.ricercapolizza.numpoli,
-                        numsin: ctrl.ricercapolizza.numsin,
-                        dataevento: ctrl.ricercapolizza.dataevento,
-                        targa: ctrl.ricercapolizza.targa,
-                        numprov: ctrl.ricercapolizza.numprov,
-                        numpre: ctrl.ricercapolizza.numpre,
-                        compagnia: ctrl.ricercapolizza.compagniaselected
-                    };
 
                     ctrl.valoriRicerca = {
                         bannersearch: ctrl.bannersearch,
                         bannerdenuncia: ctrl.bannerdenuncia,
                         user: {
-                            cognome: 'Piras',
+                            cognome: "Piras",
                             nome: 'Dario',
                             cf: 'PRSDRA87E28B157S',
                             luogonascita: 'Brescia',
@@ -227,6 +303,8 @@
                             }
                         ]
                     };
+                    $location.hash('polizzaResult');
+                    $anchorScroll();
                 };
 
             }])

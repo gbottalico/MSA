@@ -1,0 +1,19 @@
+<p class="input-group">
+    <input type="text"
+           name="datadenuncia"
+           uib-datepicker-popup="{{format}}"
+           ng-model="date"
+           is-open="opened"
+           datepicker-options="dateOptions"
+           ng-required="true"
+           show-button-bar="false"
+           />
+
+    <span class="input-group-btn">
+        <button type="button"
+                class="btn btn-default"
+                ng-click="open()">
+            <i class="fa fa-calendar-o" aria-hidden="true"></i>
+        </button>
+    </span>
+</p>

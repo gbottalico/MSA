@@ -5,7 +5,9 @@
       "cerca": "Cerca",
       "annulla": "Annulla ricerca",
       "salva": "Salva",
-      "help": "Help"
+      "help": "Help",
+      "si": "Sì",
+      "no": "No"
     },
     "header": {
       "labels": {
@@ -21,7 +23,7 @@
     "polizzasearch": {
       "title": "Ricerca polizza",
       "labels": {
-        "alert": "* Campo obbligarotrio",
+        "alert": "* Campo obbligatorio",
         "cognome": "Cognome",
         "nome": "Nome",
         "fisica": "Fisica",
@@ -80,7 +82,7 @@
       "labels": {
         "datiDenunciante": "Dati Denunciante",
         "suggerimentoNome": "Potrebbe cortesemente dirmi il suo nome?",
-        "recapitoTracking": "Dati Denunciante",
+        "recapitoTracking": "Recapito Tracking",
         "suggerimentoTracking": "I dati del Tracking sono corretti?",
         "provenienzaSegnalazione": "Provenienza Segnalazione",
         "garanzieDisponibili": "Garanzie Disponibili",
@@ -89,6 +91,7 @@
         "segnalazione": "Segnalazione",
         "cognome": "Cognome",
         "nome": "Nome",
+        "cfopiva": "Codice Fiscale o Partita IVA",
         "telefono": "Telefono",
         "ruolo": "Ruolo",
         "cellulare": "Cellulare",
@@ -102,6 +105,18 @@
         "comune": "Comune",
         "cap": "CAP",
         "indirizzo": "Indirizzo"
+      }
+    },
+    "eventorca": {
+      "title": "Evento RCA",
+      "labels": {
+        "dettaglievento": "Dettagli Evento RCA",
+        "collisione": "C'è stata collisione tra i vecoli?",
+        "nveicoli": "Quanti sono i veicoli coinvolti?",
+        "autorita": "Sono intervenute autorità?",
+        "qualiautorita": "Quali autorità sono intervenute?",
+        "comando": "Di quale comando?",
+        "datadenuncia": "Data Denuncia Autorità"
       }
     },
     "step": {
