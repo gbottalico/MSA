@@ -14,7 +14,6 @@ public class ComuneDO {
 	private String descrizione;
 	private List<String> cap;
 	private String codFornitore;
-	private String codCatastale;
 	public String getId() {
 		return id;
 	}
@@ -56,13 +55,5 @@ public class ComuneDO {
 	}
 	public void setCap(List<String> cap) {
 		this.cap = cap;
-	}
-
-	public String getCodCatastale() {
-		return codCatastale;
-	}
-
-	public void setCodCatastale(String codCatastale) {
-		this.codCatastale = codCatastale;
 	}
 }

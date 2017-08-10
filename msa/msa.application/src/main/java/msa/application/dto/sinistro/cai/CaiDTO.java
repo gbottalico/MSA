@@ -1,34 +1,33 @@
 package msa.application.dto.sinistro.cai;
 
+import msa.application.dto.domain.baremes.BaremesDTO;
 import msa.application.dto.sinistro.BaseSinistroDTO;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Map;
 
 public class CaiDTO extends BaseSinistroDTO {
     private static final long serialVersionUID = -2575869510337533595L;
-    private Map<Integer, Boolean> baremesCliente;
-    private Map<Integer, Boolean> baremesControparte;
+    private BaremesDTO baremesCliente;
+    private BaremesDTO baremesControparte;
     private String noteCliente;
     private String noteControparte;
+    private String colpa;
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
-    public Map<Integer, Boolean> getBaremesCliente() {
+    public BaremesDTO getBaremesCliente() {
         return baremesCliente;
     }
 
-    public void setBaremesCliente(Map<Integer, Boolean> baremesCliente) {
+    public void setBaremesCliente(BaremesDTO baremesCliente) {
         this.baremesCliente = baremesCliente;
     }
 
-    public Map<Integer, Boolean> getBaremesControparte() {
+    public BaremesDTO getBaremesControparte() {
         return baremesControparte;
     }
 
-    public void setBaremesControparte(Map<Integer, Boolean> baremesControparte) {
+    public void setBaremesControparte(BaremesDTO baremesControparte) {
         this.baremesControparte = baremesControparte;
     }
 
@@ -48,27 +47,11 @@ public class CaiDTO extends BaseSinistroDTO {
         this.noteControparte = noteControparte;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        CaiDTO caiDTO = (CaiDTO) o;
-
-        if (baremesCliente != null ? !baremesCliente.equals(caiDTO.baremesCliente) : caiDTO.baremesCliente != null)
-            return false;
-        if (baremesControparte != null ? !baremesControparte.equals(caiDTO.baremesControparte) : caiDTO.baremesControparte != null)
-            return false;
-        if (noteCliente != null ? !noteCliente.equals(caiDTO.noteCliente) : caiDTO.noteCliente != null) return false;
-        return noteControparte != null ? noteControparte.equals(caiDTO.noteControparte) : caiDTO.noteControparte == null;
+    public String getColpa() {
+        return colpa;
     }
 
-    @Override
-    public int hashCode() {
-        int result = baremesCliente != null ? baremesCliente.hashCode() : 0;
-        result = 31 * result + (baremesControparte != null ? baremesControparte.hashCode() : 0);
-        result = 31 * result + (noteCliente != null ? noteCliente.hashCode() : 0);
-        result = 31 * result + (noteControparte != null ? noteControparte.hashCode() : 0);
-        return result;
+    public void setColpa(String colpa) {
+        this.colpa = colpa;
     }
 }

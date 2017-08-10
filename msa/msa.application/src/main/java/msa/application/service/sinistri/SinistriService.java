@@ -1,6 +1,5 @@
 package msa.application.service.sinistri;
 
-import msa.domain.Converter.FunctionUtils;
 import msa.application.config.BaseDTO;
 import msa.application.config.enumerator.MessageType;
 import msa.application.dto.ricerca.InputRicercaDTO;
@@ -13,8 +12,10 @@ import msa.application.dto.sinistro.dannoRca.DannoRcaDTO;
 import msa.application.dto.sinistro.eventoRca.EventoRcaDTO;
 import msa.application.dto.sinistro.segnalazione.SegnalazioneDTO;
 import msa.application.exceptions.InternalMsaException;
-import msa.domain.Converter.MsaConverter;
+import msa.domain.Converter.FunctionUtils;
+import msa.domain.object.dominio.BaremesDO;
 import msa.domain.object.dominio.CompagniaDO;
+import msa.domain.object.sinistro.IncrociBaremesDO;
 import msa.domain.object.sinistro.InputRicercaDO;
 import msa.domain.object.sinistro.SinistroDO;
 import msa.infrastructure.repository.DomainRepository;
@@ -151,14 +152,23 @@ public class SinistriService extends BaseSinistroService {
      * @param numSInistroProvv
      * @return
      */
-    public BaseDTO salvaCAI(CaiDTO input, Integer numSInistroProvv) throws InternalMsaException {
+    public BaseDTO<Map<String,String>> salvaCAI(CaiDTO input, Integer numSInistroProvv) throws InternalMsaException {
         SinistroDO sinistroDOByDTO = getSinistroDOByDTO(input, numSInistroProvv);
+        String codColpa = calcolaColpaBaremes(input);
+        sinistroDOByDTO.getCai().setColpa(codColpa);
         if (salvaSinistro(sinistroDOByDTO)) {
             //Inserire logica baremes
-            return new BaseDTO<>(Stream.of("").collect(Collectors.toMap(e -> "responsabilità", e -> "TODO")));
+            return new BaseDTO<>(Stream.of("").collect(Collectors.toMap(e -> "responsabilita", e -> codColpa)));
         } else {
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione CAI")));
         }
+    }
+
+    private String calcolaColpaBaremes(CaiDTO input) {
+        BaremesDO baremesCliente = converter.convertObject(input.getBaremesCliente(),BaremesDO.class);
+        BaremesDO baremesControparte = converter.convertObject(input.getBaremesControparte(),BaremesDO.class);
+        IncrociBaremesDO colpaByBaremes = domainRepository.getColpaByBaremes(baremesCliente, baremesControparte);
+        return colpaByBaremes.getCodResponsabilita();
     }
 
     public BaseDTO salvaDannoRcaConducente(DannoRcaDTO input, Integer numSinistro) throws InternalMsaException {

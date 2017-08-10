@@ -1,26 +1,29 @@
 package msa.domain.object.sinistro;
 
-import java.util.Map;
+import msa.domain.object.dominio.BaremesDO;
+
+import java.util.List;
 
 public class CaiDO {
-    private Map<Integer, Boolean> baremesCliente;
-    private Map<Integer, Boolean> baremesControparte;
+    private BaremesDO baremesCliente;
+    private BaremesDO baremesControparte;
     private String noteCliente;
     private String noteControparte;
+    private String colpa;
 
-    public Map<Integer, Boolean> getBaremesCliente() {
+    public BaremesDO getBaremesCliente() {
         return baremesCliente;
     }
 
-    public void setBaremesCliente(Map<Integer, Boolean> baremesCliente) {
+    public void setBaremesCliente(BaremesDO baremesCliente) {
         this.baremesCliente = baremesCliente;
     }
 
-    public Map<Integer, Boolean> getBaremesControparte() {
+    public BaremesDO getBaremesControparte() {
         return baremesControparte;
     }
 
-    public void setBaremesControparte(Map<Integer, Boolean> baremesControparte) {
+    public void setBaremesControparte(BaremesDO baremesControparte) {
         this.baremesControparte = baremesControparte;
     }
 
@@ -38,5 +41,13 @@ public class CaiDO {
 
     public void setNoteControparte(String noteControparte) {
         this.noteControparte = noteControparte;
+    }
+
+    public String getColpa() {
+        return colpa;
+    }
+
+    public void setColpa(String colpa) {
+        this.colpa = colpa;
     }
 }

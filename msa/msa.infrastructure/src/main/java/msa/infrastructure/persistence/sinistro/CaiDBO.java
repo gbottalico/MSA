@@ -1,32 +1,33 @@
 package msa.infrastructure.persistence.sinistro;
 
+import msa.infrastructure.persistence.domain.BaremesDBO;
 import org.springframework.data.mongodb.core.mapping.Field;
-
-import java.util.Map;
 
 public class CaiDBO {
     @Field("baremesCliente")
-    private Map<Integer, Boolean> baremesCliente;
+    private BaremesDBO baremesCliente;
     @Field("baremesControparte")
-    private Map<Integer, Boolean> baremesControparte;
+    private BaremesDBO baremesControparte;
     @Field("noteCliente")
     private String noteCliente;
     @Field("noteControparte")
     private String noteControparte;
+    @Field("colpa")
+    private String colpa;
 
-    public Map<Integer, Boolean> getBaremesCliente() {
+    public BaremesDBO getBaremesCliente() {
         return baremesCliente;
     }
 
-    public void setBaremesCliente(Map<Integer, Boolean> baremesCliente) {
+    public void setBaremesCliente(BaremesDBO baremesCliente) {
         this.baremesCliente = baremesCliente;
     }
 
-    public Map<Integer, Boolean> getBaremesControparte() {
+    public BaremesDBO getBaremesControparte() {
         return baremesControparte;
     }
 
-    public void setBaremesControparte(Map<Integer, Boolean> baremesControparte) {
+    public void setBaremesControparte(BaremesDBO baremesControparte) {
         this.baremesControparte = baremesControparte;
     }
 
@@ -44,5 +45,13 @@ public class CaiDBO {
 
     public void setNoteControparte(String noteControparte) {
         this.noteControparte = noteControparte;
+    }
+
+    public String getColpa() {
+        return colpa;
+    }
+
+    public void setColpa(String colpa) {
+        this.colpa = colpa;
     }
 }

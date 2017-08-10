@@ -1,18 +1,90 @@
-{ "_id" : 0, "descrizioneBaremes" : "Non indicato" }
-{ "_id" : 1, "descrizioneBaremes" : "Veicolo in sosta o in fermata" }
-{ "_id" : 2, "descrizioneBaremes" : "Ripartiva dopo una sosta/apriva una portiera" }
-{ "_id" : 3, "descrizioneBaremes" : "Stava parcheggiando" }
-{ "_id" : 4, "descrizioneBaremes" : "Usciva da un parcheggio, da un luogo privato, da una strada vicinale" }
-{ "_id" : 5, "descrizioneBaremes" : "Entrava in un parcheggio, in un luogo privato, in una strada vicinale" }
-{ "_id" : 6, "descrizioneBaremes" : "Si immetteva in una piazza a senso rotatorio" }
-{ "_id" : 7, "descrizioneBaremes" : "Circolava su una piazza a senso rotatorio" }
-{ "_id" : 8, "descrizioneBaremes" : "Tamponava procedendo nello stesso senso o nella stessa fila" }
-{ "_id" : 9, "descrizioneBaremes" : "Procedeva nello stesso senso, ma in fila diversa" }
-{ "_id" : 10, "descrizioneBaremes" : "Cambiava fila" }
-{ "_id" : 11, "descrizioneBaremes" : "Sorpassava" }
-{ "_id" : 12, "descrizioneBaremes" : "Girava a destra" }
-{ "_id" : 13, "descrizioneBaremes" : "Girava a sinistra" }
-{ "_id" : 14, "descrizioneBaremes" : "Retrocedeva" }
-{ "_id" : 15, "descrizioneBaremes" : "Invadeva la sede stradale riservata alla circolazione in senso inverso" }
-{ "_id" : 16, "descrizioneBaremes" : "Proveniva da destra" }
-{ "_id" : 17, "descrizioneBaremes" : "Non aveva osservato il segnale di precedenza o di semaforo rosso" }
+{ 
+    "_id" : ObjectId("598c7e47e6cd644e3c11a037"), 
+    "Id_baremes" : NumberInt(0), 
+    "Des_baremes" : "Nessuna indicazione"
+}
+{ 
+    "_id" : ObjectId("598c7e47e6cd644e3c11a038"), 
+    "Id_baremes" : NumberInt(1), 
+    "Des_baremes" : "Veicolo in sosta o in fermata"
+}
+{ 
+    "_id" : ObjectId("598c7e47e6cd644e3c11a039"), 
+    "Id_baremes" : NumberInt(2), 
+    "Des_baremes" : "Ripartiva dopo una sosta o apriva una portiera"
+}
+{ 
+    "_id" : ObjectId("598c7e47e6cd644e3c11a03a"), 
+    "Id_baremes" : NumberInt(3), 
+    "Des_baremes" : "Stava parcheggiando"
+}
+{ 
+    "_id" : ObjectId("598c7e47e6cd644e3c11a03b"), 
+    "Id_baremes" : NumberInt(4), 
+    "Des_baremes" : "Usciva da un parcheggio, da un luogo privato, da una strada vicinale"
+}
+{ 
+    "_id" : ObjectId("598c7e47e6cd644e3c11a03c"), 
+    "Id_baremes" : NumberInt(5), 
+    "Des_baremes" : "Entrava in un parcheggio, in un luogo privato, in una strada vicinale"
+}
+{ 
+    "_id" : ObjectId("598c7e47e6cd644e3c11a03d"), 
+    "Id_baremes" : NumberInt(6), 
+    "Des_baremes" : "Si immetteva in una piazza a senso rotatorio"
+}
+{ 
+    "_id" : ObjectId("598c7e47e6cd644e3c11a03e"), 
+    "Id_baremes" : NumberInt(7), 
+    "Des_baremes" : "Circolava su una piazza a senso rotatorio"
+}
+{ 
+    "_id" : ObjectId("598c7e47e6cd644e3c11a03f"), 
+    "Id_baremes" : NumberInt(8), 
+    "Des_baremes" : "Tamponava procedendo nello stesso senso o nella stessa fila"
+}
+{ 
+    "_id" : ObjectId("598c7e47e6cd644e3c11a040"), 
+    "Id_baremes" : NumberInt(9), 
+    "Des_baremes" : "Procedeva nello stesso senso, ma in una fila diversa"
+}
+{ 
+    "_id" : ObjectId("598c7e47e6cd644e3c11a041"), 
+    "Id_baremes" : NumberInt(10), 
+    "Des_baremes" : "Cambiava fila"
+}
+{ 
+    "_id" : ObjectId("598c7e47e6cd644e3c11a042"), 
+    "Id_baremes" : NumberInt(11), 
+    "Des_baremes" : "Sorpassava"
+}
+{ 
+    "_id" : ObjectId("598c7e47e6cd644e3c11a043"), 
+    "Id_baremes" : NumberInt(12), 
+    "Des_baremes" : "Girava a destra"
+}
+{ 
+    "_id" : ObjectId("598c7e47e6cd644e3c11a044"), 
+    "Id_baremes" : NumberInt(13), 
+    "Des_baremes" : "Girava a sinistra"
+}
+{ 
+    "_id" : ObjectId("598c7e47e6cd644e3c11a045"), 
+    "Id_baremes" : NumberInt(14), 
+    "Des_baremes" : "Retrocedeva"
+}
+{ 
+    "_id" : ObjectId("598c7e47e6cd644e3c11a046"), 
+    "Id_baremes" : NumberInt(15), 
+    "Des_baremes" : "Invadeva la sede stradale riservata alla circolazione in senso inverso"
+}
+{ 
+    "_id" : ObjectId("598c7e47e6cd644e3c11a047"), 
+    "Id_baremes" : NumberInt(16), 
+    "Des_baremes" : "Proveniva da destra"
+}
+{ 
+    "_id" : ObjectId("598c7e47e6cd644e3c11a048"), 
+    "Id_baremes" : NumberInt(17), 
+    "Des_baremes" : "Non aveva osservato il segnale di precedenza o di semaforo rosso"
+}

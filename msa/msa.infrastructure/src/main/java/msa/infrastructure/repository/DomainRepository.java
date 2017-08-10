@@ -1,12 +1,13 @@
 package msa.infrastructure.repository;
 
 import msa.domain.Converter.FunctionUtils;
-import msa.domain.Converter.MsaConverter;
 import msa.domain.object.dominio.*;
+import msa.domain.object.sinistro.IncrociBaremesDO;
 import msa.domain.object.sinistro.RuoliDO;
-import msa.domain.object.sinistro.SinistroDO;
 import msa.infrastructure.base.repository.domain.*;
-import msa.infrastructure.persistence.domain.*;
+import msa.infrastructure.persistence.domain.CompagniaDBO;
+import msa.infrastructure.persistence.domain.ComuneDBO;
+import msa.infrastructure.persistence.domain.IncrociBaremesDBO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -15,7 +16,6 @@ import org.springframework.stereotype.Repository;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
 @Repository
 public class DomainRepository extends BaseRepository {
@@ -201,5 +201,14 @@ public class DomainRepository extends BaseRepository {
 
     public CompagniaDO getCompagniaByCodCompagnia(final Integer codCompagnia) {
         return converter.convertObject(mongoTemplate.findById(codCompagnia, CompagniaDBO.class), compagniaDBOToDO);
+    }
+
+    public IncrociBaremesDO getColpaByBaremes(final BaremesDO cliente, final BaremesDO controparte) {
+        String codBaremesCliente = getMongoNameByAttributeName("codBaremesCliente", IncrociBaremesDBO.class);
+        String codBaremesControparte = getMongoNameByAttributeName("codBaremesControparte", IncrociBaremesDBO.class);
+
+        Query query = getCriteriaQueryBuilder().addCriteria(Criteria.where(codBaremesCliente).is(cliente.getId()).and(codBaremesControparte).is(controparte.getId()));
+        IncrociBaremesDBO incrocio = mongoTemplate.findOne(query, IncrociBaremesDBO.class);
+        return converter.convertObject(incrocio,IncrociBaremesDO.class);
     }
 }

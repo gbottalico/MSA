@@ -228,36 +228,4 @@ public class DomainService extends BaseService {
 
         }
     }
-
-    public Boolean caricaExcel() throws InternalMsaException {
-        try {
-            List<CodiciCatastaliPojo> collect = Files.lines(Paths.get(getClass()
-                    .getClassLoader()
-                    .getResource("codiciCatastali.csv")
-                    .getPath()
-                    .substring(1)))
-                    .map(ROW_TO_CODICI_CATASTALI)
-                    .collect(Collectors.toList());
-            final List<ComuneDO> newComuni = domainRepository.getElencoComuni()
-                    .stream()
-                    .map(e -> {
-                        //TODO check what is wrong
-                        Optional<CodiciCatastaliPojo> first = collect.stream()
-                                .filter(a -> a.getNomeComune()
-                                        .equalsIgnoreCase(e.getDescrizione()))
-                                .findFirst();
-
-                        e.setCodCatastale(first.isPresent()
-                                ? first.map(CodiciCatastaliPojo::getCodCatastale).get()
-                                : null);
-                        return e;
-                    }).collect(Collectors.toList());
-            domainRepository.updateComuni(newComuni);
-            return Boolean.TRUE;
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return Boolean.FALSE;
-        }
-
-    }
 }

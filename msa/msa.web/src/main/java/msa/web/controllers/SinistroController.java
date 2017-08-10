@@ -20,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/api/sinistro")
@@ -104,7 +105,7 @@ public class SinistroController extends BaseController{
      */
     @ApiOperation(value = "Metodo che calcola la responsabilità e salva il CAI in base ai baremes inseriti")
     @RequestMapping(value = "/{numero}/CAI", method = RequestMethod.POST)
-    public BaseDTO salvaCAI(@RequestBody CaiDTO input, @PathVariable("numero") Integer numeroSinistro) throws InternalMsaException {
+    public BaseDTO<Map<String,String>> salvaCAI(@RequestBody CaiDTO input, @PathVariable("numero") Integer numeroSinistro) throws InternalMsaException {
         return sinistriService.salvaCAI(input, numeroSinistro);
 
     }
