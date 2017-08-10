@@ -1,6 +1,7 @@
 package msa.web.controllers;
 
 import io.swagger.annotations.ApiOperation;
+import msa.application.config.BaseDTO;
 import msa.application.dto.sinistro.anagrafica.BaseAnagraficaDTO;
 import msa.application.exceptions.InternalMsaException;
 import msa.application.service.util.UtilsService;
@@ -24,7 +25,7 @@ public class UtilsController extends BaseController{
 
     @ApiOperation(value = "Metodo che calcola il cf")
     @RequestMapping(value = "/calcolaCf", method = RequestMethod.POST)
-    public String getCodiceFiscale(@RequestBody BaseAnagraficaDTO anagrafica)throws InternalMsaException {
-        return utilsService.calcolaCodiceFiscale(anagrafica);
+    public BaseDTO<String> getCodiceFiscale(@RequestBody BaseAnagraficaDTO anagrafica)throws InternalMsaException {
+        return new BaseDTO<>(utilsService.calcolaCodiceFiscale(anagrafica));
     }
 }
