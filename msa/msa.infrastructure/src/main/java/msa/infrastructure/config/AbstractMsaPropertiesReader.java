@@ -12,4 +12,5 @@ public abstract class AbstractMsaPropertiesReader {
 
     public abstract AbstractMsaApiMap getRestUrlMap();
     public abstract String getBasePath();
+    public abstract String getPathDocumenti();
 }

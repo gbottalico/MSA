@@ -25,6 +25,9 @@ public class PropertiesConfig extends AbstractMsaPropertiesReader {
     @Value("${msa.basePath}")
     private String basePath;
 
+    @Value("${msa.pathDocumenti}")
+    private String pathDocumenti;
+
     @Autowired
     private MsaApiMap msaApiMap;
 
@@ -48,5 +51,10 @@ public class PropertiesConfig extends AbstractMsaPropertiesReader {
     @Override
     public String getBasePath() {
         return this.basePath;
+    }
+
+    @Override
+    public String getPathDocumenti() {
+        return pathDocumenti;
     }
 }

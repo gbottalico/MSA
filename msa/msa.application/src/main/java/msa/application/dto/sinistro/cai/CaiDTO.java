@@ -1,13 +1,9 @@
 package msa.application.dto.sinistro.cai;
 
 import msa.application.dto.domain.baremes.BaremesDTO;
-import msa.application.dto.sinistro.BaseSinistroDTO;
+import msa.application.dto.sinistro.AbstractDTO;
 
-import java.io.Serializable;
-import java.util.List;
-import java.util.Map;
-
-public class CaiDTO extends BaseSinistroDTO {
+public class CaiDTO extends AbstractDTO {
     private static final long serialVersionUID = -2575869510337533595L;
     private BaremesDTO baremesCliente;
     private BaremesDTO baremesControparte;

@@ -1,10 +1,10 @@
 package msa.application.dto.sinistro.eventoRca;
 
-import msa.application.dto.sinistro.BaseSinistroDTO;
+import msa.application.dto.sinistro.AbstractDTO;
 
 import java.util.Date;
 
-public class EventoRcaDTO extends BaseSinistroDTO {
+public class EventoRcaDTO extends AbstractDTO {
     private static final long serialVersionUID = 1892216877924480979L;
     private Boolean collisione;
     private Integer numVeicoli;

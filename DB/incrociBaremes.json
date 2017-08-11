@@ -1,0 +1,2268 @@
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a051"), 
+    "Id_incrocio" : NumberInt(1), 
+    "Cod_baremes_cliente" : NumberInt(0), 
+    "Cod_baremes_controparte" : NumberInt(0), 
+    "Cod_responsabilita" : "NON CLASSIFICABILE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a052"), 
+    "Id_incrocio" : NumberInt(2), 
+    "Cod_baremes_cliente" : NumberInt(0), 
+    "Cod_baremes_controparte" : NumberInt(1), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a053"), 
+    "Id_incrocio" : NumberInt(3), 
+    "Cod_baremes_cliente" : NumberInt(0), 
+    "Cod_baremes_controparte" : NumberInt(2), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a054"), 
+    "Id_incrocio" : NumberInt(4), 
+    "Cod_baremes_cliente" : NumberInt(0), 
+    "Cod_baremes_controparte" : NumberInt(3), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a055"), 
+    "Id_incrocio" : NumberInt(5), 
+    "Cod_baremes_cliente" : NumberInt(0), 
+    "Cod_baremes_controparte" : NumberInt(4), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a056"), 
+    "Id_incrocio" : NumberInt(6), 
+    "Cod_baremes_cliente" : NumberInt(0), 
+    "Cod_baremes_controparte" : NumberInt(5), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a057"), 
+    "Id_incrocio" : NumberInt(7), 
+    "Cod_baremes_cliente" : NumberInt(0), 
+    "Cod_baremes_controparte" : NumberInt(6), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a058"), 
+    "Id_incrocio" : NumberInt(8), 
+    "Cod_baremes_cliente" : NumberInt(0), 
+    "Cod_baremes_controparte" : NumberInt(7), 
+    "Cod_responsabilita" : "NON CLASSIFICABILE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a059"), 
+    "Id_incrocio" : NumberInt(9), 
+    "Cod_baremes_cliente" : NumberInt(0), 
+    "Cod_baremes_controparte" : NumberInt(8), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a05a"), 
+    "Id_incrocio" : NumberInt(10), 
+    "Cod_baremes_cliente" : NumberInt(0), 
+    "Cod_baremes_controparte" : NumberInt(9), 
+    "Cod_responsabilita" : "NON CLASSIFICABILE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a05b"), 
+    "Id_incrocio" : NumberInt(11), 
+    "Cod_baremes_cliente" : NumberInt(0), 
+    "Cod_baremes_controparte" : NumberInt(10), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a05c"), 
+    "Id_incrocio" : NumberInt(12), 
+    "Cod_baremes_cliente" : NumberInt(0), 
+    "Cod_baremes_controparte" : NumberInt(11), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a05d"), 
+    "Id_incrocio" : NumberInt(13), 
+    "Cod_baremes_cliente" : NumberInt(0), 
+    "Cod_baremes_controparte" : NumberInt(12), 
+    "Cod_responsabilita" : "NON CLASSIFICABILE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a05e"), 
+    "Id_incrocio" : NumberInt(14), 
+    "Cod_baremes_cliente" : NumberInt(0), 
+    "Cod_baremes_controparte" : NumberInt(13), 
+    "Cod_responsabilita" : "NON CLASSIFICABILE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a05f"), 
+    "Id_incrocio" : NumberInt(15), 
+    "Cod_baremes_cliente" : NumberInt(0), 
+    "Cod_baremes_controparte" : NumberInt(14), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a060"), 
+    "Id_incrocio" : NumberInt(16), 
+    "Cod_baremes_cliente" : NumberInt(0), 
+    "Cod_baremes_controparte" : NumberInt(15), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a061"), 
+    "Id_incrocio" : NumberInt(17), 
+    "Cod_baremes_cliente" : NumberInt(0), 
+    "Cod_baremes_controparte" : NumberInt(16), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a062"), 
+    "Id_incrocio" : NumberInt(18), 
+    "Cod_baremes_cliente" : NumberInt(0), 
+    "Cod_baremes_controparte" : NumberInt(17), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a063"), 
+    "Id_incrocio" : NumberInt(19), 
+    "Cod_baremes_cliente" : NumberInt(1), 
+    "Cod_baremes_controparte" : NumberInt(0), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a064"), 
+    "Id_incrocio" : NumberInt(20), 
+    "Cod_baremes_cliente" : NumberInt(1), 
+    "Cod_baremes_controparte" : NumberInt(1), 
+    "Cod_responsabilita" : "NON CLASSIFICABILE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a065"), 
+    "Id_incrocio" : NumberInt(21), 
+    "Cod_baremes_cliente" : NumberInt(1), 
+    "Cod_baremes_controparte" : NumberInt(2), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a066"), 
+    "Id_incrocio" : NumberInt(22), 
+    "Cod_baremes_cliente" : NumberInt(1), 
+    "Cod_baremes_controparte" : NumberInt(3), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a067"), 
+    "Id_incrocio" : NumberInt(23), 
+    "Cod_baremes_cliente" : NumberInt(1), 
+    "Cod_baremes_controparte" : NumberInt(4), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a068"), 
+    "Id_incrocio" : NumberInt(24), 
+    "Cod_baremes_cliente" : NumberInt(1), 
+    "Cod_baremes_controparte" : NumberInt(5), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a069"), 
+    "Id_incrocio" : NumberInt(25), 
+    "Cod_baremes_cliente" : NumberInt(1), 
+    "Cod_baremes_controparte" : NumberInt(6), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a06a"), 
+    "Id_incrocio" : NumberInt(26), 
+    "Cod_baremes_cliente" : NumberInt(1), 
+    "Cod_baremes_controparte" : NumberInt(7), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a06b"), 
+    "Id_incrocio" : NumberInt(27), 
+    "Cod_baremes_cliente" : NumberInt(1), 
+    "Cod_baremes_controparte" : NumberInt(8), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a06c"), 
+    "Id_incrocio" : NumberInt(28), 
+    "Cod_baremes_cliente" : NumberInt(1), 
+    "Cod_baremes_controparte" : NumberInt(9), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a06d"), 
+    "Id_incrocio" : NumberInt(29), 
+    "Cod_baremes_cliente" : NumberInt(1), 
+    "Cod_baremes_controparte" : NumberInt(10), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a06e"), 
+    "Id_incrocio" : NumberInt(30), 
+    "Cod_baremes_cliente" : NumberInt(1), 
+    "Cod_baremes_controparte" : NumberInt(11), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a06f"), 
+    "Id_incrocio" : NumberInt(31), 
+    "Cod_baremes_cliente" : NumberInt(1), 
+    "Cod_baremes_controparte" : NumberInt(12), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a070"), 
+    "Id_incrocio" : NumberInt(32), 
+    "Cod_baremes_cliente" : NumberInt(1), 
+    "Cod_baremes_controparte" : NumberInt(13), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a071"), 
+    "Id_incrocio" : NumberInt(33), 
+    "Cod_baremes_cliente" : NumberInt(1), 
+    "Cod_baremes_controparte" : NumberInt(14), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a072"), 
+    "Id_incrocio" : NumberInt(34), 
+    "Cod_baremes_cliente" : NumberInt(1), 
+    "Cod_baremes_controparte" : NumberInt(15), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a073"), 
+    "Id_incrocio" : NumberInt(35), 
+    "Cod_baremes_cliente" : NumberInt(1), 
+    "Cod_baremes_controparte" : NumberInt(16), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a074"), 
+    "Id_incrocio" : NumberInt(36), 
+    "Cod_baremes_cliente" : NumberInt(1), 
+    "Cod_baremes_controparte" : NumberInt(17), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a075"), 
+    "Id_incrocio" : NumberInt(37), 
+    "Cod_baremes_cliente" : NumberInt(2), 
+    "Cod_baremes_controparte" : NumberInt(0), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a076"), 
+    "Id_incrocio" : NumberInt(38), 
+    "Cod_baremes_cliente" : NumberInt(2), 
+    "Cod_baremes_controparte" : NumberInt(1), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a077"), 
+    "Id_incrocio" : NumberInt(39), 
+    "Cod_baremes_cliente" : NumberInt(2), 
+    "Cod_baremes_controparte" : NumberInt(2), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a078"), 
+    "Id_incrocio" : NumberInt(40), 
+    "Cod_baremes_cliente" : NumberInt(2), 
+    "Cod_baremes_controparte" : NumberInt(3), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a079"), 
+    "Id_incrocio" : NumberInt(41), 
+    "Cod_baremes_cliente" : NumberInt(2), 
+    "Cod_baremes_controparte" : NumberInt(4), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a07a"), 
+    "Id_incrocio" : NumberInt(42), 
+    "Cod_baremes_cliente" : NumberInt(2), 
+    "Cod_baremes_controparte" : NumberInt(5), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a07b"), 
+    "Id_incrocio" : NumberInt(43), 
+    "Cod_baremes_cliente" : NumberInt(2), 
+    "Cod_baremes_controparte" : NumberInt(6), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a07c"), 
+    "Id_incrocio" : NumberInt(44), 
+    "Cod_baremes_cliente" : NumberInt(2), 
+    "Cod_baremes_controparte" : NumberInt(7), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a07d"), 
+    "Id_incrocio" : NumberInt(45), 
+    "Cod_baremes_cliente" : NumberInt(2), 
+    "Cod_baremes_controparte" : NumberInt(8), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a07e"), 
+    "Id_incrocio" : NumberInt(46), 
+    "Cod_baremes_cliente" : NumberInt(2), 
+    "Cod_baremes_controparte" : NumberInt(9), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a07f"), 
+    "Id_incrocio" : NumberInt(47), 
+    "Cod_baremes_cliente" : NumberInt(2), 
+    "Cod_baremes_controparte" : NumberInt(10), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a080"), 
+    "Id_incrocio" : NumberInt(48), 
+    "Cod_baremes_cliente" : NumberInt(2), 
+    "Cod_baremes_controparte" : NumberInt(11), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a081"), 
+    "Id_incrocio" : NumberInt(49), 
+    "Cod_baremes_cliente" : NumberInt(2), 
+    "Cod_baremes_controparte" : NumberInt(12), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a082"), 
+    "Id_incrocio" : NumberInt(50), 
+    "Cod_baremes_cliente" : NumberInt(2), 
+    "Cod_baremes_controparte" : NumberInt(13), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a083"), 
+    "Id_incrocio" : NumberInt(51), 
+    "Cod_baremes_cliente" : NumberInt(2), 
+    "Cod_baremes_controparte" : NumberInt(14), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a084"), 
+    "Id_incrocio" : NumberInt(52), 
+    "Cod_baremes_cliente" : NumberInt(2), 
+    "Cod_baremes_controparte" : NumberInt(15), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a085"), 
+    "Id_incrocio" : NumberInt(53), 
+    "Cod_baremes_cliente" : NumberInt(2), 
+    "Cod_baremes_controparte" : NumberInt(16), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a086"), 
+    "Id_incrocio" : NumberInt(54), 
+    "Cod_baremes_cliente" : NumberInt(2), 
+    "Cod_baremes_controparte" : NumberInt(17), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a087"), 
+    "Id_incrocio" : NumberInt(55), 
+    "Cod_baremes_cliente" : NumberInt(3), 
+    "Cod_baremes_controparte" : NumberInt(0), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a088"), 
+    "Id_incrocio" : NumberInt(56), 
+    "Cod_baremes_cliente" : NumberInt(3), 
+    "Cod_baremes_controparte" : NumberInt(1), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a089"), 
+    "Id_incrocio" : NumberInt(57), 
+    "Cod_baremes_cliente" : NumberInt(3), 
+    "Cod_baremes_controparte" : NumberInt(2), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a08a"), 
+    "Id_incrocio" : NumberInt(58), 
+    "Cod_baremes_cliente" : NumberInt(3), 
+    "Cod_baremes_controparte" : NumberInt(3), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a08b"), 
+    "Id_incrocio" : NumberInt(59), 
+    "Cod_baremes_cliente" : NumberInt(3), 
+    "Cod_baremes_controparte" : NumberInt(4), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a08c"), 
+    "Id_incrocio" : NumberInt(60), 
+    "Cod_baremes_cliente" : NumberInt(3), 
+    "Cod_baremes_controparte" : NumberInt(5), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a08d"), 
+    "Id_incrocio" : NumberInt(61), 
+    "Cod_baremes_cliente" : NumberInt(3), 
+    "Cod_baremes_controparte" : NumberInt(6), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a08e"), 
+    "Id_incrocio" : NumberInt(62), 
+    "Cod_baremes_cliente" : NumberInt(3), 
+    "Cod_baremes_controparte" : NumberInt(7), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a08f"), 
+    "Id_incrocio" : NumberInt(63), 
+    "Cod_baremes_cliente" : NumberInt(3), 
+    "Cod_baremes_controparte" : NumberInt(8), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a090"), 
+    "Id_incrocio" : NumberInt(64), 
+    "Cod_baremes_cliente" : NumberInt(3), 
+    "Cod_baremes_controparte" : NumberInt(9), 
+    "Cod_responsabilita" : "NON CLASSIFICABILE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a091"), 
+    "Id_incrocio" : NumberInt(65), 
+    "Cod_baremes_cliente" : NumberInt(3), 
+    "Cod_baremes_controparte" : NumberInt(10), 
+    "Cod_responsabilita" : "NON CLASSIFICABILE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a092"), 
+    "Id_incrocio" : NumberInt(66), 
+    "Cod_baremes_cliente" : NumberInt(3), 
+    "Cod_baremes_controparte" : NumberInt(11), 
+    "Cod_responsabilita" : "NON CLASSIFICABILE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a093"), 
+    "Id_incrocio" : NumberInt(67), 
+    "Cod_baremes_cliente" : NumberInt(3), 
+    "Cod_baremes_controparte" : NumberInt(12), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a094"), 
+    "Id_incrocio" : NumberInt(68), 
+    "Cod_baremes_cliente" : NumberInt(3), 
+    "Cod_baremes_controparte" : NumberInt(13), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a095"), 
+    "Id_incrocio" : NumberInt(69), 
+    "Cod_baremes_cliente" : NumberInt(3), 
+    "Cod_baremes_controparte" : NumberInt(14), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a096"), 
+    "Id_incrocio" : NumberInt(70), 
+    "Cod_baremes_cliente" : NumberInt(3), 
+    "Cod_baremes_controparte" : NumberInt(15), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a097"), 
+    "Id_incrocio" : NumberInt(71), 
+    "Cod_baremes_cliente" : NumberInt(3), 
+    "Cod_baremes_controparte" : NumberInt(16), 
+    "Cod_responsabilita" : "NON CLASSIFICABILE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a098"), 
+    "Id_incrocio" : NumberInt(72), 
+    "Cod_baremes_cliente" : NumberInt(3), 
+    "Cod_baremes_controparte" : NumberInt(17), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a099"), 
+    "Id_incrocio" : NumberInt(73), 
+    "Cod_baremes_cliente" : NumberInt(4), 
+    "Cod_baremes_controparte" : NumberInt(0), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a09a"), 
+    "Id_incrocio" : NumberInt(74), 
+    "Cod_baremes_cliente" : NumberInt(4), 
+    "Cod_baremes_controparte" : NumberInt(1), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a09b"), 
+    "Id_incrocio" : NumberInt(75), 
+    "Cod_baremes_cliente" : NumberInt(4), 
+    "Cod_baremes_controparte" : NumberInt(2), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a09c"), 
+    "Id_incrocio" : NumberInt(76), 
+    "Cod_baremes_cliente" : NumberInt(4), 
+    "Cod_baremes_controparte" : NumberInt(3), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a09d"), 
+    "Id_incrocio" : NumberInt(77), 
+    "Cod_baremes_cliente" : NumberInt(4), 
+    "Cod_baremes_controparte" : NumberInt(4), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a09e"), 
+    "Id_incrocio" : NumberInt(78), 
+    "Cod_baremes_cliente" : NumberInt(4), 
+    "Cod_baremes_controparte" : NumberInt(5), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a09f"), 
+    "Id_incrocio" : NumberInt(79), 
+    "Cod_baremes_cliente" : NumberInt(4), 
+    "Cod_baremes_controparte" : NumberInt(6), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0a0"), 
+    "Id_incrocio" : NumberInt(80), 
+    "Cod_baremes_cliente" : NumberInt(4), 
+    "Cod_baremes_controparte" : NumberInt(7), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0a1"), 
+    "Id_incrocio" : NumberInt(81), 
+    "Cod_baremes_cliente" : NumberInt(4), 
+    "Cod_baremes_controparte" : NumberInt(8), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0a2"), 
+    "Id_incrocio" : NumberInt(82), 
+    "Cod_baremes_cliente" : NumberInt(4), 
+    "Cod_baremes_controparte" : NumberInt(9), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0a3"), 
+    "Id_incrocio" : NumberInt(83), 
+    "Cod_baremes_cliente" : NumberInt(4), 
+    "Cod_baremes_controparte" : NumberInt(10), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0a4"), 
+    "Id_incrocio" : NumberInt(84), 
+    "Cod_baremes_cliente" : NumberInt(4), 
+    "Cod_baremes_controparte" : NumberInt(11), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0a5"), 
+    "Id_incrocio" : NumberInt(85), 
+    "Cod_baremes_cliente" : NumberInt(4), 
+    "Cod_baremes_controparte" : NumberInt(12), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0a6"), 
+    "Id_incrocio" : NumberInt(86), 
+    "Cod_baremes_cliente" : NumberInt(4), 
+    "Cod_baremes_controparte" : NumberInt(13), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0a7"), 
+    "Id_incrocio" : NumberInt(87), 
+    "Cod_baremes_cliente" : NumberInt(4), 
+    "Cod_baremes_controparte" : NumberInt(14), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0a8"), 
+    "Id_incrocio" : NumberInt(88), 
+    "Cod_baremes_cliente" : NumberInt(4), 
+    "Cod_baremes_controparte" : NumberInt(15), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0a9"), 
+    "Id_incrocio" : NumberInt(89), 
+    "Cod_baremes_cliente" : NumberInt(4), 
+    "Cod_baremes_controparte" : NumberInt(16), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0aa"), 
+    "Id_incrocio" : NumberInt(90), 
+    "Cod_baremes_cliente" : NumberInt(4), 
+    "Cod_baremes_controparte" : NumberInt(17), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0ab"), 
+    "Id_incrocio" : NumberInt(91), 
+    "Cod_baremes_cliente" : NumberInt(5), 
+    "Cod_baremes_controparte" : NumberInt(0), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0ac"), 
+    "Id_incrocio" : NumberInt(92), 
+    "Cod_baremes_cliente" : NumberInt(5), 
+    "Cod_baremes_controparte" : NumberInt(1), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0ad"), 
+    "Id_incrocio" : NumberInt(93), 
+    "Cod_baremes_cliente" : NumberInt(5), 
+    "Cod_baremes_controparte" : NumberInt(2), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0ae"), 
+    "Id_incrocio" : NumberInt(94), 
+    "Cod_baremes_cliente" : NumberInt(5), 
+    "Cod_baremes_controparte" : NumberInt(3), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0af"), 
+    "Id_incrocio" : NumberInt(95), 
+    "Cod_baremes_cliente" : NumberInt(5), 
+    "Cod_baremes_controparte" : NumberInt(4), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0b0"), 
+    "Id_incrocio" : NumberInt(96), 
+    "Cod_baremes_cliente" : NumberInt(5), 
+    "Cod_baremes_controparte" : NumberInt(5), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0b1"), 
+    "Id_incrocio" : NumberInt(97), 
+    "Cod_baremes_cliente" : NumberInt(5), 
+    "Cod_baremes_controparte" : NumberInt(6), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0b2"), 
+    "Id_incrocio" : NumberInt(98), 
+    "Cod_baremes_cliente" : NumberInt(5), 
+    "Cod_baremes_controparte" : NumberInt(7), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0b3"), 
+    "Id_incrocio" : NumberInt(99), 
+    "Cod_baremes_cliente" : NumberInt(5), 
+    "Cod_baremes_controparte" : NumberInt(8), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0b4"), 
+    "Id_incrocio" : NumberInt(100), 
+    "Cod_baremes_cliente" : NumberInt(5), 
+    "Cod_baremes_controparte" : NumberInt(9), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0b5"), 
+    "Id_incrocio" : NumberInt(101), 
+    "Cod_baremes_cliente" : NumberInt(5), 
+    "Cod_baremes_controparte" : NumberInt(10), 
+    "Cod_responsabilita" : "NON CLASSIFICABILE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0b6"), 
+    "Id_incrocio" : NumberInt(102), 
+    "Cod_baremes_cliente" : NumberInt(5), 
+    "Cod_baremes_controparte" : NumberInt(11), 
+    "Cod_responsabilita" : "NON CLASSIFICABILE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0b7"), 
+    "Id_incrocio" : NumberInt(103), 
+    "Cod_baremes_cliente" : NumberInt(5), 
+    "Cod_baremes_controparte" : NumberInt(12), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0b8"), 
+    "Id_incrocio" : NumberInt(104), 
+    "Cod_baremes_cliente" : NumberInt(5), 
+    "Cod_baremes_controparte" : NumberInt(13), 
+    "Cod_responsabilita" : "NON CLASSIFICABILE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0b9"), 
+    "Id_incrocio" : NumberInt(105), 
+    "Cod_baremes_cliente" : NumberInt(5), 
+    "Cod_baremes_controparte" : NumberInt(14), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0ba"), 
+    "Id_incrocio" : NumberInt(106), 
+    "Cod_baremes_cliente" : NumberInt(5), 
+    "Cod_baremes_controparte" : NumberInt(15), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0bb"), 
+    "Id_incrocio" : NumberInt(107), 
+    "Cod_baremes_cliente" : NumberInt(5), 
+    "Cod_baremes_controparte" : NumberInt(16), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0bc"), 
+    "Id_incrocio" : NumberInt(108), 
+    "Cod_baremes_cliente" : NumberInt(5), 
+    "Cod_baremes_controparte" : NumberInt(17), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0bd"), 
+    "Id_incrocio" : NumberInt(109), 
+    "Cod_baremes_cliente" : NumberInt(6), 
+    "Cod_baremes_controparte" : NumberInt(0), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0be"), 
+    "Id_incrocio" : NumberInt(110), 
+    "Cod_baremes_cliente" : NumberInt(6), 
+    "Cod_baremes_controparte" : NumberInt(1), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0bf"), 
+    "Id_incrocio" : NumberInt(111), 
+    "Cod_baremes_cliente" : NumberInt(6), 
+    "Cod_baremes_controparte" : NumberInt(2), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0c0"), 
+    "Id_incrocio" : NumberInt(112), 
+    "Cod_baremes_cliente" : NumberInt(6), 
+    "Cod_baremes_controparte" : NumberInt(3), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0c1"), 
+    "Id_incrocio" : NumberInt(113), 
+    "Cod_baremes_cliente" : NumberInt(6), 
+    "Cod_baremes_controparte" : NumberInt(4), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0c2"), 
+    "Id_incrocio" : NumberInt(114), 
+    "Cod_baremes_cliente" : NumberInt(6), 
+    "Cod_baremes_controparte" : NumberInt(5), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0c3"), 
+    "Id_incrocio" : NumberInt(115), 
+    "Cod_baremes_cliente" : NumberInt(6), 
+    "Cod_baremes_controparte" : NumberInt(6), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0c4"), 
+    "Id_incrocio" : NumberInt(116), 
+    "Cod_baremes_cliente" : NumberInt(6), 
+    "Cod_baremes_controparte" : NumberInt(7), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0c5"), 
+    "Id_incrocio" : NumberInt(117), 
+    "Cod_baremes_cliente" : NumberInt(6), 
+    "Cod_baremes_controparte" : NumberInt(8), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0c6"), 
+    "Id_incrocio" : NumberInt(118), 
+    "Cod_baremes_cliente" : NumberInt(6), 
+    "Cod_baremes_controparte" : NumberInt(9), 
+    "Cod_responsabilita" : "NON CLASSIFICABILE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0c7"), 
+    "Id_incrocio" : NumberInt(119), 
+    "Cod_baremes_cliente" : NumberInt(6), 
+    "Cod_baremes_controparte" : NumberInt(10), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0c8"), 
+    "Id_incrocio" : NumberInt(120), 
+    "Cod_baremes_cliente" : NumberInt(6), 
+    "Cod_baremes_controparte" : NumberInt(11), 
+    "Cod_responsabilita" : "NON CLASSIFICABILE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0c9"), 
+    "Id_incrocio" : NumberInt(121), 
+    "Cod_baremes_cliente" : NumberInt(6), 
+    "Cod_baremes_controparte" : NumberInt(12), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0ca"), 
+    "Id_incrocio" : NumberInt(122), 
+    "Cod_baremes_cliente" : NumberInt(6), 
+    "Cod_baremes_controparte" : NumberInt(13), 
+    "Cod_responsabilita" : "NON CLASSIFICABILE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0cb"), 
+    "Id_incrocio" : NumberInt(123), 
+    "Cod_baremes_cliente" : NumberInt(6), 
+    "Cod_baremes_controparte" : NumberInt(14), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0cc"), 
+    "Id_incrocio" : NumberInt(124), 
+    "Cod_baremes_cliente" : NumberInt(6), 
+    "Cod_baremes_controparte" : NumberInt(15), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0cd"), 
+    "Id_incrocio" : NumberInt(125), 
+    "Cod_baremes_cliente" : NumberInt(6), 
+    "Cod_baremes_controparte" : NumberInt(16), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0ce"), 
+    "Id_incrocio" : NumberInt(126), 
+    "Cod_baremes_cliente" : NumberInt(6), 
+    "Cod_baremes_controparte" : NumberInt(17), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0cf"), 
+    "Id_incrocio" : NumberInt(127), 
+    "Cod_baremes_cliente" : NumberInt(7), 
+    "Cod_baremes_controparte" : NumberInt(0), 
+    "Cod_responsabilita" : "NON CLASSIFICABILE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0d0"), 
+    "Id_incrocio" : NumberInt(128), 
+    "Cod_baremes_cliente" : NumberInt(7), 
+    "Cod_baremes_controparte" : NumberInt(1), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0d1"), 
+    "Id_incrocio" : NumberInt(129), 
+    "Cod_baremes_cliente" : NumberInt(7), 
+    "Cod_baremes_controparte" : NumberInt(2), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0d2"), 
+    "Id_incrocio" : NumberInt(130), 
+    "Cod_baremes_cliente" : NumberInt(7), 
+    "Cod_baremes_controparte" : NumberInt(3), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0d3"), 
+    "Id_incrocio" : NumberInt(131), 
+    "Cod_baremes_cliente" : NumberInt(7), 
+    "Cod_baremes_controparte" : NumberInt(4), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0d4"), 
+    "Id_incrocio" : NumberInt(132), 
+    "Cod_baremes_cliente" : NumberInt(7), 
+    "Cod_baremes_controparte" : NumberInt(5), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0d5"), 
+    "Id_incrocio" : NumberInt(133), 
+    "Cod_baremes_cliente" : NumberInt(7), 
+    "Cod_baremes_controparte" : NumberInt(6), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0d6"), 
+    "Id_incrocio" : NumberInt(134), 
+    "Cod_baremes_cliente" : NumberInt(7), 
+    "Cod_baremes_controparte" : NumberInt(7), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0d7"), 
+    "Id_incrocio" : NumberInt(135), 
+    "Cod_baremes_cliente" : NumberInt(7), 
+    "Cod_baremes_controparte" : NumberInt(8), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0d8"), 
+    "Id_incrocio" : NumberInt(136), 
+    "Cod_baremes_cliente" : NumberInt(7), 
+    "Cod_baremes_controparte" : NumberInt(9), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0d9"), 
+    "Id_incrocio" : NumberInt(137), 
+    "Cod_baremes_cliente" : NumberInt(7), 
+    "Cod_baremes_controparte" : NumberInt(10), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0da"), 
+    "Id_incrocio" : NumberInt(138), 
+    "Cod_baremes_cliente" : NumberInt(7), 
+    "Cod_baremes_controparte" : NumberInt(11), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0db"), 
+    "Id_incrocio" : NumberInt(139), 
+    "Cod_baremes_cliente" : NumberInt(7), 
+    "Cod_baremes_controparte" : NumberInt(12), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0dc"), 
+    "Id_incrocio" : NumberInt(140), 
+    "Cod_baremes_cliente" : NumberInt(7), 
+    "Cod_baremes_controparte" : NumberInt(13), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0dd"), 
+    "Id_incrocio" : NumberInt(141), 
+    "Cod_baremes_cliente" : NumberInt(7), 
+    "Cod_baremes_controparte" : NumberInt(14), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0de"), 
+    "Id_incrocio" : NumberInt(142), 
+    "Cod_baremes_cliente" : NumberInt(7), 
+    "Cod_baremes_controparte" : NumberInt(15), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0df"), 
+    "Id_incrocio" : NumberInt(143), 
+    "Cod_baremes_cliente" : NumberInt(7), 
+    "Cod_baremes_controparte" : NumberInt(16), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0e0"), 
+    "Id_incrocio" : NumberInt(144), 
+    "Cod_baremes_cliente" : NumberInt(7), 
+    "Cod_baremes_controparte" : NumberInt(17), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0e1"), 
+    "Id_incrocio" : NumberInt(145), 
+    "Cod_baremes_cliente" : NumberInt(8), 
+    "Cod_baremes_controparte" : NumberInt(0), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0e2"), 
+    "Id_incrocio" : NumberInt(146), 
+    "Cod_baremes_cliente" : NumberInt(8), 
+    "Cod_baremes_controparte" : NumberInt(1), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0e3"), 
+    "Id_incrocio" : NumberInt(147), 
+    "Cod_baremes_cliente" : NumberInt(8), 
+    "Cod_baremes_controparte" : NumberInt(2), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0e4"), 
+    "Id_incrocio" : NumberInt(148), 
+    "Cod_baremes_cliente" : NumberInt(8), 
+    "Cod_baremes_controparte" : NumberInt(3), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0e5"), 
+    "Id_incrocio" : NumberInt(149), 
+    "Cod_baremes_cliente" : NumberInt(8), 
+    "Cod_baremes_controparte" : NumberInt(4), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0e6"), 
+    "Id_incrocio" : NumberInt(150), 
+    "Cod_baremes_cliente" : NumberInt(8), 
+    "Cod_baremes_controparte" : NumberInt(5), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0e7"), 
+    "Id_incrocio" : NumberInt(151), 
+    "Cod_baremes_cliente" : NumberInt(8), 
+    "Cod_baremes_controparte" : NumberInt(6), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0e8"), 
+    "Id_incrocio" : NumberInt(152), 
+    "Cod_baremes_cliente" : NumberInt(8), 
+    "Cod_baremes_controparte" : NumberInt(7), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0e9"), 
+    "Id_incrocio" : NumberInt(153), 
+    "Cod_baremes_cliente" : NumberInt(8), 
+    "Cod_baremes_controparte" : NumberInt(8), 
+    "Cod_responsabilita" : "NON CLASSIFICABILE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0ea"), 
+    "Id_incrocio" : NumberInt(154), 
+    "Cod_baremes_cliente" : NumberInt(8), 
+    "Cod_baremes_controparte" : NumberInt(9), 
+    "Cod_responsabilita" : "NON CLASSIFICABILE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0eb"), 
+    "Id_incrocio" : NumberInt(155), 
+    "Cod_baremes_cliente" : NumberInt(8), 
+    "Cod_baremes_controparte" : NumberInt(10), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0ec"), 
+    "Id_incrocio" : NumberInt(156), 
+    "Cod_baremes_cliente" : NumberInt(8), 
+    "Cod_baremes_controparte" : NumberInt(11), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0ed"), 
+    "Id_incrocio" : NumberInt(157), 
+    "Cod_baremes_cliente" : NumberInt(8), 
+    "Cod_baremes_controparte" : NumberInt(12), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0ee"), 
+    "Id_incrocio" : NumberInt(158), 
+    "Cod_baremes_cliente" : NumberInt(8), 
+    "Cod_baremes_controparte" : NumberInt(13), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0ef"), 
+    "Id_incrocio" : NumberInt(159), 
+    "Cod_baremes_cliente" : NumberInt(8), 
+    "Cod_baremes_controparte" : NumberInt(14), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0f0"), 
+    "Id_incrocio" : NumberInt(160), 
+    "Cod_baremes_cliente" : NumberInt(8), 
+    "Cod_baremes_controparte" : NumberInt(15), 
+    "Cod_responsabilita" : "NON CLASSIFICABILE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0f1"), 
+    "Id_incrocio" : NumberInt(161), 
+    "Cod_baremes_cliente" : NumberInt(8), 
+    "Cod_baremes_controparte" : NumberInt(16), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0f2"), 
+    "Id_incrocio" : NumberInt(162), 
+    "Cod_baremes_cliente" : NumberInt(8), 
+    "Cod_baremes_controparte" : NumberInt(17), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0f3"), 
+    "Id_incrocio" : NumberInt(163), 
+    "Cod_baremes_cliente" : NumberInt(9), 
+    "Cod_baremes_controparte" : NumberInt(0), 
+    "Cod_responsabilita" : "NON CLASSIFICABILE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0f4"), 
+    "Id_incrocio" : NumberInt(164), 
+    "Cod_baremes_cliente" : NumberInt(9), 
+    "Cod_baremes_controparte" : NumberInt(1), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0f5"), 
+    "Id_incrocio" : NumberInt(165), 
+    "Cod_baremes_cliente" : NumberInt(9), 
+    "Cod_baremes_controparte" : NumberInt(2), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0f6"), 
+    "Id_incrocio" : NumberInt(166), 
+    "Cod_baremes_cliente" : NumberInt(9), 
+    "Cod_baremes_controparte" : NumberInt(3), 
+    "Cod_responsabilita" : "NON CLASSIFICABILE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0f7"), 
+    "Id_incrocio" : NumberInt(167), 
+    "Cod_baremes_cliente" : NumberInt(9), 
+    "Cod_baremes_controparte" : NumberInt(4), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0f8"), 
+    "Id_incrocio" : NumberInt(168), 
+    "Cod_baremes_cliente" : NumberInt(9), 
+    "Cod_baremes_controparte" : NumberInt(5), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0f9"), 
+    "Id_incrocio" : NumberInt(169), 
+    "Cod_baremes_cliente" : NumberInt(9), 
+    "Cod_baremes_controparte" : NumberInt(6), 
+    "Cod_responsabilita" : "NON CLASSIFICABILE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0fa"), 
+    "Id_incrocio" : NumberInt(170), 
+    "Cod_baremes_cliente" : NumberInt(9), 
+    "Cod_baremes_controparte" : NumberInt(7), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0fb"), 
+    "Id_incrocio" : NumberInt(171), 
+    "Cod_baremes_cliente" : NumberInt(9), 
+    "Cod_baremes_controparte" : NumberInt(8), 
+    "Cod_responsabilita" : "NON CLASSIFICABILE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0fc"), 
+    "Id_incrocio" : NumberInt(172), 
+    "Cod_baremes_cliente" : NumberInt(9), 
+    "Cod_baremes_controparte" : NumberInt(9), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0fd"), 
+    "Id_incrocio" : NumberInt(173), 
+    "Cod_baremes_cliente" : NumberInt(9), 
+    "Cod_baremes_controparte" : NumberInt(10), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0fe"), 
+    "Id_incrocio" : NumberInt(174), 
+    "Cod_baremes_cliente" : NumberInt(9), 
+    "Cod_baremes_controparte" : NumberInt(11), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a0ff"), 
+    "Id_incrocio" : NumberInt(175), 
+    "Cod_baremes_cliente" : NumberInt(9), 
+    "Cod_baremes_controparte" : NumberInt(12), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a100"), 
+    "Id_incrocio" : NumberInt(176), 
+    "Cod_baremes_cliente" : NumberInt(9), 
+    "Cod_baremes_controparte" : NumberInt(13), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a101"), 
+    "Id_incrocio" : NumberInt(177), 
+    "Cod_baremes_cliente" : NumberInt(9), 
+    "Cod_baremes_controparte" : NumberInt(14), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a102"), 
+    "Id_incrocio" : NumberInt(178), 
+    "Cod_baremes_cliente" : NumberInt(9), 
+    "Cod_baremes_controparte" : NumberInt(15), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a103"), 
+    "Id_incrocio" : NumberInt(179), 
+    "Cod_baremes_cliente" : NumberInt(9), 
+    "Cod_baremes_controparte" : NumberInt(16), 
+    "Cod_responsabilita" : "NON CLASSIFICABILE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a104"), 
+    "Id_incrocio" : NumberInt(180), 
+    "Cod_baremes_cliente" : NumberInt(9), 
+    "Cod_baremes_controparte" : NumberInt(17), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a105"), 
+    "Id_incrocio" : NumberInt(181), 
+    "Cod_baremes_cliente" : NumberInt(10), 
+    "Cod_baremes_controparte" : NumberInt(0), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a106"), 
+    "Id_incrocio" : NumberInt(182), 
+    "Cod_baremes_cliente" : NumberInt(10), 
+    "Cod_baremes_controparte" : NumberInt(1), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a107"), 
+    "Id_incrocio" : NumberInt(183), 
+    "Cod_baremes_cliente" : NumberInt(10), 
+    "Cod_baremes_controparte" : NumberInt(2), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a108"), 
+    "Id_incrocio" : NumberInt(184), 
+    "Cod_baremes_cliente" : NumberInt(10), 
+    "Cod_baremes_controparte" : NumberInt(3), 
+    "Cod_responsabilita" : "NON CLASSIFICABILE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a109"), 
+    "Id_incrocio" : NumberInt(185), 
+    "Cod_baremes_cliente" : NumberInt(10), 
+    "Cod_baremes_controparte" : NumberInt(4), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a10a"), 
+    "Id_incrocio" : NumberInt(186), 
+    "Cod_baremes_cliente" : NumberInt(10), 
+    "Cod_baremes_controparte" : NumberInt(5), 
+    "Cod_responsabilita" : "NON CLASSIFICABILE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a10b"), 
+    "Id_incrocio" : NumberInt(187), 
+    "Cod_baremes_cliente" : NumberInt(10), 
+    "Cod_baremes_controparte" : NumberInt(6), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a10c"), 
+    "Id_incrocio" : NumberInt(188), 
+    "Cod_baremes_cliente" : NumberInt(10), 
+    "Cod_baremes_controparte" : NumberInt(7), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a10d"), 
+    "Id_incrocio" : NumberInt(189), 
+    "Cod_baremes_cliente" : NumberInt(10), 
+    "Cod_baremes_controparte" : NumberInt(8), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a10e"), 
+    "Id_incrocio" : NumberInt(190), 
+    "Cod_baremes_cliente" : NumberInt(10), 
+    "Cod_baremes_controparte" : NumberInt(9), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a10f"), 
+    "Id_incrocio" : NumberInt(191), 
+    "Cod_baremes_cliente" : NumberInt(10), 
+    "Cod_baremes_controparte" : NumberInt(10), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a110"), 
+    "Id_incrocio" : NumberInt(192), 
+    "Cod_baremes_cliente" : NumberInt(10), 
+    "Cod_baremes_controparte" : NumberInt(11), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a111"), 
+    "Id_incrocio" : NumberInt(193), 
+    "Cod_baremes_cliente" : NumberInt(10), 
+    "Cod_baremes_controparte" : NumberInt(12), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a112"), 
+    "Id_incrocio" : NumberInt(194), 
+    "Cod_baremes_cliente" : NumberInt(10), 
+    "Cod_baremes_controparte" : NumberInt(13), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a113"), 
+    "Id_incrocio" : NumberInt(195), 
+    "Cod_baremes_cliente" : NumberInt(10), 
+    "Cod_baremes_controparte" : NumberInt(14), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a114"), 
+    "Id_incrocio" : NumberInt(196), 
+    "Cod_baremes_cliente" : NumberInt(10), 
+    "Cod_baremes_controparte" : NumberInt(15), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a115"), 
+    "Id_incrocio" : NumberInt(197), 
+    "Cod_baremes_cliente" : NumberInt(10), 
+    "Cod_baremes_controparte" : NumberInt(16), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a116"), 
+    "Id_incrocio" : NumberInt(198), 
+    "Cod_baremes_cliente" : NumberInt(10), 
+    "Cod_baremes_controparte" : NumberInt(17), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a117"), 
+    "Id_incrocio" : NumberInt(199), 
+    "Cod_baremes_cliente" : NumberInt(11), 
+    "Cod_baremes_controparte" : NumberInt(0), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a118"), 
+    "Id_incrocio" : NumberInt(200), 
+    "Cod_baremes_cliente" : NumberInt(11), 
+    "Cod_baremes_controparte" : NumberInt(1), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a119"), 
+    "Id_incrocio" : NumberInt(201), 
+    "Cod_baremes_cliente" : NumberInt(11), 
+    "Cod_baremes_controparte" : NumberInt(2), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a11a"), 
+    "Id_incrocio" : NumberInt(202), 
+    "Cod_baremes_cliente" : NumberInt(11), 
+    "Cod_baremes_controparte" : NumberInt(3), 
+    "Cod_responsabilita" : "NON CLASSIFICABILE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a11b"), 
+    "Id_incrocio" : NumberInt(203), 
+    "Cod_baremes_cliente" : NumberInt(11), 
+    "Cod_baremes_controparte" : NumberInt(4), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a11c"), 
+    "Id_incrocio" : NumberInt(204), 
+    "Cod_baremes_cliente" : NumberInt(11), 
+    "Cod_baremes_controparte" : NumberInt(5), 
+    "Cod_responsabilita" : "NON CLASSIFICABILE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a11d"), 
+    "Id_incrocio" : NumberInt(205), 
+    "Cod_baremes_cliente" : NumberInt(11), 
+    "Cod_baremes_controparte" : NumberInt(6), 
+    "Cod_responsabilita" : "NON CLASSIFICABILE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a11e"), 
+    "Id_incrocio" : NumberInt(206), 
+    "Cod_baremes_cliente" : NumberInt(11), 
+    "Cod_baremes_controparte" : NumberInt(7), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a11f"), 
+    "Id_incrocio" : NumberInt(207), 
+    "Cod_baremes_cliente" : NumberInt(11), 
+    "Cod_baremes_controparte" : NumberInt(8), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a120"), 
+    "Id_incrocio" : NumberInt(208), 
+    "Cod_baremes_cliente" : NumberInt(11), 
+    "Cod_baremes_controparte" : NumberInt(9), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a121"), 
+    "Id_incrocio" : NumberInt(209), 
+    "Cod_baremes_cliente" : NumberInt(11), 
+    "Cod_baremes_controparte" : NumberInt(10), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a122"), 
+    "Id_incrocio" : NumberInt(210), 
+    "Cod_baremes_cliente" : NumberInt(11), 
+    "Cod_baremes_controparte" : NumberInt(11), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a123"), 
+    "Id_incrocio" : NumberInt(211), 
+    "Cod_baremes_cliente" : NumberInt(11), 
+    "Cod_baremes_controparte" : NumberInt(12), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a124"), 
+    "Id_incrocio" : NumberInt(212), 
+    "Cod_baremes_cliente" : NumberInt(11), 
+    "Cod_baremes_controparte" : NumberInt(13), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a125"), 
+    "Id_incrocio" : NumberInt(213), 
+    "Cod_baremes_cliente" : NumberInt(11), 
+    "Cod_baremes_controparte" : NumberInt(14), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a126"), 
+    "Id_incrocio" : NumberInt(214), 
+    "Cod_baremes_cliente" : NumberInt(11), 
+    "Cod_baremes_controparte" : NumberInt(15), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a127"), 
+    "Id_incrocio" : NumberInt(215), 
+    "Cod_baremes_cliente" : NumberInt(11), 
+    "Cod_baremes_controparte" : NumberInt(16), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a128"), 
+    "Id_incrocio" : NumberInt(216), 
+    "Cod_baremes_cliente" : NumberInt(11), 
+    "Cod_baremes_controparte" : NumberInt(17), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a129"), 
+    "Id_incrocio" : NumberInt(217), 
+    "Cod_baremes_cliente" : NumberInt(12), 
+    "Cod_baremes_controparte" : NumberInt(0), 
+    "Cod_responsabilita" : "NON CLASSIFICABILE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a12a"), 
+    "Id_incrocio" : NumberInt(218), 
+    "Cod_baremes_cliente" : NumberInt(12), 
+    "Cod_baremes_controparte" : NumberInt(1), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a12b"), 
+    "Id_incrocio" : NumberInt(219), 
+    "Cod_baremes_cliente" : NumberInt(12), 
+    "Cod_baremes_controparte" : NumberInt(2), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a12c"), 
+    "Id_incrocio" : NumberInt(220), 
+    "Cod_baremes_cliente" : NumberInt(12), 
+    "Cod_baremes_controparte" : NumberInt(3), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a12d"), 
+    "Id_incrocio" : NumberInt(221), 
+    "Cod_baremes_cliente" : NumberInt(12), 
+    "Cod_baremes_controparte" : NumberInt(4), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a12e"), 
+    "Id_incrocio" : NumberInt(222), 
+    "Cod_baremes_cliente" : NumberInt(12), 
+    "Cod_baremes_controparte" : NumberInt(5), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a12f"), 
+    "Id_incrocio" : NumberInt(223), 
+    "Cod_baremes_cliente" : NumberInt(12), 
+    "Cod_baremes_controparte" : NumberInt(6), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a130"), 
+    "Id_incrocio" : NumberInt(224), 
+    "Cod_baremes_cliente" : NumberInt(12), 
+    "Cod_baremes_controparte" : NumberInt(7), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a131"), 
+    "Id_incrocio" : NumberInt(225), 
+    "Cod_baremes_cliente" : NumberInt(12), 
+    "Cod_baremes_controparte" : NumberInt(8), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a132"), 
+    "Id_incrocio" : NumberInt(226), 
+    "Cod_baremes_cliente" : NumberInt(12), 
+    "Cod_baremes_controparte" : NumberInt(9), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a133"), 
+    "Id_incrocio" : NumberInt(227), 
+    "Cod_baremes_cliente" : NumberInt(12), 
+    "Cod_baremes_controparte" : NumberInt(10), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a134"), 
+    "Id_incrocio" : NumberInt(228), 
+    "Cod_baremes_cliente" : NumberInt(12), 
+    "Cod_baremes_controparte" : NumberInt(11), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a135"), 
+    "Id_incrocio" : NumberInt(229), 
+    "Cod_baremes_cliente" : NumberInt(12), 
+    "Cod_baremes_controparte" : NumberInt(12), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a136"), 
+    "Id_incrocio" : NumberInt(230), 
+    "Cod_baremes_cliente" : NumberInt(12), 
+    "Cod_baremes_controparte" : NumberInt(13), 
+    "Cod_responsabilita" : "NON CLASSIFICABILE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a137"), 
+    "Id_incrocio" : NumberInt(231), 
+    "Cod_baremes_cliente" : NumberInt(12), 
+    "Cod_baremes_controparte" : NumberInt(14), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a138"), 
+    "Id_incrocio" : NumberInt(232), 
+    "Cod_baremes_cliente" : NumberInt(12), 
+    "Cod_baremes_controparte" : NumberInt(15), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a139"), 
+    "Id_incrocio" : NumberInt(233), 
+    "Cod_baremes_cliente" : NumberInt(12), 
+    "Cod_baremes_controparte" : NumberInt(16), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a13a"), 
+    "Id_incrocio" : NumberInt(234), 
+    "Cod_baremes_cliente" : NumberInt(12), 
+    "Cod_baremes_controparte" : NumberInt(17), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a13b"), 
+    "Id_incrocio" : NumberInt(235), 
+    "Cod_baremes_cliente" : NumberInt(13), 
+    "Cod_baremes_controparte" : NumberInt(0), 
+    "Cod_responsabilita" : "NON CLASSIFICABILE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a13c"), 
+    "Id_incrocio" : NumberInt(236), 
+    "Cod_baremes_cliente" : NumberInt(13), 
+    "Cod_baremes_controparte" : NumberInt(1), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a13d"), 
+    "Id_incrocio" : NumberInt(237), 
+    "Cod_baremes_cliente" : NumberInt(13), 
+    "Cod_baremes_controparte" : NumberInt(2), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a13e"), 
+    "Id_incrocio" : NumberInt(238), 
+    "Cod_baremes_cliente" : NumberInt(13), 
+    "Cod_baremes_controparte" : NumberInt(3), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a13f"), 
+    "Id_incrocio" : NumberInt(239), 
+    "Cod_baremes_cliente" : NumberInt(13), 
+    "Cod_baremes_controparte" : NumberInt(4), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a140"), 
+    "Id_incrocio" : NumberInt(240), 
+    "Cod_baremes_cliente" : NumberInt(13), 
+    "Cod_baremes_controparte" : NumberInt(5), 
+    "Cod_responsabilita" : "NON CLASSIFICABILE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a141"), 
+    "Id_incrocio" : NumberInt(241), 
+    "Cod_baremes_cliente" : NumberInt(13), 
+    "Cod_baremes_controparte" : NumberInt(6), 
+    "Cod_responsabilita" : "NON CLASSIFICABILE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a142"), 
+    "Id_incrocio" : NumberInt(242), 
+    "Cod_baremes_cliente" : NumberInt(13), 
+    "Cod_baremes_controparte" : NumberInt(7), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a143"), 
+    "Id_incrocio" : NumberInt(243), 
+    "Cod_baremes_cliente" : NumberInt(13), 
+    "Cod_baremes_controparte" : NumberInt(8), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a144"), 
+    "Id_incrocio" : NumberInt(244), 
+    "Cod_baremes_cliente" : NumberInt(13), 
+    "Cod_baremes_controparte" : NumberInt(9), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a145"), 
+    "Id_incrocio" : NumberInt(245), 
+    "Cod_baremes_cliente" : NumberInt(13), 
+    "Cod_baremes_controparte" : NumberInt(10), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a146"), 
+    "Id_incrocio" : NumberInt(246), 
+    "Cod_baremes_cliente" : NumberInt(13), 
+    "Cod_baremes_controparte" : NumberInt(11), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a147"), 
+    "Id_incrocio" : NumberInt(247), 
+    "Cod_baremes_cliente" : NumberInt(13), 
+    "Cod_baremes_controparte" : NumberInt(12), 
+    "Cod_responsabilita" : "NON CLASSIFICABILE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a148"), 
+    "Id_incrocio" : NumberInt(248), 
+    "Cod_baremes_cliente" : NumberInt(13), 
+    "Cod_baremes_controparte" : NumberInt(13), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a149"), 
+    "Id_incrocio" : NumberInt(249), 
+    "Cod_baremes_cliente" : NumberInt(13), 
+    "Cod_baremes_controparte" : NumberInt(14), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a14a"), 
+    "Id_incrocio" : NumberInt(250), 
+    "Cod_baremes_cliente" : NumberInt(13), 
+    "Cod_baremes_controparte" : NumberInt(15), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a14b"), 
+    "Id_incrocio" : NumberInt(251), 
+    "Cod_baremes_cliente" : NumberInt(13), 
+    "Cod_baremes_controparte" : NumberInt(16), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a14c"), 
+    "Id_incrocio" : NumberInt(252), 
+    "Cod_baremes_cliente" : NumberInt(13), 
+    "Cod_baremes_controparte" : NumberInt(17), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a14d"), 
+    "Id_incrocio" : NumberInt(253), 
+    "Cod_baremes_cliente" : NumberInt(14), 
+    "Cod_baremes_controparte" : NumberInt(0), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a14e"), 
+    "Id_incrocio" : NumberInt(254), 
+    "Cod_baremes_cliente" : NumberInt(14), 
+    "Cod_baremes_controparte" : NumberInt(1), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a14f"), 
+    "Id_incrocio" : NumberInt(255), 
+    "Cod_baremes_cliente" : NumberInt(14), 
+    "Cod_baremes_controparte" : NumberInt(2), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a150"), 
+    "Id_incrocio" : NumberInt(256), 
+    "Cod_baremes_cliente" : NumberInt(14), 
+    "Cod_baremes_controparte" : NumberInt(3), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a151"), 
+    "Id_incrocio" : NumberInt(257), 
+    "Cod_baremes_cliente" : NumberInt(14), 
+    "Cod_baremes_controparte" : NumberInt(4), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a152"), 
+    "Id_incrocio" : NumberInt(258), 
+    "Cod_baremes_cliente" : NumberInt(14), 
+    "Cod_baremes_controparte" : NumberInt(5), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a153"), 
+    "Id_incrocio" : NumberInt(259), 
+    "Cod_baremes_cliente" : NumberInt(14), 
+    "Cod_baremes_controparte" : NumberInt(6), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a154"), 
+    "Id_incrocio" : NumberInt(260), 
+    "Cod_baremes_cliente" : NumberInt(14), 
+    "Cod_baremes_controparte" : NumberInt(7), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a155"), 
+    "Id_incrocio" : NumberInt(261), 
+    "Cod_baremes_cliente" : NumberInt(14), 
+    "Cod_baremes_controparte" : NumberInt(8), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a156"), 
+    "Id_incrocio" : NumberInt(262), 
+    "Cod_baremes_cliente" : NumberInt(14), 
+    "Cod_baremes_controparte" : NumberInt(9), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a157"), 
+    "Id_incrocio" : NumberInt(263), 
+    "Cod_baremes_cliente" : NumberInt(14), 
+    "Cod_baremes_controparte" : NumberInt(10), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a158"), 
+    "Id_incrocio" : NumberInt(264), 
+    "Cod_baremes_cliente" : NumberInt(14), 
+    "Cod_baremes_controparte" : NumberInt(11), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a159"), 
+    "Id_incrocio" : NumberInt(265), 
+    "Cod_baremes_cliente" : NumberInt(14), 
+    "Cod_baremes_controparte" : NumberInt(12), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a15a"), 
+    "Id_incrocio" : NumberInt(266), 
+    "Cod_baremes_cliente" : NumberInt(14), 
+    "Cod_baremes_controparte" : NumberInt(13), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a15b"), 
+    "Id_incrocio" : NumberInt(267), 
+    "Cod_baremes_cliente" : NumberInt(14), 
+    "Cod_baremes_controparte" : NumberInt(14), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a15c"), 
+    "Id_incrocio" : NumberInt(268), 
+    "Cod_baremes_cliente" : NumberInt(14), 
+    "Cod_baremes_controparte" : NumberInt(15), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a15d"), 
+    "Id_incrocio" : NumberInt(269), 
+    "Cod_baremes_cliente" : NumberInt(14), 
+    "Cod_baremes_controparte" : NumberInt(16), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a15e"), 
+    "Id_incrocio" : NumberInt(270), 
+    "Cod_baremes_cliente" : NumberInt(14), 
+    "Cod_baremes_controparte" : NumberInt(17), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a15f"), 
+    "Id_incrocio" : NumberInt(271), 
+    "Cod_baremes_cliente" : NumberInt(15), 
+    "Cod_baremes_controparte" : NumberInt(0), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a160"), 
+    "Id_incrocio" : NumberInt(272), 
+    "Cod_baremes_cliente" : NumberInt(15), 
+    "Cod_baremes_controparte" : NumberInt(1), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a161"), 
+    "Id_incrocio" : NumberInt(273), 
+    "Cod_baremes_cliente" : NumberInt(15), 
+    "Cod_baremes_controparte" : NumberInt(2), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a162"), 
+    "Id_incrocio" : NumberInt(274), 
+    "Cod_baremes_cliente" : NumberInt(15), 
+    "Cod_baremes_controparte" : NumberInt(3), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a163"), 
+    "Id_incrocio" : NumberInt(275), 
+    "Cod_baremes_cliente" : NumberInt(15), 
+    "Cod_baremes_controparte" : NumberInt(4), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a164"), 
+    "Id_incrocio" : NumberInt(276), 
+    "Cod_baremes_cliente" : NumberInt(15), 
+    "Cod_baremes_controparte" : NumberInt(5), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a165"), 
+    "Id_incrocio" : NumberInt(277), 
+    "Cod_baremes_cliente" : NumberInt(15), 
+    "Cod_baremes_controparte" : NumberInt(6), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a166"), 
+    "Id_incrocio" : NumberInt(278), 
+    "Cod_baremes_cliente" : NumberInt(15), 
+    "Cod_baremes_controparte" : NumberInt(7), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a167"), 
+    "Id_incrocio" : NumberInt(279), 
+    "Cod_baremes_cliente" : NumberInt(15), 
+    "Cod_baremes_controparte" : NumberInt(8), 
+    "Cod_responsabilita" : "NON CLASSIFICABILE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a168"), 
+    "Id_incrocio" : NumberInt(280), 
+    "Cod_baremes_cliente" : NumberInt(15), 
+    "Cod_baremes_controparte" : NumberInt(9), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a169"), 
+    "Id_incrocio" : NumberInt(281), 
+    "Cod_baremes_cliente" : NumberInt(15), 
+    "Cod_baremes_controparte" : NumberInt(10), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a16a"), 
+    "Id_incrocio" : NumberInt(282), 
+    "Cod_baremes_cliente" : NumberInt(15), 
+    "Cod_baremes_controparte" : NumberInt(11), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a16b"), 
+    "Id_incrocio" : NumberInt(283), 
+    "Cod_baremes_cliente" : NumberInt(15), 
+    "Cod_baremes_controparte" : NumberInt(12), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a16c"), 
+    "Id_incrocio" : NumberInt(284), 
+    "Cod_baremes_cliente" : NumberInt(15), 
+    "Cod_baremes_controparte" : NumberInt(13), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a16d"), 
+    "Id_incrocio" : NumberInt(285), 
+    "Cod_baremes_cliente" : NumberInt(15), 
+    "Cod_baremes_controparte" : NumberInt(14), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a16e"), 
+    "Id_incrocio" : NumberInt(286), 
+    "Cod_baremes_cliente" : NumberInt(15), 
+    "Cod_baremes_controparte" : NumberInt(15), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a16f"), 
+    "Id_incrocio" : NumberInt(287), 
+    "Cod_baremes_cliente" : NumberInt(15), 
+    "Cod_baremes_controparte" : NumberInt(16), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a170"), 
+    "Id_incrocio" : NumberInt(288), 
+    "Cod_baremes_cliente" : NumberInt(15), 
+    "Cod_baremes_controparte" : NumberInt(17), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a171"), 
+    "Id_incrocio" : NumberInt(289), 
+    "Cod_baremes_cliente" : NumberInt(16), 
+    "Cod_baremes_controparte" : NumberInt(0), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a172"), 
+    "Id_incrocio" : NumberInt(290), 
+    "Cod_baremes_cliente" : NumberInt(16), 
+    "Cod_baremes_controparte" : NumberInt(1), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a173"), 
+    "Id_incrocio" : NumberInt(291), 
+    "Cod_baremes_cliente" : NumberInt(16), 
+    "Cod_baremes_controparte" : NumberInt(2), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a174"), 
+    "Id_incrocio" : NumberInt(292), 
+    "Cod_baremes_cliente" : NumberInt(16), 
+    "Cod_baremes_controparte" : NumberInt(3), 
+    "Cod_responsabilita" : "NON CLASSIFICABILE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a175"), 
+    "Id_incrocio" : NumberInt(293), 
+    "Cod_baremes_cliente" : NumberInt(16), 
+    "Cod_baremes_controparte" : NumberInt(4), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a176"), 
+    "Id_incrocio" : NumberInt(294), 
+    "Cod_baremes_cliente" : NumberInt(16), 
+    "Cod_baremes_controparte" : NumberInt(5), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a177"), 
+    "Id_incrocio" : NumberInt(295), 
+    "Cod_baremes_cliente" : NumberInt(16), 
+    "Cod_baremes_controparte" : NumberInt(6), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a178"), 
+    "Id_incrocio" : NumberInt(296), 
+    "Cod_baremes_cliente" : NumberInt(16), 
+    "Cod_baremes_controparte" : NumberInt(7), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a179"), 
+    "Id_incrocio" : NumberInt(297), 
+    "Cod_baremes_cliente" : NumberInt(16), 
+    "Cod_baremes_controparte" : NumberInt(8), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a17a"), 
+    "Id_incrocio" : NumberInt(298), 
+    "Cod_baremes_cliente" : NumberInt(16), 
+    "Cod_baremes_controparte" : NumberInt(9), 
+    "Cod_responsabilita" : "NON CLASSIFICABILE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a17b"), 
+    "Id_incrocio" : NumberInt(299), 
+    "Cod_baremes_cliente" : NumberInt(16), 
+    "Cod_baremes_controparte" : NumberInt(10), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a17c"), 
+    "Id_incrocio" : NumberInt(300), 
+    "Cod_baremes_cliente" : NumberInt(16), 
+    "Cod_baremes_controparte" : NumberInt(11), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a17d"), 
+    "Id_incrocio" : NumberInt(301), 
+    "Cod_baremes_cliente" : NumberInt(16), 
+    "Cod_baremes_controparte" : NumberInt(12), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a17e"), 
+    "Id_incrocio" : NumberInt(302), 
+    "Cod_baremes_cliente" : NumberInt(16), 
+    "Cod_baremes_controparte" : NumberInt(13), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a17f"), 
+    "Id_incrocio" : NumberInt(303), 
+    "Cod_baremes_cliente" : NumberInt(16), 
+    "Cod_baremes_controparte" : NumberInt(14), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a180"), 
+    "Id_incrocio" : NumberInt(304), 
+    "Cod_baremes_cliente" : NumberInt(16), 
+    "Cod_baremes_controparte" : NumberInt(15), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a181"), 
+    "Id_incrocio" : NumberInt(305), 
+    "Cod_baremes_cliente" : NumberInt(16), 
+    "Cod_baremes_controparte" : NumberInt(16), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a182"), 
+    "Id_incrocio" : NumberInt(306), 
+    "Cod_baremes_cliente" : NumberInt(16), 
+    "Cod_baremes_controparte" : NumberInt(17), 
+    "Cod_responsabilita" : "CONTROPARTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a183"), 
+    "Id_incrocio" : NumberInt(307), 
+    "Cod_baremes_cliente" : NumberInt(17), 
+    "Cod_baremes_controparte" : NumberInt(0), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a184"), 
+    "Id_incrocio" : NumberInt(308), 
+    "Cod_baremes_cliente" : NumberInt(17), 
+    "Cod_baremes_controparte" : NumberInt(1), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a185"), 
+    "Id_incrocio" : NumberInt(309), 
+    "Cod_baremes_cliente" : NumberInt(17), 
+    "Cod_baremes_controparte" : NumberInt(2), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a186"), 
+    "Id_incrocio" : NumberInt(310), 
+    "Cod_baremes_cliente" : NumberInt(17), 
+    "Cod_baremes_controparte" : NumberInt(3), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a187"), 
+    "Id_incrocio" : NumberInt(311), 
+    "Cod_baremes_cliente" : NumberInt(17), 
+    "Cod_baremes_controparte" : NumberInt(4), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a188"), 
+    "Id_incrocio" : NumberInt(312), 
+    "Cod_baremes_cliente" : NumberInt(17), 
+    "Cod_baremes_controparte" : NumberInt(5), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a189"), 
+    "Id_incrocio" : NumberInt(313), 
+    "Cod_baremes_cliente" : NumberInt(17), 
+    "Cod_baremes_controparte" : NumberInt(6), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a18a"), 
+    "Id_incrocio" : NumberInt(314), 
+    "Cod_baremes_cliente" : NumberInt(17), 
+    "Cod_baremes_controparte" : NumberInt(7), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a18b"), 
+    "Id_incrocio" : NumberInt(315), 
+    "Cod_baremes_cliente" : NumberInt(17), 
+    "Cod_baremes_controparte" : NumberInt(8), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a18c"), 
+    "Id_incrocio" : NumberInt(316), 
+    "Cod_baremes_cliente" : NumberInt(17), 
+    "Cod_baremes_controparte" : NumberInt(9), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a18d"), 
+    "Id_incrocio" : NumberInt(317), 
+    "Cod_baremes_cliente" : NumberInt(17), 
+    "Cod_baremes_controparte" : NumberInt(10), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a18e"), 
+    "Id_incrocio" : NumberInt(318), 
+    "Cod_baremes_cliente" : NumberInt(17), 
+    "Cod_baremes_controparte" : NumberInt(11), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a18f"), 
+    "Id_incrocio" : NumberInt(319), 
+    "Cod_baremes_cliente" : NumberInt(17), 
+    "Cod_baremes_controparte" : NumberInt(12), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a190"), 
+    "Id_incrocio" : NumberInt(320), 
+    "Cod_baremes_cliente" : NumberInt(17), 
+    "Cod_baremes_controparte" : NumberInt(13), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a191"), 
+    "Id_incrocio" : NumberInt(321), 
+    "Cod_baremes_cliente" : NumberInt(17), 
+    "Cod_baremes_controparte" : NumberInt(14), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a192"), 
+    "Id_incrocio" : NumberInt(322), 
+    "Cod_baremes_cliente" : NumberInt(17), 
+    "Cod_baremes_controparte" : NumberInt(15), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a193"), 
+    "Id_incrocio" : NumberInt(323), 
+    "Cod_baremes_cliente" : NumberInt(17), 
+    "Cod_baremes_controparte" : NumberInt(16), 
+    "Cod_responsabilita" : "CLIENTE"
+}
+{ 
+    "_id" : ObjectId("598c7eb9e6cd644e3c11a194"), 
+    "Id_incrocio" : NumberInt(324), 
+    "Cod_baremes_cliente" : NumberInt(17), 
+    "Cod_baremes_controparte" : NumberInt(17), 
+    "Cod_responsabilita" : "CONCORSUALE"
+}

@@ -32,6 +32,7 @@ logging:
   file: /Sviluppo/msa_logs/msa.log
 msa:
   profile: locale
+  pathDocumenti: \\FGBAL051641\DocumentiCaricati
   basePath: localhost:8080/msa
   restUrl:
     api:

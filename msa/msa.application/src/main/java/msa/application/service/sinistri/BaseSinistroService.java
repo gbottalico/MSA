@@ -1,6 +1,6 @@
 package msa.application.service.sinistri;
 
-import msa.application.dto.sinistro.BaseSinistroDTO;
+import msa.application.dto.sinistro.AbstractDTO;
 import msa.application.dto.sinistro.PeritoDTO;
 import msa.application.dto.sinistro.anagrafica.AnagraficaTerzePartiDTO;
 import msa.application.dto.sinistro.cai.CaiDTO;
@@ -13,13 +13,11 @@ import msa.application.exceptions.InternalMsaException;
 import msa.application.service.base.BaseService;
 import msa.domain.object.sinistro.*;
 import msa.infrastructure.repository.SinistriRepository;
-import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.function.BiFunction;
 import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
 
@@ -45,11 +43,11 @@ public class BaseSinistroService extends BaseService {
         coupleFunctions.add(new Function<>(PeritoDTO.class,PERITO));
     }
 
-    protected <T extends BaseSinistroDTO> SinistroDO getSinistroDOByDTOAndFunction(T dto, Integer numProvv, MsaBiFunction<T, Integer, SinistroDO> andThen) throws InternalMsaException {
+    protected <T extends AbstractDTO> SinistroDO getSinistroDOByDTOAndFunction(T dto, Integer numProvv, MsaBiFunction<T, Integer, SinistroDO> andThen) throws InternalMsaException {
         return andThen.apply(dto, numProvv);
     }
 
-    protected <T extends BaseSinistroDTO> SinistroDO getSinistroDOByDTO(List<T> dto, Integer numProvv, BinaryOperator<SinistroDO> binaryOperator) throws InternalMsaException {
+    protected <T extends AbstractDTO> SinistroDO getSinistroDOByDTO(List<T> dto, Integer numProvv, BinaryOperator<SinistroDO> binaryOperator) throws InternalMsaException {
         return dto.stream()
                 .collect(Collectors.toMap(e -> e, e -> numProvv))
                 .entrySet()
@@ -63,7 +61,7 @@ public class BaseSinistroService extends BaseService {
                 }).reduce(binaryOperator).orElse(null);
     }
 
-    protected <T extends BaseSinistroDTO> SinistroDO getSinistroDOByDTO(T dto, Integer numProvv) throws InternalMsaException {
+    protected <T extends AbstractDTO> SinistroDO getSinistroDOByDTO(T dto, Integer numProvv) throws InternalMsaException {
         final MsaBiFunction<T, Integer, SinistroDO> msaBiFunction = this.coupleFunctions.stream()
                 .filter(e -> e.getClazz().equals(dto.getClass()))
                 .reduce(null,
@@ -72,7 +70,7 @@ public class BaseSinistroService extends BaseService {
         return msaBiFunction.apply(dto, numProvv);
     }
 
-    public class Function<T extends BaseSinistroDTO> {
+    public class Function<T extends AbstractDTO> {
         private Class<T> clazz;
         private MsaBiFunction<T, Integer, SinistroDO> biFunction;
 

@@ -3,7 +3,7 @@ package msa.domain.object.sinistro;
 /**
  * Created by simon.calabrese on 09/08/2017.
  */
-public abstract class BaseDO {
+public abstract class AbstractDO {
     private UserLoggedDO userLogged;
 
     public UserLoggedDO getUserLogged() {

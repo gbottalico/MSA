@@ -1,12 +1,11 @@
 package msa.application.dto.sinistro.anagrafica;
 
-import msa.application.dto.sinistro.BaseSinistroDTO;
+import msa.application.dto.sinistro.AbstractDTO;
 import msa.application.dto.sinistro.LuogoDTO;
 
-import java.io.Serializable;
 import java.util.Date;
 
-public class BaseAnagraficaDTO extends BaseSinistroDTO {
+public class BaseAnagraficaDTO extends AbstractDTO {
 
 
     private static final long serialVersionUID = -3128726274922115214L;

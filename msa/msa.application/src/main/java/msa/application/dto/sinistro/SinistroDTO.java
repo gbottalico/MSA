@@ -8,10 +8,9 @@ import msa.application.dto.sinistro.eventoRca.EventoRcaDTO;
 import msa.application.dto.sinistro.segnalazione.SegnalazioneDTO;
 import msa.infrastructure.persistence.sinistro.AnagraficaTerzePartiDBO;
 
-import java.io.Serializable;
 import java.util.List;
 
-public class SinistroDTO extends BaseSinistroDTO {
+public class SinistroDTO extends AbstractDTO {
     private static final long serialVersionUID = 1665918958997727249L;
     private String id;
     private FullAnagraficaDTO contraente;

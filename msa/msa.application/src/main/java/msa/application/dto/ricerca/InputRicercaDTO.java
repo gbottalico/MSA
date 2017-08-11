@@ -1,10 +1,10 @@
 package msa.application.dto.ricerca;
 
-import msa.application.dto.sinistro.BaseSinistroDTO;
+import msa.application.dto.sinistro.AbstractDTO;
 
 import java.util.Date;
 
-public class InputRicercaDTO extends BaseSinistroDTO{
+public class InputRicercaDTO extends AbstractDTO {
     private static final long serialVersionUID = 6248082871486818955L;
     private String cognome;
     private String nome;

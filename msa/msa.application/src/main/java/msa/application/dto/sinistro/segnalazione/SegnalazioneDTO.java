@@ -1,12 +1,11 @@
 package msa.application.dto.sinistro.segnalazione;
 
-import msa.application.dto.sinistro.BaseSinistroDTO;
+import msa.application.dto.sinistro.AbstractDTO;
 import msa.application.dto.sinistro.anagrafica.BaseAnagraficaDTO;
 
-import java.io.Serializable;
 import java.util.Date;
 
-public class SegnalazioneDTO extends BaseSinistroDTO {
+public class SegnalazioneDTO extends AbstractDTO {
     private static final long serialVersionUID = -4385676517188502365L;
     private BaseAnagraficaDTO denunciante;
     private Integer codMezzo;

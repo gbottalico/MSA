@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Created by simon.calabrese on 31/07/2017.
  */
-public class InputRicercaDO extends BaseDO{
+public class InputRicercaDO extends AbstractDO {
     private String cognome;
     private String nome;
     private String tipoPersona;

@@ -16,6 +16,7 @@ import org.springframework.stereotype.Repository;
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Repository
 public class SinistriRepository extends BaseRepository {
@@ -122,12 +123,8 @@ public class SinistriRepository extends BaseRepository {
      * @return
      */
     public Integer getNextNumSinistroProvv() {
-        SinistroDBO numSinistroProvv = mongoTemplate.findOne(
-                getCriteriaQueryBuilder()
-                        .with(new Sort(Sort.Direction.DESC, "numSinistroProvv"))
-                        .limit(1),
-                SinistroDBO.class);
-        return numSinistroProvv != null ? numSinistroProvv.getNumSinistroProvv() + 1 : 0;
+        return getMaxElem(SinistroDBO.class, Comparator.comparing(SinistroDBO::getNumSinistroProvv).reversed())
+                .map((sinistroDBO) -> sinistroDBO.getNumSinistroProvv() + 1).orElse(0);
     }
 
 

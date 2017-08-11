@@ -1,5 +1,7 @@
 package msa.application.service.base.paramBuilder;
 
+import msa.application.commons.Constants;
+
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
@@ -13,11 +15,7 @@ import java.util.function.Function;
  */
 public abstract class AbstractHttpParamBuilder<E extends HttpParam> {
     protected Function<Number,String> numberToString = Object::toString;
-    protected Function<Date,String> dateToString = e -> {
-        LocalDate date = e.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss a");
-        return date.format(formatter);
-    };
+    protected Function<Date,String> dateToString = Constants.DATE_TO_STRING_DASH;
     protected List<E> parameter;
 
     public abstract <K extends AbstractHttpParamBuilder<E>> K appendParam(final String paramName, final String paramValue);

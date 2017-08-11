@@ -3,7 +3,7 @@ package msa.application.dto.sinistro;
 /**
  * Created by simon.calabrese on 11/08/2017.
  */
-public class PeritoDTO extends BaseSinistroDTO {
+public class PeritoDTO extends AbstractDTO {
 
     private static final long serialVersionUID = -7388920927011286267L;
     private LuogoDTO luogoPerizia;

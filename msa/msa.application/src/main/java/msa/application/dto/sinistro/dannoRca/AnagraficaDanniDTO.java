@@ -1,11 +1,9 @@
 package msa.application.dto.sinistro.dannoRca;
 
-import msa.application.dto.sinistro.BaseSinistroDTO;
+import msa.application.dto.sinistro.AbstractDTO;
 import msa.application.dto.sinistro.anagrafica.FullAnagraficaDTO;
-import msa.infrastructure.persistence.sinistro.DanniDBO;
-import msa.infrastructure.persistence.sinistro.FullAnagraficaDBO;
 
-public class AnagraficaDanniDTO extends BaseSinistroDTO {
+public class AnagraficaDanniDTO extends AbstractDTO {
     private static final long serialVersionUID = 4626830090849854292L;
     private FullAnagraficaDTO anagrafica;
     private DanniDTO danni;

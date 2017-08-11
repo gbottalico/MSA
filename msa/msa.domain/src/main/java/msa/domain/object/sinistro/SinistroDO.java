@@ -2,7 +2,7 @@ package msa.domain.object.sinistro;
 
 import java.util.List;
 
-public class SinistroDO extends BaseDO {
+public class SinistroDO extends AbstractDO {
     private static final long serialVersionUID = 1665918958997727249L;
     private String id;
     private String numeroPolizza;
