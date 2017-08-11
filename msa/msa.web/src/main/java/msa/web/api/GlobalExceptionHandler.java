@@ -9,7 +9,6 @@ import org.apache.commons.lang3.ClassUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -35,5 +34,11 @@ public abstract class GlobalExceptionHandler {
                     return dto;
                 }
         ).convert();
+    }
+
+    @ResponseBody
+    @ExceptionHandler(value = Exception.class)
+    public BaseDTO generalRuntimeException(HttpServletResponse response, HttpServletResponse request, Exception e) {
+        return generalException(response,request,new InternalMsaException());
     }
 }
