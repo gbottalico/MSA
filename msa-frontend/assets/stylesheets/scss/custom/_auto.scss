@@ -1,66 +1,75 @@
-.autoContainer {
-	background-image: url('../images/auto/bg.svg');
-    height: 250px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    margin-bottom: 50px;
-    margin-top: 50px;
-    .absolute {
-    	position: absolute;
-    	top: -50px;
-    	left: 0;
-    }
-    .arrow {
-    	position: absolute;
-    	cursor: pointer;
-    	-webkit-user-select: none;
-		-khtml-user-select: none;
-		-moz-user-select: none;
-		-ms-user-select: none;
-		user-select: none;	
-    }
-    .arrow:hover {
-    	opacity: 0.7;
-    }
-    .topLeft {
-		left: 0;
-		top: 0;
-		transform: rotate(135deg);
-    }
-    .topCenter {
-    	left: 50%;
-		top: 0;
-		transform: rotate(180deg) translate(50%, 0px);
-    }
-    .topRight {
-	    right: 0;
-		top: 0;
-		transform: rotate(-135deg);
-    }
-    .middleLeft {
-	    left: 0;
-		top: 50%;
-		transform: rotate(90deg) translate(-25%, 0);
-    }
-    .middleRight {
-	    right: 0;
-		top: 50%;
-		transform: rotate(-90deg) translate(25%, 0);
-    }
-    .bottomLeft {
-		left: 0;
-		bottom: 0;
-		transform: rotate(45deg);
-    }
-    .bottomCenter {
-    	left: 50%;
-		bottom: 0;
-		transform: rotate(0deg) translate(-50%, 0px);
-    }
-    .bottomRight {
-	    right: 0;
-		bottom: 0;
-		transform: rotate(-45deg);
-    }
+.auto {	
+    background: $white;
+    padding: 30px;
+	.autoContainer {
+		background-image: url('../images/auto/bg.svg');
+	    height: 250px;
+	    background-repeat: no-repeat;
+	    background-size: contain;
+	    background-position: center;
+	    margin-bottom: 50px;
+	    margin-top: 50px;
+	    position: relative;
+	    .arrow {
+	    	position: absolute;
+	    	cursor: pointer;
+	    	-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;	
+	    }
+	    .arrow:hover {
+	    	opacity: 0.7;
+	    }
+	    .topLeft {
+			left: 0;
+			top: 0;
+			transform: rotate(135deg);
+	    }
+	    .topCenter {
+	    	left: 50%;
+			top: 0;
+			transform: rotate(180deg) translate(50%, 0px);
+	    }
+	    .topRight {
+		    right: 0;
+			top: 0;
+			transform: rotate(-135deg);
+	    }
+	    .middleLeft {
+		    left: 0;
+			top: 50%;
+			transform: rotate(90deg) translate(-25%, 0);
+	    }
+	    .middleRight {
+		    right: 0;
+			top: 50%;
+			transform: rotate(-90deg) translate(25%, 0);
+	    }
+	    .bottomLeft {
+			left: 0;
+			bottom: 0;
+			transform: rotate(45deg);
+	    }
+	    .bottomCenter {
+	    	left: 50%;
+			bottom: 0;
+			transform: rotate(0deg) translate(-50%, 0px);
+	    }
+	    .bottomRight {
+		    right: 0;
+			bottom: 0;
+			transform: rotate(-45deg);
+	    }
+	}
+	.textauto {
+		width: 100%;
+		height: 180px;
+		background: $light_gray;;
+		border: 0px solid;
+		border-radius: 10px;
+		resize: none;
+	    padding: 30px;
+	}
 }
