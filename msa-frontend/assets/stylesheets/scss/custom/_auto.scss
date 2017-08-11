@@ -5,8 +5,23 @@
     background-size: contain;
     background-position: center;
     margin-bottom: 50px;
+    margin-top: 50px;
+    .absolute {
+    	position: absolute;
+    	top: -50px;
+    	left: 0;
+    }
     .arrow {
     	position: absolute;
+    	cursor: pointer;
+    	-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;	
+    }
+    .arrow:hover {
+    	opacity: 0.7;
     }
     .topLeft {
 		left: 0;
