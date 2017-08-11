@@ -15,6 +15,7 @@ public class SinistroDO extends BaseDO {
     private DannoRcaDO dannoRca;
     private List<AnagraficaTerzePartiDO> anagraficaTerzeParti;
     private FullAnagraficaDO contraente;
+    private PeritoDO perito;
     private Integer numSinistroProvv;
 
     public Integer getNumSinistroProvv() {
@@ -116,5 +117,13 @@ public class SinistroDO extends BaseDO {
 
     public void setDannoRca(DannoRcaDO dannoRca) {
         this.dannoRca = dannoRca;
+    }
+
+    public PeritoDO getPerito() {
+        return perito;
+    }
+
+    public void setPerito(PeritoDO perito) {
+        this.perito = perito;
     }
 }

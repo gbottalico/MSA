@@ -3,6 +3,7 @@ package msa.application.service.sinistri;
 import msa.application.config.BaseDTO;
 import msa.application.config.enumerator.MessageType;
 import msa.application.dto.ricerca.InputRicercaDTO;
+import msa.application.dto.sinistro.PeritoDTO;
 import msa.application.dto.sinistro.SinistroDTO;
 import msa.application.dto.sinistro.anagrafica.AnagraficaTerzePartiDTO;
 import msa.application.dto.sinistro.cai.CaiDTO;
@@ -213,7 +214,14 @@ public class SinistriService extends BaseSinistroService {
         } else {
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione Salvataggio Legale")));
         }
+    }
 
+    public BaseDTO salvaPerito(PeritoDTO input,Integer numSinistro) throws InternalMsaException {
+        if(salvaSinistro(getSinistroDOByDTO(input,numSinistro))){
+            return new BaseDTO<>();
+        } else {
+            throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione Salvataggio Perito")));
+        }
     }
 }
 

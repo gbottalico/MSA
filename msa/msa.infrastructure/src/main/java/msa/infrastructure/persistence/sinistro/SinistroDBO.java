@@ -31,6 +31,9 @@ public class SinistroDBO extends AbstractDBO{
 
     @Field("contraente")
     private FullAnagraficaDBO contraente;
+    @Field("perito")
+    private PeritoDBO perito;
+
     @Field("numSinistroProvv")
     private Integer numSinistroProvv;
 
@@ -115,6 +118,14 @@ public class SinistroDBO extends AbstractDBO{
 
     public void setDannoRca(DannoRcaDBO dannoRca) {
         this.dannoRca = dannoRca;
+    }
+
+    public PeritoDBO getPerito() {
+        return perito;
+    }
+
+    public void setPerito(PeritoDBO perito) {
+        this.perito = perito;
     }
 
     public Integer getNumSinistroProvv() {

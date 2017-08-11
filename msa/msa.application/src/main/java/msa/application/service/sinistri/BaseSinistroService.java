@@ -1,6 +1,7 @@
 package msa.application.service.sinistri;
 
 import msa.application.dto.sinistro.BaseSinistroDTO;
+import msa.application.dto.sinistro.PeritoDTO;
 import msa.application.dto.sinistro.anagrafica.AnagraficaTerzePartiDTO;
 import msa.application.dto.sinistro.cai.CaiDTO;
 import msa.application.dto.sinistro.constatazioneAmichevole.ConstatazioneAmichevoleDTO;
@@ -41,6 +42,7 @@ public class BaseSinistroService extends BaseService {
         coupleFunctions.add(new Function<>(ConstatazioneAmichevoleDTO.class, CONSTATAZIONE_AMICHEVOLE));
         coupleFunctions.add(new Function<>(AnagraficaTerzePartiDTO.class, TERZE_PARTI));
         coupleFunctions.add(new Function<>(CaiDTO.class, CAI));
+        coupleFunctions.add(new Function<>(PeritoDTO.class,PERITO));
     }
 
     protected <T extends BaseSinistroDTO> SinistroDO getSinistroDOByDTOAndFunction(T dto, Integer numProvv, MsaBiFunction<T, Integer, SinistroDO> andThen) throws InternalMsaException {
@@ -180,6 +182,17 @@ public class BaseSinistroService extends BaseService {
                     final SinistroDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv);
                     CaiDO caiDO = converter.convertObject(O, CaiDO.class);
                     sinistroByNumProvv.setCai(caiDO);
+                    return sinistroByNumProvv;
+                } catch (Exception e) {
+                    throw new InternalMsaException();
+                }
+            };
+    private final MsaBiFunction<PeritoDTO,Integer,SinistroDO> PERITO =
+            (perito,numSinistro) -> {
+                try{
+                    final SinistroDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistro);
+                    PeritoDO peritoDO = converter.convertObject(perito,PeritoDO.class);
+                    sinistroByNumProvv.setPerito(peritoDO);
                     return sinistroByNumProvv;
                 } catch (Exception e) {
                     throw new InternalMsaException();

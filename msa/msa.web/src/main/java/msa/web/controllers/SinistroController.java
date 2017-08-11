@@ -3,6 +3,7 @@ package msa.web.controllers;
 import io.swagger.annotations.ApiOperation;
 import msa.application.config.BaseDTO;
 import msa.application.dto.ricerca.InputRicercaDTO;
+import msa.application.dto.sinistro.PeritoDTO;
 import msa.application.dto.sinistro.SinistroDTO;
 import msa.application.dto.sinistro.anagrafica.AnagraficaTerzePartiDTO;
 import msa.application.dto.sinistro.cai.CaiDTO;
@@ -144,11 +145,16 @@ public class SinistroController extends BaseController{
         return sinistriService.salvaDannoRcaTerzeParti(input, numeroSinistro);
     }
 
-    @ApiOperation(value = "Metodo che salva i danni riportati dal conducente e l'anagrafica")
+    @ApiOperation(value = "Metodo che salva il legale incaricato")
     @RequestMapping(value = "/{numero}/dannoRCA/legale", method = RequestMethod.POST)
     public BaseDTO salvaDanniRcaLegale(@RequestBody AnagraficaTerzePartiDTO input, @PathVariable("numero") Integer numeroSinistro) throws InternalMsaException {
 
         return sinistriService.salvaDannoRcaLegale(input, numeroSinistro);
 
+    }
+    @ApiOperation(value = "Metodo che salva il perito incaricato")
+    @RequestMapping(value = "/{numero}/perito", method = RequestMethod.POST)
+    public BaseDTO salvaPerito(@RequestBody final PeritoDTO input,@PathVariable("numero") Integer numSinistro) throws InternalMsaException {
+        return sinistriService.salvaPerito(input,numSinistro);
     }
 }

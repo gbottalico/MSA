@@ -25,29 +25,8 @@ public class SinistroDTO extends BaseSinistroDTO {
     private CaiDTO cai;
     private DannoRcaDTO dannoRca;
     private List<AnagraficaTerzePartiDBO> anagraficaTerzeParti;
+    private PeritoDTO perito;
     private Integer numSinistroProvv;
-
-    public Integer getNumSinistroProvv() {
-        return numSinistroProvv;
-    }
-
-    public void setNumSinistroProvv(Integer numSinistroProvv) {
-        this.numSinistroProvv = numSinistroProvv;
-    }
-
-    public FullAnagraficaDTO getContraente() {
-
-        return contraente;
-    }
-
-    public void setContraente(FullAnagraficaDTO contraente) {
-        this.contraente = contraente;
-    }
-
-    public static long getSerialVersionUID() {
-
-        return serialVersionUID;
-    }
 
     public String getId() {
         return id;
@@ -55,6 +34,14 @@ public class SinistroDTO extends BaseSinistroDTO {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public FullAnagraficaDTO getContraente() {
+        return contraente;
+    }
+
+    public void setContraente(FullAnagraficaDTO contraente) {
+        this.contraente = contraente;
     }
 
     public String getNumeroPolizza() {
@@ -80,8 +67,6 @@ public class SinistroDTO extends BaseSinistroDTO {
     public void setTarga(String targa) {
         this.targa = targa;
     }
-
-
 
     public SegnalazioneDTO getSegnalazione() {
         return segnalazione;
@@ -131,6 +116,22 @@ public class SinistroDTO extends BaseSinistroDTO {
         this.anagraficaTerzeParti = anagraficaTerzeParti;
     }
 
+    public PeritoDTO getPerito() {
+        return perito;
+    }
+
+    public void setPerito(PeritoDTO perito) {
+        this.perito = perito;
+    }
+
+    public Integer getNumSinistroProvv() {
+        return numSinistroProvv;
+    }
+
+    public void setNumSinistroProvv(Integer numSinistroProvv) {
+        this.numSinistroProvv = numSinistroProvv;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -152,6 +153,7 @@ public class SinistroDTO extends BaseSinistroDTO {
         if (dannoRca != null ? !dannoRca.equals(that.dannoRca) : that.dannoRca != null) return false;
         if (anagraficaTerzeParti != null ? !anagraficaTerzeParti.equals(that.anagraficaTerzeParti) : that.anagraficaTerzeParti != null)
             return false;
+        if (perito != null ? !perito.equals(that.perito) : that.perito != null) return false;
         return numSinistroProvv != null ? numSinistroProvv.equals(that.numSinistroProvv) : that.numSinistroProvv == null;
     }
 
@@ -168,7 +170,27 @@ public class SinistroDTO extends BaseSinistroDTO {
         result = 31 * result + (cai != null ? cai.hashCode() : 0);
         result = 31 * result + (dannoRca != null ? dannoRca.hashCode() : 0);
         result = 31 * result + (anagraficaTerzeParti != null ? anagraficaTerzeParti.hashCode() : 0);
+        result = 31 * result + (perito != null ? perito.hashCode() : 0);
         result = 31 * result + (numSinistroProvv != null ? numSinistroProvv.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "SinistroDTO{" +
+                "id='" + id + '\'' +
+                ", contraente=" + contraente +
+                ", numeroPolizza='" + numeroPolizza + '\'' +
+                ", compagnia='" + compagnia + '\'' +
+                ", targa='" + targa + '\'' +
+                ", segnalazione=" + segnalazione +
+                ", eventoRca=" + eventoRca +
+                ", constatazioneAmichevole=" + constatazioneAmichevole +
+                ", cai=" + cai +
+                ", dannoRca=" + dannoRca +
+                ", anagraficaTerzeParti=" + anagraficaTerzeParti +
+                ", perito=" + perito +
+                ", numSinistroProvv=" + numSinistroProvv +
+                '}';
     }
 }
