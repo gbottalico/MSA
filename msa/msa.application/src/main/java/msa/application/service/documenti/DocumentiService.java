@@ -2,6 +2,7 @@ package msa.application.service.documenti;
 
 import msa.application.commons.Constants;
 import msa.application.config.BaseDTO;
+import msa.application.config.enumerator.ContentTypePairs;
 import msa.application.config.enumerator.MessageType;
 import msa.application.dto.documenti.DocumentoDTO;
 import msa.application.exceptions.InternalMsaException;
@@ -10,13 +11,22 @@ import msa.domain.object.documenti.DocumentoDO;
 import msa.infrastructure.repository.DocumentiRepository;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import org.apache.commons.lang3.tuple.Pair;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
@@ -29,6 +39,16 @@ public class DocumentiService extends BaseService {
     @Autowired
     private DocumentiRepository documentiRepository;
 
+    /**
+     * Metodo per il caricamento su cartella remota e su DB Mongo del file passato in input.
+     *
+     * @param file
+     * @param numSinistro
+     * @param codTipoDoc
+     * @param userHeader
+     * @return
+     * @throws InternalMsaException
+     */
     public BaseDTO uploadDocumento(MultipartFile file, Integer numSinistro, Integer codTipoDoc, String userHeader) throws InternalMsaException {
         final String path = saveFileOnDirectory(file, numSinistro);
         try {
@@ -49,7 +69,7 @@ public class DocumentiService extends BaseService {
             throw e;
         } catch (Exception e) {
             rollbackDocumento(path);
-            throw new InternalMsaException(e,getErrorMessagesByCodErrore(MessageType.ERROR, "MSA007"));
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA007"));
         }
 
     }
@@ -117,5 +137,21 @@ public class DocumentiService extends BaseService {
         final Function<Date, String> DATE_TO_PATH = Constants.DATE_TO_STRING_DOT.andThen(dateInStringPlusEstension).andThen(completePath);
         return dateToConcat.map(DATE_TO_PATH).orElse(null);
 
+    }
+
+    public BaseDTO<List<DocumentoDTO>> getListaDocumenti(final Integer numSinistro) {
+        return new BaseDTO<>(converter.convertList(documentiRepository.getListaDocumenti(numSinistro), DocumentoDTO.class));
+    }
+
+    public ResponseEntity getDocumento(final Integer idDoc) throws InternalMsaException {
+        DocumentoDO documentoDO = documentiRepository.find(idDoc);
+        String contentType = ContentTypePairs.getContentTypeByExtension(FilenameUtils.getExtension(documentoDO.getPath()));
+        try {
+            return ResponseEntity.ok()
+                    .contentType(MediaType.parseMediaType(contentType))
+                    .body(new InputStreamResource(new FileInputStream(new File(documentoDO.getPath()))));
+        } catch (Exception e) {
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA008"));
+        }
     }
 }

@@ -35,10 +35,4 @@ public abstract class GlobalExceptionHandler {
                 }
         ).convert();
     }
-
-    @ResponseBody
-    @ExceptionHandler(value = Exception.class)
-    public BaseDTO generalRuntimeException(HttpServletResponse response, HttpServletResponse request, Exception e) {
-        return generalException(response,request,new InternalMsaException());
-    }
 }

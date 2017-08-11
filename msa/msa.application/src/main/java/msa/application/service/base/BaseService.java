@@ -12,6 +12,7 @@ import msa.application.service.enumerator.Api;
 import msa.domain.Converter.MsaConverter;
 import msa.infrastructure.config.AbstractMsaPropertiesReader;
 import msa.infrastructure.repository.ErroriRepository;
+import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.*;

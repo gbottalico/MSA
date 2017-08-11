@@ -13,7 +13,6 @@ public class CrsfFilter extends CorsFilter {
 
 	public CrsfFilter() {
 		super(configurationSource());
-		// TODO Auto-generated constructor stub
 	}
 
 	private static UrlBasedCorsConfigurationSource configurationSource() {
