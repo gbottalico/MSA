@@ -137,7 +137,8 @@
     "auto": {
       "labels": {
         "veiclea": "Veicolo A",
-        "veicleb": "Veicolo B"
+        "veicleb": "Veicolo B",
+        "alert": "*Numero massimo di caratteri 250"
       }
     }
   }
