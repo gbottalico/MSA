@@ -4,6 +4,7 @@ import msa.application.dto.sinistro.anagrafica.BaseAnagraficaDTO;
 import msa.application.exceptions.InternalMsaException;
 import msa.application.service.base.BaseService;
 import msa.application.service.enumerator.Api;
+import msa.application.service.sinistri.BaseSinistroService;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
@@ -14,6 +15,7 @@ import java.util.Arrays;
 import java.util.Base64;
 import java.util.Calendar;
 import java.util.List;
+import java.util.function.Function;
 
 
 /**
@@ -22,8 +24,14 @@ import java.util.List;
 @Service
 public class UtilsService extends BaseService {
 
-    private static final List<String> vocali = Arrays.asList("A", "E", "I", "O", "U");
-    private static final List<String> consonanti = Arrays.asList("B", "C", "D", "F", "G", "H", "J", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "V", "W", "X", "Y", "Z");
+
+    private Function<String, String> toEncodedString = (String s) -> new String(Base64.getEncoder()
+            .encode(s.replaceAll(
+                    "/(^[\\s\\xA0]+|[\\s\\xA0]+$)/g",
+                    "")
+                    .getBytes()
+            )
+    ).replace("+", "||");
 
     public String calcolaCodiceFiscale(final BaseAnagraficaDTO anagrafica) throws InternalMsaException {
         try {
@@ -52,15 +60,16 @@ public class UtilsService extends BaseService {
                     .item(0)
                     .getNextSibling()
                     .getFirstChild()
-                    .getNodeValue();
+                    .getNodeValue()
+                    .trim();
             Calendar instance = Calendar.getInstance();
             instance.setTime(anagrafica.getDataNascita());
 
             return doPostCallFormData(Api.CODICE_FISCALE, getFormDataBuilder()
-                    .appendParam("name", new String(Base64.getEncoder().encode(anagrafica.getNome().getBytes())))
-                    .appendParam("surname", new String(Base64.getEncoder().encode(anagrafica.getCognome().getBytes())))
+                    .appendParam("name", converter.enrichObject(anagrafica.getNome(),toEncodedString))
+                    .appendParam("surname", converter.enrichObject(anagrafica.getCognome(),toEncodedString))
                     .appendParam("day", instance.get(Calendar.DAY_OF_MONTH))
-                    .appendParam("month", instance.get(Calendar.MONTH))
+                    .appendParam("month", instance.get(Calendar.MONTH) + 1)
                     .appendParam("year", instance.get(Calendar.YEAR))
                     .appendParam("gender", String.valueOf(anagrafica.getSesso()))
                     .appendParam("city", nomeCitta)

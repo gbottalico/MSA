@@ -35,6 +35,10 @@ public class MsaConverter {
         return conversionFunction.apply(source);
     }
 
+    public <T> T enrichObject(T source, Function<T, T> conversionFunction) {
+        return conversionFunction.apply(source);
+    }
+
     public <T, S> List<T> convertObject(List<S> source, Function<S, T> conversionFunction) {
         return source.stream().map(e -> convertObject(e, conversionFunction)).collect(Collectors.toList());
     }
