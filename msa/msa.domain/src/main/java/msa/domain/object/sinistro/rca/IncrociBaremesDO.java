@@ -1,4 +1,4 @@
-package msa.domain.object.sinistro;
+package msa.domain.object.sinistro.rca;
 
 /**
  * Created by simon.calabrese on 10/08/2017.

@@ -1,4 +1,4 @@
-package msa.application.dto.sinistro.dannoRca;
+package msa.application.dto.sinistro.rca.dannoRca;
 
 import msa.application.dto.sinistro.AbstractDTO;
 import msa.application.dto.sinistro.anagrafica.FullAnagraficaDTO;

@@ -1,4 +1,4 @@
-package msa.application.dto.sinistro.constatazioneAmichevole;
+package msa.application.dto.sinistro.rca.constatazioneAmichevole;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package msa.domain.object.sinistro;
+package msa.domain.object.sinistro.rca;
 
 import java.util.Date;
 

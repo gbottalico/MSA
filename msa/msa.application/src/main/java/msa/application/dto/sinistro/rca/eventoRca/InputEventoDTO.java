@@ -1,4 +1,4 @@
-package msa.application.dto.sinistro.eventoRca;
+package msa.application.dto.sinistro.rca.eventoRca;
 
 import java.io.Serializable;
 

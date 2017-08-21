@@ -3,14 +3,15 @@ package msa.web.controllers;
 import io.swagger.annotations.ApiOperation;
 import msa.application.config.BaseDTO;
 import msa.application.dto.ricerca.InputRicercaDTO;
+import msa.application.dto.sinistro.BaseSinistroDTO;
 import msa.application.dto.sinistro.PeritoDTO;
-import msa.application.dto.sinistro.SinistroDTO;
+import msa.application.dto.sinistro.SinistroRcaDTO;
 import msa.application.dto.sinistro.anagrafica.AnagraficaTerzePartiDTO;
-import msa.application.dto.sinistro.cai.CaiDTO;
-import msa.application.dto.sinistro.constatazioneAmichevole.ConstatazioneAmichevoleDTO;
-import msa.application.dto.sinistro.dannoRca.AnagraficaDanniDTO;
-import msa.application.dto.sinistro.dannoRca.DannoRcaDTO;
-import msa.application.dto.sinistro.eventoRca.EventoRcaDTO;
+import msa.application.dto.sinistro.rca.cai.CaiDTO;
+import msa.application.dto.sinistro.rca.constatazioneAmichevole.ConstatazioneAmichevoleDTO;
+import msa.application.dto.sinistro.rca.dannoRca.AnagraficaDanniDTO;
+import msa.application.dto.sinistro.rca.dannoRca.DannoRcaDTO;
+import msa.application.dto.sinistro.rca.eventoRca.EventoRcaDTO;
 import msa.application.dto.sinistro.segnalazione.SegnalazioneDTO;
 import msa.application.exceptions.InternalMsaException;
 import msa.application.service.sinistri.SinistriService;
@@ -36,7 +37,7 @@ public class SinistroController extends BaseController{
      */
     @ApiOperation(value = "Metodo che effettua l'apertura di un sinistro in base ai dati ricevuti in input")
     @RequestMapping(value = "/apertura", method = RequestMethod.PUT)
-    public BaseDTO apriSinistro(@RequestBody SinistroDTO input,
+    public BaseDTO apriSinistro(@RequestBody BaseSinistroDTO input,
                                 @RequestHeader(name = "user") final String userHeader) throws InternalMsaException {
         input.parseUserLogged(userHeader);
         return sinistriService.salvaSinistro(input);

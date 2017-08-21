@@ -1,4 +1,4 @@
-package msa.application.dto.sinistro.cai;
+package msa.application.dto.sinistro.rca.cai;
 
 import msa.application.dto.domain.baremes.BaremesDTO;
 import msa.application.dto.sinistro.AbstractDTO;

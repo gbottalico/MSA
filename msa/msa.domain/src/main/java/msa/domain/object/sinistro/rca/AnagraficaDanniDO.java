@@ -1,4 +1,6 @@
-package msa.domain.object.sinistro;
+package msa.domain.object.sinistro.rca;
+
+import msa.domain.object.sinistro.FullAnagraficaDO;
 
 public class AnagraficaDanniDO {
     private FullAnagraficaDO anagrafica;
