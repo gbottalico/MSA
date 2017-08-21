@@ -38,8 +38,12 @@ section {
   text-transform: uppercase;
 }
 
+.noMargin {
+  margin: 0!important;
+}
+
 .noPadding {
-  padding: 0;
+  padding: 0!important;
 }
 
 .noPaddingLeft {
@@ -595,5 +599,20 @@ section {
       4px -8px 0 $light_blue;
       transform: rotate(45deg);
     }
+  }
+}
+
+.cai-table {
+  th {
+    text-align: center;
+    font-size: 1.25rem;
+    color: $light_blue;
+  }
+
+  td {
+    text-align: center;
+    font-size: 1.25rem;
+    color: $black;
+    vertical-align: middle!important;
   }
 }

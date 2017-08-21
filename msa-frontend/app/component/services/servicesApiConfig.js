@@ -22,6 +22,8 @@ app.service('msaServicesApiUrls', function ($MSAC) {
 
     this.casaregole             = apiPath + "/dominio/casaregole/";
 
+    this.baremes                = apiPath + "/dominio/baremes/";
+
     this.ruoli                  = apiPath + "/dominio/ruoli/";
 
     /* SINISTRI */

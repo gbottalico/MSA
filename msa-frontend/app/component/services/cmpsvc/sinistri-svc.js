@@ -72,11 +72,20 @@ angular.module('msa').service(
 
             $svc.cercaSinistroProvvisorio = function(idCompagnia, numeroSinistroProvvisorio) {
 
-                var data = getOggettoRicerca();
-                data.compagnia = idCompagnia;
-                data.numeroProvvisorio = numeroSinistroProvvisorio;
+                var dataObj = getOggettoRicerca();
+                dataObj.compagnia = idCompagnia;
+                dataObj.numeroProvvisorio = numeroSinistroProvvisorio;
 
-                return $http.post(msaServicesApiUrls.ricercasinitro, data);
+                //TODO fix
+                return $http({
+                    method: 'POST',
+                    url: msaServicesApiUrls.ricercasinitro,
+                    data: dataObj,
+                    headers: {
+                        "Content-Type": "application/json",
+                        "user": '{"idUser": 1,"amministratore": true}'
+                    }
+                });
 
             };
 
