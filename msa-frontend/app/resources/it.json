@@ -133,6 +133,13 @@
         "daticonsultivi": "Dati consultivi",
         "riepilogo": "Riepilogo"
       }
+    },
+    "auto": {
+      "labels": {
+        "veiclea": "Veicolo A",
+        "veicleb": "Veicolo B",
+        "alert": "*Numero massimo di caratteri 250"
+      }
     }
   }
 }
