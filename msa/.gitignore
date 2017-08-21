@@ -1,5 +1,3 @@
-
-.gitignore
 .idea/
 msa.application/bin/nfc.application.iml
 msa.application/msa.application.iml
@@ -15,3 +13,7 @@ msa.infrastructure/msa.infrastructure.iml
 msa.web/bin/nfc.web.iml
 msa.web/msa.web.iml
 msa*/target/
+msa*/.project
+msa*/.classpath
+msa*/.factorypath
+msa*/.apt_generated
