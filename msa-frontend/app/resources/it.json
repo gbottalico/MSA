@@ -119,6 +119,16 @@
         "datadenuncia": "Data Denuncia Autorità"
       }
     },
+    "cai": {
+      "title": "Constatazione Amichevole",
+      "labels": {
+        "compilazione": "Compilazione CAI",
+        "caicompilata": "È stata compilata la constatazione amichevole?",
+        "caicontroparte": "La constatazione amichevole è stata compilata sia da lei che dalla controparte?",
+        "assicurato": "Assicurato",
+        "controparte": "Controparte"
+      }
+    },
     "step": {
       "labels": {
         "nascita": "Nascita",
