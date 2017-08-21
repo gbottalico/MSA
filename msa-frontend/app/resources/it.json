@@ -126,7 +126,12 @@
         "caicompilata": "È stata compilata la constatazione amichevole?",
         "caicontroparte": "La constatazione amichevole è stata compilata sia da lei che dalla controparte?",
         "assicurato": "Assicurato",
-        "controparte": "Controparte"
+        "controparte": "Controparte",
+        "osservazioniassicurato": "Osservazioni Assicurato",
+        "osservazionicontroparte": "Osservazioni Controparte",
+        "responsabilita": "Responsabilità",
+        "concorsuale": "Concorsuale",
+        "nonclassificabile": "Non Classificabile"
       }
     },
     "step": {
