@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 public class BaremesDBO {
     @Id
     private Integer id;
-    @Field("descrizioneBaremes")
+    @Field("Des_baremes")
     private String descrizione;
 
     public Integer getId() {
