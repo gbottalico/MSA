@@ -2,9 +2,11 @@ package msa.infrastructure.repository;
 
 import msa.domain.Converter.FunctionUtils;
 import msa.domain.object.dominio.*;
-import msa.domain.object.sinistro.IncrociBaremesDO;
+import msa.domain.object.sinistro.rca.CaiDO;
+import msa.domain.object.sinistro.rca.IncrociBaremesDO;
 import msa.domain.object.sinistro.RuoliDO;
 import msa.infrastructure.base.repository.domain.*;
+import msa.infrastructure.persistence.domain.BaremesDBO;
 import msa.infrastructure.persistence.domain.CompagniaDBO;
 import msa.infrastructure.persistence.domain.ComuneDBO;
 import msa.infrastructure.persistence.domain.IncrociBaremesDBO;
@@ -201,6 +203,10 @@ public class DomainRepository extends BaseRepository {
 
     public CompagniaDO getCompagniaByCodCompagnia(final Integer codCompagnia) {
         return converter.convertObject(mongoTemplate.findById(codCompagnia, CompagniaDBO.class), compagniaDBOToDO);
+    }
+
+    public BaremesDO getDesbaremesById(final Integer idbaremes) {
+        return converter.convertObject(findById(BaremesDBO.class,idbaremes),BaremesDO.class);
     }
 
     public IncrociBaremesDO getColpaByBaremes(final BaremesDO cliente, final BaremesDO controparte) {

@@ -1,6 +1,6 @@
 package msa.application.dto.ricerca;
 
-import msa.application.dto.sinistro.SinistroDTO;
+import msa.application.dto.sinistro.SinistroRcaDTO;
 
 import java.io.Serializable;
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.List;
 public class OutputRicercaDTO implements Serializable {
     private static final long serialVersionUID = 4248903662200448918L;
     private List<PolizzeDTO> polizze;
-    private List<SinistroDTO> sinistriProvvisori;
+    private List<SinistroRcaDTO> sinistriProvvisori;
 
     public List<PolizzeDTO> getPolizze() {
         return polizze;
@@ -18,11 +18,11 @@ public class OutputRicercaDTO implements Serializable {
         this.polizze = polizze;
     }
 
-    public List<SinistroDTO> getSinistriProvvisori() {
+    public List<SinistroRcaDTO> getSinistriProvvisori() {
         return sinistriProvvisori;
     }
 
-    public void setSinistriProvvisori(List<SinistroDTO> sinistriProvvisori) {
+    public void setSinistriProvvisori(List<SinistroRcaDTO> sinistriProvvisori) {
         this.sinistriProvvisori = sinistriProvvisori;
     }
 }
