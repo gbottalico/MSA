@@ -36,6 +36,7 @@ public class SinistriService extends BaseSinistroService {
     @Autowired
     private DomainRepository domainRepository;
 
+
     /**
      * Metodo che effettua la ricerca le coperture in base ai parametri passati in input
      *
