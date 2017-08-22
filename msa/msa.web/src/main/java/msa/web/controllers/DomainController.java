@@ -1,23 +1,19 @@
 package msa.web.controllers;
 
-import java.lang.reflect.InvocationTargetException;
-import java.util.List;
-
-
-import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import msa.application.config.BaseDTO;
 import msa.application.dto.domain.*;
 import msa.application.dto.domain.baremes.BaremesDTO;
 import msa.application.exceptions.InternalMsaException;
+import msa.application.service.domain.DomainService;
+import msa.web.api.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.swagger.annotations.ApiOperation;
-import msa.application.config.BaseDTO;
-import msa.application.service.domain.DomainService;
-import msa.web.api.BaseController;
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api/dominio")

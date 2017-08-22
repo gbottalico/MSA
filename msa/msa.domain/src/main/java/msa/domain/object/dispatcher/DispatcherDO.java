@@ -1,6 +1,5 @@
 package msa.domain.object.dispatcher;
 
-import java.util.List;
 import java.util.Map;
 
 /**

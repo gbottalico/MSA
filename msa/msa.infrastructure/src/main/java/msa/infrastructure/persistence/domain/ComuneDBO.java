@@ -1,11 +1,11 @@
 package msa.infrastructure.persistence.domain;
 
-import java.util.Date;
-import java.util.List;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
+
+import java.util.Date;
+import java.util.List;
 
 @Document(collection = "comuni")
 public class ComuneDBO {

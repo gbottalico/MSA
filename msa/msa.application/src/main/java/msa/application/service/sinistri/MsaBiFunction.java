@@ -2,8 +2,6 @@ package msa.application.service.sinistri;
 
 import msa.application.exceptions.InternalMsaException;
 
-import java.util.function.BiFunction;
-
 /**
  * Created by simon.calabrese on 02/08/2017.
  */

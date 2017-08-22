@@ -1,5 +1,6 @@
 package msa.infrastructure.repository;
 
+import msa.domain.object.sinistro.BaseSinistroDO;
 import msa.domain.object.sinistro.InputRicercaDO;
 import msa.domain.object.sinistro.SinistroDO;
 import msa.infrastructure.base.repository.domain.BaseRepository;
@@ -7,16 +8,13 @@ import msa.infrastructure.base.repository.sinistri.SinistriBaseRepository;
 import msa.infrastructure.persistence.sinistro.SinistroDBO;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Repository
 public class SinistriRepository extends BaseRepository {
@@ -48,18 +46,18 @@ public class SinistriRepository extends BaseRepository {
      * @param input i dati da inserire
      * @return
      */
-    public Boolean insertSinistroProvvisorio(SinistroDO input) throws Exception {
+    public <E extends BaseSinistroDO> Boolean insertSinistroProvvisorio(E input) throws Exception {
         final Integer numProvv = getNextNumSinistroProvv();
         input.setNumSinistroProvv(numProvv);
         insert(input);
         return Boolean.TRUE;
     }
 
-    private void insert(SinistroDO input) throws Exception {
+    private <E extends BaseSinistroDO>void insert(E input) throws Exception {
         insert(input,SinistroDBO.class);
     }
 
-    public Integer insertSinistroProvvisorioAndGetNum(SinistroDO input) throws Exception {
+    public <E extends BaseSinistroDO> Integer insertSinistroProvvisorioAndGetNum(E input) throws Exception {
         final Integer numProvv = getNextNumSinistroProvv();
         input.setNumSinistroProvv(numProvv);
         insert(input);
@@ -67,8 +65,8 @@ public class SinistriRepository extends BaseRepository {
     }
 
 
-    public Boolean updateSinistroProvvisorio(SinistroDO input) throws Exception {
-        mongoTemplate.save(converter.convertObject(input, SinistroDBO.class));
+    public <E extends BaseSinistroDO> Boolean updateSinistroProvvisorio(E input) throws Exception {
+        update(input, SinistroDBO.class);
         return Boolean.TRUE;
     }
 
@@ -109,7 +107,7 @@ public class SinistriRepository extends BaseRepository {
      */
     public List<SinistroDO> getElencoSinistriProvvisori(final InputRicercaDO inputRicerca) {
         Query queryFromNotNullValues = getQueryFromNotNullValues(inputRicerca);
-        List<SinistroDBO> sinistroDBOS = mongoTemplate.find(queryFromNotNullValues, SinistroDBO.class)
+        List<SinistroDBO> sinistroDBOS = findAll(SinistroDBO.class,queryFromNotNullValues)
                 .stream()
                 .filter(e -> inputRicerca.getUserLogged().getAmministratore()
                         || inputRicerca.getUserLogged().getIdUser().equalsIgnoreCase(e.getUserLogged().getIdUser()))
@@ -128,12 +126,12 @@ public class SinistriRepository extends BaseRepository {
     }
 
 
-    public SinistroDO getSinistroByNumProvv(Integer numProvv) throws Exception {
+    public <E> E getSinistroByNumProvv(Integer numProvv,Class<E> finalClass) throws Exception {
         final SinistroDBO sinistro = mongoTemplate.findOne(getQueryFindByNumProvv(numProvv), SinistroDBO.class);
         if (sinistro == null) {
             throw new Exception();
         }
-        return converter.convertObject(sinistro, SinistroDO.class);
+        return converter.convertObject(sinistro, finalClass);
     }
 
     private Query getQueryFindByNumProvv(Integer numProvv) {

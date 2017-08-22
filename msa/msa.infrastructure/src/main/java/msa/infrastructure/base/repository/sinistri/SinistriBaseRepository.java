@@ -1,6 +1,5 @@
 package msa.infrastructure.base.repository.sinistri;
 
-import com.mongodb.Mongo;
 import msa.infrastructure.persistence.sinistro.SinistroDBO;
 import org.springframework.data.mongodb.repository.MongoRepository;
 

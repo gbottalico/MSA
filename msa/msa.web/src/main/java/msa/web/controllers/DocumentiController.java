@@ -6,17 +6,12 @@ import msa.application.dto.documenti.DocumentoDTO;
 import msa.application.exceptions.InternalMsaException;
 import msa.application.service.documenti.DocumentiService;
 import msa.web.api.BaseController;
-import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletResponse;
-import java.io.InputStream;
 import java.util.List;
 
 /**

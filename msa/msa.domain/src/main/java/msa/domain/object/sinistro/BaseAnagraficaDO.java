@@ -8,6 +8,7 @@ public class BaseAnagraficaDO {
     private String codRuolo;
     private LuogoDO luogoNascita;
     private Date dataNascita;
+    private String cf;
 
     public String getNome() {
         return nome;
@@ -47,6 +48,14 @@ public class BaseAnagraficaDO {
 
     public void setDataNascita(Date dataNascita) {
         this.dataNascita = dataNascita;
+    }
+
+    public String getCf() {
+        return cf;
+    }
+
+    public void setCf(String cf) {
+        this.cf = cf;
     }
 }
 

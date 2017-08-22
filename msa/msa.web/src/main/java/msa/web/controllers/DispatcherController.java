@@ -7,7 +7,10 @@ import msa.application.exceptions.InternalMsaException;
 import msa.application.service.interfaceDispatcher.DispatcherService;
 import msa.web.api.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Created by simon.calabrese on 01/08/2017.

@@ -1,10 +1,11 @@
 package msa.application.service.interfaceDispatcher;
 
-import msa.domain.Converter.FunctionUtils;
 import msa.application.exceptions.InternalMsaException;
 import msa.application.service.base.BaseService;
 import msa.application.service.sinistri.MsaFunction;
+import msa.domain.Converter.FunctionUtils;
 import msa.domain.object.dispatcher.DispatcherDO;
+import msa.domain.object.sinistro.BaseSinistroDO;
 import msa.domain.object.sinistro.SinistroDO;
 import msa.infrastructure.base.repository.domain.CasaRegoleBaseRepository;
 import msa.infrastructure.repository.SinistriRepository;
@@ -36,7 +37,7 @@ public class DispatcherUtils extends BaseService {
                 return "0";
             else {
                 try {
-                    SinistroDO numSinistroProvv = sinistriRepository.getSinistroByNumProvv(FunctionUtils.numberConverter(map.get("numSinistroProvv"), Integer::valueOf));
+                    SinistroDO numSinistroProvv = sinistriRepository.getSinistroByNumProvv(FunctionUtils.numberConverter(map.get("numSinistroProvv"), Integer::valueOf),SinistroDO.class);
                     if (numSinistroProvv.getEventoRca().getNumVeicoli() > 1) {
                         return "1";
                     } else {
@@ -49,7 +50,7 @@ public class DispatcherUtils extends BaseService {
         };
         private MsaFunction<Map< String, String>, String> M16Tree = map -> {
             try {
-                SinistroDO numSinistroProvv = sinistriRepository.getSinistroByNumProvv(FunctionUtils.numberConverter(map.get("numSinistroProvv"), Integer::valueOf));
+                SinistroDO numSinistroProvv = sinistriRepository.getSinistroByNumProvv(FunctionUtils.numberConverter(map.get("numSinistroProvv"), Integer::valueOf),SinistroDO.class);
                 if (numSinistroProvv.getEventoRca().getNumVeicoli() > 1) {
                     return "0";
                 } else {

@@ -2,9 +2,8 @@ package msa.infrastructure.repository;
 
 import msa.domain.Converter.FunctionUtils;
 import msa.domain.object.dominio.*;
-import msa.domain.object.sinistro.rca.CaiDO;
-import msa.domain.object.sinistro.rca.IncrociBaremesDO;
 import msa.domain.object.sinistro.RuoliDO;
+import msa.domain.object.sinistro.rca.IncrociBaremesDO;
 import msa.infrastructure.base.repository.domain.*;
 import msa.infrastructure.persistence.domain.BaremesDBO;
 import msa.infrastructure.persistence.domain.CompagniaDBO;

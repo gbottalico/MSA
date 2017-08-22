@@ -1,14 +1,11 @@
 package msa.config;
 
 import msa.infrastructure.config.AbstractMsaApiMap;
+import msa.infrastructure.config.AbstractMsaPropertiesReader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
-
-import msa.infrastructure.config.AbstractMsaPropertiesReader;
-
-import java.util.Map;
 
 @Component(value = "PropertiesConfig")
 @ConfigurationProperties

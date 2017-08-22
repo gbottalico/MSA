@@ -1,8 +1,9 @@
 package msa.domain.object.sinistro;
 
-import msa.domain.object.sinistro.rca.*;
-
-import java.util.List;
+import msa.domain.object.sinistro.rca.CaiDO;
+import msa.domain.object.sinistro.rca.ConstatazioneAmichevoleDO;
+import msa.domain.object.sinistro.rca.DannoRcaDO;
+import msa.domain.object.sinistro.rca.EventoRcaDO;
 
 public class SinistroDO extends BaseSinistroDO {
     private static final long serialVersionUID = 1665918958997727249L;

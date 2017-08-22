@@ -4,17 +4,14 @@ import msa.application.dto.sinistro.anagrafica.BaseAnagraficaDTO;
 import msa.application.exceptions.InternalMsaException;
 import msa.application.service.base.BaseService;
 import msa.application.service.enumerator.Api;
-import msa.application.service.sinistri.BaseSinistroService;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.StringReader;
-import java.util.Arrays;
 import java.util.Base64;
 import java.util.Calendar;
-import java.util.List;
 import java.util.function.Function;
 
 

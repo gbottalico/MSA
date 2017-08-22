@@ -1,6 +1,5 @@
 package msa.application.dto.ricerca;
 
-import msa.application.dto.domain.CompagniaDTO;
 import java.util.List;
 
 /**

@@ -5,20 +5,11 @@ import msa.application.dto.domain.*;
 import msa.application.dto.domain.baremes.BaremesDTO;
 import msa.application.exceptions.InternalMsaException;
 import msa.application.service.base.BaseService;
-import msa.domain.object.dominio.ComuneDO;
 import msa.infrastructure.repository.DomainRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
-import static msa.application.commons.Constants.ROW_TO_CODICI_CATASTALI;
 
 @Service
 public class DomainService extends BaseService {

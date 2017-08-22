@@ -7,7 +7,6 @@ import org.apache.commons.lang3.tuple.Pair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -15,9 +14,6 @@ import org.springframework.data.mongodb.core.query.Query;
 
 import java.util.*;
 import java.util.function.Function;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 
 public class BaseRepository {
@@ -48,21 +44,47 @@ public class BaseRepository {
         }
     }
 
-    protected <K, T> void insert(K elem, Class<T> dboClass) {
-        mongoTemplate.insert(converter.convertObject(elem, dboClass));
+    private <K> void insert(K elem) {
+        mongoTemplate.insert(elem);
     }
 
+    private <K> void update(K elem) {
+        mongoTemplate.save(elem);
+    }
+
+    protected <K, T> void insert(K elem, Function<K, T> conversion) {
+        if(elem.getClass().isAssignableFrom(List.class)) {
+            converter.convertObject((List<K>) elem, conversion).forEach(this::insert);
+        } else {
+            insert(converter.convertObject(elem,conversion));
+        }
+    }
+
+    protected <K, T> void insert(K elem, Class<T> dboClass) {
+        insert(converter.convertObject(elem, dboClass));
+    }
+
+
+    protected <K, T> void insert(List<K> elem, Class<T> dboClass) {
+        converter.convertList(elem, dboClass).forEach(this::insert);
+
+    }
+
+    protected <K, T> void update(K elem, Function<K, T> conversion) {
+        if(elem.getClass().isAssignableFrom(List.class)) {
+            converter.convertObject((List<K>) elem, conversion).forEach(this::update);
+        } else {
+            update(converter.convertObject(elem,conversion));
+        }
+    }
+
+
     protected <K, T> void update(K elem, Class<T> dboClass) {
-        mongoTemplate.save(converter.convertObject(elem, dboClass));
+        update(converter.convertObject(elem, dboClass));
     }
 
     protected <K, T> void update(List<K> elem, Class<T> dboClass) {
-        elem.forEach(e -> mongoTemplate.save(converter.convertObject(e, dboClass)));
-    }
-
-    protected <K, T> void insert(List<K> elem, Class<T> dboClass) {
-        elem.forEach(e -> mongoTemplate.insert(converter.convertObject(e, dboClass)));
-
+        converter.convertList(elem,dboClass).forEach(this::update);
     }
 
     protected <T> void findAndDelete(Query query, Class<T> dboClass) {
@@ -78,20 +100,24 @@ public class BaseRepository {
         return mongoTemplate.findAll(dboClass);
     }
 
-    protected <T> List<T> findAll(final Class<T> dboClass, Pair<String,Object>... attributeValueCouple) {
-        if(attributeValueCouple == null) {
+    protected <T> List<T> findAll(final Class<T> dboClass, Pair<String, Object>... attributeValueCouple) {
+        if (attributeValueCouple == null) {
             return findAll(dboClass);
         }
         List<Pair<String, Object>> pairs = new ArrayList<>(Arrays.asList(attributeValueCouple));
         Pair<String, Object> first = pairs.remove(0);
         Criteria criteria = Criteria.where(first.getKey()).is(first.getValue());
         criteria = pairs.stream().reduce(criteria,
-                (a,b) -> a.and(b.getKey()).is(b.getValue()),
-                (a,b) -> a);
-        return mongoTemplate.find(getCriteriaQueryBuilder().addCriteria(criteria),dboClass);
+                (a, b) -> a.and(b.getKey()).is(b.getValue()),
+                (a, b) -> a);
+        return mongoTemplate.find(getCriteriaQueryBuilder().addCriteria(criteria), dboClass);
     }
 
-    protected <T,I> T findById(Class<T> dboClass, I id) {
-        return mongoTemplate.findById(id,dboClass);
+    protected <T> List<T> findAll(final Class<T> dboClass,final Query query) {
+        return mongoTemplate.find(query,dboClass);
+    }
+
+    protected <T, I> T findById(Class<T> dboClass, I id) {
+        return mongoTemplate.findById(id, dboClass);
     }
 }

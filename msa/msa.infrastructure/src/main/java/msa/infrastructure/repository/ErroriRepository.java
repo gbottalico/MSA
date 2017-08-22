@@ -6,8 +6,6 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 /**
  * Created by simon.calabrese on 27/07/2017.
  */

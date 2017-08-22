@@ -18,14 +18,15 @@ import msa.application.exceptions.InternalMsaException;
 import msa.domain.Converter.FunctionUtils;
 import msa.domain.object.dominio.BaremesDO;
 import msa.domain.object.dominio.CompagniaDO;
+import msa.domain.object.sinistro.*;
 import msa.domain.object.sinistro.rca.IncrociBaremesDO;
-import msa.domain.object.sinistro.InputRicercaDO;
-import msa.domain.object.sinistro.SinistroDO;
 import msa.infrastructure.repository.DomainRepository;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -75,7 +76,7 @@ public class SinistriService extends BaseSinistroService {
      * @param input
      * @return
      */
-    private Boolean salvaSinistro(SinistroDO input) throws InternalMsaException {
+    private <E extends BaseSinistroDO> Boolean salvaSinistro(E input) throws InternalMsaException {
 
         if (input.getNumSinistroProvv() == null) {
             try {
@@ -101,7 +102,7 @@ public class SinistriService extends BaseSinistroService {
      */
 
     public BaseDTO<Map<String, String>> inviaSegnalazione(SegnalazioneDTO input, Integer numSinistroProvv) throws InternalMsaException {
-        final SinistroDO sinistroDOByDTO = getSinistroDOByDTO(input, numSinistroProvv);
+        final BaseSinistroDO sinistroDOByDTO = getSinistroDOByDTO(input, numSinistroProvv);
 
         if (salvaSinistro(sinistroDOByDTO)) {
             return new BaseDTO(Stream.of("").collect(Collectors.toMap(e -> "tipoSinistro", e -> "TODO")));
@@ -196,13 +197,16 @@ public class SinistriService extends BaseSinistroService {
     }
 
     public BaseDTO salvaDannoRcaTerzeParti(List<AnagraficaTerzePartiDTO> input, Integer numSinistro) throws InternalMsaException {
-        final Boolean insertResult = salvaSinistro(getSinistroDOByDTO(input, numSinistro, (output, aggregatore) -> {
-            if (CollectionUtils.isEmpty(output.getDannoRca().getTerzeParti())) {
-                output.getDannoRca().setTerzeParti(new ArrayList<>());
-            }
-            output.getDannoRca().getTerzeParti().addAll(aggregatore.getDannoRca().getTerzeParti());
-            return output;
-        }));
+        final BaseSinistroDO sinistroDOByDTO = getSinistroDOByDTO(new AnagraficaTerzePartiDTO(), numSinistro);
+        if(CollectionUtils.isEmpty(sinistroDOByDTO.getAnagraficaTerzeParti())){
+            sinistroDOByDTO.setAnagraficaTerzeParti(new ArrayList<>());
+        }
+        final List<AnagraficaTerzePartiDO> concat = FunctionUtils.dinstictList(Stream
+                .concat(sinistroDOByDTO.getAnagraficaTerzeParti().stream(),
+                        converter.convertList(input, AnagraficaTerzePartiDO.class).stream())
+                .collect(Collectors.toList()), BaseAnagraficaDO::getCf);
+        sinistroDOByDTO.setAnagraficaTerzeParti(concat);
+        Boolean insertResult = salvaSinistro(sinistroDOByDTO);
         if (insertResult) {
             return new BaseDTO<>();
         } else {

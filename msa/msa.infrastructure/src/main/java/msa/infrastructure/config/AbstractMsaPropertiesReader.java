@@ -1,7 +1,5 @@
 package msa.infrastructure.config;
 
-import java.util.Map;
-
 public abstract class AbstractMsaPropertiesReader {
 
     public abstract String getMongoUrl();

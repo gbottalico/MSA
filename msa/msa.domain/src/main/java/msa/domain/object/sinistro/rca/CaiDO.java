@@ -2,8 +2,6 @@ package msa.domain.object.sinistro.rca;
 
 import msa.domain.object.dominio.BaremesDO;
 
-import java.util.List;
-
 public class CaiDO {
     private BaremesDO baremesCliente;
     private BaremesDO baremesControparte;

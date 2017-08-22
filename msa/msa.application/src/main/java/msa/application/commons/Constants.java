@@ -2,7 +2,6 @@ package msa.application.commons;
 
 import msa.application.dto.domain.CodiciCatastaliPojo;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;

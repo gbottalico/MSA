@@ -3,7 +3,6 @@ package msa.application.service.interfaceDispatcher;
 import msa.application.config.BaseDTO;
 import msa.application.dto.dispatcher.DispatcherDTO;
 import msa.application.exceptions.InternalMsaException;
-import msa.application.service.base.BaseService;
 import msa.domain.object.dispatcher.DispatcherDO;
 import msa.infrastructure.repository.DispatcherRepository;
 import org.springframework.beans.factory.annotation.Autowired;

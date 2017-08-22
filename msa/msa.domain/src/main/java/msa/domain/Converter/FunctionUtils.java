@@ -1,14 +1,15 @@
 package msa.domain.Converter;
 
-import org.apache.commons.lang3.time.DateUtils;
+import com.gs.collections.impl.block.factory.*;
 
-import java.sql.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
-import java.util.Date;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 /**
  * Created by simon.calabrese on 27/07/2017.
@@ -70,5 +71,17 @@ public final class FunctionUtils {
 
     public static java.sql.Date nowAsDate() {
         return java.sql.Date.valueOf(LocalDate.now());
+    }
+
+    public static<T> List<T> dinstictList(List<T> toFilter,Function<T,Object> keyEstractor){
+
+        return toFilter
+                .stream()
+                .collect(Collectors.toMap(keyEstractor,
+                        e -> e,
+                        (t,t1) -> t))
+                .values()
+                .stream()
+                .collect(Collectors.toList());
     }
 }

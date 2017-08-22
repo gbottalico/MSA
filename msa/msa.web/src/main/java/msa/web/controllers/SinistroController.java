@@ -6,7 +6,6 @@ import msa.application.dto.ricerca.InputRicercaDTO;
 import msa.application.dto.sinistro.BaseSinistroDTO;
 import msa.application.dto.sinistro.PeritoDTO;
 import msa.application.dto.sinistro.SinistroFurtoIncendioDTO;
-import msa.application.dto.sinistro.SinistroRcaDTO;
 import msa.application.dto.sinistro.anagrafica.AnagraficaTerzePartiDTO;
 import msa.application.dto.sinistro.rca.cai.CaiDTO;
 import msa.application.dto.sinistro.rca.constatazioneAmichevole.ConstatazioneAmichevoleDTO;

@@ -2,7 +2,6 @@ package msa.application.dto.sinistro;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import msa.application.dto.user.UserLoggedDTO;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
 import java.io.Serializable;
