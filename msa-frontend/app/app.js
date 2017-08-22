@@ -63,11 +63,13 @@ function getMSAC() {
 app.constant('$MSAC', getMSAC());
 app.constant('_', window._);
 
+
 /*
  * Configurazione del routing.
  */
 
 app.config(['$routeProvider', function ($routeProvider) {
+    console.log($routeProvider);
     $routeProvider
         .when(getMSAC().PATHS.HOME, {
             template: "<msa-home></msa-home>"
@@ -79,8 +81,8 @@ app.config(['$routeProvider', function ($routeProvider) {
             template: "<msa-denuncia-container></msa-denuncia-container>"
         })
         .otherwise({
-            template: "<msa-home></msa-home>"
-        })
+            redirectTo: getMSAC().PATHS.HOME
+        });
 }]);
 
 /*

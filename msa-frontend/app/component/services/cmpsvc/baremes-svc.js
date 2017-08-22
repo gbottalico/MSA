@@ -28,7 +28,7 @@ angular.module('msa').service(
 
                 return $http.post(url, data);
 
-            }
+            };
 
         }
     ]

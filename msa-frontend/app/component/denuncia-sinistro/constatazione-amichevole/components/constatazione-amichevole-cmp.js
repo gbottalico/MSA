@@ -83,7 +83,7 @@
                             //FIXME: rimuovere il 2, è mockup
                             BaremesSvc.saveBaremesAndGetResponsabilita(2, newValues.bAssicurato, newValues.bControparte, newValues.oAssicurato, newValues.oControparte).then(function (response) {
                                 ctrl.setResponsabilitaUI(response.data.result.responsabilita);
-                            })
+                            });
                         }
 
                     }, true

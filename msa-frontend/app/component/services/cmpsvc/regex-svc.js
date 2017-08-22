@@ -8,6 +8,7 @@ angular.module('msa').service(
             var reCodiceFiscale = /^(?:[B-DF-HJ-NP-TV-Z](?:[AEIOU]{2}|[AEIOU]X)|[AEIOU]{2}X|[B-DF-HJ-NP-TV-Z]{2}[A-Z]){2}[\dLMNP-V]{2}(?:[A-EHLMPR-T](?:[04LQ][1-9MNP-V]|[1256LMRS][\dLMNP-V])|[DHPS][37PT][0L]|[ACELMRT][37PT][01LM])(?:[A-MZ][1-9MNP-V][\dLMNP-V]{2}|[A-M][0L](?:[\dLMNP-V][1-9MNP-V]|[1-9MNP-V][0L]))[A-Z]$/;
             var rePartitaIva    = /^[0-9]{11}$/;
             var reEmail         = /^[\w\-\.]*[\w\.]\@[\w\.]*[\w\-\.]+[\w\-]+[\w]\.+[\w]+[\w $]/;
+            var reTelefono      = /^[+]{0,1}[0-9 -]{5,20}$/;
 
             $svc.getCodiceFiscaleRegex = function () {
                 return reCodiceFiscale;
@@ -21,6 +22,10 @@ angular.module('msa').service(
                 return reEmail;
             };
 
+            $svc.getTelefonoRegex = function () {
+              return reTelefono;
+            };
+
             $svc.isCodiceFiscaleValid = function (codiceFiscale) {
                 return reCodiceFiscale.test(codiceFiscale);
             };
@@ -31,6 +36,10 @@ angular.module('msa').service(
 
             $svc.isEmailValid = function (email) {
                 return reEmail.test(email);
+            };
+
+            $svc.isTelefonoValid = function (telefono) {
+                return reTelefono.test(telefono);
             };
 
             $svc.isCfOrPi = function (cfOrPi) {
