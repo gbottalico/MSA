@@ -7,10 +7,13 @@
             valoriRicerca: '=',
             numeroSinistroProvvisorio: "="
         },
-        controller: ("segnalazioneController", ['$scope', '$rootScope', '$translate', '$log', 'AccountUserSvc', 'MezziComunicazioneSvc', 'RuoliSvc', 'PlacesSvc', 'SinistriSvc', 'UtilSvc', 'toastr', '$analytics', '$location', '$cookies', '$window', '$sessionStorage',
-            function ($scope, $rootScope, $translate, $log, AccountUserSvc, MezziComunicazioneSvc, RuoliSvc, PlacesSvc, SinistriSvc, UtilSvc, toastr, $analytics, location, $cookies, $window, $sessionStorage) {
+        controller: ("segnalazioneController", ['$scope', '$rootScope', '$routeParams', '$translate', '$log', 'AccountUserSvc', 'MezziComunicazioneSvc', 'RuoliSvc', 'PlacesSvc', 'SinistriSvc', 'UtilSvc', 'toastr', '$analytics', '$location', '$cookies', '$window', '$sessionStorage',
+            function ($scope, $rootScope, $routeParams, $translate, $log, AccountUserSvc, MezziComunicazioneSvc, RuoliSvc, PlacesSvc, SinistriSvc, UtilSvc, toastr, $analytics, location, $cookies, $window, $sessionStorage) {
 
                 var ctrl = this;
+
+                // Numero sinistro provvisorio da url
+                ctrl.numeroSinistroProvvisorio = $routeParams.idSinistroProvvisorio;
 
                 ctrl.mezzicomunicazione = undefined;
                 ctrl.ruoli = undefined;

@@ -5,7 +5,6 @@
         templateUrl: '../../app/component/denuncia-sinistro/denuncia-container/components/templates/denuncia-container-tpl.html',
         bindings: {
             valoriRicerca: '=',
-            numeroSinistroProvvisorio: "="
         },
         controller: ("denunciaContainerController", ['$rootScope', '$scope', 'SinistriSvc', 'UtilSvc',
             function ($rootScope, $scope, SinistriSvc, UtilSvc) {

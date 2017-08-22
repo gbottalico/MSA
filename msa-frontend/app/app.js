@@ -75,6 +75,9 @@ app.config(['$routeProvider', function ($routeProvider) {
         .when(getMSAC().PATHS.DENUNCIA, {
             template: "<msa-denuncia-container></msa-denuncia-container>"
         })
+        .when(getMSAC().PATHS.DENUNCIA + "/:idSinistroProvvisorio", {
+            template: "<msa-denuncia-container></msa-denuncia-container>"
+        })
         .otherwise({
             template: "<msa-home></msa-home>"
         })
