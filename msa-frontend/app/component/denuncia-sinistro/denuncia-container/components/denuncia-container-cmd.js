@@ -16,6 +16,7 @@
 
                 ctrl.getSinistroProvvisorio = function (numeroSinistroProvvisorio) {
                     SinistriSvc.cercaSinistroProvvisorio(37, numeroSinistroProvvisorio).then(function (response) {
+                        console.log(response);
                         //FIXME rimuovere il 37, mockup
                         if (UtilSvc.arrayHasElements(response.data.result)) {
                             var result = response.data.result[0];

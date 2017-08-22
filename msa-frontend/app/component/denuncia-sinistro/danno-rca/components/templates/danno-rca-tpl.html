@@ -76,17 +76,17 @@
 
                     <div class="row">
                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 classicInputText">
-                            <select ng-model="" name="tipostradaConduncente">
+                            <select name="tipostradaConduncente">
                                 <option ng-repeat="tipoStrada in $ctrl.tipiStrada">{{tipoStrada}}</option>
                             </select>
                             <label>{{'global.people.indirizzo' | translate}}</label>
                         </div>
                         <div class="col-lg-8 col-md-8 col-sm-4 col-xs-12 classicInputText">
-                            <input type="text" name="denominazioneConduncente" ng-model="" ng-required="true">
+                            <input type="text" name="denominazioneConduncente"  ng-required="true">
                             <label></label>
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 classicInputText">
-                            <input type="text" name="civicoConduncente" ng-model="" ng-required="true">
+                            <input type="text" name="civicoConduncente"  ng-required="true">
                             <label></label>
                         </div>
                     </div>

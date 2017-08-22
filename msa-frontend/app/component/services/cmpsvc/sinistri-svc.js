@@ -26,47 +26,58 @@ angular.module('msa').service(
 
             $svc.apriSinistroProvvisorio = function (datiContraente, compagnia) {
 
-                var data = {};
-                data.compagnia = compagnia;
+                var dataObj = {};
+                dataObj.compagnia = compagnia;
 
-                data.contraente = {};
-                data.contraente.nome = datiContraente.nome;
-                data.contraente.cognome = datiContraente.cognome;
-                data.contraente.cf = datiContraente.cf;
+                dataObj.contraente = {};
+                dataObj.contraente.nome = datiContraente.nome;
+                dataObj.contraente.cognome = datiContraente.cognome;
+                dataObj.contraente.cf = datiContraente.cf;
 
-                data.contraente.luogoNascita = {};
+                dataObj.contraente.luogoNascita = {};
                 if(UtilSvc.isDefined(datiContraente.nascita.nazione)) {
-                    data.contraente.luogoNascita.codNazione = datiContraente.nascita.nazione.id;
-                    data.contraente.luogoNascita.descrizioneNazione = datiContraente.nascita.nazione.descrizione;
+                    dataObj.contraente.luogoNascita.codNazione = datiContraente.nascita.nazione.id;
+                    dataObj.contraente.luogoNascita.descrizioneNazione = datiContraente.nascita.nazione.descrizione;
                 }
                 if(UtilSvc.isDefined(datiContraente.nascita.provincia)) {
-                    data.contraente.luogoNascita.codProvincia = datiContraente.nascita.provincia.codProvincia;
-                    data.contraente.luogoNascita.descrizioneProvincia = datiContraente.nascita.provincia.desProv;
+                    dataObj.contraente.luogoNascita.codProvincia = datiContraente.nascita.provincia.codProvincia;
+                    dataObj.contraente.luogoNascita.descrizioneProvincia = datiContraente.nascita.provincia.desProv;
                 }
                 if(UtilSvc.isDefined(datiContraente.nascita.comune)) {
-                    data.contraente.luogoNascita.codComune = datiContraente.nascita.comune.codComune;
-                    data.contraente.luogoNascita.descrizioneComune = datiContraente.nascita.comune.descrizione;
+                    dataObj.contraente.luogoNascita.codComune = datiContraente.nascita.comune.codComune;
+                    dataObj.contraente.luogoNascita.descrizioneComune = datiContraente.nascita.comune.descrizione;
                 }
 
-                data.contraente.dataNascita = datiContraente.nascita.data;
+                dataObj.contraente.dataNascita = datiContraente.nascita.data;
 
-                data.contraente.tracking = {};
+                dataObj.contraente.tracking = {};
                 if(UtilSvc.isDefined(datiContraente.residenza.nazione)) {
-                    data.contraente.tracking.nazione = datiContraente.residenza.nazione.id;
+                    dataObj.contraente.tracking.nazione = datiContraente.residenza.nazione.id;
                 }
                 if(UtilSvc.isDefined(datiContraente.residenza.provincia)) {
-                    data.contraente.tracking.provincia = datiContraente.residenza.provincia.codProvincia;
+                    dataObj.contraente.tracking.provincia = datiContraente.residenza.provincia.codProvincia;
                 }
                 if(UtilSvc.isDefined(datiContraente.residenza.comune)) {
-                    data.contraente.tracking.comune = datiContraente.residenza.comune.codComune;
+                    dataObj.contraente.tracking.comune = datiContraente.residenza.comune.codComune;
                 }
                 if(UtilSvc.isDefined(datiContraente.residenza.indirizzo)) {
-                    data.contraente.tracking.indirizzo = datiContraente.residenza.indirizzo.denominazione + ", " + datiContraente.residenza.indirizzo.civico;
+                    dataObj.contraente.tracking.indirizzo = datiContraente.residenza.indirizzo.denominazione + ", " + datiContraente.residenza.indirizzo.civico;
                 }
 
-                console.log(JSON.stringify(data));
+                console.log(JSON.stringify(dataObj));
 
-                return $http.put(msaServicesApiUrls.aperturasinitro, data);
+                //return $http.put(msaServicesApiUrls.aperturasinitro, data);
+
+                //TODO fix
+                return $http({
+                    method: 'PUT',
+                    url: msaServicesApiUrls.aperturasinitro,
+                    data: dataObj,
+                    headers: {
+                        "Content-Type": "application/json",
+                        "user": '{"idUser": 1,"amministratore": true}'
+                    }
+                });
 
             };
 
@@ -76,10 +87,12 @@ angular.module('msa').service(
                 dataObj.compagnia = idCompagnia;
                 dataObj.numeroProvvisorio = numeroSinistroProvvisorio;
 
-                //TODO fix
+                var stringUrl = UtilSvc.stringFormat(msaServicesApiUrls.ricercaprovvisorio, numeroSinistroProvvisorio);
+
+                //TODO fix rimuovere login e idCompagnia
                 return $http({
-                    method: 'POST',
-                    url: msaServicesApiUrls.ricercasinitro,
+                    method: 'GET',
+                    url: stringUrl,
                     data: dataObj,
                     headers: {
                         "Content-Type": "application/json",
