@@ -90,4 +90,8 @@ public class BaseRepository {
                 (a,b) -> a);
         return mongoTemplate.find(getCriteriaQueryBuilder().addCriteria(criteria),dboClass);
     }
+
+    protected <T,I> T findById(Class<T> dboClass, I id) {
+        return mongoTemplate.findById(id,dboClass);
+    }
 }

@@ -1,95 +1,116 @@
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-	
-	<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 auto">
-		<span class="subsectionTitle">{{'global.auto.labels.veiclea' | translate}}</span>
-		<div class="autoContainer">
-			<!--TOP-->
-			<div class="arrow topLeft" ng-click="$ctrl.indicatoretoplefta($ctrl.toplefta)">
-				<img src="images/auto/arrow-gray.svg" ng-show="$ctrl.toplefta == false">
-				<img src="images/auto/arrow-blue.svg" ng-show="$ctrl.toplefta == true">
-			</div>
-			<div class="arrow topCenter" ng-click="$ctrl.indicatoretopcentera($ctrl.topcentera)">
-				<img src="images/auto/arrow-gray.svg" ng-show="$ctrl.topcentera == false">
-				<img src="images/auto/arrow-blue.svg" ng-show="$ctrl.topcentera == true">
-			</div>
-			<div class="arrow topRight" ng-click="$ctrl.indicatoretoprighta($ctrl.toprighta)">
-				<img src="images/auto/arrow-gray.svg" ng-show="$ctrl.toprighta == false">
-				<img src="images/auto/arrow-blue.svg" ng-show="$ctrl.toprighta == true">
-			</div>
-			<!--END TOP-->
-			<!--MIDDLE-->
-			<div class="arrow middleLeft" ng-click="$ctrl.indicatoremiddlelefta($ctrl.middlelefta)">
-				<img src="images/auto/arrow-gray.svg" ng-show="$ctrl.middlelefta == false">
-				<img src="images/auto/arrow-blue.svg" ng-show="$ctrl.middlelefta == true">
-			</div>
-			<div class="arrow middleRight" ng-click="$ctrl.indicatoremiddlerighta($ctrl.middlerighta)">
-				<img src="images/auto/arrow-gray.svg" ng-show="$ctrl.middlerighta == false">
-				<img src="images/auto/arrow-blue.svg" ng-show="$ctrl.middlerighta == true">
-			</div>
-			<!--END MIDDLE-->
-			<!--BOTTOM-->
-			<div class="arrow bottomLeft" ng-click="$ctrl.indicatorebottomlefta($ctrl.bottomlefta)">
-				<img src="images/auto/arrow-gray.svg" ng-show="$ctrl.bottomlefta == false">
-				<img src="images/auto/arrow-blue.svg" ng-show="$ctrl.bottomlefta == true">
-			</div>
-			<div class="arrow bottomCenter" ng-click="$ctrl.indicatorebottomcentera($ctrl.bottomcentera)">
-				<img src="images/auto/arrow-gray.svg" ng-show="$ctrl.bottomcentera == false">
-				<img src="images/auto/arrow-blue.svg" ng-show="$ctrl.bottomcentera == true">
-			</div>
-			<div class="arrow bottomRight" ng-click="$ctrl.indicatorebottomrighta($ctrl.bottomrighta)">
-				<img src="images/auto/arrow-gray.svg" ng-show="$ctrl.bottomrighta == false">
-				<img src="images/auto/arrow-blue.svg" ng-show="$ctrl.bottomrighta == true">
-			</div>
-			<!--END BOTTOM-->
-		</div>
-		<textarea class="textauto" maxlength="250"></textarea>
-		<p class="alertauto">{{'global.auto.labels.alert' | translate}}</p>
-	</div>
+<section class="row">
+    <div class="containerHeader">
+        <div class="col-lg-1 col-md-1 col-sm-0 col-xs-0"></div>
+        <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 container boxShadow">
+            <div class="header">
+                <h1 class="titleSection">{{'global.cai.title' | translate}}</h1>
+            </div>
+        </div>
+        <div class="col-lg-1 col-md-1 col-sm-0 col-xs-0"></div>
+    </div>
 
-	<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 auto">
-		<span class="subsectionTitle">{{'global.auto.labels.veicleb' | translate}}</span>
-		<div class="autoContainer">
-			<!--TOP-->
-			<div class="arrow topLeft" ng-click="$ctrl.indicatoretopleftb($ctrl.topleftb)">
-				<img src="images/auto/arrow-gray.svg" ng-show="$ctrl.topleftb == false">
-				<img src="images/auto/arrow-blue.svg" ng-show="$ctrl.topleftb == true">
-			</div>
-			<div class="arrow topCenter" ng-click="$ctrl.indicatoretopcenterb($ctrl.topcenterb)">
-				<img src="images/auto/arrow-gray.svg" ng-show="$ctrl.topcenterb == false">
-				<img src="images/auto/arrow-blue.svg" ng-show="$ctrl.topcenterb == true">
-			</div>
-			<div class="arrow topRight" ng-click="$ctrl.indicatoretoprightb($ctrl.toprightb)">
-				<img src="images/auto/arrow-gray.svg" ng-show="$ctrl.toprightb == false">
-				<img src="images/auto/arrow-blue.svg" ng-show="$ctrl.toprightb == true">
-			</div>
-			<!--END TOP-->
-			<!--MIDDLE-->
-			<div class="arrow middleLeft" ng-click="$ctrl.indicatoremiddleleftb($ctrl.middleleftb)">
-				<img src="images/auto/arrow-gray.svg" ng-show="$ctrl.middleleftb == false">
-				<img src="images/auto/arrow-blue.svg" ng-show="$ctrl.middleleftb == true">
-			</div>
-			<div class="arrow middleRight" ng-click="$ctrl.indicatoremiddlerightb($ctrl.middlerightb)">
-				<img src="images/auto/arrow-gray.svg" ng-show="$ctrl.middlerightb == false">
-				<img src="images/auto/arrow-blue.svg" ng-show="$ctrl.middlerightb == true">
-			</div>
-			<!--END MIDDLE-->
-			<!--BOTTOM-->
-			<div class="arrow bottomLeft" ng-click="$ctrl.indicatorebottomleftb($ctrl.bottomleftb)">
-				<img src="images/auto/arrow-gray.svg" ng-show="$ctrl.bottomleftb == false">
-				<img src="images/auto/arrow-blue.svg" ng-show="$ctrl.bottomleftb == true">
-			</div>
-			<div class="arrow bottomCenter" ng-click="$ctrl.indicatorebottomcenterb($ctrl.bottomcenterb)">
-				<img src="images/auto/arrow-gray.svg" ng-show="$ctrl.bottomcenterb == false">
-				<img src="images/auto/arrow-blue.svg" ng-show="$ctrl.bottomcenterb == true">
-			</div>
-			<div class="arrow bottomRight" ng-click="$ctrl.indicatorebottomrightb($ctrl.bottomrightb)">
-				<img src="images/auto/arrow-gray.svg" ng-show="$ctrl.bottomrightb == false">
-				<img src="images/auto/arrow-blue.svg" ng-show="$ctrl.bottomrightb == true">
-			</div>
-			<!--END BOTTOM-->
-		</div>
-		<textarea class="textauto" maxlength="250"></textarea>
-		<p class="alertauto">{{'global.auto.labels.alert' | translate}}</p>
-	</div>
+    <div class="containerBody">
+        <div class="col-lg-1 col-md-1 col-sm-0 col-xs-0"></div>
+        <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 container boxShadow">
+            <div class="body">
 
-</div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 auto">
+                        <span class="subsectionTitle">{{'global.auto.labels.veiclea' | translate}}</span>
+                        <div class="autoContainer">
+                            <!--TOP-->
+                            <div class="arrow topLeft" ng-click="$ctrl.indicatoretoplefta($ctrl.toplefta)">
+                                <img src="images/auto/arrow-gray.svg" ng-show="$ctrl.toplefta == false">
+                                <img src="images/auto/arrow-blue.svg" ng-show="$ctrl.toplefta == true">
+                            </div>
+                            <div class="arrow topCenter" ng-click="$ctrl.indicatoretopcentera($ctrl.topcentera)">
+                                <img src="images/auto/arrow-gray.svg" ng-show="$ctrl.topcentera == false">
+                                <img src="images/auto/arrow-blue.svg" ng-show="$ctrl.topcentera == true">
+                            </div>
+                            <div class="arrow topRight" ng-click="$ctrl.indicatoretoprighta($ctrl.toprighta)">
+                                <img src="images/auto/arrow-gray.svg" ng-show="$ctrl.toprighta == false">
+                                <img src="images/auto/arrow-blue.svg" ng-show="$ctrl.toprighta == true">
+                            </div>
+                            <!--END TOP-->
+                            <!--MIDDLE-->
+                            <div class="arrow middleLeft" ng-click="$ctrl.indicatoremiddlelefta($ctrl.middlelefta)">
+                                <img src="images/auto/arrow-gray.svg" ng-show="$ctrl.middlelefta == false">
+                                <img src="images/auto/arrow-blue.svg" ng-show="$ctrl.middlelefta == true">
+                            </div>
+                            <div class="arrow middleRight" ng-click="$ctrl.indicatoremiddlerighta($ctrl.middlerighta)">
+                                <img src="images/auto/arrow-gray.svg" ng-show="$ctrl.middlerighta == false">
+                                <img src="images/auto/arrow-blue.svg" ng-show="$ctrl.middlerighta == true">
+                            </div>
+                            <!--END MIDDLE-->
+                            <!--BOTTOM-->
+                            <div class="arrow bottomLeft" ng-click="$ctrl.indicatorebottomlefta($ctrl.bottomlefta)">
+                                <img src="images/auto/arrow-gray.svg" ng-show="$ctrl.bottomlefta == false">
+                                <img src="images/auto/arrow-blue.svg" ng-show="$ctrl.bottomlefta == true">
+                            </div>
+                            <div class="arrow bottomCenter" ng-click="$ctrl.indicatorebottomcentera($ctrl.bottomcentera)">
+                                <img src="images/auto/arrow-gray.svg" ng-show="$ctrl.bottomcentera == false">
+                                <img src="images/auto/arrow-blue.svg" ng-show="$ctrl.bottomcentera == true">
+                            </div>
+                            <div class="arrow bottomRight" ng-click="$ctrl.indicatorebottomrighta($ctrl.bottomrighta)">
+                                <img src="images/auto/arrow-gray.svg" ng-show="$ctrl.bottomrighta == false">
+                                <img src="images/auto/arrow-blue.svg" ng-show="$ctrl.bottomrighta == true">
+                            </div>
+                            <!--END BOTTOM-->
+                        </div>
+                        <textarea class="textauto" maxlength="250"></textarea>
+                        <p class="alertauto">{{'global.auto.labels.alert' | translate}}</p>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 auto">
+                        <span class="subsectionTitle">{{'global.auto.labels.veicleb' | translate}}</span>
+                        <div class="autoContainer">
+                            <!--TOP-->
+                            <div class="arrow topLeft" ng-click="$ctrl.indicatoretopleftb($ctrl.topleftb)">
+                                <img src="images/auto/arrow-gray.svg" ng-show="$ctrl.topleftb == false">
+                                <img src="images/auto/arrow-blue.svg" ng-show="$ctrl.topleftb == true">
+                            </div>
+                            <div class="arrow topCenter" ng-click="$ctrl.indicatoretopcenterb($ctrl.topcenterb)">
+                                <img src="images/auto/arrow-gray.svg" ng-show="$ctrl.topcenterb == false">
+                                <img src="images/auto/arrow-blue.svg" ng-show="$ctrl.topcenterb == true">
+                            </div>
+                            <div class="arrow topRight" ng-click="$ctrl.indicatoretoprightb($ctrl.toprightb)">
+                                <img src="images/auto/arrow-gray.svg" ng-show="$ctrl.toprightb == false">
+                                <img src="images/auto/arrow-blue.svg" ng-show="$ctrl.toprightb == true">
+                            </div>
+                            <!--END TOP-->
+                            <!--MIDDLE-->
+                            <div class="arrow middleLeft" ng-click="$ctrl.indicatoremiddleleftb($ctrl.middleleftb)">
+                                <img src="images/auto/arrow-gray.svg" ng-show="$ctrl.middleleftb == false">
+                                <img src="images/auto/arrow-blue.svg" ng-show="$ctrl.middleleftb == true">
+                            </div>
+                            <div class="arrow middleRight" ng-click="$ctrl.indicatoremiddlerightb($ctrl.middlerightb)">
+                                <img src="images/auto/arrow-gray.svg" ng-show="$ctrl.middlerightb == false">
+                                <img src="images/auto/arrow-blue.svg" ng-show="$ctrl.middlerightb == true">
+                            </div>
+                            <!--END MIDDLE-->
+                            <!--BOTTOM-->
+                            <div class="arrow bottomLeft" ng-click="$ctrl.indicatorebottomleftb($ctrl.bottomleftb)">
+                                <img src="images/auto/arrow-gray.svg" ng-show="$ctrl.bottomleftb == false">
+                                <img src="images/auto/arrow-blue.svg" ng-show="$ctrl.bottomleftb == true">
+                            </div>
+                            <div class="arrow bottomCenter" ng-click="$ctrl.indicatorebottomcenterb($ctrl.bottomcenterb)">
+                                <img src="images/auto/arrow-gray.svg" ng-show="$ctrl.bottomcenterb == false">
+                                <img src="images/auto/arrow-blue.svg" ng-show="$ctrl.bottomcenterb == true">
+                            </div>
+                            <div class="arrow bottomRight" ng-click="$ctrl.indicatorebottomrightb($ctrl.bottomrightb)">
+                                <img src="images/auto/arrow-gray.svg" ng-show="$ctrl.bottomrightb == false">
+                                <img src="images/auto/arrow-blue.svg" ng-show="$ctrl.bottomrightb == true">
+                            </div>
+                            <!--END BOTTOM-->
+                        </div>
+                        <textarea class="textauto" maxlength="250"></textarea>
+                        <p class="alertauto">{{'global.auto.labels.alert' | translate}}</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-1 col-md-1 col-sm-0 col-xs-0"></div>
+    </div>
+</section>

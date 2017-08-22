@@ -3,15 +3,18 @@ package msa.application.service.sinistri;
 import msa.application.dto.sinistro.AbstractDTO;
 import msa.application.dto.sinistro.PeritoDTO;
 import msa.application.dto.sinistro.anagrafica.AnagraficaTerzePartiDTO;
-import msa.application.dto.sinistro.cai.CaiDTO;
-import msa.application.dto.sinistro.constatazioneAmichevole.ConstatazioneAmichevoleDTO;
-import msa.application.dto.sinistro.dannoRca.AnagraficaDanniDTO;
-import msa.application.dto.sinistro.dannoRca.DannoRcaDTO;
-import msa.application.dto.sinistro.eventoRca.EventoRcaDTO;
+import msa.application.dto.sinistro.rca.cai.CaiDTO;
+import msa.application.dto.sinistro.rca.constatazioneAmichevole.ConstatazioneAmichevoleDTO;
+import msa.application.dto.sinistro.rca.dannoRca.AnagraficaDanniDTO;
+import msa.application.dto.sinistro.rca.dannoRca.DannoRcaDTO;
+import msa.application.dto.sinistro.rca.eventoRca.EventoRcaDTO;
 import msa.application.dto.sinistro.segnalazione.SegnalazioneDTO;
 import msa.application.exceptions.InternalMsaException;
 import msa.application.service.base.BaseService;
+import msa.domain.object.dominio.BaremesDO;
 import msa.domain.object.sinistro.*;
+import msa.domain.object.sinistro.rca.*;
+import msa.infrastructure.repository.DomainRepository;
 import msa.infrastructure.repository.SinistriRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -28,6 +31,9 @@ public class BaseSinistroService extends BaseService {
 
     @Autowired
     protected SinistriRepository sinistriRepository;
+
+    @Autowired
+    private DomainRepository domainRepository;
 
     private List<Function> coupleFunctions;
 
@@ -173,18 +179,30 @@ public class BaseSinistroService extends BaseService {
                     throw new InternalMsaException();
                 }
             };
-
+    private final MsaFunction<SinistroDO,SinistroDO> ADD_DES_TO_CAI = cai -> {
+        try {
+            cai.getCai().getBaremesCliente().setDescrizione(domainRepository.getDesbaremesById(cai.getCai().getBaremesCliente().getId()).getDescrizione());
+            final BaremesDO controparte = cai.getCai().getBaremesControparte();
+            if(controparte != null) {
+                controparte.setDescrizione(domainRepository.getDesbaremesById(cai.getCai().getBaremesControparte().getId()).getDescrizione());
+            }
+            return cai;
+        } catch (Exception e) {
+            throw new InternalMsaException();
+        }
+    };
     private final MsaBiFunction<CaiDTO, Integer, SinistroDO> CAI =
             (O, numSinistroProvv) -> {
                 try {
                     final SinistroDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv);
                     CaiDO caiDO = converter.convertObject(O, CaiDO.class);
                     sinistroByNumProvv.setCai(caiDO);
-                    return sinistroByNumProvv;
+                    return ADD_DES_TO_CAI.apply(sinistroByNumProvv);
                 } catch (Exception e) {
                     throw new InternalMsaException();
                 }
             };
+
     private final MsaBiFunction<PeritoDTO,Integer,SinistroDO> PERITO =
             (perito,numSinistro) -> {
                 try{

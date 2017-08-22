@@ -3,27 +3,27 @@ package msa.application.service.sinistri;
 import msa.application.config.BaseDTO;
 import msa.application.config.enumerator.MessageType;
 import msa.application.dto.ricerca.InputRicercaDTO;
+import msa.application.dto.sinistro.BaseSinistroDTO;
 import msa.application.dto.sinistro.PeritoDTO;
-import msa.application.dto.sinistro.SinistroDTO;
+import msa.application.dto.sinistro.SinistroRcaDTO;
 import msa.application.dto.sinistro.anagrafica.AnagraficaTerzePartiDTO;
-import msa.application.dto.sinistro.cai.CaiDTO;
-import msa.application.dto.sinistro.constatazioneAmichevole.ConstatazioneAmichevoleDTO;
-import msa.application.dto.sinistro.dannoRca.AnagraficaDanniDTO;
-import msa.application.dto.sinistro.dannoRca.DannoRcaDTO;
-import msa.application.dto.sinistro.eventoRca.EventoRcaDTO;
+import msa.application.dto.sinistro.rca.cai.CaiDTO;
+import msa.application.dto.sinistro.rca.constatazioneAmichevole.ConstatazioneAmichevoleDTO;
+import msa.application.dto.sinistro.rca.dannoRca.AnagraficaDanniDTO;
+import msa.application.dto.sinistro.rca.dannoRca.DannoRcaDTO;
+import msa.application.dto.sinistro.rca.eventoRca.EventoRcaDTO;
 import msa.application.dto.sinistro.segnalazione.SegnalazioneDTO;
 import msa.application.exceptions.InternalMsaException;
 import msa.domain.Converter.FunctionUtils;
 import msa.domain.object.dominio.BaremesDO;
 import msa.domain.object.dominio.CompagniaDO;
-import msa.domain.object.sinistro.IncrociBaremesDO;
+import msa.domain.object.sinistro.rca.IncrociBaremesDO;
 import msa.domain.object.sinistro.InputRicercaDO;
 import msa.domain.object.sinistro.SinistroDO;
 import msa.infrastructure.repository.DomainRepository;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -36,6 +36,7 @@ public class SinistriService extends BaseSinistroService {
     @Autowired
     private DomainRepository domainRepository;
 
+
     /**
      * Metodo che effettua la ricerca le coperture in base ai parametri passati in input
      *
@@ -47,7 +48,7 @@ public class SinistriService extends BaseSinistroService {
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA003"));
         }
         InputRicercaDO inputRicercaDO = converter.convertObject(input, InputRicercaDO.class);
-        return new BaseDTO<>(converter.convertList(sinistriRepository.getElencoSinistriProvvisori(inputRicercaDO), SinistroDTO.class));
+        return new BaseDTO<>(converter.convertList(sinistriRepository.getElencoSinistriProvvisori(inputRicercaDO), SinistroRcaDTO.class));
     }
 
     /**
@@ -57,7 +58,7 @@ public class SinistriService extends BaseSinistroService {
      * @return
      * @throws InternalMsaException
      */
-    public BaseDTO<Map<String, Integer>> salvaSinistro(SinistroDTO input) throws InternalMsaException {
+    public BaseDTO<Map<String, Integer>> salvaSinistro(BaseSinistroDTO input) throws InternalMsaException {
         try {
             final Integer numSinis = sinistriRepository.insertSinistroProvvisorioAndGetNum(converter.convertObject(input, SinistroDO.class));
             return new BaseDTO(Stream.of(numSinis).collect(Collectors.toMap(e -> "numSinistroProvvisorio", String::valueOf)));
@@ -183,7 +184,7 @@ public class SinistriService extends BaseSinistroService {
 
     }
 
-    public BaseDTO<SinistroDTO> salvaDannoRcaControparte(AnagraficaDanniDTO input, Integer numSinistro) throws InternalMsaException {
+    public BaseDTO<SinistroRcaDTO> salvaDannoRcaControparte(AnagraficaDanniDTO input, Integer numSinistro) throws InternalMsaException {
         SinistroDO sinistroDOByDTO = getSinistroDOByDTO(input, numSinistro);
         if (salvaSinistro(sinistroDOByDTO)) {
             return new BaseDTO<>();
