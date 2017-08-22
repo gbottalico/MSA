@@ -1,0 +1,130 @@
+<section class="row">
+    <div class="containerHeader">
+        <div class="col-lg-1 col-md-1 col-sm-0 col-xs-0"></div>
+        <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 container boxShadow">
+            <div class="header">
+                <h1 class="titleSection">{{'global.dannorca.title' | translate}}</h1>
+            </div>
+        </div>
+        <div class="col-lg-1 col-md-1 col-sm-0 col-xs-0"></div>
+    </div>
+
+    <div class="containerBody">
+        <div class="col-lg-1 col-md-1 col-sm-0 col-xs-0"></div>
+        <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 container boxShadow">
+            <div class="body">
+
+                <form name="dannoRcaForm" novalidate>
+
+                    <div class="row">
+                        <div class="margin-top-1 col-lg-12">
+                            <span class="subsectionTitle">{{'global.dannorca.labels.conducente' | translate}}</span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputRadio">
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingLeft">
+                                <input type="radio" value="true" checked name="compilata">
+                                <label class="rightLabel">{{'global.generic.si' | translate}}</label>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingRight">
+                                <input type="radio" value="false" name="compilata">
+                                <label class="rightLabel">{{'global.generic.no' | translate}}</label>
+                            </div>
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 noPaddingRight">&nbsp;</div>
+                            <label>{{'global.dannorca.labels.lesioniconducente' | translate}}</label>
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 classicInputRadio">
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingLeft">
+                                <input type="radio" value="true" checked name="entrambi">
+                                <label class="rightLabel">{{'global.generic.si' | translate}}</label>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingLeft">
+                                <input type="radio" value="false" name="entrambi">
+                                <label class="rightLabel">{{'global.generic.no' | translate}}</label>
+                            </div>
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 noPaddingRight">&nbsp;</div>
+                            <label>{{'global.dannorca.labels.contraenteconducente' | translate}}</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputText">
+                            <input type="text" name="nomeConducente" ng-required="true">
+                            <label>{{'global.people.nome' | translate}}</label>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputText">
+                            <input type="text" name="cognomeConducente" ng-required="true">
+                            <label>{{'global.people.cognome' | translate}}</label>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputText">
+                            <input type="text" name="cfConducente" ng-required="true">
+                            <label>{{'global.people.cf' | translate}}</label>
+                        </div>
+                    </div>
+
+                    <msa-place result="$ctrl.conducente.luogo"></msa-place>
+
+                    <div class="row">
+                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 classicInputText">
+                            <select ng-model="" name="tipostradaConduncente">
+                                <option ng-repeat="tipoStrada in $ctrl.tipiStrada">{{tipoStrada}}</option>
+                            </select>
+                            <label>{{'global.people.indirizzo' | translate}}</label>
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-4 col-xs-12 classicInputText">
+                            <input type="text" name="denominazioneConduncente" ng-model="" ng-required="true">
+                            <label></label>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 classicInputText">
+                            <input type="text" name="civicoConduncente" ng-model="" ng-required="true">
+                            <label></label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputText">
+                            <input type="text" name="telefonoConducente" ng-required="true">
+                            <label>{{'global.people.telefono' | translate}}</label>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputText">
+                            <input type="text" name="cellulareConducente" ng-required="true">
+                            <label>{{'global.people.cellulare' | translate}}</label>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputText">
+                            <input type="text" name="emailConducente" ng-required="true">
+                            <label>{{'global.people.email' | translate}}</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 classicInputText">
+                            <input type="text" name="patenteConducente" ng-required="true">
+                            <label>{{'global.people.patente' | translate}}</label>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 classicInputText">
+                            <msa-date-selector data-result="$ctrl.conducente.data"></msa-date-selector>
+                            <label>{{'global.people.scadenzapatente' | translate}}</label>
+                        </div>
+                        <div class="col-lg-6 col-md-6 hidden-sm hidden-xs">&nbsp;</div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <hr class="blueLine">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="margin-top-1 col-lg-12">
+                            <span class="subsectionTitle">{{'global.dannorca.labels.proprietariocontroparte' | translate}}</span>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-1 col-md-1 col-sm-0 col-xs-0"></div>
+    </div>
+</section>
