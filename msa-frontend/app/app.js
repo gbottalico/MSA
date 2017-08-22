@@ -1,10 +1,27 @@
 window.app = angular.module('msa', [ 'pascalprecht.translate', 'ngStorage',
 		'ngCookies', 'ngSanitize', 'ngResource', 'ui.bootstrap',
-		'ui.bootstrap.tpls', 'ngComponentRouter', 'tmh.dynamicLocale',
+		'ui.bootstrap.tpls', 'tmh.dynamicLocale',
 		'ngAnimate', 'ui.select', 'ui.bootstrap.showErrors', 'ngFileUpload',
 		'ngStomp', 'cgBusy', 'angular-loading-bar', 'textAngular', 'rzModule',
 		'toastr', 'toggle-switch', 'angulartics',
-		'angulartics.google.analytics' ]);
+		'angulartics.google.analytics', 'ngRoute' ]);
+
+
+app.config(['$routeProvider', function($routeProvider) {
+    $routeProvider
+        .when("/", {
+            template : "main.htm"
+        })
+        .when("/red", {
+            template : "red.htm"
+        })
+        .when("/green", {
+            template : "green.htm"
+        })
+        .when("/blue", {
+            template : "blue.htm"
+        });
+}]);
 
 function getMSAC() {
 	var msac = {
