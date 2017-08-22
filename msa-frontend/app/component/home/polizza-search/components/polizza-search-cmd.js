@@ -3,10 +3,7 @@
 
     app.component('msaPolizzaSearch', {
         templateUrl: '../../app/component/home/polizza-search/components/templates/polizza-search-tpl.html',
-        bindings: {
-            bannerSearch: '=',
-            bannerDenuncia: '='
-        },
+        bindings: {},
         controller: ("polizzaSearchController", ["$scope", '$rootScope', '$translate', '$log', 'AccountUserSvc', "CompagnieSvc", 'CasaRegoleSvc', 'SinistriSvc', 'PlacesSvc', 'toastr', '$analytics', '$location', '$anchorScroll', '$uibModal', '$cookies', '$window', '$sessionStorage',
             function ($scope, $rootScope, $translate, $log, AccountUserSvc, CompagnieSvc, CasaRegoleSvc, SinistriSvc, PlacesSvc, toastr, $analytics, $location, $anchorScroll, $uibModal, $cookies, $window, $sessionStorage) {
 
@@ -104,7 +101,7 @@
                 };
 
                 ctrl.open = function () {
-                    modalInstance = $uibModal.open({
+                    var modalInstance = $uibModal.open({
                         templateUrl: 'denunciaSinistroModal',
                         backdrop: 'static', // Evita che il modal sia chiuso cliccando sullo sfondo.
                         windowClass: 'msaModal',
@@ -148,8 +145,8 @@
                 /* Navigazione */
 
                 ctrl.denuncia = function () {
-                    ctrl.bannerSearch = false;
-                    ctrl.bannerDenuncia = true;
+                    var path = getMSAC().PATHS.DENUNCIA;
+                    $location.path(path);
                 };
 
                 ctrl.cerca = function () {

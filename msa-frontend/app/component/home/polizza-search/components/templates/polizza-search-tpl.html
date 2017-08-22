@@ -1,4 +1,4 @@
-<section class="row polizzaSearch" ng-if="$ctrl.bannerSearch == true && $ctrl.bannerDenuncia == false">
+<section class="row polizzaSearch">
 
     <script type="text/ng-template" id="denunciaSinistroModal">
         <div class="modal-header">
@@ -191,11 +191,6 @@
                         </button>
                     </div>
 
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 classicInputCheckBox">
-                        <input type="checkbox" id="checkbox">
-                        <label for="checkbox">CSS Checkboxx!</label>
-                    </div>
-
 				<!--END COMMON NUOVO SINISTRO BUTTON-->
                 </form>
 			</div>
@@ -208,7 +203,5 @@
 <msa-polizza-result data-valori-ricerca="$ctrl.valoriRicerca" ng-if="$ctrl.valoriRicerca != undefined && $ctrl.bannerDenuncia == false"></msa-polizza-result>
 <msa-polizze-sinistri data-valori-ricerca="$ctrl.valoriRicerca" data-banner-search="$ctrl.bannerSearch" data-banner-denuncia="$ctrl.bannerDenuncia" ng-if="$ctrl.valoriRicerca != undefined && $ctrl.bannerSearch == true && $ctrl.bannerDenuncia == false"></msa-polizze-sinistri>
 
-<msa-denuncia-container numero-sinistro-provvisorio="$ctrl.numSinistroProvv" ng-if="$ctrl.bannerSearch == false && $ctrl.bannerDenuncia == true"></msa-denuncia-container>
+<!--<msa-denuncia-container numero-sinistro-provvisorio="$ctrl.numSinistroProvv" ng-if="$ctrl.bannerSearch == false && $ctrl.bannerDenuncia == true"></msa-denuncia-container>-->
 
-<msa-evento-rca class="msaModule"></msa-evento-rca>
-<msa-constatazione-amichevole class="msaModule"></msa-constatazione-amichevole>

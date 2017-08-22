@@ -1,16 +1,20 @@
 
 <msa-header></msa-header>
-<msa-banner-search ng-if="$ctrl.bannerSearch == true && $ctrl.bannerDenuncia == false"></msa-banner-search>
-<msa-banner-denuncia ng-if="$ctrl.bannerSearch == false && $ctrl.bannerDenuncia == true"></msa-banner-denuncia>
+<ng-view></ng-view>
 
-<msa-home data-banner-search="$ctrl.bannerSearch" data-banner-denuncia="$ctrl.bannerDenuncia"></msa-home>
+<!-- TODO CLEAN -->
+<!--<msa-home></msa-home>-->
+<!--<msa-denuncia-container></msa-denuncia-container>-->
+<!--<msa-denuncia-container numero-sinistro-provvisorio="$ctrl.numSinistroProvv" ng-if="$ctrl.bannerSearch == false && $ctrl.bannerDenuncia == true"></msa-denuncia-container>-->
 
 
 <!--POSIZIONE PROVVISORIA-->
+<hr class="blueLine">
+<h1 class="text-center">Mock Area</h1>
 <msa-auto class="msaModule"></msa-auto>
+<msa-evento-rca class="msaModule"></msa-evento-rca>
+<msa-constatazione-amichevole class="msaModule"></msa-constatazione-amichevole>
 <!--END POSIZIONE PROVVISORIA-->
-
-<ng-view></ng-view>
 
 <!--<div class="cg-busy">
 
