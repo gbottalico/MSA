@@ -1,6 +1,7 @@
-package msa.domain.object.sinistro;
+package msa.application.dto.sinistro;
 
-public class SinistroFurtoIncendioDO extends BaseSinistroDO{
+public class SinistroFurtoIncendioDTO extends BaseSinistroDTO{
+    private static final long serialVersionUID = -6115145650287622064L;
     private Boolean sviluppoFiamme;
     private Boolean responsabilita;
     private String descrizioneDanni;
@@ -37,4 +38,5 @@ public class SinistroFurtoIncendioDO extends BaseSinistroDO{
     public void setOsservazioniCliente(String osservazioniCliente) {
         this.osservazioniCliente = osservazioniCliente;
     }
+
 }
