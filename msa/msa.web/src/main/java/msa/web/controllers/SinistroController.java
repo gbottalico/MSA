@@ -4,6 +4,7 @@ import io.swagger.annotations.ApiOperation;
 import msa.application.config.BaseDTO;
 import msa.application.dto.ricerca.InputRicercaDTO;
 import msa.application.dto.sinistro.BaseSinistroDTO;
+import msa.application.dto.sinistro.KaskoDTO;
 import msa.application.dto.sinistro.PeritoDTO;
 import msa.application.dto.sinistro.SinistroFurtoIncendioDTO;
 import msa.application.dto.sinistro.anagrafica.AnagraficaTerzePartiDTO;
@@ -165,5 +166,13 @@ public class SinistroController extends BaseController{
     @RequestMapping(value="/{numero}/furtoIncendio", method = RequestMethod.POST)
     public BaseDTO salvaFurtoIncendio(@RequestBody final SinistroFurtoIncendioDTO input, @PathVariable("numero") Integer numSinistro) throws InternalMsaException {
         return sinistriService.inserisciFurtoIncendio(input,numSinistro);
+    }
+    /**
+     * Metodo che salva i dati di un sinistro di tipo kasko
+     */
+    @ApiOperation(value="Metodo che salva i dati di un sinistro di tipo kasko")
+    @RequestMapping(value="/{numero}/kasko", method = RequestMethod.POST)
+    public BaseDTO salvaKasko(@RequestBody final KaskoDTO input, @PathVariable("numero") Integer numSinistro) throws InternalMsaException {
+        return sinistriService.inserisciKasko(input,numSinistro);
     }
 }

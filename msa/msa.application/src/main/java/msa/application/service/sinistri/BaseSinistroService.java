@@ -1,6 +1,7 @@
 package msa.application.service.sinistri;
 
 import msa.application.dto.sinistro.AbstractDTO;
+import msa.application.dto.sinistro.KaskoDTO;
 import msa.application.dto.sinistro.PeritoDTO;
 import msa.application.dto.sinistro.SinistroFurtoIncendioDTO;
 import msa.application.dto.sinistro.anagrafica.AnagraficaTerzePartiDTO;
@@ -20,10 +21,7 @@ import msa.infrastructure.repository.SinistriRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.function.BinaryOperator;
-import java.util.stream.Collectors;
 
 /**
  * Created by simon.calabrese on 02/08/2017.
@@ -49,6 +47,8 @@ public class BaseSinistroService extends BaseService {
         coupleSinistroFunctions.add(new SinistroFunction<>(CaiDTO.class, CAI));
         coupleSinistroFunctions.add(new SinistroFunction<>(PeritoDTO.class, PERITO));
         coupleSinistroFunctions.add(new SinistroFunction<>(SinistroFurtoIncendioDTO.class, SINISTRO_FURTO_INCENDIO));
+        coupleSinistroFunctions.add(new SinistroFunction<>(KaskoDTO.class, KASKO));
+
     }
 
     protected <T extends AbstractDTO, E extends BaseSinistroDO> BaseSinistroDO getSinistroDOByDTOAndFunction(T dto, Integer numProvv, MsaBiFunction<T, Integer, E> andThen) throws InternalMsaException {
@@ -207,6 +207,17 @@ public class BaseSinistroService extends BaseService {
                     throw new InternalMsaException();
                 }
             };
+    private final MsaBiFunction<KaskoDTO, Integer, KaskoDO> KASKO =
+            (o, numSinistro) -> {
+                try {
 
+                    KaskoDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistro, KaskoDO.class);
+                    sinistroByNumProvv.setDanniKasko(converter.convertObject(o.getDanniKasko(),DanniDO.class));
+                    sinistroByNumProvv.setOsservazioniCliente(o.getOsservazioniCliente());
+                    return sinistroByNumProvv;
+                } catch (Exception e) {
+                    throw new InternalMsaException();
+                }
+            };
 
 }
