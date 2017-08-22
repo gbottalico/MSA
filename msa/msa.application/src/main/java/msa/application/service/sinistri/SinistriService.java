@@ -5,6 +5,7 @@ import msa.application.config.enumerator.MessageType;
 import msa.application.dto.ricerca.InputRicercaDTO;
 import msa.application.dto.sinistro.BaseSinistroDTO;
 import msa.application.dto.sinistro.PeritoDTO;
+import msa.application.dto.sinistro.SinistroFurtoIncendioDTO;
 import msa.application.dto.sinistro.SinistroRcaDTO;
 import msa.application.dto.sinistro.anagrafica.AnagraficaTerzePartiDTO;
 import msa.application.dto.sinistro.rca.cai.CaiDTO;
@@ -27,6 +28,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -223,6 +225,19 @@ public class SinistriService extends BaseSinistroService {
         } else {
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione Salvataggio Perito")));
         }
+    }
+
+
+    public BaseDTO inserisciFurtoIncendio(SinistroFurtoIncendioDTO input,Integer numSinistro) throws InternalMsaException {
+    if(salvaSinistro(getSinistroDOByDTO(input, numSinistro))){
+        return new BaseDTO<>();
+    }
+    else{
+        throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione Salvataggio dati sinistro furto o incendio")));
+
+    }
+
+
     }
 }
 

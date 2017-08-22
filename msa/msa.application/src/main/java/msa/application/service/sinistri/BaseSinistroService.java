@@ -35,18 +35,18 @@ public class BaseSinistroService extends BaseService {
     @Autowired
     private DomainRepository domainRepository;
 
-    private List<Function> coupleFunctions;
+    private List<SinistroFunction> coupleSinistroFunctions;
 
     public BaseSinistroService() {
-        coupleFunctions = new ArrayList<>();
-        coupleFunctions.add(new Function<>(SegnalazioneDTO.class, SEGNALAZIONE));
-        coupleFunctions.add(new Function<>(EventoRcaDTO.class, EVENTORCA));
-        coupleFunctions.add(new Function<>(DannoRcaDTO.class, DANNORCA_CONDUCENTE));
-        coupleFunctions.add(new Function<>(AnagraficaDanniDTO.class, DANNORCA_CONTROPARTE));
-        coupleFunctions.add(new Function<>(ConstatazioneAmichevoleDTO.class, CONSTATAZIONE_AMICHEVOLE));
-        coupleFunctions.add(new Function<>(AnagraficaTerzePartiDTO.class, TERZE_PARTI));
-        coupleFunctions.add(new Function<>(CaiDTO.class, CAI));
-        coupleFunctions.add(new Function<>(PeritoDTO.class,PERITO));
+        coupleSinistroFunctions = new ArrayList<>();
+        coupleSinistroFunctions.add(new SinistroFunction<>(SegnalazioneDTO.class, SEGNALAZIONE));
+        coupleSinistroFunctions.add(new SinistroFunction<>(EventoRcaDTO.class, EVENTORCA));
+        coupleSinistroFunctions.add(new SinistroFunction<>(DannoRcaDTO.class, DANNORCA_CONDUCENTE));
+        coupleSinistroFunctions.add(new SinistroFunction<>(AnagraficaDanniDTO.class, DANNORCA_CONTROPARTE));
+        coupleSinistroFunctions.add(new SinistroFunction<>(ConstatazioneAmichevoleDTO.class, CONSTATAZIONE_AMICHEVOLE));
+        coupleSinistroFunctions.add(new SinistroFunction<>(AnagraficaTerzePartiDTO.class, TERZE_PARTI));
+        coupleSinistroFunctions.add(new SinistroFunction<>(CaiDTO.class, CAI));
+        coupleSinistroFunctions.add(new SinistroFunction<>(PeritoDTO.class,PERITO));
     }
 
     protected <T extends AbstractDTO> SinistroDO getSinistroDOByDTOAndFunction(T dto, Integer numProvv, MsaBiFunction<T, Integer, SinistroDO> andThen) throws InternalMsaException {
@@ -68,7 +68,7 @@ public class BaseSinistroService extends BaseService {
     }
 
     protected <T extends AbstractDTO> SinistroDO getSinistroDOByDTO(T dto, Integer numProvv) throws InternalMsaException {
-        final MsaBiFunction<T, Integer, SinistroDO> msaBiFunction = this.coupleFunctions.stream()
+        final MsaBiFunction<T, Integer, SinistroDO> msaBiFunction = this.coupleSinistroFunctions.stream()
                 .filter(e -> e.getClazz().equals(dto.getClass()))
                 .reduce(null,
                         (a, b) -> b.getBiFunction(),
@@ -76,11 +76,11 @@ public class BaseSinistroService extends BaseService {
         return msaBiFunction.apply(dto, numProvv);
     }
 
-    public class Function<T extends AbstractDTO> {
+    public class SinistroFunction<T extends AbstractDTO> {
         private Class<T> clazz;
         private MsaBiFunction<T, Integer, SinistroDO> biFunction;
 
-        public Function(Class<T> clazz, MsaBiFunction<T, Integer, SinistroDO> biFunction) {
+        public SinistroFunction(Class<T> clazz, MsaBiFunction<T, Integer, SinistroDO> biFunction) {
             this.clazz = clazz;
             this.biFunction = biFunction;
         }
