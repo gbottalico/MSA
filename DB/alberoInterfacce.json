@@ -1,5 +1,5 @@
 { 
-    "_id" : ObjectId("59833fbdd161384094b22b5e"), 
+    "_id" : "0", 
     "garanzia" : "0", 
     "nextTree" : [
         {
@@ -70,6 +70,67 @@
         {
             "thisView" : "M19", 
             "parameter" : null, 
+            "nextView" : "M20"
+        }, 
+        {
+            "thisView" : "M20", 
+            "parameter" : "S", 
+            "nextView" : "M21"
+        }, 
+        {
+            "thisView" : "M20", 
+            "parameter" : "N", 
+            "nextView" : "M22"
+        }, 
+        {
+            "thisView" : "M21", 
+            "parameter" : null, 
+            "nextView" : "M22"
+        }, 
+        {
+            "thisView" : "M22", 
+            "parameter" : "0", 
+            "nextView" : "M23"
+        }, 
+        {
+            "thisView" : "M22", 
+            "parameter" : "1", 
+            "nextView" : "M25"
+        }, 
+        {
+            "thisView" : "M22", 
+            "parameter" : "2", 
+            "nextView" : "M26"
+        }, 
+        {
+            "thisView" : "M23", 
+            "parameter" : "0", 
+            "nextView" : "M25"
+        }, 
+        {
+            "thisView" : "M23", 
+            "parameter" : "1", 
+            "nextView" : "M26"
+        }, 
+        {
+            "thisView" : "M25", 
+            "parameter" : null, 
+            "nextView" : "M26"
+        }
+    ]
+}
+{ 
+    "_id" : "1", 
+    "garanzia" : "1", 
+    "nextTree" : [
+        {
+            "thisView" : "M11", 
+            "parameter" : "1", 
+            "nextView" : "M27"
+        }, 
+        {
+            "thisView" : "M27", 
+            "parameter" : "1", 
             "nextView" : "M20"
         }, 
         {
