@@ -2,6 +2,7 @@ package msa.application.service.sinistri;
 
 import msa.application.dto.sinistro.AbstractDTO;
 import msa.application.dto.sinistro.PeritoDTO;
+import msa.application.dto.sinistro.SinistroFurtoIncendioDTO;
 import msa.application.dto.sinistro.anagrafica.AnagraficaTerzePartiDTO;
 import msa.application.dto.sinistro.rca.cai.CaiDTO;
 import msa.application.dto.sinistro.rca.constatazioneAmichevole.ConstatazioneAmichevoleDTO;
@@ -12,10 +13,7 @@ import msa.application.dto.sinistro.segnalazione.SegnalazioneDTO;
 import msa.application.exceptions.InternalMsaException;
 import msa.application.service.base.BaseService;
 import msa.domain.object.dominio.BaremesDO;
-import msa.domain.object.sinistro.AnagraficaTerzePartiDO;
-import msa.domain.object.sinistro.BaseSinistroDO;
-import msa.domain.object.sinistro.PeritoDO;
-import msa.domain.object.sinistro.SinistroDO;
+import msa.domain.object.sinistro.*;
 import msa.domain.object.sinistro.rca.*;
 import msa.infrastructure.repository.DomainRepository;
 import msa.infrastructure.repository.SinistriRepository;
@@ -49,14 +47,15 @@ public class BaseSinistroService extends BaseService {
         coupleSinistroFunctions.add(new SinistroFunction<>(ConstatazioneAmichevoleDTO.class, CONSTATAZIONE_AMICHEVOLE));
         coupleSinistroFunctions.add(new SinistroFunction<>(AnagraficaTerzePartiDTO.class, TERZE_PARTI));
         coupleSinistroFunctions.add(new SinistroFunction<>(CaiDTO.class, CAI));
-        coupleSinistroFunctions.add(new SinistroFunction<>(PeritoDTO.class,PERITO));
+        coupleSinistroFunctions.add(new SinistroFunction<>(PeritoDTO.class, PERITO));
+        coupleSinistroFunctions.add(new SinistroFunction<>(SinistroFurtoIncendioDTO.class, SINISTRO_FURTO_INCENDIO));
     }
 
     protected <T extends AbstractDTO, E extends BaseSinistroDO> BaseSinistroDO getSinistroDOByDTOAndFunction(T dto, Integer numProvv, MsaBiFunction<T, Integer, E> andThen) throws InternalMsaException {
         return andThen.apply(dto, numProvv);
     }
 
-    protected <T extends AbstractDTO,K extends BaseSinistroDO> K getSinistroDOByDTO(T dto, Integer numProvv) throws InternalMsaException {
+    protected <T extends AbstractDTO, K extends BaseSinistroDO> K getSinistroDOByDTO(T dto, Integer numProvv) throws InternalMsaException {
         final MsaBiFunction<T, Integer, K> msaBiFunction = this.coupleSinistroFunctions.stream()
                 .filter(e -> e.getClazz().equals(dto.getClass()))
                 .reduce(null,
@@ -65,7 +64,7 @@ public class BaseSinistroService extends BaseService {
         return msaBiFunction.apply(dto, numProvv);
     }
 
-    public class SinistroFunction<T extends AbstractDTO,K> {
+    public class SinistroFunction<T extends AbstractDTO, K> {
         private Class<T> clazz;
         private MsaBiFunction<T, Integer, K> biFunction;
         private Class<K> doClass;
@@ -98,7 +97,7 @@ public class BaseSinistroService extends BaseService {
     private final MsaBiFunction<EventoRcaDTO, Integer, SinistroDO> EVENTORCA =
             (o, numSinistroProvv) -> {
                 try {
-                    final SinistroDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv,SinistroDO.class);
+                    final SinistroDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv, SinistroDO.class);
                     sinistroByNumProvv.setEventoRca(converter.convertObject(o, EventoRcaDO.class));
                     return sinistroByNumProvv;
                 } catch (Exception e) {
@@ -108,7 +107,7 @@ public class BaseSinistroService extends BaseService {
     private final MsaBiFunction<DannoRcaDTO, Integer, SinistroDO> DANNORCA_CONDUCENTE =
             (o, numSinistroProvv) -> {
                 try {
-                    final SinistroDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv,SinistroDO.class);
+                    final SinistroDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv, SinistroDO.class);
                     sinistroByNumProvv.setDannoRca(converter.convertObject(o, DannoRcaDO.class));
 
                     return sinistroByNumProvv;
@@ -120,7 +119,7 @@ public class BaseSinistroService extends BaseService {
     private final MsaBiFunction<AnagraficaDanniDTO, Integer, SinistroDO> DANNORCA_CONTROPARTE =
             (o, numSinistroProvv) -> {
                 try {
-                    final SinistroDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv,SinistroDO.class);
+                    final SinistroDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv, SinistroDO.class);
                     sinistroByNumProvv.getDannoRca().setAnagraficaDanniControparte(converter.convertObject(o, AnagraficaDanniDO.class));
 
                     return sinistroByNumProvv;
@@ -131,7 +130,7 @@ public class BaseSinistroService extends BaseService {
     private final MsaBiFunction<ConstatazioneAmichevoleDTO, Integer, SinistroDO> CONSTATAZIONE_AMICHEVOLE =
             (constatazioneAmichevoleDTO, numSinistroProvv) -> {
                 try {
-                    final SinistroDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv,SinistroDO.class);
+                    final SinistroDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv, SinistroDO.class);
                     sinistroByNumProvv.setConstatazioneAmichevole(converter.convertObject(constatazioneAmichevoleDTO, ConstatazioneAmichevoleDO.class));
                     return sinistroByNumProvv;
                 } catch (Exception e) {
@@ -141,7 +140,7 @@ public class BaseSinistroService extends BaseService {
     private final MsaBiFunction<AnagraficaTerzePartiDTO, Integer, BaseSinistroDO> TERZE_PARTI =
             (O, numSinistroProvv) -> {
                 try {
-                    final BaseSinistroDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv,BaseSinistroDO.class);
+                    final BaseSinistroDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv, BaseSinistroDO.class);
                     return sinistroByNumProvv;
                 } catch (Exception e) {
                     throw new InternalMsaException();
@@ -150,7 +149,7 @@ public class BaseSinistroService extends BaseService {
     protected final MsaBiFunction<AnagraficaTerzePartiDTO, Integer, BaseSinistroDO> LEGALE =
             (O, numSinistroProvv) -> {
                 try {
-                    final BaseSinistroDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv,BaseSinistroDO.class);
+                    final BaseSinistroDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv, BaseSinistroDO.class);
                     AnagraficaTerzePartiDO anagraficaTerzePartiDO = converter.convertObject(O, AnagraficaTerzePartiDO.class);
                     sinistroByNumProvv.getAnagraficaTerzeParti().add(anagraficaTerzePartiDO);
                     return sinistroByNumProvv;
@@ -158,11 +157,11 @@ public class BaseSinistroService extends BaseService {
                     throw new InternalMsaException();
                 }
             };
-    private final MsaFunction<SinistroDO,SinistroDO> ADD_DES_TO_CAI = cai -> {
+    private final MsaFunction<SinistroDO, SinistroDO> ADD_DES_TO_CAI = cai -> {
         try {
             cai.getCai().getBaremesCliente().setDescrizione(domainRepository.getDesbaremesById(cai.getCai().getBaremesCliente().getId()).getDescrizione());
             final BaremesDO controparte = cai.getCai().getBaremesControparte();
-            if(controparte != null) {
+            if (controparte != null) {
                 controparte.setDescrizione(domainRepository.getDesbaremesById(cai.getCai().getBaremesControparte().getId()).getDescrizione());
             }
             return cai;
@@ -182,16 +181,32 @@ public class BaseSinistroService extends BaseService {
                 }
             };
 
-    private final MsaBiFunction<PeritoDTO,Integer,BaseSinistroDO> PERITO =
-            (perito,numSinistro) -> {
-                try{
-                    final BaseSinistroDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistro,BaseSinistroDO.class);
-                    PeritoDO peritoDO = converter.convertObject(perito,PeritoDO.class);
+    private final MsaBiFunction<PeritoDTO, Integer, BaseSinistroDO> PERITO =
+            (perito, numSinistro) -> {
+                try {
+                    final BaseSinistroDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistro, BaseSinistroDO.class);
+                    PeritoDO peritoDO = converter.convertObject(perito, PeritoDO.class);
                     sinistroByNumProvv.setPerito(peritoDO);
                     return sinistroByNumProvv;
                 } catch (Exception e) {
                     throw new InternalMsaException();
                 }
             };
+    private final MsaBiFunction<SinistroFurtoIncendioDTO, Integer, SinistroFurtoIncendioDO> SINISTRO_FURTO_INCENDIO =
+            (o, numSinistro) -> {
+                try {
+                    SinistroFurtoIncendioDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistro, SinistroFurtoIncendioDO.class);
+                    sinistroByNumProvv.setDescrizioneDanni(o.getDescrizioneDanni());
+                    sinistroByNumProvv.setOsservazioniCliente(o.getOsservazioniCliente());
+                    sinistroByNumProvv.setResponsabilita(o.getResponsabilita());
+                    sinistroByNumProvv.setSviluppoFiamme(o.getSviluppoFiamme());
+                    sinistroByNumProvv.setInterventoAutorita(o.getInterventoAutorita());
+                    return sinistroByNumProvv;
+
+                } catch (Exception e) {
+                    throw new InternalMsaException();
+                }
+            };
+
 
 }
