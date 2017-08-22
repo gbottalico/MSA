@@ -150,7 +150,7 @@ public class DomainController extends BaseController {
      * @throws InternalMsaException
      */
     @ApiOperation(value = " Metodo che ottiene la l'elenco di tutte le tipologie di veicoli")
-    @RequestMapping(value = "/tipoveicoli")
+    @RequestMapping(value = "/tipoveicoli", method = RequestMethod.GET)
     public BaseDTO<List<TipoVeicoloDTO>> getElencoTipologieVeicoli() throws InternalMsaException {
         BaseDTO<List<TipoVeicoloDTO>> result = new BaseDTO<>();
         result.setResult(domainService.getElencoTipoVeicoli());
