@@ -1,8 +1,5 @@
 package msa.application.config.enumerator;
 
-import org.springframework.http.MediaType;
-
-import javax.mail.internet.ContentType;
 import java.util.stream.Stream;
 
 /**
