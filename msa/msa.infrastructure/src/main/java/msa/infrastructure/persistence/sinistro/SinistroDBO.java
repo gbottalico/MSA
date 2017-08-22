@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 import java.util.List;
 
 @Document(collection = "sinistri")
-public class SinistroDBO extends AbstractDBO{
+public class SinistroDBO extends AbstractDBO {
     @Id
     private String id;
     @Field("numeroPolizza")
@@ -35,7 +35,19 @@ public class SinistroDBO extends AbstractDBO{
 
     @Field("numSinistroProvv")
     private Integer numSinistroProvv;
+    //INIZIO FURTO INCENDIO
+    @Field("sviluppoFiamme")
+    private Boolean sviluppoFiamme;
+    @Field("responsabilita")
+    private Boolean responsabilita;
+    @Field("descrizioneDanni")
+    private String descrizioneDanni;
+    @Field("osservazioniCliente")
+    private String osservazioniCliente;
+    @Field("interventoAutorita")
+    private Boolean interventoAutorita;
 
+    //FINE FURTO INCENDIO
     public FullAnagraficaDBO getContraente() {
         return contraente;
     }
@@ -76,7 +88,6 @@ public class SinistroDBO extends AbstractDBO{
     public void setCompagnia(Integer compagnia) {
         this.compagnia = compagnia;
     }
-
 
 
     public SegnalazioneDBO getSegnalazione() {
@@ -133,5 +144,45 @@ public class SinistroDBO extends AbstractDBO{
 
     public void setNumSinistroProvv(Integer numSinistroProvv) {
         this.numSinistroProvv = numSinistroProvv;
+    }
+
+    public Boolean getSviluppoFiamme() {
+        return sviluppoFiamme;
+    }
+
+    public void setSviluppoFiamme(Boolean sviluppoFiamme) {
+        this.sviluppoFiamme = sviluppoFiamme;
+    }
+
+    public Boolean getResponsabilita() {
+        return responsabilita;
+    }
+
+    public void setResponsabilita(Boolean responsabilita) {
+        this.responsabilita = responsabilita;
+    }
+
+    public String getDescrizioneDanni() {
+        return descrizioneDanni;
+    }
+
+    public void setDescrizioneDanni(String descrizioneDanni) {
+        this.descrizioneDanni = descrizioneDanni;
+    }
+
+    public String getOsservazioniCliente() {
+        return osservazioniCliente;
+    }
+
+    public void setOsservazioniCliente(String osservazioniCliente) {
+        this.osservazioniCliente = osservazioniCliente;
+    }
+
+    public Boolean getInterventoAutorita() {
+        return interventoAutorita;
+    }
+
+    public void setInterventoAutorita(Boolean interventoAutorita) {
+        this.interventoAutorita = interventoAutorita;
     }
 }

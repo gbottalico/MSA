@@ -6,6 +6,15 @@ public class SinistroFurtoIncendioDTO extends BaseSinistroDTO{
     private Boolean responsabilita;
     private String descrizioneDanni;
     private String osservazioniCliente;
+    private Boolean interventoAutorita;
+
+    public Boolean getInterventoAutorita() {
+        return interventoAutorita;
+    }
+
+    public void setInterventoAutorita(Boolean interventoAutorita) {
+        this.interventoAutorita = interventoAutorita;
+    }
 
     public Boolean getSviluppoFiamme() {
         return sviluppoFiamme;
