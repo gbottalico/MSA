@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.function.Function;
+import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
 
 @Component
@@ -24,6 +25,10 @@ public class MsaConverter {
 
     public <T, S> List<T> convertList(List<S> source, Class<T> claz) {
         return convertObject(source, (S s) -> convertObject(s,claz));
+    }
+
+    public <T, S> List<T> convertList(List<S> source, Function<S,Class<T>> getClassFunction) {
+        return convertObject(source, (S s) -> convertObject(s,getClassFunction.apply(s)));
     }
 
     public <T, S> T convertObject(S source, Function<S, T> conversionFunction) {

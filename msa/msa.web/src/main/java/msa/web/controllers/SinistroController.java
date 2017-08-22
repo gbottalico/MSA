@@ -59,6 +59,13 @@ public class SinistroController extends BaseController{
         return sinistriService.ricercaCopertura(input);
     }
 
+
+    @ApiOperation(value = "Metodo che effettua la restituisce il sinistro provvisorio tramite il numSinistro")
+    @RequestMapping(value = "/{numero}/get", method = RequestMethod.GET)
+    public <T extends BaseSinistroDTO> BaseDTO<T> getSinistroProvvisorioByNumProvv(@PathVariable("numero") Integer numSinistro) throws InternalMsaException {
+        return new BaseDTO<>(sinistriService.getSinistroByNumProvv(numSinistro));
+    }
+
     /**
      * Metodo che salva i dati di segnalazione del sinistro
      *

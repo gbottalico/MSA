@@ -22,10 +22,7 @@ import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -48,7 +45,7 @@ public class SinistriService extends BaseSinistroService {
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA003"));
         }
         InputRicercaDO inputRicercaDO = converter.convertObject(input, InputRicercaDO.class);
-        return new BaseDTO<>(converter.convertList(sinistriRepository.getElencoSinistriProvvisori(inputRicercaDO), SinistroRcaDTO.class));
+        return new BaseDTO<>(converter.convertList(sinistriRepository.getElencoSinistriProvvisori(inputRicercaDO), BaseSinistroDTO.class));
     }
 
     /**
@@ -249,6 +246,24 @@ public class SinistriService extends BaseSinistroService {
 
         }
 
+    }
+
+    public <T extends BaseSinistroDTO> T getSinistroByNumProvv(final Integer numSinistro) throws InternalMsaException {
+        try {
+            //Todo MOCK per mancanza di garanzie specifiche o tipi sinistri specifici
+            final BaseSinistroDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistro);
+            final Class<T> toPass;
+            if(sinistroByNumProvv.getSegnalazione().getGaranziaSelected().equals("0")) {
+                toPass = (Class<T>) SinistroRcaDTO.class;
+            } else if(Arrays.asList("1","2","3").contains(sinistroByNumProvv.getSegnalazione().getGaranziaSelected())) {
+                toPass = (Class<T>) SinistroFurtoIncendioDTO.class;
+            } else {
+                toPass = (Class<T>) BaseSinistroDTO.class;
+            }
+            return converter.convertObject(sinistroByNumProvv,toPass);
+        } catch (Exception e) {
+            throw new InternalMsaException(/** AGGIUNGERE ERRORE*/);
+        }
     }
 }
 

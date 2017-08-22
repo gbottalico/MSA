@@ -3,6 +3,7 @@ package msa.infrastructure.repository;
 import msa.domain.object.sinistro.BaseSinistroDO;
 import msa.domain.object.sinistro.InputRicercaDO;
 import msa.domain.object.sinistro.SinistroDO;
+import msa.domain.object.sinistro.SinistroFurtoIncendioDO;
 import msa.infrastructure.base.repository.domain.BaseRepository;
 import msa.infrastructure.base.repository.sinistri.SinistriBaseRepository;
 import msa.infrastructure.persistence.sinistro.SinistroDBO;
@@ -105,14 +106,15 @@ public class SinistriRepository extends BaseRepository {
     /**
      * Ottiene l'elenco dei sinistri provvisori in base ad i parametri passati in input
      */
-    public List<SinistroDO> getElencoSinistriProvvisori(final InputRicercaDO inputRicerca) {
+    public List<BaseSinistroDO> getElencoSinistriProvvisori(final InputRicercaDO inputRicerca) {
         Query queryFromNotNullValues = getQueryFromNotNullValues(inputRicerca);
         List<SinistroDBO> sinistroDBOS = findAll(SinistroDBO.class,queryFromNotNullValues)
                 .stream()
                 .filter(e -> inputRicerca.getUserLogged().getAmministratore()
                         || inputRicerca.getUserLogged().getIdUser().equalsIgnoreCase(e.getUserLogged().getIdUser()))
                 .collect(Collectors.toList());
-        return converter.convertList(sinistroDBOS, SinistroDO.class);
+        //Todo MOCK codici garanzia
+        return converter.convertList(sinistroDBOS, BaseSinistroDO.class);
     }
 
     /**
@@ -125,6 +127,26 @@ public class SinistriRepository extends BaseRepository {
                 .map((sinistroDBO) -> sinistroDBO.getNumSinistroProvv() + 1).orElse(0);
     }
 
+    public <E extends BaseSinistroDO> E getSinistroByNumProvv(Integer numProvv) throws Exception {
+        final SinistroDBO sinistroByNumProvvQuery = getSinistroByNumProvvQuery(numProvv);
+        final Class<E> toPass;
+        if(sinistroByNumProvvQuery.getSegnalazione().getGaranziaSelected().equals("0")) {
+            toPass = (Class<E>) SinistroDO.class;
+        } else if(Arrays.asList("1","2","3").contains(sinistroByNumProvvQuery.getSegnalazione().getGaranziaSelected())) {
+            toPass = (Class<E>) SinistroFurtoIncendioDO.class;
+        } else {
+            toPass = (Class<E>) BaseSinistroDO.class;
+        }
+        return converter.convertObject(sinistroByNumProvvQuery, toPass);
+    }
+
+    private SinistroDBO getSinistroByNumProvvQuery(Integer numProvv) throws Exception {
+        final SinistroDBO sinistro = mongoTemplate.findOne(getQueryFindByNumProvv(numProvv), SinistroDBO.class);
+        if (sinistro == null) {
+            throw new Exception();
+        }
+        return sinistro;
+    }
 
     public <E> E getSinistroByNumProvv(Integer numProvv,Class<E> finalClass) throws Exception {
         final SinistroDBO sinistro = mongoTemplate.findOne(getQueryFindByNumProvv(numProvv), SinistroDBO.class);
