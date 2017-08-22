@@ -3,13 +3,7 @@ angular.module('msa').service(
     [
         '$http',
         'msaServicesApiUrls',
-        '$sessionStorage',
-        '$cookieStore',
-        '$rootScope',
-        '$q',
-        '$timeout',
-        '$log',
-        function ($http, msaServicesApiUrls, $sessionStorage, $cookieStore, $rootScope, $q, $timeout, $log) {
+        function ($http, msaServicesApiUrls) {
 
             var $svc = this;
 
