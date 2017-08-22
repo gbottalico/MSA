@@ -5,6 +5,7 @@ import msa.application.config.BaseDTO;
 import msa.application.dto.ricerca.InputRicercaDTO;
 import msa.application.dto.sinistro.BaseSinistroDTO;
 import msa.application.dto.sinistro.PeritoDTO;
+import msa.application.dto.sinistro.SinistroFurtoIncendioDTO;
 import msa.application.dto.sinistro.SinistroRcaDTO;
 import msa.application.dto.sinistro.anagrafica.AnagraficaTerzePartiDTO;
 import msa.application.dto.sinistro.rca.cai.CaiDTO;
@@ -155,5 +156,15 @@ public class SinistroController extends BaseController{
     @RequestMapping(value = "/{numero}/perito", method = RequestMethod.POST)
     public BaseDTO salvaPerito(@RequestBody final PeritoDTO input,@PathVariable("numero") Integer numSinistro) throws InternalMsaException {
         return sinistriService.salvaPerito(input,numSinistro);
+    }
+
+    /**
+     * Metodo che salva i dati di un sinistro di tipo furto o incendio
+     * @return un BaseDTO
+     */
+    @ApiOperation(value="Metodo che salva i dati di un sinistro del tipo furto o incendio")
+    @RequestMapping(value="/{numero}/furtoIncendio", method = RequestMethod.POST)
+    public BaseDTO salvaFurtoIncendio(@RequestBody final SinistroFurtoIncendioDTO input, @PathVariable("numero") Integer numSinistro) throws InternalMsaException {
+        return sinistriService.inserisciFurtoIncendio(input,numSinistro);
     }
 }
