@@ -29,61 +29,11 @@
         }, 
         {
             "thisView" : "M15", 
-            "parameter" : "0", 
-            "nextView" : "M16"
-        }, 
-        {
-            "thisView" : "M15", 
-            "parameter" : "1", 
-            "nextView" : "M17"
-        }, 
-        {
-            "thisView" : "M15", 
-            "parameter" : "2", 
-            "nextView" : "M20"
-        }, 
-        {
-            "thisView" : "M16", 
-            "parameter" : "0", 
-            "nextView" : "M17"
-        }, 
-        {
-            "thisView" : "M16", 
-            "parameter" : "1", 
-            "nextView" : "M20"
-        }, 
-        {
-            "thisView" : "M17", 
-            "parameter" : null, 
-            "nextView" : "M18"
-        }, 
-        {
-            "thisView" : "M18", 
-            "parameter" : "S", 
-            "nextView" : "M19"
-        }, 
-        {
-            "thisView" : "M18", 
-            "parameter" : "N", 
-            "nextView" : "M20"
-        }, 
-        {
-            "thisView" : "M19", 
             "parameter" : null, 
             "nextView" : "M20"
         }, 
         {
             "thisView" : "M20", 
-            "parameter" : "S", 
-            "nextView" : "M21"
-        }, 
-        {
-            "thisView" : "M20", 
-            "parameter" : "N", 
-            "nextView" : "M22"
-        }, 
-        {
-            "thisView" : "M21", 
             "parameter" : null, 
             "nextView" : "M22"
         }, 
@@ -130,21 +80,11 @@
         }, 
         {
             "thisView" : "M27", 
-            "parameter" : "1", 
+            "parameter" : null, 
             "nextView" : "M20"
         }, 
         {
             "thisView" : "M20", 
-            "parameter" : "S", 
-            "nextView" : "M21"
-        }, 
-        {
-            "thisView" : "M20", 
-            "parameter" : "N", 
-            "nextView" : "M22"
-        }, 
-        {
-            "thisView" : "M21", 
             "parameter" : null, 
             "nextView" : "M22"
         }, 

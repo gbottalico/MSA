@@ -32,34 +32,6 @@ public class DispatcherUtils extends BaseService {
     private class ComplexTree {
         private Map<String, MsaFunction<Map<String, String>, String>> tree;
 
-        private MsaFunction<Map< String, String>, String> M15Tree = map -> {
-            if (map.get("condition").equalsIgnoreCase("S"))
-                return "0";
-            else {
-                try {
-                    SinistroDO numSinistroProvv = sinistriRepository.getSinistroByNumProvv(FunctionUtils.numberConverter(map.get("numSinistroProvv"), Integer::valueOf),SinistroDO.class);
-                    if (numSinistroProvv.getEventoRca().getNumVeicoli() > 1) {
-                        return "1";
-                    } else {
-                        return "2";
-                    }
-                } catch (Exception e) {
-                    throw new InternalMsaException();
-                }
-            }
-        };
-        private MsaFunction<Map< String, String>, String> M16Tree = map -> {
-            try {
-                SinistroDO numSinistroProvv = sinistriRepository.getSinistroByNumProvv(FunctionUtils.numberConverter(map.get("numSinistroProvv"), Integer::valueOf),SinistroDO.class);
-                if (numSinistroProvv.getEventoRca().getNumVeicoli() > 1) {
-                    return "0";
-                } else {
-                    return "1";
-                }
-            } catch (Exception e) {
-                throw new InternalMsaException();
-            }
-        };
         private MsaFunction<Map< String, String>, String> M23Tree = map -> casaRegoleBaseRepository.findAll().stream()
                 .filter(e -> e.getIdCompagnia().equals(map.get("compagnia")))
                 .map(e -> e.getIncaricoPerito() ? "0" : "1").findFirst().orElse(null);
@@ -84,20 +56,15 @@ public class DispatcherUtils extends BaseService {
 
         private void initTree() {
             tree = new HashMap<>();
-            tree.put("M15", M15Tree);
-            tree.put("M16", M16Tree);
             tree.put("M22", M22Tree);
             tree.put("M23", M23Tree);
         }
 
         private String getCodeByView(DispatcherDO dispatcherDO) throws InternalMsaException {
-            if(MapUtils.isEmpty(dispatcherDO.getParamMap())){
-                return null;
-            }
             if(tree.keySet().contains(dispatcherDO.getThisView())) {
                 return tree.get(dispatcherDO.getThisView()).apply(dispatcherDO.getParamMap());
             } else {
-                return dispatcherDO.getParamMap().get("condition");
+                return null;
             }
         }
     }
