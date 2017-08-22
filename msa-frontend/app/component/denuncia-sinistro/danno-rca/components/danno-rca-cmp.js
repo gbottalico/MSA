@@ -9,6 +9,9 @@
 
                 var ctrl = this;
 
+                ctrl.lesioniConducente = undefined;
+                ctrl.conducenteIsNotContraente = undefined;
+
                 $scope.$watch(
                     function watchScope(scope) {
                         return {
