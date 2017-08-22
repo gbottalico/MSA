@@ -253,12 +253,16 @@ public class SinistriService extends BaseSinistroService {
             //Todo MOCK per mancanza di garanzie specifiche o tipi sinistri specifici
             final BaseSinistroDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistro);
             final Class<T> toPass;
-            if(sinistroByNumProvv.getSegnalazione().getGaranziaSelected().equals("0")) {
-                toPass = (Class<T>) SinistroRcaDTO.class;
-            } else if(Arrays.asList("1","2","3").contains(sinistroByNumProvv.getSegnalazione().getGaranziaSelected())) {
-                toPass = (Class<T>) SinistroFurtoIncendioDTO.class;
-            } else {
+            if (sinistroByNumProvv.getSegnalazione() == null) {
                 toPass = (Class<T>) BaseSinistroDTO.class;
+            } else {
+                if (sinistroByNumProvv.getSegnalazione().getGaranziaSelected().equals("0")) {
+                    toPass = (Class<T>) SinistroRcaDTO.class;
+                } else if (Arrays.asList("1", "2", "3").contains(sinistroByNumProvv.getSegnalazione().getGaranziaSelected())) {
+                    toPass = (Class<T>) SinistroFurtoIncendioDTO.class;
+                } else {
+                    toPass = (Class<T>) BaseSinistroDTO.class;
+                }
             }
             return converter.convertObject(sinistroByNumProvv,toPass);
         } catch (Exception e) {

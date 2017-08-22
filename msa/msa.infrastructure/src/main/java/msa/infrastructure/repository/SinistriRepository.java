@@ -54,8 +54,8 @@ public class SinistriRepository extends BaseRepository {
         return Boolean.TRUE;
     }
 
-    private <E extends BaseSinistroDO>void insert(E input) throws Exception {
-        insert(input,SinistroDBO.class);
+    private <E extends BaseSinistroDO> void insert(E input) throws Exception {
+        insert(input, SinistroDBO.class);
     }
 
     public <E extends BaseSinistroDO> Integer insertSinistroProvvisorioAndGetNum(E input) throws Exception {
@@ -108,7 +108,7 @@ public class SinistriRepository extends BaseRepository {
      */
     public List<BaseSinistroDO> getElencoSinistriProvvisori(final InputRicercaDO inputRicerca) {
         Query queryFromNotNullValues = getQueryFromNotNullValues(inputRicerca);
-        List<SinistroDBO> sinistroDBOS = findAll(SinistroDBO.class,queryFromNotNullValues)
+        List<SinistroDBO> sinistroDBOS = findAll(SinistroDBO.class, queryFromNotNullValues)
                 .stream()
                 .filter(e -> inputRicerca.getUserLogged().getAmministratore()
                         || inputRicerca.getUserLogged().getIdUser().equalsIgnoreCase(e.getUserLogged().getIdUser()))
@@ -130,12 +130,16 @@ public class SinistriRepository extends BaseRepository {
     public <E extends BaseSinistroDO> E getSinistroByNumProvv(Integer numProvv) throws Exception {
         final SinistroDBO sinistroByNumProvvQuery = getSinistroByNumProvvQuery(numProvv);
         final Class<E> toPass;
-        if(sinistroByNumProvvQuery.getSegnalazione().getGaranziaSelected().equals("0")) {
-            toPass = (Class<E>) SinistroDO.class;
-        } else if(Arrays.asList("1","2","3").contains(sinistroByNumProvvQuery.getSegnalazione().getGaranziaSelected())) {
-            toPass = (Class<E>) SinistroFurtoIncendioDO.class;
-        } else {
+        if (sinistroByNumProvvQuery.getSegnalazione() == null) {
             toPass = (Class<E>) BaseSinistroDO.class;
+        } else {
+            if (sinistroByNumProvvQuery.getSegnalazione().getGaranziaSelected().equals("0")) {
+                toPass = (Class<E>) SinistroDO.class;
+            } else if (Arrays.asList("1", "2", "3").contains(sinistroByNumProvvQuery.getSegnalazione().getGaranziaSelected())) {
+                toPass = (Class<E>) SinistroFurtoIncendioDO.class;
+            } else {
+                toPass = (Class<E>) BaseSinistroDO.class;
+            }
         }
         return converter.convertObject(sinistroByNumProvvQuery, toPass);
     }
@@ -148,7 +152,7 @@ public class SinistriRepository extends BaseRepository {
         return sinistro;
     }
 
-    public <E> E getSinistroByNumProvv(Integer numProvv,Class<E> finalClass) throws Exception {
+    public <E> E getSinistroByNumProvv(Integer numProvv, Class<E> finalClass) throws Exception {
         final SinistroDBO sinistro = mongoTemplate.findOne(getQueryFindByNumProvv(numProvv), SinistroDBO.class);
         if (sinistro == null) {
             throw new Exception();
