@@ -40,14 +40,22 @@ public class SinistroDBO extends AbstractDBO {
     private Boolean sviluppoFiamme;
     @Field("responsabilita")
     private Boolean responsabilita;
-    @Field("descrizioneDanni")
-    private String descrizioneDanni;
-    @Field("osservazioniCliente")
-    private String osservazioniCliente;
+
+
     @Field("interventoAutorita")
     private Boolean interventoAutorita;
+    @Field("descrizioneDanni")
+    private String descrizioneDanni;
 
     //FINE FURTO INCENDIO
+    //IN COMUNE FRA FURTOINCENDIO E KASKO
+    @Field("osservazioniCliente")
+    private String osservazioniCliente;
+    //INIZIO KASKO
+    @Field("danniKasko")
+    private DanniDBO danniKasko;
+
+    //FINE KASKO
     public FullAnagraficaDBO getContraente() {
         return contraente;
     }
@@ -184,5 +192,13 @@ public class SinistroDBO extends AbstractDBO {
 
     public void setInterventoAutorita(Boolean interventoAutorita) {
         this.interventoAutorita = interventoAutorita;
+    }
+
+    public DanniDBO getDanniKasko() {
+        return danniKasko;
+    }
+
+    public void setDanniKasko(DanniDBO danniKasko) {
+        this.danniKasko = danniKasko;
     }
 }
