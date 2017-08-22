@@ -9,6 +9,21 @@
       "si": "Sì",
       "no": "No"
     },
+    "people": {
+      "nome": "Nome",
+      "cognome": "Cognome",
+      "cf": "Codice Fiscale",
+      "nazione": "Nazione",
+      "provincia": "Provincia",
+      "comune": "Comune",
+      "cap": "CAP",
+      "indirizzo": "Indirizzo",
+      "telefono": "Telefono",
+      "cellulare": "Cellulare",
+      "email": "E-Mail",
+      "patente": "Patente",
+      "scadenzapatente": "Data di Scadenza Patente"
+    },
     "header": {
       "labels": {
         "title": "Gestione sinistri"
@@ -72,7 +87,6 @@
         "tipo": "Tipo",
         "evento": "Evento",
         "denunciatoda": "Denunciato da",
-        "stato": "Stato",
         "consultapolizza": "Consulta polizza",
         "denunciasinistro": "Denuncia sinistro"
       }
@@ -132,6 +146,16 @@
         "responsabilita": "Responsabilità",
         "concorsuale": "Concorsuale",
         "nonclassificabile": "Non Classificabile"
+      }
+    },
+    "dannorca": {
+      "title": "Danno RCA",
+      "labels": {
+        "conducente": "Conducente",
+        "lesioniconducente": "Il conducente ha riportato lesioni?",
+        "contraenteconducente": "Il conducente è diverso dal contraente?",
+        "proprietariocontroparte": "Proprietario veicolo controparte"
+
       }
     },
     "step": {
