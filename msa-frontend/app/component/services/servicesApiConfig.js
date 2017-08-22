@@ -30,6 +30,7 @@ app.service('msaServicesApiUrls', function ($MSAC) {
 
     this.aperturasinitro        = apiPath + "/sinistro/apertura/";
     this.ricercasinitro         = apiPath + "/sinistro/ricerca/";
+    this.ricercaprovvisorio     = apiPath + "/sinistro/{0}/get";                    //0: numero sinistro provvisorio.
     this.aprisegnalazione       = apiPath + "/sinistro/{0}/segnalazione/";          //0: numero sinistro provvisorio.
     this.cai                    = apiPath + "/sinistro/{0}/CAI/";                   //0: numero sinistro provvisorio.
 

@@ -87,10 +87,12 @@ angular.module('msa').service(
                 dataObj.compagnia = idCompagnia;
                 dataObj.numeroProvvisorio = numeroSinistroProvvisorio;
 
-                //TODO fix
+                var stringUrl = UtilSvc.stringFormat(msaServicesApiUrls.ricercaprovvisorio, numeroSinistroProvvisorio);
+
+                //TODO fix rimuovere login e idCompagnia
                 return $http({
-                    method: 'POST',
-                    url: msaServicesApiUrls.ricercasinitro,
+                    method: 'GET',
+                    url: stringUrl,
                     data: dataObj,
                     headers: {
                         "Content-Type": "application/json",
