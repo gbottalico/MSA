@@ -7,7 +7,7 @@ import java.util.Date;
 
 public class SegnalazioneDBO {
     @Field("denunciante")
-    private BaseAnagraficaDBO denunciante;
+    private FullAnagraficaDBO denunciante;
     @Field("codMezzo")
     private Integer codMezzo;
 
@@ -28,24 +28,20 @@ public class SegnalazioneDBO {
     private Integer codComune;
     @Field("cap")
     private Integer cap;
-    @Field("indirizzo")
-    private String indirizzo;
+    @Field("tipoStrada")
+    private Integer tipoStrada;
+    @Field("denominazioneStrada")
+    private String denominazioneStrada;
+    @Field("civicoStrada")
+    private String civicoStrada;
     @Field("garanziaSelected")
     private String garanziaSelected;
 
-    public String getOraSinistro() {
-        return oraSinistro;
-    }
-
-    public void setOraSinistro(String oraSinistro) {
-        this.oraSinistro = oraSinistro;
-    }
-
-    public BaseAnagraficaDBO getDenunciante() {
+    public FullAnagraficaDBO getDenunciante() {
         return denunciante;
     }
 
-    public void setDenunciante(BaseAnagraficaDBO denunciante) {
+    public void setDenunciante(FullAnagraficaDBO denunciante) {
         this.denunciante = denunciante;
     }
 
@@ -71,6 +67,14 @@ public class SegnalazioneDBO {
 
     public void setDataOraSinistro(Date dataOraSinistro) {
         this.dataOraSinistro = dataOraSinistro;
+    }
+
+    public String getOraSinistro() {
+        return oraSinistro;
+    }
+
+    public void setOraSinistro(String oraSinistro) {
+        this.oraSinistro = oraSinistro;
     }
 
     public Integer getCodNazione() {
@@ -105,12 +109,28 @@ public class SegnalazioneDBO {
         this.cap = cap;
     }
 
-    public String getIndirizzo() {
-        return indirizzo;
+    public Integer getTipoStrada() {
+        return tipoStrada;
     }
 
-    public void setIndirizzo(String indirizzo) {
-        this.indirizzo = indirizzo;
+    public void setTipoStrada(Integer tipoStrada) {
+        this.tipoStrada = tipoStrada;
+    }
+
+    public String getDenominazioneStrada() {
+        return denominazioneStrada;
+    }
+
+    public void setDenominazioneStrada(String denominazioneStrada) {
+        this.denominazioneStrada = denominazioneStrada;
+    }
+
+    public String getCivicoStrada() {
+        return civicoStrada;
+    }
+
+    public void setCivicoStrada(String civicoStrada) {
+        this.civicoStrada = civicoStrada;
     }
 
     public String getGaranziaSelected() {

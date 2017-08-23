@@ -207,6 +207,12 @@ public class DomainController extends BaseController {
         result.setResult(domainService.getElencoRuoli());
         return result;
     }
+
+    @ApiOperation(value = " Metodo chef ottiene la lista delle particelle toponomastiche")
+    @RequestMapping(value = "/particelleToponomastiche", method = RequestMethod.GET)
+    public BaseDTO<List<ParticelleTopoDTO>> getParticeelleTopo() throws InternalMsaException {
+        return new BaseDTO<>(domainService.getParticelleToponomastiche());
+    }
 }
 
 

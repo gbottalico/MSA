@@ -219,4 +219,12 @@ public class DomainService extends BaseService {
 
         }
     }
+
+    public List<ParticelleTopoDTO> getParticelleToponomastiche() throws InternalMsaException {
+        try {
+            return converter.convertList(domainRepository.getParticelleToponomastiche(),ParticelleTopoDTO.class);
+        } catch (Exception e) {
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA001"));
+        }
+    }
 }

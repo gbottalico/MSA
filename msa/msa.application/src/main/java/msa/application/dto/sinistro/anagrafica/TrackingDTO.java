@@ -8,71 +8,9 @@ public class TrackingDTO {
     private String telefono;
     private String cellulare;
     private String mail;
-    private String indirizzo;
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        TrackingDTO that = (TrackingDTO) o;
-
-        if (nazione != null ? !nazione.equals(that.nazione) : that.nazione != null) return false;
-        if (provincia != null ? !provincia.equals(that.provincia) : that.provincia != null) return false;
-        if (comune != null ? !comune.equals(that.comune) : that.comune != null) return false;
-        if (cap != null ? !cap.equals(that.cap) : that.cap != null) return false;
-        if (telefono != null ? !telefono.equals(that.telefono) : that.telefono != null) return false;
-        if (cellulare != null ? !cellulare.equals(that.cellulare) : that.cellulare != null) return false;
-        if (mail != null ? !mail.equals(that.mail) : that.mail != null) return false;
-        return indirizzo != null ? indirizzo.equals(that.indirizzo) : that.indirizzo == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = nazione != null ? nazione.hashCode() : 0;
-        result = 31 * result + (provincia != null ? provincia.hashCode() : 0);
-        result = 31 * result + (comune != null ? comune.hashCode() : 0);
-        result = 31 * result + (cap != null ? cap.hashCode() : 0);
-        result = 31 * result + (telefono != null ? telefono.hashCode() : 0);
-        result = 31 * result + (cellulare != null ? cellulare.hashCode() : 0);
-        result = 31 * result + (mail != null ? mail.hashCode() : 0);
-        result = 31 * result + (indirizzo != null ? indirizzo.hashCode() : 0);
-        return result;
-    }
-
-    public String getIndirizzo() {
-
-        return indirizzo;
-    }
-
-    public void setIndirizzo(String indirizzo) {
-        this.indirizzo = indirizzo;
-    }
-
-    public String getTelefono() {
-
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public String getCellulare() {
-        return cellulare;
-    }
-
-    public void setCellulare(String cellulare) {
-        this.cellulare = cellulare;
-    }
-
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
+    private String tipoStrada;
+    private String denominazioneStrada;
+    private String civicoStrada;
 
     public String getNazione() {
         return nazione;
@@ -104,5 +42,53 @@ public class TrackingDTO {
 
     public void setCap(Integer cap) {
         this.cap = cap;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getCellulare() {
+        return cellulare;
+    }
+
+    public void setCellulare(String cellulare) {
+        this.cellulare = cellulare;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public String getTipoStrada() {
+        return tipoStrada;
+    }
+
+    public void setTipoStrada(String tipoStrada) {
+        this.tipoStrada = tipoStrada;
+    }
+
+    public String getDenominazioneStrada() {
+        return denominazioneStrada;
+    }
+
+    public void setDenominazioneStrada(String denominazioneStrada) {
+        this.denominazioneStrada = denominazioneStrada;
+    }
+
+    public String getCivicoStrada() {
+        return civicoStrada;
+    }
+
+    public void setCivicoStrada(String civicoStrada) {
+        this.civicoStrada = civicoStrada;
     }
 }

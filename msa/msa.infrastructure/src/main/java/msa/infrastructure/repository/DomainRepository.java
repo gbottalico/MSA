@@ -5,10 +5,7 @@ import msa.domain.object.dominio.*;
 import msa.domain.object.sinistro.RuoliDO;
 import msa.domain.object.sinistro.rca.IncrociBaremesDO;
 import msa.infrastructure.base.repository.domain.*;
-import msa.infrastructure.persistence.domain.BaremesDBO;
-import msa.infrastructure.persistence.domain.CompagniaDBO;
-import msa.infrastructure.persistence.domain.ComuneDBO;
-import msa.infrastructure.persistence.domain.IncrociBaremesDBO;
+import msa.infrastructure.persistence.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -198,6 +195,10 @@ public class DomainRepository extends BaseRepository {
      */
     public List<RuoliDO> getElencoRuoli() {
         return converter.convertList(ruoliRepository.findAll(), RuoliDO.class);
+    }
+
+    public List<ParticelleTopoDO> getParticelleToponomastiche() {
+        return converter.convertList(findAll(ParticelleTopoDBO.class),ParticelleTopoDO.class);
     }
 
     public CompagniaDO getCompagniaByCodCompagnia(final Integer codCompagnia) {
