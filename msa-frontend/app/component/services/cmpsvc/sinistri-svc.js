@@ -48,7 +48,7 @@ angular.module('msa').service(
                     dataObj.contraente.luogoNascita.descrizioneComune = datiContraente.nascita.comune.descrizione;
                 }
 
-                dataObj.contraente.dataNascita = datiContraente.nascita.data;
+                dataObj.contraente.dataNascita = datiContraente.nascita.data.date;
 
                 dataObj.contraente.tracking = {};
                 if(UtilSvc.isDefined(datiContraente.residenza.nazione)) {
@@ -111,8 +111,9 @@ angular.module('msa').service(
                 data.denunciante.telefono = datiSegnalazione.segnalazione.telefono;
                 data.denunciante.codRuolo = datiSegnalazione.segnalazione.ruolo;
 
-                data.denunciante.cellulare = datiSegnalazione.tracking.cellulare;
-                data.denunciante.email = datiSegnalazione.tracking.email;
+                data.denunciante.tracking = {};
+                data.denunciante.tracking.cellulare = datiSegnalazione.tracking.cellulare;
+                data.denunciante.tracking.mail = datiSegnalazione.tracking.email;
 
                 data.codMezzo = datiSegnalazione.provenienza.mezzoComunicazione;
                 data.dataDenuncia = datiSegnalazione.provenienza.dataDenuncia.date;
@@ -131,13 +132,17 @@ angular.module('msa').service(
                     data.codComune = -1;
                 }
                 data.cap = datiSegnalazione.luogo.cap;
-                data.indirizzo = datiSegnalazione.luogo.tipostrada + " " + datiSegnalazione.luogo.denominazione + ", " + datiSegnalazione.luogo.civico;
+                //data.indirizzo = datiSegnalazione.luogo.tipostrada + " " + datiSegnalazione.luogo.denominazione + ", " + datiSegnalazione.luogo.civico;
+                data.tipoStrada = datiSegnalazione.luogo.tipostrada;
+                data.denominazioneStrada = datiSegnalazione.luogo.denominazione;
+                data.civicoStrada = datiSegnalazione.luogo.civico;
+
                 data.garanziaSelected = datiSegnalazione.garanzia;
 
                 console.log(JSON.stringify(data));
 
                 var url = UtilSvc.stringFormat(msaServicesApiUrls.aprisegnalazione, idSinistroProvvisorio);
-                console.log(url);
+
                 return $http.post(url, data);
 
             };

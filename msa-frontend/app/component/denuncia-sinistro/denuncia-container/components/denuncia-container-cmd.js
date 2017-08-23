@@ -16,7 +16,7 @@
 
                 ctrl.getSinistroProvvisorio = function (numeroSinistroProvvisorio) {
                     SinistriSvc.cercaSinistroProvvisorio(numeroSinistroProvvisorio).then(function (response) {
-                        let result = response.data.result;
+                        var result = response.data.result;
                         console.log(response);
                         console.log(result);
                         ctrl.sinistroProvvisorio = result;

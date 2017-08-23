@@ -38,8 +38,9 @@
                     ctrl.ruoli = response.data.result;
                 });
 
-                ctrl.tipiStrada = PlacesSvc.getTipiStrada();
-
+                PlacesSvc.getTipiStrada().then(function (response) {
+                    ctrl.tipiStrada =  response.data.result;
+                });
                 /* Utilities */
 
                 ctrl.apriSegnalazione = function () {
@@ -53,8 +54,22 @@
                     ctrl.sinistro.segnalazione.cognome = sinitroProvvisorio.segnalazione.denunciante.cognome;
                     ctrl.sinistro.segnalazione.telefono = sinitroProvvisorio.segnalazione.denunciante.telefono;
                     ctrl.sinistro.segnalazione.ruolo = sinitroProvvisorio.segnalazione.denunciante.codRuolo;
-                    
-                };
+
+                    ctrl.sinistro.tracking.cellulare = sinitroProvvisorio.segnalazione.denunciante.tracking.cellulare;
+                    ctrl.sinistro.tracking.email = sinitroProvvisorio.segnalazione.denunciante.tracking.mail;
+
+                    ctrl.sinistro.provenienza.mezzoComunicazione = sinitroProvvisorio.segnalazione.codMezzo;
+
+                    //TODO capire come settare la data
+                    //ctrl.sinistro.provenienza.dataDenuncia.date = new Date(sinitroProvvisorio.segnalazione.dataDenuncia);
+                    //ctrl.sinistro.provenienza.dataDenuncia.date = UtilSvc.dateFormat(sinitroProvvisorio.segnalazione.dataDenuncia, "#DD#-#MM#-#YYYY#");
+                    //ctrl.sinistro.provenienza.dataSinistro = new Date(sinitroProvvisorio.segnalazione.dataOraSinistro).toISOString();
+
+                    ctrl.sinistro.provenienza.oraSinistro = sinitroProvvisorio.segnalazione.oraSinistro;
+
+                    ctrl.sinistro.garanzia = sinitroProvvisorio.segnalazione.garanziaSelected;
+                    }
+                ;
 
                 ctrl.back = function () {
                     ctrl.valoriRicerca = undefined;
@@ -68,8 +83,8 @@
                     },
                     function handleChanges(newValues, oldValues) {
 
-                        if (newValues.sinistroProvvisorio !== undefined
-                            && newValues.sinistroProvvisorio !== oldValues.sinistroProvvisorio) {
+                        if (newValues.sinistroProvvisorio !== undefined &&
+                            newValues.sinistroProvvisorio !== oldValues.sinistroProvvisorio) {
                             ctrl.bindSinitroProvvisorio(newValues.sinistroProvvisorio);
                         }
 

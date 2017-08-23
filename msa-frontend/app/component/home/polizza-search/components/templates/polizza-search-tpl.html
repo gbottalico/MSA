@@ -56,7 +56,7 @@
 
                 <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 classicInputText">
                     <select ng-model="denunciante.residenza.indirizzo.tipostrada" name="tipoStrada" ng-required="true">
-                        <option ng-repeat="tipoStrada in tipiStrada">{{tipoStrada}}</option>
+                        <option ng-repeat="tipoStrada in tipiStrada" ng-value="{{tipoStrada.id}}">{{tipoStrada.des}}</option>
                     </select>
                     <label>{{'global.denunciasinitro.labels.indirizzo' | translate}}</label>
                 </div>

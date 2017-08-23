@@ -111,7 +111,9 @@
                         controller: function ($scope, $uibModalInstance, PlacesSvc, UtilSvc, denunciante) {
 
                             $scope.denunciante = denunciante;
-                            $scope.tipiStrada = PlacesSvc.getTipiStrada();
+                            PlacesSvc.getTipiStrada().then(function (response) {
+                                $scope.tipiStrada =  response.data.result;
+                            });
 
                             $scope.ok = function () {
                                 $uibModalInstance.close($scope.denunciante);
@@ -122,12 +124,12 @@
                             };
 
                             $scope.isCalcolaCfDisabled = function () {
-                                return !($scope.denunciante
-                                    && $scope.denunciante.cognome
-                                    && $scope.denunciante.nome
-                                    && $scope.denunciante.sesso
-                                    && $scope.denunciante.nascita.data && $scope.denunciante.nascita.data.$valid
-                                    && $scope.denunciante.nascita.$valid);
+                                return !($scope.denunciante &&
+                                    $scope.denunciante.cognome &&
+                                    $scope.denunciante.nome &&
+                                    $scope.denunciante.sesso &&
+                                    $scope.denunciante.nascita.data && $scope.denunciante.nascita.data.$valid &&
+                                    $scope.denunciante.nascita.$valid);
                             };
 
                             $scope.calcolaCf = function () {

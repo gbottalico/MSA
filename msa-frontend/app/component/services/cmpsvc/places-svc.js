@@ -21,7 +21,8 @@ angular.module('msa').service(
             };
 
             $svc.getTipiStrada = function () {
-                return ['Via', 'Viale', 'Piazza'];
+                //return ['Via', 'Viale', 'Piazza'];
+                return $http.get(msaServicesApiUrls.toponomastiche);
             };
 
             $svc.isValidPlace = function (nazione, provincia, comune) {

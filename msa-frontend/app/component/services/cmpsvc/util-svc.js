@@ -6,7 +6,7 @@ angular.module('msa').service(
 
         $svc.calcolaCf = function (nome, cognome, sesso, isoDataNascita, descrizioneComune) {
 
-            let dataObj = {};
+            var dataObj = {};
             dataObj.nome = nome;
             dataObj.cognome = cognome;
             dataObj.sesso = sesso;
@@ -98,7 +98,7 @@ angular.module('msa').service(
 
             return date.customFormat(format);
 
-        }
+        };
 
 
     }]);

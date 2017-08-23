@@ -38,6 +38,23 @@
                 $scope.opened = true;
             };
 
+            // $scope.$watch(
+            //     function watchScope(scope) {
+            //         return {
+            //             ctrldate: ctrl.date,
+            //             scopedate: $scope.date
+            //         };
+            //     },
+            //     function handleChanges(newValues, oldValues) {
+            //         ctrl.result.date = ctrl.date;
+            //         if(ctrl.required) {
+            //             ctrl.result.$valid = $scope.date !== undefined;
+            //         } else {
+            //             ctrl.result.$valid = true;
+            //         }
+            //     }, true
+            // );
+
             $scope.$watch("date", function (newValue, oldValue) {
                 ctrl.result.date = $scope.date;
                 if(ctrl.required) {
@@ -45,7 +62,9 @@
                 } else {
                     ctrl.result.$valid = true;
                 }
+
             });
+
         }])
     });
 

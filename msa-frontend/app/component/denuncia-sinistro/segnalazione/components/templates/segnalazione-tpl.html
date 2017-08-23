@@ -24,17 +24,13 @@
                         {{'global.denunciasinitro.labels.suggerimentoNome' | translate}}
                     </span>
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 classicInputText">
                     <input type="text" name="nome" ng-model="$ctrl.sinistro.segnalazione.nome">
                     <label>{{'global.denunciasinitro.labels.nome' | translate}}</label>
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
+                <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12 classicInputText">
                     <input type="text" name="cognome" ng-model="$ctrl.sinistro.segnalazione.cognome">
                     <label>{{'global.denunciasinitro.labels.cognome' | translate}}</label>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
-                    <input type="text" name="telefono" ng-model="$ctrl.sinistro.segnalazione.telefono">
-                    <label>{{'global.denunciasinitro.labels.telefono' | translate}}</label>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
                     <select name="ruolo" ng-model="$ctrl.sinistro.segnalazione.ruolo">
@@ -107,7 +103,7 @@
 
                 <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 classicInputText">
                     <select ng-model="$ctrl.sinistro.luogo.tipostrada" name="tipostrada">
-                        <option ng-repeat="tipoStrada in $ctrl.tipiStrada">{{tipoStrada}}</option>
+                        <option ng-repeat="tipoStrada in $ctrl.tipiStrada" ng-value="{{tipoStrada.id}}">{{tipoStrada.des}}</option>
                     </select>
                     <label>{{'global.denunciasinitro.labels.indirizzo' | translate}}</label>
                 </div>
@@ -128,7 +124,7 @@
                 </div>
                 <div class="garanzieDisponibili col-lg-2">
                     <div class="garanziaBox noPadding">
-                        <input id="rca" type="radio" name="garanzie" ng-value="0" ng-model="$ctrl.sinistro.garanzia" checked>
+                        <input id="rca" type="radio" name="garanzie" ng-value="0" ng-model="$ctrl.sinistro.garanzia">
                         <label for="rca"><p>Rca</p></label>
                     </div>
                     <p>RCA</p>
