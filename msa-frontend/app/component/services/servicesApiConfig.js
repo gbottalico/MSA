@@ -1,6 +1,6 @@
 app.service('msaServicesApiUrls', function ($MSAC) {
 
-    var apiPath                 = $MSAC.SERVER_HOSTS.API_COMMON + 'api';
+    var apiPath                 = $MSAC.SERVER_HOSTS.API_ALT + 'api'; //FIXME
     var localApiPath            = $MSAC.SERVER_HOSTS.API_ALT1 + 'api';
 
     /* DOMINIO */
@@ -25,6 +25,10 @@ app.service('msaServicesApiUrls', function ($MSAC) {
     this.baremes                = apiPath + "/dominio/baremes/";
 
     this.ruoli                  = apiPath + "/dominio/ruoli/";
+
+    /* UTILS */
+
+    this.cf                     = apiPath + "/utils/calcolaCf";
 
     /* SINISTRI */
 

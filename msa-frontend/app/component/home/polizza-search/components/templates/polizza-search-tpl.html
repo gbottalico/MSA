@@ -7,18 +7,46 @@
 
         <div class="modal-body ">
             <form name="sinistroProvvisorioForm" novalidate>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicInputText">
+                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 classicInputText">
                     <input type="text" name="cognome" ng-model="denunciante.nome" ng-required="true">
                     <label>{{'global.denunciasinitro.labels.cognome' | translate}}</label>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicInputText">
+                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 classicInputText">
                     <input type="text" name="nome" ng-model="denunciante.cognome" ng-required="true">
                     <label>{{'global.denunciasinitro.labels.nome' | translate}}</label>
                 </div>
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputText">
+
+                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 classicInputRadio">
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 noPaddingLeft">
+                        <input type="radio" value="m" checked name="sesso" ng-model="denunciante.sesso">
+                        <label class="rightLabel">{{'global.generic.male' | translate}}</label>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 noPaddingRight">
+                        <input type="radio" value="f" name="sesso" ng-model="denunciante.sesso">
+                        <label class="rightLabel">{{'global.generic.female' | translate}}</label>
+                    </div>
+                    <div class="col-lg-4 col-md-4 hidden-sm hidden-xs noPaddingRight">&nbsp;</div>
+                    <label>{{'global.people.sesso' | translate}}</label>
+                </div>
+
+                <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 classicInputText">
                     <input type="text" name="cf" ng-model="denunciante.cf" ng-required="true">
                     <label>{{'global.denunciasinitro.labels.cfopiva' | translate}}</label>
                 </div>
+                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 classicInputText">
+                    <button class="btn lightGrayButton" ng-click="calcolaCf()" ng-disabled="isCalcolaCfDisabled()">Calcola</button>
+                </div>
+                <div class="col-lg-12">
+                    <hr class="blueLine"/>
+                </div>
+                <div class="col-lg-12"><span class="subsectionTitle">Luogo e Data di Nascita</span></div>
+
+                <msa-place result="denunciante.nascita"></msa-place>
+                <div class="col-lg-12 classicInputText">
+                    <msa-date-selector data-result="denunciante.nascita.data" data-required="true"></msa-date-selector>
+                    <label>Data di Nascita</label>
+                </div>
+
                 <div class="col-lg-12">
                     <hr class="blueLine"/>
                 </div>
@@ -42,16 +70,6 @@
                     <label>&nbsp;</label>
                 </div>
 
-                <div class="col-lg-12">
-                    <hr class="blueLine"/>
-                </div>
-                <div class="col-lg-12"><span class="subsectionTitle">Luogo e Data di Nascita</span></div>
-
-                <msa-place result="denunciante.nascita"></msa-place>
-                <div class="col-lg-12 classicInputText">
-                    <input type="text" name="dataNascita" ng-model="denunciante.nascita.data" ng-required="true">
-                    <label>Data di Nascita</label>
-                </div>
             </form>
         </div>
 

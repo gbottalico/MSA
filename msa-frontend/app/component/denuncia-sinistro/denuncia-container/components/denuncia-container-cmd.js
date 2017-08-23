@@ -11,22 +11,33 @@
 
                 var ctrl = this;
 
-                ctrl.contraente = undefined;
+                ctrl.sinistroProvvisorio = undefined;
                 ctrl.datiContraente = {};           // Viene passato a step-cmd.js
 
                 ctrl.getSinistroProvvisorio = function (numeroSinistroProvvisorio) {
-                    SinistriSvc.cercaSinistroProvvisorio(37, numeroSinistroProvvisorio).then(function (response) {
+                    SinistriSvc.cercaSinistroProvvisorio(numeroSinistroProvvisorio).then(function (response) {
+                        let result = response.data.result;
                         console.log(response);
-                        //FIXME rimuovere il 37, mockup
-                        if (UtilSvc.arrayHasElements(response.data.result)) {
-                            var result = response.data.result[0];
-                            ctrl.contraente = result;
+                        console.log(result);
+                        ctrl.sinistroProvvisorio = result;
 
-                            ctrl.datiContraente.nome = result.contraente.nome + " " + result.contraente.cognome;
-                            ctrl.datiContraente.nascita = result.contraente.descComuneNascita + ", " + result.contraente.dataNascita;
-                            ctrl.datiContraente.cf = result.contraente.cf;
+                        //TODO spostare la roba che segue nel componente che la visualizza
 
+                        ctrl.datiContraente.nome = result.contraente.nome + " " + result.contraente.cognome;
+
+                        if (result.contraente.luogoNascita.descrizioneComune !== undefined &&
+                            result.contraente.luogoNascita.descrizioneComune !== null) {
+                            ctrl.datiContraente.nascita = result.contraente.luogoNascita.descrizioneComune;
+                        } else {
+                            ctrl.datiContraente.nascita = result.contraente.luogoNascita.descrizioneNazione;
                         }
+
+                        ctrl.datiContraente.nascita = ctrl.datiContraente.nascita + ", " + UtilSvc.dateFormat(result.contraente.dataNascita);
+
+                        ctrl.datiContraente.cf = result.contraente.cf;
+
+
+
                     });
                 };
 

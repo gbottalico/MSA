@@ -5,7 +5,8 @@
         templateUrl: '../../app/component/denuncia-sinistro/segnalazione/components/templates/segnalazione-tpl.html',
         bindings: {
             valoriRicerca: '=',
-            numeroSinistroProvvisorio: "="
+            numeroSinistroProvvisorio: "=",
+            sinistroProvvisorio: "<"
         },
         controller: ("segnalazioneController", ['$scope', '$rootScope', '$routeParams', '$translate', '$log', 'AccountUserSvc', 'MezziComunicazioneSvc', 'RuoliSvc', 'PlacesSvc', 'SinistriSvc', 'UtilSvc', 'RegexSvc', 'toastr', '$analytics', '$location', '$cookies', '$window', '$sessionStorage',
             function ($scope, $rootScope, $routeParams, $translate, $log, AccountUserSvc, MezziComunicazioneSvc, RuoliSvc, PlacesSvc, SinistriSvc, UtilSvc, RegexSvc, toastr, $analytics, location, $cookies, $window, $sessionStorage) {
@@ -47,6 +48,14 @@
                     });
                 };
 
+                ctrl.bindSinitroProvvisorio = function (sinitroProvvisorio) {
+                    ctrl.sinistro.segnalazione.nome = sinitroProvvisorio.segnalazione.denunciante.nome;
+                    ctrl.sinistro.segnalazione.cognome = sinitroProvvisorio.segnalazione.denunciante.cognome;
+                    ctrl.sinistro.segnalazione.telefono = sinitroProvvisorio.segnalazione.denunciante.telefono;
+                    ctrl.sinistro.segnalazione.ruolo = sinitroProvvisorio.segnalazione.denunciante.codRuolo;
+                    
+                };
+
                 ctrl.back = function () {
                     ctrl.valoriRicerca = undefined;
                 };
@@ -54,10 +63,15 @@
                 $scope.$watch(
                     function watchScope(scope) {
                         return {
-
+                            sinistroProvvisorio: ctrl.sinistroProvvisorio
                         };
                     },
                     function handleChanges(newValues, oldValues) {
+
+                        if (newValues.sinistroProvvisorio !== undefined
+                            && newValues.sinistroProvvisorio !== oldValues.sinistroProvvisorio) {
+                            ctrl.bindSinitroProvvisorio(newValues.sinistroProvvisorio);
+                        }
 
                     }, true
                 );

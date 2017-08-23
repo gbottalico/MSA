@@ -46,14 +46,14 @@
                     },
                     function handleChanges(newValue, oldValue) {
 
-                        if(newValue.compagniaSelezionata !== oldValue.compagniaSelezionata)  {
-                            if(newValue.compagniaSelezionata instanceof Object &&
+                        if (newValue.compagniaSelezionata !== oldValue.compagniaSelezionata) {
+                            if (newValue.compagniaSelezionata instanceof Object &&
                                 newValue.compagniaSelezionata !== null) {
 
                                 // Eseguo il binding dei campi obbligatori.
                                 var campiObbligatoriRicerca = newValue.compagniaSelezionata.campiObbligatoriRicerca;
                                 for (var i = 0; i < campiObbligatoriRicerca.length; i++) {
-                                    switch(campiObbligatoriRicerca[i].idFE) {
+                                    switch (campiObbligatoriRicerca[i].idFE) {
                                         case 1:
                                             ctrl.campiObbligatori.cognome = campiObbligatoriRicerca[i].required;
                                             break;
@@ -108,7 +108,7 @@
                         backdrop: 'static', // Evita che il modal sia chiuso cliccando sullo sfondo.
                         windowClass: 'msaModal',
                         size: 'lg',
-                        controller: function ($scope, $uibModalInstance , PlacesSvc, denunciante) {
+                        controller: function ($scope, $uibModalInstance, PlacesSvc, UtilSvc, denunciante) {
 
                             $scope.denunciante = denunciante;
                             $scope.tipiStrada = PlacesSvc.getTipiStrada();
@@ -120,6 +120,29 @@
                             $scope.cancel = function () {
                                 $uibModalInstance.dismiss('cancel');
                             };
+
+                            $scope.isCalcolaCfDisabled = function () {
+                                return !($scope.denunciante
+                                    && $scope.denunciante.cognome
+                                    && $scope.denunciante.nome
+                                    && $scope.denunciante.sesso
+                                    && $scope.denunciante.nascita.data && $scope.denunciante.nascita.data.$valid
+                                    && $scope.denunciante.nascita.$valid);
+                            };
+
+                            $scope.calcolaCf = function () {
+
+                                var luogoNascita = $scope.denunciante.nascita.comune
+                                    ? $scope.denunciante.nascita.comune.descrizione
+                                    : $scope.denunciante.nascita.nazione.descrizione;
+
+                                UtilSvc.calcolaCf($scope.denunciante.cognome, $scope.denunciante.nome, $scope.denunciante.sesso, $scope.denunciante.nascita.data.date, luogoNascita).then(function (response) {
+                                    console.log(response);
+                                    $scope.denunciante.cf = response.data.result;
+                                });
+
+                            };
+
                         },
                         resolve: {
                             denunciante: function () {
@@ -149,15 +172,16 @@
 
                 ctrl.denuncia = function () {
                     var path = getMSAC().PATHS.DENUNCIA;
-                    if(ctrl.numSinistroProvv !== undefined) {
+                    if (ctrl.numSinistroProvv !== undefined) {
                         path = path + "/" + ctrl.numSinistroProvv;
                     }
                     $location.path(path);
                 };
 
                 ctrl.cerca = function () {
-                    $location.hash('polizzaResult');
-                    $anchorScroll();
+                    // TODO valutarre
+                    //$location.hash('polizzaResult');
+                    //$anchorScroll();
                 };
 
                 ctrl.valoriRicerca = {

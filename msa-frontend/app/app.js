@@ -17,6 +17,7 @@ function getMSAC() {
         SERVER_HOSTS: {
             FE_HOST: 'http://localhost:8887/?refresh',
             API_COMMON: 'http://localhost:8080/msa/',
+            API_ALT: 'http://172.25.14.169:8080/msa/',
             API_ALT1: 'http://localhost.gruppoitas.it:3000/',
         },
         LOCALES: {
@@ -69,7 +70,6 @@ app.constant('_', window._);
  */
 
 app.config(['$routeProvider', function ($routeProvider) {
-    console.log($routeProvider);
     $routeProvider
         .when(getMSAC().PATHS.HOME, {
             template: "<msa-home></msa-home>"
