@@ -266,7 +266,7 @@ public class SinistriService extends BaseSinistroService {
             }
             return converter.convertObject(sinistroByNumProvv,toPass);
         } catch (Exception e) {
-            throw new InternalMsaException(/** AGGIUNGERE ERRORE*/);
+            throw new InternalMsaException(e,getErrorMessagesByCodErrore(MessageType.ERROR,"MSA009"));
         }
     }
 }
