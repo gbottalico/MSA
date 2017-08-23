@@ -12,10 +12,7 @@ import java.util.Map;
 public class DispatcherDTO implements Serializable{
     private static final long serialVersionUID = 7956107530079706346L;
     private Integer garanziaSelected;
-    private String thisView;
-    private Map<String,String> paramMap;
-    private String nextView;
-
+    private Integer numSinistroProvv;
 
     public Integer getGaranziaSelected() {
         return garanziaSelected;
@@ -25,27 +22,11 @@ public class DispatcherDTO implements Serializable{
         this.garanziaSelected = garanziaSelected;
     }
 
-    public String getThisView() {
-        return thisView;
+    public Integer getNumSinistroProvv() {
+        return numSinistroProvv;
     }
 
-    public void setThisView(String thisView) {
-        this.thisView = thisView;
-    }
-
-    public String getNextView() {
-        return nextView;
-    }
-
-    public void setNextView(String nextView) {
-        this.nextView = nextView;
-    }
-
-    public Map<String, String> getParamMap() {
-        return paramMap;
-    }
-
-    public void setParamMap(Map<String, String> paramMap) {
-        this.paramMap = paramMap;
+    public void setNumSinistroProvv(Integer numSinistroProvv) {
+        this.numSinistroProvv = numSinistroProvv;
     }
 }

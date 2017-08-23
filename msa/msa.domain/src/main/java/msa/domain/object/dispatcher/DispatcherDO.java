@@ -7,10 +7,9 @@ import java.util.Map;
  */
 public class DispatcherDO {
     private Integer garanziaSelected;
-    private String thisView;
-    private Map<String,String> paramMap;
-    private String param;
-    private String nextView;
+    private Integer numSinistroProvv;
+    private String paramCod;
+    private String lastView;
 
     public Integer getGaranziaSelected() {
         return garanziaSelected;
@@ -20,35 +19,27 @@ public class DispatcherDO {
         this.garanziaSelected = garanziaSelected;
     }
 
-    public String getThisView() {
-        return thisView;
+    public Integer getNumSinistroProvv() {
+        return numSinistroProvv;
     }
 
-    public void setThisView(String thisView) {
-        this.thisView = thisView;
+    public void setNumSinistroProvv(Integer numSinistroProvv) {
+        this.numSinistroProvv = numSinistroProvv;
     }
 
-    public Map<String, String> getParamMap() {
-        return paramMap;
+    public String getParamCod() {
+        return paramCod;
     }
 
-    public void setParamMap(Map<String, String> paramMap) {
-        this.paramMap = paramMap;
+    public void setParamCod(String paramCod) {
+        this.paramCod = paramCod;
     }
 
-    public String getParam() {
-        return param;
+    public String getLastView() {
+        return lastView;
     }
 
-    public void setParam(String param) {
-        this.param = param;
-    }
-
-    public String getNextView() {
-        return nextView;
-    }
-
-    public void setNextView(String nextView) {
-        this.nextView = nextView;
+    public void setLastView(String lastView) {
+        this.lastView = lastView;
     }
 }

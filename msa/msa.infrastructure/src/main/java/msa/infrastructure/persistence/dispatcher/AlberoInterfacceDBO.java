@@ -10,7 +10,7 @@ import java.util.List;
  * Created by simon.calabrese on 01/08/2017.
  */
 @Document(collection = "alberoInterfacce")
-public class AlberInterfacceDBO {
+public class AlberoInterfacceDBO {
 
     @Id
     private String id;

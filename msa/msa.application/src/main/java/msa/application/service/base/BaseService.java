@@ -17,9 +17,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -194,6 +198,14 @@ public class BaseService {
         }
         baos.flush();
         return new ByteArrayInputStream(baos.toByteArray());
+    }
 
+    protected void execInParallel(Callable<Boolean> ... callables) throws InternalMsaException {
+        ExecutorService executor = Executors.newWorkStealingPool();
+        try {
+            executor.invokeAll(Arrays.stream(callables).collect(Collectors.toList()));
+        } catch (InterruptedException e) {
+            throw new InternalMsaException();
+        }
     }
 }
