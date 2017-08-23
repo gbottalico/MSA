@@ -12,6 +12,10 @@
             function ($scope, $rootScope, $routeParams, $translate, $log, AccountUserSvc, MezziComunicazioneSvc, RuoliSvc, PlacesSvc, SinistriSvc, UtilSvc, RegexSvc, toastr, $analytics, location, $cookies, $window, $sessionStorage) {
 
                 var ctrl = this;
+                var parent = $scope.$parent;
+
+
+                ctrl.mapId = "M11";
 
                 ctrl.reEmail = RegexSvc.getEmailRegex();
                 ctrl.reTelefono = RegexSvc.getTelefonoRegex();
@@ -44,9 +48,12 @@
                 /* Utilities */
 
                 ctrl.apriSegnalazione = function () {
-                    SinistriSvc.apriSegnalazione(ctrl.numeroSinistroProvvisorio, ctrl.sinistro).then(function (response) {
-                        console.log(response.data.result);
-                    });
+                    // SinistriSvc.apriSegnalazione(ctrl.numeroSinistroProvvisorio, ctrl.sinistro).then(function (response) {
+                    //     console.log(response.data.result);
+                    // });
+
+                    parent.aggiornaMappe();
+
                 };
 
                 ctrl.bindSinitroProvvisorio = function (sinitroProvvisorio) {

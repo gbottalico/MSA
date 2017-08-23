@@ -11,8 +11,20 @@
 
                 var ctrl = this;
 
+                ctrl.mappe = [];
+
                 ctrl.sinistroProvvisorio = undefined;
                 ctrl.datiContraente = {};           // Viene passato a step-cmd.js
+
+                ctrl.aggiornaMappe = function () {
+                    ctrl.mappe.push("M12");
+                    console.log("Mappe");
+                    console.log(ctrl.mappe);
+                };
+
+                $scope.aggiornaMappe = function () {
+                  ctrl.aggiornaMappe();
+                };
 
                 ctrl.getSinistroProvvisorio = function (numeroSinistroProvvisorio) {
                     SinistriSvc.cercaSinistroProvvisorio(numeroSinistroProvvisorio).then(function (response) {

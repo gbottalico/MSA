@@ -15,8 +15,6 @@
 
             ctrl.user = ctrl.datiContraente;
 
-            console.log(ctrl.user);
-
 	        // ctrl.user = {
 	        // 	nome: "Piras Dario",
 	        // 	cf: "PRSDRA87E28B157S",
