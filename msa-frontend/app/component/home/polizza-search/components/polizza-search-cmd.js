@@ -156,8 +156,9 @@
                 };
 
                 ctrl.cerca = function () {
-                    $location.hash('polizzaResult');
-                    $anchorScroll();
+                    // TODO valutarre
+                    //$location.hash('polizzaResult');
+                    //$anchorScroll();
                 };
 
                 ctrl.valoriRicerca = {

@@ -81,10 +81,9 @@ angular.module('msa').service(
 
             };
 
-            $svc.cercaSinistroProvvisorio = function(idCompagnia, numeroSinistroProvvisorio) {
+            $svc.cercaSinistroProvvisorio = function(numeroSinistroProvvisorio) {
 
                 var dataObj = getOggettoRicerca();
-                dataObj.compagnia = idCompagnia;
                 dataObj.numeroProvvisorio = numeroSinistroProvvisorio;
 
                 var stringUrl = UtilSvc.stringFormat(msaServicesApiUrls.ricercaprovvisorio, numeroSinistroProvvisorio);

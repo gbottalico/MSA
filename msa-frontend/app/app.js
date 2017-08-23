@@ -69,7 +69,6 @@ app.constant('_', window._);
  */
 
 app.config(['$routeProvider', function ($routeProvider) {
-    console.log($routeProvider);
     $routeProvider
         .when(getMSAC().PATHS.HOME, {
             template: "<msa-home></msa-home>"
