@@ -1,9 +1,6 @@
 package msa.infrastructure.repository;
 
-import msa.domain.object.sinistro.BaseSinistroDO;
-import msa.domain.object.sinistro.InputRicercaDO;
-import msa.domain.object.sinistro.SinistroDO;
-import msa.domain.object.sinistro.SinistroFurtoIncendioDO;
+import msa.domain.object.sinistro.*;
 import msa.infrastructure.base.repository.domain.BaseRepository;
 import msa.infrastructure.base.repository.sinistri.SinistriBaseRepository;
 import msa.infrastructure.persistence.sinistro.SinistroDBO;
@@ -39,6 +36,21 @@ public class SinistriRepository extends BaseRepository {
         doToJson.put("numeroProvvisorio", new AbstractMap.SimpleEntry<>(true, "numSinistroProvv"));
         //doToJson.put("numeroPreapertura", "numeroPreapertura");
         //doToJson.put("tipoPersona", "tipoPersona");
+    }
+
+    private static Map<String,Class> classiGaranzieMap = new HashMap<>();
+
+    static {
+        classiGaranzieMap.put("0",SinistroRcaDO.class);
+        classiGaranzieMap.put("1",SinistroFurtoIncendioDO.class);
+        classiGaranzieMap.put("2",SinistroFurtoIncendioDO.class);
+        classiGaranzieMap.put("3",SinistroFurtoIncendioDO.class);
+        classiGaranzieMap.put("4",SinistroKaskoDO.class);
+        classiGaranzieMap.put("1",SinistroCristalliDO.class);
+    }
+
+    protected <T extends BaseSinistroDO> Class<T> getClassByGaranzia(final String garanziaSelected) {
+        return classiGaranzieMap.get(garanziaSelected);
     }
 
     /**
@@ -129,18 +141,7 @@ public class SinistriRepository extends BaseRepository {
 
     public <E extends BaseSinistroDO> E getSinistroByNumProvv(Integer numProvv) throws Exception {
         final SinistroDBO sinistroByNumProvvQuery = getSinistroByNumProvvQuery(numProvv);
-        final Class<E> toPass;
-        if (sinistroByNumProvvQuery.getSegnalazione() == null) {
-            toPass = (Class<E>) BaseSinistroDO.class;
-        } else {
-            if (sinistroByNumProvvQuery.getSegnalazione().getGaranziaSelected().equals("0")) {
-                toPass = (Class<E>) SinistroDO.class;
-            } else if (Arrays.asList("1", "2", "3").contains(sinistroByNumProvvQuery.getSegnalazione().getGaranziaSelected())) {
-                toPass = (Class<E>) SinistroFurtoIncendioDO.class;
-            } else {
-                toPass = (Class<E>) BaseSinistroDO.class;
-            }
-        }
+        final Class<E> toPass = sinistroByNumProvvQuery.getSegnalazione() == null ? (Class<E>) BaseSinistroDO.class : getClassByGaranzia(sinistroByNumProvvQuery.getSegnalazione().getGaranziaSelected());
         return converter.convertObject(sinistroByNumProvvQuery, toPass);
     }
 

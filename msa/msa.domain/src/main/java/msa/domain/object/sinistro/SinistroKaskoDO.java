@@ -2,7 +2,7 @@ package msa.domain.object.sinistro;
 
 import msa.domain.object.sinistro.rca.DanniDO;
 
-public class KaskoDO extends BaseSinistroDO{
+public class SinistroKaskoDO extends BaseSinistroDO{
     private DanniDO danniKasko;
     private String osservazioniCliente;
 

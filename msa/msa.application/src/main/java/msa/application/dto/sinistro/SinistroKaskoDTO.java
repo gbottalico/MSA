@@ -2,7 +2,7 @@ package msa.application.dto.sinistro;
 
 import msa.application.dto.sinistro.rca.dannoRca.DanniDTO;
 
-public class KaskoDTO extends  BaseSinistroDTO{
+public class SinistroKaskoDTO extends  BaseSinistroDTO{
     private DanniDTO danniKasko;
     private String osservazioniCliente;
 

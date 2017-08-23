@@ -9,12 +9,7 @@
         }, 
         {
             "thisView" : "M12", 
-            "parameter" : "S", 
-            "nextView" : "M13"
-        }, 
-        {
-            "thisView" : "M12", 
-            "parameter" : "N", 
+            "parameter" : null, 
             "nextView" : "M14"
         }, 
         {
@@ -80,7 +75,109 @@
         }, 
         {
             "thisView" : "M27", 
+            "parameter" : "1", 
+            "nextView" : "M20"
+        }, 
+        {
+            "thisView" : "M20", 
             "parameter" : null, 
+            "nextView" : "M22"
+        }, 
+        {
+            "thisView" : "M22", 
+            "parameter" : "0", 
+            "nextView" : "M23"
+        }, 
+        {
+            "thisView" : "M22", 
+            "parameter" : "1", 
+            "nextView" : "M25"
+        }, 
+        {
+            "thisView" : "M22", 
+            "parameter" : "2", 
+            "nextView" : "M26"
+        }, 
+        {
+            "thisView" : "M23", 
+            "parameter" : "0", 
+            "nextView" : "M25"
+        }, 
+        {
+            "thisView" : "M23", 
+            "parameter" : "1", 
+            "nextView" : "M26"
+        }, 
+        {
+            "thisView" : "M25", 
+            "parameter" : null, 
+            "nextView" : "M26"
+        }
+    ]
+}
+{ 
+    "_id" : "2", 
+    "garanzia" : "2", 
+    "nextTree" : [
+        {
+            "thisView" : "M11", 
+            "parameter" : "2", 
+            "nextView" : "M29"
+        }, 
+        {
+            "thisView" : "M29", 
+            "parameter" : "1", 
+            "nextView" : "M20"
+        }, 
+        {
+            "thisView" : "M20", 
+            "parameter" : null, 
+            "nextView" : "M22"
+        }, 
+        {
+            "thisView" : "M22", 
+            "parameter" : "0", 
+            "nextView" : "M23"
+        }, 
+        {
+            "thisView" : "M22", 
+            "parameter" : "1", 
+            "nextView" : "M25"
+        }, 
+        {
+            "thisView" : "M22", 
+            "parameter" : "2", 
+            "nextView" : "M26"
+        }, 
+        {
+            "thisView" : "M23", 
+            "parameter" : "0", 
+            "nextView" : "M25"
+        }, 
+        {
+            "thisView" : "M23", 
+            "parameter" : "1", 
+            "nextView" : "M26"
+        }, 
+        {
+            "thisView" : "M25", 
+            "parameter" : null, 
+            "nextView" : "M26"
+        }
+    ]
+}
+{ 
+    "_id" : "3", 
+    "garanzia" : "3", 
+    "nextTree" : [
+        {
+            "thisView" : "M11", 
+            "parameter" : "3", 
+            "nextView" : "M30"
+        }, 
+        {
+            "thisView" : "M30", 
+            "parameter" : "1", 
             "nextView" : "M20"
         }, 
         {

@@ -54,8 +54,17 @@ public class SinistroDBO extends AbstractDBO {
     //INIZIO KASKO
     @Field("danniKasko")
     private DanniDBO danniKasko;
-
     //FINE KASKO
+    //INIZIO CRISTALLI
+    @Field("desCristalloRotto")
+    private String desCristalloRotto;
+    @Field("codRotturaCristalli")
+    private String codRotturaCristalli;
+    @Field("flagRiparazione")
+    private Boolean flagRiparazione;
+    @Field("flagFattura")
+    private Boolean flagFattura;
+    //FINE CRISTALLI
     public FullAnagraficaDBO getContraente() {
         return contraente;
     }
@@ -200,5 +209,37 @@ public class SinistroDBO extends AbstractDBO {
 
     public void setDanniKasko(DanniDBO danniKasko) {
         this.danniKasko = danniKasko;
+    }
+
+    public String getDesCristalloRotto() {
+        return desCristalloRotto;
+    }
+
+    public void setDesCristalloRotto(String desCristalloRotto) {
+        this.desCristalloRotto = desCristalloRotto;
+    }
+
+    public String getCodRotturaCristalli() {
+        return codRotturaCristalli;
+    }
+
+    public void setCodRotturaCristalli(String codRotturaCristalli) {
+        this.codRotturaCristalli = codRotturaCristalli;
+    }
+
+    public Boolean getFlagRiparazione() {
+        return flagRiparazione;
+    }
+
+    public void setFlagRiparazione(Boolean flagRiparazione) {
+        this.flagRiparazione = flagRiparazione;
+    }
+
+    public Boolean getFlagFattura() {
+        return flagFattura;
+    }
+
+    public void setFlagFattura(Boolean flagFattura) {
+        this.flagFattura = flagFattura;
     }
 }
