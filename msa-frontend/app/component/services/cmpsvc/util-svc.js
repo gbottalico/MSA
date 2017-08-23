@@ -1,8 +1,22 @@
 angular.module('msa').service(
     'UtilSvc',
-    [function () {
+    ['$http', 'msaServicesApiUrls', function ($http, msaServicesApiUrls) {
 
         var $svc = this;
+
+        $svc.calcolaCf = function (nome, cognome, sesso, isoDataNascita, descrizioneComune) {
+
+            let dataObj = {};
+            dataObj.nome = nome;
+            dataObj.cognome = cognome;
+            dataObj.sesso = sesso;
+            dataObj.dataNascita = isoDataNascita;
+            dataObj.luogoNascita = {};
+            dataObj.luogoNascita.descrizioneComune = descrizioneComune;
+
+            return $http.post(msaServicesApiUrls.cf, dataObj);
+
+        };
 
         $svc.isDefined = function (obj) {
             return obj !== undefined;

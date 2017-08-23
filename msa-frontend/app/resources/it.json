@@ -7,11 +7,14 @@
       "salva": "Salva",
       "help": "Help",
       "si": "Sì",
-      "no": "No"
+      "no": "No",
+      "male": "M",
+      "female": "F"
     },
     "people": {
       "nome": "Nome",
       "cognome": "Cognome",
+      "sesso": "Sesso",
       "cf": "Codice Fiscale",
       "nazione": "Nazione",
       "provincia": "Provincia",
