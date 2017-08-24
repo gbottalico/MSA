@@ -236,15 +236,18 @@ public class DomainService extends BaseService {
     }
 
     public String getDesLuogoById(String id, Character param) throws InternalMsaException {
-        if (param.equals(MsaCostanti.PARAM_COMUNE)) {
-            return domainRepository.getComuneById(id).map(ComuneDO::getDescrizione).orElse(null);
+        try {
+            if (param.equals(MsaCostanti.PARAM_COMUNE)) {
+                return domainRepository.getComuneById(id).map(ComuneDO::getDescrizione).orElse(null);
 
-        } else if (param.equals(MsaCostanti.PARAM_NAZIONE)) {
-            return domainRepository.getNazioneById(id).map(NazioneDO::getDescrizione).orElse(null);
+            } else if (param.equals(MsaCostanti.PARAM_NAZIONE)) {
+                return domainRepository.getNazioneById(id).map(NazioneDO::getDescrizione).orElse(null);
 
-        } else if (param.equals(MsaCostanti.PARAM_PROVINCIA)) {
-            return domainRepository.getProvinciaById(id).map(ProvinciaDO::getDescProvincia).orElse(null);
-        } else throw new InternalMsaException();
-
+            } else if (param.equals(MsaCostanti.PARAM_PROVINCIA)) {
+                return domainRepository.getProvinciaById(id).map(ProvinciaDO::getDescProvincia).orElse(null);
+            } else throw new InternalMsaException();
+        } catch (Exception e) {
+                throw new InternalMsaException(e,getErrorMessagesByCodErrore(MessageType.ERROR, "MSA001"));
+        }
     }
 }
