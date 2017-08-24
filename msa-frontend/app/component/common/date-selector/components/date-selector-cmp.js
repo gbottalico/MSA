@@ -13,7 +13,8 @@
         bindings: {
             result: "=",
             required: "=",
-            input: "="
+            input: "=",
+            disabled: "="
         },
         controller: ("msaDateSelectorController", ['$scope', function ($scope) {
 

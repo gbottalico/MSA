@@ -16,8 +16,16 @@
                 ctrl.sinistroProvvisorio = undefined;
                 ctrl.datiContraente = {};           // Viene passato a step-cmd.js
 
-                ctrl.aggiornaMappe = function () {
+                ctrl.caricaMappe = function () {
+                  PathSvc.getPath(ctrl.sinistroProvvisorio.numSinistroProvv).then(function (response) {
+                      var path = UtilSvc.mapToValueArray(response.data.result);
+                      ctrl.mappe = path;
+                      console.log("Mappe");
+                      console.log(ctrl.mappe);
+                  })
+                };
 
+                ctrl.aggiornaMappe = function () {
                     PathSvc.getNextPath(ctrl.sinistroProvvisorio.segnalazione.garanziaSelected, ctrl.sinistroProvvisorio.numSinistroProvv)
                         .then(function (response) {
                         var path = UtilSvc.mapToValueArray(response.data.result);
@@ -52,7 +60,7 @@
                         ctrl.datiContraente.nascita = ctrl.datiContraente.nascita + ", " + UtilSvc.dateFormat(result.contraente.dataNascita);
                         ctrl.datiContraente.cf = result.contraente.cf;
 
-
+                        ctrl.caricaMappe();
 
                     });
                 };

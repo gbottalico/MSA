@@ -3,7 +3,8 @@ angular.module('msa').service(
     [
         '$http',
         'msaServicesApiUrls',
-        function ($http, msaServicesApiUrls) {
+        'UtilSvc',
+        function ($http, msaServicesApiUrls, UtilSvc) {
 
             var $svc = this;
 
@@ -20,7 +21,8 @@ angular.module('msa').service(
 
             $svc.getPath = function (numSinistroProvvisiorio) {
 
-                return $http.post(msaServicesApiUrls.nextpath, data);
+                var url = UtilSvc.stringFormat(msaServicesApiUrls.path, numSinistroProvvisiorio);
+                return $http.get(url);
 
             };
 

@@ -146,6 +146,27 @@ angular.module('msa').service(
 
             };
 
+            $svc.salvaEventoRca = function (idSinistroProvvisorio, datiEventoRca) {
+
+                var dataObj = {};
+                dataObj.collisione = datiEventoRca.collisione;
+                dataObj.interventoAutorita = datiEventoRca.interventoAutorita;
+                dataObj.numVeicoli = datiEventoRca.nveicoli;
+
+                var stringUrl = UtilSvc.stringFormat(msaServicesApiUrls.rca, idSinistroProvvisorio);
+
+                return $http({
+                    method: 'POST',
+                    url: stringUrl,
+                    data: dataObj,
+                    headers: {
+                        "Content-Type": "application/json",
+                        "user": '{"idUser": 1,"amministratore": true}'
+                    }
+                });
+
+            }
+
         }
     ]
 );

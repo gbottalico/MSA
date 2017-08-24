@@ -7,12 +7,14 @@
            datepicker-options="dateOptions"
            ng-required="true"
            show-button-bar="false"
+           ng-disabled="$ctrl.disabled"
            />
 
     <span class="input-group-btn">
         <button type="button"
                 class="btn btn-default"
-                ng-click="open()">
+                ng-click="open()"
+                ng-disabled="$ctrl.disabled">
             <i class="fa fa-calendar-o" aria-hidden="true"></i>
         </button>
     </span>
