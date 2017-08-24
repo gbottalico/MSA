@@ -13,6 +13,7 @@
 
                 var ctrl = this;
                 var parent = $scope.$parent;
+                ctrl.luogo = undefined;
 
 
                 ctrl.mapId = "M11";
@@ -45,15 +46,12 @@
                 PlacesSvc.getTipiStrada().then(function (response) {
                     ctrl.tipiStrada =  response.data.result;
                 });
-                /* Utilities */
 
                 ctrl.apriSegnalazione = function () {
                     SinistriSvc.apriSegnalazione(ctrl.numeroSinistroProvvisorio, ctrl.sinistro).then(function (response) {
                         console.log(response.data.result);
+                        parent.aggiornaMappe();
                     });
-
-                    //parent.aggiornaMappe();
-
                 };
 
                 ctrl.bindSinitroProvvisorio = function (sinitroProvvisorio) {
@@ -73,11 +71,17 @@
                         ctrl.sinistro.provenienza.dataDenuncia.date = new Date();
                     }
 
-                    if(sinitroProvvisorio.segnalazione.dataOraSinistro !== undefined && sinitroProvvisorio.segnalazione.dataOraSinistro != null) {
+                    if(sinitroProvvisorio.segnalazione.dataOraSinistro !== undefined && sinitroProvvisorio.segnalazione.dataOraSinistro !== null) {
                         ctrl.sinistro.provenienza.dataSinistro.date = new Date(sinitroProvvisorio.segnalazione.dataOraSinistro);
                     } else {
                         ctrl.sinistro.provenienza.dataSinistro.date = new Date();
                     }
+
+                    var tempLuogo = {};
+                    tempLuogo.idNazione = sinitroProvvisorio.segnalazione.codNazione;
+                    tempLuogo.idProvincia = sinitroProvvisorio.segnalazione.codProvincia;
+                    tempLuogo.idComune = sinitroProvvisorio.segnalazione.codComune;
+                    ctrl.luogo = tempLuogo;
 
                     ctrl.sinistro.provenienza.oraSinistro = sinitroProvvisorio.segnalazione.oraSinistro;
 

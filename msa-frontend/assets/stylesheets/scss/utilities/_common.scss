@@ -29,6 +29,12 @@ section {
   padding-right: 30px;
 }
 
+.backgroundHint {
+  text-align: center;
+  color: $gray;
+  font-family: $font_montlight;
+}
+
 .boxShadow {
   box-shadow: 2px 2px 15px $gray;
   padding: 0;

@@ -4,7 +4,8 @@
     app.component('msaPlace', {
         templateUrl: '../../app/component/common/place/components/templates/place-tpl.html',
         bindings: {
-            result: "="
+            result: "=",
+            input: "="
         },
         controller: ("msaPlaceController", ['$scope', 'PlacesSvc', function ($scope, PlacesSvc, result) {
 
@@ -58,7 +59,8 @@
                         nazsel: ctrl.nazioneSelezionata,
                         provsel: ctrl.provinciaSelezionata,
                         comsel: ctrl.comuneSelezionato,
-                        capsel: ctrl.capSelezionato
+                        capsel: ctrl.capSelezionato,
+                        input: ctrl.input
                     };
                 },
                 function handlePlacesChange(newValue, oldValue) {
@@ -109,6 +111,15 @@
                     }
 
                     ctrl.result.cap = newValue.capsel;
+
+                    if(newValue.input !== oldValue.input) {
+                        console.log("Input changed!");
+                        console.log(newValue.input);
+                        // TODO
+                        // ctrl.result.nazione.id = newValue.input.idNazione;
+                        // ctrl.result.provincia.id = newValue.input.idProvincia;
+                        // ctrl.result.comune.id = newValue.input.idComune;
+                    }
 
                     ctrl.result.$valid = PlacesSvc.isValidPlace(ctrl.result.nazione, ctrl.result.provincia, ctrl.result.comune);
 

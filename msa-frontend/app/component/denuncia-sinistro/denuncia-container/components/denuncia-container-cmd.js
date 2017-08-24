@@ -6,8 +6,8 @@
         bindings: {
             valoriRicerca: '=',
         },
-        controller: ("denunciaContainerController", ['$rootScope', '$scope', 'SinistriSvc', 'UtilSvc',
-            function ($rootScope, $scope, SinistriSvc, UtilSvc) {
+        controller: ("denunciaContainerController", ['$rootScope', '$scope', 'SinistriSvc', 'UtilSvc', 'PathSvc',
+            function ($rootScope, $scope, SinistriSvc, UtilSvc, PathSvc) {
 
                 var ctrl = this;
 
@@ -17,9 +17,14 @@
                 ctrl.datiContraente = {};           // Viene passato a step-cmd.js
 
                 ctrl.aggiornaMappe = function () {
-                    ctrl.mappe.push("M12");
-                    console.log("Mappe");
-                    console.log(ctrl.mappe);
+
+                    PathSvc.getNextPath(ctrl.sinistroProvvisorio.segnalazione.garanziaSelected, ctrl.sinistroProvvisorio.numSinistroProvv)
+                        .then(function (response) {
+                        var path = UtilSvc.mapToValueArray(response.data.result);
+                        ctrl.mappe = path;
+                        console.log("Mappe");
+                        console.log(ctrl.mappe);
+                    });
                 };
 
                 $scope.aggiornaMappe = function () {

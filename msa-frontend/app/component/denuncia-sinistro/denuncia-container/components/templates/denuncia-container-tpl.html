@@ -1,11 +1,11 @@
 <msa-banner-denuncia></msa-banner-denuncia>
 
 <section class="row denunciaSinistro">
-	<div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 leftContainer">
-		<msa-step dati-contraente="$ctrl.datiContraente"></msa-step>
-	</div>
-	<div class="col-lg-10 col-md-10 col-sm-8 col-xs-12 rightContainer">
-		<msa-segnalazione
+    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 leftContainer">
+        <msa-step dati-contraente="$ctrl.datiContraente"></msa-step>
+    </div>
+    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-12 rightContainer">
+        <msa-segnalazione
                 numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
                 sinistro-provvisorio="$ctrl.sinistroProvvisorio">
         </msa-segnalazione>
@@ -15,6 +15,11 @@
                 class="msaModule">
         </msa-evento-rca>
 
+        <h2 class="backgroundHint">
+            <!-- TODO: stringa scolpita -->
+            Completa la sezione precedente per proseguire
+        </h2>
 
-	</div>
+    </div>
+
 </section>

@@ -29,6 +29,14 @@ angular.module('msa').service(
                 array.length > 0);
         };
 
+        $svc.mapToValueArray = function (map) {
+            var values = new Array();
+            for(var key in map) {
+                values.push(map[key]);
+            }
+            return values;
+        };
+
         /**
          * Porting dello string format di Java.
          * Registra la funzione se non è presente, una volta presente la utilizza.

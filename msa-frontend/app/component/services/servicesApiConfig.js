@@ -40,4 +40,8 @@ app.service('msaServicesApiUrls', function ($MSAC) {
     this.aprisegnalazione       = apiPath + "/sinistro/{0}/segnalazione/";          //0: numero sinistro provvisorio.
     this.cai                    = apiPath + "/sinistro/{0}/CAI/";                   //0: numero sinistro provvisorio.
 
+    /* DISPATCHER */
+
+    this.nextpath               = apiPath + "/dispatcher/nextPath";
+
 });
