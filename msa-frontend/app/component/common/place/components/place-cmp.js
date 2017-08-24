@@ -10,6 +10,7 @@
         controller: ("msaPlaceController", ['$scope', 'PlacesSvc', function ($scope, PlacesSvc, result) {
 
             var ctrl = this;
+            ctrl.isInputConsumed = false;
 
             ctrl.nazioneSelezionata = undefined;
             ctrl.provinciaSelezionata = undefined;
@@ -84,6 +85,10 @@
                     }
 
                     if (newValue.provsel !== oldValue.provsel) {
+
+                        console.log("newValue.provsel");
+                        console.log(newValue.provsel);
+
                         if (!(newValue.provsel instanceof Object)) {
                             ctrl.result.provincia = undefined;
 
@@ -103,7 +108,8 @@
                             ctrl.caps = [];
                         } else {
                             ctrl.caps = newValue.comsel.cap;
-                            if(newValue.comsel.cap.length === 1) {
+                            if (newValue.comsel.cap !== undefined &&
+                                newValue.comsel.cap.length === 1) {
                                 ctrl.capSelezionato = newValue.comsel.cap[0];
                             }
                             ctrl.result.comune = newValue.comsel;
@@ -112,16 +118,63 @@
 
                     ctrl.result.cap = newValue.capsel;
 
-                    if(newValue.input !== oldValue.input) {
-                        console.log("Input changed!");
-                        console.log(newValue.input);
-                        // TODO
-                        // ctrl.result.nazione.id = newValue.input.idNazione;
-                        // ctrl.result.provincia.id = newValue.input.idProvincia;
-                        // ctrl.result.comune.id = newValue.input.idComune;
+                    /* Input */
+
+                    if (!ctrl.isInputConsumed) {
+                        if (newValue.input !== undefined &&
+                            newValue.input !== oldValue.input) {
+
+                            console.log("Input changed!");
+                            console.log(newValue.input);
+
+                            ctrl.isInputConsumed = true;
+
+                            PlacesSvc.getNazioneById(newValue.input.idNazione).then(function (response) {
+
+                                var desNazione = response.data.result;
+                                var nazione = {
+                                    id: newValue.input.idNazione,
+                                    descrizione: desNazione
+                                };
+
+                                ctrl.nazioneSelezionata = nazione;
+
+                            });
+
+                            if (newValue.input.idComune > -1) {
+
+                                PlacesSvc.getProvinciaById(newValue.input.idProvincia).then(function (response) {
+
+                                    var desProvincia = response.data.result;
+                                    var provincia = {
+                                        id: 1, //serve un id per forza! :(
+                                        codProvincia: newValue.input.idProvincia,
+                                        descrizione: desProvincia
+                                    };
+
+                                    ctrl.provinciaSelezionata = provincia;
+
+                                });
+
+                                PlacesSvc.getComuneById(newValue.input.idComune).then(function (response) {
+
+                                    var desComune = response.data.result;
+                                    var comune = {
+                                        id: newValue.input.idComune,
+                                        descrizione: desComune
+                                    };
+
+                                    ctrl.comuneSelezionato = comune;
+                                    ctrl.capSelezionato = newValue.input.cap;
+
+                                });
+
+                            }
+                        }
                     }
 
                     ctrl.result.$valid = PlacesSvc.isValidPlace(ctrl.result.nazione, ctrl.result.provincia, ctrl.result.comune);
+                    console.log(ctrl.result);
 
                 }, true
             );

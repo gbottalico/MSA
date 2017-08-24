@@ -3,10 +3,17 @@ angular.module('msa').service(
     [
         '$http',
         'msaServicesApiUrls',
-        '$sessionStorage',
-        function ($http, msaServicesApiUrls) {
+        'UtilSvc',
+        function ($http, msaServicesApiUrls, UtilSvc) {
 
             var $svc = this;
+
+            var codice = {
+              nazione: "N",
+              provincia: "P",
+              comune: "C"
+            };
+
 
             $svc.getNazioni = function (nomeNazione) {
                 return $http.get(msaServicesApiUrls.nazione + nomeNazione);
@@ -20,8 +27,22 @@ angular.module('msa').service(
                 return $http.get(msaServicesApiUrls.comune + idNazione + "/" + idProvincia + "/" + nomeComune);
             };
 
+            $svc.getNazioneById = function (id) {
+                var url = UtilSvc.stringFormat(msaServicesApiUrls.luogoById, id, codice.nazione);
+                return $http.get(url);
+            };
+
+            $svc.getProvinciaById = function (id) {
+                var url = UtilSvc.stringFormat(msaServicesApiUrls.luogoById, id, codice.provincia);
+                return $http.get(url);
+            };
+
+            $svc.getComuneById = function (id) {
+                var url = UtilSvc.stringFormat(msaServicesApiUrls.luogoById, id, codice.comune);
+                return $http.get(url);
+            };
+
             $svc.getTipiStrada = function () {
-                //return ['Via', 'Viale', 'Piazza'];
                 return $http.get(msaServicesApiUrls.toponomastiche);
             };
 

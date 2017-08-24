@@ -14,20 +14,20 @@
                 var ctrl = this;
                 var parent = $scope.$parent;
 
-                // Variabile utilizzata per gestire gli input da DB
+                ctrl.mapId = "M11";
+
+                // Numero sinistro provvisorio da url
+                ctrl.numeroSinistroProvvisorio = $routeParams.idSinistroProvvisorio;
+
+                // Variabile utilizzata per gestire gli input da DB che devono essere passati
+                // alle componenti che richiedono ulteriori elaborazioni.
                 ctrl.persistence = {};
                 ctrl.persistence.luogo = undefined;
                 ctrl.persistence.dataDenuncia = undefined;
                 ctrl.persistence.dataSinistro = undefined;
 
-
-                ctrl.mapId = "M11";
-
                 ctrl.reEmail = RegexSvc.getEmailRegex();
                 ctrl.reTelefono = RegexSvc.getTelefonoRegex();
-
-                // Numero sinistro provvisorio da url
-                ctrl.numeroSinistroProvvisorio = $routeParams.idSinistroProvvisorio;
 
                 ctrl.mezzicomunicazione = undefined;
                 ctrl.ruoli = undefined;
@@ -86,14 +86,19 @@
                         ctrl.persistence.dataSinistro = new Date();
                     }
 
+                    ctrl.sinistro.provenienza.oraSinistro = sinitroProvvisorio.segnalazione.oraSinistro;
+
                     var tempLuogo = {};
                     tempLuogo.idNazione = sinitroProvvisorio.segnalazione.codNazione;
                     tempLuogo.idProvincia = sinitroProvvisorio.segnalazione.codProvincia;
                     tempLuogo.idComune = sinitroProvvisorio.segnalazione.codComune;
+                    tempLuogo.cap = sinitroProvvisorio.segnalazione.cap;
+
+                    ctrl.sinistro.luogo.tipostrada = sinitroProvvisorio.segnalazione.tipoStrada;
+                    ctrl.sinistro.luogo.denominazione = sinitroProvvisorio.segnalazione.denominazioneStrada;
+                    ctrl.sinistro.luogo.civico = sinitroProvvisorio.segnalazione.civicoStrada;
+
                     ctrl.luogo = tempLuogo;
-
-                    ctrl.sinistro.provenienza.oraSinistro = sinitroProvvisorio.segnalazione.oraSinistro;
-
                     ctrl.sinistro.garanzia = sinitroProvvisorio.segnalazione.garanziaSelected;
                     }
                 ;

@@ -46,7 +46,7 @@ angular.module('msa').service(
          * @returns {*}
          */
 
-        $svc.stringFormat = function (string, args) {
+        $svc.stringFormat = function (string, ...args) {
 
             String.prototype.formatUnicorn = String.prototype.formatUnicorn ||
                 function () {

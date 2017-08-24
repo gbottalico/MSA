@@ -132,7 +132,6 @@ angular.module('msa').service(
                     data.codComune = -1;
                 }
                 data.cap = datiSegnalazione.luogo.cap;
-                //data.indirizzo = datiSegnalazione.luogo.tipostrada + " " + datiSegnalazione.luogo.denominazione + ", " + datiSegnalazione.luogo.civico;
                 data.tipoStrada = datiSegnalazione.luogo.tipostrada;
                 data.denominazioneStrada = datiSegnalazione.luogo.denominazione;
                 data.civicoStrada = datiSegnalazione.luogo.civico;

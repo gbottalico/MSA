@@ -14,7 +14,11 @@ angular.module('msa').service(
                 data.garanziaSelected = garanziaSelected;
                 data.numSinistroProvv = numSinistroProvvisiorio;
 
-                console.log(data);
+                return $http.post(msaServicesApiUrls.nextpath, data);
+
+            };
+
+            $svc.getPath = function (numSinistroProvvisiorio) {
 
                 return $http.post(msaServicesApiUrls.nextpath, data);
 
