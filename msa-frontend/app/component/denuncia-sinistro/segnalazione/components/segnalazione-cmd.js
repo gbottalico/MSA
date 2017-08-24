@@ -13,7 +13,12 @@
 
                 var ctrl = this;
                 var parent = $scope.$parent;
-                ctrl.luogo = undefined;
+
+                // Variabile utilizzata per gestire gli input da DB
+                ctrl.persistence = {};
+                ctrl.persistence.luogo = undefined;
+                ctrl.persistence.dataDenuncia = undefined;
+                ctrl.persistence.dataSinistro = undefined;
 
 
                 ctrl.mapId = "M11";
@@ -66,15 +71,19 @@
                     ctrl.sinistro.provenienza.mezzoComunicazione = sinitroProvvisorio.segnalazione.codMezzo;
 
                     if(sinitroProvvisorio.segnalazione.dataDenuncia !== undefined && sinitroProvvisorio.segnalazione.dataDenuncia !== null) {
-                        ctrl.sinistro.provenienza.dataDenuncia.date = new Date(sinitroProvvisorio.segnalazione.dataDenuncia);
+                        //ctrl.sinistro.provenienza.dataDenuncia.date = new Date(sinitroProvvisorio.segnalazione.dataDenuncia);
+                        ctrl.persistence.dataDenuncia = new Date(sinitroProvvisorio.segnalazione.dataDenuncia);
                     } else {
-                        ctrl.sinistro.provenienza.dataDenuncia.date = new Date();
+                        //ctrl.sinistro.provenienza.dataDenuncia.date = new Date();
+                        ctrl.persistence.dataDenuncia = new Date();
                     }
 
                     if(sinitroProvvisorio.segnalazione.dataOraSinistro !== undefined && sinitroProvvisorio.segnalazione.dataOraSinistro !== null) {
-                        ctrl.sinistro.provenienza.dataSinistro.date = new Date(sinitroProvvisorio.segnalazione.dataOraSinistro);
+                        //ctrl.sinistro.provenienza.dataSinistro.date = new Date(sinitroProvvisorio.segnalazione.dataOraSinistro);
+                        ctrl.persistence.dataSinistro = new Date(sinitroProvvisorio.segnalazione.dataOraSinistro);
                     } else {
-                        ctrl.sinistro.provenienza.dataSinistro.date = new Date();
+                        //ctrl.sinistro.provenienza.dataSinistro.date = new Date();
+                        ctrl.persistence.dataSinistro = new Date();
                     }
 
                     var tempLuogo = {};

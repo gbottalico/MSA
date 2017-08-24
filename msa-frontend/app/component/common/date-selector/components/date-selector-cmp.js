@@ -66,7 +66,7 @@
                      * il valore iniziale potrebbe non essere disponibile, ma una volta consumato l'input
                      * non lo usa più.
                      *
-                     * TODO: Verificare
+                     * TODO: Verificare se utile e se funziona al reload della pagina.
                      *
                      */
 
@@ -75,7 +75,7 @@
                             newValues.input !== oldValues.input) {
 
                             ctrl.isInputConsumed = true;
-                            $scope.date = newValues.input.date;
+                            $scope.date = newValues.input;
 
                         }
                     }
