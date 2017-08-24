@@ -113,6 +113,10 @@ public class BaseRepository {
         return mongoTemplate.find(getCriteriaQueryBuilder().addCriteria(criteria), dboClass);
     }
 
+    protected <T> T findOne(final Class<T> dboClass, Pair<String, Object>... attributeValueCouple) {
+        return Optional.ofNullable(findAll(dboClass,attributeValueCouple)).map(e -> e.stream().reduce((a,b) -> b).orElse(null)).orElse(null);
+    }
+
     protected <T> List<T> findAll(final Class<T> dboClass,final Query query) {
         return mongoTemplate.find(query,dboClass);
     }

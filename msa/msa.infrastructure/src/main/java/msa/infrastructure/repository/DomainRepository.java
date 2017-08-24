@@ -6,12 +6,12 @@ import msa.domain.object.sinistro.RuoliDO;
 import msa.domain.object.sinistro.rca.IncrociBaremesDO;
 import msa.infrastructure.base.repository.domain.*;
 import msa.infrastructure.persistence.domain.*;
+import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
-import javax.swing.text.html.Option;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Optional;
@@ -90,11 +90,11 @@ public class DomainRepository extends BaseRepository {
     }
 
     public List<ComuneDO> getElencoComuni() {
-        return converter.convertList(comuniRepository.findAll(),ComuneDO.class);
+        return converter.convertList(comuniRepository.findAll(), ComuneDO.class);
     }
 
     public void updateComuni(List<ComuneDO> comuni) {
-        update(comuni,ComuneDBO.class);
+        update(comuni, ComuneDBO.class);
     }
 
 
@@ -107,7 +107,7 @@ public class DomainRepository extends BaseRepository {
         return converter.convertList(autoritaRepository.findAll(), AutoritaDO.class);
     }
 
-    private final Function<CompagniaDBO,CompagniaDO> compagniaDBOToDO = (CompagniaDBO compagniaDBO) -> {
+    private final Function<CompagniaDBO, CompagniaDO> compagniaDBOToDO = (CompagniaDBO compagniaDBO) -> {
         CompagniaDO compagniaDO = new CompagniaDO();
         compagniaDO.setCodFornitore(compagniaDBO.getCodFornitore());
         compagniaDO.setConvenzioneCid(compagniaDBO.getConvenzioneCid());
@@ -200,7 +200,7 @@ public class DomainRepository extends BaseRepository {
     }
 
     public List<ParticelleTopoDO> getParticelleToponomastiche() {
-        return converter.convertList(findAll(ParticelleTopoDBO.class),ParticelleTopoDO.class);
+        return converter.convertList(findAll(ParticelleTopoDBO.class), ParticelleTopoDO.class);
     }
 
     public CompagniaDO getCompagniaByCodCompagnia(final Integer codCompagnia) {
@@ -208,7 +208,7 @@ public class DomainRepository extends BaseRepository {
     }
 
     public BaremesDO getDesbaremesById(final Integer idbaremes) {
-        return converter.convertObject(findById(BaremesDBO.class,idbaremes),BaremesDO.class);
+        return converter.convertObject(findById(BaremesDBO.class, idbaremes), BaremesDO.class);
     }
 
     public IncrociBaremesDO getColpaByBaremes(final BaremesDO cliente, final BaremesDO controparte) {
@@ -217,16 +217,21 @@ public class DomainRepository extends BaseRepository {
 
         Query query = getCriteriaQueryBuilder().addCriteria(Criteria.where(codBaremesCliente).is(cliente.getId()).and(codBaremesControparte).is(controparte.getId()));
         IncrociBaremesDBO incrocio = mongoTemplate.findOne(query, IncrociBaremesDBO.class);
-        return converter.convertObject(incrocio,IncrociBaremesDO.class);
+        return converter.convertObject(incrocio, IncrociBaremesDO.class);
     }
 
-    public Optional<ComuneDO> getComuneById(final String id){
-    return Optional.ofNullable( converter.convertObject(findById(ComuneDBO.class,  FunctionUtils.numberConverter(id,Integer::valueOf)), ComuneDO.class));
+    public Optional<ComuneDO> getComuneById(final String id) {
+        return Optional.ofNullable(converter.convertObject(findOne(ComuneDBO.class,
+                Pair.of(getMongoNameByAttributeName("codComune", ComuneDBO.class),  FunctionUtils.numberConverter(id, Integer::valueOf))
+        ), ComuneDO.class));    }
+
+    public Optional<NazioneDO> getNazioneById(final String id) {
+        return Optional.ofNullable(converter.convertObject(findById(NazioneDBO.class, FunctionUtils.numberConverter(id, Integer::valueOf)), NazioneDO.class));
     }
-    public Optional<NazioneDO> getNazioneById(final String id){
-        return Optional.ofNullable(converter.convertObject(findById(NazioneDBO.class,FunctionUtils.numberConverter(id,Integer::valueOf)),NazioneDO.class));
-    }
-    public Optional<ProvinciaDO> getProvinciaById(final  String id){
-        return Optional.ofNullable(converter.convertObject(findById(ProvinciaDBO.class,FunctionUtils.numberConverter(id,Integer::valueOf)),ProvinciaDO.class));
+
+    public Optional<ProvinciaDO> getProvinciaById(final String id) {
+        return Optional.ofNullable(converter.convertObject(findOne(ProvinciaDBO.class,
+                Pair.of(getMongoNameByAttributeName("codProvincia", ProvinciaDBO.class), FunctionUtils.numberConverter(id, Integer::valueOf))
+        ), ProvinciaDO.class));
     }
 }
