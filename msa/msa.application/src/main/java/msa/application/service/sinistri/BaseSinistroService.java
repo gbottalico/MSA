@@ -35,18 +35,18 @@ public class BaseSinistroService extends BaseService {
 
     private List<SinistroFunction> coupleSinistroFunctions;
 
-    private static Map<String,Class> classiGaranzieMap = new HashMap<>();
+    private static Map<String, Class> classiGaranzieMap = new HashMap<>();
 
     static {
-        classiGaranzieMap.put("0",SinistroRcaDTO.class);
-        classiGaranzieMap.put("1",SinistroFurtoIncendioDTO.class);
-        classiGaranzieMap.put("2",SinistroFurtoIncendioDTO.class);
-        classiGaranzieMap.put("3",SinistroFurtoIncendioDTO.class);
-        classiGaranzieMap.put("4",SinistroKaskoDTO.class);
-        classiGaranzieMap.put("1",SinistroCristalliDTO.class);
+        classiGaranzieMap.put("0", SinistroRcaDTO.class);
+        classiGaranzieMap.put("1", SinistroFurtoIncendioDTO.class);
+        classiGaranzieMap.put("2", SinistroFurtoIncendioDTO.class);
+        classiGaranzieMap.put("3", SinistroFurtoIncendioDTO.class);
+        classiGaranzieMap.put("4", SinistroKaskoDTO.class);
+        classiGaranzieMap.put("1", SinistroCristalliDTO.class);
     }
 
-    protected<T extends BaseSinistroDTO> Class<T> getClassByGaranzia(final String garanziaSelected) {
+    protected <T extends BaseSinistroDTO> Class<T> getClassByGaranzia(final String garanziaSelected) {
         return classiGaranzieMap.get(garanziaSelected);
     }
 
@@ -63,6 +63,7 @@ public class BaseSinistroService extends BaseService {
         coupleSinistroFunctions.add(new SinistroFunction<>(SinistroFurtoIncendioDTO.class, SINISTRO_FURTO_INCENDIO));
         coupleSinistroFunctions.add(new SinistroFunction<>(SinistroKaskoDTO.class, KASKO));
         coupleSinistroFunctions.add(new SinistroFunction<>(SinistroCristalliDTO.class, CRISTALLI));
+        coupleSinistroFunctions.add(new SinistroFunction<>(SinistroInfortuniConducenteDTO.class, INFORTUNI_CONDUCENTE));
 
     }
 
@@ -227,7 +228,7 @@ public class BaseSinistroService extends BaseService {
                 try {
 
                     SinistroKaskoDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistro, SinistroKaskoDO.class);
-                    sinistroByNumProvv.setDanniKasko(converter.convertObject(o.getDanniKasko(),DanniDO.class));
+                    sinistroByNumProvv.setDanniKasko(converter.convertObject(o.getDanniKasko(), DanniDO.class));
                     sinistroByNumProvv.setOsservazioniCliente(o.getOsservazioniCliente());
                     return sinistroByNumProvv;
                 } catch (Exception e) {
@@ -248,5 +249,21 @@ public class BaseSinistroService extends BaseService {
                     throw new InternalMsaException();
                 }
             };
+    private final MsaBiFunction<SinistroInfortuniConducenteDTO, Integer, BaseSinistroDO> INFORTUNI_CONDUCENTE =
+            (o, numSinistro) -> {
+                try {
 
+                    SinistroInfortuniConducenteDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistro, SinistroInfortuniConducenteDO.class);
+                    sinistroByNumProvv.setConducenteDiversoContraente(o.getConducenteDiversoContraente());
+                    sinistroByNumProvv.setDescrizioneDanni(o.getDescrizioneDanni());
+                    sinistroByNumProvv.setOsservazioniInfortunato(o.getOsservazioniInfortunato());
+                    if (o.getAnagraficaInfortunato() != null) {
+                        sinistroByNumProvv.setAnagraficaInfortunato(converter.convertObject(o.getAnagraficaInfortunato(), FullAnagraficaDO.class));
+                    }
+                    return sinistroByNumProvv;
+                } catch (Exception e) {
+                    throw new InternalMsaException();
+                }
+
+            };
 }

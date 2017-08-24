@@ -268,5 +268,14 @@ public class SinistriService extends BaseSinistroService {
 
         }
     }
+    public BaseDTO inserisciInfortuniConducente(SinistroInfortuniConducenteDTO input, Integer numSinistro) throws InternalMsaException {
+        if(salvaSinistro(getSinistroDOByDTO(input,numSinistro))){
+            return new BaseDTO<>();
+        }
+        else{
+            throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione Salvataggio dati sinistro infortuni conducente")));
+
+        }
+    }
 }
 

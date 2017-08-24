@@ -22,6 +22,8 @@ public class BaseSinistroDTO extends AbstractDTO {
     private PeritoDTO perito;
     private Integer numSinistroProvv;
 
+
+
     public String getId() {
         return id;
     }

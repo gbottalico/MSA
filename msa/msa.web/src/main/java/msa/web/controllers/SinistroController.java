@@ -187,4 +187,10 @@ public class SinistroController extends BaseController{
     public BaseDTO salvaCristalli(@RequestBody final SinistroCristalliDTO input, @PathVariable("numero") Integer numSinistro) throws InternalMsaException {
         return sinistriService.inserisciCristalli(input,numSinistro);
     }
+
+    @ApiOperation(value="Metodo che salva i dati di un sinistro di tipo infortuni conducente")
+    @RequestMapping(value="/{numero}/infortuniConducente", method = RequestMethod.POST)
+    public BaseDTO salvaInfortuniConducente(@RequestBody final SinistroInfortuniConducenteDTO input, @PathVariable("numero") Integer numSinistro) throws InternalMsaException {
+        return sinistriService.inserisciInfortuniConducente(input,numSinistro);
+    }
 }
