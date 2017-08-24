@@ -5,6 +5,15 @@ public class SinistroInfortuniConducenteDO extends BaseSinistroDO{
     private String descrizioneDanni;
     private String osservazioniInfortunato;
     private FullAnagraficaDO anagraficaInfortunato;
+    private Boolean interventoAutorita;
+
+    public Boolean getInterventoAutorita() {
+        return interventoAutorita;
+    }
+
+    public void setInterventoAutorita(Boolean interventoAutorita) {
+        this.interventoAutorita = interventoAutorita;
+    }
 
     public Boolean getConducenteDiversoContraente() {
         return conducenteDiversoContraente;

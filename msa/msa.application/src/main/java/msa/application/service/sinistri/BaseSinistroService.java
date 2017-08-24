@@ -230,6 +230,8 @@ public class BaseSinistroService extends BaseService {
                     SinistroKaskoDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistro, SinistroKaskoDO.class);
                     sinistroByNumProvv.setDanniKasko(converter.convertObject(o.getDanniKasko(), DanniDO.class));
                     sinistroByNumProvv.setOsservazioniCliente(o.getOsservazioniCliente());
+                    sinistroByNumProvv.setInterventoAutorita(o.getInterventoAutorita());
+
                     return sinistroByNumProvv;
                 } catch (Exception e) {
                     throw new InternalMsaException();
@@ -244,6 +246,8 @@ public class BaseSinistroService extends BaseService {
                     sinistroByNumProvv.setCodRotturaCristalli(o.getCodRotturaCristalli());
                     sinistroByNumProvv.setFlagFattura(o.getFlagFattura());
                     sinistroByNumProvv.setFlagRiparazione(o.getFlagRiparazione());
+                    sinistroByNumProvv.setInterventoAutorita(o.getInterventoAutorita());
+
                     return sinistroByNumProvv;
                 } catch (Exception e) {
                     throw new InternalMsaException();
@@ -257,6 +261,7 @@ public class BaseSinistroService extends BaseService {
                     sinistroByNumProvv.setConducenteDiversoContraente(o.getConducenteDiversoContraente());
                     sinistroByNumProvv.setDescrizioneDanni(o.getDescrizioneDanni());
                     sinistroByNumProvv.setOsservazioniInfortunato(o.getOsservazioniInfortunato());
+                    sinistroByNumProvv.setInterventoAutorita(o.getInterventoAutorita());
                     if (o.getAnagraficaInfortunato() != null) {
                         sinistroByNumProvv.setAnagraficaInfortunato(converter.convertObject(o.getAnagraficaInfortunato(), FullAnagraficaDO.class));
                     }
