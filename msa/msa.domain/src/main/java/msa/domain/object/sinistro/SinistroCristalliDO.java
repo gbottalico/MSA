@@ -8,6 +8,7 @@ public class SinistroCristalliDO extends BaseSinistroDO {
     private String codRotturaCristalli;
     private Boolean flagRiparazione;
     private Boolean flagFattura;
+    private Boolean interventoAutorita;
 
     public String getDesCristalloRotto() {
         return desCristalloRotto;
@@ -39,5 +40,13 @@ public class SinistroCristalliDO extends BaseSinistroDO {
 
     public void setFlagFattura(Boolean flagFattura) {
         this.flagFattura = flagFattura;
+    }
+
+    public Boolean getInterventoAutorita() {
+        return interventoAutorita;
+    }
+
+    public void setInterventoAutorita(Boolean interventoAutorita) {
+        this.interventoAutorita = interventoAutorita;
     }
 }

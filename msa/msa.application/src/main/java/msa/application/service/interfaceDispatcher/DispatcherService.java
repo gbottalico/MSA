@@ -23,10 +23,19 @@ public class DispatcherService extends DispatcherUtils {
 
     private static final String START_VIEW = "M11";
 
+    public BaseDTO<Map<Integer, String>> getAllInterface(final Integer numSinistroProvv) throws InternalMsaException {
+
+        return new BaseDTO<>(new TreeMap<>(getAllInterface(numSinistroProvv, Boolean.TRUE).map(NavigazioneViewDO::getViewNavigate).orElseThrow(InternalMsaException::new)));
+    }
+
+    private Optional<NavigazioneViewDO> getAllInterface(final Integer numSinistroProvv, Boolean... toDistinct) {
+        return dispatcherRepository.getAllViewBySinistro(numSinistroProvv);
+    }
+
     //Todo FIxME dopo 26 si deve fermare
     public BaseDTO<Map<Integer, String>> getNextInterface(final DispatcherDTO view) throws InternalMsaException {
         final DispatcherDO dispatcherDO = converter.convertObject(view, DispatcherDO.class);
-        final Optional<NavigazioneViewDO> allViewBySinistro = dispatcherRepository.getAllViewBySinistro(view.getNumSinistroProvv());
+        final Optional<NavigazioneViewDO> allViewBySinistro = getAllInterface(view.getNumSinistroProvv(), Boolean.TRUE);
         final String lastView = allViewBySinistro
                 .map(e -> e.getViewNavigate().get(e.getViewNavigate().size() - 1))
                 .orElse(START_VIEW);
