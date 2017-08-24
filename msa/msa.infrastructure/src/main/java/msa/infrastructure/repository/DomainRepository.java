@@ -11,8 +11,10 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
+import javax.swing.text.html.Option;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Function;
 
 @Repository
@@ -216,5 +218,15 @@ public class DomainRepository extends BaseRepository {
         Query query = getCriteriaQueryBuilder().addCriteria(Criteria.where(codBaremesCliente).is(cliente.getId()).and(codBaremesControparte).is(controparte.getId()));
         IncrociBaremesDBO incrocio = mongoTemplate.findOne(query, IncrociBaremesDBO.class);
         return converter.convertObject(incrocio,IncrociBaremesDO.class);
+    }
+
+    public Optional<ComuneDO> getComuneById(final String id){
+    return Optional.ofNullable( converter.convertObject(findById(ComuneDBO.class,  FunctionUtils.numberConverter(id,Integer::valueOf)), ComuneDO.class));
+    }
+    public Optional<NazioneDO> getNazioneById(final String id){
+        return Optional.ofNullable(converter.convertObject(findById(NazioneDBO.class,FunctionUtils.numberConverter(id,Integer::valueOf)),NazioneDO.class));
+    }
+    public Optional<ProvinciaDO> getProvinciaById(final  String id){
+        return Optional.ofNullable(converter.convertObject(findById(ProvinciaDBO.class,FunctionUtils.numberConverter(id,Integer::valueOf)),ProvinciaDO.class));
     }
 }

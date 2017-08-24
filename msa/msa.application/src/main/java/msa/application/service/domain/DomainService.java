@@ -5,16 +5,23 @@ import msa.application.dto.domain.*;
 import msa.application.dto.domain.baremes.BaremesDTO;
 import msa.application.exceptions.InternalMsaException;
 import msa.application.service.base.BaseService;
+import msa.domain.object.dominio.ComuneDO;
+import msa.domain.object.dominio.NazioneDO;
+import msa.domain.object.dominio.ProvinciaDO;
+import msa.infrastructure.costanti.MsaCostanti;
 import msa.infrastructure.repository.DomainRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DomainService extends BaseService {
     @Autowired
     private DomainRepository domainRepository;
+
 
     /**
      * Utilizza il DomainRepository per ottenere la lista delle nazioni che iniziano
@@ -222,9 +229,22 @@ public class DomainService extends BaseService {
 
     public List<ParticelleTopoDTO> getParticelleToponomastiche() throws InternalMsaException {
         try {
-            return converter.convertList(domainRepository.getParticelleToponomastiche(),ParticelleTopoDTO.class);
+            return converter.convertList(domainRepository.getParticelleToponomastiche(), ParticelleTopoDTO.class);
         } catch (Exception e) {
             throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA001"));
         }
+    }
+
+    public String getDesLuogoById(String id, Character param) throws InternalMsaException {
+        if (param.equals(MsaCostanti.PARAM_COMUNE)) {
+            return domainRepository.getComuneById(id).map(ComuneDO::getDescrizione).orElse(null);
+
+        } else if (param.equals(MsaCostanti.PARAM_NAZIONE)) {
+            return domainRepository.getNazioneById(id).map(NazioneDO::getDescrizione).orElse(null);
+
+        } else if (param.equals(MsaCostanti.PARAM_PROVINCIA)) {
+            return domainRepository.getProvinciaById(id).map(ProvinciaDO::getDescProvincia).orElse(null);
+        } else throw new InternalMsaException();
+
     }
 }

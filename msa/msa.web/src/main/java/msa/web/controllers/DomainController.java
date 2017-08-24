@@ -8,10 +8,7 @@ import msa.application.exceptions.InternalMsaException;
 import msa.application.service.domain.DomainService;
 import msa.web.api.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -197,6 +194,7 @@ public class DomainController extends BaseController {
 
     /**
      * Metodo che ottiene la lista di tutti i ruoli
+     *
      * @return un BaseDTO contente le informazioni richieste
      * @throws InternalMsaException
      */
@@ -208,10 +206,20 @@ public class DomainController extends BaseController {
         return result;
     }
 
-    @ApiOperation(value = " Metodo chef ottiene la lista delle particelle toponomastiche")
+    @ApiOperation(value = " Metodo che ottiene la lista delle particelle toponomastiche")
     @RequestMapping(value = "/particelleToponomastiche", method = RequestMethod.GET)
     public BaseDTO<List<ParticelleTopoDTO>> getParticeelleTopo() throws InternalMsaException {
         return new BaseDTO<>(domainService.getParticelleToponomastiche());
+    }
+
+    @ApiOperation(value = " Metodo parametrizzato che ottiene le informazioni di un luogo in base al parametro dato in input ed all'ID dato in input")
+    @RequestMapping(value = "/desLuogoById", method = RequestMethod.GET)
+    public BaseDTO<String> getDesLuogoById(@RequestParam(value = "id", required = true) String id,
+                                           @RequestParam(value = "codLuogo", required = true) Character codLuogo) throws InternalMsaException {
+
+        return new BaseDTO<>(domainService.getDesLuogoById(id, codLuogo));
+
+
     }
 }
 
