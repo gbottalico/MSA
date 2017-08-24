@@ -1,0 +1,8 @@
+{ 
+    "_id" : NumberInt(1), 
+    "_class" : "msa.infrastructure.persistence.dispatcher.NavigazioneViewDBO", 
+    "viewNavigate" : {
+        "0" : "M11", 
+        "1" : "M12"
+    }
+}
