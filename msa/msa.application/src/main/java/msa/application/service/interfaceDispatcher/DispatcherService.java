@@ -3,7 +3,6 @@ package msa.application.service.interfaceDispatcher;
 import msa.application.config.BaseDTO;
 import msa.application.dto.dispatcher.DispatcherDTO;
 import msa.application.exceptions.InternalMsaException;
-import msa.domain.Converter.FunctionUtils;
 import msa.domain.object.dispatcher.DispatcherDO;
 import msa.domain.object.dispatcher.NavigazioneViewDO;
 import msa.infrastructure.repository.DispatcherRepository;
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.*;
 import java.util.function.Supplier;
-import java.util.stream.Collectors;
 
 /**
  * Created by simon.calabrese on 01/08/2017.

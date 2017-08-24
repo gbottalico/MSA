@@ -3,7 +3,6 @@ package msa.application.dto.dispatcher;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.io.Serializable;
-import java.util.Map;
 
 /**
  * Created by simon.calabrese on 01/08/2017.
