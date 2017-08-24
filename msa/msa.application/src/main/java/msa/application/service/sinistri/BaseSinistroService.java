@@ -1,5 +1,6 @@
 package msa.application.service.sinistri;
 
+import msa.application.config.enumerator.MessageType;
 import msa.application.dto.sinistro.*;
 import msa.application.dto.sinistro.anagrafica.AnagraficaTerzePartiDTO;
 import msa.application.dto.sinistro.rca.cai.CaiDTO;
@@ -72,12 +73,16 @@ public class BaseSinistroService extends BaseService {
     }
 
     protected <T extends AbstractDTO, K extends BaseSinistroDO> K getSinistroDOByDTO(T dto, Integer numProvv) throws InternalMsaException {
-        final MsaBiFunction<T, Integer, K> msaBiFunction = this.coupleSinistroFunctions.stream()
-                .filter(e -> e.getClazz().equals(dto.getClass()))
-                .reduce(null,
-                        (a, b) -> b.getBiFunction(),
-                        (a, b) -> b);
-        return msaBiFunction.apply(dto, numProvv);
+        try {
+            final MsaBiFunction<T, Integer, K> msaBiFunction = this.coupleSinistroFunctions.stream()
+                    .filter(e -> e.getClazz().equals(dto.getClass()))
+                    .reduce(null,
+                            (a, b) -> b.getBiFunction(),
+                            (a, b) -> b);
+            return msaBiFunction.apply(dto, numProvv);
+        }catch (InternalMsaException e) {
+            throw new InternalMsaException(e.getExceptionThrowed(),getErrorMessagesByCodErrore(MessageType.ERROR,"MSA012"));
+        }
     }
 
     public class SinistroFunction<T extends AbstractDTO, K> {

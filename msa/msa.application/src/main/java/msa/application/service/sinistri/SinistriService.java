@@ -164,11 +164,15 @@ public class SinistriService extends BaseSinistroService {
         }
     }
 
-    private String calcolaColpaBaremes(CaiDTO input) {
-        BaremesDO baremesCliente = converter.convertObject(input.getBaremesCliente(), BaremesDO.class);
-        BaremesDO baremesControparte = converter.convertObject(input.getBaremesControparte(), BaremesDO.class);
-        IncrociBaremesDO colpaByBaremes = domainRepository.getColpaByBaremes(baremesCliente, baremesControparte);
-        return colpaByBaremes.getCodResponsabilita();
+    private String calcolaColpaBaremes(CaiDTO input) throws InternalMsaException {
+        try {
+            BaremesDO baremesCliente = converter.convertObject(input.getBaremesCliente(), BaremesDO.class);
+            BaremesDO baremesControparte = converter.convertObject(input.getBaremesControparte(), BaremesDO.class);
+            IncrociBaremesDO colpaByBaremes = domainRepository.getColpaByBaremes(baremesCliente, baremesControparte);
+            return colpaByBaremes.getCodResponsabilita();
+        }catch (Exception e) {
+            throw new InternalMsaException(e,getErrorMessagesByCodErrore(MessageType.ERROR,"MSA013"));
+        }
     }
 
     public BaseDTO salvaDannoRcaConducente(DannoRcaDTO input, Integer numSinistro) throws InternalMsaException {

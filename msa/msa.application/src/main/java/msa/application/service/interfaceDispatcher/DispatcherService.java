@@ -1,6 +1,7 @@
 package msa.application.service.interfaceDispatcher;
 
 import msa.application.config.BaseDTO;
+import msa.application.config.enumerator.MessageType;
 import msa.application.dto.dispatcher.DispatcherDTO;
 import msa.application.exceptions.InternalMsaException;
 import msa.domain.object.dispatcher.DispatcherDO;
@@ -24,8 +25,11 @@ public class DispatcherService extends DispatcherUtils {
     private static final String START_VIEW = "M11";
 
     public BaseDTO<Map<Integer, String>> getAllInterface(final Integer numSinistroProvv) throws InternalMsaException {
-
-        return new BaseDTO<>(new TreeMap<>(getAllInterface(numSinistroProvv, Boolean.TRUE).map(NavigazioneViewDO::getViewNavigate).orElseThrow(InternalMsaException::new)));
+        try {
+            return new BaseDTO<>(new TreeMap<>(getAllInterface(numSinistroProvv, Boolean.TRUE).map(NavigazioneViewDO::getViewNavigate).orElseThrow(InternalMsaException::new)));
+        } catch (Exception e) {
+            throw new InternalMsaException(e,getErrorMessagesByCodErrore(MessageType.ERROR,"MSA011"));
+        }
     }
 
     private Optional<NavigazioneViewDO> getAllInterface(final Integer numSinistroProvv, Boolean... toDistinct) {
@@ -34,45 +38,49 @@ public class DispatcherService extends DispatcherUtils {
 
     //Todo FIxME dopo 26 si deve fermare
     public BaseDTO<Map<Integer, String>> getNextInterface(final DispatcherDTO view) throws InternalMsaException {
-        final DispatcherDO dispatcherDO = converter.convertObject(view, DispatcherDO.class);
-        final Optional<NavigazioneViewDO> allViewBySinistro = getAllInterface(view.getNumSinistroProvv(), Boolean.TRUE);
-        final String lastView = allViewBySinistro
-                .map(e -> e.getViewNavigate().get(e.getViewNavigate().size() - 1))
-                .orElse(START_VIEW);
-        final Supplier<String> defaultGet = () -> lastView;
-        dispatcherDO.setLastView(lastView);
-        final NavigazioneViewDO navigazioneAggiornata;
-        //Nel caso in cui siamo nel primo step
-        if (lastView.equalsIgnoreCase(START_VIEW)) {
-            navigazioneAggiornata = new NavigazioneViewDO();
-            navigazioneAggiornata.setNumSinistro(view.getNumSinistroProvv());
-            final Map<Integer, String> starterMap = new HashMap<>();
-            starterMap.put(0, START_VIEW);
-            starterMap.put(getNewIndex(starterMap), dispatcherRepository.getNextInterface(dispatcherDO).orElseGet(defaultGet));
-            navigazioneAggiornata.setViewNavigate(starterMap);
-        } else {
-            //Step Successivi
-            final Optional<String> codeForNextView = getCodeForNextView(dispatcherDO);
-            final Optional<DispatcherDO> newDispatcher;
-            if (codeForNextView.isPresent()) {
-                newDispatcher = codeForNextView.map(e -> {
-                    dispatcherDO.setParamCod(e);
-                    return dispatcherDO;
-                });
+        try {
+            final DispatcherDO dispatcherDO = converter.convertObject(view, DispatcherDO.class);
+            final Optional<NavigazioneViewDO> allViewBySinistro = getAllInterface(view.getNumSinistroProvv(), Boolean.TRUE);
+            final String lastView = allViewBySinistro
+                    .map(e -> e.getViewNavigate().get(e.getViewNavigate().size() - 1))
+                    .orElse(START_VIEW);
+            final Supplier<String> defaultGet = () -> lastView;
+            dispatcherDO.setLastView(lastView);
+            final NavigazioneViewDO navigazioneAggiornata;
+            //Nel caso in cui siamo nel primo step
+            if (lastView.equalsIgnoreCase(START_VIEW)) {
+                navigazioneAggiornata = new NavigazioneViewDO();
+                navigazioneAggiornata.setNumSinistro(view.getNumSinistroProvv());
+                final Map<Integer, String> starterMap = new HashMap<>();
+                starterMap.put(0, START_VIEW);
+                starterMap.put(getNewIndex(starterMap), dispatcherRepository.getNextInterface(dispatcherDO).orElseGet(defaultGet));
+                navigazioneAggiornata.setViewNavigate(starterMap);
             } else {
-                newDispatcher = Optional.of(dispatcherDO);
+                //Step Successivi
+                final Optional<String> codeForNextView = getCodeForNextView(dispatcherDO);
+                final Optional<DispatcherDO> newDispatcher;
+                if (codeForNextView.isPresent()) {
+                    newDispatcher = codeForNextView.map(e -> {
+                        dispatcherDO.setParamCod(e);
+                        return dispatcherDO;
+                    });
+                } else {
+                    newDispatcher = Optional.of(dispatcherDO);
+                }
+                newDispatcher.map(e -> dispatcherRepository.getNextInterface(e));
+                navigazioneAggiornata = newDispatcher.map(e -> dispatcherRepository.getNextInterface(e))
+                        .map(e -> {
+                            final NavigazioneViewDO navigazioneViewDO = allViewBySinistro.get();
+                            if (e.isPresent())
+                                navigazioneViewDO.getViewNavigate().put(getNewIndex(navigazioneViewDO.getViewNavigate()), e.orElseGet(defaultGet));
+                            return navigazioneViewDO;
+                        }).orElse(null);
             }
-            newDispatcher.map(e -> dispatcherRepository.getNextInterface(e));
-            navigazioneAggiornata = newDispatcher.map(e -> dispatcherRepository.getNextInterface(e))
-                    .map(e -> {
-                        final NavigazioneViewDO navigazioneViewDO = allViewBySinistro.get();
-                        if (e.isPresent())
-                            navigazioneViewDO.getViewNavigate().put(getNewIndex(navigazioneViewDO.getViewNavigate()), e.orElseGet(defaultGet));
-                        return navigazioneViewDO;
-                    }).orElse(null);
+            dispatcherRepository.persistInViewNavigated(navigazioneAggiornata);
+            return new BaseDTO<>(new TreeMap<>(navigazioneAggiornata.getViewNavigate()));
+        }catch (Exception e) {
+            throw new InternalMsaException(e,getErrorMessagesByCodErrore(MessageType.ERROR,"MSA010"));
         }
-        dispatcherRepository.persistInViewNavigated(navigazioneAggiornata);
-        return new BaseDTO<>(new TreeMap<>(navigazioneAggiornata.getViewNavigate()));
     }
 
     private Integer getNewIndex(Map<Integer, String> indexViews) {
