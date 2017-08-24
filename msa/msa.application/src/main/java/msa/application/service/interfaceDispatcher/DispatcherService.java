@@ -22,11 +22,6 @@ public class DispatcherService extends DispatcherUtils {
     private DispatcherRepository dispatcherRepository;
 
     private static final String START_VIEW = "M11";
-    private static final Map<Integer, String> DEFAULT_STARTER_MAP = new HashMap<>();
-
-    static {
-        DEFAULT_STARTER_MAP.put(0, START_VIEW);
-    }
 
     //Todo FIxME dopo 26 si deve fermare
     public BaseDTO<Map<Integer, String>> getNextInterface(final DispatcherDTO view) throws InternalMsaException {
@@ -42,8 +37,10 @@ public class DispatcherService extends DispatcherUtils {
         if (lastView.equalsIgnoreCase(START_VIEW)) {
             navigazioneAggiornata = new NavigazioneViewDO();
             navigazioneAggiornata.setNumSinistro(view.getNumSinistroProvv());
-            DEFAULT_STARTER_MAP.put(getNewIndex(DEFAULT_STARTER_MAP), dispatcherRepository.getNextInterface(dispatcherDO).orElseGet(defaultGet));
-            navigazioneAggiornata.setViewNavigate(DEFAULT_STARTER_MAP);
+            final Map<Integer, String> starterMap = new HashMap<>();
+            starterMap.put(0, START_VIEW);
+            starterMap.put(getNewIndex(starterMap), dispatcherRepository.getNextInterface(dispatcherDO).orElseGet(defaultGet));
+            navigazioneAggiornata.setViewNavigate(starterMap);
         } else {
             //Step Successivi
             final Optional<String> codeForNextView = getCodeForNextView(dispatcherDO);
