@@ -90,6 +90,7 @@
                         console.log(newValue.provsel);
 
                         if (!(newValue.provsel instanceof Object)) {
+                            console.log("ramoif");
                             ctrl.result.provincia = undefined;
 
                             ctrl.comuneSelezionato = undefined;
@@ -97,6 +98,9 @@
 
                             ctrl.caps = [];
                         } else {
+                            console.log("ramoelse");
+                            console.log(newValue.provsel);
+                            console.log(ctrl.provinciaSelezionata);
                             ctrl.result.provincia = newValue.provsel;
                         }
                     }
@@ -145,11 +149,13 @@
 
                                 PlacesSvc.getProvinciaById(newValue.input.idProvincia).then(function (response) {
 
+                                    console.log("ProvbyId");
+
                                     var desProvincia = response.data.result;
                                     var provincia = {
                                         id: 1, //serve un id per forza! :(
                                         codProvincia: newValue.input.idProvincia,
-                                        descrizione: desProvincia
+                                        descProvincia: desProvincia
                                     };
 
                                     ctrl.provinciaSelezionata = provincia;
