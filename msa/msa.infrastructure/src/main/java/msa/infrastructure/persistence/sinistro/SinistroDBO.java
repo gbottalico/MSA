@@ -44,8 +44,7 @@ public class SinistroDBO extends AbstractDBO {
 
     @Field("interventoAutorita")
     private Boolean interventoAutorita;
-    @Field("descrizioneDanni")
-    private String descrizioneDanni;
+
 
     //FINE FURTO INCENDIO
     //IN COMUNE FRA FURTOINCENDIO E KASKO
@@ -65,6 +64,41 @@ public class SinistroDBO extends AbstractDBO {
     @Field("flagFattura")
     private Boolean flagFattura;
     //FINE CRISTALLI
+    //INFORTUNI CONDUCENTE
+    @Field("conducenteDiversoContraente")
+    private Boolean conducenteDiversoContraente;
+    //IN COMUNE FRA RCA ED INFORTUNI CONDUCENTE
+    @Field("descrizioneDanni")
+    private String descrizioneDanni;
+    @Field("osservazioniInfortunato")
+    private String osservazioniInfortunato;
+    @Field("anagrafica")
+    private FullAnagraficaDBO anagrafica;
+
+    public Boolean getConducenteDiversoContraente() {
+        return conducenteDiversoContraente;
+    }
+
+    public void setConducenteDiversoContraente(Boolean conducenteDiversoContraente) {
+        this.conducenteDiversoContraente = conducenteDiversoContraente;
+    }
+
+    public String getOsservazioniInfortunato() {
+        return osservazioniInfortunato;
+    }
+
+    public void setOsservazioniInfortunato(String osservazioniInfortunato) {
+        this.osservazioniInfortunato = osservazioniInfortunato;
+    }
+
+    public FullAnagraficaDBO getAnagrafica() {
+        return anagrafica;
+    }
+
+    public void setAnagrafica(FullAnagraficaDBO anagrafica) {
+        this.anagrafica = anagrafica;
+    }
+
     public FullAnagraficaDBO getContraente() {
         return contraente;
     }

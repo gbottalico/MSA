@@ -1,6 +1,5 @@
 package msa.domain.object.sinistro.rca;
 
-import msa.domain.object.sinistro.BaseAnagraficaDO;
 import msa.domain.object.sinistro.FullAnagraficaDO;
 
 import java.util.Date;

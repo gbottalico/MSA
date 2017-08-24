@@ -1,6 +1,5 @@
 package msa.application.service.interfaceDispatcher;
 
-import com.gs.collections.impl.block.factory.Comparators;
 import msa.application.config.BaseDTO;
 import msa.application.dto.dispatcher.DispatcherDTO;
 import msa.application.exceptions.InternalMsaException;
@@ -11,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
-import java.util.stream.Collectors;
+import java.util.function.Supplier;
 
 /**
  * Created by simon.calabrese on 01/08/2017.
@@ -25,22 +24,25 @@ public class DispatcherService extends DispatcherUtils {
     private static final String START_VIEW = "M11";
 
     //Todo FIxME dopo 26 si deve fermare
-    public BaseDTO<List<String>> getNextInterface(final DispatcherDTO view) throws InternalMsaException {
-        DispatcherDO dispatcherDO = converter.convertObject(view, DispatcherDO.class);
+    public BaseDTO<Map<Integer, String>> getNextInterface(final DispatcherDTO view) throws InternalMsaException {
+        final DispatcherDO dispatcherDO = converter.convertObject(view, DispatcherDO.class);
         final Optional<NavigazioneViewDO> allViewBySinistro = dispatcherRepository.getAllViewBySinistro(view.getNumSinistroProvv());
         final String lastView = allViewBySinistro
-                .map(e -> e.getViewNavigate()
-                        .stream()
-                        .max(Comparators.naturalOrder())
-                        .orElse(null))
+                .map(e -> e.getViewNavigate().get(e.getViewNavigate().size() - 1))
                 .orElse(START_VIEW);
+        final Supplier<String> defaultGet = () -> lastView;
         dispatcherDO.setLastView(lastView);
         final NavigazioneViewDO navigazioneAggiornata;
+        //Nel caso in cui siamo nel primo step
         if (lastView.equalsIgnoreCase(START_VIEW)) {
             navigazioneAggiornata = new NavigazioneViewDO();
             navigazioneAggiornata.setNumSinistro(view.getNumSinistroProvv());
-            navigazioneAggiornata.setViewNavigate(new ArrayList<>(Arrays.asList(lastView, dispatcherRepository.getNextInterface(dispatcherDO))));
+            final Map<Integer, String> starterMap = new HashMap<>();
+            starterMap.put(0, START_VIEW);
+            starterMap.put(getNewIndex(starterMap), dispatcherRepository.getNextInterface(dispatcherDO).orElseGet(defaultGet));
+            navigazioneAggiornata.setViewNavigate(starterMap);
         } else {
+            //Step Successivi
             final Optional<String> codeForNextView = getCodeForNextView(dispatcherDO);
             final Optional<DispatcherDO> newDispatcher;
             if (codeForNextView.isPresent()) {
@@ -51,17 +53,20 @@ public class DispatcherService extends DispatcherUtils {
             } else {
                 newDispatcher = Optional.of(dispatcherDO);
             }
+            newDispatcher.map(e -> dispatcherRepository.getNextInterface(e));
             navigazioneAggiornata = newDispatcher.map(e -> dispatcherRepository.getNextInterface(e))
                     .map(e -> {
                         final NavigazioneViewDO navigazioneViewDO = allViewBySinistro.get();
-                        navigazioneViewDO.getViewNavigate().add(e);
+                        if (e.isPresent())
+                            navigazioneViewDO.getViewNavigate().put(getNewIndex(navigazioneViewDO.getViewNavigate()), e.orElseGet(defaultGet));
                         return navigazioneViewDO;
                     }).orElse(null);
         }
         dispatcherRepository.persistInViewNavigated(navigazioneAggiornata);
-        return new BaseDTO<>(navigazioneAggiornata.getViewNavigate()
-                .stream()
-                .sorted(String::compareTo)
-                .collect(Collectors.toList()));
+        return new BaseDTO<>(new TreeMap<>(navigazioneAggiornata.getViewNavigate()));
+    }
+
+    private Integer getNewIndex(Map<Integer, String> indexViews) {
+        return indexViews.keySet().stream().max(Comparator.naturalOrder()).map(e -> e + 1).orElse(null);
     }
 }

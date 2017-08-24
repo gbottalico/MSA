@@ -1,7 +1,6 @@
 package msa.application.dto.sinistro.segnalazione;
 
 import msa.application.dto.sinistro.AbstractDTO;
-import msa.application.dto.sinistro.anagrafica.BaseAnagraficaDTO;
 import msa.application.dto.sinistro.anagrafica.FullAnagraficaDTO;
 
 import java.util.Date;

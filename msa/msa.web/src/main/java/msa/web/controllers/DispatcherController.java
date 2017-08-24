@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import java.util.Map;
 
 /**
  * Created by simon.calabrese on 01/08/2017.
@@ -26,7 +26,7 @@ public class DispatcherController extends BaseController {
 
     @ApiOperation(value = "Metodo che recupera l' interfaccia successiva dato un path")
     @RequestMapping(value = "/nextPath", method = RequestMethod.POST)
-    public BaseDTO<List<String>> getNextInterface(@RequestBody final DispatcherDTO basePath) throws InternalMsaException {
+    public BaseDTO<Map<Integer, String>> getNextInterface(@RequestBody final DispatcherDTO basePath) throws InternalMsaException {
         return dispatcherService.getNextInterface(basePath);
     }
 }

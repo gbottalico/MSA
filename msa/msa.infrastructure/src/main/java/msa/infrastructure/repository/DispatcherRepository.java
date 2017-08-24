@@ -33,21 +33,20 @@ public class DispatcherRepository extends BaseRepository {
     }
 
 
-    public String getNextInterface(final DispatcherDO path) {
+    public Optional<String> getNextInterface(final DispatcherDO path) {
         final Criteria criteria = Criteria
                 .where(getMongoNameByAttributeName("garanzia", AlberoInterfacceDBO.class))
                 .is(String.valueOf(path.getGaranziaSelected()));
         final Query criteriaQuery = getCriteriaQueryBuilder().addCriteria(criteria);
-        final FogliaDBO fogliaDBO = mongoTemplate.findOne(criteriaQuery, AlberoInterfacceDBO.class)
+        final Optional<FogliaDBO> fogliaDBO = mongoTemplate.findOne(criteriaQuery, AlberoInterfacceDBO.class)
                 .getNextTree().stream()
                 .filter(foglia -> (foglia.getThisView().equals(path.getLastView())))
                 .filter(foglia -> path.getParamCod() == null || foglia.getParameter().equals(path.getParamCod()))
-                .findFirst()
-                .orElse(null);
-        return fogliaDBO.getNextView();
+                .findFirst();
+        return fogliaDBO.map(FogliaDBO::getNextView);
     }
 
     public void persistInViewNavigated(final NavigazioneViewDO navigazione) {
-        insert(navigazione, NavigazioneViewDBO.class);
+        update(navigazione, NavigazioneViewDBO.class);
     }
 }

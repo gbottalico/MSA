@@ -1,7 +1,5 @@
 package msa.domain.object.dispatcher;
 
-import java.util.Map;
-
 /**
  * Created by simon.calabrese on 01/08/2017.
  */
