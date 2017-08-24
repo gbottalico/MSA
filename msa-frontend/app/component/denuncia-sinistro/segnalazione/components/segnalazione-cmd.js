@@ -48,11 +48,11 @@
                 /* Utilities */
 
                 ctrl.apriSegnalazione = function () {
-                    // SinistriSvc.apriSegnalazione(ctrl.numeroSinistroProvvisorio, ctrl.sinistro).then(function (response) {
-                    //     console.log(response.data.result);
-                    // });
+                    SinistriSvc.apriSegnalazione(ctrl.numeroSinistroProvvisorio, ctrl.sinistro).then(function (response) {
+                        console.log(response.data.result);
+                    });
 
-                    parent.aggiornaMappe();
+                    //parent.aggiornaMappe();
 
                 };
 
@@ -67,10 +67,17 @@
 
                     ctrl.sinistro.provenienza.mezzoComunicazione = sinitroProvvisorio.segnalazione.codMezzo;
 
-                    //TODO capire come settare la data
-                    //ctrl.sinistro.provenienza.dataDenuncia.date = new Date(sinitroProvvisorio.segnalazione.dataDenuncia);
-                    //ctrl.sinistro.provenienza.dataDenuncia.date = UtilSvc.dateFormat(sinitroProvvisorio.segnalazione.dataDenuncia, "#DD#-#MM#-#YYYY#");
-                    //ctrl.sinistro.provenienza.dataSinistro = new Date(sinitroProvvisorio.segnalazione.dataOraSinistro).toISOString();
+                    if(sinitroProvvisorio.segnalazione.dataDenuncia !== undefined && sinitroProvvisorio.segnalazione.dataDenuncia !== null) {
+                        ctrl.sinistro.provenienza.dataDenuncia.date = new Date(sinitroProvvisorio.segnalazione.dataDenuncia);
+                    } else {
+                        ctrl.sinistro.provenienza.dataDenuncia.date = new Date();
+                    }
+
+                    if(sinitroProvvisorio.segnalazione.dataOraSinistro !== undefined && sinitroProvvisorio.segnalazione.dataOraSinistro != null) {
+                        ctrl.sinistro.provenienza.dataSinistro.date = new Date(sinitroProvvisorio.segnalazione.dataOraSinistro);
+                    } else {
+                        ctrl.sinistro.provenienza.dataSinistro.date = new Date();
+                    }
 
                     ctrl.sinistro.provenienza.oraSinistro = sinitroProvvisorio.segnalazione.oraSinistro;
 

@@ -72,11 +72,19 @@
                 </div>
 
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
-                    <msa-date-selector data-result="$ctrl.sinistro.provenienza.dataDenuncia" data-required="true"></msa-date-selector>
+                    <msa-date-selector
+                            data-result="$ctrl.sinistro.provenienza.dataDenuncia"
+                            data-required="true"
+                            data-input="$ctrl.sinistro.provenienza.dataDenuncia">
+                    </msa-date-selector>
                     <label>{{'global.denunciasinitro.labels.dataDenuncia' | translate}}</label>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
-                    <msa-date-selector data-result="$ctrl.sinistro.provenienza.dataSinistro" data-required="true"></msa-date-selector>
+                    <msa-date-selector
+                            data-result="$ctrl.sinistro.provenienza.dataSinistro"
+                            data-required="true"
+                            data-input="$ctrl.sinistro.provenienza.dataSinistro">
+                    </msa-date-selector>
                     <label>{{'global.denunciasinitro.labels.dataSinistro' | translate}}</label>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">

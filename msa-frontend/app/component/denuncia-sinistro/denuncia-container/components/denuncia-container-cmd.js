@@ -45,7 +45,6 @@
                         }
 
                         ctrl.datiContraente.nascita = ctrl.datiContraente.nascita + ", " + UtilSvc.dateFormat(result.contraente.dataNascita);
-
                         ctrl.datiContraente.cf = result.contraente.cf;
 
 

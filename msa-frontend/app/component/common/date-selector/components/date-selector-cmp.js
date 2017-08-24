@@ -12,21 +12,23 @@
         templateUrl: '../../app/component/common/date-selector/components/templates/date-selector-tpl.html',
         bindings: {
             result: "=",
-            required: '='
+            required: "=",
+            input: "="
         },
         controller: ("msaDateSelectorController", ['$scope', function ($scope) {
 
             var ctrl = this;
 
             $scope.opened = false;
-            $scope.format = "dd-MM-yyyy";
+            $scope.format = "dd/MM/yyyy";
             ctrl.result = {};
+            ctrl.isInputConsumed = false;
 
             $scope.today = function () {
                 $scope.date = new Date();
             };
 
-            $scope.today();
+            //$scope.today();
 
             $scope.dateOptions = {
                 formatYear: 'yy',
@@ -38,32 +40,55 @@
                 $scope.opened = true;
             };
 
-            // $scope.$watch(
-            //     function watchScope(scope) {
-            //         return {
-            //             ctrldate: ctrl.date,
-            //             scopedate: $scope.date
-            //         };
-            //     },
-            //     function handleChanges(newValues, oldValues) {
-            //         ctrl.result.date = ctrl.date;
-            //         if(ctrl.required) {
-            //             ctrl.result.$valid = $scope.date !== undefined;
-            //         } else {
-            //             ctrl.result.$valid = true;
-            //         }
-            //     }, true
-            // );
+            // $scope.$watch("date", function (newValue, oldValue) {
+            //
+            //     ctrl.result.date = $scope.date;
+            //     if(ctrl.required) {
+            //         ctrl.result.$valid = $scope.date !== undefined;
+            //     } else {
+            //         ctrl.result.$valid = true;
+            //     }
+            //
+            // });
 
-            $scope.$watch("date", function (newValue, oldValue) {
-                ctrl.result.date = $scope.date;
-                if(ctrl.required) {
-                    ctrl.result.$valid = $scope.date !== undefined;
-                } else {
-                    ctrl.result.$valid = true;
-                }
+            $scope.$watch(
+                function watchScope(scope) {
+                    return {
+                        date: $scope.date,
+                        input: ctrl.input
+                    };
+                },
+                function handleChanges(newValues, oldValues) {
 
-            });
+                    /**
+                     * Legge l'input date passata come parametro di inizializzazione.
+                     * Osserva il cambiamento di input, perché al momento del caricamento del modulo
+                     * il valore iniziale potrebbe non essere disponibile, ma una volta consumato l'input
+                     * non lo usa più.
+                     *
+                     * TODO: Verificare
+                     *
+                     */
+
+                    if (!ctrl.isInputConsumed) {
+                        if (newValues.input !== undefined &&
+                            newValues.input !== oldValues.input) {
+
+                            ctrl.isInputConsumed = true;
+                            $scope.date = newValues.input.date;
+
+                        }
+                    }
+
+                    ctrl.result.date = $scope.date;
+                    if (ctrl.required) {
+                        ctrl.result.$valid = $scope.date !== undefined;
+                    } else {
+                        ctrl.result.$valid = true;
+                    }
+
+                }, true
+            );
 
         }])
     });
