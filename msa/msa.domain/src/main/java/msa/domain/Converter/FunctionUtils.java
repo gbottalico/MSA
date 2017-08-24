@@ -20,11 +20,25 @@ public final class FunctionUtils {
     }
 
     public static <T extends Number> T numberConverter(String value, Function<String, T> function) {
-        return function.apply(value);
+        if(isNumber(value,function)) {
+            return function.apply(value);
+        } else {
+            return null;
+        }
+    }
+
+    public static <T extends Number> Boolean isNumber(String value, Function<String, T> function) {
+        try {
+            function.apply(value);
+            return Boolean.TRUE;
+        } catch (Exception e) {
+            return Boolean.FALSE;
+        }
     }
 
     /**
      * between NOT inclusive
+     *
      * @param toEvaluate date to check
      * @param dateStart  left side date
      * @param dateEnd    right side date
@@ -37,6 +51,7 @@ public final class FunctionUtils {
 
     /**
      * between inclusive
+     *
      * @param toEvaluate  date to check
      * @param dateStart   left side date
      * @param dateEnd     right side date
@@ -69,13 +84,13 @@ public final class FunctionUtils {
         return java.sql.Date.valueOf(LocalDate.now());
     }
 
-    public static<T> List<T> dinstictList(List<T> toFilter,Function<T,Object> keyEstractor){
+    public static <T> List<T> dinstictList(List<T> toFilter, Function<T, Object> keyEstractor) {
 
         return toFilter
                 .stream()
                 .collect(Collectors.toMap(keyEstractor,
                         e -> e,
-                        (t,t1) -> t))
+                        (t, t1) -> t))
                 .values()
                 .stream()
                 .collect(Collectors.toList());
