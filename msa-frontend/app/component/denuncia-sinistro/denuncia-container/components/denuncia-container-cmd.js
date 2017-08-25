@@ -6,8 +6,8 @@
         bindings: {
             valoriRicerca: '=',
         },
-        controller: ("denunciaContainerController", ['$rootScope', '$scope', 'SinistriSvc', 'UtilSvc', 'PathSvc',
-            function ($rootScope, $scope, SinistriSvc, UtilSvc, PathSvc) {
+        controller: ("denunciaContainerController", ['$rootScope', '$scope', 'SinistriSvc', 'UtilSvc', 'PathSvc', 'AutoritaSvc',
+            function ($rootScope, $scope, SinistriSvc, UtilSvc, PathSvc, AutoritaSvc) {
 
                 var ctrl = this;
 
@@ -80,7 +80,6 @@
                     function handleChanges(newValues, oldValues) {
                         // Non controllo che il numeroSinistroProvvisorio, altrimenti non posso aggiornare il modulo dei dati in step-cmd.js
                         if (newValues.numeroSinistroProvvisorio !== undefined && !(isNaN(newValues.numeroSinistroProvvisorio))) {
-
                             ctrl.getSinistroProvvisorio(newValues.numeroSinistroProvvisorio);
                         }
                     }, true

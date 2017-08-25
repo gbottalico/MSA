@@ -18,6 +18,7 @@
             <!--INPUT RADIO-->
 
                 <pre>{{$ctrl.eventoRca}}</pre>
+                <pre class="col-lg-12">{{$ctrl.persistence}}</pre>
 
                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 classicInputRadio">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 noPaddingLeft">
@@ -58,7 +59,7 @@
 
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
                     <select ng-disabled="!$ctrl.eventoRca.interventoAutorita" ng-model="$ctrl.eventoRca.autoritaIntervenuta">
-                        <option ng-repeat="autorita in $ctrl.autorita" value="{{autorita.id}}">{{autorita.descrizione}}</option>
+                        <option ng-repeat="autorita in $ctrl.autorita" ng-value="{{autorita.id}}" >{{autorita.descrizione}}</option>
                     </select>
                     <label>{{'global.eventorca.labels.qualiautorita' | translate}}</label>
                 </div>
@@ -68,7 +69,13 @@
                     <label>{{'global.eventorca.labels.comando' | translate}}</label>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
-                    <msa-date-selector data-result="$ctrl.eventoRca.date" data-disabled="!($ctrl.eventoRca.interventoAutorita)"></msa-date-selector>
+
+                    <msa-date-selector
+                            data-result="$ctrl.eventoRca.dataDenuncia"
+                            data-input="$ctrl.persistence.dataDenuncia"
+                            data-disabled="!($ctrl.eventoRca.interventoAutorita)">
+
+                    </msa-date-selector>
                     <label>{{'global.eventorca.labels.datadenuncia' | translate}}</label>
                 </div>
             </div>

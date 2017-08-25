@@ -71,18 +71,14 @@
                     ctrl.sinistro.provenienza.mezzoComunicazione = sinitroProvvisorio.segnalazione.codMezzo;
 
                     if(sinitroProvvisorio.segnalazione.dataDenuncia !== undefined && sinitroProvvisorio.segnalazione.dataDenuncia !== null) {
-                        //ctrl.sinistro.provenienza.dataDenuncia.date = new Date(sinitroProvvisorio.segnalazione.dataDenuncia);
                         ctrl.persistence.dataDenuncia = new Date(sinitroProvvisorio.segnalazione.dataDenuncia);
                     } else {
-                        //ctrl.sinistro.provenienza.dataDenuncia.date = new Date();
                         ctrl.persistence.dataDenuncia = new Date();
                     }
 
                     if(sinitroProvvisorio.segnalazione.dataOraSinistro !== undefined && sinitroProvvisorio.segnalazione.dataOraSinistro !== null) {
-                        //ctrl.sinistro.provenienza.dataSinistro.date = new Date(sinitroProvvisorio.segnalazione.dataOraSinistro);
                         ctrl.persistence.dataSinistro = new Date(sinitroProvvisorio.segnalazione.dataOraSinistro);
                     } else {
-                        //ctrl.sinistro.provenienza.dataSinistro.date = new Date();
                         ctrl.persistence.dataSinistro = new Date();
                     }
 
@@ -102,10 +98,6 @@
                     ctrl.sinistro.garanzia = sinitroProvvisorio.segnalazione.garanziaSelected;
                     }
                 ;
-
-                ctrl.back = function () {
-                    ctrl.valoriRicerca = undefined;
-                };
 
                 $scope.$watch(
                     function watchScope(scope) {

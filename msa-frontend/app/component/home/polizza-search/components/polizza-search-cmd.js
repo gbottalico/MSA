@@ -15,7 +15,6 @@
                 ctrl.casaRegole = undefined;
                 ctrl.compagniaSelezionata = undefined;
                 ctrl.valoriRicerca = undefined;
-                ctrl.testDate = undefined; //FIXME remove
 
                 ctrl.numSinistroProvv = undefined;
 

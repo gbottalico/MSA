@@ -8,27 +8,28 @@
             sinistroProvvisorio: "=",
             tempSegnalazione: "="
         },
-        controller: ("eventoRcaController", ['$rootScope', '$scope', 'SinistriSvc', 'AutoritaSvc',
-            function ($rootScope, $scope, SinistriSvc, AutoritaSvc) {
+        controller: ("eventoRcaController", ['$rootScope', '$scope', 'SinistriSvc', 'AutoritaSvc', '$log',
+            function ($rootScope, $scope, SinistriSvc, AutoritaSvc, $log) {
 
                 var ctrl = this;
                 var parent = $scope.$parent;
 
                 ctrl.eventoRca = {};
-
                 ctrl.eventoRca.collisione = true;
                 ctrl.eventoRca.interventoAutorita = true;
                 ctrl.eventoRca.nveicoli = 2;
                 ctrl.eventoRca.autoritaIntervenuta = undefined;
                 ctrl.eventoRca.comandoAutorita = undefined;
-
+                ctrl.eventoRca.dataDenuncia = {};
                 ctrl.isInputConsumed = false;
 
-                AutoritaSvc.getAutorita().then(function (response) {
-                   ctrl.autorita = response.data.result;
-                });
+                ctrl.persistence = {
+                    dataDenuncia: {}
+                };
 
-                ctrl.eventoRca.date = {};
+                AutoritaSvc.getAutorita().then(function (response) {
+                    ctrl.autorita = response.data.result;
+                });
 
                 ctrl.salvaEventoRca = function () {
                     SinistriSvc.salvaEventoRca(ctrl.numeroSinistroProvvisorio, ctrl.eventoRca).then(function (response) {
@@ -47,10 +48,13 @@
 
                         if(!ctrl.isInputConsumed) {
                             if (newValues.sinistroProvvisorio !== undefined) {
-                                ctrl.isInputConsumed = true;
                                 ctrl.eventoRca.collisione = newValues.sinistroProvvisorio.eventoRca.collisione;
                                 ctrl.eventoRca.interventoAutorita = newValues.sinistroProvvisorio.eventoRca.interventoAutorita;
                                 ctrl.eventoRca.nveicoli = newValues.sinistroProvvisorio.eventoRca.numVeicoli;
+                                ctrl.eventoRca.autoritaIntervenuta = newValues.sinistroProvvisorio.eventoRca.codAutorita;
+                                ctrl.eventoRca.comandoAutorita = newValues.sinistroProvvisorio.eventoRca.comandoAutorita;
+                                ctrl.persistence.dataDenuncia = new Date(newValues.sinistroProvvisorio.eventoRca.dataDenuncia);
+                                ctrl.isInputConsumed = true;
                             }
                         }
 

@@ -41,17 +41,6 @@
                 $scope.opened = true;
             };
 
-            // $scope.$watch("date", function (newValue, oldValue) {
-            //
-            //     ctrl.result.date = $scope.date;
-            //     if(ctrl.required) {
-            //         ctrl.result.$valid = $scope.date !== undefined;
-            //     } else {
-            //         ctrl.result.$valid = true;
-            //     }
-            //
-            // });
-
             $scope.$watch(
                 function watchScope(scope) {
                     return {
@@ -66,14 +55,10 @@
                      * Osserva il cambiamento di input, perché al momento del caricamento del modulo
                      * il valore iniziale potrebbe non essere disponibile, ma una volta consumato l'input
                      * non lo usa più.
-                     *
-                     * TODO: Verificare se utile e se funziona al reload della pagina.
-                     *
                      */
 
                     if (!ctrl.isInputConsumed) {
-                        if (newValues.input !== undefined &&
-                            newValues.input !== oldValues.input) {
+                        if (newValues.input !== undefined) {
 
                             ctrl.isInputConsumed = true;
                             $scope.date = newValues.input;
