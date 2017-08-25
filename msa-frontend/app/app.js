@@ -153,6 +153,7 @@ app.factory('messageInterceptor', function ($rootScope) {
         },
         'responseError': function (response) {
             $rootScope.errors = response;
+            console.log(response);
             return response;
         }
     };

@@ -17,19 +17,23 @@
 
                 ctrl.bindUser = function () {
 
-                    console.log(ctrl.datiContraente);
-
                     ctrl.user.nome = ctrl.datiContraente.nome + " " + ctrl.datiContraente.cognome;
                     ctrl.user.cf = ctrl.datiContraente.cf;
 
-                    if (ctrl.datiContraente.luogoNascita.descrizioneComune !== undefined &&
-                        ctrl.datiContraente.luogoNascita.descrizioneComune !== null) {
-                        ctrl.user.nascita = ctrl.datiContraente.luogoNascita.descrizioneComune;
-                    } else {
-                        ctrl.user.nascita = ctrl.datiContraente.luogoNascita.descrizioneNazione;
+                    console.log(ctrl.datiContraente);
+
+                    if (ctrl.datiContraente.luogoNascita !== undefined && ctrl.datiContraente.luogoNascita !== null) {
+                        if (ctrl.datiContraente.luogoNascita.descrizioneComune !== undefined &&
+                            ctrl.datiContraente.luogoNascita.descrizioneComune !== null) {
+                            ctrl.user.nascita = ctrl.datiContraente.luogoNascita.descrizioneComune;
+                        } else {
+                            ctrl.user.nascita = ctrl.datiContraente.luogoNascita.descrizioneNazione;
+                        }
                     }
 
-                    ctrl.user.nascita = ctrl.user.nascita + ", " + UtilSvc.dateFormat(ctrl.datiContraente.dataNascita);
+                    if (ctrl.datiContraente.dataNascita !== undefined) {
+                        ctrl.user.nascita = ctrl.user.nascita + ", " + UtilSvc.dateFormat(ctrl.datiContraente.dataNascita);
+                    }
 
                     ctrl.user.residenza = ctrl.datiContraente.tracking.tipoStrada + " " + ctrl.datiContraente.tracking.denominazioneStrada +
                         ", " + ctrl.datiContraente.tracking.civicoStrada;
@@ -37,7 +41,9 @@
                     //TODO: aggiungere nazione o paese
 
                     ctrl.user.recapiti = [ctrl.datiContraente.tracking.cellulare, ctrl.datiContraente.tracking.telefono, ctrl.datiContraente.tracking.mail];
-                    ctrl.user.recapiti = ctrl.user.recapiti.filter(function(e){ return e === 0 || e }); //TODO: spostare in utilSvc?
+                    ctrl.user.recapiti = ctrl.user.recapiti.filter(function (e) {
+                        return e === 0 || e
+                    }); //TODO: spostare in utilSvc?
                     ctrl.user.recapiti = ctrl.user.recapiti.join(", ");
                 };
 

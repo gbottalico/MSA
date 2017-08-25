@@ -57,12 +57,14 @@
                 </div>
 
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
-                    <select ng-disabled="!$ctrl.eventoRca.interventoAutorita"></select>
+                    <select ng-disabled="!$ctrl.eventoRca.interventoAutorita" ng-model="$ctrl.eventoRca.autoritaIntervenuta">
+                        <option ng-repeat="autorita in $ctrl.autorita" value="{{autorita.id}}">{{autorita.descrizione}}</option>
+                    </select>
                     <label>{{'global.eventorca.labels.qualiautorita' | translate}}</label>
                 </div>
 
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
-                    <input type="text" ng-disabled="!$ctrl.eventoRca.interventoAutorita">
+                    <input type="text" ng-disabled="!$ctrl.eventoRca.interventoAutorita" ng-model="$ctrl.eventoRca.comandoAutorita">
                     <label>{{'global.eventorca.labels.comando' | translate}}</label>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">

@@ -61,7 +61,9 @@ angular.module('msa').service(
                     dataObj.contraente.tracking.comune = datiContraente.residenza.comune.codComune;
                 }
                 if (UtilSvc.isDefined(datiContraente.residenza.indirizzo)) {
-                    dataObj.contraente.tracking.indirizzo = datiContraente.residenza.indirizzo.denominazione + ", " + datiContraente.residenza.indirizzo.civico;
+                    dataObj.contraente.tracking.tipoStrada = datiContraente.residenza.indirizzo.tipostrada;
+                    dataObj.contraente.tracking.denominazioneStrada = datiContraente.residenza.indirizzo.denominazione;
+                    dataObj.contraente.tracking.civicoStrada = datiContraente.residenza.indirizzo.civico;
                 }
 
                 console.log(JSON.stringify(dataObj));
@@ -152,6 +154,10 @@ angular.module('msa').service(
                 dataObj.collisione = datiEventoRca.collisione;
                 dataObj.interventoAutorita = datiEventoRca.interventoAutorita;
                 dataObj.numVeicoli = datiEventoRca.nveicoli;
+                dataObj.codAutorita = datiEventoRca.autoritaIntervenuta;
+                dataObj.comandoAutorita = datiEventoRca.comandoAutorita;
+                dataObj.dataDenuncia = datiEventoRca.date.date;
+
 
                 var stringUrl = UtilSvc.stringFormat(msaServicesApiUrls.rca, idSinistroProvvisorio);
 

@@ -4,6 +4,8 @@
     app.component('msaCai', {
         templateUrl: '../../app/component/denuncia-sinistro/cai/components/templates/cai-tpl.html',
         bindings: {
+            numeroSinistroProvvisorio: "=",
+            sinistroProvvisorio: "=",
             tempSegnalazione: "="
         },
         controller: ("constatazioneAmichevoleController", ['$rootScope', '$scope', 'BaremesSvc',
@@ -82,8 +84,7 @@
                         if(newValues !== oldValues &&
                         newValues.bAssicurato !== undefined &&
                         newValues.bControparte !== undefined) {
-                            //FIXME: rimuovere il 2, è mockup
-                            BaremesSvc.saveBaremesAndGetResponsabilita(2, newValues.bAssicurato, newValues.bControparte, newValues.oAssicurato, newValues.oControparte).then(function (response) {
+                            BaremesSvc.saveBaremesAndGetResponsabilita(ctrl.numeroSinistroProvvisorio, newValues.bAssicurato, newValues.bControparte, newValues.oAssicurato, newValues.oControparte).then(function (response) {
                                 ctrl.setResponsabilitaUI(response.data.result.responsabilita);
                             });
                         }

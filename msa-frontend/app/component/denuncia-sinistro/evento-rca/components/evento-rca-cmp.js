@@ -8,8 +8,8 @@
             sinistroProvvisorio: "=",
             tempSegnalazione: "="
         },
-        controller: ("eventoRcaController", ['$rootScope', '$scope', 'SinistriSvc',
-            function ($rootScope, $scope, SinistriSvc) {
+        controller: ("eventoRcaController", ['$rootScope', '$scope', 'SinistriSvc', 'AutoritaSvc',
+            function ($rootScope, $scope, SinistriSvc, AutoritaSvc) {
 
                 var ctrl = this;
                 var parent = $scope.$parent;
@@ -19,8 +19,14 @@
                 ctrl.eventoRca.collisione = true;
                 ctrl.eventoRca.interventoAutorita = true;
                 ctrl.eventoRca.nveicoli = 2;
+                ctrl.eventoRca.autoritaIntervenuta = undefined;
+                ctrl.eventoRca.comandoAutorita = undefined;
 
                 ctrl.isInputConsumed = false;
+
+                AutoritaSvc.getAutorita().then(function (response) {
+                   ctrl.autorita = response.data.result;
+                });
 
                 ctrl.eventoRca.date = {};
 

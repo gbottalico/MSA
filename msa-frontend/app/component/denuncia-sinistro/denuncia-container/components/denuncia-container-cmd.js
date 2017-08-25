@@ -38,6 +38,23 @@
                     });
                 };
 
+                ctrl.isMappaVisibile = function (nomeMappa) {
+                    switch (nomeMappa) {
+                        case 'M12':
+                            return ctrl.mappe.indexOf('M12') > -1;
+                            break;
+                        case 'M13':
+                            return ctrl.mappe.indexOf('M14') > -1 && ctrl.tempSegnalazione.nveicoli > 1;
+                            break;
+                        case 'M14':
+                            return ctrl.mappe.indexOf('M14') > -1;
+                            break;
+                        default:
+                            return false;
+                            break;
+                    }
+                };
+
                 $scope.aggiornaMappe = function () {
                   ctrl.aggiornaMappe();
                 };
