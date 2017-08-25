@@ -47,7 +47,7 @@
                     function handleChanges(newValues, oldValues) {
 
                         if(!ctrl.isInputConsumed) {
-                            if (newValues.sinistroProvvisorio !== undefined) {
+                            if (newValues.sinistroProvvisorio !== undefined && newValues.sinistroProvvisorio.eventoRca !== undefined && newValues.sinistroProvvisorio.eventoRca !== null) {
                                 ctrl.eventoRca.collisione = newValues.sinistroProvvisorio.eventoRca.collisione;
                                 ctrl.eventoRca.interventoAutorita = newValues.sinistroProvvisorio.eventoRca.interventoAutorita;
                                 ctrl.eventoRca.nveicoli = newValues.sinistroProvvisorio.eventoRca.numVeicoli;

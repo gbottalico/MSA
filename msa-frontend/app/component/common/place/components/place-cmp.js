@@ -101,7 +101,6 @@
                     if (newValue.comsel !== oldValue.comsel) {
                         if (!(newValue.comsel instanceof Object)) {
                             ctrl.result.comune = undefined;
-
                             ctrl.caps = [];
                         } else {
                             ctrl.caps = newValue.comsel.cap;
@@ -125,7 +124,7 @@
 
                             PlacesSvc.getNazioneById(newValue.input.idNazione).then(function (response) {
 
-                                var desNazione = response.data.result;
+                                var desNazione = response.data.result[0];
                                 var nazione = {
                                     id: newValue.input.idNazione,
                                     descrizione: desNazione
@@ -138,29 +137,27 @@
                             if (newValue.input.idComune > -1) {
 
                                 PlacesSvc.getProvinciaById(newValue.input.idProvincia).then(function (response) {
-
-                                    var desProvincia = response.data.result;
+                                    var desProvincia = response.data.result[0];
                                     var provincia = {
                                         id: 1, //serve un id per forza! :(
                                         codProvincia: newValue.input.idProvincia,
                                         descProvincia: desProvincia
                                     };
-
                                     ctrl.provinciaSelezionata = provincia;
-
-                                });
-
-                                PlacesSvc.getComuneById(newValue.input.idComune).then(function (response) {
-
-                                    var desComune = response.data.result;
+                                    return PlacesSvc.getComuneById(newValue.input.idComune);
+                                }).then(function (response) {
+                                    var desComune = response.data.result[0];
                                     var comune = {
                                         id: newValue.input.idComune,
                                         descrizione: desComune
                                     };
-
                                     ctrl.comuneSelezionato = comune;
-                                    ctrl.capSelezionato = newValue.input.cap;
-
+                                    return PlacesSvc.getCapsByIdComune(newValue.input.idComune);
+                                }).then(function (response) {
+                                    var caps = response.data.result;
+                                    ctrl.caps = caps;
+                                    ctrl.comuneSelezionato.cap = caps;
+                                    ctrl.capSelezionato = newValue.input.cap.toString();
                                 });
 
                             }

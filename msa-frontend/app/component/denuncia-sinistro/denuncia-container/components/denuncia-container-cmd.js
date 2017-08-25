@@ -11,7 +11,9 @@
 
                 var ctrl = this;
 
-                ctrl.tempSegnalazione = {};
+                ctrl.tempSegnalazione = {
+                    nveicoli: undefined
+                };
 
                 ctrl.mappe = [];
 

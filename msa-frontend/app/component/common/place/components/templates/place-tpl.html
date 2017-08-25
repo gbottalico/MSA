@@ -24,7 +24,7 @@
 </div>
 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText" ng-disabled="$ctrl.nazioneSelezionata.id > 1">
     <select ng-disabled="$ctrl.nazioneSelezionata.id > 1" ng-model="$ctrl.capSelezionato">
-        <option ng-repeat="cap in $ctrl.caps">{{cap}}</option>
+        <option ng-repeat="cap in $ctrl.caps" value="{{cap}}">{{cap}}</option>
     </select>
     <label>{{'global.denunciasinitro.labels.cap' | translate}}</label>
 </div>

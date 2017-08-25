@@ -9,9 +9,10 @@ angular.module('msa').service(
             var $svc = this;
 
             var codice = {
-              nazione: "N",
-              provincia: "P",
-              comune: "C"
+                nazione: "N",
+                provincia: "P",
+                comune: "C",
+                cap: "A"
             };
 
 
@@ -42,13 +43,18 @@ angular.module('msa').service(
                 return $http.get(url);
             };
 
+            $svc.getCapsByIdComune = function (id) {
+                var url = UtilSvc.stringFormat(msaServicesApiUrls.luogoById, id, codice.cap);
+                return $http.get(url);
+            };
+
             $svc.getTipiStrada = function () {
                 return $http.get(msaServicesApiUrls.toponomastiche);
             };
 
             $svc.isValidPlace = function (nazione, provincia, comune) {
-                if(hasId(nazione)) {
-                    if(nazione.id > 1) {
+                if (hasId(nazione)) {
+                    if (nazione.id > 1) {
                         return true;
                     } else {
                         return hasId(provincia) && hasId(comune);
