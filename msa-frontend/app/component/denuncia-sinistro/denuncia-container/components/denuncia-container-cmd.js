@@ -11,10 +11,13 @@
 
                 var ctrl = this;
 
+                ctrl.tempSegnalazione = {};
+
                 ctrl.mappe = [];
 
                 ctrl.sinistroProvvisorio = undefined;
                 ctrl.datiContraente = {};           // Viene passato a step-cmd.js
+
 
                 ctrl.caricaMappe = function () {
                   PathSvc.getPath(ctrl.sinistroProvvisorio.numSinistroProvv).then(function (response) {
@@ -22,7 +25,7 @@
                       ctrl.mappe = path;
                       console.log("Mappe");
                       console.log(ctrl.mappe);
-                  })
+                  });
                 };
 
                 ctrl.aggiornaMappe = function () {
@@ -42,23 +45,9 @@
                 ctrl.getSinistroProvvisorio = function (numeroSinistroProvvisorio) {
                     SinistriSvc.cercaSinistroProvvisorio(numeroSinistroProvvisorio).then(function (response) {
                         var result = response.data.result;
-                        console.log(response);
                         console.log(result);
                         ctrl.sinistroProvvisorio = result;
-
-                        //TODO spostare la roba che segue nel componente che la visualizza
-
-                        ctrl.datiContraente.nome = result.contraente.nome + " " + result.contraente.cognome;
-
-                        if (result.contraente.luogoNascita.descrizioneComune !== undefined &&
-                            result.contraente.luogoNascita.descrizioneComune !== null) {
-                            ctrl.datiContraente.nascita = result.contraente.luogoNascita.descrizioneComune;
-                        } else {
-                            ctrl.datiContraente.nascita = result.contraente.luogoNascita.descrizioneNazione;
-                        }
-
-                        ctrl.datiContraente.nascita = ctrl.datiContraente.nascita + ", " + UtilSvc.dateFormat(result.contraente.dataNascita);
-                        ctrl.datiContraente.cf = result.contraente.cf;
+                        ctrl.datiContraente = result.contraente;
 
                         ctrl.caricaMappe();
 

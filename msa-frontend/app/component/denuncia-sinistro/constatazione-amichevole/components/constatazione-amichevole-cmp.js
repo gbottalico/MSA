@@ -3,87 +3,42 @@
 
     app.component('msaConstatazioneAmichevole', {
         templateUrl: '../../app/component/denuncia-sinistro/constatazione-amichevole/components/templates/constatazione-amichevole-tpl.html',
-        bindings: {},
-        controller: ("constatazioneAmichevoleController", ['$rootScope', '$scope', 'BaremesSvc',
-            function ($rootScope, $scope, BaremesSvc) {
+        bindings: {
+            numeroSinistroProvvisorio: "=",
+            sinistroProvvisorio: "=",
+            tempSegnalazione: "="
+        },
+        controller: ("constatazioneAmichevoleController", ['$rootScope', '$scope', 'SinistriSvc',
+            function ($rootScope, $scope, SinistriSvc) {
 
                 var ctrl = this;
+                var parent = $scope.$parent;
 
-                ctrl.baremes = undefined;
-                ctrl.baremeAssicurato = undefined;
-                ctrl.baremeControparte = undefined;
+                ctrl.constatazioneAmichevole = true;
+                ctrl.constatazioneAmichevoleControparte = undefined;
 
-                ctrl.responsabilita = {};
-                ctrl.responsabilita.cliente = false;
-                ctrl.responsabilita.controparte = false;
-                ctrl.responsabilita.concorsuale = false;
-                ctrl.responsabilita.nonClassificabile = false;
+                ctrl.salvaCa = function () {
 
-                ctrl.osservazioniAssicurato = undefined;
-                ctrl.osservazioniControparte = undefined;
+                    SinistriSvc.salvaCa(ctrl.numeroSinistroProvvisorio).then(function (response) {
+                        console.log("SalvaCA");
+                        console.log(response.data.result);
+                    });
+                };
 
-
-                BaremesSvc.getBaremes().then(function (response) {
-                    ctrl.baremes = response.data.result;
-                });
-
-                ctrl.setResponsabilitaUI = function (responsabilita) {
-
-                    responsabilita = responsabilita.toUpperCase();
-
-                    switch(responsabilita) {
-                        case "NON CLASSIFICABILE":
-                            ctrl.responsabilita.cliente = false;
-                            ctrl.responsabilita.controparte = false;
-                            ctrl.responsabilita.concorsuale = false;
-                            ctrl.responsabilita.nonClassificabile = true;
-                            break;
-                        case "CLIENTE":
-                            ctrl.responsabilita.cliente = true;
-                            ctrl.responsabilita.controparte = false;
-                            ctrl.responsabilita.concorsuale = false;
-                            ctrl.responsabilita.nonClassificabile = false;
-                            break;
-                        case "CONTROPARTE":
-                            ctrl.responsabilita.cliente = false;
-                            ctrl.responsabilita.controparte = true;
-                            ctrl.responsabilita.concorsuale = false;
-                            ctrl.responsabilita.nonClassificabile = false;
-                            break;
-                        case "CONCORSUALE":
-                            ctrl.responsabilita.cliente = false;
-                            ctrl.responsabilita.controparte = false;
-                            ctrl.responsabilita.concorsuale = true;
-                            ctrl.responsabilita.nonClassificabile = false;
-                            break;
-                        default:
-                            ctrl.responsabilita.cliente = false;
-                            ctrl.responsabilita.controparte = false;
-                            ctrl.responsabilita.concorsuale = false;
-                            ctrl.responsabilita.nonClassificabile = false;
-                            break;
-                    }
-
+                ctrl.bindCa = function () {
+                    //TODO
                 };
 
                 $scope.$watch(
                     function watchScope(scope) {
                         return {
-                            bAssicurato: ctrl.baremeAssicurato,
-                            bControparte: ctrl.baremeControparte,
-                            oAssicurato: ctrl.osservazioniAssicurato,
-                            oControparte: ctrl.osservazioniControparte
+                            sinistroProvvisorio: ctrl.sinistroProvvisorio
                         };
                     },
                     function handleChanges(newValues, oldValues) {
 
-                        if(newValues !== oldValues &&
-                        newValues.bAssicurato !== undefined &&
-                        newValues.bControparte !== undefined) {
-                            //FIXME: rimuovere il 2, è mockup
-                            BaremesSvc.saveBaremesAndGetResponsabilita(2, newValues.bAssicurato, newValues.bControparte, newValues.oAssicurato, newValues.oControparte).then(function (response) {
-                                ctrl.setResponsabilitaUI(response.data.result.responsabilita);
-                            });
+                        if(newValues.sinistroProvvisorio !== undefined) {
+                            ctrl.bindCa();
                         }
 
                     }, true

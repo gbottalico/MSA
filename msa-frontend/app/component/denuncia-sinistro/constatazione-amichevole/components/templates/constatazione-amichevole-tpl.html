@@ -1,143 +1,58 @@
-<section class="row">
-    <div class="containerHeader">
-        <div class="col-lg-1 col-md-1 col-sm-0 col-xs-0"></div>
-        <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 container boxShadow">
-            <div class="header">
-                <h1 class="titleSection">{{'global.cai.title' | translate}}</h1>
-            </div>
+<div class="containerHeader">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container boxShadow">
+        <div class="header">
+            <h1 class="titleSection">{{'global.cai.title' | translate}}</h1>
         </div>
-        <div class="col-lg-1 col-md-1 col-sm-0 col-xs-0"></div>
     </div>
+</div>
 
-    <div class="containerBody">
-        <div class="col-lg-1 col-md-1 col-sm-0 col-xs-0"></div>
-        <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 container boxShadow">
-            <div class="body">
+<div class="containerBody">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container boxShadow">
+        <div class="body">
 
-                <div class="margin-top-1 col-lg-12">
-                    <span class="subsectionTitle">{{'global.cai.title' | translate}}</span>
+            <pre>{{$ctrl.tempSegnalazione}}</pre>
+
+            <!--INPUT RADIO-->
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputRadio">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingLeft">
+                    <input type="radio" ng-value="true" name="compilata" ng-model="$ctrl.constatazioneAmichevole">
+                    <label class="rightLabel">{{'global.generic.si' | translate}}</label>
                 </div>
-
-                <div class="row">
-                    <!--INPUT RADIO-->
-                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputRadio">
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingLeft">
-                            <input type="radio" value="true" checked name="compilata">
-                            <label class="rightLabel">{{'global.generic.si' | translate}}</label>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingRight">
-                            <input type="radio" value="false" name="compilata">
-                            <label class="rightLabel">{{'global.generic.no' | translate}}</label>
-                        </div>
-                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 noPaddingRight">&nbsp;</div>
-                        <label>{{'global.cai.labels.caicompilata' | translate}}</label>
-                    </div>
-                    <!--END INPUT RADIO-->
-
-                    <!--INPUT RADIO-->
-                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 classicInputRadio">
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingLeft">
-                            <input type="radio" value="true" checked name="entrambi">
-                            <label class="rightLabel">{{'global.generic.si' | translate}}</label>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingLeft">
-                            <input type="radio" value="false" name="entrambi">
-                            <label class="rightLabel">{{'global.generic.no' | translate}}</label>
-                        </div>
-                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 noPaddingRight">&nbsp;</div>
-                        <label>{{'global.cai.labels.caicontroparte' | translate}}</label>
-                    </div>
-                    <!--END INPUT RADIO-->
-
-                    <div class="col-lg-12">
-                        <hr class="blueLine"/>
-                    </div>
-
-                    <div class="col-lg-12">
-                        <span class="subsectionTitle">{{'global.cai.labels.compilazione' | translate}}</span>
-                    </div>
-
-                    <div class="col-lg-12">
-                        <table class="table cai-table">
-                            <thead>
-                                <tr>
-                                    <th>{{'global.cai.labels.assicurato' | translate}}</th>
-                                    <th>&nbsp;</th>
-                                    <th>{{'global.cai.labels.controparte' | translate}}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr ng-repeat="bareme in $ctrl.baremes">
-                                    <td class="noPadding">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputRadio noPadding noMargin">
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 noPadding">
-                                                <input type="radio" value="{{bareme.id}}" name="assicurato" ng-model="$ctrl.baremeAssicurato">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        {{bareme.descrizione}}
-                                    </td>
-                                    <td class="noPadding">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputRadio noPadding noMargin">
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 noPadding">
-                                                <input type="radio" value="{{bareme.id}}" name="controparte" ng-model="$ctrl.baremeControparte">
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicTextArea">
-                            <textarea class="textauto" ng-model="$ctrl.osservazioniAssicurato"></textarea>
-                            <label>{{'global.cai.labels.osservazioniassicurato' | translate}}</label>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicTextArea">
-                            <textarea class="textauto" ng-model="$ctrl.osservazioniControparte"></textarea>
-                            <label>{{'global.cai.labels.osservazionicontroparte' | translate}}</label>
-                        </div>
-
-                        <div class="col-lg-12">
-                            <hr class="blueLine"/>
-                        </div>
-
-                        <div class="col-lg-12">
-                            <span class="subsectionTitle">{{'global.cai.labels.responsabilita' | translate}}</span>
-                        </div>
-
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputCheckBox">
-                            <input type="checkbox" id="checkAssicurato" disabled ng-checked="$ctrl.responsabilita.cliente">
-                            <label for="checkAssicurato">{{'global.cai.labels.assicurato' | translate}}</label>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputCheckBox">
-                            <input type="checkbox" id="checkControparte" disabled ng-checked="$ctrl.responsabilita.controparte">
-                            <label for="checkControparte">{{'global.cai.labels.controparte' | translate}}</label>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputCheckBox">
-                            <input type="checkbox" id="checkConcorsuale" disabled ng-checked="$ctrl.responsabilita.concorsuale">
-                            <label for="checkConcorsuale">{{'global.cai.labels.concorsuale' | translate}}</label>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputCheckBox">
-                            <input type="checkbox" id="checkNonClassificabile" disabled ng-checked="$ctrl.responsabilita.nonClassificabile">
-                            <label for="checkNonClassificabile">{{'global.cai.labels.nonclassificabile' | translate}}</label>
-                        </div>
-
-
-                    </div>
-
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingRight">
+                    <input type="radio" ng-value="false" name="compilata" ng-model="$ctrl.constatazioneAmichevole">
+                    <label class="rightLabel">{{'global.generic.no' | translate}}</label>
                 </div>
-
-                <div class="row">
-                    <div class="col-lg-12 classicButton">
-                        <button class="blueButton">
-                            <a><i class="fa fa-plus" aria-hidden="true"></i> Salva e Continua</a>
-                        </button>
-                    </div>
-                </div>
-
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 noPaddingRight">&nbsp;</div>
+                <label>{{'global.cai.labels.caicompilata' | translate}}</label>
             </div>
+            <!--END INPUT RADIO-->
+
+            <!--INPUT RADIO-->
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 classicInputRadio">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingLeft">
+                    <input type="radio" ng-value="true" checked name="entrambi"
+                           ng-model="ctrl.constatazioneAmichevoleControparte">
+                    <label class="rightLabel">{{'global.generic.si' | translate}}</label>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingLeft">
+                    <input type="radio" ng-value="false" name="entrambi"
+                           ng-model="ctrl.constatazioneAmichevoleControparte">
+                    <label class="rightLabel">{{'global.generic.no' | translate}}</label>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 noPaddingRight">&nbsp;</div>
+                <label>{{'global.cai.labels.caicontroparte' | translate}}</label>
+            </div>
+            <!--END INPUT RADIO-->
+
+
+            <div class="row">
+                <div class="col-lg-12 classicButton">
+                    <button class="blueButton" ng-click="$ctrl.salvaCa()">
+                        <a><i class="fa fa-plus" aria-hidden="true"></i> Salva e Continua</a>
+                    </button>
+                </div>
+            </div>
+
         </div>
-        <div class="col-lg-1 col-md-1 col-sm-0 col-xs-0"></div>
     </div>
-</section>
+</div>

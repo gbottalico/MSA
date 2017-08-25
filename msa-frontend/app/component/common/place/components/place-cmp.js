@@ -7,7 +7,7 @@
             result: "=",
             input: "="
         },
-        controller: ("msaPlaceController", ['$scope', 'PlacesSvc', function ($scope, PlacesSvc, result) {
+        controller: ("msaPlaceController", ['$scope', 'PlacesSvc', function ($scope, PlacesSvc) {
 
             var ctrl = this;
             ctrl.isInputConsumed = false;
@@ -86,11 +86,7 @@
 
                     if (newValue.provsel !== oldValue.provsel) {
 
-                        console.log("newValue.provsel");
-                        console.log(newValue.provsel);
-
                         if (!(newValue.provsel instanceof Object)) {
-                            console.log("ramoif");
                             ctrl.result.provincia = undefined;
 
                             ctrl.comuneSelezionato = undefined;
@@ -98,9 +94,6 @@
 
                             ctrl.caps = [];
                         } else {
-                            console.log("ramoelse");
-                            console.log(newValue.provsel);
-                            console.log(ctrl.provinciaSelezionata);
                             ctrl.result.provincia = newValue.provsel;
                         }
                     }
@@ -122,14 +115,11 @@
 
                     ctrl.result.cap = newValue.capsel;
 
-                    /* Input */
+                    /* Input TODO: rivedere */
 
                     if (!ctrl.isInputConsumed) {
                         if (newValue.input !== undefined &&
                             newValue.input !== oldValue.input) {
-
-                            console.log("Input changed!");
-                            console.log(newValue.input);
 
                             ctrl.isInputConsumed = true;
 
@@ -148,8 +138,6 @@
                             if (newValue.input.idComune > -1) {
 
                                 PlacesSvc.getProvinciaById(newValue.input.idProvincia).then(function (response) {
-
-                                    console.log("ProvbyId");
 
                                     var desProvincia = response.data.result;
                                     var provincia = {
@@ -180,8 +168,6 @@
                     }
 
                     ctrl.result.$valid = PlacesSvc.isValidPlace(ctrl.result.nazione, ctrl.result.provincia, ctrl.result.comune);
-                    console.log(ctrl.result);
-
                 }, true
             );
 

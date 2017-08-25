@@ -7,19 +7,19 @@ angular.module('msa').service(
         function ($http, msaServicesApiUrls, UtilSvc) {
 
             var $svc = this;
-            var getOggettoRicerca = function() {
+            var getOggettoRicerca = function () {
 
                 return {
-                    "cognome" : undefined,
-                    "nome" : undefined,
-                    "tipoPersona" : undefined,
-                    "numeroPolizza" : undefined,
-                    "numeroSinistro" : undefined,
-                    "dataEvento" : undefined,
-                    "targa" : undefined,
-                    "numeroProvvisorio" : undefined,
-                    "numeroPreapertura" : undefined,
-                    "compagnia" : undefined
+                    "cognome": undefined,
+                    "nome": undefined,
+                    "tipoPersona": undefined,
+                    "numeroPolizza": undefined,
+                    "numeroSinistro": undefined,
+                    "dataEvento": undefined,
+                    "targa": undefined,
+                    "numeroProvvisorio": undefined,
+                    "numeroPreapertura": undefined,
+                    "compagnia": undefined
                 };
 
             };
@@ -35,15 +35,15 @@ angular.module('msa').service(
                 dataObj.contraente.cf = datiContraente.cf;
 
                 dataObj.contraente.luogoNascita = {};
-                if(UtilSvc.isDefined(datiContraente.nascita.nazione)) {
+                if (UtilSvc.isDefined(datiContraente.nascita.nazione)) {
                     dataObj.contraente.luogoNascita.codNazione = datiContraente.nascita.nazione.id;
                     dataObj.contraente.luogoNascita.descrizioneNazione = datiContraente.nascita.nazione.descrizione;
                 }
-                if(UtilSvc.isDefined(datiContraente.nascita.provincia)) {
+                if (UtilSvc.isDefined(datiContraente.nascita.provincia)) {
                     dataObj.contraente.luogoNascita.codProvincia = datiContraente.nascita.provincia.codProvincia;
                     dataObj.contraente.luogoNascita.descrizioneProvincia = datiContraente.nascita.provincia.desProv;
                 }
-                if(UtilSvc.isDefined(datiContraente.nascita.comune)) {
+                if (UtilSvc.isDefined(datiContraente.nascita.comune)) {
                     dataObj.contraente.luogoNascita.codComune = datiContraente.nascita.comune.codComune;
                     dataObj.contraente.luogoNascita.descrizioneComune = datiContraente.nascita.comune.descrizione;
                 }
@@ -51,16 +51,16 @@ angular.module('msa').service(
                 dataObj.contraente.dataNascita = datiContraente.nascita.data.date;
 
                 dataObj.contraente.tracking = {};
-                if(UtilSvc.isDefined(datiContraente.residenza.nazione)) {
+                if (UtilSvc.isDefined(datiContraente.residenza.nazione)) {
                     dataObj.contraente.tracking.nazione = datiContraente.residenza.nazione.id;
                 }
-                if(UtilSvc.isDefined(datiContraente.residenza.provincia)) {
+                if (UtilSvc.isDefined(datiContraente.residenza.provincia)) {
                     dataObj.contraente.tracking.provincia = datiContraente.residenza.provincia.codProvincia;
                 }
-                if(UtilSvc.isDefined(datiContraente.residenza.comune)) {
+                if (UtilSvc.isDefined(datiContraente.residenza.comune)) {
                     dataObj.contraente.tracking.comune = datiContraente.residenza.comune.codComune;
                 }
-                if(UtilSvc.isDefined(datiContraente.residenza.indirizzo)) {
+                if (UtilSvc.isDefined(datiContraente.residenza.indirizzo)) {
                     dataObj.contraente.tracking.indirizzo = datiContraente.residenza.indirizzo.denominazione + ", " + datiContraente.residenza.indirizzo.civico;
                 }
 
@@ -81,7 +81,7 @@ angular.module('msa').service(
 
             };
 
-            $svc.cercaSinistroProvvisorio = function(numeroSinistroProvvisorio) {
+            $svc.cercaSinistroProvvisorio = function (numeroSinistroProvvisorio) {
 
                 var dataObj = getOggettoRicerca();
                 dataObj.numeroProvvisorio = numeroSinistroProvvisorio;
@@ -121,12 +121,12 @@ angular.module('msa').service(
                 data.oraSinistro = datiSegnalazione.provenienza.oraSinistro;
 
                 data.codNazione = datiSegnalazione.luogo.nazione.id;
-                if(UtilSvc.hasId(datiSegnalazione.luogo.provincia)) {
+                if (UtilSvc.hasId(datiSegnalazione.luogo.provincia)) {
                     data.codProvincia = datiSegnalazione.luogo.provincia.codProvincia;
                 } else {
                     data.codProvincia = -1;
                 }
-                if(UtilSvc.hasId(datiSegnalazione.luogo.comune)) {
+                if (UtilSvc.hasId(datiSegnalazione.luogo.comune)) {
                     data.codComune = datiSegnalazione.luogo.comune.codComune;
                 } else {
                     data.codComune = -1;
@@ -164,6 +164,18 @@ angular.module('msa').service(
                         "user": '{"idUser": 1,"amministratore": true}'
                     }
                 });
+
+            };
+
+            $svc.salvaCa = function (idSinistroProvvisorio, ca) {
+
+                var data = {};
+                data.caCompilata = ca.constatazioneAmichevole;
+                data.caCompilataControparte = ca.constatazioneAmichevoleControparte;
+
+                var url = UtilSvc.stringFormat(msaServicesApiUrls.ca, idSinistroProvvisorio);
+
+                return $http.post(url, data);
 
             }
 
