@@ -46,3 +46,15 @@
     "_id" : NumberInt(12), 
     "desRuolo" : "Conducente Altro Veicolo"
 }
+{ 
+    "_id" : NumberInt(13), 
+    "desRuolo" : "Legale"
+}
+{ 
+    "_id" : NumberInt(14), 
+    "desRuolo" : "Assicurato"
+}
+{ 
+    "_id" : NumberInt(15), 
+    "desRuolo" : "Controparte"
+}

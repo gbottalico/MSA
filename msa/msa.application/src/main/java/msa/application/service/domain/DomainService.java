@@ -13,9 +13,8 @@ import msa.infrastructure.repository.DomainRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
+import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class DomainService extends BaseService {
@@ -235,19 +234,24 @@ public class DomainService extends BaseService {
         }
     }
 
-    public String getDesLuogoById(String id, Character param) throws InternalMsaException {
+    public List<String> getDesLuogoById(String id, Character param) throws InternalMsaException {
         try {
             if (param.equals(MsaCostanti.PARAM_COMUNE)) {
-                return domainRepository.getComuneById(id).map(ComuneDO::getDescrizione).orElse(null);
+                return domainRepository.getComuneById(id).map(e -> Collections.singletonList(e.getDescrizione())).orElse(null);
 
             } else if (param.equals(MsaCostanti.PARAM_NAZIONE)) {
-                return domainRepository.getNazioneById(id).map(NazioneDO::getDescrizione).orElse(null);
+                return domainRepository.getNazioneById(id).map(e -> Collections.singletonList(e.getDescrizione())).orElse(null);
 
             } else if (param.equals(MsaCostanti.PARAM_PROVINCIA)) {
-                return domainRepository.getProvinciaById(id).map(ProvinciaDO::getDescProvincia).orElse(null);
+                return domainRepository.getProvinciaById(id).map(e -> Collections.singletonList(e.getDescProvincia())).orElse(null);
+            } else if (param.equals(MsaCostanti.PARAM_CAP)) {
+                return domainRepository.getComuneById(id).map(ComuneDO::getCap).orElse(null);
+
             } else throw new InternalMsaException();
         } catch (Exception e) {
-                throw new InternalMsaException(e,getErrorMessagesByCodErrore(MessageType.ERROR, "MSA001"));
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA001"));
         }
     }
+
+
 }

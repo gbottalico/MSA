@@ -212,15 +212,19 @@ public class DomainController extends BaseController {
         return new BaseDTO<>(domainService.getParticelleToponomastiche());
     }
 
-    @ApiOperation(value = " Metodo parametrizzato che ottiene le informazioni di un luogo in base al parametro dato in input ed all'ID dato in input")
+    @ApiOperation(value = " Metodo parametrizzato che ottiene le informazioni " +
+            "di un luogo in base al parametro dato in input ed all'ID dato in input. \n" +
+            "Param : [P: provincia , C : comune, N: nazione, A: lista di CAP]" )
     @RequestMapping(value = "/desLuogoById", method = RequestMethod.GET)
-    public BaseDTO<String> getDesLuogoById(@RequestParam(value = "id", required = true) String id,
+    public BaseDTO<List<String>> getDesLuogoById(@RequestParam(value = "id", required = true) String id,
                                            @RequestParam(value = "codLuogo", required = true) Character codLuogo) throws InternalMsaException {
 
         return new BaseDTO<>(domainService.getDesLuogoById(id, codLuogo));
 
 
     }
+
+
 }
 
 

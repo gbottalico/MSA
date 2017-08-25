@@ -4,6 +4,7 @@ public final class MsaCostanti {
         public static final Character PARAM_COMUNE = 'C';
         public static final Character PARAM_NAZIONE = 'N';
         public static final Character PARAM_PROVINCIA = 'P';
+        public static final Character PARAM_CAP ='A';
 
 
 }

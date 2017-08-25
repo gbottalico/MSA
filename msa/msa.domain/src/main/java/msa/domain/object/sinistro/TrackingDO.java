@@ -91,4 +91,5 @@ public class TrackingDO {
     public void setCivicoStrada(String civicoStrada) {
         this.civicoStrada = civicoStrada;
     }
+
 }
