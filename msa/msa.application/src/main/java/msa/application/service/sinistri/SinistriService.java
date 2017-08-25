@@ -58,7 +58,7 @@ public class SinistriService extends BaseSinistroService {
      */
     public BaseDTO<Map<String, Integer>> salvaSinistro(BaseSinistroDTO input) throws InternalMsaException {
         try {
-            final Integer numSinis = sinistriRepository.insertSinistroProvvisorioAndGetNum(converter.convertObject(input, SinistroRcaDO.class));
+            final Integer numSinis = sinistriRepository.insertSinistroProvvisorioAndGetNum(converter.convertObject(input, BaseSinistroDO.class));
             return new BaseDTO(Stream.of(numSinis).collect(Collectors.toMap(e -> "numSinistroProvvisorio", String::valueOf)));
         } catch (Exception e) {
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA004"));
