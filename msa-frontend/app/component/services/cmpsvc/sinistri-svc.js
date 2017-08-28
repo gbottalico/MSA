@@ -186,7 +186,27 @@ angular.module('msa').service(
 
             $svc.salvaDannoRcaCliente = function (idSinistroProvvisorio, dannoRca) {
 
-            }
+                var dataObj = {};
+                dataObj.anagraficaDanniCliente = {};
+                dataObj.anagraficaDanniCliente.danni = {
+                    a: dannoRca.dannoCliente.middleleft,
+                    adx: dannoRca.dannoCliente.topleft,
+                    asx: dannoRca.dannoCliente.bottomleft,
+                    cdx: dannoRca.dannoCliente.topcenter,
+                    csx: dannoRca.dannoCliente.bottomcenter,
+                    d: dannoRca.dannoCliente.middleright,
+                    ddx: dannoRca.dannoCliente.topright,
+                    descrizioneDanno: dannoRca.descrizioneDannoCliente,
+                    dsx: dannoRca.dannoCliente.bottomright
+                };
+                dataObj.lesioniConducente = dannoRca.lesioniConducente;
+
+                var url = UtilSvc.stringFormat(msaServicesApiUrls.dannorcacliente, idSinistroProvvisorio);
+
+                return $http.post(url, dataObj);
+
+            };
+
 
         }
     ]

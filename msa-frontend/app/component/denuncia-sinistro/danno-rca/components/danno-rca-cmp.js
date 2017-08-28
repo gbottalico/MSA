@@ -8,8 +8,8 @@
             sinistroProvvisorio: "=",
             tempSegnalazione: "="
         },
-        controller: ("dannoRcaContoller", ['$rootScope', '$scope', 'VeicoliSvc',
-            function ($rootScope, $scope, VeicoliSvc) {
+        controller: ("dannoRcaContoller", ['$rootScope', '$scope', 'VeicoliSvc', 'SinistriSvc',
+            function ($rootScope, $scope, VeicoliSvc, SinistriSvc) {
 
                 var ctrl = this;
                 ctrl.dannoRca = {
@@ -26,11 +26,15 @@
                     ctrl.tipoVeicoli = response.data.result;
                 });
 
+                ctrl.salvaDannoRca = function () {
+                    SinistriSvc.salvaDannoRcaCliente(ctrl.numeroSinistroProvvisorio, ctrl.dannoRca).then(function (response) {
+                        console.log(response);
+                    });
+                };
+
                 $scope.$watch(
                     function watchScope(scope) {
-                        return {
-
-                        };
+                        return {};
                     },
                     function handleChanges(newValues, oldValues) {
 
