@@ -4,15 +4,15 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 public class AnagraficaDanniDBO {
     @Field("anagrafica")
-    private FullAnagraficaDBO anagrafica;
+    private FullAnagraficaControparteDBO anagrafica;
     @Field("danni")
     private DanniDBO danni;
 
-    public FullAnagraficaDBO getAnagrafica() {
+    public FullAnagraficaControparteDBO getAnagrafica() {
         return anagrafica;
     }
 
-    public void setAnagrafica(FullAnagraficaDBO anagrafica) {
+    public void setAnagrafica(FullAnagraficaControparteDBO anagrafica) {
         this.anagrafica = anagrafica;
     }
 

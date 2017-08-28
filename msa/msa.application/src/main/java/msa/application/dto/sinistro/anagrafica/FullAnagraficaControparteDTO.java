@@ -3,7 +3,7 @@ package msa.application.dto.sinistro.anagrafica;
 public class FullAnagraficaControparteDTO extends FullAnagraficaDTO {
 private String tipoPersona;
 private String compagnia;
-private String veioolo;
+private String veicolo;
 private String targa;
 private Boolean targaEstera;
 private Boolean targaSpeciale;
@@ -20,7 +20,7 @@ private Boolean targaSpeciale;
         if (targaSpeciale != that.targaSpeciale) return false;
         if (tipoPersona != null ? !tipoPersona.equals(that.tipoPersona) : that.tipoPersona != null) return false;
         if (compagnia != null ? !compagnia.equals(that.compagnia) : that.compagnia != null) return false;
-        if (veioolo != null ? !veioolo.equals(that.veioolo) : that.veioolo != null) return false;
+        if (veicolo != null ? !veicolo.equals(that.veicolo) : that.veicolo != null) return false;
         return targa != null ? targa.equals(that.targa) : that.targa == null;
     }
 
@@ -29,7 +29,7 @@ private Boolean targaSpeciale;
         int result = super.hashCode();
         result = 31 * result + (tipoPersona != null ? tipoPersona.hashCode() : 0);
         result = 31 * result + (compagnia != null ? compagnia.hashCode() : 0);
-        result = 31 * result + (veioolo != null ? veioolo.hashCode() : 0);
+        result = 31 * result + (veicolo != null ? veicolo.hashCode() : 0);
         result = 31 * result + (targa != null ? targa.hashCode() : 0);
         result = 31 * result + (targaEstera ? 1 : 0);
         result = 31 * result + (targaSpeciale ? 1 : 0);
@@ -53,12 +53,12 @@ private Boolean targaSpeciale;
         this.compagnia = compagnia;
     }
 
-    public String getVeioolo() {
-        return veioolo;
+    public String getVeicolo() {
+        return veicolo;
     }
 
-    public void setVeioolo(String veioolo) {
-        this.veioolo = veioolo;
+    public void setVeicolo(String veicolo) {
+        this.veicolo = veicolo;
     }
 
     public String getTarga() {

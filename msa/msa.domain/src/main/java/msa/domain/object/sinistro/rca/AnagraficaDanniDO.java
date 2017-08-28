@@ -1,16 +1,16 @@
 package msa.domain.object.sinistro.rca;
 
-import msa.domain.object.sinistro.FullAnagraficaDO;
+import msa.domain.object.sinistro.FullAnagraficaControparteDO;
 
 public class AnagraficaDanniDO {
-    private FullAnagraficaDO anagrafica;
+    private FullAnagraficaControparteDO anagrafica;
     private DanniDO danni;
 
-    public FullAnagraficaDO getAnagrafica() {
+    public FullAnagraficaControparteDO getAnagrafica() {
         return anagrafica;
     }
 
-    public void setAnagrafica(FullAnagraficaDO anagrafica) {
+    public void setAnagrafica(FullAnagraficaControparteDO anagrafica) {
         this.anagrafica = anagrafica;
     }
 
