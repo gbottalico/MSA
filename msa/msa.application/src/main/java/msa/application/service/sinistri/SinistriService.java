@@ -154,11 +154,18 @@ public class SinistriService extends BaseSinistroService {
      */
     public BaseDTO<Map<String, String>> salvaCAI(CaiDTO input, Integer numSInistroProvv) throws InternalMsaException {
         SinistroRcaDO sinistroRcaDOByDTO = getSinistroDOByDTO(input, numSInistroProvv);
-        String codColpa = calcolaColpaBaremes(input);
-        sinistroRcaDOByDTO.getCai().setColpa(codColpa);
+        final Boolean existControparte = input.getBaremesControparte() != null;
+        final String codColpa;
+        if (existControparte) {
+            codColpa = calcolaColpaBaremes(input);
+            sinistroRcaDOByDTO.getCai().setColpa(codColpa);
+        } else {
+            codColpa = null;
+        }
         if (salvaSinistro(sinistroRcaDOByDTO)) {
-            //Inserire logica baremes
-            return new BaseDTO<>(Stream.of("").collect(Collectors.toMap(e -> "responsabilita", e -> codColpa)));
+            return existControparte ?
+                    new BaseDTO<>(Stream.of("").collect(Collectors.toMap(e -> "responsabilita", e -> codColpa)))
+                    : new BaseDTO<>();
         } else {
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione CAI")));
         }
@@ -170,8 +177,8 @@ public class SinistriService extends BaseSinistroService {
             BaremesDO baremesControparte = converter.convertObject(input.getBaremesControparte(), BaremesDO.class);
             IncrociBaremesDO colpaByBaremes = domainRepository.getColpaByBaremes(baremesCliente, baremesControparte);
             return colpaByBaremes.getCodResponsabilita();
-        }catch (Exception e) {
-            throw new InternalMsaException(e,getErrorMessagesByCodErrore(MessageType.ERROR,"MSA013"));
+        } catch (Exception e) {
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA013"));
         }
     }
 
@@ -253,14 +260,14 @@ public class SinistriService extends BaseSinistroService {
 
     }
 
-    public <T extends BaseSinistroDTO,K extends BaseSinistroDO> T getSinistroByNumProvv(final Integer numSinistro) throws InternalMsaException {
+    public <T extends BaseSinistroDTO, K extends BaseSinistroDO> T getSinistroByNumProvv(final Integer numSinistro) throws InternalMsaException {
         try {
             //Todo MOCK per mancanza di garanzie specifiche o tipi sinistri specifici
             final K sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistro);
             final Class<T> toPass = sinistroByNumProvv.getSegnalazione() == null ? (Class<T>) BaseSinistroDTO.class : getClassByGaranzia(sinistroByNumProvv.getSegnalazione().getGaranziaSelected());
-            return converter.convertObject(sinistroByNumProvv,toPass);
+            return converter.convertObject(sinistroByNumProvv, toPass);
         } catch (Exception e) {
-            throw new InternalMsaException(e,getErrorMessagesByCodErrore(MessageType.ERROR,"MSA009"));
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA009"));
         }
     }
 
@@ -272,11 +279,11 @@ public class SinistriService extends BaseSinistroService {
 
         }
     }
+
     public BaseDTO inserisciInfortuniConducente(SinistroInfortuniConducenteDTO input, Integer numSinistro) throws InternalMsaException {
-        if(salvaSinistro(getSinistroDOByDTO(input,numSinistro))){
+        if (salvaSinistro(getSinistroDOByDTO(input, numSinistro))) {
             return new BaseDTO<>();
-        }
-        else{
+        } else {
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione Salvataggio dati sinistro infortuni conducente")));
 
         }
