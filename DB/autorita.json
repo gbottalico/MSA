@@ -1,27 +1,162 @@
-{ "_id" : 0, "DescrizioneAutorita" : "NESSUN INTERVENTO AUTORITA", "DataInserimento" : null, "DataVariazione" : null }
-{ "_id" : 1, "DescrizioneAutorita" : "AERONAUTICA MILITARE", "DataInserimento" : null, "DataVariazione" : null }
-{ "_id" : 2, "DescrizioneAutorita" : "AUSILIARI AUTOSTRADA", "DataInserimento" : null, "DataVariazione" : null }
-{ "_id" : 3, "DescrizioneAutorita" : "AUSILIARI STRADALI", "DataInserimento" : null, "DataVariazione" : null }
-{ "_id" : 4, "DescrizioneAutorita" : "AUSILIARI VIABILITA", "DataInserimento" : null, "DataVariazione" : null }
-{ "_id" : 5, "DescrizioneAutorita" : "AUTORITA ESTERA", "DataInserimento" : null, "DataVariazione" : null }
-{ "_id" : 6, "DescrizioneAutorita" : "CAPITANERIA DI PORTO", "DataInserimento" : null, "DataVariazione" : null }
-{ "_id" : 7, "DescrizioneAutorita" : "CARABINIERI", "DataInserimento" : null, "DataVariazione" : null }
-{ "_id" : 8, "DescrizioneAutorita" : "CORPO FORESTALE DELLO STATO", "DataInserimento" : null, "DataVariazione" : null }
-{ "_id" : 9, "DescrizioneAutorita" : "ESERCITO ITALIANO", "DataInserimento" : null, "DataVariazione" : null }
-{ "_id" : 10, "DescrizioneAutorita" : "GUARDIA DI FINANZA", "DataInserimento" : null, "DataVariazione" : null }
-{ "_id" : 11, "DescrizioneAutorita" : "GUARDIA FORESTALE", "DataInserimento" : null, "DataVariazione" : null }
-{ "_id" : 12, "DescrizioneAutorita" : "GUARDIA VENATORIA", "DataInserimento" : null, "DataVariazione" : null }
-{ "_id" : 13, "DescrizioneAutorita" : "INFORTUNISTICA STRADALE", "DataInserimento" : null, "DataVariazione" : null }
-{ "_id" : 14, "DescrizioneAutorita" : "MARINA MILITARE", "DataInserimento" : null, "DataVariazione" : null }
-{ "_id" : 15, "DescrizioneAutorita" : "POLIZIA DI STATO", "DataInserimento" : null, "DataVariazione" : null }
-{ "_id" : 16, "DescrizioneAutorita" : "POLIZIA FERROVIARIA", "DataInserimento" : null, "DataVariazione" : null }
-{ "_id" : 17, "DescrizioneAutorita" : "POLIZIA LOCALE", "DataInserimento" : null, "DataVariazione" : null }
-{ "_id" : 18, "DescrizioneAutorita" : "POLIZIA MILITARE", "DataInserimento" : null, "DataVariazione" : null }
-{ "_id" : 19, "DescrizioneAutorita" : "POLIZIA MUNICIPALE", "DataInserimento" : null, "DataVariazione" : null }
-{ "_id" : 20, "DescrizioneAutorita" : "POLIZIA PENITENZIARIA", "DataInserimento" : null, "DataVariazione" : null }
-{ "_id" : 21, "DescrizioneAutorita" : "POLIZIA PROVINCIALE", "DataInserimento" : null, "DataVariazione" : null }
-{ "_id" : 22, "DescrizioneAutorita" : "POLIZIA STRADALE", "DataInserimento" : null, "DataVariazione" : null }
-{ "_id" : 23, "DescrizioneAutorita" : "PROTEZIONE CIVILE", "DataInserimento" : null, "DataVariazione" : null }
-{ "_id" : 24, "DescrizioneAutorita" : "US NAVY SECURITY", "DataInserimento" : null, "DataVariazione" : null }
-{ "_id" : 25, "DescrizioneAutorita" : "VIGILI DEL FUOCO", "DataInserimento" : null, "DataVariazione" : null }
-{ "_id" : 26, "DescrizioneAutorita" : "TIPO AUTORITA INTERVENUTA SCONOSCIUTA", "DataInserimento" : null, "DataVariazione" : null }
+{ 
+    "_id" : NumberInt(0), 
+    "DescrizioneAutorita" : "NESSUN INTERVENTO AUTORITA", 
+    "DataInserimento" : null, 
+    "DataVariazione" : null
+}
+{ 
+    "_id" : NumberInt(1), 
+    "DescrizioneAutorita" : "AERONAUTICA MILITARE", 
+    "DataInserimento" : null, 
+    "DataVariazione" : null
+}
+{ 
+    "_id" : NumberInt(2), 
+    "DescrizioneAutorita" : "AUSILIARI AUTOSTRADA", 
+    "DataInserimento" : null, 
+    "DataVariazione" : null
+}
+{ 
+    "_id" : NumberInt(3), 
+    "DescrizioneAutorita" : "AUSILIARI STRADALI", 
+    "DataInserimento" : null, 
+    "DataVariazione" : null
+}
+{ 
+    "_id" : NumberInt(4), 
+    "DescrizioneAutorita" : "AUSILIARI VIABILITA", 
+    "DataInserimento" : null, 
+    "DataVariazione" : null
+}
+{ 
+    "_id" : NumberInt(5), 
+    "DescrizioneAutorita" : "AUTORITA ESTERA", 
+    "DataInserimento" : null, 
+    "DataVariazione" : null
+}
+{ 
+    "_id" : NumberInt(6), 
+    "DescrizioneAutorita" : "CAPITANERIA DI PORTO", 
+    "DataInserimento" : null, 
+    "DataVariazione" : null
+}
+{ 
+    "_id" : NumberInt(7), 
+    "DescrizioneAutorita" : "CARABINIERI", 
+    "DataInserimento" : null, 
+    "DataVariazione" : null
+}
+{ 
+    "_id" : NumberInt(8), 
+    "DescrizioneAutorita" : "CORPO FORESTALE DELLO STATO", 
+    "DataInserimento" : null, 
+    "DataVariazione" : null
+}
+{ 
+    "_id" : NumberInt(9), 
+    "DescrizioneAutorita" : "ESERCITO ITALIANO", 
+    "DataInserimento" : null, 
+    "DataVariazione" : null
+}
+{ 
+    "_id" : NumberInt(10), 
+    "DescrizioneAutorita" : "GUARDIA DI FINANZA", 
+    "DataInserimento" : null, 
+    "DataVariazione" : null
+}
+{ 
+    "_id" : NumberInt(11), 
+    "DescrizioneAutorita" : "GUARDIA FORESTALE", 
+    "DataInserimento" : null, 
+    "DataVariazione" : null
+}
+{ 
+    "_id" : NumberInt(12), 
+    "DescrizioneAutorita" : "GUARDIA VENATORIA", 
+    "DataInserimento" : null, 
+    "DataVariazione" : null
+}
+{ 
+    "_id" : NumberInt(13), 
+    "DescrizioneAutorita" : "INFORTUNISTICA STRADALE", 
+    "DataInserimento" : null, 
+    "DataVariazione" : null
+}
+{ 
+    "_id" : NumberInt(14), 
+    "DescrizioneAutorita" : "MARINA MILITARE", 
+    "DataInserimento" : null, 
+    "DataVariazione" : null
+}
+{ 
+    "_id" : NumberInt(15), 
+    "DescrizioneAutorita" : "POLIZIA DI STATO", 
+    "DataInserimento" : null, 
+    "DataVariazione" : null
+}
+{ 
+    "_id" : NumberInt(16), 
+    "DescrizioneAutorita" : "POLIZIA FERROVIARIA", 
+    "DataInserimento" : null, 
+    "DataVariazione" : null
+}
+{ 
+    "_id" : NumberInt(17), 
+    "DescrizioneAutorita" : "POLIZIA LOCALE", 
+    "DataInserimento" : null, 
+    "DataVariazione" : null
+}
+{ 
+    "_id" : NumberInt(18), 
+    "DescrizioneAutorita" : "POLIZIA MILITARE", 
+    "DataInserimento" : null, 
+    "DataVariazione" : null
+}
+{ 
+    "_id" : NumberInt(19), 
+    "DescrizioneAutorita" : "POLIZIA MUNICIPALE", 
+    "DataInserimento" : null, 
+    "DataVariazione" : null
+}
+{ 
+    "_id" : NumberInt(20), 
+    "DescrizioneAutorita" : "POLIZIA PENITENZIARIA", 
+    "DataInserimento" : null, 
+    "DataVariazione" : null
+}
+{ 
+    "_id" : NumberInt(21), 
+    "DescrizioneAutorita" : "POLIZIA PROVINCIALE", 
+    "DataInserimento" : null, 
+    "DataVariazione" : null
+}
+{ 
+    "_id" : NumberInt(22), 
+    "DescrizioneAutorita" : "POLIZIA STRADALE", 
+    "DataInserimento" : null, 
+    "DataVariazione" : null
+}
+{ 
+    "_id" : NumberInt(23), 
+    "DescrizioneAutorita" : "PROTEZIONE CIVILE", 
+    "DataInserimento" : null, 
+    "DataVariazione" : null
+}
+{ 
+    "_id" : NumberInt(24), 
+    "DescrizioneAutorita" : "US NAVY SECURITY", 
+    "DataInserimento" : null, 
+    "DataVariazione" : null
+}
+{ 
+    "_id" : NumberInt(25), 
+    "DescrizioneAutorita" : "VIGILI DEL FUOCO", 
+    "DataInserimento" : null, 
+    "DataVariazione" : null
+}
+{ 
+    "_id" : NumberInt(26), 
+    "DescrizioneAutorita" : "TIPO AUTORITA INTERVENUTA SCONOSCIUTA", 
+    "DataInserimento" : null, 
+    "DataVariazione" : null
+}

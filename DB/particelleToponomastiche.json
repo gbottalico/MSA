@@ -1,20 +1,20 @@
 { 
-    "_id" : NumberInt(0),
+    "_id" : NumberInt(0), 
     "des" : "VIA"
 }
-{
-    "_id" : NumberInt(1),
+{ 
+    "_id" : NumberInt(1), 
     "des" : "VICO"
 }
-{
-    "_id" : NumberInt(2),
+{ 
+    "_id" : NumberInt(2), 
     "des" : "VIALE"
 }
-{
-    "_id" : NumberInt(3),
+{ 
+    "_id" : NumberInt(3), 
     "des" : "PIAZZA"
 }
-{
-    "_id" : NumberInt(4),
+{ 
+    "_id" : NumberInt(4), 
     "des" : "STRADA"
 }

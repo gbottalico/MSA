@@ -1,1 +1,112 @@
-{ "_id" : 1, "descrizioneCompagnia" : "prova", "aperturaSenzaCopertura" : false, "garanzieDefaultSenzaCopertura" : [ { "codiceGaranzia" : 1.0, "descrizioneGaranzia" : "prova" } ], "sita" : false, "sic" : false, "carrozzeriaConvenzionata" : false, "incaricoPerito" : false, "aperturaSxFuoriCopertura" : false, "campiObbligatoriRicerca" : [ "boh" ] }
+{ 
+    "_id" : NumberInt(1), 
+    "descrizioneCompagnia" : "prova1", 
+    "aperturaSenzaCopertura" : false, 
+    "garanzieDefaultSenzaCopertura" : [
+        NumberInt(1), 
+        NumberInt(4)
+    ], 
+    "sita" : false, 
+    "sic" : false, 
+    "carrozzeriaConvenzionata" : false, 
+    "incaricoPerito" : false, 
+    "campiObbligatoriRicerca" : [
+        {
+            "idFE" : NumberInt(0), 
+            "required" : true
+        }, 
+        {
+            "idFE" : NumberInt(1), 
+            "required" : true
+        }, 
+        {
+            "idFE" : NumberInt(2), 
+            "required" : true
+        }, 
+        {
+            "idFE" : NumberInt(3), 
+            "required" : true
+        }, 
+        {
+            "idFE" : NumberInt(4), 
+            "required" : false
+        }, 
+        {
+            "idFE" : NumberInt(5), 
+            "required" : false
+        }, 
+        {
+            "idFE" : NumberInt(6), 
+            "required" : true
+        }, 
+        {
+            "idFE" : NumberInt(7), 
+            "required" : false
+        }, 
+        {
+            "idFE" : NumberInt(8), 
+            "required" : false
+        }, 
+        {
+            "idFE" : NumberInt(9), 
+            "required" : false
+        }
+    ], 
+    "idCompagnia" : NumberInt(1)
+}
+{ 
+    "_id" : NumberInt(37), 
+    "descrizioneCompagnia" : "prova2", 
+    "aperturaSenzaCopertura" : false, 
+    "garanzieDefaultSenzaCopertura" : [
+        NumberInt(2), 
+        NumberInt(6)
+    ], 
+    "sita" : true, 
+    "sic" : false, 
+    "carrozzeriaConvenzionata" : false, 
+    "incaricoPerito" : false, 
+    "campiObbligatoriRicerca" : [
+        {
+            "idFE" : NumberInt(0), 
+            "required" : true
+        }, 
+        {
+            "idFE" : NumberInt(1), 
+            "required" : true
+        }, 
+        {
+            "idFE" : NumberInt(2), 
+            "required" : true
+        }, 
+        {
+            "idFE" : NumberInt(3), 
+            "required" : false
+        }, 
+        {
+            "idFE" : NumberInt(4), 
+            "required" : false
+        }, 
+        {
+            "idFE" : NumberInt(5), 
+            "required" : true
+        }, 
+        {
+            "idFE" : NumberInt(6), 
+            "required" : false
+        }, 
+        {
+            "idFE" : NumberInt(7), 
+            "required" : false
+        }, 
+        {
+            "idFE" : NumberInt(8), 
+            "required" : false
+        }, 
+        {
+            "idFE" : NumberInt(9), 
+            "required" : true
+        }
+    ], 
+    "idCompagnia" : NumberInt(1)
+}

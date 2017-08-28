@@ -2,9 +2,45 @@
     "_id" : NumberInt(0), 
     "_class" : "msa.infrastructure.persistence.documenti.DocumentoDBO", 
     "numSinistro" : NumberInt(0), 
-    "path" : "\\\\FGBAL051641\\DocumentiCaricati\\0\\photo2017-08-11 03.30.13.JPG", 
+    "path" : "\\\\FGBAL051641\\DocumentiCaricati\\0\\incrociBaremes2017-08-11 05.56.32.CSV", 
     "codTipoDocumento" : NumberInt(1), 
-    "dataRicezione" : ISODate("2017-08-11T13:30:14.337+0000"), 
+    "dataRicezione" : ISODate("2017-08-11T15:56:32.973+0000"), 
+    "user" : {
+        "idUser" : "abc", 
+        "amministratore" : true
+    }
+}
+{ 
+    "_id" : NumberInt(1), 
+    "_class" : "msa.infrastructure.persistence.documenti.DocumentoDBO", 
+    "numSinistro" : NumberInt(0), 
+    "path" : "\\\\FGBAL051641\\DocumentiCaricati\\0\\photo2017-08-11 05.57.23.JPG", 
+    "codTipoDocumento" : NumberInt(1), 
+    "dataRicezione" : ISODate("2017-08-11T15:57:23.584+0000"), 
+    "user" : {
+        "idUser" : "abc", 
+        "amministratore" : true
+    }
+}
+{ 
+    "_id" : NumberInt(2), 
+    "_class" : "msa.infrastructure.persistence.documenti.DocumentoDBO", 
+    "numSinistro" : NumberInt(0), 
+    "path" : "\\\\FGBAL051641\\DocumentiCaricati\\0\\Sigarette-723272017-08-11 05.58.56.zip", 
+    "codTipoDocumento" : NumberInt(1), 
+    "dataRicezione" : ISODate("2017-08-11T15:58:56.111+0000"), 
+    "user" : {
+        "idUser" : "abc", 
+        "amministratore" : true
+    }
+}
+{ 
+    "_id" : NumberInt(3), 
+    "_class" : "msa.infrastructure.persistence.documenti.DocumentoDBO", 
+    "numSinistro" : NumberInt(0), 
+    "path" : "\\\\FGBAL051641\\DocumentiCaricati\\0\\Sigarette-723272017-08-11 05.59.02.7z", 
+    "codTipoDocumento" : NumberInt(1), 
+    "dataRicezione" : ISODate("2017-08-11T15:59:02.218+0000"), 
     "user" : {
         "idUser" : "abc", 
         "amministratore" : true
