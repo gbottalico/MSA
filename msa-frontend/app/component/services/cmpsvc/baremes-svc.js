@@ -12,14 +12,20 @@ angular.module('msa').service(
                 return $http.get(msaServicesApiUrls.baremes);
             };
 
+            //TODO spostare in sinistriSvc
             $svc.saveBaremesAndGetResponsabilita = function (numeroSinistroProvvisorio, baremeCliente, baremeControparte, noteCliente, noteControparte) {
 
                 var data = {};
                 data.baremesCliente = {};
                 data.baremesCliente.id = baremeCliente;
 
+
                 data.baremesControparte = {};
-                data.baremesControparte.id = baremeControparte;
+                if (baremeControparte !== null) {
+                    data.baremesControparte.id = baremeControparte;
+                } else {
+                    data.baremesControparte = null;
+                }
 
                 data.noteCliente = noteCliente;
                 data.noteControparte = noteControparte;

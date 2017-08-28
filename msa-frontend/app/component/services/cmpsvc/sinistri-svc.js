@@ -156,8 +156,7 @@ angular.module('msa').service(
                 dataObj.numVeicoli = datiEventoRca.nveicoli;
                 dataObj.codAutorita = datiEventoRca.autoritaIntervenuta;
                 dataObj.comandoAutorita = datiEventoRca.comandoAutorita;
-                dataObj.dataDenuncia = datiEventoRca.date.date;
-
+                dataObj.dataDenuncia = datiEventoRca.dataDenuncia.date;
 
                 var stringUrl = UtilSvc.stringFormat(msaServicesApiUrls.rca, idSinistroProvvisorio);
 
@@ -183,7 +182,7 @@ angular.module('msa').service(
 
                 return $http.post(url, data);
 
-            }
+            };
 
         }
     ]

@@ -42,7 +42,7 @@
 
                     ctrl.user.recapiti = [ctrl.datiContraente.tracking.cellulare, ctrl.datiContraente.tracking.telefono, ctrl.datiContraente.tracking.mail];
                     ctrl.user.recapiti = ctrl.user.recapiti.filter(function (e) {
-                        return e === 0 || e
+                        return e === 0 || e;
                     }); //TODO: spostare in utilSvc?
                     ctrl.user.recapiti = ctrl.user.recapiti.join(", ");
                 };
