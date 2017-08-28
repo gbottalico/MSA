@@ -27,6 +27,12 @@
       "patente": "Patente",
       "scadenzapatente": "Data di Scadenza Patente"
     },
+    "veicolo": {
+      "tipo": "Tipo",
+      "targa": "Targa",
+      "speciale": "Speciale",
+      "estera": "Estera"
+    },
     "header": {
       "labels": {
         "title": "Gestione sinistri"
@@ -157,7 +163,11 @@
         "conducente": "Conducente",
         "lesioniconducente": "Il conducente ha riportato lesioni?",
         "contraenteconducente": "Il conducente è diverso dal contraente?",
-        "proprietariocontroparte": "Proprietario veicolo controparte"
+        "proprietariocontroparte": "Proprietario veicolo controparte",
+        "dativeicolocontroparte": "Dati veicolo controparte",
+        "dannicliente": "Danni Cliente",
+        "dannicontroparte": "Danni Controparte",
+        "descrizionedanno": "Descrizione Danno"
 
       }
     },

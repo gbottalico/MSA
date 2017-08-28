@@ -94,7 +94,7 @@
                     ctrl.baremeAssicurato = ctrl.sinistroProvvisorio.cai.baremesCliente.id;
                     ctrl.osservazioniAssicurato = ctrl.sinistroProvvisorio.cai.noteCliente;
 
-                    if (ctrl.sinistroProvvisorio.cai !== undefined && ctrl.sinistroProvvisorio.cai !== null) {
+                    if (ctrl.sinistroProvvisorio.cai.baremesControparte !== undefined && ctrl.sinistroProvvisorio.cai.baremesControparte !== null) {
                         ctrl.baremeControparte = ctrl.sinistroProvvisorio.cai.baremesControparte.id;
                         ctrl.osservazioniControparte = ctrl.sinistroProvvisorio.cai.noteControparte;
                     }

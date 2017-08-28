@@ -43,6 +43,8 @@ app.service('msaServicesApiUrls', function ($MSAC) {
     this.rca                    = apiPath + "/sinistro/{0}/RCA/";                   //0: numero sinistro provvisorio.
     this.cai                    = apiPath + "/sinistro/{0}/CAI/";                   //0: numero sinistro provvisorio.
     this.ca                     = apiPath + "/sinistro/{0}/CA/";                    //0: numero sinistro provvisorio.
+    this.dannorcacliente        = apiPath + "/sinistro/{0}/dannoRCA/conducente";    //0: numero sinistro provvisorio.
+    this.dannorcacontroparte    = apiPath + "/sinistro/{0}/dannoRCA/controparte";   //0: numero sinistro provvisorio.
 
     /* DISPATCHER */
 

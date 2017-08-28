@@ -184,6 +184,10 @@ angular.module('msa').service(
 
             };
 
+            $svc.salvaDannoRcaCliente = function (idSinistroProvvisorio, dannoRca) {
+
+            }
+
         }
     ]
 );

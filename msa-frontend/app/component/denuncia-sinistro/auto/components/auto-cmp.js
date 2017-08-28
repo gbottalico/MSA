@@ -1,10 +1,10 @@
 (function () {
     "use strict";
 
-    app.component('msaAuto', {
+    app.component('msaAutoDepre', {
         templateUrl: '../../app/component/denuncia-sinistro/auto/components/templates/auto-tpl.html',
         bindings: {},
-        controller: ("autoController", ['$rootScope', '$scope', 'SinistriSvc', 'UtilSvc',
+        controller: ("autoControllerDepre", ['$rootScope', '$scope', 'SinistriSvc', 'UtilSvc',
             function ($rootScope, $scope, SinistriSvc, UtilSvc) {
 
                 var ctrl = this;
