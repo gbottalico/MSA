@@ -31,11 +31,31 @@
                     ctrl.baremes = response.data.result;
                 });
 
+                ctrl.salvaCai = function () {
+
+                    var bControparte = undefined;
+                    var oControparte = undefined;
+
+                    if (ctrl.tempSegnalazione.nveicoli > 1) {
+                        bControparte = ctrl.baremeControparte;
+                        oControparte = ctrl.osservazioniControparte;
+                    } else {
+                        bControparte = null;
+                        oControparte = null;
+                    }
+
+                    BaremesSvc.saveBaremesAndGetResponsabilita(ctrl.numeroSinistroProvvisorio, ctrl.baremeAssicurato, bControparte, ctrl.osservazioniAssicurato, oControparte).then(function (response) {
+                        if (response.data.result !== undefined && response.data.result !== null) {
+                            ctrl.setResponsabilitaUI(response.data.result.responsabilita);
+                        }
+                    });
+                };
+
                 ctrl.setResponsabilitaUI = function (responsabilita) {
 
                     responsabilita = responsabilita.toUpperCase();
 
-                    switch(responsabilita) {
+                    switch (responsabilita) {
                         case "NON CLASSIFICABILE":
                             ctrl.responsabilita.cliente = false;
                             ctrl.responsabilita.controparte = false;
@@ -72,22 +92,9 @@
 
                 $scope.$watch(
                     function watchScope(scope) {
-                        return {
-                            bAssicurato: ctrl.baremeAssicurato,
-                            bControparte: ctrl.baremeControparte,
-                            oAssicurato: ctrl.osservazioniAssicurato,
-                            oControparte: ctrl.osservazioniControparte
-                        };
+                        return {};
                     },
                     function handleChanges(newValues, oldValues) {
-
-                        if(newValues !== oldValues &&
-                        newValues.bAssicurato !== undefined &&
-                        newValues.bControparte !== undefined) {
-                            BaremesSvc.saveBaremesAndGetResponsabilita(ctrl.numeroSinistroProvvisorio, newValues.bAssicurato, newValues.bControparte, newValues.oAssicurato, newValues.oControparte).then(function (response) {
-                                ctrl.setResponsabilitaUI(response.data.result.responsabilita);
-                            });
-                        }
 
                     }, true
                 );

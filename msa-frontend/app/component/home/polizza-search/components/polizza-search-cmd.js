@@ -133,9 +133,9 @@
 
                             $scope.calcolaCf = function () {
 
-                                var luogoNascita = $scope.denunciante.nascita.comune
-                                    ? $scope.denunciante.nascita.comune.descrizione
-                                    : $scope.denunciante.nascita.nazione.descrizione;
+                                var luogoNascita = $scope.denunciante.nascita.comune ?
+                                    $scope.denunciante.nascita.comune.descrizione :
+                                    $scope.denunciante.nascita.nazione.descrizione;
 
                                 UtilSvc.calcolaCf($scope.denunciante.cognome, $scope.denunciante.nome, $scope.denunciante.sesso, $scope.denunciante.nascita.data.date, luogoNascita).then(function (response) {
                                     console.log(response);

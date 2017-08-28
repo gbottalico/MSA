@@ -14,19 +14,19 @@
                 var ctrl = this;
                 var parent = $scope.$parent;
 
-                ctrl.constatazioneAmichevole = true;
-                ctrl.constatazioneAmichevoleControparte = undefined;
+                ctrl.ca = {};
+                ctrl.ca.constatazioneAmichevole = true;
+                ctrl.ca.constatazioneAmichevoleControparte = undefined;
 
                 ctrl.salvaCa = function () {
+                    SinistriSvc.salvaCa(ctrl.numeroSinistroProvvisorio, ctrl.ca).then(function (response) {
 
-                    SinistriSvc.salvaCa(ctrl.numeroSinistroProvvisorio).then(function (response) {
-                        console.log("SalvaCA");
-                        console.log(response.data.result);
                     });
                 };
 
                 ctrl.bindCa = function () {
-                    //TODO
+                    ctrl.ca.constatazioneAmichevole = ctrl.sinistroProvvisorio.constatazioneAmichevole.caCompilata;
+                    ctrl.ca.constatazioneAmichevoleControparte = ctrl.sinistroProvvisorio.constatazioneAmichevole.caCompilataControparte;
                 };
 
                 $scope.$watch(
