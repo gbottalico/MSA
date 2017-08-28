@@ -12,7 +12,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by simon.calabrese on 11/08/2017.
@@ -29,8 +31,9 @@ public class DocumentiController extends BaseController {
     public BaseDTO uploadDocumenti(@RequestParam("file") final MultipartFile file,
                                    @PathVariable("numeroSinistro") final Integer numSinistro,
                                    @PathVariable("codTipoDoc") final Integer codTipoDoc,
+                                   @RequestParam(value = "dataRicezione", required = false) final Date dataRicezione,
                                    @RequestHeader(value = "user") final String userHeader) throws InternalMsaException {
-        return documentiService.uploadDocumento(file, numSinistro, codTipoDoc, userHeader);
+        return documentiService.uploadDocumento(file, numSinistro, codTipoDoc, userHeader, Optional.ofNullable(dataRicezione));
     }
 
     @ApiOperation(value = "Metodo che restituisce tutti i documenti caricati per quel sinistro")

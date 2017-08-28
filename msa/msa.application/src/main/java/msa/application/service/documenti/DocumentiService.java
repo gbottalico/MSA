@@ -43,15 +43,16 @@ public class DocumentiService extends BaseService {
      * @param numSinistro
      * @param codTipoDoc
      * @param userHeader
+     * @param dataRicezione
      * @return
      * @throws InternalMsaException
      */
-    public BaseDTO uploadDocumento(MultipartFile file, Integer numSinistro, Integer codTipoDoc, String userHeader) throws InternalMsaException {
+    public BaseDTO uploadDocumento(MultipartFile file, Integer numSinistro, Integer codTipoDoc, String userHeader, Optional<Date> dataRicezione) throws InternalMsaException {
         final String path = saveFileOnDirectory(file, numSinistro);
         try {
             DocumentoDTO documentoDTO = new DocumentoDTO();
             documentoDTO.setCodTipoDocumento(codTipoDoc);
-            documentoDTO.setDataRicezione(new Date());
+            documentoDTO.setDataRicezione(dataRicezione.orElseGet(Date::new));
             documentoDTO.setIdDocumento(documentiRepository.getNextIdDoc());
             documentoDTO.setNumSinistro(numSinistro);
             documentoDTO.setPath(path);
