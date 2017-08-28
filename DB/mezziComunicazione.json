@@ -1,5 +1,30 @@
-{ "_id" : 1, "DescrizioneMezzo" : "Telefono", "DataInserimento" : null, "DataVariazione" : null }
-{ "_id" : 2, "DescrizioneMezzo" : "Fax", "DataInserimento" : null, "DataVariazione" : null }
-{ "_id" : 3, "DescrizioneMezzo" : "Web", "DataInserimento" : null, "DataVariazione" : null }
-{ "_id" : 4, "DescrizioneMezzo" : "Posta", "DataInserimento" : null, "DataVariazione" : null }
-{ "_id" : 5, "DescrizioneMezzo" : "Email", "DataInserimento" : null, "DataVariazione" : null }
+{ 
+    "_id" : NumberInt(1), 
+    "DescrizioneMezzo" : "Telefono", 
+    "DataInserimento" : null, 
+    "DataVariazione" : null
+}
+{ 
+    "_id" : NumberInt(2), 
+    "DescrizioneMezzo" : "Fax", 
+    "DataInserimento" : null, 
+    "DataVariazione" : null
+}
+{ 
+    "_id" : NumberInt(3), 
+    "DescrizioneMezzo" : "Web", 
+    "DataInserimento" : null, 
+    "DataVariazione" : null
+}
+{ 
+    "_id" : NumberInt(4), 
+    "DescrizioneMezzo" : "Posta", 
+    "DataInserimento" : null, 
+    "DataVariazione" : null
+}
+{ 
+    "_id" : NumberInt(5), 
+    "DescrizioneMezzo" : "Email", 
+    "DataInserimento" : null, 
+    "DataVariazione" : null
+}
