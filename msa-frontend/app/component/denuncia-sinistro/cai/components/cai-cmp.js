@@ -90,11 +90,27 @@
 
                 };
 
+                ctrl.bindCai = function () {
+                    ctrl.baremeAssicurato = ctrl.sinistroProvvisorio.cai.baremesCliente.id;
+                    ctrl.osservazioniAssicurato = ctrl.sinistroProvvisorio.cai.noteCliente;
+
+                    if (ctrl.sinistroProvvisorio.cai !== undefined && ctrl.sinistroProvvisorio.cai !== null) {
+                        ctrl.baremeControparte = ctrl.sinistroProvvisorio.cai.baremesControparte.id;
+                        ctrl.osservazioniControparte = ctrl.sinistroProvvisorio.cai.noteControparte;
+                    }
+                };
+
                 $scope.$watch(
                     function watchScope(scope) {
-                        return {};
+                        return {
+                            sinistroProvvisorio: ctrl.sinistroProvvisorio
+                        };
                     },
                     function handleChanges(newValues, oldValues) {
+
+                        if (newValues.sinistroProvvisorio !== undefined) {
+                            ctrl.bindCai();
+                        }
 
                     }, true
                 );
