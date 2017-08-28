@@ -1,15 +1,165 @@
-{ "_id" : 1, "descVeicolo" : "AUTOVETTURA", "convVeicolo" : "S", "codISVAP" : "01", "codAnia" : "A", "gestioneCid" : true, "gestioneCtt" : true, "targaObbligatoria" : true, "codTipologiaVeicoloForfaitCard" : "A" }
-{ "_id" : 2, "descVeicolo" : "AUTOCARRO", "convVeicolo" : "S", "codISVAP" : "03", "codAnia" : "C", "gestioneCid" : true, "gestioneCtt" : true, "targaObbligatoria" : true, "codTipologiaVeicoloForfaitCard" : "A" }
-{ "_id" : 3, "descVeicolo" : "BICICLETTA - QUADRICICLI LEGGERI", "convVeicolo" : "N", "codISVAP" : "", "codAnia" : "", "gestioneCid" : true, "gestioneCtt" : true, "targaObbligatoria" : true, "codTipologiaVeicoloForfaitCard" : "N" }
-{ "_id" : 4, "descVeicolo" : "BUS", "convVeicolo" : "S", "codISVAP" : "02", "codAnia" : "B", "gestioneCid" : true, "gestioneCtt" : true, "targaObbligatoria" : true, "codTipologiaVeicoloForfaitCard" : "A" }
-{ "_id" : 5, "descVeicolo" : "MOTOCICLO", "convVeicolo" : "S", "codISVAP" : "31", "codAnia" : "M", "gestioneCid" : true, "gestioneCtt" : true, "targaObbligatoria" : true, "codTipologiaVeicoloForfaitCard" : "M" }
-{ "_id" : 6, "descVeicolo" : "CICLOMOTORE", "convVeicolo" : "N", "codISVAP" : "30", "codAnia" : "", "gestioneCid" : true, "gestioneCtt" : true, "targaObbligatoria" : true, "codTipologiaVeicoloForfaitCard" : "M" }
-{ "_id" : 7, "descVeicolo" : "M.OPERATRICE AGRICOLA", "convVeicolo" : "S", "codISVAP" : "", "codAnia" : "S", "gestioneCid" : true, "gestioneCtt" : true, "targaObbligatoria" : true, "codTipologiaVeicoloForfaitCard" : "A" }
-{ "_id" : 8, "descVeicolo" : "M. OPERATRICE � TRATTRICE", "convVeicolo" : "S", "codISVAP" : "60", "codAnia" : "T", "gestioneCid" : true, "gestioneCtt" : true, "targaObbligatoria" : true, "codTipologiaVeicoloForfaitCard" : "A" }
-{ "_id" : 9, "descVeicolo" : "IGNOTO", "convVeicolo" : "N", "codISVAP" : "", "codAnia" : "", "gestioneCid" : true, "gestioneCtt" : true, "targaObbligatoria" : true, "codTipologiaVeicoloForfaitCard" : "N" }
-{ "_id" : 10, "descVeicolo" : "RIMORCHIO / ROULOTTE NON AGGANCIATA", "convVeicolo" : "N", "codISVAP" : "41", "codAnia" : "R", "gestioneCid" : true, "gestioneCtt" : true, "targaObbligatoria" : true, "codTipologiaVeicoloForfaitCard" : "N" }
-{ "_id" : 11, "descVeicolo" : "CICLOMOTORE TARGATO", "convVeicolo" : "S", "codISVAP" : "31", "codAnia" : "W", "gestioneCid" : true, "gestioneCtt" : true, "targaObbligatoria" : true, "codTipologiaVeicoloForfaitCard" : "M" }
-{ "_id" : 12, "descVeicolo" : "MOTOCARRO", "convVeicolo" : "S", "codISVAP" : "32", "codAnia" : "Q", "gestioneCid" : true, "gestioneCtt" : true, "targaObbligatoria" : true, "codTipologiaVeicoloForfaitCard" : "A" }
-{ "_id" : 13, "descVeicolo" : "FILOBUS", "convVeicolo" : "S", "codISVAP" : "20", "codAnia" : "B", "gestioneCid" : true, "gestioneCtt" : true, "targaObbligatoria" : true, "codTipologiaVeicoloForfaitCard" : "A" }
-{ "_id" : 14, "descVeicolo" : "TRAM", "convVeicolo" : "N", "codISVAP" : "", "codAnia" : "", "gestioneCid" : true, "gestioneCtt" : true, "targaObbligatoria" : true, "codTipologiaVeicoloForfaitCard" : "N" }
-{ "_id" : 15, "descVeicolo" : "NATANTE", "convVeicolo" : "N", "codISVAP" : "", "codAnia" : "", "gestioneCid" : true, "gestioneCtt" : true, "targaObbligatoria" : true, "codTipologiaVeicoloForfaitCard" : "N" }
+{
+    "_id" : NumberInt(1),
+    "descVeicolo" : "AUTOVETTURA",
+    "convVeicolo" : "S",
+    "codISVAP" : "01",
+    "codAnia" : "A",
+    "gestioneCid" : true,
+    "gestioneCtt" : true,
+    "targaObbligatoria" : true,
+    "codTipologiaVeicoloForfaitCard" : "A"
+}
+{
+    "_id" : NumberInt(2),
+    "descVeicolo" : "AUTOCARRO",
+    "convVeicolo" : "S",
+    "codISVAP" : "03",
+    "codAnia" : "C",
+    "gestioneCid" : true,
+    "gestioneCtt" : true,
+    "targaObbligatoria" : true,
+    "codTipologiaVeicoloForfaitCard" : "A"
+}
+{
+    "_id" : NumberInt(3),
+    "descVeicolo" : "BICICLETTA - QUADRICICLI LEGGERI",
+    "convVeicolo" : "N",
+    "codISVAP" : "",
+    "codAnia" : "",
+    "gestioneCid" : true,
+    "gestioneCtt" : true,
+    "targaObbligatoria" : true,
+    "codTipologiaVeicoloForfaitCard" : "N"
+}
+{
+    "_id" : NumberInt(4),
+    "descVeicolo" : "BUS",
+    "convVeicolo" : "S",
+    "codISVAP" : "02",
+    "codAnia" : "B",
+    "gestioneCid" : true,
+    "gestioneCtt" : true,
+    "targaObbligatoria" : true,
+    "codTipologiaVeicoloForfaitCard" : "A"
+}
+{
+    "_id" : NumberInt(5),
+    "descVeicolo" : "MOTOCICLO",
+    "convVeicolo" : "S",
+    "codISVAP" : "31",
+    "codAnia" : "M",
+    "gestioneCid" : true,
+    "gestioneCtt" : true,
+    "targaObbligatoria" : true,
+    "codTipologiaVeicoloForfaitCard" : "M"
+}
+{
+    "_id" : NumberInt(6),
+    "descVeicolo" : "CICLOMOTORE",
+    "convVeicolo" : "N",
+    "codISVAP" : "30",
+    "codAnia" : "",
+    "gestioneCid" : true,
+    "gestioneCtt" : true,
+    "targaObbligatoria" : true,
+    "codTipologiaVeicoloForfaitCard" : "M"
+}
+{
+    "_id" : NumberInt(7),
+    "descVeicolo" : "M.OPERATRICE AGRICOLA",
+    "convVeicolo" : "S",
+    "codISVAP" : "",
+    "codAnia" : "S",
+    "gestioneCid" : true,
+    "gestioneCtt" : true,
+    "targaObbligatoria" : true,
+    "codTipologiaVeicoloForfaitCard" : "A"
+}
+{
+    "_id" : NumberInt(8),
+    "descVeicolo" : "M. OPERATRICE � TRATTRICE",
+    "convVeicolo" : "S",
+    "codISVAP" : "60",
+    "codAnia" : "T",
+    "gestioneCid" : true,
+    "gestioneCtt" : true,
+    "targaObbligatoria" : true,
+    "codTipologiaVeicoloForfaitCard" : "A"
+}
+{
+    "_id" : NumberInt(9),
+    "descVeicolo" : "IGNOTO",
+    "convVeicolo" : "N",
+    "codISVAP" : "",
+    "codAnia" : "",
+    "gestioneCid" : true,
+    "gestioneCtt" : true,
+    "targaObbligatoria" : true,
+    "codTipologiaVeicoloForfaitCard" : "N"
+}
+{
+    "_id" : NumberInt(10),
+    "descVeicolo" : "RIMORCHIO / ROULOTTE NON AGGANCIATA",
+    "convVeicolo" : "N",
+    "codISVAP" : "41",
+    "codAnia" : "R",
+    "gestioneCid" : true,
+    "gestioneCtt" : true,
+    "targaObbligatoria" : true,
+    "codTipologiaVeicoloForfaitCard" : "N"
+}
+{
+    "_id" : NumberInt(11),
+    "descVeicolo" : "CICLOMOTORE TARGATO",
+    "convVeicolo" : "S",
+    "codISVAP" : "31",
+    "codAnia" : "W",
+    "gestioneCid" : true,
+    "gestioneCtt" : true,
+    "targaObbligatoria" : true,
+    "codTipologiaVeicoloForfaitCard" : "M"
+}
+{
+    "_id" : NumberInt(12),
+    "descVeicolo" : "MOTOCARRO",
+    "convVeicolo" : "S",
+    "codISVAP" : "32",
+    "codAnia" : "Q",
+    "gestioneCid" : true,
+    "gestioneCtt" : true,
+    "targaObbligatoria" : true,
+    "codTipologiaVeicoloForfaitCard" : "A"
+}
+{
+    "_id" : NumberInt(13),
+    "descVeicolo" : "FILOBUS",
+    "convVeicolo" : "S",
+    "codISVAP" : "20",
+    "codAnia" : "B",
+    "gestioneCid" : true,
+    "gestioneCtt" : true,
+    "targaObbligatoria" : true,
+    "codTipologiaVeicoloForfaitCard" : "A"
+}
+{
+    "_id" : NumberInt(14),
+    "descVeicolo" : "TRAM",
+    "convVeicolo" : "N",
+    "codISVAP" : "",
+    "codAnia" : "",
+    "gestioneCid" : true,
+    "gestioneCtt" : true,
+    "targaObbligatoria" : true,
+    "codTipologiaVeicoloForfaitCard" : "N"
+}
+{
+    "_id" : NumberInt(15),
+    "descVeicolo" : "NATANTE",
+    "convVeicolo" : "N",
+    "codISVAP" : "",
+    "codAnia" : "",
+    "gestioneCid" : true,
+    "gestioneCtt" : true,
+    "targaObbligatoria" : true,
+    "codTipologiaVeicoloForfaitCard" : "N"
+}
