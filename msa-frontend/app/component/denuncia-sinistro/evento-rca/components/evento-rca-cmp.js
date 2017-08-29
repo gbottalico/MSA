@@ -8,11 +8,12 @@
             sinistroProvvisorio: "=",
             tempSegnalazione: "="
         },
-        controller: ("eventoRcaController", ['$rootScope', '$scope', 'SinistriSvc', 'AutoritaSvc', '$log',
-            function ($rootScope, $scope, SinistriSvc, AutoritaSvc, $log) {
+        controller: ("eventoRcaController", ['$rootScope', '$scope', '$debugMode', 'SinistriSvc', 'AutoritaSvc',
+            function ($rootScope, $scope, $debugMode, SinistriSvc, AutoritaSvc) {
 
                 var $ctrl = this;
                 var parent = $scope.$parent;
+                $scope.$debugMode = $debugMode;
 
                 $ctrl.eventoRca = {};
                 $ctrl.eventoRca.collisione = true;
@@ -33,6 +34,7 @@
 
                 $ctrl.salvaEventoRca = function () {
                     SinistriSvc.salvaEventoRca($ctrl.numeroSinistroProvvisorio, $ctrl.eventoRca).then(function (response) {
+                        parent.aggiornaMappe();
                         console.log(response);
                     });
                 };

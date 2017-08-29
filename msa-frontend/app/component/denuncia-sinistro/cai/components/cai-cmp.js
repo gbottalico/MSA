@@ -8,10 +8,11 @@
             sinistroProvvisorio: "=",
             tempSegnalazione: "="
         },
-        controller: ("constatazioneAmichevoleController", ['$rootScope', '$scope', 'BaremesSvc',
-            function ($rootScope, $scope, BaremesSvc) {
+        controller: ("constatazioneAmichevoleController", ['$rootScope', '$scope', '$debugMode', 'BaremesSvc',
+            function ($rootScope, $scope, $debugMode, BaremesSvc) {
 
                 var $ctrl = this;
+                $scope.$debugMode = $debugMode;
 
                 $ctrl.baremes = undefined;
                 $ctrl.baremeAssicurato = undefined;

@@ -8,26 +8,26 @@
             sinistroProvvisorio: "=",
             tempSegnalazione: "="
         },
-        controller: ("dannoRcaContoller", ['$rootScope', '$scope', 'VeicoliSvc', 'SinistriSvc',
-            function ($rootScope, $scope, VeicoliSvc, SinistriSvc) {
+        controller: ("dannoRcaContoller", ['$rootScope', '$scope', '$debugMode', 'VeicoliSvc', 'SinistriSvc',
+            function ($rootScope, $scope,$debugMode, VeicoliSvc, SinistriSvc) {
 
-                var ctrl = this;
-                ctrl.dannoRca = {
+                var $ctrl = this;
+                $ctrl.dannoRca = {
                     dannoCliente: undefined,
                     danniControparte: undefined,
                     veicoloControparte: undefined
                 };
-                ctrl.dannoRca.lesioniConducente = undefined;
-                ctrl.dannoRca.conducenteIsNotContraente = undefined;
+                $ctrl.dannoRca.lesioniConducente = undefined;
+                $ctrl.dannoRca.conducenteIsNotContraente = undefined;
 
-                ctrl.tipoVeicoli = undefined;
+                $ctrl.tipoVeicoli = undefined;
 
                 VeicoliSvc.getTipoVeicoli().then(function (response) {
-                    ctrl.tipoVeicoli = response.data.result;
+                    $ctrl.tipoVeicoli = response.data.result;
                 });
 
-                ctrl.salvaDannoRca = function () {
-                    SinistriSvc.salvaDannoRcaCliente(ctrl.numeroSinistroProvvisorio, ctrl.dannoRca).then(function (response) {
+                $ctrl.salvaDannoRca = function () {
+                    SinistriSvc.salvaDannoRcaCliente($ctrl.numeroSinistroProvvisorio, $ctrl.dannoRca).then(function (response) {
                         console.log(response);
                     });
                 };

@@ -142,12 +142,17 @@
         "datadenuncia": "Data Denuncia Autorità"
       }
     },
-    "cai": {
+    "ca": {
       "title": "Constatazione Amichevole",
       "labels": {
         "compilazione": "Compilazione CAI",
         "caicompilata": "È stata compilata la constatazione amichevole?",
-        "caicontroparte": "La constatazione amichevole è stata compilata sia da lei che dalla controparte?",
+        "caicontroparte": "La constatazione amichevole è stata compilata sia da lei che dalla controparte?"
+      }
+    },
+    "cai": {
+      "title": "CAI",
+      "labels": {
         "assicurato": "Assicurato",
         "controparte": "Controparte",
         "osservazioniassicurato": "Osservazioni Assicurato",

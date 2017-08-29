@@ -62,8 +62,8 @@ function getMSAC() {
  * Definizione delle costanti
  */
 app.constant('$MSAC', getMSAC());
+app.constant('$debugMode', false);
 app.constant('_', window._);
-
 
 /*
  * Configurazione del routing.

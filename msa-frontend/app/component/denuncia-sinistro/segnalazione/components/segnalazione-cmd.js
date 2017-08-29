@@ -8,11 +8,12 @@
             numeroSinistroProvvisorio: "=",
             sinistroProvvisorio: "<"
         },
-        controller: ("segnalazioneController", ['$scope', '$rootScope', '$routeParams', '$translate', '$log', 'AccountUserSvc', 'MezziComunicazioneSvc', 'RuoliSvc', 'PlacesSvc', 'SinistriSvc', 'UtilSvc', 'RegexSvc', 'toastr', '$analytics', '$location', '$cookies', '$window', '$sessionStorage',
-            function ($scope, $rootScope, $routeParams, $translate, $log, AccountUserSvc, MezziComunicazioneSvc, RuoliSvc, PlacesSvc, SinistriSvc, UtilSvc, RegexSvc, toastr, $analytics, location, $cookies, $window, $sessionStorage) {
+        controller: ("segnalazioneController", ['$scope', '$rootScope', '$routeParams', '$translate', '$log', '$debugMode', 'AccountUserSvc', 'MezziComunicazioneSvc', 'RuoliSvc', 'PlacesSvc', 'SinistriSvc', 'UtilSvc', 'RegexSvc',
+            function ($scope, $rootScope, $routeParams, $translate, $log, $debugMode, AccountUserSvc, MezziComunicazioneSvc, RuoliSvc, PlacesSvc, SinistriSvc, UtilSvc, RegexSvc) {
 
                 var $ctrl = this;
                 var parent = $scope.$parent;
+                $scope.$debugMode = $debugMode;
 
                 $ctrl.mapId = "M11";
 

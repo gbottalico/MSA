@@ -20,8 +20,6 @@
                     $ctrl.user.nome = $ctrl.datiContraente.nome + " " + $ctrl.datiContraente.cognome;
                     $ctrl.user.cf = $ctrl.datiContraente.cf;
 
-                    console.log($ctrl.datiContraente);
-
                     if ($ctrl.datiContraente.luogoNascita !== undefined && $ctrl.datiContraente.luogoNascita !== null) {
                         if ($ctrl.datiContraente.luogoNascita.descrizioneComune !== undefined &&
                             $ctrl.datiContraente.luogoNascita.descrizioneComune !== null) {

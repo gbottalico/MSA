@@ -22,6 +22,19 @@ angular.module('msa').service(
             return obj !== undefined;
         };
 
+        $svc.isValidObject = function (obj) {
+            return obj !== undefined && obj !== null;
+        };
+
+        $svc.hasId = function (obj) {
+            return (
+                obj !== undefined &&
+                obj !== null &&
+                obj.id !== undefined &&
+                obj.id !== null);
+        };
+
+
         $svc.arrayHasElements = function (array) {
             return (typeof array != "undefined" &&
                 array !== null &&
@@ -31,7 +44,7 @@ angular.module('msa').service(
 
         $svc.mapToValueArray = function (map) {
             var values = new Array();
-            for(var key in map) {
+            for (var key in map) {
                 values.push(map[key]);
             }
             return values;
@@ -69,14 +82,6 @@ angular.module('msa').service(
 
             return string.formatUnicorn(args);
 
-        };
-
-        $svc.hasId = function (obj) {
-            return (
-                obj !== undefined &&
-                obj !== null &&
-                obj.id !== undefined &&
-                obj.id !== null);
         };
 
         $svc.dateFormat = function (dateInMillis, format) {

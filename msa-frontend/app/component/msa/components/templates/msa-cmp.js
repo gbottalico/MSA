@@ -9,10 +9,9 @@ angular
             controller: ['$rootScope', '$translate', '$log', 'AccountUserSvc', 'toastr', '$analytics', '$location', '$cookies', '$window', '$sessionStorage',
                 function ($rootScope, $translate, $log, AccountUserSvc, toastr, $analytics, location, $cookies, $window, $sessionStorage) {
 
-                    var ctrl = this;
+                    var $ctrl = this;
 
-                    ctrl.bannerSearch = true;
-                    ctrl.bannerDenuncia = false;
+                    $rootScope.debugMode = true;
 
                     $rootScope.messages = [];
 

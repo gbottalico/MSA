@@ -6,10 +6,11 @@
         bindings: {
             valoriRicerca: '=',
         },
-        controller: ("denunciaContainerController", ['$rootScope', '$scope', 'SinistriSvc', 'UtilSvc', 'PathSvc', 'AutoritaSvc',
-            function ($rootScope, $scope, SinistriSvc, UtilSvc, PathSvc, AutoritaSvc) {
+        controller: ("denunciaContainerController", ['$rootScope', '$scope', '$debugMode', 'SinistriSvc', 'UtilSvc', 'PathSvc',
+            function ($rootScope, $scope, $debugMode, SinistriSvc, UtilSvc, PathSvc) {
 
                 var $ctrl = this;
+                $scope.$debugMode = $debugMode;
 
                 $ctrl.tempSegnalazione = {
                     nveicoli: undefined

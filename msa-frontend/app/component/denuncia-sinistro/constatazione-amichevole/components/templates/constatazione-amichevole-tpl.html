@@ -1,7 +1,7 @@
 <div class="containerHeader">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container boxShadow">
         <div class="header">
-            <h1 class="titleSection">{{'global.cai.title' | translate}}</h1>
+            <h1 class="titleSection">{{'global.ca.title' | translate}}</h1>
         </div>
     </div>
 </div>
@@ -10,8 +10,12 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container boxShadow">
         <div class="body">
 
-            <pre>{{$ctrl.ca}}</pre>
-            <pre>{{$ctrl.tempSegnalazione}}</pre>
+            <pre ng-if="$debugMode">{{$ctrl.ca}}</pre>
+            <pre ng-if="$debugMode">{{$ctrl.tempSegnalazione}}</pre>
+
+            <div class="col-lg-12">
+                <span class="subsectionTitle">{{'global.ca.title' | translate}}</span>
+            </div>
 
             <!--INPUT RADIO-->
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputRadio">
@@ -24,7 +28,7 @@
                     <label class="rightLabel">{{'global.generic.no' | translate}}</label>
                 </div>
                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 noPaddingRight">&nbsp;</div>
-                <label>{{'global.cai.labels.caicompilata' | translate}}</label>
+                <label>{{'global.ca.labels.caicompilata' | translate}}</label>
             </div>
             <!--END INPUT RADIO-->
 
@@ -41,7 +45,7 @@
                     <label class="rightLabel">{{'global.generic.no' | translate}}</label>
                 </div>
                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 noPaddingRight">&nbsp;</div>
-                <label>{{'global.cai.labels.caicontroparte' | translate}}</label>
+                <label>{{'global.ca.labels.caicontroparte' | translate}}</label>
             </div>
             <!--END INPUT RADIO-->
 
