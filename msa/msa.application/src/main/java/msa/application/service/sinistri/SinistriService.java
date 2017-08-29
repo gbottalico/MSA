@@ -171,7 +171,7 @@ public class SinistriService extends BaseSinistroService {
         }
     }
 
-    private String calcolaColpaBaremes(CaiDTO input) throws InternalMsaException {
+    public String calcolaColpaBaremes(CaiDTO input) throws InternalMsaException {
         try {
             BaremesDO baremesCliente = converter.convertObject(input.getBaremesCliente(), BaremesDO.class);
             BaremesDO baremesControparte = converter.convertObject(input.getBaremesControparte(), BaremesDO.class);
@@ -264,8 +264,7 @@ public class SinistriService extends BaseSinistroService {
         try {
             //Todo MOCK per mancanza di garanzie specifiche o tipi sinistri specifici
             final K sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistro);
-            final Class<T> toPass = sinistroByNumProvv.getSegnalazione() == null ? (Class<T>) BaseSinistroDTO.class : getClassByGaranzia(sinistroByNumProvv.getSegnalazione().getGaranziaSelected());
-            return converter.convertObject(sinistroByNumProvv, toPass);
+            final Class<T> toPass = sinistroByNumProvv.getSegnalazione() == null ? (Class<T>) BaseSinistroDTO.class : getClassByGaranzia(sinistroByNumProvv.getSegnalazione().getGaranziaSelected());return converter.convertObject(sinistroByNumProvv, toPass);
         } catch (Exception e) {
             throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA009"));
         }

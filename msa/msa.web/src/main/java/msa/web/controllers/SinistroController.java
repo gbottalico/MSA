@@ -209,4 +209,10 @@ public class SinistroController extends BaseController {
     public BaseDTO salvaCentroConvenzionato(@RequestBody final CentroConvenzionatoDTO centro, @PathVariable("numero") Integer numSinistro) throws InternalMsaException {
         return sinistriService.salvaCentroConvenzionato(centro, numSinistro);
     }
+
+    @ApiOperation(value=" Metodo che effettua il calcolo della colpa in base ai baremes ricevuti")
+    @RequestMapping(value="/colpa/",method = RequestMethod.POST)
+    public BaseDTO calcolaColpa(@RequestBody final CaiDTO input) throws InternalMsaException {
+        return new BaseDTO(sinistriService.calcolaColpaBaremes(input));
+    }
 }
