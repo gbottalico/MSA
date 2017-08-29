@@ -120,6 +120,11 @@ public class BaseSinistroService extends BaseService {
             (o, numSinistroProvv) -> {
                 try {
                     final SinistroRcaDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv, SinistroRcaDO.class);
+                    if (Integer.compare(o.getNumVeicoli(), 2) < 0
+                            && sinistroByNumProvv.getDannoRca() != null
+                            && sinistroByNumProvv.getDannoRca().getAnagraficaDanniControparte() != null) {
+                        sinistroByNumProvv.getDannoRca().setAnagraficaDanniControparte(null);
+                    }
                     sinistroByNumProvv.setEventoRca(converter.convertObject(o, EventoRcaDO.class));
                     return sinistroByNumProvv;
                 } catch (Exception e) {
@@ -280,9 +285,9 @@ public class BaseSinistroService extends BaseService {
     private final MsaBiFunction<CentroConvenzionatoDTO, Integer, BaseSinistroDO> CENTRO_CONVENZIONATO =
             (o, numSinistro) -> {
                 try {
-                    final BaseSinistroDO sinistroByNumProvv= sinistriRepository.getSinistroByNumProvv(numSinistro,BaseSinistroDO.class);
-                     sinistroByNumProvv.setCentroConvenzionato(converter.convertObject(o, CentroConvenzionatoDO.class));
-                     return sinistroByNumProvv;
+                    final BaseSinistroDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistro, BaseSinistroDO.class);
+                    sinistroByNumProvv.setCentroConvenzionato(converter.convertObject(o, CentroConvenzionatoDO.class));
+                    return sinistroByNumProvv;
                 } catch (Exception e) {
                     throw new InternalMsaException();
                 }

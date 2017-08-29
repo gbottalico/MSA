@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class DomainService extends BaseService {
@@ -199,12 +200,13 @@ public class DomainService extends BaseService {
     /**
      * Utilizza il DomainRepository per ottenere l'elenco di tutti i Baremes
      *
+     * Filtraggio con l' obbiettivo di rimuovere "NESSUNA INDICAZIONE"
      * @return un elenco di oggetti BaremesDTO
      * @throws InternalMsaException
      */
     public List<BaremesDTO> getElencoBaremes() throws InternalMsaException {
         try {
-            return converter.convertList(domainRepository.getElencoBaremes(), BaremesDTO.class);
+            return converter.convertList(domainRepository.getElencoBaremes().stream().filter(e -> e.getId() != 0).collect(Collectors.toList()), BaremesDTO.class);
         } catch (Exception e) {
             throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA001"));
 

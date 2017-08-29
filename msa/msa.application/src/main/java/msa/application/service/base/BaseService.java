@@ -12,18 +12,15 @@ import msa.application.service.enumerator.Api;
 import msa.domain.Converter.MsaConverter;
 import msa.infrastructure.config.AbstractMsaPropertiesReader;
 import msa.infrastructure.repository.ErroriRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.*;
+import java.util.concurrent.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -40,6 +37,8 @@ public class BaseService {
 
     @Autowired
     protected ErroriRepository erroriRepository;
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(BaseService.class);
 
     public BaseService() {
 
@@ -126,13 +125,13 @@ public class BaseService {
                     },
                     (a, b) -> a).toString();
             URL url = new URL("http://" + properties.getRestUrlMap().getApi().get(api.getValue()));
-            HttpURLConnection conn= (HttpURLConnection) url.openConnection();
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setDoOutput(true);
             conn.setInstanceFollowRedirects(false);
             conn.setRequestMethod("POST");
             conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             conn.setRequestProperty("charset", "utf-8");
-            try(DataOutputStream wr = new DataOutputStream(conn.getOutputStream())) {
+            try (DataOutputStream wr = new DataOutputStream(conn.getOutputStream())) {
                 wr.write(body.getBytes());
             }
             if (conn.getResponseCode() == 200) {
@@ -200,10 +199,17 @@ public class BaseService {
         return new ByteArrayInputStream(baos.toByteArray());
     }
 
-    protected void execInParallel(Callable<Boolean> ... callables) throws InternalMsaException {
+    protected List<Object> execInParallel(Callable<Object>... callables) throws InternalMsaException {
         ExecutorService executor = Executors.newWorkStealingPool();
         try {
-            executor.invokeAll(Arrays.stream(callables).collect(Collectors.toList()));
+            return executor.invokeAll(Arrays.stream(callables).collect(Collectors.toList())).stream().reduce(new ArrayList<>(), (a, b) -> {
+                try {
+                    a.add(b.get());
+                } catch (InterruptedException | ExecutionException e) {
+                    LOGGER.error(e.getMessage());
+                }
+                return a;
+            }, (a, b) -> b);
         } catch (InterruptedException e) {
             throw new InternalMsaException();
         }

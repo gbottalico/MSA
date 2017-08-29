@@ -187,6 +187,7 @@ public class DomainRepository extends BaseRepository {
      * @return una lista di oggetti BaremesDO
      */
     public List<BaremesDO> getElencoBaremes() {
+
         return converter.convertList(baremesRepository.findAll(), BaremesDO.class);
     }
 
