@@ -11,34 +11,34 @@
         controller: ("constatazioneAmichevoleController", ['$rootScope', '$scope', 'SinistriSvc',
             function ($rootScope, $scope, SinistriSvc) {
 
-                var ctrl = this;
+                var $ctrl = this;
                 var parent = $scope.$parent;
 
-                ctrl.ca = {};
-                ctrl.ca.constatazioneAmichevole = true;
-                ctrl.ca.constatazioneAmichevoleControparte = undefined;
+                $ctrl.ca = {};
+                $ctrl.ca.constatazioneAmichevole = true;
+                $ctrl.ca.constatazioneAmichevoleControparte = undefined;
 
-                ctrl.salvaCa = function () {
-                    SinistriSvc.salvaCa(ctrl.numeroSinistroProvvisorio, ctrl.ca).then(function (response) {
+                $ctrl.salvaCa = function () {
+                    SinistriSvc.salvaCa($ctrl.numeroSinistroProvvisorio, $ctrl.ca).then(function (response) {
 
                     });
                 };
 
-                ctrl.bindCa = function () {
-                    ctrl.ca.constatazioneAmichevole = ctrl.sinistroProvvisorio.constatazioneAmichevole.caCompilata;
-                    ctrl.ca.constatazioneAmichevoleControparte = ctrl.sinistroProvvisorio.constatazioneAmichevole.caCompilataControparte;
+                $ctrl.bindCa = function () {
+                    $ctrl.ca.constatazioneAmichevole = $ctrl.sinistroProvvisorio.constatazioneAmichevole.caCompilata;
+                    $ctrl.ca.constatazioneAmichevoleControparte = $ctrl.sinistroProvvisorio.constatazioneAmichevole.caCompilataControparte;
                 };
 
                 $scope.$watch(
                     function watchScope(scope) {
                         return {
-                            sinistroProvvisorio: ctrl.sinistroProvvisorio
+                            sinistroProvvisorio: $ctrl.sinistroProvvisorio
                         };
                     },
                     function handleChanges(newValues, oldValues) {
 
                         if(newValues.sinistroProvvisorio !== undefined) {
-                            ctrl.bindCa();
+                            $ctrl.bindCa();
                         }
 
                     }, true
