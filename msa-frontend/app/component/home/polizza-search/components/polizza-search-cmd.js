@@ -12,8 +12,6 @@
                 var ctrl = this;
                 //var modalInstance = undefined;
 
-                $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
-
                 ctrl.casaRegole = undefined;
                 ctrl.compagniaSelezionata = undefined;
                 ctrl.valoriRicerca = undefined;

@@ -15,6 +15,10 @@ angular.module('msa').service(
                 cap: "A"
             };
 
+            $svc.getGeoconding = function (indirizzo) {
+              var url = UtilSvc.stringFormat(msaServicesApiUrls.geocoding, indirizzo);
+              return $http.get(url);
+            };
 
             $svc.getNazioni = function (nomeNazione) {
                 return $http.get(msaServicesApiUrls.nazione + nomeNazione);
