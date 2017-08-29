@@ -306,5 +306,22 @@ public class SinistriService extends BaseSinistroService {
         throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione Salvataggio dati centro convenzionato")));
 
     }
+    public PeritoDTO getPerito(IndirizzoDTO indirizzo){
+        //TODO MOCK per mancanza del servizio sul perito
+        LuogoDTO luogoPerizia = new LuogoDTO();
+        luogoPerizia.setCodComune("18538");
+        luogoPerizia.setCodNazione("1");
+        luogoPerizia.setCodProvincia("80");
+        luogoPerizia.setDescrizioneComune("CAROVIGNO");
+        luogoPerizia.setDescrizioneNazione("ITALIA");
+        luogoPerizia.setDescrizioneProvincia("BRINDISI");
+        PeritoDTO perito = new PeritoDTO();
+        perito.setDenominazione("Andrea Esposito");
+        perito.setCfPartitaIva("SPSNDR94T05G187D");
+        perito.setLuogoPerizia(luogoPerizia);
+        perito.setTelefono("000000000");
+        perito.setTargaDaPerizare("XX555BB");
+        return perito;
+    }
 }
 

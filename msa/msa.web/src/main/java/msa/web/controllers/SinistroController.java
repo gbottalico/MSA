@@ -215,4 +215,10 @@ public class SinistroController extends BaseController {
     public BaseDTO calcolaColpa(@RequestBody final CaiDTO input) throws InternalMsaException {
         return new BaseDTO(sinistriService.calcolaColpaBaremes(input));
     }
+
+    @ApiOperation(value="Metodo che restituisce il perito in base all'indirizzo")
+    @RequestMapping(value="/perito/", method = RequestMethod.POST)
+    public BaseDTO getPerito(@RequestBody final IndirizzoDTO input){
+    return new BaseDTO(sinistriService.getPerito(input));
+    }
 }
