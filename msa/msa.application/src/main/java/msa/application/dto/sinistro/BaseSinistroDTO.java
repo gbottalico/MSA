@@ -21,6 +21,9 @@ public class BaseSinistroDTO extends AbstractDTO {
     private List<AnagraficaTerzePartiDBO> anagraficaTerzeParti; // in rca sono tutte le terze parti più legale. In tutti gli altri casi è solo il legale
     private PeritoDTO perito;
     private Integer numSinistroProvv;
+    private CentroConvenzionatoDTO centroConvenzionato;
+
+
 
 
 
@@ -94,5 +97,13 @@ public class BaseSinistroDTO extends AbstractDTO {
 
     public void setNumSinistroProvv(Integer numSinistroProvv) {
         this.numSinistroProvv = numSinistroProvv;
+    }
+
+    public CentroConvenzionatoDTO getCentroConvenzionato() {
+        return centroConvenzionato;
+    }
+
+    public void setCentroConvenzionato(CentroConvenzionatoDTO centroConvenzionato) {
+        this.centroConvenzionato = centroConvenzionato;
     }
 }

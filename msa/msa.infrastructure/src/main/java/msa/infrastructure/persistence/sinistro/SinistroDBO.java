@@ -33,6 +33,8 @@ public class SinistroDBO extends AbstractDBO {
     @Field("perito")
     private PeritoDBO perito;
 
+    @Field("centroConvenzionato")
+    private CentroConvenzionatoDBO centroConvenzionato;
     @Field("numSinistroProvv")
     private Integer numSinistroProvv;
     //INIZIO FURTO INCENDIO
@@ -275,5 +277,13 @@ public class SinistroDBO extends AbstractDBO {
 
     public void setFlagFattura(Boolean flagFattura) {
         this.flagFattura = flagFattura;
+    }
+
+    public CentroConvenzionatoDBO getCentroConvenzionato() {
+        return centroConvenzionato;
+    }
+
+    public void setCentroConvenzionato(CentroConvenzionatoDBO centroConvenzionato) {
+        this.centroConvenzionato = centroConvenzionato;
     }
 }

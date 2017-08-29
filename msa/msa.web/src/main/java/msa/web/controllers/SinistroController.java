@@ -22,7 +22,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/api/sinistro")
-public class SinistroController extends BaseController{
+public class SinistroController extends BaseController {
 
     @Autowired
     private SinistriService sinistriService;
@@ -110,7 +110,7 @@ public class SinistroController extends BaseController{
      */
     @ApiOperation(value = "Metodo che calcola la responsabilità e salva il CAI in base ai baremes inseriti")
     @RequestMapping(value = "/{numero}/CAI", method = RequestMethod.POST)
-    public BaseDTO<Map<String,String>> salvaCAI(@RequestBody CaiDTO input, @PathVariable("numero") Integer numeroSinistro) throws InternalMsaException {
+    public BaseDTO<Map<String, String>> salvaCAI(@RequestBody CaiDTO input, @PathVariable("numero") Integer numeroSinistro) throws InternalMsaException {
         return sinistriService.salvaCAI(input, numeroSinistro);
 
     }
@@ -156,41 +156,57 @@ public class SinistroController extends BaseController{
         return sinistriService.salvaDannoRcaLegale(input, numeroSinistro);
 
     }
+
     @ApiOperation(value = "Metodo che salva il perito incaricato")
     @RequestMapping(value = "/{numero}/perito", method = RequestMethod.POST)
-    public BaseDTO salvaPerito(@RequestBody final PeritoDTO input,@PathVariable("numero") Integer numSinistro) throws InternalMsaException {
-        return sinistriService.salvaPerito(input,numSinistro);
+    public BaseDTO salvaPerito(@RequestBody final PeritoDTO input, @PathVariable("numero") Integer numSinistro) throws InternalMsaException {
+        return sinistriService.salvaPerito(input, numSinistro);
     }
 
     /**
      * Metodo che salva i dati di un sinistro di tipo furto o incendio
+     *
      * @return un BaseDTO
      */
-    @ApiOperation(value="Metodo che salva i dati di un sinistro del tipo furto o incendio")
-    @RequestMapping(value="/{numero}/furtoIncendio", method = RequestMethod.POST)
+    @ApiOperation(value = "Metodo che salva i dati di un sinistro del tipo furto o incendio")
+    @RequestMapping(value = "/{numero}/furtoIncendio", method = RequestMethod.POST)
     public BaseDTO salvaFurtoIncendio(@RequestBody final SinistroFurtoIncendioDTO input, @PathVariable("numero") Integer numSinistro) throws InternalMsaException {
-        return sinistriService.inserisciFurtoIncendio(input,numSinistro);
+        return sinistriService.inserisciFurtoIncendio(input, numSinistro);
     }
+
     /**
      * Metodo che salva i dati di un sinistro di tipo kasko
      */
-    @ApiOperation(value="Metodo che salva i dati di un sinistro di tipo kasko")
-    @RequestMapping(value="/{numero}/kasko", method = RequestMethod.POST)
+    @ApiOperation(value = "Metodo che salva i dati di un sinistro di tipo kasko")
+    @RequestMapping(value = "/{numero}/kasko", method = RequestMethod.POST)
     public BaseDTO salvaKasko(@RequestBody final SinistroKaskoDTO input, @PathVariable("numero") Integer numSinistro) throws InternalMsaException {
-        return sinistriService.inserisciKasko(input,numSinistro);
+        return sinistriService.inserisciKasko(input, numSinistro);
     }
+
     /**
      * Metodo che salva i dati di un sinistro di tipo cristalli
      */
-    @ApiOperation(value="Metodo che salva i dati di un sinistro di tipo kasko")
-    @RequestMapping(value="/{numero}/cristalli", method = RequestMethod.POST)
+    @ApiOperation(value = "Metodo che salva i dati di un sinistro di tipo kasko")
+    @RequestMapping(value = "/{numero}/cristalli", method = RequestMethod.POST)
     public BaseDTO salvaCristalli(@RequestBody final SinistroCristalliDTO input, @PathVariable("numero") Integer numSinistro) throws InternalMsaException {
-        return sinistriService.inserisciCristalli(input,numSinistro);
+        return sinistriService.inserisciCristalli(input, numSinistro);
     }
 
-    @ApiOperation(value="Metodo che salva i dati di un sinistro di tipo infortuni conducente")
-    @RequestMapping(value="/{numero}/infortuniConducente", method = RequestMethod.POST)
+    @ApiOperation(value = "Metodo che salva i dati di un sinistro di tipo infortuni conducente")
+    @RequestMapping(value = "/{numero}/infortuniConducente", method = RequestMethod.POST)
     public BaseDTO salvaInfortuniConducente(@RequestBody final SinistroInfortuniConducenteDTO input, @PathVariable("numero") Integer numSinistro) throws InternalMsaException {
-        return sinistriService.inserisciInfortuniConducente(input,numSinistro);
+        return sinistriService.inserisciInfortuniConducente(input, numSinistro);
+    }
+
+    @ApiOperation(value = "Metodo che restituisce l'elenco dei centri convenzionati in base all'indirizzo fornito")
+    @RequestMapping(value = "/centri/{indirizzo}", method = RequestMethod.GET)
+    public BaseDTO getElencoCentriConvenzionati(@PathVariable("indirizzo") String indirizzo) {
+        return new BaseDTO(sinistriService.getElencoCentriConvenzionati(indirizzo));
+    }
+
+    @ApiOperation(value = "Metodo che effettua il salvataggio del centro convenzionato")
+    @RequestMapping(value = "/{numero}/centroConvenzionato/", method = RequestMethod.POST)
+    public BaseDTO salvaCentroConvenzionato(@RequestBody final CentroConvenzionatoDTO centro, @PathVariable("numero") Integer numSinistro) throws InternalMsaException {
+        return sinistriService.salvaCentroConvenzionato(centro, numSinistro);
     }
 }

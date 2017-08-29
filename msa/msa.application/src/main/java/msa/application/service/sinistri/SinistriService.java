@@ -288,5 +288,24 @@ public class SinistriService extends BaseSinistroService {
 
         }
     }
+
+    public List<CentroConvenzionatoDTO> getElencoCentriConvenzionati(String indirizzo) {
+        //TODO MOCK per mancanza del servizio sui centri convenzionati
+        ArrayList<CentroConvenzionatoDTO> centri = new ArrayList<>();
+        centri.add(new CentroConvenzionatoDTO(1, "FinconsGroup", "16.853831", "41.103556"));
+        centri.add(new CentroConvenzionatoDTO(2, "Angiulli", "16.855179", "41.1075051"));
+        centri.add(new CentroConvenzionatoDTO(3, "Policlinico", "16.862622", "41.112062"));
+        return centri;
+
+
+    }
+
+    public BaseDTO salvaCentroConvenzionato(CentroConvenzionatoDTO input, Integer numSinistro) throws InternalMsaException {
+        if (salvaSinistro(getSinistroDOByDTO(input, numSinistro))) {
+            return new BaseDTO<>();
+        }
+        throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione Salvataggio dati centro convenzionato")));
+
+    }
 }
 

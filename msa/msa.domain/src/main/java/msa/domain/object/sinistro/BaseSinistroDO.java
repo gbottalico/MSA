@@ -17,6 +17,7 @@ public class BaseSinistroDO extends AbstractDO  {
     private FullAnagraficaDO contraente;
     private PeritoDO perito;
     private Integer numSinistroProvv;
+    private CentroConvenzionatoDO centroConvenzionato;
 
     public String getId() {
         return id;
@@ -88,5 +89,13 @@ public class BaseSinistroDO extends AbstractDO  {
 
     public void setNumSinistroProvv(Integer numSinistroProvv) {
         this.numSinistroProvv = numSinistroProvv;
+    }
+
+    public CentroConvenzionatoDO getCentroConvenzionato() {
+        return centroConvenzionato;
+    }
+
+    public void setCentroConvenzionato(CentroConvenzionatoDO centroConvenzionato) {
+        this.centroConvenzionato = centroConvenzionato;
     }
 }

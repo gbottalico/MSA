@@ -65,6 +65,7 @@ public class BaseSinistroService extends BaseService {
         coupleSinistroFunctions.add(new SinistroFunction<>(SinistroKaskoDTO.class, KASKO));
         coupleSinistroFunctions.add(new SinistroFunction<>(SinistroCristalliDTO.class, CRISTALLI));
         coupleSinistroFunctions.add(new SinistroFunction<>(SinistroInfortuniConducenteDTO.class, INFORTUNI_CONDUCENTE));
+        coupleSinistroFunctions.add(new SinistroFunction<>(CentroConvenzionatoDTO.class, CENTRO_CONVENZIONATO));
 
     }
 
@@ -80,8 +81,8 @@ public class BaseSinistroService extends BaseService {
                             (a, b) -> b.getBiFunction(),
                             (a, b) -> b);
             return msaBiFunction.apply(dto, numProvv);
-        }catch (InternalMsaException e) {
-            throw new InternalMsaException(e.getExceptionThrowed(),getErrorMessagesByCodErrore(MessageType.ERROR,"MSA012"));
+        } catch (InternalMsaException e) {
+            throw new InternalMsaException(e.getExceptionThrowed(), getErrorMessagesByCodErrore(MessageType.ERROR, "MSA012"));
         }
     }
 
@@ -275,5 +276,15 @@ public class BaseSinistroService extends BaseService {
                     throw new InternalMsaException();
                 }
 
+            };
+    private final MsaBiFunction<CentroConvenzionatoDTO, Integer, BaseSinistroDO> CENTRO_CONVENZIONATO =
+            (o, numSinistro) -> {
+                try {
+                    final BaseSinistroDO sinistroByNumProvv= sinistriRepository.getSinistroByNumProvv(numSinistro,BaseSinistroDO.class);
+                     sinistroByNumProvv.setCentroConvenzionato(converter.convertObject(o, CentroConvenzionatoDO.class));
+                     return sinistroByNumProvv;
+                } catch (Exception e) {
+                    throw new InternalMsaException();
+                }
             };
 }
