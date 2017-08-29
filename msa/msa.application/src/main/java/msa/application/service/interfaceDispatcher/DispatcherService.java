@@ -26,7 +26,7 @@ public class DispatcherService extends DispatcherUtils {
 
     public BaseDTO<Map<Integer, String>> getAllInterface(final Integer numSinistroProvv) throws InternalMsaException {
         try {
-            return new BaseDTO<>(new TreeMap<>(getAllInterface(numSinistroProvv, Boolean.TRUE).map(NavigazioneViewDO::getViewNavigate).orElseThrow(InternalMsaException::new)));
+            return new BaseDTO<>(new TreeMap<>(getAllInterface(numSinistroProvv, Boolean.TRUE).map(NavigazioneViewDO::getViewNavigate).orElseGet(HashMap::new)));
         } catch (Exception e) {
             throw new InternalMsaException(e,getErrorMessagesByCodErrore(MessageType.ERROR,"MSA011"));
         }
