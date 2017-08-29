@@ -4,7 +4,7 @@ var app = angular.module('msa', ['pascalprecht.translate', 'ngStorage',
     'ngAnimate', 'ui.select', 'ui.bootstrap.showErrors', 'ngFileUpload',
     'ngStomp', 'cgBusy', 'angular-loading-bar', 'textAngular', 'rzModule',
     'toastr', 'toggle-switch', 'angulartics',
-    'angulartics.google.analytics', 'ngRoute']);
+    'angulartics.google.analytics', 'ngRoute', 'uiGmapgoogle-maps']);
 
 /**
  * Parametri di configurazione dell'applicazione.
@@ -53,8 +53,10 @@ function getMSAC() {
         PATHS: {
             HOME: "/",
             DENUNCIA: "/denuncia"
+        },
+        API_KEYS: {
+            MAPS: "AIzaSyClOUgLxnK_B5-IdKK4EjavitUwoqxLr14"
         }
-
     };
 }
 
@@ -68,7 +70,6 @@ app.constant('_', window._);
 /*
  * Configurazione del routing.
  */
-
 app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
         .when(getMSAC().PATHS.HOME, {
@@ -137,6 +138,14 @@ app.config(function ($translateProvider, $MSAC) {
     tmhDynamicLocaleProvider.localeLocationPattern('bower_components/angular-i18n/angular-locale_{{locale}}.js');
 });
 
+/* Configurazione di Google Maps */
+app.config(function(uiGmapGoogleMapApiProvider, $MSAC) {
+    uiGmapGoogleMapApiProvider.configure({
+        key: $MSAC.API_KEYS.MAPS,
+        v: '3',
+        libraries: 'weather,geometry,visualization'
+    });
+});
 
 /*
  * Intercettazione globale dei messaggi nelle chiamate asincrone.

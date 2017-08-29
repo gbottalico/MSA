@@ -15,7 +15,8 @@
                 $ctrl.dannoRca = {
                     dannoCliente: undefined,
                     danniControparte: undefined,
-                    veicoloControparte: undefined
+                    veicoloControparte: undefined,
+                    terzeParti: []
                 };
                 $ctrl.dannoRca.lesioniConducente = undefined;
                 $ctrl.dannoRca.conducenteIsNotContraente = undefined;
@@ -25,6 +26,11 @@
                 VeicoliSvc.getTipoVeicoli().then(function (response) {
                     $ctrl.tipoVeicoli = response.data.result;
                 });
+
+                $ctrl.dannoRca.terzeParti = [
+                    {nome: "Corrado", cognome: "Dello Russo", note: "Ciao"},
+                    {nome: "Michele", cognome: "Giangiacomo", note: "LOL!"}
+                ];
 
                 $ctrl.salvaDannoRca = function () {
                     SinistriSvc.salvaDannoRcaCliente($ctrl.numeroSinistroProvvisorio, $ctrl.dannoRca).then(function (response) {
