@@ -16,6 +16,13 @@
                 $scope.$debugMode = $debugMode;
 
 
+                /*
+
+                <ui-gmap-google-map center="map.center" zoom="map.zoom"></ui-gmap-google-map>
+                $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
+
+                */
+
 
                 $scope.$watch(
                     function watchScope(scope) {

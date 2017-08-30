@@ -109,10 +109,10 @@
                         size: 'lg',
                         controller: function ($scope, $uibModalInstance, PlacesSvc, UtilSvc, denunciante) {
 
+                            var $ctrl = this;
+
                             $scope.denunciante = denunciante;
-                            PlacesSvc.getTipiStrada().then(function (response) {
-                                $scope.tipiStrada =  response.data.result;
-                            });
+                            $ctrl.parent = $scope.$parent;
 
                             $scope.ok = function () {
                                 $uibModalInstance.close($scope.denunciante);
@@ -153,6 +153,7 @@
                     });//end of modal.open
 
                     modalInstance.result.then(function (result) {
+                        console.log(result);
                         ctrl.apriSinistroProvvisorio(result);
                     }, function () {
                         toastr.info("Operazione annullata.");

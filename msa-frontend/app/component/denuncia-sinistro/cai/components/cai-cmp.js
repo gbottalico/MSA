@@ -8,25 +8,28 @@
             sinistroProvvisorio: "=",
             tempSegnalazione: "="
         },
-        controller: ("constatazioneAmichevoleController", ['$rootScope', '$scope', '$debugMode', 'BaremesSvc',
-            function ($rootScope, $scope, $debugMode, BaremesSvc) {
+        controller: ("constatazioneAmichevoleController", ['$rootScope', '$scope', '$debugMode', 'BaremesSvc', 'SinistriSvc',
+            function ($rootScope, $scope, $debugMode, BaremesSvc, SinistriSvc) {
 
                 var $ctrl = this;
                 $scope.$debugMode = $debugMode;
 
                 $ctrl.baremes = undefined;
-                $ctrl.baremeAssicurato = undefined;
-                $ctrl.baremeControparte = undefined;
+                $ctrl.cai = {};
+                $ctrl.cai.baremeAssicurato = 0;
+                $ctrl.cai.baremeControparte = 0;
+                $ctrl.cai.osservazioniAssicurato = undefined;
+                $ctrl.cai.osservazioniControparte = undefined;
 
-                $ctrl.responsabilita = {};
-                $ctrl.responsabilita.cliente = false;
-                $ctrl.responsabilita.controparte = false;
-                $ctrl.responsabilita.concorsuale = false;
-                $ctrl.responsabilita.nonClassificabile = false;
+                $ctrl.responsabilita = {
+                    cliente: false,
+                    controparte: false,
+                    concorsuale: false,
+                    nonClassificabile: false
+                };
 
-                $ctrl.osservazioniAssicurato = undefined;
-                $ctrl.osservazioniControparte = undefined;
 
+                $ctrl.isInputConsumed = false;
 
                 BaremesSvc.getBaremes().then(function (response) {
                     $ctrl.baremes = response.data.result;
@@ -34,20 +37,18 @@
 
                 $ctrl.salvaCai = function () {
 
-                    var bControparte = undefined;
-                    var oControparte = undefined;
-
-                    if ($ctrl.tempSegnalazione.nveicoli > 1) {
-                        bControparte = $ctrl.baremeControparte;
-                        oControparte = $ctrl.osservazioniControparte;
-                    } else {
-                        bControparte = null;
-                        oControparte = null;
-                    }
-
-                    BaremesSvc.saveBaremesAndGetResponsabilita($ctrl.numeroSinistroProvvisorio, $ctrl.baremeAssicurato, bControparte, $ctrl.osservazioniAssicurato, oControparte).then(function (response) {
+                    SinistriSvc.saveCaiAndGetResponsabilita($ctrl.numeroSinistroProvvisorio, $ctrl.cai, $ctrl.tempSegnalazione.nveicoli).then(function (response) {
                         if (response.data.result !== undefined && response.data.result !== null) {
                             $ctrl.setResponsabilitaUI(response.data.result.responsabilita);
+                        }
+                    });
+
+                };
+
+                $ctrl.calcolaResponsabilita = function () {
+                    SinistriSvc.getResponsabilita($ctrl.cai.baremeAssicurato, $ctrl.cai.baremeControparte).then(function (response) {
+                        if (response.data.result !== undefined && response.data.result !== null) {
+                            $ctrl.setResponsabilitaUI(response.data.result);
                         }
                     });
                 };
@@ -88,29 +89,35 @@
                             $ctrl.responsabilita.nonClassificabile = false;
                             break;
                     }
-
                 };
 
                 $ctrl.bindCai = function () {
-                    $ctrl.baremeAssicurato = $ctrl.sinistroProvvisorio.cai.baremesCliente.id;
-                    $ctrl.osservazioniAssicurato = $ctrl.sinistroProvvisorio.cai.noteCliente;
+                    $ctrl.cai.baremeAssicurato = $ctrl.sinistroProvvisorio.cai.baremesCliente.id;
+                    $ctrl.cai.osservazioniAssicurato = $ctrl.sinistroProvvisorio.cai.noteCliente;
 
                     if ($ctrl.sinistroProvvisorio.cai.baremesControparte !== undefined && $ctrl.sinistroProvvisorio.cai.baremesControparte !== null) {
-                        $ctrl.baremeControparte = $ctrl.sinistroProvvisorio.cai.baremesControparte.id;
-                        $ctrl.osservazioniControparte = $ctrl.sinistroProvvisorio.cai.noteControparte;
+                        $ctrl.cai.baremeControparte = $ctrl.sinistroProvvisorio.cai.baremesControparte.id;
+                        $ctrl.cai.osservazioniControparte = $ctrl.sinistroProvvisorio.cai.noteControparte;
                     }
                 };
 
                 $scope.$watch(
                     function watchScope(scope) {
                         return {
-                            sinistroProvvisorio: $ctrl.sinistroProvvisorio
+                            sinistroProvvisorio: $ctrl.sinistroProvvisorio,
+                            baremeAssicurato: $ctrl.cai.baremeAssicurato,
+                            baremeControparte: $ctrl.cai.baremeControparte
                         };
                     },
                     function handleChanges(newValues, oldValues) {
 
-                        if (newValues.sinistroProvvisorio !== undefined) {
+                        if (newValues.sinistroProvvisorio !== undefined && !$ctrl.isInputConsumed) {
                             $ctrl.bindCai();
+                            $ctrl.isInputConsumed = true;
+                        }
+
+                        if (newValues.baremeAssicurato !== undefined && newValues.baremeControparte !== undefined) {
+                            $ctrl.calcolaResponsabilita();
                         }
 
                     }, true

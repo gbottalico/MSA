@@ -60,15 +60,10 @@ angular.module('msa').service(
                 if (UtilSvc.isDefined(datiContraente.residenza.comune)) {
                     dataObj.contraente.tracking.comune = datiContraente.residenza.comune.codComune;
                 }
-                if (UtilSvc.isDefined(datiContraente.residenza.indirizzo)) {
-                    dataObj.contraente.tracking.tipoStrada = datiContraente.residenza.indirizzo.tipostrada;
-                    dataObj.contraente.tracking.denominazioneStrada = datiContraente.residenza.indirizzo.denominazione;
-                    dataObj.contraente.tracking.civicoStrada = datiContraente.residenza.indirizzo.civico;
-                }
+
+                dataObj.contraente.tracking.indirizzo = datiContraente.residenza.indirizzo;
 
                 console.log(JSON.stringify(dataObj));
-
-                //return $http.put(msaServicesApiUrls.aperturasinitro, data);
 
                 //TODO fix
                 return $http({
@@ -207,6 +202,45 @@ angular.module('msa').service(
 
             };
 
+            $svc.getResponsabilita = function (bCliente, bControparte) {
+
+                var data = {
+                    baremesCliente: {
+                        id: bCliente
+                    },
+                    baremesControparte: {
+                        id: bControparte
+                    }
+                };
+
+                return $http.post(msaServicesApiUrls.colpa, data);
+
+            };
+
+            $svc.saveCaiAndGetResponsabilita = function (numeroSinistroProvvisorio, cai, nveicoli) {
+
+                //TODO CHECK con BE
+
+                var data = {};
+                data.baremesCliente = {};
+                data.baremesCliente.id = cai.baremeAssicurato;
+
+                data.baremesControparte = {};
+
+                if (nveicoli > 1 && cai.baremeControparte !== undefined && cai.baremeControparte !== null) {
+                    data.baremesControparte.id = baremeControparte;
+                } else {
+                    data.baremesControparte = null;
+                }
+
+                data.noteCliente = cai.noteCliente;
+                data.noteControparte = cai.noteControparte;
+
+                var url = UtilSvc.stringFormat(msaServicesApiUrls.cai, numeroSinistroProvvisorio);
+
+                return $http.post(url, data);
+
+            };
 
         }
     ]
