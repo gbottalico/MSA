@@ -11,7 +11,7 @@
         <div class="body">
 
             <pre ng-if="$debugMode">{{$ctrl.tempSegnalazione}}</pre>
-            <pre ng-if="$debugMode">{{$ctrl}}</pre>
+            <pre ng-if="$debugMode">{{$ctrl.cai}}</pre>
             <div class="col-lg-12">
                 <table class="table cai-table">
                     <thead>
@@ -29,7 +29,7 @@
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputRadio noPadding noMargin">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 noPadding">
                                     <input type="radio" value="{{bareme.id}}" name="assicurato"
-                                           ng-model="$ctrl.baremeAssicurato">
+                                           ng-model="$ctrl.cai.baremeAssicurato">
                                 </div>
                             </div>
                         </td>
@@ -40,7 +40,7 @@
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputRadio noPadding noMargin">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 noPadding">
                                     <input type="radio" value="{{bareme.id}}" name="controparte"
-                                           ng-model="$ctrl.baremeControparte">
+                                           ng-model="$ctrl.cai.baremeControparte">
                                 </div>
                             </div>
                         </td>
@@ -49,11 +49,11 @@
                 </table>
 
                 <div class="col-sm-12 col-xs-12 classicTextArea" ng-class="{'col-lg-6 col-md-6': $ctrl.tempSegnalazione.nveicoli > 1, 'col-lg-12 col-md-12': $ctrl.tempSegnalazione.nveicoli <= 1}">
-                    <textarea class="textauto" ng-model="$ctrl.osservazioniAssicurato"></textarea>
+                    <textarea class="textauto" ng-model="$ctrl.cai.osservazioniAssicurato"></textarea>
                     <label>{{'global.cai.labels.osservazioniassicurato' | translate}}</label>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicTextArea" ng-if="$ctrl.tempSegnalazione.nveicoli > 1">
-                    <textarea class="textauto" ng-model="$ctrl.osservazioniControparte"></textarea>
+                    <textarea class="textauto" ng-model="$$ctrl.cai.osservazioniControparte"></textarea>
                     <label>{{'global.cai.labels.osservazionicontroparte' | translate}}</label>
                 </div>
 

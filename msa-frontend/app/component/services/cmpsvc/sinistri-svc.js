@@ -207,7 +207,7 @@ angular.module('msa').service(
 
             };
 
-            $svc.getColpa = function (bCliente, bControparte) {
+            $svc.getResponsabilita = function (bCliente, bControparte) {
 
                 var data = {
                     baremesCliente: {
@@ -220,7 +220,32 @@ angular.module('msa').service(
 
                 return $http.post(msaServicesApiUrls.colpa, data);
 
-            }
+            };
+
+            $svc.saveCaiAndGetResponsabilita = function (numeroSinistroProvvisorio, cai, nveicoli) {
+
+                //TODO CHECK con BE
+
+                var data = {};
+                data.baremesCliente = {};
+                data.baremesCliente.id = cai.baremeAssicurato;
+
+                data.baremesControparte = {};
+
+                if (nveicoli > 1 && cai.baremeControparte !== undefined && cai.baremeControparte !== null) {
+                    data.baremesControparte.id = baremeControparte;
+                } else {
+                    data.baremesControparte = null;
+                }
+
+                data.noteCliente = cai.noteCliente;
+                data.noteControparte = cai.noteControparte;
+
+                var url = UtilSvc.stringFormat(msaServicesApiUrls.cai, numeroSinistroProvvisorio);
+
+                return $http.post(url, data);
+
+            };
 
         }
     ]
