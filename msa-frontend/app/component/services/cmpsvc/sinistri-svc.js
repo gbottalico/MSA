@@ -60,15 +60,10 @@ angular.module('msa').service(
                 if (UtilSvc.isDefined(datiContraente.residenza.comune)) {
                     dataObj.contraente.tracking.comune = datiContraente.residenza.comune.codComune;
                 }
-                if (UtilSvc.isDefined(datiContraente.residenza.indirizzo)) {
-                    dataObj.contraente.tracking.tipoStrada = datiContraente.residenza.indirizzo.tipostrada;
-                    dataObj.contraente.tracking.denominazioneStrada = datiContraente.residenza.indirizzo.denominazione;
-                    dataObj.contraente.tracking.civicoStrada = datiContraente.residenza.indirizzo.civico;
-                }
+
+                dataObj.contraente.tracking.indirizzo = datiContraente.residenza.indirizzo;
 
                 console.log(JSON.stringify(dataObj));
-
-                //return $http.put(msaServicesApiUrls.aperturasinitro, data);
 
                 //TODO fix
                 return $http({

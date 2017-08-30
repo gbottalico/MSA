@@ -7,12 +7,12 @@
             valoriRicerca: '=',
             datiContraente: '='
         },
-        controller: ("stepController", ['$rootScope', '$scope', 'UtilSvc',
-            function ($rootScope, $scope, UtilSvc) {
+        controller: ("stepController", ['$rootScope', '$scope', 'UtilSvc', 'PlacesSvc',
+            function ($rootScope, $scope, UtilSvc, PlacesSvc) {
 
                 var $ctrl = this;
+                
                 $ctrl.step = 1;
-
                 $ctrl.user = {};
 
                 $ctrl.bindUser = function () {
@@ -33,16 +33,27 @@
                         $ctrl.user.nascita = $ctrl.user.nascita + ", " + UtilSvc.dateFormat($ctrl.datiContraente.dataNascita);
                     }
 
-                    $ctrl.user.residenza = $ctrl.datiContraente.tracking.tipoStrada + " " + $ctrl.datiContraente.tracking.denominazioneStrada +
-                        ", " + $ctrl.datiContraente.tracking.civicoStrada;
+                    if ($ctrl.datiContraente.tracking !== undefined && $ctrl.datiContraente.tracking !== null) {
 
-                    //TODO: aggiungere nazione o paese
+                        var promise = undefined;
+
+                        if ($ctrl.datiContraente.tracking.comune !== undefined && $ctrl.datiContraente.tracking.comune !== null) {
+                            promise = PlacesSvc.getComuneById($ctrl.datiContraente.tracking.comune);
+                        } else {
+                            promise = PlacesSvc.getNazioneById($ctrl.datiContraente.tracking.nazione);
+                        }
+
+                        promise.then(function (response) {
+                            $ctrl.user.residenza = $ctrl.datiContraente.tracking.indirizzo + ", " + response.data.result;
+                        });
+
+                    }
 
                     $ctrl.user.recapiti = [$ctrl.datiContraente.tracking.cellulare, $ctrl.datiContraente.tracking.telefono, $ctrl.datiContraente.tracking.mail];
                     $ctrl.user.recapiti = $ctrl.user.recapiti.filter(function (e) {
                         return e === 0 || e;
-                    }); //TODO: spostare in utilSvc?
-                    $ctrl.user.recapiti = $ctrl.user.recapiti.join(", ");
+                    });
+                    $ctrl.user.recapiti = $ctrl.user.recapiti.join(", ") || "Nessun recapito."; //TODO stringa scolpita
                 };
 
 
