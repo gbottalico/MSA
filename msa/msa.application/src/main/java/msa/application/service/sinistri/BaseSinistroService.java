@@ -105,6 +105,15 @@ public class BaseSinistroService extends BaseService {
         }
     }
 
+    protected final MsaFunction<Integer, BaseSinistroDO> GET_SINISTRO =
+            numSinistro -> {
+                try {
+                    return converter.convertObject(sinistriRepository.getSinistroByNumProvv(numSinistro), BaseSinistroDO.class);
+                } catch (Exception e) {
+                    throw new InternalMsaException();
+                }
+            };
+
 
     private final MsaBiFunction<SegnalazioneDTO, Integer, BaseSinistroDO> SEGNALAZIONE =
             (o, numSinistroProvv) -> {
