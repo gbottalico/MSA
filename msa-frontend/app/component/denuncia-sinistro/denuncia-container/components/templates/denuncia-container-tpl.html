@@ -2,12 +2,13 @@
 
 <section class="row denunciaSinistro">
     <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 leftContainer sticky">
-        <msa-step dati-contraente="$ctrl.datiContraente"></msa-step>
+        <msa-step dati-contraente="$ctrl.sinistroProvvisorio.contraente"></msa-step>
     </div>
     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-12 rightContainer">
         <msa-segnalazione
                 numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
-                sinistro-provvisorio="$ctrl.sinistroProvvisorio">
+                sinistro-provvisorio="$ctrl.sinistroProvvisorio"
+                temp-segnalazione="$ctrl.tempSegnalazione">
         </msa-segnalazione>
 
         <msa-evento-rca
