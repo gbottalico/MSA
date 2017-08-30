@@ -8,8 +8,8 @@
             sinistroProvvisorio: "=",
             tempSegnalazione: "="
         },
-        controller: ("constatazioneAmichevoleController", ['$rootScope', '$scope', '$debugMode', 'BaremesSvc', 'SinistriSvc',
-            function ($rootScope, $scope, $debugMode, BaremesSvc, SinistriSvc) {
+        controller: ("constatazioneAmichevoleController", ['$rootScope', '$scope', '$debugMode', 'DomainSvc', 'SinistriSvc',
+            function ($rootScope, $scope, $debugMode, DomainSvc, SinistriSvc) {
 
                 var $ctrl = this;
                 $scope.$debugMode = $debugMode;
@@ -31,7 +31,7 @@
 
                 $ctrl.isInputConsumed = false;
 
-                BaremesSvc.getBaremes().then(function (response) {
+                DomainSvc.getBaremes().then(function (response) {
                     $ctrl.baremes = response.data.result;
                 });
 

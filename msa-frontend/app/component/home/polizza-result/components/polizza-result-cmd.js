@@ -6,8 +6,8 @@
 	    bindings: {
 	    	valoriRicerca: '='
 	    },
-	    controller: ("polizzaResultController", ['$rootScope', '$translate', '$log', 'AccountUserSvc', 'toastr', '$analytics', '$location', '$cookies', '$window', '$sessionStorage', 
-	        function($rootScope, $translate, $log, AccountUserSvc, toastr, $analytics, location, $cookies, $window, $sessionStorage) {
+	    controller: ("polizzaResultController", ['$rootScope', '$translate', '$log', 'toastr', '$analytics', '$location', '$cookies', '$window', '$sessionStorage',
+	        function($rootScope, $translate, $log, toastr, $analytics, location, $cookies, $window, $sessionStorage) {
 	            
 	        var ctrl = this;
 

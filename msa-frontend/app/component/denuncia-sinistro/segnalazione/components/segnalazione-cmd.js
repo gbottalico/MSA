@@ -8,8 +8,8 @@
             sinistroProvvisorio: "<",
             tempSegnalazione: "="
         },
-        controller: ("segnalazioneController", ['$scope', '$rootScope', '$translate', '$debugMode', 'toastr', 'MezziComunicazioneSvc', 'RuoliSvc', 'PlacesSvc', 'SinistriSvc', 'UtilSvc', 'RegexSvc', 'DebugSvc',
-            function ($scope, $rootScope, $translate, $debugMode, toastr, MezziComunicazioneSvc, RuoliSvc, PlacesSvc, SinistriSvc, UtilSvc, RegexSvc, DebugSvc) {
+        controller: ("segnalazioneController", ['$scope', '$rootScope', '$translate', '$debugMode', 'toastr', 'DomainSvc', 'PlacesSvc', 'SinistriSvc', 'UtilSvc', 'RegexSvc', 'DebugSvc',
+            function ($scope, $rootScope, $translate, $debugMode, toastr, DomainSvc, PlacesSvc, SinistriSvc, UtilSvc, RegexSvc, DebugSvc) {
 
                 var $ctrl = this;
                 var parent = $scope.$parent;
@@ -38,11 +38,11 @@
                     provenienza: {},
                 };
 
-                MezziComunicazioneSvc.getMezziComunicazione().then(function (response) {
+                DomainSvc.getMezziComunicazione().then(function (response) {
                     $ctrl.mezzicomunicazione = response.data.result;
                 });
 
-                RuoliSvc.getRuoli().then(function (response) {
+                DomainSvc.getRuoli().then(function (response) {
                     $ctrl.ruoli = response.data.result;
                 });
 

@@ -6,13 +6,12 @@ angular
             $routeConfig: [
                 {path: '/', name: 'Home', component: 'msaHome', useAsDefault: true}
             ],
-            controller: ['$rootScope', '$translate', '$log', 'AccountUserSvc', 'toastr', '$analytics', '$location', '$cookies', '$window', '$sessionStorage',
-                function ($rootScope, $translate, $log, AccountUserSvc, toastr, $analytics, location, $cookies, $window, $sessionStorage) {
+            controller: ['$rootScope', '$translate', '$log', 'toastr',
+                function ($rootScope, $translate, $log, toastr) {
 
                     var $ctrl = this;
 
                     $rootScope.debugMode = true;
-
                     $rootScope.messages = [];
 
                     $rootScope.$watch('messages', function (newValue, oldValue) {

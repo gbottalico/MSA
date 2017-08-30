@@ -6,8 +6,8 @@
         bindings: {
             valoriRicerca: "="
         },
-        controller: ("polizzaSearchController", ["$scope", '$rootScope', '$translate', '$log', 'AccountUserSvc', "CompagnieSvc", 'CasaRegoleSvc', 'SinistriSvc', 'PlacesSvc', 'toastr', '$analytics', '$location', '$anchorScroll', '$uibModal', '$cookies', '$window', '$sessionStorage',
-            function ($scope, $rootScope, $translate, $log, AccountUserSvc, CompagnieSvc, CasaRegoleSvc, SinistriSvc, PlacesSvc, toastr, $analytics, $location, $anchorScroll, $uibModal, $cookies, $window, $sessionStorage) {
+        controller: ("polizzaSearchController", ["$scope", '$rootScope', '$translate', '$log', 'DomainSvc', 'SinistriSvc', 'PlacesSvc', 'toastr', '$analytics', '$location', '$anchorScroll', '$uibModal', '$cookies', '$window', '$sessionStorage',
+            function ($scope, $rootScope, $translate, $log, DomainSvc, SinistriSvc, PlacesSvc, toastr, $analytics, $location, $anchorScroll, $uibModal, $cookies, $window, $sessionStorage) {
 
                 var ctrl = this;
                 //var modalInstance = undefined;
@@ -19,7 +19,7 @@
                 ctrl.numSinistroProvv = undefined;
 
                 ctrl.$onInit = function () {
-                    CasaRegoleSvc.getElencoRegole().then(function (response) {
+                    DomainSvc.getElencoRegole().then(function (response) {
                         ctrl.casaRegole = response.data.result;
                     });
 

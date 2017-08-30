@@ -8,8 +8,8 @@
             sinistroProvvisorio: "=",
             tempSegnalazione: "="
         },
-        controller: ("eventoRcaController", ['$rootScope', '$scope', '$debugMode', 'SinistriSvc', 'AutoritaSvc',
-            function ($rootScope, $scope, $debugMode, SinistriSvc, AutoritaSvc) {
+        controller: ("eventoRcaController", ['$rootScope', '$scope', '$debugMode', 'SinistriSvc', 'DomainSvc',
+            function ($rootScope, $scope, $debugMode, SinistriSvc, DomainSvc) {
 
                 var $ctrl = this;
                 var parent = $scope.$parent;
@@ -28,7 +28,7 @@
                     dataDenuncia: {}
                 };
 
-                AutoritaSvc.getAutorita().then(function (response) {
+                DomainSvc.getAutorita().then(function (response) {
                     $ctrl.autorita = response.data.result;
                 });
 
