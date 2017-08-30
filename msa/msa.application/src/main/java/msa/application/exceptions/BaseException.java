@@ -15,7 +15,7 @@ public class BaseException extends Exception {
     private List<Message> messages;
     private static final Logger LOGGER = LoggerFactory.getLogger(BaseException.class);
     public BaseException(Exception exceptionThrowed, List<Message> messages) {
-        LOGGER.error(exceptionThrowed.getMessage());
+        LOGGER.error(exceptionThrowed != null ? exceptionThrowed.getMessage() : "");
         this.exceptionThrowed = exceptionThrowed;
         this.messages = messages;
 

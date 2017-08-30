@@ -25,6 +25,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class BaseService {
 
@@ -171,17 +172,21 @@ public class BaseService {
         return new FormDataParamBuilder();
     }
 
-    private String getErrorMessageByCod(final String codErrore) {
-        return erroriRepository.findByCodErrore(codErrore).getTesto();
+    private Optional<String> getErrorMessageByCod(final String codErrore) {
+        return Optional.ofNullable(erroriRepository.findByCodErrore(codErrore).getTesto());
     }
 
     protected List<Message> getErrorMessagesByCodErrore(MessageType type, final String cod) {
-        return buildErrorMessageByText(type, Collections.singletonList(getErrorMessageByCod(cod)));
+        return buildErrorMessageByText(type, Collections.singletonList(getErrorMessageByCod(cod).orElse(null)));
 
     }
 
     protected List<Message> getErrorMessagesByCodErrore(MessageType type, final String cod, Function<String, String> specMessage) {
-        return buildErrorMessageByText(type, Collections.singletonList(specMessage.apply(getErrorMessageByCod(cod))));
+        return buildErrorMessageByText(type,
+                Stream.of(getErrorMessageByCod(cod)
+                        .map(specMessage)
+                        .orElse(null))
+                        .collect(Collectors.toList()));
 
     }
 
@@ -216,10 +221,10 @@ public class BaseService {
             throw new InternalMsaException();
         }
     }
-    protected List<Message> addWarningMessageByCondition(Supplier<String> text, Boolean condition){
-        if(!condition) {
+
+    protected List<Message> addWarningMessageByCondition(Supplier<String> text, Boolean condition) {
+        if (!condition) {
             return Collections.singletonList(new Message(MessageType.WARNING, text.get()));
-        }
-        else return null;
+        } else return null;
     }
 }
