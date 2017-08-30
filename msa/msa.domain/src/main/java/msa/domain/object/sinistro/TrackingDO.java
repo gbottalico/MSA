@@ -8,9 +8,8 @@ public class TrackingDO {
     private String telefono;
     private String cellulare;
     private String mail;
-    private String tipoStrada;
-    private String denominazioneStrada;
-    private String civicoStrada;
+    private String indirizzo;
+
 
     public String getNazione() {
         return nazione;
@@ -68,28 +67,11 @@ public class TrackingDO {
         this.mail = mail;
     }
 
-    public String getTipoStrada() {
-        return tipoStrada;
+    public String getIndirizzo() {
+        return indirizzo;
     }
 
-    public void setTipoStrada(String tipoStrada) {
-        this.tipoStrada = tipoStrada;
+    public void setIndirizzo(String indirizzo) {
+        this.indirizzo = indirizzo;
     }
-
-    public String getDenominazioneStrada() {
-        return denominazioneStrada;
-    }
-
-    public void setDenominazioneStrada(String denominazioneStrada) {
-        this.denominazioneStrada = denominazioneStrada;
-    }
-
-    public String getCivicoStrada() {
-        return civicoStrada;
-    }
-
-    public void setCivicoStrada(String civicoStrada) {
-        this.civicoStrada = civicoStrada;
-    }
-
 }
