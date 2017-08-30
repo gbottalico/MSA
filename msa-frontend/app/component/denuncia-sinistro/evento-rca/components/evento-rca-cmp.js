@@ -8,13 +8,14 @@
             sinistroProvvisorio: "<",
             tempSegnalazione: "="
         },
-        controller: ("eventoRcaController", ['$rootScope', '$scope', '$filter', '$debugMode', 'toastr', 'SinistriSvc', 'DomainSvc', 'DebugSvc',
-            function ($rootScope, $scope, $filter, $debugMode, toastr, SinistriSvc, DomainSvc, DebugSvc) {
+        controller: ("eventoRcaController", ['$rootScope', '$scope', '$filter', '$debugMode', '$location', 'toastr', 'SinistriSvc', 'DomainSvc', 'DebugSvc', 'PathSvc',
+            function ($rootScope, $scope, $filter, $debugMode, $location, toastr, SinistriSvc, DomainSvc, DebugSvc, PathSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
                 var parent = $scope.$parent;
                 $scope.$debugMode = $debugMode;
+                $ctrl.mapId = 'M12';
 
                 $ctrl.eventoRca = {};
                 $ctrl.eventoRca.collisione = true;
@@ -33,9 +34,10 @@
                     $ctrl.autorita = response.data.result;
                 });
 
-                $ctrl.$onInit = function () {
-
-                };
+                // $ctrl.$onInit = function () {
+                //     $location.hash($ctrl.mapId);
+                //     PathSvc.smoothScroll($ctrl.mapId);
+                // };
 
                 $ctrl.salvaEventoRca = function () {
                     SinistriSvc.salvaEventoRca($ctrl.numeroSinistroProvvisorio, $ctrl.eventoRca).then(function (response) {
