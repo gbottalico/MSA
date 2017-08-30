@@ -8,17 +8,24 @@
             sinistroProvvisorio: "=",
             tempSegnalazione: "="
         },
-        controller: ("constatazioneAmichevoleController", ['$rootScope', '$scope', '$debugMode', '$filter','toastr', 'SinistriSvc', 'DebugSvc',
-            function ($rootScope, $scope, $debugMode, $filter, toastr, SinistriSvc, DebugSvc) {
+        controller: ("constatazioneAmichevoleController", ['$rootScope', '$scope', '$debugMode', '$filter', '$location','toastr', 'SinistriSvc', 'DebugSvc', 'PathSvc',
+            function ($rootScope, $scope, $debugMode, $filter, $location, toastr, SinistriSvc, DebugSvc, PathSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
                 var parent = $scope.$parent;
                 $scope.$debugMode = $debugMode;
+                $ctrl.mapId = 'M13';
 
                 $ctrl.ca = {};
                 $ctrl.ca.constatazioneAmichevole = true;
                 $ctrl.ca.constatazioneAmichevoleControparte = undefined;
+
+                // $ctrl.$onInit = function () {
+                //     $location.hash($ctrl.mapId);
+                //     PathSvc.smoothScroll($ctrl.mapId);
+                // };
+
 
                 $ctrl.salvaCa = function () {
                     SinistriSvc.salvaCa($ctrl.numeroSinistroProvvisorio, $ctrl.ca).then(function (response) {
