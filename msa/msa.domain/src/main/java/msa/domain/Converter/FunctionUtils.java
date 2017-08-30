@@ -16,11 +16,11 @@ public final class FunctionUtils {
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
 
     public static <T> Boolean checkIsNotNull(final T... object) {
-        return Arrays.stream(object).noneMatch(checkIsNotNull);
+        return Arrays.stream(object).map(Objects::nonNull).noneMatch(e -> e.equals(Boolean.FALSE));
     }
 
     public static <T extends Number> T numberConverter(String value, Function<String, T> function) {
-        if(isNumber(value,function)) {
+        if (isNumber(value, function)) {
             return function.apply(value);
         } else {
             return null;
@@ -94,5 +94,11 @@ public final class FunctionUtils {
                 .values()
                 .stream()
                 .collect(Collectors.toList());
+    }
+
+    public static <T, K> Boolean equalsListSize(List<T> a, List<K> b) {
+        if (checkIsNotNull(a, b)) {
+            return Integer.compare(a.size(), b.size()) == 0;
+        } else return Boolean.FALSE;
     }
 }

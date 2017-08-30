@@ -19,6 +19,10 @@ public class BaseDTO<T> implements Serializable {
 
     public BaseDTO() {
     }
+    public BaseDTO (T result, List<Message> messages){
+        this.result = result;
+        this.messaggi = messages;
+    }
 
     private HttpStatus status;
     private T result;

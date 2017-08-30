@@ -1,6 +1,5 @@
 package msa.application.service.sinistri;
 
-import com.gs.collections.impl.block.factory.Comparators;
 import msa.application.config.BaseDTO;
 import msa.application.config.enumerator.MessageType;
 import msa.application.dto.ricerca.InputRicercaDTO;
@@ -17,9 +16,11 @@ import msa.application.service.interfaceDispatcher.DispatcherService;
 import msa.domain.Converter.FunctionUtils;
 import msa.domain.object.dominio.BaremesDO;
 import msa.domain.object.dominio.CompagniaDO;
-import msa.domain.object.sinistro.*;
+import msa.domain.object.sinistro.AnagraficaTerzePartiDO;
+import msa.domain.object.sinistro.BaseSinistroDO;
+import msa.domain.object.sinistro.InputRicercaDO;
+import msa.domain.object.sinistro.SinistroRcaDO;
 import msa.domain.object.sinistro.rca.IncrociBaremesDO;
-import msa.infrastructure.repository.DispatcherRepository;
 import msa.infrastructure.repository.DomainRepository;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,8 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.function.BooleanSupplier;
-import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -239,27 +239,39 @@ public class SinistriService extends BaseSinistroService {
     }
 
     public BaseDTO salvaDannoRcaTerzeParti(List<AnagraficaTerzePartiDTO> input, Integer numSinistro) throws InternalMsaException {
-        final BaseSinistroDO sinistroDOByDTO = getSinistroDOByDTO(new AnagraficaTerzePartiDTO(), numSinistro);
-        if (CollectionUtils.isEmpty(sinistroDOByDTO.getAnagraficaTerzeParti())) {
-            sinistroDOByDTO.setAnagraficaTerzeParti(new ArrayList<>());
-        }
-        final List<AnagraficaTerzePartiDO> concat = FunctionUtils.dinstictList(Stream
-                .concat(sinistroDOByDTO.getAnagraficaTerzeParti().stream(),
-                        converter.convertList(input, AnagraficaTerzePartiDO.class).stream())
-                .collect(Collectors.toList()), BaseAnagraficaDO::getCf);
-        sinistroDOByDTO.setAnagraficaTerzeParti(concat);
+        BaseSinistroDO sinistroDOByDTO = getSinistroDOByDTO(new AnagraficaTerzePartiDTO(), numSinistro);
+        List<AnagraficaTerzePartiDO> filteredList = converter.convertList(FunctionUtils.dinstictList(input, AnagraficaTerzePartiDTO::getCf), AnagraficaTerzePartiDO.class);
+        sinistroDOByDTO.setAnagraficaTerzeParti(replaceTerzePartiList(sinistroDOByDTO.getAnagraficaTerzeParti(), filteredList, e -> e.getCodRuolo().equals("13")));
         Boolean insertResult = salvaSinistro(sinistroDOByDTO);
         if (insertResult) {
-            return new BaseDTO<>();
+            return new BaseDTO<>(null, addWarningMessageByCondition(() -> "Sono stati inseriti codici fiscali o partite iva duplicati",
+                    FunctionUtils.equalsListSize(input, filteredList)));
         } else {
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione Salvataggio Danni Terze Parti")));
         }
 
     }
 
-    public BaseDTO salvaDannoRcaLegale(AnagraficaTerzePartiDTO input, Integer numeroSinistro) throws InternalMsaException {
-        if (salvaSinistro(getSinistroDOByDTOAndFunction(input, numeroSinistro, LEGALE))) {
-            return new BaseDTO<>();
+    private List<AnagraficaTerzePartiDO> replaceTerzePartiList(List<AnagraficaTerzePartiDO> oldList, List<AnagraficaTerzePartiDO> newList, Predicate<AnagraficaTerzePartiDO> toExclude) {
+        List<AnagraficaTerzePartiDO> filteredOldList = CollectionUtils.isEmpty(oldList)? new ArrayList<>() : oldList.stream().filter(toExclude).collect(Collectors.toList());
+        if (CollectionUtils.isNotEmpty(filteredOldList) && CollectionUtils.isNotEmpty(newList)) {
+            return Stream.concat(newList.stream(), filteredOldList.stream()).collect(Collectors.toList());
+        } else if (CollectionUtils.isNotEmpty(filteredOldList) && CollectionUtils.isEmpty(newList)) {
+            return filteredOldList;
+
+        } else return newList;
+
+    }
+
+    public BaseDTO salvaDannoRcaLegale(List<AnagraficaTerzePartiDTO> input, Integer numeroSinistro) throws InternalMsaException {
+        BaseSinistroDO sinistroDOByDTO = getSinistroDOByDTO(new AnagraficaTerzePartiDTO(), numeroSinistro);
+        List<AnagraficaTerzePartiDO> filteredList = converter.convertList(FunctionUtils.dinstictList(input, AnagraficaTerzePartiDTO::getCf), AnagraficaTerzePartiDO.class);
+        sinistroDOByDTO.setAnagraficaTerzeParti(replaceTerzePartiList(sinistroDOByDTO.getAnagraficaTerzeParti(), filteredList, e -> !e.getCodRuolo().equals("13")));
+        Boolean insertResult = salvaSinistro(sinistroDOByDTO);
+
+        if (insertResult) {
+            return new BaseDTO<>(null, addWarningMessageByCondition(() -> "Sono stati inseriti codici fiscali o partite iva duplicati",
+                   FunctionUtils.equalsListSize(input, filteredList)));
         } else {
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione Salvataggio Legale")));
         }
@@ -361,5 +373,6 @@ public class SinistriService extends BaseSinistroService {
         perito.setTargaDaPerizare("XX555BB");
         return perito;
     }
+
 }
 

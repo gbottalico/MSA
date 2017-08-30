@@ -22,6 +22,8 @@ import java.net.URL;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 public class BaseService {
@@ -213,5 +215,11 @@ public class BaseService {
         } catch (InterruptedException e) {
             throw new InternalMsaException();
         }
+    }
+    protected List<Message> addWarningMessageByCondition(Supplier<String> text, Boolean condition){
+        if(!condition) {
+            return Collections.singletonList(new Message(MessageType.WARNING, text.get()));
+        }
+        else return null;
     }
 }

@@ -151,7 +151,7 @@ public class SinistroController extends BaseController {
 
     @ApiOperation(value = "Metodo che salva il legale incaricato")
     @RequestMapping(value = "/{numero}/dannoRCA/legale", method = RequestMethod.POST)
-    public BaseDTO salvaDanniRcaLegale(@RequestBody AnagraficaTerzePartiDTO input, @PathVariable("numero") Integer numeroSinistro) throws InternalMsaException {
+    public BaseDTO salvaDanniRcaLegale(@RequestBody List<AnagraficaTerzePartiDTO> input, @PathVariable("numero") Integer numeroSinistro) throws InternalMsaException {
 
         return sinistriService.salvaDannoRcaLegale(input, numeroSinistro);
 
