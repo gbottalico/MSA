@@ -8,10 +8,11 @@
             sinistroProvvisorio: "=",
             tempSegnalazione: "="
         },
-        controller: ("constatazioneAmichevoleController", ['$rootScope', '$scope', '$debugMode', 'SinistriSvc',
-            function ($rootScope, $scope, $debugMode, SinistriSvc) {
+        controller: ("constatazioneAmichevoleController", ['$rootScope', '$scope', '$debugMode', '$filter','toastr', 'SinistriSvc', 'DebugSvc',
+            function ($rootScope, $scope, $debugMode, $filter, toastr, SinistriSvc, DebugSvc) {
 
                 var $ctrl = this;
+                var $translate = $filter('translate');
                 var parent = $scope.$parent;
                 $scope.$debugMode = $debugMode;
 
@@ -21,7 +22,13 @@
 
                 $ctrl.salvaCa = function () {
                     SinistriSvc.salvaCa($ctrl.numeroSinistroProvvisorio, $ctrl.ca).then(function (response) {
-                        parent.aggiornaMappe();
+                        DebugSvc.log("salvaCa", response);
+                        if (response.data.status === 200) {
+                            parent.aggiornaMappe();
+                            toastr.success($translate('global.generic.saveok'));
+                        } else {
+                            toastr.error($translate('global.generic.saveko'));
+                        }
                     });
                 };
 

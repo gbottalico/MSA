@@ -41,7 +41,7 @@
                     SinistriSvc.salvaEventoRca($ctrl.numeroSinistroProvvisorio, $ctrl.eventoRca).then(function (response) {
                         DebugSvc.log("salvaEventoRca", response);
                         if (response.data.status === 200) {
-                            //FIXME RIATTIVARE parent.aggiornaMappe();
+                            parent.aggiornaMappe();
                             toastr.success($translate('global.generic.saveok'));
                         } else {
                             toastr.error($translate('global.generic.saveko'));

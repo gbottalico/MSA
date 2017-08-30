@@ -8,10 +8,12 @@
             sinistroProvvisorio: "=",
             tempSegnalazione: "="
         },
-        controller: ("constatazioneAmichevoleController", ['$rootScope', '$scope', '$debugMode', 'DomainSvc', 'SinistriSvc',
-            function ($rootScope, $scope, $debugMode, DomainSvc, SinistriSvc) {
+        controller: ("constatazioneAmichevoleController", ['$rootScope', '$scope', '$debugMode', '$filter', 'toastr', 'DomainSvc', 'SinistriSvc', 'DebugSvc',
+            function ($rootScope, $scope, $debugMode, $filter, toastr, DomainSvc, SinistriSvc, DebugSvc) {
 
                 var $ctrl = this;
+                var $translate = $filter('translate');
+                var parent = $scope.$parent;
                 $scope.$debugMode = $debugMode;
 
                 $ctrl.baremes = undefined;
@@ -38,8 +40,16 @@
                 $ctrl.salvaCai = function () {
 
                     SinistriSvc.saveCaiAndGetResponsabilita($ctrl.numeroSinistroProvvisorio, $ctrl.cai, $ctrl.tempSegnalazione.nveicoli).then(function (response) {
-                        if (response.data.result !== undefined && response.data.result !== null) {
-                            $ctrl.setResponsabilitaUI(response.data.result.responsabilita);
+                        DebugSvc.log("saveCaiAndGetResponsabilita", response);
+                        if (response.data.status === 200) {
+                            if (response.data.result !== undefined && response.data.result !== null) {
+                                // Il servizio restituisce un result solo se i veicoli son 2 o più.
+                                $ctrl.setResponsabilitaUI(response.data.result.responsabilita);
+                            }
+                            parent.aggiornaMappe();
+                            toastr.success($translate('global.generic.saveok'));
+                        } else {
+                            toastr.error($translate('global.generic.saveko'));
                         }
                     });
 
@@ -47,8 +57,10 @@
 
                 $ctrl.calcolaResponsabilita = function () {
                     SinistriSvc.getResponsabilita($ctrl.cai.baremeAssicurato, $ctrl.cai.baremeControparte).then(function (response) {
-                        if (response.data.result !== undefined && response.data.result !== null) {
+                        if (response.data.status === 200 && response.data.result !== undefined && response.data.result !== null) {
                             $ctrl.setResponsabilitaUI(response.data.result);
+                        } else {
+                            toastr.error($translate('global.cai.messages.responsabilita'));
                         }
                     });
                 };
