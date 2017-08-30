@@ -28,12 +28,8 @@ public class SegnalazioneDBO {
     private Integer codComune;
     @Field("cap")
     private Integer cap;
-    @Field("tipoStrada")
-    private Integer tipoStrada;
-    @Field("denominazioneStrada")
-    private String denominazioneStrada;
-    @Field("civicoStrada")
-    private String civicoStrada;
+    @Field("indirizzo")
+    private String indirizzo;
     @Field("garanziaSelected")
     private String garanziaSelected;
 
@@ -109,29 +105,6 @@ public class SegnalazioneDBO {
         this.cap = cap;
     }
 
-    public Integer getTipoStrada() {
-        return tipoStrada;
-    }
-
-    public void setTipoStrada(Integer tipoStrada) {
-        this.tipoStrada = tipoStrada;
-    }
-
-    public String getDenominazioneStrada() {
-        return denominazioneStrada;
-    }
-
-    public void setDenominazioneStrada(String denominazioneStrada) {
-        this.denominazioneStrada = denominazioneStrada;
-    }
-
-    public String getCivicoStrada() {
-        return civicoStrada;
-    }
-
-    public void setCivicoStrada(String civicoStrada) {
-        this.civicoStrada = civicoStrada;
-    }
 
     public String getGaranziaSelected() {
         return garanziaSelected;
@@ -139,5 +112,13 @@ public class SegnalazioneDBO {
 
     public void setGaranziaSelected(String garanziaSelected) {
         this.garanziaSelected = garanziaSelected;
+    }
+
+    public String getIndirizzo() {
+        return indirizzo;
+    }
+
+    public void setIndirizzo(String indirizzo) {
+        this.indirizzo = indirizzo;
     }
 }
