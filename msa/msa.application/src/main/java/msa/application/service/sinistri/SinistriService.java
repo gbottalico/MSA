@@ -50,7 +50,7 @@ public class SinistriService extends BaseSinistroService {
      * @param input un oggetto di tipo InputRicercaDTO che contiene le informazioni con cui effettuare la ricerca
      * @return
      */
-    public BaseDTO ricercaCopertura(InputRicercaDTO input) throws InternalMsaException {
+    public BaseDTO<List<BaseSinistroDTO>> ricercaCopertura(InputRicercaDTO input) throws InternalMsaException {
         if (FunctionUtils.checkIsNotNull(input.getCompagnia()/**, input.getDataEvento()*/)) {
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA003"));
         }
@@ -109,7 +109,7 @@ public class SinistriService extends BaseSinistroService {
         final BaseSinistroDO newSinistro = getSinistroDOByDTO(input, numSinistroProvv);
         final BaseSinistroDO oldSinistro = GET_SINISTRO.apply(numSinistroProvv);
         final BaseDTO<Map<String, String>> result = new BaseDTO(Stream.of("").collect(Collectors.toMap(elem -> "tipoSinistro", elem -> "TODO")));
-        if (oldSinistro.getSegnalazione() != null) {
+        if (oldSinistro.getSegnalazione() != null && !(input.getGaranziaSelected().equals(oldSinistro.getSegnalazione().getGaranziaSelected()))) {
             final List<Object> objects = execInParallel(
                     () -> salvaSinistro(newSinistro),
                     () -> dispatcherService.resetView(input.getGaranziaSelected(), numSinistroProvv)
