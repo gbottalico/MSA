@@ -4,6 +4,7 @@ import msa.application.config.BaseDTO;
 import msa.application.config.enumerator.MessageType;
 import msa.application.dto.dispatcher.DispatcherDTO;
 import msa.application.exceptions.InternalMsaException;
+import msa.domain.Converter.FunctionUtils;
 import msa.domain.object.dispatcher.DispatcherDO;
 import msa.domain.object.dispatcher.NavigazioneViewDO;
 import msa.infrastructure.repository.DispatcherRepository;
@@ -28,7 +29,7 @@ public class DispatcherService extends DispatcherUtils {
         try {
             return new BaseDTO<>(new TreeMap<>(getAllInterface(numSinistroProvv, Boolean.TRUE).map(NavigazioneViewDO::getViewNavigate).orElseGet(HashMap::new)));
         } catch (Exception e) {
-            throw new InternalMsaException(e,getErrorMessagesByCodErrore(MessageType.ERROR,"MSA011"));
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA011"));
         }
     }
 
@@ -36,7 +37,6 @@ public class DispatcherService extends DispatcherUtils {
         return dispatcherRepository.getAllViewBySinistro(numSinistroProvv);
     }
 
-    //Todo FIxME dopo 26 si deve fermare
     public BaseDTO<Map<Integer, String>> getNextInterface(final DispatcherDTO view) throws InternalMsaException {
         try {
             final DispatcherDO dispatcherDO = converter.convertObject(view, DispatcherDO.class);
@@ -78,9 +78,16 @@ public class DispatcherService extends DispatcherUtils {
             }
             dispatcherRepository.persistInViewNavigated(navigazioneAggiornata);
             return new BaseDTO<>(new TreeMap<>(navigazioneAggiornata.getViewNavigate()));
-        }catch (Exception e) {
-            throw new InternalMsaException(e,getErrorMessagesByCodErrore(MessageType.ERROR,"MSA010"));
+        } catch (Exception e) {
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA010"));
         }
+    }
+
+    public Integer resetView(final String garanziaSelected, final Integer numSinistroProvv) throws InternalMsaException {
+        final DispatcherDO dispatcherDO = new DispatcherDO();
+        dispatcherDO.setGaranziaSelected(FunctionUtils.numberConverter(garanziaSelected, Integer::valueOf));
+        dispatcherDO.setNumSinistroProvv(numSinistroProvv);
+        return dispatcherRepository.resetViewByNumSinistro(dispatcherDO);
     }
 
     private Integer getNewIndex(Map<Integer, String> indexViews) {

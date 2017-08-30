@@ -1,5 +1,6 @@
 package msa.application.service.sinistri;
 
+import com.gs.collections.impl.block.factory.Comparators;
 import msa.application.config.BaseDTO;
 import msa.application.config.enumerator.MessageType;
 import msa.application.dto.ricerca.InputRicercaDTO;
@@ -12,11 +13,13 @@ import msa.application.dto.sinistro.rca.dannoRca.DannoRcaDTO;
 import msa.application.dto.sinistro.rca.eventoRca.EventoRcaDTO;
 import msa.application.dto.sinistro.segnalazione.SegnalazioneDTO;
 import msa.application.exceptions.InternalMsaException;
+import msa.application.service.interfaceDispatcher.DispatcherService;
 import msa.domain.Converter.FunctionUtils;
 import msa.domain.object.dominio.BaremesDO;
 import msa.domain.object.dominio.CompagniaDO;
 import msa.domain.object.sinistro.*;
 import msa.domain.object.sinistro.rca.IncrociBaremesDO;
+import msa.infrastructure.repository.DispatcherRepository;
 import msa.infrastructure.repository.DomainRepository;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +28,9 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+import java.util.function.BooleanSupplier;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -33,6 +39,9 @@ public class SinistriService extends BaseSinistroService {
 
     @Autowired
     private DomainRepository domainRepository;
+
+    @Autowired
+    private DispatcherService dispatcherService;
 
 
     /**
@@ -97,12 +106,39 @@ public class SinistriService extends BaseSinistroService {
      */
 
     public BaseDTO<Map<String, String>> inviaSegnalazione(SegnalazioneDTO input, Integer numSinistroProvv) throws InternalMsaException {
-        final BaseSinistroDO sinistroDOByDTO = getSinistroDOByDTO(input, numSinistroProvv);
+        final BaseSinistroDO newSinistro = getSinistroDOByDTO(input, numSinistroProvv);
+        final BaseSinistroDO oldSinistro = GET_SINISTRO.apply(numSinistroProvv);
+        final BaseDTO<Map<String, String>> result = new BaseDTO(Stream.of("").collect(Collectors.toMap(elem -> "tipoSinistro", elem -> "TODO")));
+        if (oldSinistro.getSegnalazione() != null) {
+            final List<Object> objects = execInParallel(
+                    () -> salvaSinistro(newSinistro),
+                    () -> dispatcherService.resetView(input.getGaranziaSelected(), numSinistroProvv)
+            );
+            final Optional<Boolean> conditions = Optional.of(objects.stream().filter(e -> e.getClass().isAssignableFrom(Boolean.class))
+                    .findFirst().map(e -> {
+                        if ((Boolean) e) {
+                            return Boolean.TRUE;
+                        } else {
+                            return null;
+                        }
+                    }).orElseGet(() -> Boolean.FALSE)
+                    && objects.stream().filter(e -> e.getClass().isAssignableFrom(Integer.class))
+                    .findFirst().map(e -> {
+                        if ((Integer) e > 0) {
+                            return Boolean.TRUE;
+                        } else {
+                            return null;
+                        }
+                    }).orElseGet(() -> Boolean.FALSE));
 
-        if (salvaSinistro(sinistroDOByDTO)) {
-            return new BaseDTO(Stream.of("").collect(Collectors.toMap(e -> "tipoSinistro", e -> "TODO")));
-        } else
-            throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione segnalazione")));
+            return conditions.map(e -> result).orElseThrow(() -> new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione segnalazione"))));
+        } else {
+            if (salvaSinistro(newSinistro)) {
+                return result;
+            } else
+                throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione segnalazione")));
+
+        }
     }
 
     /**
@@ -264,7 +300,8 @@ public class SinistriService extends BaseSinistroService {
         try {
             //Todo MOCK per mancanza di garanzie specifiche o tipi sinistri specifici
             final K sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistro);
-            final Class<T> toPass = sinistroByNumProvv.getSegnalazione() == null ? (Class<T>) BaseSinistroDTO.class : getClassByGaranzia(sinistroByNumProvv.getSegnalazione().getGaranziaSelected());return converter.convertObject(sinistroByNumProvv, toPass);
+            final Class<T> toPass = sinistroByNumProvv.getSegnalazione() == null ? (Class<T>) BaseSinistroDTO.class : getClassByGaranzia(sinistroByNumProvv.getSegnalazione().getGaranziaSelected());
+            return converter.convertObject(sinistroByNumProvv, toPass);
         } catch (Exception e) {
             throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA009"));
         }
@@ -306,7 +343,8 @@ public class SinistriService extends BaseSinistroService {
         throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione Salvataggio dati centro convenzionato")));
 
     }
-    public PeritoDTO getPerito(IndirizzoDTO indirizzo){
+
+    public PeritoDTO getPerito(IndirizzoDTO indirizzo) {
         //TODO MOCK per mancanza del servizio sul perito
         LuogoDTO luogoPerizia = new LuogoDTO();
         luogoPerizia.setCodComune("18538");

@@ -87,8 +87,10 @@ public class BaseRepository {
         converter.convertList(elem,dboClass).forEach(this::update);
     }
 
-    protected <T> void findAndDelete(Query query, Class<T> dboClass) {
+    protected <T> List<T> findAndDelete(Query query, Class<T> dboClass) {
+        final List<T> ts = mongoTemplate.find(query, dboClass);
         mongoTemplate.findAllAndRemove(query, dboClass);
+        return ts;
     }
 
     protected <T> Optional<T> getMaxElem(final Class<T> dboClass, Comparator<T> comparator) {

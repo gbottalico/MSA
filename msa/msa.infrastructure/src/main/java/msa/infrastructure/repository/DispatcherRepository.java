@@ -49,4 +49,9 @@ public class DispatcherRepository extends BaseRepository {
     public void persistInViewNavigated(final NavigazioneViewDO navigazione) {
         update(navigazione, NavigazioneViewDBO.class);
     }
+
+    public Integer resetViewByNumSinistro(final DispatcherDO dispatcherDO) {
+        final Query query = getCriteriaQueryBuilder().addCriteria(Criteria.where("_id").is(dispatcherDO.getNumSinistroProvv()));
+        return findAndDelete(query,NavigazioneViewDBO.class).size();
+    }
 }
