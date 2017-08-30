@@ -141,6 +141,16 @@ public class SinistriService extends BaseSinistroService {
         }
     }
 
+    private Boolean getFlagIsCard(SinistroRcaDO sinistroRcaDOByDTO) {
+        final CompagniaDO compagnia = domainRepository.getCompagniaByCodCompagnia(sinistroRcaDOByDTO.getCompagnia());
+        final Boolean isCard = FunctionUtils.between(
+                FunctionUtils.nowAsDate(),
+                compagnia.getDataInCard(),
+                compagnia.getDataOutCard(),
+                true);
+        return isCard;
+    }
+
     /**
      * Metodo che salva i dati dell'evento RCA
      *
@@ -151,15 +161,22 @@ public class SinistriService extends BaseSinistroService {
     public BaseDTO<Map<String, String>> salvaEventoRca(EventoRcaDTO input, Integer numSinistroProvv) throws InternalMsaException {
 
         final SinistroRcaDO sinistroRcaDOByDTO = getSinistroDOByDTO(input, numSinistroProvv);
-        CompagniaDO compagnia = domainRepository.getCompagniaByCodCompagnia(sinistroRcaDOByDTO.getCompagnia());
-        Boolean isCard = FunctionUtils.between(
-                FunctionUtils.nowAsDate(),
-                compagnia.getDataInCard(),
-                compagnia.getDataOutCard(),
-                true);
+        final Boolean toUpdateByNumVeicoli = sinistroRcaDOByDTO.getEventoRca() != null
+                && Integer.compare(sinistroRcaDOByDTO.getEventoRca().getNumVeicoli(), input.getNumVeicoli()) != 0
+                && input.getNumVeicoli() < 2;
+        if(toUpdateByNumVeicoli) {
+            sinistroRcaDOByDTO.setConstatazioneAmichevole(null);
+        }
+        if(sinistroRcaDOByDTO.getCai() != null
+                && toUpdateByNumVeicoli) {
+            sinistroRcaDOByDTO.getCai().setBaremesControparte(null);
+            sinistroRcaDOByDTO.getCai().setNoteControparte(null);
+            sinistroRcaDOByDTO.getCai().setColpa(null);
+        }
+        Boolean isCard = getFlagIsCard(sinistroRcaDOByDTO);
         sinistroRcaDOByDTO.getEventoRca().setFlagCard(isCard);
         if (salvaSinistro(sinistroRcaDOByDTO)) {
-            return new BaseDTO(Stream.of(isCard)
+            return new BaseDTO<>(Stream.of(isCard)
                     .collect(Collectors.toMap(e -> "flagCard", String::valueOf)));
         } else
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione Evento RCA")));
