@@ -8,15 +8,17 @@
             sinistroProvvisorio: "=",
             tempSegnalazione: "="
         },
-        controller: ("constatazioneAmichevoleController", ['$rootScope', '$scope', '$debugMode', 'BaremesSvc',
-            function ($rootScope, $scope, $debugMode, BaremesSvc) {
+        controller: ("constatazioneAmichevoleController", ['$rootScope', '$scope', '$debugMode', 'BaremesSvc', 'SinistriSvc',
+            function ($rootScope, $scope, $debugMode, BaremesSvc, SinistriSvc) {
 
                 var $ctrl = this;
                 $scope.$debugMode = $debugMode;
 
                 $ctrl.baremes = undefined;
-                $ctrl.baremeAssicurato = undefined;
-                $ctrl.baremeControparte = undefined;
+                $ctrl.baremeAssicurato = 0;
+                $ctrl.baremeControparte = 0;
+                $ctrl.osservazioniAssicurato = undefined;
+                $ctrl.osservazioniControparte = undefined;
 
                 $ctrl.responsabilita = {};
                 $ctrl.responsabilita.cliente = false;
@@ -24,9 +26,7 @@
                 $ctrl.responsabilita.concorsuale = false;
                 $ctrl.responsabilita.nonClassificabile = false;
 
-                $ctrl.osservazioniAssicurato = undefined;
-                $ctrl.osservazioniControparte = undefined;
-
+                $ctrl.isInputConsumed = false;
 
                 BaremesSvc.getBaremes().then(function (response) {
                     $ctrl.baremes = response.data.result;
@@ -48,6 +48,14 @@
                     BaremesSvc.saveBaremesAndGetResponsabilita($ctrl.numeroSinistroProvvisorio, $ctrl.baremeAssicurato, bControparte, $ctrl.osservazioniAssicurato, oControparte).then(function (response) {
                         if (response.data.result !== undefined && response.data.result !== null) {
                             $ctrl.setResponsabilitaUI(response.data.result.responsabilita);
+                        }
+                    });
+                };
+
+                $ctrl.calcolaColpa = function () {
+                    SinistriSvc.getColpa($ctrl.baremeAssicurato, $ctrl.baremeControparte).then(function (response) {
+                        if (response.data.result !== undefined && response.data.result !== null) {
+                            $ctrl.setResponsabilitaUI(response.data.result);
                         }
                     });
                 };
@@ -88,7 +96,6 @@
                             $ctrl.responsabilita.nonClassificabile = false;
                             break;
                     }
-
                 };
 
                 $ctrl.bindCai = function () {
@@ -104,13 +111,20 @@
                 $scope.$watch(
                     function watchScope(scope) {
                         return {
-                            sinistroProvvisorio: $ctrl.sinistroProvvisorio
+                            sinistroProvvisorio: $ctrl.sinistroProvvisorio,
+                            baremeAssicurato: $ctrl.baremeAssicurato,
+                            baremeControparte: $ctrl.baremeControparte
                         };
                     },
                     function handleChanges(newValues, oldValues) {
 
-                        if (newValues.sinistroProvvisorio !== undefined) {
+                        if (newValues.sinistroProvvisorio !== undefined && !$ctrl.isInputConsumed) {
                             $ctrl.bindCai();
+                            $ctrl.isInputConsumed = true;
+                        }
+
+                        if(newValues.baremeAssicurato !== undefined && newValues.baremeControparte !== undefined){
+                            $ctrl.calcolaColpa();
                         }
 
                     }, true

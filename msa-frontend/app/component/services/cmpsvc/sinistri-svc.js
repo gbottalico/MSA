@@ -207,6 +207,20 @@ angular.module('msa').service(
 
             };
 
+            $svc.getColpa = function (bCliente, bControparte) {
+
+                var data = {
+                    baremesCliente: {
+                        id: bCliente
+                    },
+                    baremesControparte: {
+                        id: bControparte
+                    }
+                };
+
+                return $http.post(msaServicesApiUrls.colpa, data);
+
+            }
 
         }
     ]

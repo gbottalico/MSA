@@ -109,7 +109,11 @@
                         size: 'lg',
                         controller: function ($scope, $uibModalInstance, PlacesSvc, UtilSvc, denunciante) {
 
+                            var $ctrl = this;
+
                             $scope.denunciante = denunciante;
+                            $ctrl.parent = $scope.$parent;
+
                             PlacesSvc.getTipiStrada().then(function (response) {
                                 $scope.tipiStrada =  response.data.result;
                             });
