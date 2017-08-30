@@ -77,10 +77,9 @@ public class UtilsService extends BaseService {
             if (resultCall.matches("[A-Z]{6}[0-9]{2}[A-Z][0-9]{2}[A-Z][0-9]{3}[A-Z]")) {
                 return resultCall;
             } else {
-                List<Message> msa014 = new ArrayList<>(getErrorMessagesByCodErrore(MessageType.ERROR,
+                throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR,
                         "MSA014",
                         s -> s.concat(resultCall)));
-                throw new InternalMsaException(msa014);
             }
         }  catch (InternalMsaException e) {
             throw e;
