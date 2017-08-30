@@ -17,6 +17,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static msa.application.commons.Constants.ID_BAREMES_NON_CLASSIFICABILE;
+
 @Service
 public class DomainService extends BaseService {
     @Autowired
@@ -206,7 +208,7 @@ public class DomainService extends BaseService {
      */
     public List<BaremesDTO> getElencoBaremes() throws InternalMsaException {
         try {
-            return converter.convertList(domainRepository.getElencoBaremes().stream().filter(e -> e.getId() != 0).collect(Collectors.toList()), BaremesDTO.class);
+            return converter.convertList(domainRepository.getElencoBaremes().stream().filter(e -> Integer.compare(e.getId(),ID_BAREMES_NON_CLASSIFICABILE) != 0).collect(Collectors.toList()), BaremesDTO.class);
         } catch (Exception e) {
             throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA001"));
 
