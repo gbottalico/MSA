@@ -3,41 +3,40 @@
 
     app.component('msaDenunciaContainer', {
         templateUrl: '../../app/component/denuncia-sinistro/denuncia-container/components/templates/denuncia-container-tpl.html',
-        bindings: {
-            valoriRicerca: '=',
-        },
-        controller: ("denunciaContainerController", ['$rootScope', '$scope', '$debugMode', 'SinistriSvc', 'UtilSvc', 'PathSvc',
-            function ($rootScope, $scope, $debugMode, SinistriSvc, UtilSvc, PathSvc) {
+        bindings: {},
+        controller: ("denunciaContainerController", ['$rootScope', '$scope', '$routeParams', '$debugMode', 'SinistriSvc', 'UtilSvc', 'PathSvc', 'DebugSvc',
+            function ($rootScope, $scope, $routeParams, $debugMode, SinistriSvc, UtilSvc, PathSvc, DebugSvc) {
 
                 var $ctrl = this;
                 $scope.$debugMode = $debugMode;
-
                 $ctrl.tempSegnalazione = {
-                    nveicoli: undefined
+                    nveicoli: undefined,
+                    garanzia: undefined,
+                    tipoSinistro: undefined
                 };
-
                 $ctrl.mappe = [];
-
                 $ctrl.sinistroProvvisorio = undefined;
-                $ctrl.datiContraente = {};           // Viene passato a step-cmd.js
 
+                // Numero sinistro provvisorio da url
+                $ctrl.numeroSinistroProvvisorio = $routeParams.idSinistroProvvisorio;
 
                 $ctrl.caricaMappe = function () {
-                  PathSvc.getPath($ctrl.sinistroProvvisorio.numSinistroProvv).then(function (response) {
-                      var path = UtilSvc.mapToValueArray(response.data.result);
-                      $ctrl.mappe = path;
-                      console.log("Mappe");
-                      console.log($ctrl.mappe);
-                  });
+                    PathSvc.getPath($ctrl.sinistroProvvisorio.numSinistroProvv).then(function (response) {
+                        var path = UtilSvc.mapToValueArray(response.data.result);
+                        $ctrl.mappe = path;
+                        DebugSvc.log("caricaMappe", path);
+                    });
                 };
 
                 $ctrl.aggiornaMappe = function () {
-                    PathSvc.getNextPath($ctrl.sinistroProvvisorio.segnalazione.garanziaSelected, $ctrl.sinistroProvvisorio.numSinistroProvv)
-                        .then(function (response) {
+                    // Se qualcuno dovesse cambiare la garanzia, siamo coperti!
+                    var garanzia = $ctrl.sinistroProvvisorio.segnalazione ?
+                        $ctrl.sinistroProvvisorio.segnalazione.garanziaSelected :
+                        $ctrl.tempSegnalazione.garanzia;
+                    PathSvc.getNextPath(garanzia, $ctrl.sinistroProvvisorio.numSinistroProvv).then(function (response) {
                         var path = UtilSvc.mapToValueArray(response.data.result);
                         $ctrl.mappe = path;
-                        console.log("Mappe");
-                        console.log($ctrl.mappe);
+                        DebugSvc.log("aggiornaMappe", path);
                     });
                 };
 
@@ -59,18 +58,15 @@
                 };
 
                 $scope.aggiornaMappe = function () {
-                  $ctrl.aggiornaMappe();
+                    $ctrl.aggiornaMappe();
                 };
 
                 $ctrl.getSinistroProvvisorio = function (numeroSinistroProvvisorio) {
                     SinistriSvc.cercaSinistroProvvisorio(numeroSinistroProvvisorio).then(function (response) {
                         var result = response.data.result;
-                        console.log(result);
+                        DebugSvc.log("getSinistroProvvisorio", response);
                         $ctrl.sinistroProvvisorio = result;
-                        $ctrl.datiContraente = result.contraente;
-
                         $ctrl.caricaMappe();
-
                     });
                 };
 
@@ -87,7 +83,6 @@
                         }
                     }, true
                 );
-
 
             }])
     });

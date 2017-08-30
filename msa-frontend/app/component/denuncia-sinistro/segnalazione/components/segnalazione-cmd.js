@@ -4,21 +4,18 @@
     app.component('msaSegnalazione', {
         templateUrl: '../../app/component/denuncia-sinistro/segnalazione/components/templates/segnalazione-tpl.html',
         bindings: {
-            valoriRicerca: '=',
-            numeroSinistroProvvisorio: "=",
-            sinistroProvvisorio: "<"
+            numeroSinistroProvvisorio: "<",
+            sinistroProvvisorio: "<",
+            tempSegnalazione: "="
         },
-        controller: ("segnalazioneController", ['$scope', '$rootScope', '$routeParams', '$translate', '$log', '$debugMode', 'AccountUserSvc', 'MezziComunicazioneSvc', 'RuoliSvc', 'PlacesSvc', 'SinistriSvc', 'UtilSvc', 'RegexSvc',
-            function ($scope, $rootScope, $routeParams, $translate, $log, $debugMode, AccountUserSvc, MezziComunicazioneSvc, RuoliSvc, PlacesSvc, SinistriSvc, UtilSvc, RegexSvc) {
+        controller: ("segnalazioneController", ['$scope', '$rootScope', '$translate', '$debugMode', 'MezziComunicazioneSvc', 'RuoliSvc', 'PlacesSvc', 'SinistriSvc', 'UtilSvc', 'RegexSvc', 'DebugSvc',
+            function ($scope, $rootScope, $translate, $debugMode, MezziComunicazioneSvc, RuoliSvc, PlacesSvc, SinistriSvc, UtilSvc, RegexSvc, DebugSvc) {
 
                 var $ctrl = this;
                 var parent = $scope.$parent;
                 $scope.$debugMode = $debugMode;
 
                 $ctrl.mapId = "M11";
-
-                // Numero sinistro provvisorio da url
-                $ctrl.numeroSinistroProvvisorio = $routeParams.idSinistroProvvisorio;
 
                 // Variabile utilizzata per gestire gli input da DB che devono essere passati
                 // alle componenti che richiedono ulteriori elaborazioni.
@@ -49,56 +46,55 @@
                     $ctrl.ruoli = response.data.result;
                 });
 
-                PlacesSvc.getTipiStrada().then(function (response) {
-                    $ctrl.tipiStrada =  response.data.result;
-                });
-
                 $ctrl.apriSegnalazione = function () {
                     SinistriSvc.apriSegnalazione($ctrl.numeroSinistroProvvisorio, $ctrl.sinistro).then(function (response) {
-                        console.log(response.data.result);
+                        DebugSvc.log("apriSegnalazione", response);
+                        $ctrl.tempSegnalazione.tipoSinistro = response.data.result;
+                        $ctrl.tempSegnalazione.garanzia = $ctrl.sinistro.garanzia;
                         parent.aggiornaMappe();
                     });
                 };
 
                 $ctrl.bindSinitroProvvisorio = function (sinitroProvvisorio) {
-                    $ctrl.sinistro.segnalazione.nome = sinitroProvvisorio.segnalazione.denunciante.nome;
-                    $ctrl.sinistro.segnalazione.cognome = sinitroProvvisorio.segnalazione.denunciante.cognome;
-                    $ctrl.sinistro.segnalazione.telefono = sinitroProvvisorio.segnalazione.denunciante.telefono;
-                    $ctrl.sinistro.segnalazione.ruolo = sinitroProvvisorio.segnalazione.denunciante.codRuolo;
 
-                    $ctrl.sinistro.tracking.cellulare = sinitroProvvisorio.segnalazione.denunciante.tracking.cellulare;
-                    $ctrl.sinistro.tracking.email = sinitroProvvisorio.segnalazione.denunciante.tracking.mail;
+                    if (sinitroProvvisorio.segnalazione !== undefined && sinitroProvvisorio.segnalazione !== null) {
 
-                    $ctrl.sinistro.provenienza.mezzoComunicazione = sinitroProvvisorio.segnalazione.codMezzo;
+                        $ctrl.sinistro.segnalazione.nome = sinitroProvvisorio.segnalazione.denunciante.nome;
+                        $ctrl.sinistro.segnalazione.cognome = sinitroProvvisorio.segnalazione.denunciante.cognome;
+                        $ctrl.sinistro.segnalazione.telefono = sinitroProvvisorio.segnalazione.denunciante.telefono;
+                        $ctrl.sinistro.segnalazione.ruolo = sinitroProvvisorio.segnalazione.denunciante.codRuolo;
 
-                    if(sinitroProvvisorio.segnalazione.dataDenuncia !== undefined && sinitroProvvisorio.segnalazione.dataDenuncia !== null) {
-                        $ctrl.persistence.dataDenuncia = new Date(sinitroProvvisorio.segnalazione.dataDenuncia);
-                    } else {
-                        $ctrl.persistence.dataDenuncia = new Date();
+                        $ctrl.sinistro.tracking.cellulare = sinitroProvvisorio.segnalazione.denunciante.tracking.cellulare;
+                        $ctrl.sinistro.tracking.email = sinitroProvvisorio.segnalazione.denunciante.tracking.mail;
+
+                        $ctrl.sinistro.provenienza.mezzoComunicazione = sinitroProvvisorio.segnalazione.codMezzo;
+
+                        if (sinitroProvvisorio.segnalazione.dataDenuncia !== undefined && sinitroProvvisorio.segnalazione.dataDenuncia !== null) {
+                            $ctrl.persistence.dataDenuncia = new Date(sinitroProvvisorio.segnalazione.dataDenuncia);
+                        } else {
+                            $ctrl.persistence.dataDenuncia = new Date();
+                        }
+
+                        if (sinitroProvvisorio.segnalazione.dataOraSinistro !== undefined && sinitroProvvisorio.segnalazione.dataOraSinistro !== null) {
+                            $ctrl.persistence.dataSinistro = new Date(sinitroProvvisorio.segnalazione.dataOraSinistro);
+                        } else {
+                            $ctrl.persistence.dataSinistro = new Date();
+                        }
+
+                        $ctrl.sinistro.provenienza.oraSinistro = sinitroProvvisorio.segnalazione.oraSinistro;
+
+                        var tempLuogo = {};
+                        tempLuogo.idNazione = sinitroProvvisorio.segnalazione.codNazione;
+                        tempLuogo.idProvincia = sinitroProvvisorio.segnalazione.codProvincia;
+                        tempLuogo.idComune = sinitroProvvisorio.segnalazione.codComune;
+                        tempLuogo.cap = sinitroProvvisorio.segnalazione.cap;
+                        $ctrl.persistence.luogo = tempLuogo;
+
+                        $ctrl.sinistro.luogo.indirizzo = sinitroProvvisorio.segnalazione.indirizzo;
+                        $ctrl.sinistro.garanzia = sinitroProvvisorio.segnalazione.garanziaSelected;
                     }
 
-                    if(sinitroProvvisorio.segnalazione.dataOraSinistro !== undefined && sinitroProvvisorio.segnalazione.dataOraSinistro !== null) {
-                        $ctrl.persistence.dataSinistro = new Date(sinitroProvvisorio.segnalazione.dataOraSinistro);
-                    } else {
-                        $ctrl.persistence.dataSinistro = new Date();
-                    }
-
-                    $ctrl.sinistro.provenienza.oraSinistro = sinitroProvvisorio.segnalazione.oraSinistro;
-
-                    var tempLuogo = {};
-                    tempLuogo.idNazione = sinitroProvvisorio.segnalazione.codNazione;
-                    tempLuogo.idProvincia = sinitroProvvisorio.segnalazione.codProvincia;
-                    tempLuogo.idComune = sinitroProvvisorio.segnalazione.codComune;
-                    tempLuogo.cap = sinitroProvvisorio.segnalazione.cap;
-
-                    $ctrl.sinistro.luogo.tipostrada = sinitroProvvisorio.segnalazione.tipoStrada;
-                    $ctrl.sinistro.luogo.denominazione = sinitroProvvisorio.segnalazione.denominazioneStrada;
-                    $ctrl.sinistro.luogo.civico = sinitroProvvisorio.segnalazione.civicoStrada;
-
-                    $ctrl.luogo = tempLuogo;
-                    $ctrl.sinistro.garanzia = sinitroProvvisorio.segnalazione.garanziaSelected;
-                    }
-                ;
+                };
 
                 $scope.$watch(
                     function watchScope(scope) {

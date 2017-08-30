@@ -129,13 +129,9 @@ angular.module('msa').service(
                     data.codComune = -1;
                 }
                 data.cap = datiSegnalazione.luogo.cap;
-                data.tipoStrada = datiSegnalazione.luogo.tipostrada;
-                data.denominazioneStrada = datiSegnalazione.luogo.denominazione;
-                data.civicoStrada = datiSegnalazione.luogo.civico;
+                data.indirizzo = datiSegnalazione.luogo.indirizzo;
 
                 data.garanziaSelected = datiSegnalazione.garanzia;
-
-                console.log(JSON.stringify(data));
 
                 var url = UtilSvc.stringFormat(msaServicesApiUrls.aprisegnalazione, idSinistroProvvisorio);
 
