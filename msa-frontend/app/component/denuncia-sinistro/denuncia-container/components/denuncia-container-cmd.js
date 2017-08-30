@@ -29,7 +29,7 @@
                 };
 
                 $ctrl.aggiornaMappe = function () {
-                    // Se qualcuno dovesse cambiare la garanzia, siamo coperti!
+                    //TODO se qualcuno cambia il tipo di garanzia in corso d'opera, probabilmente va scelto $ctrl.tempSegnalazione.garanzia.
                     var garanzia = $ctrl.sinistroProvvisorio.segnalazione ?
                         $ctrl.sinistroProvvisorio.segnalazione.garanziaSelected :
                         $ctrl.tempSegnalazione.garanzia;

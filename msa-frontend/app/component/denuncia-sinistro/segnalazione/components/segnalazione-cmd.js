@@ -8,8 +8,8 @@
             sinistroProvvisorio: "<",
             tempSegnalazione: "="
         },
-        controller: ("segnalazioneController", ['$scope', '$rootScope', '$translate', '$debugMode', 'MezziComunicazioneSvc', 'RuoliSvc', 'PlacesSvc', 'SinistriSvc', 'UtilSvc', 'RegexSvc', 'DebugSvc',
-            function ($scope, $rootScope, $translate, $debugMode, MezziComunicazioneSvc, RuoliSvc, PlacesSvc, SinistriSvc, UtilSvc, RegexSvc, DebugSvc) {
+        controller: ("segnalazioneController", ['$scope', '$rootScope', '$translate', '$debugMode', 'toastr', 'MezziComunicazioneSvc', 'RuoliSvc', 'PlacesSvc', 'SinistriSvc', 'UtilSvc', 'RegexSvc', 'DebugSvc',
+            function ($scope, $rootScope, $translate, $debugMode, toastr, MezziComunicazioneSvc, RuoliSvc, PlacesSvc, SinistriSvc, UtilSvc, RegexSvc, DebugSvc) {
 
                 var $ctrl = this;
                 var parent = $scope.$parent;
@@ -49,9 +49,15 @@
                 $ctrl.apriSegnalazione = function () {
                     SinistriSvc.apriSegnalazione($ctrl.numeroSinistroProvvisorio, $ctrl.sinistro).then(function (response) {
                         DebugSvc.log("apriSegnalazione", response);
-                        $ctrl.tempSegnalazione.tipoSinistro = response.data.result;
-                        $ctrl.tempSegnalazione.garanzia = $ctrl.sinistro.garanzia;
-                        parent.aggiornaMappe();
+                        if (response.data.status === 200) {
+                            $ctrl.tempSegnalazione.tipoSinistro = response.data.result;
+                            $ctrl.tempSegnalazione.garanzia = $ctrl.sinistro.garanzia;
+                            parent.aggiornaMappe();
+                            toastr.success('Segnalazione aperta con successo.');
+                        } else {
+                            toastr.error('Errore nell\'apertura della segnalazione..');
+                        }
+                        //TODO stringhe scolpite
                     });
                 };
 
