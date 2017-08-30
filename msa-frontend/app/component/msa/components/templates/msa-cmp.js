@@ -14,6 +14,8 @@ angular
                     $rootScope.debugMode = true;
                     $rootScope.messages = [];
 
+                    $rootScope.domain = {};
+
                     $rootScope.$watch('messages', function (newValue, oldValue) {
                         if (newValue !== null && newValue !== oldValue) {
                             angular.forEach(newValue, function (value) {

@@ -4,14 +4,15 @@
     app.component('msaEventoRca', {
         templateUrl: '../../app/component/denuncia-sinistro/evento-rca/components/templates/evento-rca-tpl.html',
         bindings: {
-            numeroSinistroProvvisorio: "=",
-            sinistroProvvisorio: "=",
+            numeroSinistroProvvisorio: "<",
+            sinistroProvvisorio: "<",
             tempSegnalazione: "="
         },
-        controller: ("eventoRcaController", ['$rootScope', '$scope', '$debugMode', 'SinistriSvc', 'DomainSvc',
-            function ($rootScope, $scope, $debugMode, SinistriSvc, DomainSvc) {
+        controller: ("eventoRcaController", ['$rootScope', '$scope', '$filter', '$debugMode', 'toastr', 'SinistriSvc', 'DomainSvc', 'DebugSvc',
+            function ($rootScope, $scope, $filter, $debugMode, toastr, SinistriSvc, DomainSvc, DebugSvc) {
 
                 var $ctrl = this;
+                var $translate = $filter('translate');
                 var parent = $scope.$parent;
                 $scope.$debugMode = $debugMode;
 
@@ -32,10 +33,19 @@
                     $ctrl.autorita = response.data.result;
                 });
 
+                $ctrl.$onInit = function () {
+
+                };
+
                 $ctrl.salvaEventoRca = function () {
                     SinistriSvc.salvaEventoRca($ctrl.numeroSinistroProvvisorio, $ctrl.eventoRca).then(function (response) {
-                        parent.aggiornaMappe();
-                        console.log(response);
+                        DebugSvc.log("salvaEventoRca", response);
+                        if (response.data.status === 200) {
+                            //FIXME RIATTIVARE parent.aggiornaMappe();
+                            toastr.success($translate('global.generic.saveok'));
+                        } else {
+                            toastr.error($translate('global.generic.saveko'));
+                        }
                     });
                 };
 
@@ -43,6 +53,7 @@
                     function watchScope(scope) {
                         return {
                             sinistroProvvisorio: $ctrl.sinistroProvvisorio,
+                            collisione: $ctrl.eventoRca.collisione,
                             nveicoli: $ctrl.eventoRca.nveicoli
                         };
                     },
@@ -60,6 +71,9 @@
                             }
                         }
 
+                        if(newValues.collisione !== undefined && newValues.collisione !== null && newValues.collisione === false) {
+                            $ctrl.eventoRca.nveicoli = 1;
+                        }
 
                         if(newValues.nveicoli !== undefined) {
                             $ctrl.tempSegnalazione.nveicoli = newValues.nveicoli;

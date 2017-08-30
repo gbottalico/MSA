@@ -21,14 +21,15 @@
 
                 $ctrl.salvaCa = function () {
                     SinistriSvc.salvaCa($ctrl.numeroSinistroProvvisorio, $ctrl.ca).then(function (response) {
-                        console.log(response);
                         parent.aggiornaMappe();
                     });
                 };
 
                 $ctrl.bindCa = function () {
-                    $ctrl.ca.constatazioneAmichevole = $ctrl.sinistroProvvisorio.constatazioneAmichevole.caCompilata;
-                    $ctrl.ca.constatazioneAmichevoleControparte = $ctrl.sinistroProvvisorio.constatazioneAmichevole.caCompilataControparte;
+                    if ($ctrl.sinistroProvvisorio.constatazioneAmichevole !== undefined && $ctrl.sinistroProvvisorio.constatazioneAmichevole !== null) {
+                        $ctrl.ca.constatazioneAmichevole = $ctrl.sinistroProvvisorio.constatazioneAmichevole.caCompilata;
+                        $ctrl.ca.constatazioneAmichevoleControparte = $ctrl.sinistroProvvisorio.constatazioneAmichevole.caCompilataControparte;
+                    }
                 };
 
                 $scope.$watch(
@@ -39,7 +40,7 @@
                     },
                     function handleChanges(newValues, oldValues) {
 
-                        if(newValues.sinistroProvvisorio !== undefined) {
+                        if (newValues.sinistroProvvisorio !== undefined) {
                             $ctrl.bindCa();
                         }
 

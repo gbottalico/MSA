@@ -2,8 +2,12 @@ angular.module('msa').service(
     'DomainSvc',
     [
         '$http',
+        '$rootScope',
+        '$q',
+        'DebugSvc',
+        'UtilSvc',
         'msaServicesApiUrls',
-        function ($http, msaServicesApiUrls) {
+        function ($http, $rootScope, $q, DebugSvc, UtilSvc, msaServicesApiUrls) {
 
             var $svc = this;
 
@@ -16,7 +20,16 @@ angular.module('msa').service(
             };
 
             $svc.getElencoRegole = function () {
-                return $http.get(msaServicesApiUrls.casaregole);
+                //TODO: elaborare un metodo per cachare.
+                if ($rootScope.domain.casaRegole) {
+                    DebugSvc.log("getElencoRegole, using cache.");
+                    return UtilSvc.createPromise($rootScope.domain.casaRegole);
+                    //return UtilSvc.createPromise([{idCompagnia: "37", descrizioneCompagnia: "Cache"}]);
+                } else {
+                    DebugSvc.log("getElencoRegole, using $http.");
+                    return $http.get(msaServicesApiUrls.casaregole);
+                }
+
             };
 
             $svc.getMezziComunicazione = function () {

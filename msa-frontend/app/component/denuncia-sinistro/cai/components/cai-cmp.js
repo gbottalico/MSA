@@ -92,12 +92,15 @@
                 };
 
                 $ctrl.bindCai = function () {
-                    $ctrl.cai.baremeAssicurato = $ctrl.sinistroProvvisorio.cai.baremesCliente.id;
-                    $ctrl.cai.osservazioniAssicurato = $ctrl.sinistroProvvisorio.cai.noteCliente;
+                    if ($ctrl.sinistroProvvisorio.cai !== undefined && $ctrl.sinistroProvvisorio.cai !== null) {
 
-                    if ($ctrl.sinistroProvvisorio.cai.baremesControparte !== undefined && $ctrl.sinistroProvvisorio.cai.baremesControparte !== null) {
-                        $ctrl.cai.baremeControparte = $ctrl.sinistroProvvisorio.cai.baremesControparte.id;
-                        $ctrl.cai.osservazioniControparte = $ctrl.sinistroProvvisorio.cai.noteControparte;
+                        $ctrl.cai.baremeAssicurato = $ctrl.sinistroProvvisorio.cai.baremesCliente.id;
+                        $ctrl.cai.osservazioniAssicurato = $ctrl.sinistroProvvisorio.cai.noteCliente;
+
+                        if ($ctrl.sinistroProvvisorio.cai.baremesControparte !== undefined && $ctrl.sinistroProvvisorio.cai.baremesControparte !== null) {
+                            $ctrl.cai.baremeControparte = $ctrl.sinistroProvvisorio.cai.baremesControparte.id;
+                            $ctrl.cai.osservazioniControparte = $ctrl.sinistroProvvisorio.cai.noteControparte;
+                        }
                     }
                 };
 

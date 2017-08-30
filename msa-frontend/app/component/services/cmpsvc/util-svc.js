@@ -1,6 +1,6 @@
 angular.module('msa').service(
     'UtilSvc',
-    ['$http', 'msaServicesApiUrls', function ($http, msaServicesApiUrls) {
+    ['$http', '$q', 'msaServicesApiUrls', function ($http, $q, msaServicesApiUrls) {
 
         var $svc = this;
 
@@ -113,5 +113,16 @@ angular.module('msa').service(
 
         };
 
+
+        $svc.createPromise = function (valueToReturn) {
+            var q = $q.defer();
+            var response = {
+                data: {
+                    result: valueToReturn
+                }
+            };
+            q.resolve(response);
+            return q.promise;
+        }
 
     }]);

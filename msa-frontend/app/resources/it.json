@@ -9,7 +9,9 @@
       "si": "Sì",
       "no": "No",
       "male": "M",
-      "female": "F"
+      "female": "F",
+      "saveok": "Salvataggio avvenuto con successo.",
+      "saveko": "Errore nel salvataggio."
     },
     "people": {
       "nome": "Nome",
