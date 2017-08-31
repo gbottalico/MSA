@@ -1,5 +1,6 @@
 package msa.application.dto.sinistro.anagrafica;
 
+import msa.application.config.enumerator.TipoPersona;
 import msa.application.dto.sinistro.AbstractDTO;
 import msa.application.dto.sinistro.LuogoDTO;
 
@@ -15,6 +16,8 @@ public class BaseAnagraficaDTO extends AbstractDTO {
     private String codRuolo;
     private Character sesso;
     private String cf;
+    private TipoPersona tipoPersona;
+    private String ragioneSociale;
     private LuogoDTO luogoNascita;
     private Date dataNascita;
 
@@ -78,29 +81,20 @@ public class BaseAnagraficaDTO extends AbstractDTO {
         this.dataNascita = dataNascita;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        BaseAnagraficaDTO that = (BaseAnagraficaDTO) o;
-
-        if (nome != null ? !nome.equals(that.nome) : that.nome != null) return false;
-        if (cognome != null ? !cognome.equals(that.cognome) : that.cognome != null) return false;
-        if (codRuolo != null ? !codRuolo.equals(that.codRuolo) : that.codRuolo != null) return false;
-        if (cf != null ? !cf.equals(that.cf) : that.cf != null) return false;
-        if (luogoNascita != null ? !luogoNascita.equals(that.luogoNascita) : that.luogoNascita != null) return false;
-        return dataNascita != null ? dataNascita.equals(that.dataNascita) : that.dataNascita == null;
+    public TipoPersona getTipoPersona() {
+        return tipoPersona;
     }
 
-    @Override
-    public int hashCode() {
-        int result = nome != null ? nome.hashCode() : 0;
-        result = 31 * result + (cognome != null ? cognome.hashCode() : 0);
-        result = 31 * result + (codRuolo != null ? codRuolo.hashCode() : 0);
-        result = 31 * result + (cf != null ? cf.hashCode() : 0);
-        result = 31 * result + (luogoNascita != null ? luogoNascita.hashCode() : 0);
-        result = 31 * result + (dataNascita != null ? dataNascita.hashCode() : 0);
-        return result;
+    public void setTipoPersona(TipoPersona tipoPersona) {
+        this.tipoPersona = tipoPersona;
     }
+
+    public String getRagioneSociale() {
+        return ragioneSociale;
+    }
+
+    public void setRagioneSociale(String ragioneSociale) {
+        this.ragioneSociale = ragioneSociale;
+    }
+
 }

@@ -1,48 +1,19 @@
 package msa.application.dto.sinistro.anagrafica;
 
 public class FullAnagraficaControparteDTO extends FullAnagraficaDTO {
-private String tipoPersona;
-private String compagnia;
-private String veicolo;
-private String targa;
-private Boolean targaEstera;
-private Boolean targaSpeciale;
+    private String compagnia;
+    private String veicolo;
+    private String targa;
+    private Boolean targaEstera;
+    private Boolean targaSpeciale;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
 
-        FullAnagraficaControparteDTO that = (FullAnagraficaControparteDTO) o;
-
-        if (targaEstera != that.targaEstera) return false;
-        if (targaSpeciale != that.targaSpeciale) return false;
-        if (tipoPersona != null ? !tipoPersona.equals(that.tipoPersona) : that.tipoPersona != null) return false;
-        if (compagnia != null ? !compagnia.equals(that.compagnia) : that.compagnia != null) return false;
-        if (veicolo != null ? !veicolo.equals(that.veicolo) : that.veicolo != null) return false;
-        return targa != null ? targa.equals(that.targa) : that.targa == null;
+    public Boolean getTargaEstera() {
+        return targaEstera;
     }
 
-    @Override
-    public int hashCode() {
-        int result = super.hashCode();
-        result = 31 * result + (tipoPersona != null ? tipoPersona.hashCode() : 0);
-        result = 31 * result + (compagnia != null ? compagnia.hashCode() : 0);
-        result = 31 * result + (veicolo != null ? veicolo.hashCode() : 0);
-        result = 31 * result + (targa != null ? targa.hashCode() : 0);
-        result = 31 * result + (targaEstera ? 1 : 0);
-        result = 31 * result + (targaSpeciale ? 1 : 0);
-        return result;
-    }
-
-    public String getTipoPersona() {
-
-        return tipoPersona;
-    }
-
-    public void setTipoPersona(String tipoPersona) {
-        this.tipoPersona = tipoPersona;
+    public Boolean getTargaSpeciale() {
+        return targaSpeciale;
     }
 
     public String getCompagnia() {

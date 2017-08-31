@@ -106,6 +106,9 @@ public class SinistriService extends BaseSinistroService {
      */
 
     public BaseDTO<Map<String, String>> inviaSegnalazione(SegnalazioneDTO input, Integer numSinistroProvv) throws InternalMsaException {
+        if (!FunctionUtils.between(input.getDataDenuncia(), input.getDataOraSinistro(), FunctionUtils.nowAsDate(), Boolean.TRUE))
+            throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005",
+                    (String e) -> e.concat(" Data sinistro deve essere precedente alla data di denuncia ed alla data odierna.")));
         final BaseSinistroDO newSinistro = getSinistroDOByDTO(input, numSinistroProvv);
         final BaseSinistroDO oldSinistro = GET_SINISTRO.apply(numSinistroProvv);
         final BaseDTO<Map<String, String>> result = new BaseDTO(Stream.of("").collect(Collectors.toMap(elem -> "tipoSinistro", elem -> "TODO")));
@@ -164,10 +167,10 @@ public class SinistriService extends BaseSinistroService {
         final Boolean toUpdateByNumVeicoli = sinistroRcaDOByDTO.getEventoRca() != null
                 && Integer.compare(sinistroRcaDOByDTO.getEventoRca().getNumVeicoli(), input.getNumVeicoli()) != 0
                 && input.getNumVeicoli() < 2;
-        if(toUpdateByNumVeicoli) {
+        if (toUpdateByNumVeicoli) {
             sinistroRcaDOByDTO.setConstatazioneAmichevole(null);
         }
-        if(sinistroRcaDOByDTO.getCai() != null
+        if (sinistroRcaDOByDTO.getCai() != null
                 && toUpdateByNumVeicoli) {
             sinistroRcaDOByDTO.getCai().setBaremesControparte(null);
             sinistroRcaDOByDTO.getCai().setNoteControparte(null);
@@ -270,7 +273,7 @@ public class SinistriService extends BaseSinistroService {
     }
 
     private List<AnagraficaTerzePartiDO> replaceTerzePartiList(List<AnagraficaTerzePartiDO> oldList, List<AnagraficaTerzePartiDO> newList, Predicate<AnagraficaTerzePartiDO> toExclude) {
-        List<AnagraficaTerzePartiDO> filteredOldList = CollectionUtils.isEmpty(oldList)? new ArrayList<>() : oldList.stream().filter(toExclude).collect(Collectors.toList());
+        List<AnagraficaTerzePartiDO> filteredOldList = CollectionUtils.isEmpty(oldList) ? new ArrayList<>() : oldList.stream().filter(toExclude).collect(Collectors.toList());
         if (CollectionUtils.isNotEmpty(filteredOldList) && CollectionUtils.isNotEmpty(newList)) {
             return Stream.concat(newList.stream(), filteredOldList.stream()).collect(Collectors.toList());
         } else if (CollectionUtils.isNotEmpty(filteredOldList) && CollectionUtils.isEmpty(newList)) {
@@ -288,7 +291,7 @@ public class SinistriService extends BaseSinistroService {
 
         if (insertResult) {
             return new BaseDTO<>(null, addWarningMessageByCondition(() -> "Sono stati inseriti codici fiscali o partite iva duplicati",
-                   FunctionUtils.equalsListSize(input, filteredList)));
+                    FunctionUtils.equalsListSize(input, filteredList)));
         } else {
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione Salvataggio Legale")));
         }
@@ -355,7 +358,8 @@ public class SinistriService extends BaseSinistroService {
     }
 
     public List<CentroConvenzionatoDTO> getElencoCentriConvenzionati(String indirizzo) {
-        //TODO MOCK per mancanza del servizio sui centri convenzionati
+        //TODO MOCK per mancanza del servizio sui centri convenzionati+ù
+        // BISOGNA FARE ANCHE LA VERIFICA SULLA GARANZIA PRIMA DI RESTITUIRE UN CENTRO
         ArrayList<CentroConvenzionatoDTO> centri = new ArrayList<>();
         centri.add(new CentroConvenzionatoDTO(1, "FinconsGroup", "16.853831", "41.103556"));
         centri.add(new CentroConvenzionatoDTO(2, "Angiulli", "16.855179", "41.1075051"));

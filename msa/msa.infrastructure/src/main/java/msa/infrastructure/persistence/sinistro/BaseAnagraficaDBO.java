@@ -20,6 +20,11 @@ public class BaseAnagraficaDBO {
     private Date dataNascita;
     @Field("luogoNascita")
     private LuogoDBO luogoNascita;
+    @Field("tipoPersona")
+    private String tipoPersona;
+    @Field("ragioneSociale")
+
+    private String ragioneSociale;
 
     public String getNome() {
         return nome;
@@ -67,5 +72,21 @@ public class BaseAnagraficaDBO {
 
     public void setLuogoNascita(LuogoDBO luogoNascita) {
         this.luogoNascita = luogoNascita;
+    }
+
+    public String getTipoPersona() {
+        return tipoPersona;
+    }
+
+    public void setTipoPersona(String tipoPersona) {
+        this.tipoPersona = tipoPersona;
+    }
+
+    public String getRagioneSociale() {
+        return ragioneSociale;
+    }
+
+    public void setRagioneSociale(String ragioneSociale) {
+        this.ragioneSociale = ragioneSociale;
     }
 }

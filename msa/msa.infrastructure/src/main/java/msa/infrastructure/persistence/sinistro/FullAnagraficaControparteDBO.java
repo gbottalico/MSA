@@ -3,8 +3,7 @@ package msa.infrastructure.persistence.sinistro;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 public class FullAnagraficaControparteDBO extends FullAnagraficaDBO {
-    @Field("tipoPersona")
-    private String tipoPersona;
+
     @Field("compagnia")
     private String compagnia;
     @Field("veicolo")
@@ -16,13 +15,7 @@ public class FullAnagraficaControparteDBO extends FullAnagraficaDBO {
     @Field("speciale")
     private boolean targaSpeciale;
 
-    public String getTipoPersona() {
-        return tipoPersona;
-    }
 
-    public void setTipoPersona(String tipoPersona) {
-        this.tipoPersona = tipoPersona;
-    }
 
     public String getCompagnia() {
         return compagnia;

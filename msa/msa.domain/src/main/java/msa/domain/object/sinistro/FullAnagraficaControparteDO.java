@@ -1,20 +1,13 @@
 package msa.domain.object.sinistro;
 
 public class FullAnagraficaControparteDO extends FullAnagraficaDO {
-    private String tipoPersona;
     private String compagnia;
     private String veioolo;
     private String targa;
     private boolean targaEstera;
     private boolean targaSpeciale;
 
-    public String getTipoPersona() {
-        return tipoPersona;
-    }
 
-    public void setTipoPersona(String tipoPersona) {
-        this.tipoPersona = tipoPersona;
-    }
 
     public String getCompagnia() {
         return compagnia;

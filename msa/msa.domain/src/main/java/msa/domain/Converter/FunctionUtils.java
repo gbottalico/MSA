@@ -74,6 +74,8 @@ public final class FunctionUtils {
         }
     }
 
+
+
     public final static Function<String, java.sql.Date> convertStringToLocaldate = s -> {
         if (s == null) {
             return null;
@@ -103,7 +105,7 @@ public final class FunctionUtils {
         } else return Boolean.FALSE;
     }
 
-    public static String removePatternInList(final String value, final String ... toRemove) {
+    public static String removePatternInList(final String value, final String... toRemove) {
         return Stream.concat(Stream.of(value), Stream.of(toRemove)).reduce((a, b) -> a.replace(b, "")).orElse(value);
     }
 }

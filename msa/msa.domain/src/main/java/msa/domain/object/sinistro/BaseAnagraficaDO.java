@@ -9,6 +9,8 @@ public class BaseAnagraficaDO {
     private LuogoDO luogoNascita;
     private Date dataNascita;
     private String cf;
+    private String tipoPersona;
+    private String ragioneSociale;
 
     public String getNome() {
         return nome;
@@ -56,6 +58,22 @@ public class BaseAnagraficaDO {
 
     public void setCf(String cf) {
         this.cf = cf;
+    }
+
+    public String getTipoPersona() {
+        return tipoPersona;
+    }
+
+    public void setTipoPersona(String tipoPersona) {
+        this.tipoPersona = tipoPersona;
+    }
+
+    public String getRagioneSociale() {
+        return ragioneSociale;
+    }
+
+    public void setRagioneSociale(String ragioneSociale) {
+        this.ragioneSociale = ragioneSociale;
     }
 }
 
