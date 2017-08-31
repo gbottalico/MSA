@@ -4,8 +4,8 @@
     app.component('msaDenunciaContainer', {
         templateUrl: '../../app/component/denuncia-sinistro/denuncia-container/components/templates/denuncia-container-tpl.html',
         bindings: {},
-        controller: ("denunciaContainerController", ['$rootScope', '$scope', '$routeParams', '$debugMode', 'SinistriSvc', 'UtilSvc', 'PathSvc', 'DebugSvc',
-            function ($rootScope, $scope, $routeParams, $debugMode, SinistriSvc, UtilSvc, PathSvc, DebugSvc) {
+        controller: ("denunciaContainerController", ['$rootScope', '$scope', '$routeParams', '$location', '$debugMode', 'SinistriSvc', 'UtilSvc', 'PathSvc', 'DebugSvc',
+            function ($rootScope, $scope, $routeParams, $location, $debugMode, SinistriSvc, UtilSvc, PathSvc, DebugSvc) {
 
                 var $ctrl = this;
                 $scope.$debugMode = $debugMode;
@@ -22,6 +22,7 @@
 
                 $ctrl.caricaMappe = function () {
                     PathSvc.getPath($ctrl.sinistroProvvisorio.numSinistroProvv).then(function (response) {
+                        //TODO: === 200
                         var path = UtilSvc.mapToValueArray(response.data.result);
                         $ctrl.mappe = path;
                         DebugSvc.log("caricaMappe", path);
@@ -30,6 +31,7 @@
 
                 $ctrl.aggiornaMappe = function () {
                     //TODO se qualcuno cambia il tipo di garanzia in corso d'opera, probabilmente va scelto $ctrl.tempSegnalazione.garanzia.
+                    //TODO: === 200
                     var garanzia = $ctrl.sinistroProvvisorio.segnalazione ?
                         $ctrl.sinistroProvvisorio.segnalazione.garanziaSelected :
                         $ctrl.tempSegnalazione.garanzia;
@@ -37,6 +39,11 @@
                         var path = UtilSvc.mapToValueArray(response.data.result);
                         $ctrl.mappe = path;
                         DebugSvc.log("aggiornaMappe", path);
+
+                        // Scroll to the new fresh map
+                        //DebugSvc.log("scrollTo", path[path.length - 1]);
+                        //$location.hash(path[path.length - 1]);
+                        //PathSvc.smoothScroll(path[path.length - 1]);
                     });
                 };
 
@@ -50,6 +57,9 @@
                             break;
                         case 'M14':
                             return $ctrl.mappe.indexOf('M14') > -1;
+                            break;
+                        case 'M15':
+                            return $ctrl.mappe.indexOf('M15') > -1;
                             break;
                         default:
                             return false;

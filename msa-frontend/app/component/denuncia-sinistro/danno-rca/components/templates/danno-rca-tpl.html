@@ -201,21 +201,21 @@
 
                     <div class="row">
                         <div class="col-lg-12">
-                            <pre>{{$ctrl.dannoRca.terzeParti}}</pre>
+                            <pre ng-if="$debugMode">{{$ctrl.dannoRca.terzeParti}}</pre>
                             <table class="table cai-table">
                                 <thead>
                                     <tr>
-                                        <th>Nome</th>
-                                        <th>Cognome</th>
-                                        <th>Note</th>
+                                        <th>Soggetto</th>
+                                        <th>Indirizzo</th>
+                                        <th>CF/P. IVA</th>
                                         <th>Azione</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr ng-repeat="persona in $ctrl.dannoRca.terzeParti">
-                                        <td>{{persona.nome}}</td>
-                                        <td>{{persona.cognome}}</td>
-                                        <td>{{persona.note}}</td>
+                                        <td>{{persona.nome ? persona.nome + " " + persona.cognome : persona.ragioneSociale}}</td>
+                                        <td>{{persona.residenza.indirizzo}}</td>
+                                        <td>{{persona.cf}}</td>
                                         <td><i ng-click="$ctrl.dannoRca.terzeParti.splice($index, 1);" class="fa fa-trash-o" aria-hidden="true"></i></td>
                                     </tr>
                                 </tbody>

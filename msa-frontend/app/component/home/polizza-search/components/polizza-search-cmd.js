@@ -175,11 +175,11 @@
                         }
                     });
 
-                    modalInstance.result.then(function (terzaParte) {
-                        DebugSvc.log("aggiungiTerzaParte", terzaParte);
-                        DebugSvc.stringify("aggiungiTerzaParte", terzaParte);
+                    modalInstance.result.then(function (result) {
+                        DebugSvc.log("openAnagrafica", result);
+                        $ctrl.apriSinistroProvvisorio(result);
                     }, function () {
-                        DebugSvc.log("aggiungiTerzaParte dismiss.");
+                        DebugSvc.log("openAnagrafica dismiss.");
                     });
                 };
 

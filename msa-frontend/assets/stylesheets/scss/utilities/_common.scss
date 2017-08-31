@@ -66,7 +66,7 @@ section {
 }
 
 .force-text-left {
-  text-align: left!important;
+  text-align: left !important;
 }
 
 .classicInputText {
@@ -673,6 +673,17 @@ section {
     color: $black;
     vertical-align: middle !important;
   }
+
+  .fa-trash-o {
+    color: $badred;
+    font-size: 2rem;
+  }
+
+  .fa-plus {
+    color: $light_blue;
+    font-size: 2rem;
+  }
+
 }
 
 .margin-top-1 {
@@ -691,4 +702,9 @@ section {
   margin-bottom: 2rem;
 }
 
-.angular-google-map-container { height: 400px; }
+
+
+/*Obbligatorio per Google Maps*/
+.angular-google-map-container {
+  height: 400px;
+}
