@@ -8,8 +8,8 @@
             sinistroProvvisorio: "=",
             tempSegnalazione: "="
         },
-        controller: ("dannoRcaContoller", ['$rootScope', '$scope', '$debugMode', '$filter', 'toastr', 'VeicoliSvc', 'SinistriSvc', 'DebugSvc', 'UtilSvc',
-            function ($rootScope, $scope, $debugMode, $filter, toastr, VeicoliSvc, SinistriSvc, DebugSvc, UtilSvc) {
+        controller: ("dannoRcaContoller", ['$rootScope', '$scope', '$debugMode', '$filter', '$uibModal', 'toastr', 'VeicoliSvc', 'SinistriSvc', 'DebugSvc', 'UtilSvc',
+            function ($rootScope, $scope, $debugMode, $filter, $uibModal, toastr, VeicoliSvc, SinistriSvc, DebugSvc, UtilSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
@@ -45,7 +45,7 @@
 
                     $ctrl.dannoRca.lesioniConducente = $ctrl.sinistroProvvisorio.dannoRca.lesioniConducente;
 
-                    if($ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente !== undefined && $ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente !== null) {
+                    if ($ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente !== undefined && $ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente !== null) {
 
                         $ctrl.persistence.dannoCliente = $ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente.danni;
                         $ctrl.dannoRca.descrizioneDannoCliente = $ctrl.persistence.dannoCliente.descrizioneDanno;
@@ -69,6 +69,29 @@
 
                 };
 
+                $ctrl.aggiungiTerzaParte = function () {
+                    var modalInstance = $uibModal.open({
+                        animation: true,
+                        backdrop: 'static', // Evita che il modal sia chiuso cliccando sullo sfondo.
+                        windowClass: 'msaModal',
+                        size: 'lg',
+                        component: 'msaAnagraficaModal',
+                        resolve: {
+                            items: function () {
+                                return [{id: 1}, {id: 2}];
+                            }
+                        }
+                    });
+
+                    modalInstance.result.then(function (terzaParte) {
+                        DebugSvc.log("aggiungiTerzaParte", terzaParte);
+                        $ctrl.dannoRca.terzeParti.push(terzaParte);
+                    }, function () {
+                        DebugSvc.log("aggiungiTerzaParte dismiss.");
+                    });
+                };
+
+
                 $scope.$watch(
                     function watchScope(scope) {
                         return {
@@ -77,7 +100,7 @@
                     },
                     function handleChanges(newValues, oldValues) {
 
-                        if(newValues.sinistroProvvisorio !== undefined && !$ctrl.isInputConsumed) {
+                        if (newValues.sinistroProvvisorio !== undefined && !$ctrl.isInputConsumed) {
                             $ctrl.bindDannoRca();
                             $ctrl.isInputConsumed = true;
                         }
