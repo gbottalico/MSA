@@ -25,4 +25,6 @@ public class Constants {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd hh.mm.ss");
         return date.format(formatter);
     };
+
+    public static final String MATCHER_CODICE_FISCALE_VALIDO = "[A-Z]{6}[0-9]{2}[A-Z][0-9]{2}[A-Z][0-9]{3}[A-Z]";
 }

@@ -6,6 +6,7 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Created by simon.calabrese on 27/07/2017.
@@ -100,5 +101,9 @@ public final class FunctionUtils {
         if (checkIsNotNull(a, b)) {
             return Integer.compare(a.size(), b.size()) == 0;
         } else return Boolean.FALSE;
+    }
+
+    public static String removePatternInList(final String value, final String ... toRemove) {
+        return Stream.concat(Stream.of(value), Stream.of(toRemove)).reduce((a, b) -> a.replace(b, "")).orElse(value);
     }
 }

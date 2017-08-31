@@ -1,11 +1,13 @@
 package msa.application.service.util;
 
+import msa.application.commons.Constants;
 import msa.application.config.Message;
 import msa.application.config.enumerator.MessageType;
 import msa.application.dto.sinistro.anagrafica.BaseAnagraficaDTO;
 import msa.application.exceptions.InternalMsaException;
 import msa.application.service.base.BaseService;
 import msa.application.service.enumerator.Api;
+import msa.domain.Converter.FunctionUtils;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
@@ -33,6 +35,8 @@ public class UtilsService extends BaseService {
                     .getBytes()
             )
     ).replace("+", "||");
+
+    private static final String[] patternToRemoveInCodError = {"ERR: ", " Impossibile calcolare il Codice Fiscale_01"};
 
     public String calcolaCodiceFiscale(final BaseAnagraficaDTO anagrafica) throws InternalMsaException {
         try {
@@ -74,14 +78,15 @@ public class UtilsService extends BaseService {
                     .appendParam("gender", String.valueOf(anagrafica.getSesso()))
                     .appendParam("city", nomeCitta)
                     .appendParam("idcity", idCitta));
-            if (resultCall.matches("[A-Z]{6}[0-9]{2}[A-Z][0-9]{2}[A-Z][0-9]{3}[A-Z]")) {
+            if (resultCall.matches(Constants.MATCHER_CODICE_FISCALE_VALIDO)) {
                 return resultCall;
             } else {
+
                 throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR,
                         "MSA014",
-                        s -> s.concat(resultCall)));
+                        s -> s.concat(FunctionUtils.removePatternInList(resultCall, patternToRemoveInCodError))));
             }
-        }  catch (InternalMsaException e) {
+        } catch (InternalMsaException e) {
             throw e;
         } catch (Exception e) {
             throw new InternalMsaException();
