@@ -14,9 +14,17 @@
                 var $ctrl = this;
                 $ctrl.anagrafica = {};
 
+                $ctrl.TipologiaEnum = {
+                    FISICA: "PF",
+                    GIURIDICA: "PG"
+                };
+
                 $ctrl.$onInit = function () {
                     // Per prendere input
                     $ctrl.items = $ctrl.resolve.items;
+
+                    $ctrl.anagrafica.tipologia = $ctrl.TipologiaEnum.FISICA;
+
                 };
 
                 $ctrl.ok = function () {

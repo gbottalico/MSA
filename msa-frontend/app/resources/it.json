@@ -10,14 +10,18 @@
       "no": "No",
       "male": "M",
       "female": "F",
+      "pf": "Persona Fisica",
+      "pg": "Persona Giuridica",
       "saveok": "Salvataggio avvenuto con successo.",
       "saveko": "Errore nel salvataggio."
     },
     "people": {
       "nome": "Nome",
       "cognome": "Cognome",
+      "ragionesociale": "Ragione Sociale",
       "sesso": "Sesso",
       "cf": "Codice Fiscale",
+      "piva": "Partita IVA",
       "nazione": "Nazione",
       "provincia": "Provincia",
       "comune": "Comune",
@@ -26,6 +30,8 @@
       "telefono": "Telefono",
       "cellulare": "Cellulare",
       "email": "E-Mail",
+      "residenza": "Residenza",
+      "posizione": "Posizione",
       "patente": "Patente",
       "scadenzapatente": "Data di Scadenza Patente"
     },

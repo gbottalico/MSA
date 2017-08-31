@@ -6,26 +6,26 @@
         bindings: {
             valoriRicerca: "="
         },
-        controller: ("polizzaSearchController", ["$scope", '$rootScope', '$translate', '$log', 'DomainSvc', 'SinistriSvc', 'PlacesSvc', 'toastr', '$analytics', '$location', '$anchorScroll', '$uibModal', '$cookies', '$window', '$sessionStorage',
-            function ($scope, $rootScope, $translate, $log, DomainSvc, SinistriSvc, PlacesSvc, toastr, $analytics, $location, $anchorScroll, $uibModal, $cookies, $window, $sessionStorage) {
+        controller: ("polizzaSearchController", ["$scope", '$rootScope', '$translate', '$log', 'DomainSvc', 'SinistriSvc', 'PlacesSvc', 'toastr', '$analytics', '$location', '$anchorScroll', '$uibModal', '$cookies', '$window', '$sessionStorage', 'DebugSvc',
+            function ($scope, $rootScope, $translate, $log, DomainSvc, SinistriSvc, PlacesSvc, toastr, $analytics, $location, $anchorScroll, $uibModal, $cookies, $window, $sessionStorage, DebugSvc) {
 
-                var ctrl = this;
+                var $ctrl = this;
                 //var modalInstance = undefined;
 
-                ctrl.casaRegole = undefined;
-                ctrl.compagniaSelezionata = undefined;
-                ctrl.valoriRicerca = undefined;
+                $ctrl.casaRegole = undefined;
+                $ctrl.compagniaSelezionata = undefined;
+                $ctrl.valoriRicerca = undefined;
 
-                ctrl.numSinistroProvv = undefined;
+                $ctrl.numSinistroProvv = undefined;
 
-                ctrl.$onInit = function () {
+                $ctrl.$onInit = function () {
                     DomainSvc.getElencoRegole().then(function (response) {
-                        ctrl.casaRegole = response.data.result;
+                        $ctrl.casaRegole = response.data.result;
                     });
 
                 };
 
-                ctrl.campiObbligatori = {
+                $ctrl.campiObbligatori = {
                     cognome: false,
                     nome: false,
                     tipoPersona: false,
@@ -40,7 +40,7 @@
                 $scope.$watch(
                     function watch(scope) {
                         return {
-                            compagniaSelezionata: ctrl.compagniaSelezionata
+                            compagniaSelezionata: $ctrl.compagniaSelezionata
                         };
                     },
                     function handleChanges(newValue, oldValue) {
@@ -54,31 +54,31 @@
                                 for (var i = 0; i < campiObbligatoriRicerca.length; i++) {
                                     switch (campiObbligatoriRicerca[i].idFE) {
                                         case 1:
-                                            ctrl.campiObbligatori.cognome = campiObbligatoriRicerca[i].required;
+                                            $ctrl.campiObbligatori.cognome = campiObbligatoriRicerca[i].required;
                                             break;
                                         case 2:
-                                            ctrl.campiObbligatori.nome = campiObbligatoriRicerca[i].required;
+                                            $ctrl.campiObbligatori.nome = campiObbligatoriRicerca[i].required;
                                             break;
                                         case 3:
-                                            ctrl.campiObbligatori.tipoPersona = campiObbligatoriRicerca[i].required;
+                                            $ctrl.campiObbligatori.tipoPersona = campiObbligatoriRicerca[i].required;
                                             break;
                                         case 4:
-                                            ctrl.campiObbligatori.numeroPolizza = campiObbligatoriRicerca[i].required;
+                                            $ctrl.campiObbligatori.numeroPolizza = campiObbligatoriRicerca[i].required;
                                             break;
                                         case 5:
-                                            ctrl.campiObbligatori.numeroSinistro = campiObbligatoriRicerca[i].required;
+                                            $ctrl.campiObbligatori.numeroSinistro = campiObbligatoriRicerca[i].required;
                                             break;
                                         case 6:
-                                            ctrl.campiObbligatori.dataEvento = campiObbligatoriRicerca[i].required;
+                                            $ctrl.campiObbligatori.dataEvento = campiObbligatoriRicerca[i].required;
                                             break;
                                         case 7:
-                                            ctrl.campiObbligatori.targa = campiObbligatoriRicerca[i].required;
+                                            $ctrl.campiObbligatori.targa = campiObbligatoriRicerca[i].required;
                                             break;
                                         case 8:
-                                            ctrl.campiObbligatori.numeroProvvisorio = campiObbligatoriRicerca[i].required;
+                                            $ctrl.campiObbligatori.numeroProvvisorio = campiObbligatoriRicerca[i].required;
                                             break;
                                         case 9:
-                                            ctrl.campiObbligatori.numeroPreapertura = campiObbligatoriRicerca[i].required;
+                                            $ctrl.campiObbligatori.numeroPreapertura = campiObbligatoriRicerca[i].required;
                                             break;
 
                                     }
@@ -89,7 +89,7 @@
                     }, true
                 );
 
-                ctrl.ricercapolizza = {
+                $ctrl.ricercapolizza = {
                     cognome: '',
                     nome: '',
                     tipoPersona: undefined,
@@ -101,7 +101,7 @@
                     numeroPreapertura: ''
                 };
 
-                ctrl.open = function () {
+                $ctrl.open = function () {
                     var modalInstance = $uibModal.open({
                         templateUrl: 'denunciaSinistroModal',
                         backdrop: 'static', // Evita che il modal sia chiuso cliccando sullo sfondo.
@@ -154,41 +154,63 @@
 
                     modalInstance.result.then(function (result) {
                         console.log(result);
-                        ctrl.apriSinistroProvvisorio(result);
+                        $ctrl.apriSinistroProvvisorio(result);
                     }, function () {
                         toastr.info("Operazione annullata.");
                     });
 
                 };
 
-                ctrl.apriSinistroProvvisorio = function (datiContraente) {
+                $ctrl.openAnagrafica = function () {
+                    var modalInstance = $uibModal.open({
+                        animation: true,
+                        backdrop: 'static', // Evita che il modal sia chiuso cliccando sullo sfondo.
+                        windowClass: 'msaModal',
+                        size: 'lg',
+                        component: 'msaAnagraficaModal',
+                        resolve: {
+                            items: function () {
+                                return [{id: 1}, {id: 2}];
+                            }
+                        }
+                    });
+
+                    modalInstance.result.then(function (terzaParte) {
+                        DebugSvc.log("aggiungiTerzaParte", terzaParte);
+                        DebugSvc.stringify("aggiungiTerzaParte", terzaParte);
+                    }, function () {
+                        DebugSvc.log("aggiungiTerzaParte dismiss.");
+                    });
+                };
+
+                $ctrl.apriSinistroProvvisorio = function (datiContraente) {
                     SinistriSvc.apriSinistroProvvisorio(datiContraente, 37).then(function (response) {
                         //FIXME rimuovere 37, mockup
-                        ctrl.numSinistroProvv = response.data.result.numSinistroProvvisorio;
+                        $ctrl.numSinistroProvv = response.data.result.numSinistroProvvisorio;
                         console.log(response.data.result);
-                        ctrl.denuncia();
+                        $ctrl.denuncia();
                     });
                 };
 
                 /* Navigazione */
 
-                ctrl.denuncia = function () {
+                $ctrl.denuncia = function () {
                     var path = getMSAC().PATHS.DENUNCIA;
-                    if (ctrl.numSinistroProvv !== undefined) {
-                        path = path + "/" + ctrl.numSinistroProvv;
+                    if ($ctrl.numSinistroProvv !== undefined) {
+                        path = path + "/" + $ctrl.numSinistroProvv;
                     }
                     $location.path(path);
                 };
 
-                ctrl.cerca = function () {
+                $ctrl.cerca = function () {
                     // TODO valutarre
                     //$location.hash('polizzaResult');
                     //$anchorScroll();
                 };
 
-                ctrl.valoriRicerca = {
-                    bannersearch: ctrl.bannersearch,
-                    bannerdenuncia: ctrl.bannerdenuncia,
+                $ctrl.valoriRicerca = {
+                    bannersearch: $ctrl.bannersearch,
+                    bannerdenuncia: $ctrl.bannerdenuncia,
                     user: {
                         cognome: "Piras",
                         nome: 'Dario',

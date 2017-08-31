@@ -4,65 +4,131 @@
 
 <div class="modal-body ">
 
-    <form name="sinistroProvvisorioForm" novalidate>
-        <div class="col-lg-12"><span class="subsectionTitle">Generalità Contraente</span></div>
-
-        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 classicInputText">
-            <input type="text" name="cognome" ng-model="$ctrl.anagrafica.nome" ng-required="true">
-            <label>{{'global.denunciasinitro.labels.cognome' | translate}}</label>
-        </div>
-        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 classicInputText">
-            <input type="text" name="nome" ng-model="$ctrl.anagrafica.cognome" ng-required="true">
-            <label>{{'global.denunciasinitro.labels.nome' | translate}}</label>
-        </div>
-
-        <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 classicInputRadio">
+    <form name="anagraficaForm" novalidate>
+        <div class="col-lg-12"><span class="subsectionTitle">Tipologia</span></div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputRadio">
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 noPaddingLeft">
-                <input type="radio" value="m" checked name="sesso" ng-model="$ctrl.anagrafica.sesso">
-                <label class="rightLabel">{{'global.generic.male' | translate}}</label>
+                <input type="radio" value="PF" name="tipologia" ng-model="$ctrl.anagrafica.tipologia">
+                <label class="rightLabel">{{'global.generic.pf' | translate}}</label>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 noPaddingRight">
-                <input type="radio" value="f" name="sesso" ng-model="$ctrl.anagrafica.sesso">
-                <label class="rightLabel">{{'global.generic.female' | translate}}</label>
+                <input type="radio" value="PG" name="tipologia" ng-model="$ctrl.anagrafica.tipologia">
+                <label class="rightLabel">{{'global.generic.pg' | translate}}</label>
             </div>
             <div class="col-lg-4 col-md-4 hidden-sm hidden-xs noPaddingRight">&nbsp;</div>
-            <label>{{'global.people.sesso' | translate}}</label>
-        </div>
-
-        <div class="col-lg-12">
-            <hr class="blueLine"/>
-        </div>
-        <div class="col-lg-12"><span class="subsectionTitle">Luogo e Data di Nascita</span></div>
-
-        <msa-place result="$ctrl.anagrafica.nascita"></msa-place>
-        <div class="col-lg-12 classicInputText">
-            <msa-date-selector data-result="$ctrl.anagrafica.nascita.data" data-required="true"></msa-date-selector>
-            <label>Data di Nascita</label>
-        </div>
-
-        <div class="col-lg-12">
-            <hr class="blueLine"/>
-        </div>
-        <div class="col-lg-12"><span class="subsectionTitle">Codice Fiscale</span></div>
-
-        <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 classicInputText">
-            <input type="text" name="cf" ng-model="$ctrl.anagrafica.cf" ng-required="true">
-            <label>{{'global.denunciasinitro.labels.cfopiva' | translate}}</label>
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 classicInputText">
-            <button class="btn lightGrayButton" ng-click="calcolaCf()" ng-disabled="isCalcolaCfDisabled()">Calcola</button>
         </div>
 
 
         <div class="col-lg-12">
             <hr class="blueLine"/>
         </div>
-        <div class="col-lg-12"><span class="subsectionTitle">Residenza</span></div>
+        <div class="col-lg-12"><span class="subsectionTitle">Generalità</span></div>
+
+        <!-- SE PERSONA FISICA -->
+        <div class="col-lg-12" ng-if="$ctrl.anagrafica.tipologia === $ctrl.TipologiaEnum.FISICA">
+            <div class="row">
+                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 classicInputText">
+                    <input type="text" name="cognome" ng-model="$ctrl.anagrafica.nome">
+                    <label>{{'global.people.cognome' | translate}}</label>
+                </div>
+                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 classicInputText">
+                    <input type="text" name="nome" ng-model="$ctrl.anagrafica.cognome">
+                    <label>{{'global.people.nome' | translate}}</label>
+                </div>
+
+                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 classicInputRadio">
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 noPaddingLeft">
+                        <input type="radio" value="m" checked name="sesso" ng-model="$ctrl.anagrafica.sesso">
+                        <label class="rightLabel">{{'global.generic.male' | translate}}</label>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 noPaddingRight">
+                        <input type="radio" value="f" name="sesso" ng-model="$ctrl.anagrafica.sesso">
+                        <label class="rightLabel">{{'global.generic.female' | translate}}</label>
+                    </div>
+                    <div class="col-lg-4 col-md-4 hidden-sm hidden-xs noPaddingRight">&nbsp;</div>
+                    <label>{{'global.people.sesso' | translate}}</label>
+                </div>
+            </div>
+        </div>
+        <!-- SE PERSONA GIURIDICA -->
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputText" ng-if="$ctrl.anagrafica.tipologia === $ctrl.TipologiaEnum.GIURIDICA">
+            <input type="text" name="ragionesociale" ng-model="$ctrl.anagrafica.ragioneSociale">
+            <label>{{'global.people.ragionesociale' | translate}}</label>
+        </div>
+
+        <!-- SOLO SE PERSONA FISICA -->
+        <div class="col-lg-12" ng-if="$ctrl.anagrafica.tipologia === $ctrl.TipologiaEnum.FISICA">
+            <div class="row">
+                <div class="col-lg-12">
+                    <hr class="blueLine"/>
+                </div>
+                <div class="col-lg-12"><span class="subsectionTitle">Luogo e Data di Nascita</span></div>
+
+                <msa-place result="$ctrl.anagrafica.nascita"></msa-place>
+                <div class="col-lg-12 classicInputText">
+                    <msa-date-selector data-result="$ctrl.anagrafica.nascita.data" data-required="true"></msa-date-selector>
+                    <label>Data di Nascita</label>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-lg-12">
+            <hr class="blueLine"/>
+        </div>
+
+        <!-- SE PERSONA FISICA -->
+        <div class="col-lg-12" ng-if="$ctrl.anagrafica.tipologia === $ctrl.TipologiaEnum.FISICA">
+
+            <div class="row">
+
+                <div class="col-lg-12">
+                    <span class="subsectionTitle">{{'global.people.cf' | translate}}</span>
+                </div>
+
+                <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 classicInputText">
+                    <input type="text" name="cf" ng-model="$ctrl.anagrafica.cf" ng-required="true">
+                    <label>{{'global.people.cf' | translate}}</label>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 classicInputText">
+                    <button class="btn lightGrayButton" ng-click="calcolaCf()" ng-disabled="isCalcolaCfDisabled()">Calcola
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- SE PERSONA GIURIDICA -->
+        <div class="col-lg-12" ng-if="$ctrl.anagrafica.tipologia === $ctrl.TipologiaEnum.GIURIDICA">
+
+            <div class="row">
+
+                <div class="col-lg-12">
+                    <span class="subsectionTitle">{{'global.people.piva' | translate}}</span>
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputText">
+                    <input type="text" name="cf" ng-model="$ctrl.anagrafica.cf">
+                    <label>{{'global.people.piva' | translate}}</label>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-lg-12">
+            <hr class="blueLine"/>
+        </div>
+        <div class="col-lg-12">
+            <span class="subsectionTitle" ng-if="$ctrl.anagrafica.tipologia === $ctrl.TipologiaEnum.FISICA">{{'global.people.residenza' | translate}}</span>
+            <span class="subsectionTitle" ng-if="$ctrl.anagrafica.tipologia === $ctrl.TipologiaEnum.GIURIDICA">{{'global.people.posizione' | translate}}</span>
+        </div>
 
         <msa-place result="$ctrl.anagrafica.residenza"></msa-place>
 
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputText">
-            <input type="text" name="denominazioneStrada" ng-model="$ctrl.anagrafica.residenza.indirizzo" ng-required="true">
+            <input type="text" name="denominazioneStrada" ng-model="$ctrl.anagrafica.residenza.indirizzo"
+                   ng-required="true">
             <label>{{'global.denunciasinitro.labels.indirizzo' | translate}}</label>
         </div>
 
