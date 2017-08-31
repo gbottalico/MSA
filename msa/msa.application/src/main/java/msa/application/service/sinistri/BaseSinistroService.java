@@ -175,21 +175,24 @@ public class BaseSinistroService extends BaseService {
                     throw new InternalMsaException();
                 }
             };
-    private final MsaBiFunction<AnagraficaTerzePartiDTO, Integer, BaseSinistroDO> TERZE_PARTI =
+    private final MsaBiFunction<AnagraficaTerzePartiDTO, Integer, SinistroRcaDO> TERZE_PARTI =
             (O, numSinistroProvv) -> {
                 try {
-                    final BaseSinistroDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv, BaseSinistroDO.class);
+                    final SinistroRcaDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv, SinistroRcaDO.class);
                     return sinistroByNumProvv;
                 } catch (Exception e) {
                     throw new InternalMsaException();
                 }
             };
-    protected final MsaBiFunction<AnagraficaTerzePartiDTO, Integer, BaseSinistroDO> LEGALE =
+    protected final MsaBiFunction<List<AnagraficaTerzePartiDTO>, Integer, BaseSinistroDO> LEGALE =
             (O, numSinistroProvv) -> {
                 try {
                     final BaseSinistroDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv, BaseSinistroDO.class);
-                    AnagraficaTerzePartiDO anagraficaTerzePartiDO = converter.convertObject(O, AnagraficaTerzePartiDO.class);
-                    sinistroByNumProvv.getAnagraficaTerzeParti().add(anagraficaTerzePartiDO);
+                    List<AnagraficaTerzePartiDO> anagraficaTerzePartiDO = converter.convertList(O, AnagraficaTerzePartiDO.class);
+                    if(sinistroByNumProvv.getLegali() == null) {
+                        sinistroByNumProvv.setLegali(new ArrayList<>());
+                    }
+                    sinistroByNumProvv.getLegali().addAll(anagraficaTerzePartiDO);
                     return sinistroByNumProvv;
                 } catch (Exception e) {
                     throw new InternalMsaException();

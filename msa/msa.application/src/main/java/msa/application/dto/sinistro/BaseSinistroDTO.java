@@ -1,5 +1,6 @@
 package msa.application.dto.sinistro;
 
+import msa.application.dto.sinistro.anagrafica.AnagraficaTerzePartiDTO;
 import msa.application.dto.sinistro.anagrafica.FullAnagraficaDTO;
 import msa.application.dto.sinistro.segnalazione.SegnalazioneDTO;
 import msa.infrastructure.persistence.sinistro.AnagraficaTerzePartiDBO;
@@ -18,14 +19,10 @@ public class BaseSinistroDTO extends AbstractDTO {
     private String compagnia;
     private String targa;
     private SegnalazioneDTO segnalazione;
-    private List<AnagraficaTerzePartiDBO> anagraficaTerzeParti; // in rca sono tutte le terze parti più legale. In tutti gli altri casi è solo il legale
+    private List<AnagraficaTerzePartiDTO> legali;
     private PeritoDTO perito;
     private Integer numSinistroProvv;
     private CentroConvenzionatoDTO centroConvenzionato;
-
-
-
-
 
     public String getId() {
         return id;
@@ -75,12 +72,12 @@ public class BaseSinistroDTO extends AbstractDTO {
         this.segnalazione = segnalazione;
     }
 
-    public List<AnagraficaTerzePartiDBO> getAnagraficaTerzeParti() {
-        return anagraficaTerzeParti;
+    public List<AnagraficaTerzePartiDTO> getLegali() {
+        return legali;
     }
 
-    public void setAnagraficaTerzeParti(List<AnagraficaTerzePartiDBO> anagraficaTerzeParti) {
-        this.anagraficaTerzeParti = anagraficaTerzeParti;
+    public void setLegali(List<AnagraficaTerzePartiDTO> legali) {
+        this.legali = legali;
     }
 
     public PeritoDTO getPerito() {

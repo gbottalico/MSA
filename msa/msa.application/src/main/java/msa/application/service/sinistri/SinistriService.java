@@ -259,9 +259,9 @@ public class SinistriService extends BaseSinistroService {
     }
 
     public BaseDTO salvaDannoRcaTerzeParti(List<AnagraficaTerzePartiDTO> input, Integer numSinistro) throws InternalMsaException {
-        BaseSinistroDO sinistroDOByDTO = getSinistroDOByDTO(new AnagraficaTerzePartiDTO(), numSinistro);
+        SinistroRcaDO sinistroDOByDTO = getSinistroDOByDTO(new AnagraficaTerzePartiDTO(), numSinistro);
         List<AnagraficaTerzePartiDO> filteredList = converter.convertList(FunctionUtils.dinstictList(input, AnagraficaTerzePartiDTO::getCf), AnagraficaTerzePartiDO.class);
-        sinistroDOByDTO.setAnagraficaTerzeParti(replaceTerzePartiList(sinistroDOByDTO.getAnagraficaTerzeParti(), filteredList, e -> e.getCodRuolo().equals("13")));
+        sinistroDOByDTO.getDannoRca().setTerzeParti(replaceTerzePartiList(sinistroDOByDTO.getDannoRca().getTerzeParti(), filteredList, e -> e.getCodRuolo().equals("13")));
         Boolean insertResult = salvaSinistro(sinistroDOByDTO);
         if (insertResult) {
             return new BaseDTO<>(null, addWarningMessageByCondition(() -> "Sono stati inseriti codici fiscali o partite iva duplicati",
@@ -284,9 +284,9 @@ public class SinistriService extends BaseSinistroService {
     }
 
     public BaseDTO salvaDannoRcaLegale(List<AnagraficaTerzePartiDTO> input, Integer numeroSinistro) throws InternalMsaException {
-        BaseSinistroDO sinistroDOByDTO = getSinistroDOByDTO(new AnagraficaTerzePartiDTO(), numeroSinistro);
+        BaseSinistroDO sinistroDOByDTO = LEGALE.apply(input,numeroSinistro);
         List<AnagraficaTerzePartiDO> filteredList = converter.convertList(FunctionUtils.dinstictList(input, AnagraficaTerzePartiDTO::getCf), AnagraficaTerzePartiDO.class);
-        sinistroDOByDTO.setAnagraficaTerzeParti(replaceTerzePartiList(sinistroDOByDTO.getAnagraficaTerzeParti(), filteredList, e -> !e.getCodRuolo().equals("13")));
+        sinistroDOByDTO.setLegali(replaceTerzePartiList(sinistroDOByDTO.getLegali(), filteredList, e -> !e.getCodRuolo().equals("13")));
         Boolean insertResult = salvaSinistro(sinistroDOByDTO);
 
         if (insertResult) {

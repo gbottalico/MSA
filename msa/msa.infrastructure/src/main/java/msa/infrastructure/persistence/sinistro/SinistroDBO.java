@@ -27,6 +27,8 @@ public class SinistroDBO extends AbstractDBO {
     private DannoRcaDBO dannoRca;
     @Field("terzeParti")
     private List<AnagraficaTerzePartiDBO> anagraficaTerzeParti;
+    @Field("legali")
+    private List<AnagraficaTerzePartiDBO> legali;
 
     @Field("contraente")
     private FullAnagraficaDBO contraente;
@@ -285,5 +287,13 @@ public class SinistroDBO extends AbstractDBO {
 
     public void setCentroConvenzionato(CentroConvenzionatoDBO centroConvenzionato) {
         this.centroConvenzionato = centroConvenzionato;
+    }
+
+    public List<AnagraficaTerzePartiDBO> getLegali() {
+        return legali;
+    }
+
+    public void setLegali(List<AnagraficaTerzePartiDBO> legali) {
+        this.legali = legali;
     }
 }

@@ -9,12 +9,12 @@ import java.util.List;
  */
 public class BaseSinistroDO extends AbstractDO  {
     private String id;
+    private FullAnagraficaDO contraente;
     private String numeroPolizza;
     private Integer compagnia;
     private String targa;
     private SegnalazioneDO segnalazione;
-    private List<AnagraficaTerzePartiDO> anagraficaTerzeParti;
-    private FullAnagraficaDO contraente;
+    private List<AnagraficaTerzePartiDO> legali;
     private PeritoDO perito;
     private Integer numSinistroProvv;
     private CentroConvenzionatoDO centroConvenzionato;
@@ -25,6 +25,14 @@ public class BaseSinistroDO extends AbstractDO  {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public FullAnagraficaDO getContraente() {
+        return contraente;
+    }
+
+    public void setContraente(FullAnagraficaDO contraente) {
+        this.contraente = contraente;
     }
 
     public String getNumeroPolizza() {
@@ -59,20 +67,12 @@ public class BaseSinistroDO extends AbstractDO  {
         this.segnalazione = segnalazione;
     }
 
-    public List<AnagraficaTerzePartiDO> getAnagraficaTerzeParti() {
-        return anagraficaTerzeParti;
+    public List<AnagraficaTerzePartiDO> getLegali() {
+        return legali;
     }
 
-    public void setAnagraficaTerzeParti(List<AnagraficaTerzePartiDO> anagraficaTerzeParti) {
-        this.anagraficaTerzeParti = anagraficaTerzeParti;
-    }
-
-    public FullAnagraficaDO getContraente() {
-        return contraente;
-    }
-
-    public void setContraente(FullAnagraficaDO contraente) {
-        this.contraente = contraente;
+    public void setLegali(List<AnagraficaTerzePartiDO> legali) {
+        this.legali = legali;
     }
 
     public PeritoDO getPerito() {
