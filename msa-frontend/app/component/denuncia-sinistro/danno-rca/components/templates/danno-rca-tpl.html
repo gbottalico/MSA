@@ -16,6 +16,7 @@
                 <form name="dannoRcaForm" novalidate>
 
                     <pre ng-if="$debugMode">{{$ctrl.dannoRca}}</pre>
+                    <pre ng-if="$debugMode">{{$ctrl.persistence}}</pre>
 
                     <div class="row">
                         <div class="margin-top-1 col-lg-12">
@@ -131,7 +132,7 @@
                         <div class="col-sm-12 col-xs-12 classicTextArea"
                              ng-class="{'col-lg-6 col-md-6': $ctrl.tempSegnalazione.nveicoli > 1, 'col-lg-12 col-md-12': $ctrl.tempSegnalazione.nveicoli <= 1}">
                             <span class="subsectionTitle">{{'global.dannorca.labels.dannicliente' | translate}}</span>
-                            <msa-auto data-auto="$ctrl.dannoRca.dannoCliente"></msa-auto>
+                            <msa-auto data-auto="$ctrl.dannoRca.dannoCliente" data-input="$ctrl.persistence.dannoCliente"></msa-auto>
                             <textarea class="textauto" ng-model="$ctrl.dannoRca.descrizioneDannoCliente"></textarea>
                             <label>{{'global.dannorca.labels.descrizionedanno' | translate}}</label>
                         </div>
