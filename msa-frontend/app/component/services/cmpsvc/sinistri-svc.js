@@ -290,29 +290,48 @@ angular.module('msa').service(
 
                 var dataObj = [];
 
-                dannoRca.terzeParti.forEach(function (element) {
+                dannoRca.controparti.forEach(function (element, index) {
                     var temp = {
-                        nome: element.nome,
-                        cognome: element.cognome,
-                        sesso: element.sesso ? element.sesso.toUpperCase() : null,
-                        cf: element.cf,
-                        tipoPersona: element.tipoPersona,
-                        dataNascita: element.nascita.data.date,
-                        luogoNascita: {
-                            codComune: element.nascita.comune ? element.nascita.comune.codComune : -1,
-                            codProvincia: element.nascita.provincia ? element.nascita.comune.codProvincia : -1,
-                            codNazione: element.nascita.nazione.id
-                        },
-                        tracking: {
-                            comune: element.residenza.comune ? element.residenza.comune.codComune : -1,
-                            provincia: element.residenza.provincia ? element.residenza.comune.codProvincia : -1,
-                            nazione: element.residenza.nazione.id,
-                            cap: element.residenza.cap,
-                            indirizzo: element.residenza.indirizzo,
-                            telefono: element.telefono,
-                            mail: element.mail
+                        anagrafica : {
+                            nome: element.nome,
+                            cognome: element.cognome,
+                            sesso: element.sesso ? element.sesso.toUpperCase() : null,
+                            cf: element.cf,
+                            tipoPersona: element.tipoPersona,
+                            dataNascita: element.nascita.data.date,
+                            luogoNascita: {
+                                codComune: element.nascita.comune ? element.nascita.comune.codComune : -1,
+                                codProvincia: element.nascita.provincia ? element.nascita.comune.codProvincia : -1,
+                                codNazione: element.nascita.nazione.id
+                            },
+                            tracking: {
+                                comune: element.residenza.comune ? element.residenza.comune.codComune : -1,
+                                provincia: element.residenza.provincia ? element.residenza.comune.codProvincia : -1,
+                                nazione: element.residenza.nazione.id,
+                                cap: element.residenza.cap,
+                                indirizzo: element.residenza.indirizzo,
+                                telefono: element.telefono,
+                                mail: element.mail
+                            }
                         }
                     };
+
+                    if(index === 0 && dannoRca.dannoControparte) {
+                        temp.danni = {
+                            a: dannoRca.dannoControparte.middleleft,
+                            adx: dannoRca.dannoControparte.topleft,
+                            asx: dannoRca.dannoControparte.bottomleft,
+                            cdx: dannoRca.dannoControparte.topcenter,
+                            csx: dannoRca.dannoControparte.bottomcenter,
+                            d: dannoRca.dannoControparte.middleright,
+                            ddx: dannoRca.dannoControparte.topright,
+                            descrizioneDanno: dannoRca.descrizioneDannoControparte,
+                            dsx: dannoRca.dannoControparte.bottomright
+                        };
+                    }
+
+                    //TODO aggiungere danni veicolo
+
                     dataObj.push(temp)
                 });
 
