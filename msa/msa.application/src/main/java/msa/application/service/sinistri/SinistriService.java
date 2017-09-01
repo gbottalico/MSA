@@ -20,6 +20,7 @@ import msa.domain.object.sinistro.AnagraficaTerzePartiDO;
 import msa.domain.object.sinistro.BaseSinistroDO;
 import msa.domain.object.sinistro.InputRicercaDO;
 import msa.domain.object.sinistro.SinistroRcaDO;
+import msa.domain.object.sinistro.rca.AnagraficaDanniDO;
 import msa.domain.object.sinistro.rca.IncrociBaremesDO;
 import msa.infrastructure.repository.DomainRepository;
 import org.apache.commons.collections.CollectionUtils;
@@ -250,7 +251,8 @@ public class SinistriService extends BaseSinistroService {
     }
 
     public BaseDTO salvaDannoRcaControparte(AnagraficaDanniDTO input, Integer numSinistro) throws InternalMsaException {
-        SinistroRcaDO sinistroRcaDOByDTO = getSinistroDOByDTO(input, numSinistro);
+        SinistroRcaDO sinistroRcaDOByDTO = getSinistroDOByDTO(new AnagraficaDanniDTO(), numSinistro);
+        sinistroRcaDOByDTO.getDannoRca().setAnagraficaDanniControparte(converter.convertObject(input, AnagraficaDanniDO.class));
         if (salvaSinistro(sinistroRcaDOByDTO)) {
             return new BaseDTO<>();
         } else {

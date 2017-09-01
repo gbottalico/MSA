@@ -158,7 +158,7 @@ public class BaseSinistroService extends BaseService {
             (o, numSinistroProvv) -> {
                 try {
                     final SinistroRcaDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv, SinistroRcaDO.class);
-                    sinistroByNumProvv.getDannoRca().setAnagraficaDanniControparte(converter.convertObject(o, AnagraficaDanniDO.class));
+                    //sinistroByNumProvv.getDannoRca().setAnagraficaDanniControparte(converter.convertObject(o, AnagraficaDanniDO.class));
 
                     return sinistroByNumProvv;
                 } catch (Exception e) {
