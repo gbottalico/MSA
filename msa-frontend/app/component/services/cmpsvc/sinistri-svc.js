@@ -5,7 +5,8 @@ angular.module('msa').service(
         'msaServicesApiUrls',
         'UtilSvc',
         'DebugSvc',
-        function ($http, msaServicesApiUrls, UtilSvc, DebugSvc) {
+        'ConvertSvc',
+        function ($http, msaServicesApiUrls, UtilSvc, DebugSvc, ConvertSvc) {
 
             var $svc = this;
             var getOggettoRicerca = function () {
@@ -29,44 +30,7 @@ angular.module('msa').service(
 
                 var dataObj = {};
                 dataObj.compagnia = compagnia;
-
-                /* TODO: Comune a tutti, creare metodo */
-                dataObj.contraente = {};
-                dataObj.contraente.nome = datiContraente.nome;
-                dataObj.contraente.cognome = datiContraente.cognome;
-                dataObj.contraente.ragioneSociale = datiContraente.ragioneSociale;
-                dataObj.contraente.cf = datiContraente.cf;
-
-                dataObj.contraente.luogoNascita = {};
-                if (UtilSvc.isDefined(datiContraente.nascita.nazione)) {
-                    dataObj.contraente.luogoNascita.codNazione = datiContraente.nascita.nazione.id;
-                    dataObj.contraente.luogoNascita.descrizioneNazione = datiContraente.nascita.nazione.descrizione;
-                }
-                if (UtilSvc.isDefined(datiContraente.nascita.provincia)) {
-                    dataObj.contraente.luogoNascita.codProvincia = datiContraente.nascita.provincia.codProvincia;
-                    dataObj.contraente.luogoNascita.descrizioneProvincia = datiContraente.nascita.provincia.desProv;
-                }
-                if (UtilSvc.isDefined(datiContraente.nascita.comune)) {
-                    dataObj.contraente.luogoNascita.codComune = datiContraente.nascita.comune.codComune;
-                    dataObj.contraente.luogoNascita.descrizioneComune = datiContraente.nascita.comune.descrizione;
-                }
-
-                dataObj.contraente.dataNascita = datiContraente.nascita.data.date;
-
-                dataObj.contraente.tracking = {};
-                if (UtilSvc.isDefined(datiContraente.residenza.nazione)) {
-                    dataObj.contraente.tracking.nazione = datiContraente.residenza.nazione.id;
-                }
-                if (UtilSvc.isDefined(datiContraente.residenza.provincia)) {
-                    dataObj.contraente.tracking.provincia = datiContraente.residenza.provincia.codProvincia;
-                }
-                if (UtilSvc.isDefined(datiContraente.residenza.comune)) {
-                    dataObj.contraente.tracking.comune = datiContraente.residenza.comune.codComune;
-                }
-
-                dataObj.contraente.tracking.indirizzo = datiContraente.residenza.indirizzo;
-                dataObj.contraente.tracking.telefono = datiContraente.telefono;
-                dataObj.contraente.tracking.mail = datiContraente.mail;
+                dataObj.contraente = ConvertSvc.anagraficaToDTO(datiContraente);
 
                 //TODO fix
                 return $http({
@@ -225,58 +189,14 @@ angular.module('msa').service(
 
                 var dataObj = {};
                 dataObj.anagraficaDanniCliente = {};
-                dataObj.anagraficaDanniCliente.danni = {
-                    a: dannoRca.dannoCliente.middleleft,
-                    adx: dannoRca.dannoCliente.topleft,
-                    asx: dannoRca.dannoCliente.bottomleft,
-                    cdx: dannoRca.dannoCliente.topcenter,
-                    csx: dannoRca.dannoCliente.bottomcenter,
-                    d: dannoRca.dannoCliente.middleright,
-                    ddx: dannoRca.dannoCliente.topright,
-                    descrizioneDanno: dannoRca.descrizioneDannoCliente,
-                    dsx: dannoRca.dannoCliente.bottomright
-                };
+
+                dataObj.anagraficaDanniCliente.danni = ConvertSvc.danniAutoToDTO(dannoRca.dannoCliente, dannoRca.descrizioneDannoCliente);
                 dataObj.lesioniConducente = dannoRca.lesioniConducente;
 
-                /* TODO: Comune a tutti, creare metodo */
                 if(dannoRca.conducente) {
 
-                    dataObj.anagraficaDanniCliente.anagrafica = {};
-                    dataObj.anagraficaDanniCliente.anagrafica.nome = dannoRca.conducente.nome;
-                    dataObj.anagraficaDanniCliente.anagrafica.cognome = dannoRca.conducente.cognome;
-                    dataObj.anagraficaDanniCliente.anagrafica.ragioneSociale = dannoRca.conducente.ragioneSociale;
-                    dataObj.anagraficaDanniCliente.anagrafica.cf = dannoRca.conducente.cf;
+                    dataObj.anagraficaDanniCliente.anagrafica = ConvertSvc.anagraficaToDTO(dannoRca.conducente);
 
-                    dataObj.anagraficaDanniCliente.anagrafica.luogoNascita = {};
-                    if (UtilSvc.isDefined(dannoRca.conducente.nascita.nazione)) {
-                        dataObj.anagraficaDanniCliente.anagrafica.luogoNascita.codNazione = dannoRca.conducente.nascita.nazione.id;
-                        dataObj.anagraficaDanniCliente.anagrafica.luogoNascita.descrizioneNazione = dannoRca.conducente.nascita.nazione.descrizione;
-                    }
-                    if (UtilSvc.isDefined(dannoRca.conducente.nascita.provincia)) {
-                        dataObj.anagraficaDanniCliente.anagrafica.luogoNascita.codProvincia = dannoRca.conducente.nascita.provincia.codProvincia;
-                        dataObj.anagraficaDanniCliente.anagrafica.luogoNascita.descrizioneProvincia = dannoRca.conducente.nascita.provincia.desProv;
-                    }
-                    if (UtilSvc.isDefined(dannoRca.conducente.nascita.comune)) {
-                        dataObj.anagraficaDanniCliente.anagrafica.luogoNascita.codComune = dannoRca.conducente.nascita.comune.codComune;
-                        dataObj.anagraficaDanniCliente.anagrafica.luogoNascita.descrizioneComune = dannoRca.conducente.nascita.comune.descrizione;
-                    }
-
-                    dataObj.anagraficaDanniCliente.anagrafica.dataNascita = dannoRca.conducente.nascita.data.date;
-
-                    dataObj.anagraficaDanniCliente.anagrafica.tracking = {};
-                    if (UtilSvc.isDefined(dannoRca.conducente.residenza.nazione)) {
-                        dataObj.anagraficaDanniCliente.anagrafica.tracking.nazione = dannoRca.conducente.residenza.nazione.id;
-                    }
-                    if (UtilSvc.isDefined(dannoRca.conducente.residenza.provincia)) {
-                        dataObj.anagraficaDanniCliente.anagrafica.tracking.provincia = dannoRca.conducente.residenza.provincia.codProvincia;
-                    }
-                    if (UtilSvc.isDefined(dannoRca.conducente.residenza.comune)) {
-                        dataObj.anagraficaDanniCliente.anagrafica.tracking.comune = dannoRca.conducente.residenza.comune.codComune;
-                    }
-
-                    dataObj.anagraficaDanniCliente.anagrafica.tracking.indirizzo = dannoRca.conducente.residenza.indirizzo;
-                    dataObj.anagraficaDanniCliente.anagrafica.tracking.telefono = dannoRca.conducente.telefono;
-                    dataObj.anagraficaDanniCliente.anagrafica.tracking.mail = dannoRca.conducente.mail;
                 }
 
                 var url = UtilSvc.stringFormat(msaServicesApiUrls.dannorcacliente, idSinistroProvvisorio);
@@ -317,22 +237,18 @@ angular.module('msa').service(
                     };
 
                     if(index === 0 && dannoRca.dannoControparte) {
-                        temp.danni = {
-                            a: dannoRca.dannoControparte.middleleft,
-                            adx: dannoRca.dannoControparte.topleft,
-                            asx: dannoRca.dannoControparte.bottomleft,
-                            cdx: dannoRca.dannoControparte.topcenter,
-                            csx: dannoRca.dannoControparte.bottomcenter,
-                            d: dannoRca.dannoControparte.middleright,
-                            ddx: dannoRca.dannoControparte.topright,
-                            descrizioneDanno: dannoRca.descrizioneDannoControparte,
-                            dsx: dannoRca.dannoControparte.bottomright
-                        };
+                        temp.danni = ConvertSvc.danniAutoToDTO(dannoRca.dannoControparte, dannoRca.descrizioneDannoControparte);
                     }
 
-                    //TODO aggiungere danni veicolo
+                    if(index === 0 && dannoRca.veicoloControparte) {
+                        temp.anagrafica.targa = dannoRca.veicoloControparte.targa;
+                        temp.anagrafica.targaEstera = dannoRca.veicoloControparte.estera;
+                        temp.anagrafica.targaSpeciale = dannoRca.veicoloControparte.speciale;
+                        temp.anagrafica.veicolo = dannoRca.veicoloControparte.veicolo;
+                    }
 
                     dataObj.push(temp)
+
                 });
 
                 var url = UtilSvc.stringFormat(msaServicesApiUrls.dannorcacontroparte, idSinistroProvvisorio);

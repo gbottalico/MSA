@@ -1,3 +1,4 @@
+/* TODO: DEPRECATED */
 angular.module('msa').service(
     'VeicoliSvc',
     [
