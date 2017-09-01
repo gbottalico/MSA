@@ -335,7 +335,7 @@ angular.module('msa').service(
                     dataObj.push(temp)
                 });
 
-                var url = UtilSvc.stringFormat(msaServicesApiUrls.dannorcaterzeparti, idSinistroProvvisorio);
+                var url = UtilSvc.stringFormat(msaServicesApiUrls.dannorcacontroparte, idSinistroProvvisorio);
                 return $http.post(url, dataObj);
 
             }
