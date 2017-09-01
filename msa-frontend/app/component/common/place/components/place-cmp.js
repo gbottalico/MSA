@@ -158,7 +158,7 @@
                                     var caps = response.data.result;
                                     $ctrl.caps = caps;
                                     $ctrl.comuneSelezionato.cap = caps;
-                                    $ctrl.capSelezionato = newValue.input.cap.toString();
+                                    $ctrl.capSelezionato = newValue.input.cap ? newValue.input.cap.toString() : undefined;
                                 });
 
                             }

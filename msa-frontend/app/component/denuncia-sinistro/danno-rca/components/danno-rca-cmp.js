@@ -126,7 +126,7 @@
                             $ctrl.dannoRca.conducenteIsNotContraente = true;
 
                             $timeout(function () {
-                                //FIXME per qualche motivo effettua il binding prima che i campi siano istanziati sulla UI
+                                //FIXME timeout di 1ms per triggerare il $digest
                                 var anagrafica = $ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente.anagrafica;
 
                                 $ctrl.dannoRca.conducente.cognome = anagrafica.cognome;
@@ -156,8 +156,7 @@
 
                                 $ctrl.dannoRca.conducente.indirizzo = anagrafica.tracking.indirizzo;
 
-                            }, 100);
-
+                            }, 1);
 
 
                         } else {

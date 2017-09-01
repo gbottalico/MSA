@@ -8,10 +8,11 @@
             sinistroProvvisorio: "<",
             tempSegnalazione: "="
         },
-        controller: ("segnalazioneController", ['$scope', '$rootScope', '$translate', '$debugMode', 'toastr', 'DomainSvc', 'PlacesSvc', 'SinistriSvc', 'UtilSvc', 'RegexSvc', 'DebugSvc',
-            function ($scope, $rootScope, $translate, $debugMode, toastr, DomainSvc, PlacesSvc, SinistriSvc, UtilSvc, RegexSvc, DebugSvc) {
+        controller: ("segnalazioneController", ['$scope', '$rootScope', '$translate', '$debugMode', '$filter', 'toastr', 'DomainSvc', 'PlacesSvc', 'SinistriSvc', 'UtilSvc', 'RegexSvc', 'DebugSvc',
+            function ($scope, $rootScope, $translate, $debugMode, $filter, toastr, DomainSvc, PlacesSvc, SinistriSvc, UtilSvc, RegexSvc, DebugSvc) {
 
                 var $ctrl = this;
+                var $translate = $filter('translate');
                 var parent = $scope.$parent;
                 $scope.$debugMode = $debugMode;
 
@@ -53,11 +54,10 @@
                             $ctrl.tempSegnalazione.tipoSinistro = response.data.result;
                             $ctrl.tempSegnalazione.garanzia = $ctrl.sinistro.garanzia;
                             parent.aggiornaMappe();
-                            toastr.success('Segnalazione aperta con successo.');
+                            toastr.success($translate('global.generic.saveok'));
                         } else {
-                            toastr.error('Errore nell\'apertura della segnalazione..');
+                            toastr.error($translate('global.generic.saveko'));
                         }
-                        //TODO stringhe scolpite
                     });
                 };
 
