@@ -499,6 +499,21 @@ section {
     height: 4rem;
     line-height: 1;
   }
+
+}
+
+/* Generic Buttons */
+
+button.formButton {
+  height: 4rem;
+  width: 100%;
+}
+
+button.lightGrayButton {
+  background: $light_gray;
+  color: $gray;
+  height: 4rem;
+  line-height: 1;
 }
 
 /* Date Picker */

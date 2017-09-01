@@ -30,6 +30,7 @@ angular.module('msa').service(
                 var dataObj = {};
                 dataObj.compagnia = compagnia;
 
+                /* TODO: Comune a tutti, creare metodo */
                 dataObj.contraente = {};
                 dataObj.contraente.nome = datiContraente.nome;
                 dataObj.contraente.cognome = datiContraente.cognome;
@@ -237,13 +238,55 @@ angular.module('msa').service(
                 };
                 dataObj.lesioniConducente = dannoRca.lesioniConducente;
 
+                /* TODO: Comune a tutti, creare metodo */
+                if(dannoRca.conducente) {
+
+                    dataObj.anagraficaDanniCliente.anagrafica = {};
+                    dataObj.anagraficaDanniCliente.anagrafica.nome = dannoRca.conducente.nome;
+                    dataObj.anagraficaDanniCliente.anagrafica.cognome = dannoRca.conducente.cognome;
+                    dataObj.anagraficaDanniCliente.anagrafica.ragioneSociale = dannoRca.conducente.ragioneSociale;
+                    dataObj.anagraficaDanniCliente.anagrafica.cf = dannoRca.conducente.cf;
+
+                    dataObj.anagraficaDanniCliente.anagrafica.luogoNascita = {};
+                    if (UtilSvc.isDefined(dannoRca.conducente.nascita.nazione)) {
+                        dataObj.anagraficaDanniCliente.anagrafica.luogoNascita.codNazione = dannoRca.conducente.nascita.nazione.id;
+                        dataObj.anagraficaDanniCliente.anagrafica.luogoNascita.descrizioneNazione = dannoRca.conducente.nascita.nazione.descrizione;
+                    }
+                    if (UtilSvc.isDefined(dannoRca.conducente.nascita.provincia)) {
+                        dataObj.anagraficaDanniCliente.anagrafica.luogoNascita.codProvincia = dannoRca.conducente.nascita.provincia.codProvincia;
+                        dataObj.anagraficaDanniCliente.anagrafica.luogoNascita.descrizioneProvincia = dannoRca.conducente.nascita.provincia.desProv;
+                    }
+                    if (UtilSvc.isDefined(dannoRca.conducente.nascita.comune)) {
+                        dataObj.anagraficaDanniCliente.anagrafica.luogoNascita.codComune = dannoRca.conducente.nascita.comune.codComune;
+                        dataObj.anagraficaDanniCliente.anagrafica.luogoNascita.descrizioneComune = dannoRca.conducente.nascita.comune.descrizione;
+                    }
+
+                    dataObj.anagraficaDanniCliente.anagrafica.dataNascita = dannoRca.conducente.nascita.data.date;
+
+                    dataObj.anagraficaDanniCliente.anagrafica.tracking = {};
+                    if (UtilSvc.isDefined(dannoRca.conducente.residenza.nazione)) {
+                        dataObj.anagraficaDanniCliente.anagrafica.tracking.nazione = dannoRca.conducente.residenza.nazione.id;
+                    }
+                    if (UtilSvc.isDefined(dannoRca.conducente.residenza.provincia)) {
+                        dataObj.anagraficaDanniCliente.anagrafica.tracking.provincia = dannoRca.conducente.residenza.provincia.codProvincia;
+                    }
+                    if (UtilSvc.isDefined(dannoRca.conducente.residenza.comune)) {
+                        dataObj.anagraficaDanniCliente.anagrafica.tracking.comune = dannoRca.conducente.residenza.comune.codComune;
+                    }
+
+                    dataObj.anagraficaDanniCliente.anagrafica.tracking.indirizzo = dannoRca.conducente.residenza.indirizzo;
+                    dataObj.anagraficaDanniCliente.anagrafica.tracking.telefono = dannoRca.conducente.telefono;
+                    dataObj.anagraficaDanniCliente.anagrafica.tracking.mail = dannoRca.conducente.mail;
+                }
+
                 var url = UtilSvc.stringFormat(msaServicesApiUrls.dannorcacliente, idSinistroProvvisorio);
 
                 return $http.post(url, dataObj);
 
             };
 
-            $svc.salvaDannoRcaTerzeParti = function (idSinistroProvvisorio, dannoRca) {
+
+            $svc.salvaDannoRcaControparti = function (idSinistroProvvisorio, dannoRca) {
 
                 var dataObj = [];
 
@@ -272,9 +315,6 @@ angular.module('msa').service(
                     };
                     dataObj.push(temp)
                 });
-
-                DebugSvc.log("req", dataObj);
-                DebugSvc.stringify("req", dataObj);
 
                 var url = UtilSvc.stringFormat(msaServicesApiUrls.dannorcaterzeparti, idSinistroProvvisorio);
                 return $http.post(url, dataObj);
