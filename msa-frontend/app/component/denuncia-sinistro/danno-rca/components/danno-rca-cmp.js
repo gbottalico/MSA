@@ -60,15 +60,12 @@
                         .then(function (response) {
                             DebugSvc.log("salvaDannoRcaCliente", response);
                             if (response.data.status === 200) {
-                                //TODO ritorna la promessa successiva
+                                return SinistriSvc.salvaDannoRcaTerzeParti($ctrl.numeroSinistroProvvisorio, $ctrl.dannoRca);
                             } else {
                                 //ERRORE e promise con erroee
                                 return UtilSvc.createErrorStatePromise();
                             }
-                        });
-
-                    SinistriSvc.salvaDannoRcaTerzeParti($ctrl.numeroSinistroProvvisorio, $ctrl.dannoRca)
-                        .then(function (response) {
+                        }).then(function (response) {
                             DebugSvc.log("salvaDannoRcaTerzeParti", response);
                             if (response.data.status === 200) {
                                 //TODO ritorna la promessa successiva

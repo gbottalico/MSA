@@ -185,7 +185,8 @@
         "dannicliente": "Danni Cliente",
         "dannicontroparte": "Danni Controparte",
         "descrizionedanno": "Descrizione Danno",
-        "terzeparti": "Terze Parti"
+        "terzeparti": "Terze Parti",
+        "controparti": "Controparti"
       }
     },
     "step": {

@@ -674,6 +674,10 @@ section {
     vertical-align: middle !important;
   }
 
+  td.has-error {
+    color: $badred;
+  }
+
   .fa-trash-o {
     color: $badred;
     font-size: 2rem;

@@ -195,11 +195,11 @@
 
                     <div class="row">
                         <div class="margin-top-1 col-lg-12">
-                            <span class="subsectionTitle">{{'global.dannorca.labels.terzeparti' | translate}}</span>
+                            <span class="subsectionTitle">{{'global.dannorca.labels.controparti' | translate}}</span>
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row" ng-if="$ctrl.tempSegnalazione.nveicoli > 1">
                         <div class="col-lg-12">
                             <pre ng-if="$debugMode">{{$ctrl.dannoRca.terzeParti}}</pre>
                             <table class="table cai-table">
@@ -221,7 +221,7 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <td>&nbsp;</td>
+                                        <td class="has-error">{{$ctrl.tempSegnalazione.nveicoli > 1 && $ctrl.dannoRca.terzeParti < 1 ? "Inserire almeno una controparte." : "&nbsp;"}}</td>
                                         <td>&nbsp;</td>
                                         <td>&nbsp;</td>
                                         <td ng-click="$ctrl.aggiungiTerzaParte()">
