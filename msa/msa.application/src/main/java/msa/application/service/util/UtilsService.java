@@ -36,7 +36,7 @@ public class UtilsService extends BaseService {
             )
     ).replace("+", "||");
 
-    private static final String[] patternToRemoveInCodError = {"ERR: ", " Impossibile calcolare il Codice Fiscale_01"};
+    private static final String[] patternToRemoveInCodError = {"ERR: ", " Impossibile calcolare il Codice Fiscale_[0-9]{2}"};
 
     public String calcolaCodiceFiscale(final BaseAnagraficaDTO anagrafica) throws InternalMsaException {
         try {

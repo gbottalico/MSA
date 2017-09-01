@@ -106,6 +106,6 @@ public final class FunctionUtils {
     }
 
     public static String removePatternInList(final String value, final String... toRemove) {
-        return Stream.concat(Stream.of(value), Stream.of(toRemove)).reduce((a, b) -> a.replace(b, "")).orElse(value);
+        return Stream.concat(Stream.of(value), Stream.of(toRemove)).reduce((a, b) -> a.replaceAll(b, "")).orElse(value);
     }
 }
