@@ -58,10 +58,10 @@
             $scope.$watch(
                 function watchPlaces(scope) {
                     return {
-                        nazsel: $ctrl.nazioneSelezionata,
-                        provsel: $ctrl.provinciaSelezionata,
-                        comsel: $ctrl.comuneSelezionato,
-                        capsel: $ctrl.capSelezionato,
+                        nazioneSelezionata: $ctrl.nazioneSelezionata,
+                        provinciaSelezionata: $ctrl.provinciaSelezionata,
+                        comuneSelezionato: $ctrl.comuneSelezionato,
+                        capSelezionato: $ctrl.capSelezionato,
                         input: $ctrl.input
                     };
                 },
@@ -69,8 +69,8 @@
 
                     // Sblanco i campi più specifici, se i più generici non sono più validi.
 
-                    if (newValue.nazsel !== oldValue.nazsel) {
-                        if (!(newValue.nazsel instanceof Object)) {
+                    if (newValue.nazioneSelezionata !== oldValue.nazioneSelezionata) {
+                        if (!(newValue.nazioneSelezionata instanceof Object)) {
                             $ctrl.result.nazione = undefined;
 
                             $ctrl.provinciaSelezionata = undefined;
@@ -81,13 +81,13 @@
 
                             $ctrl.caps = [];
                         } else {
-                            $ctrl.result.nazione = newValue.nazsel;
+                            $ctrl.result.nazione = newValue.nazioneSelezionata;
                         }
                     }
 
-                    if (newValue.provsel !== oldValue.provsel) {
+                    if (newValue.provinciaSelezionata !== oldValue.provinciaSelezionata) {
 
-                        if (!(newValue.provsel instanceof Object)) {
+                        if (!(newValue.provinciaSelezionata instanceof Object)) {
                             $ctrl.result.provincia = undefined;
 
                             $ctrl.comuneSelezionato = undefined;
@@ -95,25 +95,25 @@
 
                             $ctrl.caps = [];
                         } else {
-                            $ctrl.result.provincia = newValue.provsel;
+                            $ctrl.result.provincia = newValue.provinciaSelezionata;
                         }
                     }
 
-                    if (newValue.comsel !== oldValue.comsel) {
-                        if (!(newValue.comsel instanceof Object)) {
+                    if (newValue.comuneSelezionato !== oldValue.comuneSelezionato) {
+                        if (!(newValue.comuneSelezionato instanceof Object)) {
                             $ctrl.result.comune = undefined;
                             $ctrl.caps = [];
                         } else {
-                            $ctrl.caps = newValue.comsel.cap;
-                            if (newValue.comsel.cap !== undefined &&
-                                newValue.comsel.cap.length === 1) {
-                                $ctrl.capSelezionato = newValue.comsel.cap[0];
+                            $ctrl.caps = newValue.comuneSelezionato.cap;
+                            if (newValue.comuneSelezionato.cap !== undefined &&
+                                newValue.comuneSelezionato.cap.length === 1) {
+                                $ctrl.capSelezionato = newValue.comuneSelezionato.cap[0];
                             }
-                            $ctrl.result.comune = newValue.comsel;
+                            $ctrl.result.comune = newValue.comuneSelezionato;
                         }
                     }
 
-                    $ctrl.result.cap = newValue.capsel;
+                    $ctrl.result.cap = newValue.capSelezionato;
 
                     /* Input TODO: rivedere */
 

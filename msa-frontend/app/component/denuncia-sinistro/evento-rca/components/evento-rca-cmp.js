@@ -68,7 +68,7 @@
                                 $ctrl.eventoRca.nveicoli = newValues.sinistroProvvisorio.eventoRca.numVeicoli;
                                 $ctrl.eventoRca.autoritaIntervenuta = newValues.sinistroProvvisorio.eventoRca.codAutorita;
                                 $ctrl.eventoRca.comandoAutorita = newValues.sinistroProvvisorio.eventoRca.comandoAutorita;
-                                $ctrl.persistence.dataDenuncia = new Date(newValues.sinistroProvvisorio.eventoRca.dataDenuncia);
+                                $ctrl.persistence.dataDenuncia = newValues.sinistroProvvisorio.eventoRca.dataDenuncia ? new Date(newValues.sinistroProvvisorio.eventoRca.dataDenuncia) : undefined;
                                 $ctrl.isInputConsumed = true;
                             }
                         }

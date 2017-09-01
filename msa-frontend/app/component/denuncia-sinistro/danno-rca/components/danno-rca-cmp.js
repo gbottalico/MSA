@@ -8,8 +8,8 @@
             sinistroProvvisorio: "<",
             tempSegnalazione: "="
         },
-        controller: ("dannoRcaContoller", ['$rootScope', '$scope', '$debugMode', '$filter', '$uibModal', '$timeout', 'toastr', 'VeicoliSvc', 'SinistriSvc', 'DebugSvc', 'UtilSvc',
-            function ($rootScope, $scope, $debugMode, $filter, $uibModal, $timeout, toastr, VeicoliSvc, SinistriSvc, DebugSvc, UtilSvc) {
+        controller: ("dannoRcaContoller", ['$rootScope', '$scope', '$debugMode', '$filter', '$uibModal', '$timeout', 'toastr', 'DomainSvc', 'SinistriSvc', 'DebugSvc', 'UtilSvc',
+            function ($rootScope, $scope, $debugMode, $filter, $uibModal, $timeout, toastr, DomainSvc, SinistriSvc, DebugSvc, UtilSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
@@ -33,7 +33,7 @@
 
                 $ctrl.tipoVeicoli = undefined;
 
-                VeicoliSvc.getTipoVeicoli().then(function (response) {
+                DomainSvc.getTipoVeicoli().then(function (response) {
                     $ctrl.tipoVeicoli = response.data.result;
                 });
 
@@ -238,8 +238,11 @@
 
                     UtilSvc.calcolaCf($ctrl.dannoRca.conducente.cognome, $ctrl.dannoRca.conducente.nome, $ctrl.dannoRca.conducente.sesso, $ctrl.dannoRca.conducente.nascita.data.date, luogoNascita).then(function (response) {
                         DebugSvc.log("calcolaCf", response);
-                        //TODO: if 200
-                        $ctrl.dannoRca.conducente.cf = response.data.result;
+                        if (response.data.status === 200) {
+                            $ctrl.dannoRca.conducente.cf = response.data.result;
+                        } else {
+                            toastr.error($translate('global.generic.cfko'));
+                        }
                     });
                 };
 

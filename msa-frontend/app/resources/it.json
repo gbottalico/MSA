@@ -13,7 +13,8 @@
       "pf": "Persona Fisica",
       "pg": "Persona Giuridica",
       "saveok": "Salvataggio avvenuto con successo.",
-      "saveko": "Errore nel salvataggio."
+      "saveko": "Errore nel salvataggio.",
+      "cfko": "Errore nel calcolo del Codice Fiscale."
     },
     "people": {
       "nome": "Nome",

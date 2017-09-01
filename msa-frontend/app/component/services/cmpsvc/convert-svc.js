@@ -17,6 +17,7 @@ angular.module('msa').service('ConvertSvc',
                 dto.nome = anagrafica.nome;
                 dto.cognome = anagrafica.cognome;
                 dto.ragioneSociale = anagrafica.ragioneSociale;
+                dto.sesso = anagrafica.sesso;
                 dto.cf = anagrafica.cf;
 
                 dto.luogoNascita = {};
