@@ -252,9 +252,9 @@ public class SinistriService extends BaseSinistroService {
     }
 
     public BaseDTO salvaDannoRcaControparte(List<AnagraficaDanniDTO> input, Integer numSinistro) throws InternalMsaException {
-        if (input.stream().filter(e -> e.getDanni() != null).count() > Constants.MAX_NUM_CONTROPARTE_CON_DANNI.longValue()) {
+        if (input.stream().filter(e -> e.getDanni() != null).count() !=  Constants.MAX_NUM_CONTROPARTE_CON_DANNI.longValue()) {
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005",
-                    (String e) -> e.concat("Sono presenti i danni per più di una controparte. ")));
+                    (String e) -> e.concat(" Devono essere censiti i danni di una sola controparte.  ")));
         }
         SinistroRcaDO sinistroRcaDOByDTO = getSinistroDOByDTO(new AnagraficaDanniDTO(), numSinistro);
         sinistroRcaDOByDTO.getDannoRca().setAnagraficaDanniControparte(converter.convertList(input, AnagraficaDanniDO.class));
