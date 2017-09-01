@@ -1,5 +1,6 @@
 package msa.application.service.sinistri;
 
+import msa.application.commons.Constants;
 import msa.application.config.BaseDTO;
 import msa.application.config.enumerator.MessageType;
 import msa.application.dto.ricerca.InputRicercaDTO;
@@ -250,9 +251,13 @@ public class SinistriService extends BaseSinistroService {
 
     }
 
-    public BaseDTO salvaDannoRcaControparte(AnagraficaDanniDTO input, Integer numSinistro) throws InternalMsaException {
+    public BaseDTO salvaDannoRcaControparte(List<AnagraficaDanniDTO> input, Integer numSinistro) throws InternalMsaException {
+        if (input.stream().filter(e -> e.getDanni() != null).count() > Constants.MAX_NUM_CONTROPARTE_CON_DANNI.longValue()) {
+            throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005",
+                    (String e) -> e.concat("Sono presenti i danni per più di una controparte. ")));
+        }
         SinistroRcaDO sinistroRcaDOByDTO = getSinistroDOByDTO(new AnagraficaDanniDTO(), numSinistro);
-        sinistroRcaDOByDTO.getDannoRca().setAnagraficaDanniControparte(converter.convertObject(input, AnagraficaDanniDO.class));
+        sinistroRcaDOByDTO.getDannoRca().setAnagraficaDanniControparte(converter.convertList(input, AnagraficaDanniDO.class));
         if (salvaSinistro(sinistroRcaDOByDTO)) {
             return new BaseDTO<>();
         } else {
@@ -286,7 +291,7 @@ public class SinistriService extends BaseSinistroService {
     }
 
     public BaseDTO salvaDannoRcaLegale(List<AnagraficaTerzePartiDTO> input, Integer numeroSinistro) throws InternalMsaException {
-        BaseSinistroDO sinistroDOByDTO = LEGALE.apply(input,numeroSinistro);
+        BaseSinistroDO sinistroDOByDTO = LEGALE.apply(input, numeroSinistro);
         List<AnagraficaTerzePartiDO> filteredList = converter.convertList(FunctionUtils.dinstictList(input, AnagraficaTerzePartiDTO::getCf), AnagraficaTerzePartiDO.class);
         sinistroDOByDTO.setLegali(replaceTerzePartiList(sinistroDOByDTO.getLegali(), filteredList, e -> !e.getCodRuolo().equals("13")));
         Boolean insertResult = salvaSinistro(sinistroDOByDTO);

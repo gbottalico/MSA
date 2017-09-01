@@ -7,7 +7,7 @@ import java.util.List;
 public class DannoRcaDO {
     private Boolean lesioniConducente;
     private AnagraficaDanniDO anagraficaDanniCliente;
-    private AnagraficaDanniDO anagraficaDanniControparte;
+    private List<AnagraficaDanniDO> anagraficaDanniControparte;
     private List<AnagraficaTerzePartiDO> terzeParti;
 
     public Boolean getLesioniConducente() {
@@ -26,11 +26,11 @@ public class DannoRcaDO {
         this.anagraficaDanniCliente = anagraficaDanniCliente;
     }
 
-    public AnagraficaDanniDO getAnagraficaDanniControparte() {
+    public List<AnagraficaDanniDO> getAnagraficaDanniControparte() {
         return anagraficaDanniControparte;
     }
 
-    public void setAnagraficaDanniControparte(AnagraficaDanniDO anagraficaDanniControparte) {
+    public void setAnagraficaDanniControparte(List<AnagraficaDanniDO> anagraficaDanniControparte) {
         this.anagraficaDanniControparte = anagraficaDanniControparte;
     }
 

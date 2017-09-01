@@ -15,6 +15,7 @@ public class Constants {
     public static final Function<String,String[]> SPLIT_LNES_BY_COMMA= row -> row.split(";");
     public static final Function<String[],CodiciCatastaliPojo> ARRAY_TO_CODICI_CATASTALI = array -> new CodiciCatastaliPojo(array[0],array[1],array[2]);
     public static final Integer ID_BAREMES_NON_CLASSIFICABILE = 0;
+    public static final Integer MAX_NUM_CONTROPARTE_CON_DANNI = 1;
     public static final Function<Date,String> DATE_TO_STRING_DASH = e -> {
         LocalDateTime date = e.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss");

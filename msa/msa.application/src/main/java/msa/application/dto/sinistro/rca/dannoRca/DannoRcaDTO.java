@@ -9,7 +9,7 @@ public class DannoRcaDTO  extends AbstractDTO {
     private static final long serialVersionUID = 2999366958849613093L;
     private Boolean lesioniConducente;
     private AnagraficaDanniDTO anagraficaDanniCliente;
-    private AnagraficaDanniDTO anagraficaDanniControparte;
+    private List<AnagraficaDanniDTO> anagraficaDanniControparte;
     private List<AnagraficaTerzePartiDTO> terzeParti;
 
 
@@ -29,13 +29,15 @@ public class DannoRcaDTO  extends AbstractDTO {
         this.anagraficaDanniCliente = anagraficaDanniCliente;
     }
 
-    public AnagraficaDanniDTO getAnagraficaDanniControparte() {
+    public List<AnagraficaDanniDTO> getAnagraficaDanniControparte() {
         return anagraficaDanniControparte;
     }
 
-    public void setAnagraficaDanniControparte(AnagraficaDanniDTO anagraficaDanniControparte) {
+    public void setAnagraficaDanniControparte(List<AnagraficaDanniDTO> anagraficaDanniControparte) {
         this.anagraficaDanniControparte = anagraficaDanniControparte;
     }
+
+
 
     public List<AnagraficaTerzePartiDTO> getTerzeParti() {
         return terzeParti;
@@ -45,29 +47,6 @@ public class DannoRcaDTO  extends AbstractDTO {
         this.terzeParti = terzeParti;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
 
-        DannoRcaDTO that = (DannoRcaDTO) o;
-
-        if (lesioniConducente != null ? !lesioniConducente.equals(that.lesioniConducente) : that.lesioniConducente != null)
-            return false;
-        if (anagraficaDanniCliente != null ? !anagraficaDanniCliente.equals(that.anagraficaDanniCliente) : that.anagraficaDanniCliente != null)
-            return false;
-        if (anagraficaDanniControparte != null ? !anagraficaDanniControparte.equals(that.anagraficaDanniControparte) : that.anagraficaDanniControparte != null)
-            return false;
-        return terzeParti != null ? terzeParti.equals(that.terzeParti) : that.terzeParti == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = lesioniConducente != null ? lesioniConducente.hashCode() : 0;
-        result = 31 * result + (anagraficaDanniCliente != null ? anagraficaDanniCliente.hashCode() : 0);
-        result = 31 * result + (anagraficaDanniControparte != null ? anagraficaDanniControparte.hashCode() : 0);
-        result = 31 * result + (terzeParti != null ? terzeParti.hashCode() : 0);
-        return result;
-    }
 }
 

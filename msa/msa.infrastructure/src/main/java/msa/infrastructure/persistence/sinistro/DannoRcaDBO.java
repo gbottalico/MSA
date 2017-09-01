@@ -10,7 +10,7 @@ public class DannoRcaDBO {
     @Field("anagraficaDanniCliente")
     private AnagraficaDanniDBO anagraficaDanniCliente;
     @Field("anagraficaDanniControparte")
-    private AnagraficaDanniDBO anagraficaDanniControparte;
+    private List<AnagraficaDanniDBO> anagraficaDanniControparte;
     @Field("terzePArti")
     private List<AnagraficaTerzePartiDBO> terzeParti;
 
@@ -31,11 +31,11 @@ public class DannoRcaDBO {
         this.anagraficaDanniCliente = anagraficaDanniCliente;
     }
 
-    public AnagraficaDanniDBO getAnagraficaDanniControparte() {
+    public List<AnagraficaDanniDBO> getAnagraficaDanniControparte() {
         return anagraficaDanniControparte;
     }
 
-    public void setAnagraficaDanniControparte(AnagraficaDanniDBO anagraficaDanniControparte) {
+    public void setAnagraficaDanniControparte(List<AnagraficaDanniDBO> anagraficaDanniControparte) {
         this.anagraficaDanniControparte = anagraficaDanniControparte;
     }
 
