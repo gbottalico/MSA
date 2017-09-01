@@ -11,7 +11,7 @@ public class DannoRcaDBO {
     private AnagraficaDanniDBO anagraficaDanniCliente;
     @Field("anagraficaDanniControparte")
     private List<AnagraficaDanniDBO> anagraficaDanniControparte;
-    @Field("terzePArti")
+    @Field("terzeParti")
     private List<AnagraficaTerzePartiDBO> terzeParti;
 
 

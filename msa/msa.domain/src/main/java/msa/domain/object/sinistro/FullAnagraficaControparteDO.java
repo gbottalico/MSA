@@ -2,7 +2,7 @@ package msa.domain.object.sinistro;
 
 public class FullAnagraficaControparteDO extends FullAnagraficaDO {
     private String compagnia;
-    private String veioolo;
+    private String veicolo;
     private String targa;
     private boolean targaEstera;
     private boolean targaSpeciale;
@@ -17,12 +17,12 @@ public class FullAnagraficaControparteDO extends FullAnagraficaDO {
         this.compagnia = compagnia;
     }
 
-    public String getVeioolo() {
-        return veioolo;
+    public String getVeicolo() {
+        return veicolo;
     }
 
-    public void setVeioolo(String veioolo) {
-        this.veioolo = veioolo;
+    public void setVeicolo(String veicolo) {
+        this.veicolo = veicolo;
     }
 
     public String getTarga() {

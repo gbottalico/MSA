@@ -7,13 +7,13 @@ public class FullAnagraficaControparteDBO extends FullAnagraficaDBO {
     @Field("compagnia")
     private String compagnia;
     @Field("veicolo")
-    private String veioolo;
+    private String veicolo;
     @Field("targa")
     private String targa;
     @Field("estera")
-    private boolean targaEstera;
+    private Boolean targaEstera;
     @Field("speciale")
-    private boolean targaSpeciale;
+    private Boolean targaSpeciale;
 
 
 
@@ -25,12 +25,12 @@ public class FullAnagraficaControparteDBO extends FullAnagraficaDBO {
         this.compagnia = compagnia;
     }
 
-    public String getVeioolo() {
-        return veioolo;
+    public String getVeicolo() {
+        return veicolo;
     }
 
-    public void setVeioolo(String veioolo) {
-        this.veioolo = veioolo;
+    public void setVeicolo(String veicolo) {
+        this.veicolo = veicolo;
     }
 
     public String getTarga() {
