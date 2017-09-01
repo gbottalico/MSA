@@ -146,8 +146,13 @@ public class BaseSinistroService extends BaseService {
             (o, numSinistroProvv) -> {
                 try {
                     final SinistroRcaDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv, SinistroRcaDO.class);
-                    sinistroByNumProvv.setDannoRca(converter.convertObject(o, DannoRcaDO.class));
-
+                    if (sinistroByNumProvv.getDannoRca() == null) {
+                        sinistroByNumProvv.setDannoRca(converter.convertObject(o, DannoRcaDO.class));
+                    } else {
+                        final DannoRcaDO dannoRcaDO = converter.convertObject(o, DannoRcaDO.class);
+                        sinistroByNumProvv.getDannoRca().setAnagraficaDanniCliente(dannoRcaDO.getAnagraficaDanniCliente());
+                        sinistroByNumProvv.getDannoRca().setLesioniConducente(dannoRcaDO.getLesioniConducente());
+                    }
                     return sinistroByNumProvv;
                 } catch (Exception e) {
                     throw new InternalMsaException();
@@ -189,7 +194,7 @@ public class BaseSinistroService extends BaseService {
                 try {
                     final BaseSinistroDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv, BaseSinistroDO.class);
                     List<AnagraficaTerzePartiDO> anagraficaTerzePartiDO = converter.convertList(O, AnagraficaTerzePartiDO.class);
-                    if(sinistroByNumProvv.getLegali() == null) {
+                    if (sinistroByNumProvv.getLegali() == null) {
                         sinistroByNumProvv.setLegali(new ArrayList<>());
                     }
                     sinistroByNumProvv.getLegali().addAll(anagraficaTerzePartiDO);
