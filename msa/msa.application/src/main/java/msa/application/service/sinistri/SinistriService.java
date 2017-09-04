@@ -266,6 +266,7 @@ public class SinistriService extends BaseSinistroService {
     }
 
     public BaseDTO salvaDannoRcaTerzeParti(List<AnagraficaTerzePartiDTO> input, Integer numSinistro) throws InternalMsaException {
+        if(input.stream().anyMatch(e->e.getCodRuolo() == null))  throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat(" Il codice ruolo di ogni terza parte deve essere valorizzato. ")));
         SinistroRcaDO sinistroDOByDTO = getSinistroDOByDTO(new AnagraficaTerzePartiDTO(), numSinistro);
         List<AnagraficaTerzePartiDO> filteredList = converter.convertList(FunctionUtils.dinstictList(input, AnagraficaTerzePartiDTO::getCf), AnagraficaTerzePartiDO.class);
         sinistroDOByDTO.getDannoRca().setTerzeParti(replaceTerzePartiList(sinistroDOByDTO.getDannoRca().getTerzeParti(), filteredList, e -> e.getCodRuolo().equals("13")));
@@ -280,6 +281,7 @@ public class SinistriService extends BaseSinistroService {
     }
 
     private List<AnagraficaTerzePartiDO> replaceTerzePartiList(List<AnagraficaTerzePartiDO> oldList, List<AnagraficaTerzePartiDO> newList, Predicate<AnagraficaTerzePartiDO> toExclude) {
+
         List<AnagraficaTerzePartiDO> filteredOldList = CollectionUtils.isEmpty(oldList) ? new ArrayList<>() : oldList.stream().filter(toExclude).collect(Collectors.toList());
         if (CollectionUtils.isNotEmpty(filteredOldList) && CollectionUtils.isNotEmpty(newList)) {
             return Stream.concat(newList.stream(), filteredOldList.stream()).collect(Collectors.toList());

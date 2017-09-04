@@ -3,30 +3,29 @@ package msa.application.dto.sinistro.anagrafica;
 public class AnagraficaTerzePartiDTO extends FullAnagraficaDTO {
     private static final long serialVersionUID = -5033305975768471583L;
     private String note;
-
+    private Boolean isAnagrafica;
+    private String descrizione;
     public String getNote() {
         return note;
+    }
+
+    public Boolean getAnagrafica() {
+        return isAnagrafica;
+    }
+
+    public void setAnagrafica(Boolean anagrafica) {
+        isAnagrafica = anagrafica;
     }
 
     public void setNote(String note) {
         this.note = note;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-
-        AnagraficaTerzePartiDTO that = (AnagraficaTerzePartiDTO) o;
-
-        return note != null ? note.equals(that.note) : that.note == null;
+    public String getDescrizione() {
+        return descrizione;
     }
 
-    @Override
-    public int hashCode() {
-        int result = super.hashCode();
-        result = 31 * result + (note != null ? note.hashCode() : 0);
-        return result;
+    public void setDescrizione(String descrizione) {
+        this.descrizione = descrizione;
     }
 }
