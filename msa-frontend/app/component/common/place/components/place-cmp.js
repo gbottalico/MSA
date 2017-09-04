@@ -7,7 +7,7 @@
             result: "=",
             input: "="
         },
-        controller: ("msaPlaceController", ['$scope', '$debugMode', 'PlacesSvc', function ($scope, $debugMode, PlacesSvc) {
+        controller: ("msaPlaceController", ['$scope', '$debugMode', 'PlacesSvc', 'UtilSvc', function ($scope, $debugMode, PlacesSvc, UtilSvc) {
 
             var $ctrl = this;
             $scope.$debugMode = $debugMode;
@@ -30,7 +30,7 @@
             };
 
             $ctrl.getProvince = function (nomeProvincia) {
-                if ($ctrl.hasId($ctrl.nazioneSelezionata)) {
+                if (UtilSvc.hasId($ctrl.nazioneSelezionata)) {
                     return PlacesSvc.getProvince($ctrl.nazioneSelezionata.id, nomeProvincia).then(function (response) {
                         return response.data.result;
                     });
@@ -43,7 +43,7 @@
             };
 
             $ctrl.getComuni = function (nomeComune) {
-                if ($ctrl.hasId($ctrl.nazioneSelezionata) && $ctrl.hasId($ctrl.provinciaSelezionata)) {
+                if (UtilSvc.hasId($ctrl.nazioneSelezionata) && UtilSvc.hasId($ctrl.provinciaSelezionata)) {
                     return PlacesSvc.getComuni($ctrl.nazioneSelezionata.id, $ctrl.provinciaSelezionata.codProvincia, nomeComune).then(function (response) {
                         return response.data.result;
                     });
@@ -135,7 +135,7 @@
 
                             });
 
-                            if (newValue.input.idComune > -1) {
+                            if (UtilSvc.exists(newValue.input.idComune) && newValue.input.idComune > -1) {
 
                                 PlacesSvc.getProvinciaById(newValue.input.idProvincia).then(function (response) {
                                     var desProvincia = response.data.result[0];
@@ -169,14 +169,6 @@
                 }, true
             );
 
-
-            $ctrl.hasId = function (obj) {
-                return (
-                    obj !== undefined &&
-                    obj !== null &&
-                    obj.id !== undefined &&
-                    obj.id !== null);
-            };
 
         }])
     });

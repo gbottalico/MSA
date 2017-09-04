@@ -22,6 +22,10 @@ angular.module('msa').service(
             return obj !== undefined;
         };
 
+        $svc.exists = function (obj) {
+            return (typeof obj != "undefined" && obj);
+        };
+
         $svc.isValidObject = function (obj) {
             return obj !== undefined && obj !== null;
         };

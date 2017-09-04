@@ -32,7 +32,7 @@ angular.module('msa').service('ConvertSvc',
                 if (UtilSvc.isDefined(anagrafica.nascita.comune)) {
                     dto.luogoNascita.codComune = anagrafica.nascita.comune.codComune;
                     dto.luogoNascita.descrizioneComune = anagrafica.nascita.comune.descrizione;
-                    dto.luogoNascita.cap = anagrafica.nascita.comune.cap;
+                    dto.luogoNascita.cap = anagrafica.nascita.cap;
                 }
 
                 dto.dataNascita = anagrafica.nascita.data.date;
@@ -46,7 +46,7 @@ angular.module('msa').service('ConvertSvc',
                 }
                 if (UtilSvc.isDefined(anagrafica.residenza.comune)) {
                     dto.tracking.comune = anagrafica.residenza.comune.codComune;
-                    dto.tracking.cap = anagrafica.residenza.comune.cap;
+                    dto.tracking.cap = anagrafica.residenza.cap;
                 }
 
                 dto.tracking.indirizzo = anagrafica.residenza.indirizzo;
@@ -57,6 +57,64 @@ angular.module('msa').service('ConvertSvc',
 
             };
 
+
+            /**
+             * Converte l'oggetto DTO del BE in un oggetto FE.
+             * @param dto
+             * @returns {{nascita: {nazione: {}, provincia: {}, comune: {}, data: {}}, residenza: {nazione: {}, provincia: {}, comune: {}}}}
+             */
+            $svc.dtoToAnagrafica = function (dto) {
+
+                var anagrafica = {
+                    nascita: {
+                        nazione: {},
+                        provincia: {},
+                        comune: {},
+                        data: {}
+                    },
+                    residenza: {
+                        nazione: {},
+                        provincia: {},
+                        comune: {},
+                    }
+                };
+
+                anagrafica.tipoPersona = dto.tipoPersona;
+                anagrafica.nome = dto.nome;
+                anagrafica.cognome = dto.cognome;
+                anagrafica.ragioneSociale = dto.ragioneSociale;
+                anagrafica.sesso = dto.sesso;
+                anagrafica.cf = dto.cf;
+
+                if (dto.luogoNascita !== undefined && dto.luogoNascita !== null) {
+
+                    anagrafica.nascita.nazione.id = dto.luogoNascita.codNazione;
+                    anagrafica.nascita.provincia.codProvincia = dto.luogoNascita.codProvincia;
+                    anagrafica.nascita.comune.codComune = dto.luogoNascita.codComune;
+                    anagrafica.nascita.cap = dto.luogoNascita.cap;
+
+                }
+
+                anagrafica.nascita.data.date = dto.dataNascita ? new Date(dto.dataNascita) : undefined;
+
+                if (dto.tracking !== undefined && dto.tracking !== null) {
+
+                    anagrafica.residenza.nazione.id = dto.tracking.nazione;
+                    anagrafica.residenza.provincia.codProvincia = dto.tracking.provincia;
+                    anagrafica.residenza.comune.codComune = dto.tracking.comune;
+                    anagrafica.residenza.cap = dto.tracking.cap;
+                    anagrafica.residenza.indirizzo = dto.tracking.indirizzo;
+
+                    anagrafica.telefono = dto.tracking.telefono;
+                    anagrafica.mail = dto.tracking.mail;
+
+                }
+
+                return anagrafica;
+
+            };
+
+
             /**
              * Converte l'oggetto danni auto in DTO.
              * @param danniAuto
@@ -65,7 +123,7 @@ angular.module('msa').service('ConvertSvc',
              */
 
             $svc.danniAutoToDTO = function (danniAuto, descrizioneDanno) {
-                
+
                 var dto = {
                     a: danniAuto.middleleft,
                     adx: danniAuto.topleft,
@@ -79,7 +137,7 @@ angular.module('msa').service('ConvertSvc',
                 };
 
                 return dto;
-                
+
             }
 
         }

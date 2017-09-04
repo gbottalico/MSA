@@ -8,8 +8,8 @@
             sinistroProvvisorio: "<",
             tempSegnalazione: "="
         },
-        controller: ("dannoRcaContoller", ['$rootScope', '$scope', '$debugMode', '$filter', '$uibModal', '$timeout', 'toastr', 'DomainSvc', 'SinistriSvc', 'DebugSvc', 'UtilSvc',
-            function ($rootScope, $scope, $debugMode, $filter, $uibModal, $timeout, toastr, DomainSvc, SinistriSvc, DebugSvc, UtilSvc) {
+        controller: ("dannoRcaContoller", ['$rootScope', '$scope', '$debugMode', '$filter', '$uibModal', '$timeout', 'toastr', 'DomainSvc', 'SinistriSvc', 'DebugSvc', 'UtilSvc', 'ConvertSvc',
+            function ($rootScope, $scope, $debugMode, $filter, $uibModal, $timeout, toastr, DomainSvc, SinistriSvc, DebugSvc, UtilSvc, ConvertSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
@@ -38,148 +38,149 @@
                 });
 
                 //TODO mockup
-                $ctrl.dannoRca.controparti = [
-                    {
-                        "tipoPersona": "PF",
-                        "residenza": {
-                            "cap": "70025",
-                            "nazione": {
-                                "id": "1",
-                                "inizioValidita": -2208988800000,
-                                "fineValidita": null,
-                                "descrizione": "ITALIA",
-                                "sigla": "I",
-                                "codFornitore": null
-                            },
-                            "provincia": {
-                                "id": "5971b860f2f59717a813994c",
-                                "codNazione": 1,
-                                "codProvincia": 79,
-                                "iniValidita": -2208988800000,
-                                "finValidita": null,
-                                "descProvincia": "BARI",
-                                "siglaProv": "BA",
-                                "codFornitore": null
-                            },
-                            "comune": {
-                                "id": "597206bbf2f59737b8e25155",
-                                "codNazione": "1",
-                                "codProvincia": "79",
-                                "codComune": "18510",
-                                "fineValidita": null,
-                                "descrizione": "GRUMO APPULA",
-                                "codFornitore": null,
-                                "cap": ["70025"]
-                            },
-                            "indirizzo": "Grumpppp!!"
-                        },
-                        "nascita": {
-                            "data": {"date": "2017-08-24T22:00:00.000Z", "$valid": true},
-                            "cap": "70020",
-                            "$valid": true,
-                            "nazione": {
-                                "id": "1",
-                                "inizioValidita": -2208988800000,
-                                "fineValidita": null,
-                                "descrizione": "ITALIA",
-                                "sigla": "I",
-                                "codFornitore": null
-                            },
-                            "provincia": {
-                                "id": "5971b860f2f59717a813994c",
-                                "codNazione": 1,
-                                "codProvincia": 79,
-                                "iniValidita": -2208988800000,
-                                "finValidita": null,
-                                "descProvincia": "BARI",
-                                "siglaProv": "BA",
-                                "codFornitore": null
-                            },
-                            "comune": {
-                                "id": "597206bbf2f59737b8e25147",
-                                "codNazione": "1",
-                                "codProvincia": "79",
-                                "codComune": "18491",
-                                "fineValidita": null,
-                                "descrizione": "BINETTO",
-                                "codFornitore": null,
-                                "cap": ["70020"]
-                            }
-                        },
-                        "nome": "Dello Russo",
-                        "cognome": "Corrado",
-                        "sesso": "m",
-                        "cf": "DLLCRD17M25A874G",
-                        "telefono": "£45",
-                        "mail": "@@@"
-                    }
-                ];
+                // $ctrl.dannoRca.controparti = [
+                //     {
+                //         "tipoPersona": "PF",
+                //         "residenza": {
+                //             "cap": "70025",
+                //             "nazione": {
+                //                 "id": "1",
+                //                 "inizioValidita": -2208988800000,
+                //                 "fineValidita": null,
+                //                 "descrizione": "ITALIA",
+                //                 "sigla": "I",
+                //                 "codFornitore": null
+                //             },
+                //             "provincia": {
+                //                 "id": "5971b860f2f59717a813994c",
+                //                 "codNazione": 1,
+                //                 "codProvincia": 79,
+                //                 "iniValidita": -2208988800000,
+                //                 "finValidita": null,
+                //                 "descProvincia": "BARI",
+                //                 "siglaProv": "BA",
+                //                 "codFornitore": null
+                //             },
+                //             "comune": {
+                //                 "id": "597206bbf2f59737b8e25155",
+                //                 "codNazione": "1",
+                //                 "codProvincia": "79",
+                //                 "codComune": "18510",
+                //                 "fineValidita": null,
+                //                 "descrizione": "GRUMO APPULA",
+                //                 "codFornitore": null,
+                //                 "cap": ["70025"]
+                //             },
+                //             "indirizzo": "Grumpppp!!"
+                //         },
+                //         "nascita": {
+                //             "data": {"date": "2017-08-24T22:00:00.000Z", "$valid": true},
+                //             "cap": "70020",
+                //             "$valid": true,
+                //             "nazione": {
+                //                 "id": "1",
+                //                 "inizioValidita": -2208988800000,
+                //                 "fineValidita": null,
+                //                 "descrizione": "ITALIA",
+                //                 "sigla": "I",
+                //                 "codFornitore": null
+                //             },
+                //             "provincia": {
+                //                 "id": "5971b860f2f59717a813994c",
+                //                 "codNazione": 1,
+                //                 "codProvincia": 79,
+                //                 "iniValidita": -2208988800000,
+                //                 "finValidita": null,
+                //                 "descProvincia": "BARI",
+                //                 "siglaProv": "BA",
+                //                 "codFornitore": null
+                //             },
+                //             "comune": {
+                //                 "id": "597206bbf2f59737b8e25147",
+                //                 "codNazione": "1",
+                //                 "codProvincia": "79",
+                //                 "codComune": "18491",
+                //                 "fineValidita": null,
+                //                 "descrizione": "BINETTO",
+                //                 "codFornitore": null,
+                //                 "cap": ["70020"]
+                //             }
+                //         },
+                //         "nome": "Dello Russo",
+                //         "cognome": "Corrado",
+                //         "sesso": "m",
+                //         "cf": "DLLCRD17M25A874G",
+                //         "telefono": "£45",
+                //         "mail": "@@@"
+                //     }
+                // ];
 
                 $ctrl.bindDannoRca = function () {
+                    if ($ctrl.sinistroProvvisorio.dannoRca !== undefined && $ctrl.sinistroProvvisorio.dannoRca !== null) {
+                        $ctrl.dannoRca.lesioniConducente = $ctrl.sinistroProvvisorio.dannoRca.lesioniConducente;
+                        if ($ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente !== undefined && $ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente !== null) {
+                            $ctrl.persistence.dannoCliente = $ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente.danni;
+                            $ctrl.dannoRca.descrizioneDannoCliente = $ctrl.persistence.dannoCliente.descrizioneDanno;
+                            if ($ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente.anagrafica) {
 
-                    $ctrl.dannoRca.lesioniConducente = $ctrl.sinistroProvvisorio.dannoRca.lesioniConducente;
-                    if ($ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente !== undefined && $ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente !== null) {
-                        $ctrl.persistence.dannoCliente = $ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente.danni;
-                        $ctrl.dannoRca.descrizioneDannoCliente = $ctrl.persistence.dannoCliente.descrizioneDanno;
-                        if ($ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente.anagrafica) {
+                                $ctrl.dannoRca.conducenteIsNotContraente = true;
 
-                            $ctrl.dannoRca.conducenteIsNotContraente = true;
+                                $timeout(function () {
+                                    //FIXME timeout di 1ms per triggerare il $digest
+                                    var anagrafica = $ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente.anagrafica;
 
-                            $timeout(function () {
-                                //FIXME timeout di 1ms per triggerare il $digest
-                                var anagrafica = $ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente.anagrafica;
+                                    $ctrl.dannoRca.conducente.cognome = anagrafica.cognome;
+                                    $ctrl.dannoRca.conducente.nome = anagrafica.nome;
+                                    $ctrl.dannoRca.conducente.sesso = anagrafica.sesso;
+                                    $ctrl.dannoRca.conducente.cf = anagrafica.cf;
 
-                                $ctrl.dannoRca.conducente.cognome = anagrafica.cognome;
-                                $ctrl.dannoRca.conducente.nome = anagrafica.nome;
-                                $ctrl.dannoRca.conducente.sesso = anagrafica.sesso;
-                                $ctrl.dannoRca.conducente.cf = anagrafica.cf;
+                                    $ctrl.persistence.dataNascita = new Date(anagrafica.dataNascita);
 
-                                $ctrl.persistence.dataNascita = new Date(anagrafica.dataNascita);
+                                    var tempLuogo = {};
+                                    tempLuogo.idNazione = anagrafica.luogoNascita.codNazione;
+                                    tempLuogo.idProvincia = anagrafica.luogoNascita.codProvincia;
+                                    tempLuogo.idComune = anagrafica.luogoNascita.codComune;
+                                    tempLuogo.cap = anagrafica.luogoNascita.cap;
+                                    $ctrl.persistence.luogoNascita = tempLuogo;
 
-                                var tempLuogo = {};
-                                tempLuogo.idNazione = anagrafica.luogoNascita.codNazione;
-                                tempLuogo.idProvincia = anagrafica.luogoNascita.codProvincia;
-                                tempLuogo.idComune = anagrafica.luogoNascita.codComune;
-                                tempLuogo.cap = anagrafica.luogoNascita.cap;
-                                $ctrl.persistence.luogoNascita = tempLuogo;
+                                    $ctrl.dannoRca.conducente.telefono = anagrafica.tracking.telefono;
+                                    $ctrl.dannoRca.conducente.mail = anagrafica.tracking.mail;
 
-                                $ctrl.dannoRca.conducente.telefono = anagrafica.tracking.telefono;
-                                $ctrl.dannoRca.conducente.mail = anagrafica.tracking.mail;
+                                    tempLuogo = {};
+                                    tempLuogo.idNazione = anagrafica.tracking.nazione;
+                                    tempLuogo.idProvincia = anagrafica.tracking.provincia;
+                                    tempLuogo.idComune = anagrafica.tracking.comune;
+                                    tempLuogo.cap = anagrafica.tracking.cap;
 
-                                tempLuogo = {};
-                                tempLuogo.idNazione = anagrafica.tracking.nazione;
-                                tempLuogo.idProvincia = anagrafica.tracking.provincia;
-                                tempLuogo.idComune = anagrafica.tracking.comune;
-                                tempLuogo.cap = anagrafica.tracking.cap;
+                                    $ctrl.persistence.residenza = tempLuogo;
 
-                                $ctrl.persistence.residenza = tempLuogo;
+                                    $ctrl.dannoRca.conducente.indirizzo = anagrafica.tracking.indirizzo;
 
-                                $ctrl.dannoRca.conducente.indirizzo = anagrafica.tracking.indirizzo;
-
-                            }, 1);
+                                }, 1);
 
 
-                        } else {
-                            $ctrl.dannoRca.conducenteIsNotContraente = false;
+                            } else {
+                                $ctrl.dannoRca.conducenteIsNotContraente = false;
+                            }
                         }
+
+                        if ($ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniControparte !== undefined && $ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniControparte !== null) {
+
+                            var firstElem = $ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniControparte[0];
+                            $ctrl.persistence.dannoControparte = firstElem.danni;
+                            $ctrl.dannoRca.descrizioneDannoControparte = firstElem.danni.descrizioneDanno;
+                            $ctrl.dannoRca.veicoloControparte.veicolo = firstElem.anagrafica.veicolo;
+                            $ctrl.dannoRca.veicoloControparte.targa = firstElem.anagrafica.targa;
+                            $ctrl.dannoRca.veicoloControparte.estera = firstElem.anagrafica.targaEstera.toString();
+                            $ctrl.dannoRca.veicoloControparte.speciale = firstElem.anagrafica.targaSpeciale.toString();
+
+                            $ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniControparte.forEach(function (element, index) {
+                                $ctrl.dannoRca.controparti.push(ConvertSvc.dtoToAnagrafica(element.anagrafica));
+                            });
+
+                        }
+
                     }
-
-                    if ($ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniControparte !== undefined && $ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniControparte !== null) {
-
-                        var firstElem = $ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniControparte[0];
-                        $ctrl.persistence.dannoControparte = firstElem.danni;
-                        $ctrl.dannoRca.descrizioneDannoControparte = firstElem.danni.descrizioneDanno;
-                        $ctrl.dannoRca.veicoloControparte.veicolo = firstElem.anagrafica.veicolo;
-                        $ctrl.dannoRca.veicoloControparte.targa = firstElem.anagrafica.targa;
-                        $ctrl.dannoRca.veicoloControparte.estera = firstElem.anagrafica.targaEstera.toString();
-                        $ctrl.dannoRca.veicoloControparte.speciale = firstElem.anagrafica.targaSpeciale.toString();
-
-                        $ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniControparte.forEach(function (element, index) {
-                            $ctrl.dannoRca.controparti.push(element.anagrafica);
-                        });
-
-                    }
-
                 };
 
                 $ctrl.salvaDannoRca = function () {
