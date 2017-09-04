@@ -20,12 +20,56 @@
                     options: {
                         styles: [
                             {
+                                "featureType": "administrative.locality",
+                                "elementType": "all",
                                 "stylers": [
                                     {
-                                        "hue": "#0f8fd1"
+                                        "hue": "#2c2e33"
                                     },
                                     {
-                                        "saturation": 255
+                                        "saturation": 80
+                                    },
+                                    {
+                                        "lightness": 19
+                                    },
+                                    {
+                                        "visibility": "on"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "landscape",
+                                "elementType": "all",
+                                "stylers": [
+                                    {
+                                        "hue": "#ffffff"
+                                    },
+                                    {
+                                        "saturation": 65
+                                    },
+                                    {
+                                        "lightness": 100
+                                    },
+                                    {
+                                        "visibility": "simplified"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "poi",
+                                "elementType": "all",
+                                "stylers": [
+                                    {
+                                        "hue": "#ffffff"
+                                    },
+                                    {
+                                        "saturation": 65
+                                    },
+                                    {
+                                        "lightness": 100
+                                    },
+                                    {
+                                        "visibility": "off"
                                     }
                                 ]
                             },
@@ -34,7 +78,13 @@
                                 "elementType": "geometry",
                                 "stylers": [
                                     {
-                                        "lightness": 50
+                                        "hue": "#1e3877"
+                                    },
+                                    {
+                                        "saturation": 15
+                                    },
+                                    {
+                                        "lightness": 5
                                     },
                                     {
                                         "visibility": "simplified"
@@ -45,6 +95,87 @@
                                 "featureType": "road",
                                 "elementType": "labels",
                                 "stylers": [
+                                    {
+                                        "hue": "#1e3877"
+                                    },
+                                    {
+                                        "saturation": 15
+                                    },
+                                    {
+                                        "lightness": 5
+                                    },
+                                    {
+                                        "visibility": "on"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "road.arterial",
+                                "elementType": "labels",
+                                "stylers": [
+                                    {
+                                        "hue": "#1e3877"
+                                    },
+                                    {
+                                        "saturation": 100
+                                    },
+                                    {
+                                        "lightness": -2
+                                    },
+                                    {
+                                        "visibility": "simplified"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "road.local",
+                                "elementType": "geometry",
+                                "stylers": [
+                                    {
+                                        "hue": "#0f8fd1"
+                                    },
+                                    {
+                                        "saturation": 65
+                                    },
+                                    {
+                                        "lightness": -10
+                                    },
+                                    {
+                                        "visibility": "simplified"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "transit",
+                                "elementType": "all",
+                                "stylers": [
+                                    {
+                                        "hue": "#0f8fd1"
+                                    },
+                                    {
+                                        "saturation": 10
+                                    },
+                                    {
+                                        "lightness": 50
+                                    },
+                                    {
+                                        "visibility": "on"
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "water",
+                                "elementType": "all",
+                                "stylers": [
+                                    {
+                                        "hue": "#0f8fd1"
+                                    },
+                                    {
+                                        "saturation": 100
+                                    },
+                                    {
+                                        "lightness": 25
+                                    },
                                     {
                                         "visibility": "simplified"
                                     }
