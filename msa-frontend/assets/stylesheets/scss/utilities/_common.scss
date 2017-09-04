@@ -722,3 +722,20 @@ button.formButton {
 .angular-google-map-container {
   height: 400px;
 }
+
+
+/* TODO: spostare */
+ul.carrozzerie {
+
+  list-style: none;
+
+  li {
+    i {
+      color: white;
+      background: $light_blue;
+      border-radius: 50%;
+      padding: 5px;
+    }
+  }
+
+}
