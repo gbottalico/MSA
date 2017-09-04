@@ -193,7 +193,7 @@ angular.module('msa').service(
                 dataObj.anagraficaDanniCliente.danni = ConvertSvc.danniAutoToDTO(dannoRca.dannoCliente, dannoRca.descrizioneDannoCliente);
                 dataObj.lesioniConducente = dannoRca.lesioniConducente;
 
-                if(dannoRca.conducente) {
+                if (dannoRca.conducente) {
 
                     dataObj.anagraficaDanniCliente.anagrafica = ConvertSvc.anagraficaToDTO(dannoRca.conducente);
 
@@ -212,7 +212,7 @@ angular.module('msa').service(
 
                 dannoRca.controparti.forEach(function (element, index) {
                     var temp = {
-                        anagrafica : {
+                        anagrafica: {
                             nome: element.nome,
                             cognome: element.cognome,
                             sesso: element.sesso ? element.sesso.toUpperCase() : null,
@@ -236,11 +236,11 @@ angular.module('msa').service(
                         }
                     };
 
-                    if(index === 0 && dannoRca.dannoControparte) {
+                    if (index === 0 && dannoRca.dannoControparte) {
                         temp.danni = ConvertSvc.danniAutoToDTO(dannoRca.dannoControparte, dannoRca.descrizioneDannoControparte);
                     }
 
-                    if(index === 0 && dannoRca.veicoloControparte) {
+                    if (index === 0 && dannoRca.veicoloControparte) {
                         temp.anagrafica.targa = dannoRca.veicoloControparte.targa;
                         temp.anagrafica.targaEstera = dannoRca.veicoloControparte.estera;
                         temp.anagrafica.targaSpeciale = dannoRca.veicoloControparte.speciale;
@@ -254,8 +254,12 @@ angular.module('msa').service(
                 var url = UtilSvc.stringFormat(msaServicesApiUrls.dannorcacontroparte, idSinistroProvvisorio);
                 return $http.post(url, dataObj);
 
-            }
+            };
 
+            $svc.getCarrozzerie = function (indirizzo) {
+                var url = UtilSvc.stringFormat(msaServicesApiUrls.carrozzerie, indirizzo);
+                return $http.get(url);
+            }
 
         }
     ]

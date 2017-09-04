@@ -27,6 +27,7 @@ angular.module('msa').service(
 
             };
 
+            //TODO capire se funziona
             $svc.smoothScroll = function (eID) {
 
                 var startY = currentYPosition();

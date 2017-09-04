@@ -4,8 +4,8 @@
     app.component('msaDenunciaContainer', {
         templateUrl: '../../app/component/denuncia-sinistro/denuncia-container/components/templates/denuncia-container-tpl.html',
         bindings: {},
-        controller: ("denunciaContainerController", ['$rootScope', '$scope', '$routeParams', '$location', '$debugMode', '$timeout', 'SinistriSvc', 'UtilSvc', 'PathSvc', 'DebugSvc',
-            function ($rootScope, $scope, $routeParams, $location, $debugMode, $timeout, SinistriSvc, UtilSvc, PathSvc, DebugSvc) {
+        controller: ("denunciaContainerController", ['$rootScope', '$scope', '$routeParams', '$location', '$debugMode', '$timeout', 'SmoothScroll', 'SinistriSvc', 'UtilSvc', 'PathSvc', 'DebugSvc',
+            function ($rootScope, $scope, $routeParams, $location, $debugMode, $timeout, SmoothScroll, SinistriSvc, UtilSvc, PathSvc, DebugSvc) {
 
                 var $ctrl = this;
                 $scope.$debugMode = $debugMode;
@@ -50,6 +50,12 @@
                 $ctrl.mappaCaricata = function (mapId) {
                     DebugSvc.log(mapId + " initialized.");
                     $ctrl.tempSegnalazione.lastMap = mapId;
+                    // $timeout(function () {
+                    //     SmoothScroll.$goTo(800).then(function (response) {
+                    //         DebugSvc.log("Scrolled to:", response);
+                    //     })
+                    // }, 5000);
+
                     //TODO
                 };
 
