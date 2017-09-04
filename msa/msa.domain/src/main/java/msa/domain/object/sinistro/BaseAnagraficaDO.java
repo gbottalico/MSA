@@ -11,6 +11,8 @@ public class BaseAnagraficaDO {
     private String cf;
     private String tipoPersona;
     private String ragioneSociale;
+    private Character sesso;
+
 
     public String getNome() {
         return nome;
@@ -74,6 +76,14 @@ public class BaseAnagraficaDO {
 
     public void setRagioneSociale(String ragioneSociale) {
         this.ragioneSociale = ragioneSociale;
+    }
+
+    public Character getSesso() {
+        return sesso;
+    }
+
+    public void setSesso(Character sesso) {
+        this.sesso = sesso;
     }
 }
 

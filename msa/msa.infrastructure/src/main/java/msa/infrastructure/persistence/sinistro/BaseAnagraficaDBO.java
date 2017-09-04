@@ -23,8 +23,10 @@ public class BaseAnagraficaDBO {
     @Field("tipoPersona")
     private String tipoPersona;
     @Field("ragioneSociale")
-
     private String ragioneSociale;
+    @Field("sesso")
+    private Character sesso;
+
 
     public String getNome() {
         return nome;
@@ -88,5 +90,13 @@ public class BaseAnagraficaDBO {
 
     public void setRagioneSociale(String ragioneSociale) {
         this.ragioneSociale = ragioneSociale;
+    }
+
+    public Character getSesso() {
+        return sesso;
+    }
+
+    public void setSesso(Character sesso) {
+        this.sesso = sesso;
     }
 }
