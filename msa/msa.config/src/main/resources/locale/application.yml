@@ -25,7 +25,7 @@ spring:
     locale: it_IT
   data: 
     mongodb: 
-      host: 172.25.14.169
+      host: localhost
       port: 27017
       database: msa
 logging:

@@ -46,6 +46,11 @@
                     }
                 };
 
+
+                $ctrl.$onInit = function () {
+                    parent.mappaCaricata($ctrl.mapId);
+                };
+
                 $scope.$watch(
                     function watchScope(scope) {
                         return {

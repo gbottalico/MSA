@@ -15,6 +15,7 @@
                 var $translate = $filter('translate');
                 var parent = $scope.$parent;
                 $scope.$debugMode = $debugMode;
+                $ctrl.mapId = 'M14';
 
                 $ctrl.baremes = undefined;
                 $ctrl.cai = {};
@@ -114,6 +115,10 @@
                             $ctrl.cai.osservazioniControparte = $ctrl.sinistroProvvisorio.cai.noteControparte;
                         }
                     }
+                };
+
+                $ctrl.$onInit = function () {
+                    parent.mappaCaricata($ctrl.mapId);
                 };
 
                 $scope.$watch(

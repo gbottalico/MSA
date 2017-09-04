@@ -190,6 +190,12 @@
         "controparti": "Controparti"
       }
     },
+    "terzeparti": {
+      "title": "Terze Parti",
+      "labels": {
+        "terzeparti": "Ci sono terze parti coinvolte nel sinistro (ad es. altri veicoli, altre persone, altri oggetti, etc.)?"
+      }
+    },
     "step": {
       "labels": {
         "nascita": "Nascita",

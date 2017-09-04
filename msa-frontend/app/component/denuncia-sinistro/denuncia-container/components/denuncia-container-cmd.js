@@ -4,8 +4,8 @@
     app.component('msaDenunciaContainer', {
         templateUrl: '../../app/component/denuncia-sinistro/denuncia-container/components/templates/denuncia-container-tpl.html',
         bindings: {},
-        controller: ("denunciaContainerController", ['$rootScope', '$scope', '$routeParams', '$location', '$debugMode', 'SinistriSvc', 'UtilSvc', 'PathSvc', 'DebugSvc',
-            function ($rootScope, $scope, $routeParams, $location, $debugMode, SinistriSvc, UtilSvc, PathSvc, DebugSvc) {
+        controller: ("denunciaContainerController", ['$rootScope', '$scope', '$routeParams', '$location', '$debugMode', '$timeout', 'SinistriSvc', 'UtilSvc', 'PathSvc', 'DebugSvc',
+            function ($rootScope, $scope, $routeParams, $location, $debugMode, $timeout, SinistriSvc, UtilSvc, PathSvc, DebugSvc) {
 
                 var $ctrl = this;
                 $scope.$debugMode = $debugMode;
@@ -47,6 +47,12 @@
                     });
                 };
 
+                $ctrl.mappaCaricata = function (mapId) {
+                    DebugSvc.log(mapId + " initialized.");
+                    $ctrl.tempSegnalazione.lastMap = mapId;
+                    //TODO
+                };
+
                 $ctrl.isMappaVisibile = function (nomeMappa) {
                     switch (nomeMappa) {
                         case 'M12':
@@ -59,6 +65,7 @@
                             return $ctrl.mappe.indexOf('M14') > -1;
                             break;
                         case 'M15':
+                        case 'M18':
                             return $ctrl.mappe.indexOf('M15') > -1;
                             break;
                         default:
@@ -69,6 +76,10 @@
 
                 $scope.aggiornaMappe = function () {
                     $ctrl.aggiornaMappe();
+                };
+
+                $scope.mappaCaricata = function (mapId) {
+                    $ctrl.mappaCaricata(mapId);
                 };
 
                 $ctrl.getSinistroProvvisorio = function (numeroSinistroProvvisorio) {
