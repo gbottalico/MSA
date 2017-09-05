@@ -252,7 +252,7 @@ public class SinistriService extends BaseSinistroService {
     }
 
     public BaseDTO salvaDannoRcaControparte(List<AnagraficaDanniDTO> input, Integer numSinistro) throws InternalMsaException {
-        if (input.stream().filter(e -> e.getDanni() != null).count() !=  Constants.MAX_NUM_CONTROPARTE_CON_DANNI.longValue()) {
+        if (input.stream().filter(e -> e.getDanni() != null).count() != Constants.MAX_NUM_CONTROPARTE_CON_DANNI.longValue()) {
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005",
                     (String e) -> e.concat(" Devono essere censiti i danni di una sola controparte.  ")));
         }
@@ -266,7 +266,8 @@ public class SinistriService extends BaseSinistroService {
     }
 
     public BaseDTO salvaDannoRcaTerzeParti(List<AnagraficaTerzePartiDTO> input, Integer numSinistro) throws InternalMsaException {
-        if(input.stream().anyMatch(e->e.getCodRuolo() == null))  throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat(" Il codice ruolo di ogni terza parte deve essere valorizzato. ")));
+        if (input.stream().anyMatch(e -> e.getCodRuolo() == null))
+            throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat(" Il codice ruolo di ogni terza parte deve essere valorizzato. ")));
         SinistroRcaDO sinistroDOByDTO = getSinistroDOByDTO(new AnagraficaTerzePartiDTO(), numSinistro);
         List<AnagraficaTerzePartiDO> filteredList = converter.convertList(FunctionUtils.dinstictList(input, AnagraficaTerzePartiDTO::getCf), AnagraficaTerzePartiDO.class);
         sinistroDOByDTO.getDannoRca().setTerzeParti(replaceTerzePartiList(sinistroDOByDTO.getDannoRca().getTerzeParti(), filteredList, e -> e.getCodRuolo().equals("13")));
@@ -370,9 +371,15 @@ public class SinistriService extends BaseSinistroService {
         //TODO MOCK per mancanza del servizio sui centri convenzionati+ù
         // BISOGNA FARE ANCHE LA VERIFICA SULLA GARANZIA PRIMA DI RESTITUIRE UN CENTRO
         ArrayList<CentroConvenzionatoDTO> centri = new ArrayList<>();
-        centri.add(new CentroConvenzionatoDTO(1, "FinconsGroup", "16.853831", "41.103556"));
-        centri.add(new CentroConvenzionatoDTO(2, "Angiulli", "16.855179", "41.1075051"));
-        centri.add(new CentroConvenzionatoDTO(3, "Policlinico", "16.862622", "41.112062"));
+        if (indirizzo.contains("matarrese")) {
+            centri.add(new CentroConvenzionatoDTO(1, "FinconsGroup", "16.853831", "41.103556"));
+            centri.add(new CentroConvenzionatoDTO(2, "Angiulli", "16.855179", "41.1075051"));
+            centri.add(new CentroConvenzionatoDTO(3, "Policlinico", "16.862622", "41.112062"));
+        }
+        else {
+            centri.add(new CentroConvenzionatoDTO(1, "Parco 2 Giugno", "16.8742974", "41.1044346"));
+            centri.add(new CentroConvenzionatoDTO(2, "Campus Via Orabona ", "16.8789361", "41.1074986"));
+        }
         return centri;
 
 
@@ -388,6 +395,7 @@ public class SinistriService extends BaseSinistroService {
 
     public PeritoDTO getPerito(IndirizzoDTO indirizzo) {
         //TODO MOCK per mancanza del servizio sul perito
+
         LuogoDTO luogoPerizia = new LuogoDTO();
         luogoPerizia.setCodComune("18538");
         luogoPerizia.setCodNazione("1");
