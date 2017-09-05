@@ -12,8 +12,25 @@
 
             <div class="row">
 
+                <div class="col-lg-12">
+
+                    <div class="col-lg-10 classicInputText">
+                        <input type="text" name="indirizzo" ng-model="$ctrl.indirizzo">
+                        <label>{{'global.people.indirizzo' | translate}}</label>
+                    </div>
+                    <div class="col-lg-2 classicInputText">
+                        <button class="btn lightGrayButton formButton" ng-click="$ctrl.cercaCarrozzerie()">Cerca</button>
+                    </div>
+
+                </div>
+
                 <div class="col-lg-8">
-                    <ui-gmap-google-map id="carrozzerieMap" center="map.center" zoom="map.zoom" options="map.options">
+                    <ui-gmap-google-map
+                            id="carrozzerieMap"
+                            center="map.center"
+                            zoom="map.zoom"
+                            options="map.options"
+                            events="map.events">
 
                         <ui-gmap-markers
                                 models="$ctrl.markers"
@@ -27,8 +44,13 @@
                 <div class="col-lg-4">
 
                     <ul class="carrozzerie noPadding">
-                        <li ng-repeat="marker in $ctrl.markers">
-                            <i class="fa fa-wrench" aria-hidden="true"></i>&nbsp;{{marker.nome}}
+                        <li ng-show="$ctrl.visibleMarkers.length === 0">
+                            <i class="fa fa-exclamation-triangle error" aria-hidden="true"></i>
+                            <span class="name">Nessuna cazzozzeria nell'area visibile.</span><br> <!-- TODO -->
+                        </li>
+                        <li ng-repeat="marker in $ctrl.visibleMarkers">
+                            <i class="fa fa-wrench" aria-hidden="true"></i>
+                            <span class="name">&nbsp;{{marker.nome}}</span><br>
                             <hr class="blueLine"/>
                         </li>
                     </ul>

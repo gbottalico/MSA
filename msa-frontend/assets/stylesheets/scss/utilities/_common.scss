@@ -503,6 +503,13 @@ section {
   }
 }
 
+.lightGrayButton {
+  background: $light_gray;
+  color: $gray;
+  height: 4rem;
+  line-height: 1;
+}
+
 /* Generic Buttons */
 
 button.formButton {
@@ -730,12 +737,24 @@ ul.carrozzerie {
   list-style: none;
 
   li {
+    font-size: 1.5rem;
     i {
       color: white;
       background: $light_blue;
       border-radius: 50%;
       padding: 5px;
     }
+    i.error {
+      background: $badred;
+    }
+
+    .name {
+      color: $black;
+
+    }
+
   }
+
+
 
 }
