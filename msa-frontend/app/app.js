@@ -160,7 +160,11 @@ function getMSAC() {
                     }
                 ]
             }
-        ]
+        ],
+        DEFAULT_MAPS_LOCATION: {
+            latitude: 41.9102415,
+            longitude: 12.3959131
+        }
     };
 }
 

@@ -8,14 +8,14 @@
             sinistroProvvisorio: "<",
             tempSegnalazione: "="
         },
-        controller: ("carrozzeriaConvenzionataController", ['$MSAC', '$rootScope', '$scope', '$debugMode', 'PlacesSvc', 'DebugSvc', 'SinistriSvc',
-            function ($MSAC, $rootScope, $scope, $debugMode, PlacesSvc, DebugSvc, SinistriSvc) {
+        controller: ("carrozzeriaConvenzionataController", ['$MSAC', '$rootScope', '$scope', '$debugMode', 'PlacesSvc', 'DebugSvc', 'SinistriSvc', 'UtilSvc',
+            function ($MSAC, $rootScope, $scope, $debugMode, PlacesSvc, DebugSvc, SinistriSvc, UtilSvc) {
 
                 var $ctrl = this;
                 var parent = $scope.$parent;
                 $scope.$debugMode = $debugMode;
                 $scope.map = {
-                    center: {},
+                    center: $MSAC.DEFAULT_MAPS_LOCATION,
                     zoom: 13,
                     options: {
                         styles: $MSAC.MAPS_THEME
