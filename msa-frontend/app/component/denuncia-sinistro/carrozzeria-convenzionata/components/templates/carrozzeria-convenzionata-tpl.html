@@ -10,55 +10,65 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container boxShadow">
         <div class="body">
 
-            <div class="row">
 
-                <div class="col-lg-12">
 
-                    <div class="col-lg-10 classicInputText">
-                        <input type="text" name="indirizzo" ng-model="$ctrl.indirizzo">
-                        <label>{{'global.people.indirizzo' | translate}}</label>
-                    </div>
-                    <div class="col-lg-2 classicInputText">
-                        <button class="btn lightGrayButton formButton" ng-click="$ctrl.cercaCarrozzerie()">Cerca</button>
-                    </div>
+            <form name="cercaCarrozzeriaForm" novalidate>
 
+                <div class="col-lg-10 classicInputText">
+                    <input type="text" name="indirizzo" ng-model="$ctrl.indirizzo">
+                    <label>{{'global.people.indirizzo' | translate}}</label>
                 </div>
-
-                <div class="col-lg-8">
-                    <ui-gmap-google-map
-                            id="carrozzerieMap"
-                            center="map.center"
-                            zoom="map.zoom"
-                            options="map.options"
-                            events="map.events">
-
-                        <ui-gmap-markers
-                                models="$ctrl.markers"
-                                coords="'self'"
-                                click="markerClick">
-                        </ui-gmap-markers>
-
-                    </ui-gmap-google-map>
+                <div class="col-lg-2 classicInputText">
+                    <button class="btn lightGrayButton formButton" ng-click="$ctrl.cercaCarrozzerie()"><i class="fa fa-search" aria-hidden="true"></i>&nbsp;Cerca</button> <!-- TODO Stringa scolpita-->
                 </div>
+            </form>
 
-                <div class="col-lg-4">
+            <div class="col-lg-8 noPaddingRight">
+                <ui-gmap-google-map
+                        id="carrozzerieMap"
+                        center="map.center"
+                        zoom="map.zoom"
+                        options="map.options"
+                        events="map.events">
 
-                    <ul class="carrozzerie noPadding">
-                        <li ng-show="$ctrl.visibleMarkers.length === 0">
-                            <i class="fa fa-exclamation-triangle error" aria-hidden="true"></i>
-                            <span class="name">Nessuna cazzozzeria nell'area visibile.</span><br> <!-- TODO -->
-                        </li>
-                        <li ng-repeat="marker in $ctrl.visibleMarkers">
-                            <i class="fa fa-wrench" aria-hidden="true"></i>
-                            <span class="name">&nbsp;{{marker.nome}}</span><br>
-                            <hr class="blueLine"/>
-                        </li>
-                    </ul>
+                    <ui-gmap-markers
+                            models="$ctrl.markers"
+                            coords="'self'"
+                            click="markerClick">
+                    </ui-gmap-markers>
 
-                </div>
+                </ui-gmap-google-map>
+            </div>
+
+            <div class="col-lg-4">
+
+                <ul class="carrozzerie noPaddingLeft">
+                    <li ng-show="$ctrl.visibleMarkers.length === 0">
+                        <i class="fa fa-exclamation-triangle error" aria-hidden="true"></i>
+                        <span class="name">Nessuna cazzozzeria nell'area visibile.</span><br> <!-- TODO -->
+                    </li>
+                    <li ng-repeat="marker in $ctrl.visibleMarkers" ng-click="$ctrl.selezionaCarrozzeria($index)">
+                        <i class="fa fa-wrench" aria-hidden="true"></i>
+                        <span class="name">&nbsp;{{marker.nome}}</span><br>
+                        <hr class="blueLine"/>
+                    </li>
+                </ul>
 
             </div>
 
+
+            <div class="col-lg-12 classicInputText margin-top-2">
+                <input type="text" name="carrozzeriaSelezionata" ng-model="$ctrl.carrozzeriaSelezionata.nome" ng-readonly="true">
+                <label>Carrozzeria Selezionata</label> <!-- TODO Stringa scolpita -->
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 classicButton">
+                    <button class="blueButton" ng-click="$ctrl.salvaCarrozzeria()">
+                        <a><i class="fa fa-plus" aria-hidden="true"></i> Salva e Continua</a>
+                    </button>
+                </div>
+            </div>
 
         </div>
     </div>

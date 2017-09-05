@@ -16,9 +16,13 @@
                 $scope.$debugMode = $debugMode;
                 $scope.map = {
                     center: $MSAC.DEFAULT_MAPS_LOCATION,
-                    zoom: 13,
+                    zoom: 11,
                     options: {
-                        styles: $MSAC.MAPS_THEME
+                        styles: $MSAC.MAPS_THEME,
+                        mapTypeControl: false,
+                        streetViewControl: false,
+                        rotateControl: false,
+                        panControl: false,
                     },
                     events: {
                         zoom_changed: function (maps, eventName, args) {
@@ -36,6 +40,7 @@
                 $ctrl.markers = [];
                 $ctrl.visibleMarkers = [];
                 $ctrl.indirizzo = undefined;
+                $ctrl.carrozzeriaSelezionata = undefined;
 
                 $ctrl.cercaCarrozzerie = function () {
                     $ctrl.cerca($ctrl.indirizzo);
@@ -49,9 +54,12 @@
                             var lng = response.data.results["0"].geometry.location.lng;
                             $scope.map.center.latitude = lat;
                             $scope.map.center.longitude = lng;
+                            $ctrl.indirizzo = response.data.results["0"].formatted_address;
                             return SinistriSvc.getCarrozzerie(response.data.results["0"].formatted_address);
                         } catch (error) {
                             DebugSvc.log("Error", error);
+                            $ctrl.indirizzo = "";
+                            toastr.error("Indirizzo non valido."); //TODO stringa scolpita
                             return UtilSvc.createErrorStatePromise();
                         }
                     }).then(function (response) {
@@ -59,7 +67,7 @@
                         if (response.data.status === 200) {
                             $ctrl.makeMarkers(response.data.result);
                         } else {
-                            //TODO errore
+
                         }
                     });
                 };
@@ -110,6 +118,17 @@
 
                     $ctrl.visibleMarkers = visibleMarkers;
                     DebugSvc.log("VisibileMarkers", $ctrl.visibleMarkers);
+                };
+
+                $ctrl.selezionaCarrozzeria = function (index) {
+                    DebugSvc.log("selezionaCarrozzeria", $ctrl.visibleMarkers[index]);
+                    $ctrl.carrozzeriaSelezionata = $ctrl.visibleMarkers[index];
+                };
+
+                $ctrl.salvaCarrozzeria = function () {
+                    //TODO salvataggio.
+                    parent.aggiornaMappe();
+                    toastr.success($translate('global.generic.saveok'));
                 };
 
                 $ctrl.bindCarrozzeriaConvenzionata = function () {

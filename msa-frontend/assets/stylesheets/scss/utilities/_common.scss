@@ -727,17 +727,19 @@ button.formButton {
 
 /*Obbligatorio per Google Maps*/
 .angular-google-map-container {
-  height: 400px;
+  height: 40rem;
 }
-
 
 /* TODO: spostare */
 ul.carrozzerie {
-
+  height: 40rem;
   list-style: none;
+  overflow-y: scroll;
+  padding-top: 2rem;
 
   li {
     font-size: 1.5rem;
+    cursor: pointer;
     i {
       color: white;
       background: $light_blue;
