@@ -12,9 +12,9 @@
         templateUrl: '../../app/component/common/date-selector/components/templates/date-selector-tpl.html',
         bindings: {
             result: "=",
-            required: "=",
-            input: "=",
-            disabled: "="
+            required: "<",
+            input: "<",
+            disabled: "<"
         },
         controller: ("msaDateSelectorController", ['$scope', function ($scope) {
 

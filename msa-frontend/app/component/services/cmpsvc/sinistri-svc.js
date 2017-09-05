@@ -146,8 +146,7 @@ angular.module('msa').service(
 
             };
 
-            //TODO togliere AndGetResponsabilita perché è non vero
-            $svc.saveCaiAndGetResponsabilita = function (numeroSinistroProvvisorio, cai, nveicoli) {
+            $svc.saveCai = function (numeroSinistroProvvisorio, cai, nveicoli) {
 
                 var data = {};
                 data.baremesCliente = {};

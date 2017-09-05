@@ -8,8 +8,8 @@
             sinistroProvvisorio: "=",
             tempSegnalazione: "="
         },
-        controller: ("constatazioneAmichevoleController", ['$rootScope', '$scope', '$debugMode', '$filter', '$location','toastr', 'SinistriSvc', 'DebugSvc', 'PathSvc',
-            function ($rootScope, $scope, $debugMode, $filter, $location, toastr, SinistriSvc, DebugSvc, PathSvc) {
+        controller: ("constatazioneAmichevoleController", ['_', '$rootScope', '$scope', '$debugMode', '$filter', '$location','toastr', 'SinistriSvc', 'DebugSvc', 'PathSvc',
+            function (_, $rootScope, $scope, $debugMode, $filter, $location, toastr, SinistriSvc, DebugSvc, PathSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
@@ -40,7 +40,7 @@
                 };
 
                 $ctrl.bindCa = function () {
-                    if ($ctrl.sinistroProvvisorio.constatazioneAmichevole !== undefined && $ctrl.sinistroProvvisorio.constatazioneAmichevole !== null) {
+                    if (_.isObject($ctrl.sinistroProvvisorio.constatazioneAmichevole)) {
                         $ctrl.ca.constatazioneAmichevole = $ctrl.sinistroProvvisorio.constatazioneAmichevole.caCompilata;
                         $ctrl.ca.constatazioneAmichevoleControparte = $ctrl.sinistroProvvisorio.constatazioneAmichevole.caCompilataControparte;
                     }

@@ -8,8 +8,8 @@
             sinistroProvvisorio: "<",
             tempSegnalazione: "="
         },
-        controller: ("eventoRcaController", ['$rootScope', '$scope', '$filter', '$debugMode', '$location', 'toastr', 'SinistriSvc', 'DomainSvc', 'DebugSvc', 'PathSvc',
-            function ($rootScope, $scope, $filter, $debugMode, $location, toastr, SinistriSvc, DomainSvc, DebugSvc, PathSvc) {
+        controller: ("eventoRcaController", ['_', '$rootScope', '$scope', '$filter', '$debugMode', '$location', 'toastr', 'SinistriSvc', 'DomainSvc', 'DebugSvc', 'PathSvc',
+            function (_, $rootScope, $scope, $filter, $debugMode, $location, toastr, SinistriSvc, DomainSvc, DebugSvc, PathSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
@@ -66,7 +66,7 @@
                     function handleChanges(newValues, oldValues) {
 
                         if(!$ctrl.isInputConsumed) {
-                            if (newValues.sinistroProvvisorio !== undefined && newValues.sinistroProvvisorio.eventoRca !== undefined && newValues.sinistroProvvisorio.eventoRca !== null) {
+                            if (_.isObject(newValues.sinistroProvvisorio) && _.isObject(newValues.sinistroProvvisorio.eventoRca)) {
                                 $ctrl.eventoRca.collisione = newValues.sinistroProvvisorio.eventoRca.collisione;
                                 $ctrl.eventoRca.interventoAutorita = newValues.sinistroProvvisorio.eventoRca.interventoAutorita;
                                 $ctrl.eventoRca.nveicoli = newValues.sinistroProvvisorio.eventoRca.numVeicoli;

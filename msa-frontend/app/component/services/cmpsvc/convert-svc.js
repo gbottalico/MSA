@@ -1,7 +1,7 @@
 angular.module('msa').service('ConvertSvc',
-    [
+    [   '_',
         'UtilSvc',
-        function (UtilSvc) {
+        function (_, UtilSvc) {
 
             var $svc = this;
 
@@ -21,15 +21,15 @@ angular.module('msa').service('ConvertSvc',
                 dto.cf = anagrafica.cf;
 
                 dto.luogoNascita = {};
-                if (UtilSvc.isDefined(anagrafica.nascita.nazione)) {
+                if (_.isObject(anagrafica.nascita.nazione)) {
                     dto.luogoNascita.codNazione = anagrafica.nascita.nazione.id;
                     dto.luogoNascita.descrizioneNazione = anagrafica.nascita.nazione.descrizione;
                 }
-                if (UtilSvc.isDefined(anagrafica.nascita.provincia)) {
+                if (_.isObject(anagrafica.nascita.provincia)) {
                     dto.luogoNascita.codProvincia = anagrafica.nascita.provincia.codProvincia;
                     dto.luogoNascita.descrizioneProvincia = anagrafica.nascita.provincia.desProv;
                 }
-                if (UtilSvc.isDefined(anagrafica.nascita.comune)) {
+                if (_.isObject(anagrafica.nascita.comune)) {
                     dto.luogoNascita.codComune = anagrafica.nascita.comune.codComune;
                     dto.luogoNascita.descrizioneComune = anagrafica.nascita.comune.descrizione;
                     dto.luogoNascita.cap = anagrafica.nascita.cap;
@@ -38,13 +38,13 @@ angular.module('msa').service('ConvertSvc',
                 dto.dataNascita = anagrafica.nascita.data.date;
 
                 dto.tracking = {};
-                if (UtilSvc.isDefined(anagrafica.residenza.nazione)) {
+                if (_.isObject(anagrafica.residenza.nazione)) {
                     dto.tracking.nazione = anagrafica.residenza.nazione.id;
                 }
-                if (UtilSvc.isDefined(anagrafica.residenza.provincia)) {
+                if (_.isObject(anagrafica.residenza.provincia)) {
                     dto.tracking.provincia = anagrafica.residenza.provincia.codProvincia;
                 }
-                if (UtilSvc.isDefined(anagrafica.residenza.comune)) {
+                if (_.isObject(anagrafica.residenza.comune)) {
                     dto.tracking.comune = anagrafica.residenza.comune.codComune;
                     dto.tracking.cap = anagrafica.residenza.cap;
                 }
@@ -86,7 +86,7 @@ angular.module('msa').service('ConvertSvc',
                 anagrafica.sesso = dto.sesso;
                 anagrafica.cf = dto.cf;
 
-                if (dto.luogoNascita !== undefined && dto.luogoNascita !== null) {
+                if (_.isObject(dto.luogoNascita)) {
 
                     anagrafica.nascita.nazione.id = dto.luogoNascita.codNazione;
                     anagrafica.nascita.provincia.codProvincia = dto.luogoNascita.codProvincia;
@@ -97,7 +97,7 @@ angular.module('msa').service('ConvertSvc',
 
                 anagrafica.nascita.data.date = dto.dataNascita ? new Date(dto.dataNascita) : undefined;
 
-                if (dto.tracking !== undefined && dto.tracking !== null) {
+                if (_.isObject(dto.tracking)) {
 
                     anagrafica.residenza.nazione.id = dto.tracking.nazione;
                     anagrafica.residenza.provincia.codProvincia = dto.tracking.provincia;

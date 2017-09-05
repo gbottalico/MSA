@@ -4,10 +4,11 @@
     app.component('msaDenunciaContainer', {
         templateUrl: '../../app/component/denuncia-sinistro/denuncia-container/components/templates/denuncia-container-tpl.html',
         bindings: {},
-        controller: ("denunciaContainerController", ['$rootScope', '$scope', '$routeParams', '$location', '$debugMode', '$timeout', 'SmoothScroll', 'SinistriSvc', 'UtilSvc', 'PathSvc', 'DebugSvc',
-            function ($rootScope, $scope, $routeParams, $location, $debugMode, $timeout, SmoothScroll, SinistriSvc, UtilSvc, PathSvc, DebugSvc) {
+        controller: ("denunciaContainerController", ['$rootScope', '$scope', '$routeParams', '$location', '$debugMode', '$timeout', '$filter', 'toastr', 'SmoothScroll', 'SinistriSvc', 'UtilSvc', 'PathSvc', 'DebugSvc',
+            function ($rootScope, $scope, $routeParams, $location, $debugMode, $timeout, $filter, toastr, SmoothScroll, SinistriSvc, UtilSvc, PathSvc, DebugSvc) {
 
                 var $ctrl = this;
+                var $translate = $filter('translate');
                 $scope.$debugMode = $debugMode;
                 $ctrl.tempSegnalazione = {
                     nveicoli: undefined,
@@ -22,24 +23,32 @@
 
                 $ctrl.caricaMappe = function () {
                     PathSvc.getPath($ctrl.sinistroProvvisorio.numSinistroProvv).then(function (response) {
-                        //TODO: === 200
-                        var path = UtilSvc.mapToValueArray(response.data.result);
-                        $ctrl.mappe = path;
+                        DebugSvc.log("getPath", response);
+                        if (response.data.status === 200) {
+                            var path = UtilSvc.mapToValueArray(response.data.result);
+                            $ctrl.mappe = path;
+                        } else {
+                            toastr.error($translate('global.generic.erroremappe'));
+                        }
                         DebugSvc.log("caricaMappe", path);
                     });
                 };
 
                 $ctrl.aggiornaMappe = function () {
                     //TODO se qualcuno cambia il tipo di garanzia in corso d'opera, probabilmente va scelto $ctrl.tempSegnalazione.garanzia.
-                    //TODO: === 200
                     var garanzia = $ctrl.sinistroProvvisorio.segnalazione ?
                         $ctrl.sinistroProvvisorio.segnalazione.garanziaSelected :
                         $ctrl.tempSegnalazione.garanzia;
-                    PathSvc.getNextPath(garanzia, $ctrl.sinistroProvvisorio.numSinistroProvv).then(function (response) {
-                        var path = UtilSvc.mapToValueArray(response.data.result);
-                        $ctrl.mappe = path;
-                        DebugSvc.log("aggiornaMappe", path);
 
+                    PathSvc.getNextPath(garanzia, $ctrl.sinistroProvvisorio.numSinistroProvv).then(function (response) {
+                        DebugSvc.log("getNextPath", response);
+                        if (response.data.status === 200) {
+                            var path = UtilSvc.mapToValueArray(response.data.result);
+                            $ctrl.mappe = path;
+                        } else {
+                            toastr.error($translate('global.generic.erroremappe'));
+                        }
+                        DebugSvc.log("aggiornaMappe", path);
                         // Scroll to the new fresh map
                         //DebugSvc.log("scrollTo", path[path.length - 1]);
                         //$location.hash(path[path.length - 1]);

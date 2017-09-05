@@ -8,10 +8,11 @@
             sinistroProvvisorio: "<",
             tempSegnalazione: "="
         },
-        controller: ("carrozzeriaConvenzionataController", ['$MSAC', '$rootScope', '$scope', '$debugMode', 'toastr', 'PlacesSvc', 'DebugSvc', 'SinistriSvc', 'UtilSvc',
-            function ($MSAC, $rootScope, $scope, $debugMode, toastr, PlacesSvc, DebugSvc, SinistriSvc, UtilSvc) {
+        controller: ("carrozzeriaConvenzionataController", ['_', '$MSAC', '$rootScope', '$scope', '$debugMode', '$filter', 'toastr', 'PlacesSvc', 'DebugSvc', 'SinistriSvc', 'UtilSvc',
+            function (_, $MSAC, $rootScope, $scope, $debugMode, $filter, toastr, PlacesSvc, DebugSvc, SinistriSvc, UtilSvc) {
 
                 var $ctrl = this;
+                var $translate = $filter('translate');
                 var parent = $scope.$parent;
                 $scope.$debugMode = $debugMode;
                 $scope.map = {
@@ -68,7 +69,7 @@
                         } catch (error) {
                             DebugSvc.log("Error", error);
                             $ctrl.indirizzo = "";
-                            toastr.error("Indirizzo non valido."); //TODO stringa scolpita
+                            toastr.error($translate('global.carrozzeria.messaggi.indirizzonv'));
                             return UtilSvc.createErrorStatePromise();
                         }
                     }).then(function (response) {
@@ -141,12 +142,11 @@
                 };
 
                 $ctrl.bindCarrozzeriaConvenzionata = function () {
-                    if ($ctrl.sinistroProvvisorio.contraente !== undefined && $ctrl.sinistroProvvisorio.contraente !== null &&
-                        $ctrl.sinistroProvvisorio.contraente.tracking !== undefined && $ctrl.sinistroProvvisorio.contraente.tracking !== null) {
+                    if (_.isObject($ctrl.sinistroProvvisorio.contraente) && _.isObject($ctrl.sinistroProvvisorio.contraente.tracking)) {
 
                         var promise = undefined;
 
-                        if ($ctrl.sinistroProvvisorio.contraente.tracking.comune !== undefined && $ctrl.sinistroProvvisorio.contraente.tracking.comune !== null) {
+                        if (_.isObject($ctrl.sinistroProvvisorio.contraente.tracking.comune)) {
                             promise = PlacesSvc.getComuneById($ctrl.sinistroProvvisorio.contraente.tracking.comune);
                         } else {
                             promise = PlacesSvc.getNazioneById($ctrl.sinistroProvvisorio.contraente.tracking.nazione);

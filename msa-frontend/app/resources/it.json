@@ -2,6 +2,7 @@
   "global": {
     "title": "Msa",
     "generic": {
+      "azione": "Azione",
       "cerca": "Cerca",
       "annulla": "Annulla ricerca",
       "salva": "Salva",
@@ -15,15 +16,20 @@
       "pg": "Persona Giuridica",
       "saveok": "Salvataggio avvenuto con successo.",
       "saveko": "Errore nel salvataggio.",
-      "cfko": "Errore nel calcolo del Codice Fiscale."
+      "cfko": "Errore nel calcolo del Codice Fiscale.",
+      "completa": "Completa la sezione precedente per proseguire.",
+      "unknonwerror": "Errore sconosciuto.",
+      "erroremappe": "Errore durante il recupero della schermata successiva."
     },
     "people": {
+      "soggetto": "Soggetto",
       "nome": "Nome",
       "cognome": "Cognome",
       "ragionesociale": "Ragione Sociale",
       "sesso": "Sesso",
       "cf": "Codice Fiscale",
       "piva": "Partita IVA",
+      "cfopiva": "CF / P.IVA",
       "nazione": "Nazione",
       "provincia": "Provincia",
       "comune": "Comune",
@@ -209,7 +215,8 @@
         "terzeparti": "Terze parti",
         "legale": "Legale",
         "daticonsultivi": "Dati consultivi",
-        "riepilogo": "Riepilogo"
+        "riepilogo": "Riepilogo",
+        "nessunrecapito": "Nessun Recapito.",
       }
     },
     "auto": {
@@ -217,6 +224,16 @@
         "veiclea": "Veicolo A",
         "veicleb": "Veicolo B",
         "alert": "*Numero massimo di caratteri 250"
+      }
+    },
+    "carrozzeria": {
+      "title": "Carrozzeria Convenzionata",
+      "labels": {
+        "selezionata": "Carrozzeria Selezionata"
+      },
+      "messaggi": {
+        "nessuna": "Nessuna carrozzeria disponibile nell'aria selezionata.",
+        "indirizzonv": "Indirizzo non valido."
       }
     }
   }

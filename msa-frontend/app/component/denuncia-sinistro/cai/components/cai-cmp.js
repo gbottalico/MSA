@@ -8,8 +8,8 @@
             sinistroProvvisorio: "=",
             tempSegnalazione: "="
         },
-        controller: ("constatazioneAmichevoleController", ['$rootScope', '$scope', '$debugMode', '$filter', 'toastr', 'DomainSvc', 'SinistriSvc', 'DebugSvc',
-            function ($rootScope, $scope, $debugMode, $filter, toastr, DomainSvc, SinistriSvc, DebugSvc) {
+        controller: ("constatazioneAmichevoleController", ['_', '$rootScope', '$scope', '$debugMode', '$filter', 'toastr', 'DomainSvc', 'SinistriSvc', 'DebugSvc',
+            function (_, $rootScope, $scope, $debugMode, $filter, toastr, DomainSvc, SinistriSvc, DebugSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
@@ -40,10 +40,10 @@
 
                 $ctrl.salvaCai = function () {
 
-                    SinistriSvc.saveCaiAndGetResponsabilita($ctrl.numeroSinistroProvvisorio, $ctrl.cai, $ctrl.tempSegnalazione.nveicoli).then(function (response) {
-                        DebugSvc.log("saveCaiAndGetResponsabilita", response);
+                    SinistriSvc.saveCai($ctrl.numeroSinistroProvvisorio, $ctrl.cai, $ctrl.tempSegnalazione.nveicoli).then(function (response) {
+                        DebugSvc.log("saveCai", response);
                         if (response.data.status === 200) {
-                            if (response.data.result !== undefined && response.data.result !== null) {
+                            if (_.isObject(response.data.result)) {
                                 // Il servizio restituisce un result solo se i veicoli son 2 o più.
                                 $ctrl.setResponsabilitaUI(response.data.result.responsabilita);
                             }
@@ -58,7 +58,8 @@
 
                 $ctrl.calcolaResponsabilita = function () {
                     SinistriSvc.getResponsabilita($ctrl.cai.baremeAssicurato, $ctrl.cai.baremeControparte).then(function (response) {
-                        if (response.data.status === 200 && response.data.result !== undefined && response.data.result !== null) {
+                        DebugSvc.log("getResponsabilita", response);
+                        if (response.data.status === 200) {
                             $ctrl.setResponsabilitaUI(response.data.result);
                         } else {
                             toastr.error($translate('global.cai.messages.responsabilita'));
@@ -105,12 +106,12 @@
                 };
 
                 $ctrl.bindCai = function () {
-                    if ($ctrl.sinistroProvvisorio.cai !== undefined && $ctrl.sinistroProvvisorio.cai !== null) {
+                    if (_.isObject($ctrl.sinistroProvvisorio.cai)) {
 
                         $ctrl.cai.baremeAssicurato = $ctrl.sinistroProvvisorio.cai.baremesCliente.id;
                         $ctrl.cai.osservazioniAssicurato = $ctrl.sinistroProvvisorio.cai.noteCliente;
 
-                        if ($ctrl.sinistroProvvisorio.cai.baremesControparte !== undefined && $ctrl.sinistroProvvisorio.cai.baremesControparte !== null) {
+                        if (_.isObject($ctrl.sinistroProvvisorio.cai.baremesControparte)) {
                             $ctrl.cai.baremeControparte = $ctrl.sinistroProvvisorio.cai.baremesControparte.id;
                             $ctrl.cai.osservazioniControparte = $ctrl.sinistroProvvisorio.cai.noteControparte;
                         }

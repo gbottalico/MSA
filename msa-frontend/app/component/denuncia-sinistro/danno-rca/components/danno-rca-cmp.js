@@ -8,8 +8,8 @@
             sinistroProvvisorio: "<",
             tempSegnalazione: "="
         },
-        controller: ("dannoRcaContoller", ['$rootScope', '$scope', '$debugMode', '$filter', '$uibModal', '$timeout', 'toastr', 'DomainSvc', 'SinistriSvc', 'DebugSvc', 'UtilSvc', 'ConvertSvc',
-            function ($rootScope, $scope, $debugMode, $filter, $uibModal, $timeout, toastr, DomainSvc, SinistriSvc, DebugSvc, UtilSvc, ConvertSvc) {
+        controller: ("dannoRcaContoller", ['_', '$rootScope', '$scope', '$debugMode', '$filter', '$uibModal', '$timeout', 'toastr', 'DomainSvc', 'SinistriSvc', 'DebugSvc', 'UtilSvc', 'ConvertSvc',
+            function (_, $rootScope, $scope, $debugMode, $filter, $uibModal, $timeout, toastr, DomainSvc, SinistriSvc, DebugSvc, UtilSvc, ConvertSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
@@ -37,88 +37,10 @@
                     $ctrl.tipoVeicoli = response.data.result;
                 });
 
-                //TODO mockup
-                // $ctrl.dannoRca.controparti = [
-                //     {
-                //         "tipoPersona": "PF",
-                //         "residenza": {
-                //             "cap": "70025",
-                //             "nazione": {
-                //                 "id": "1",
-                //                 "inizioValidita": -2208988800000,
-                //                 "fineValidita": null,
-                //                 "descrizione": "ITALIA",
-                //                 "sigla": "I",
-                //                 "codFornitore": null
-                //             },
-                //             "provincia": {
-                //                 "id": "5971b860f2f59717a813994c",
-                //                 "codNazione": 1,
-                //                 "codProvincia": 79,
-                //                 "iniValidita": -2208988800000,
-                //                 "finValidita": null,
-                //                 "descProvincia": "BARI",
-                //                 "siglaProv": "BA",
-                //                 "codFornitore": null
-                //             },
-                //             "comune": {
-                //                 "id": "597206bbf2f59737b8e25155",
-                //                 "codNazione": "1",
-                //                 "codProvincia": "79",
-                //                 "codComune": "18510",
-                //                 "fineValidita": null,
-                //                 "descrizione": "GRUMO APPULA",
-                //                 "codFornitore": null,
-                //                 "cap": ["70025"]
-                //             },
-                //             "indirizzo": "Grumpppp!!"
-                //         },
-                //         "nascita": {
-                //             "data": {"date": "2017-08-24T22:00:00.000Z", "$valid": true},
-                //             "cap": "70020",
-                //             "$valid": true,
-                //             "nazione": {
-                //                 "id": "1",
-                //                 "inizioValidita": -2208988800000,
-                //                 "fineValidita": null,
-                //                 "descrizione": "ITALIA",
-                //                 "sigla": "I",
-                //                 "codFornitore": null
-                //             },
-                //             "provincia": {
-                //                 "id": "5971b860f2f59717a813994c",
-                //                 "codNazione": 1,
-                //                 "codProvincia": 79,
-                //                 "iniValidita": -2208988800000,
-                //                 "finValidita": null,
-                //                 "descProvincia": "BARI",
-                //                 "siglaProv": "BA",
-                //                 "codFornitore": null
-                //             },
-                //             "comune": {
-                //                 "id": "597206bbf2f59737b8e25147",
-                //                 "codNazione": "1",
-                //                 "codProvincia": "79",
-                //                 "codComune": "18491",
-                //                 "fineValidita": null,
-                //                 "descrizione": "BINETTO",
-                //                 "codFornitore": null,
-                //                 "cap": ["70020"]
-                //             }
-                //         },
-                //         "nome": "Dello Russo",
-                //         "cognome": "Corrado",
-                //         "sesso": "m",
-                //         "cf": "DLLCRD17M25A874G",
-                //         "telefono": "£45",
-                //         "mail": "@@@"
-                //     }
-                // ];
-
                 $ctrl.bindDannoRca = function () {
-                    if ($ctrl.sinistroProvvisorio.dannoRca !== undefined && $ctrl.sinistroProvvisorio.dannoRca !== null) {
+                    if (_.isObject($ctrl.sinistroProvvisorio.dannoRca)) {
                         $ctrl.dannoRca.lesioniConducente = $ctrl.sinistroProvvisorio.dannoRca.lesioniConducente;
-                        if ($ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente !== undefined && $ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente !== null) {
+                        if (_.isObject($ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente)) {
                             $ctrl.persistence.dannoCliente = $ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente.danni;
                             $ctrl.dannoRca.descrizioneDannoCliente = $ctrl.persistence.dannoCliente.descrizioneDanno;
                             if ($ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente.anagrafica) {
@@ -164,7 +86,7 @@
                             }
                         }
 
-                        if ($ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniControparte !== undefined && $ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniControparte !== null) {
+                        if (_.isObject($ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniControparte)) {
 
                             var firstElem = $ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniControparte[0];
                             $ctrl.persistence.dannoControparte = firstElem.danni;

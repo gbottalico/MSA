@@ -7,11 +7,11 @@
             valoriRicerca: '=',
             datiContraente: '='
         },
-        controller: ("stepController", ['$rootScope', '$scope', 'UtilSvc', 'PlacesSvc',
-            function ($rootScope, $scope, UtilSvc, PlacesSvc) {
+        controller: ("stepController", ['$rootScope', '$scope', '$filter', 'UtilSvc', 'PlacesSvc',
+            function ($rootScope, $scope, $filter, UtilSvc, PlacesSvc) {
 
                 var $ctrl = this;
-                
+                var $translate = $filter('translate');
                 $ctrl.step = 1;
                 $ctrl.user = {};
 
@@ -53,7 +53,7 @@
                     $ctrl.user.recapiti = $ctrl.user.recapiti.filter(function (e) {
                         return e === 0 || e;
                     });
-                    $ctrl.user.recapiti = $ctrl.user.recapiti.join(", ") || "Nessun recapito."; //TODO stringa scolpita
+                    $ctrl.user.recapiti = $ctrl.user.recapiti.join(", ") || $translate("global.step.labels.nessunrecapito");
                 };
 
 

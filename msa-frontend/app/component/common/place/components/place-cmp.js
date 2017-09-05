@@ -7,7 +7,7 @@
             result: "=",
             input: "="
         },
-        controller: ("msaPlaceController", ['$scope', '$debugMode', 'PlacesSvc', 'UtilSvc', function ($scope, $debugMode, PlacesSvc, UtilSvc) {
+        controller: ("msaPlaceController", ['_', '$scope', '$debugMode', 'PlacesSvc', 'UtilSvc', function (_, $scope, $debugMode, PlacesSvc, UtilSvc) {
 
             var $ctrl = this;
             $scope.$debugMode = $debugMode;
@@ -70,7 +70,7 @@
                     // Sblanco i campi più specifici, se i più generici non sono più validi.
 
                     if (newValue.nazioneSelezionata !== oldValue.nazioneSelezionata) {
-                        if (!(newValue.nazioneSelezionata instanceof Object)) {
+                        if (!_.isObject(newValue.nazioneSelezionata)) {
                             $ctrl.result.nazione = undefined;
 
                             $ctrl.provinciaSelezionata = undefined;
@@ -87,7 +87,7 @@
 
                     if (newValue.provinciaSelezionata !== oldValue.provinciaSelezionata) {
 
-                        if (!(newValue.provinciaSelezionata instanceof Object)) {
+                        if (!_.isObject(newValue.provinciaSelezionata)) {
                             $ctrl.result.provincia = undefined;
 
                             $ctrl.comuneSelezionato = undefined;
@@ -100,7 +100,7 @@
                     }
 
                     if (newValue.comuneSelezionato !== oldValue.comuneSelezionato) {
-                        if (!(newValue.comuneSelezionato instanceof Object)) {
+                        if (!_.isObject(newValue.comuneSelezionato)) {
                             $ctrl.result.comune = undefined;
                             $ctrl.caps = [];
                         } else {
