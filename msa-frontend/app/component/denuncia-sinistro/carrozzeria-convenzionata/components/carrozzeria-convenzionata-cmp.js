@@ -4,12 +4,12 @@
     app.component('msaCarrozzeriaConvenzionata', {
         templateUrl: '../../app/component/denuncia-sinistro/carrozzeria-convenzionata/components/templates/carrozzeria-convenzionata-tpl.html',
         bindings: {
-            numeroSinistroProvvisorio: "=",
-            sinistroProvvisorio: "=",
+            numeroSinistroProvvisorio: "<",
+            sinistroProvvisorio: "<",
             tempSegnalazione: "="
         },
-        controller: ("carrozzeriaConvenzionataController", ['$rootScope', '$scope', '$debugMode', 'PlacesSvc', 'DebugSvc', 'SinistriSvc',
-            function ($rootScope, $scope, $debugMode, PlacesSvc, DebugSvc, SinistriSvc) {
+        controller: ("carrozzeriaConvenzionataController", ['$MSAC', '$rootScope', '$scope', '$debugMode', 'PlacesSvc', 'DebugSvc', 'SinistriSvc',
+            function ($MSAC, $rootScope, $scope, $debugMode, PlacesSvc, DebugSvc, SinistriSvc) {
 
                 var $ctrl = this;
                 var parent = $scope.$parent;
@@ -18,170 +18,7 @@
                     center: {},
                     zoom: 13,
                     options: {
-                        styles: [
-                            {
-                                "featureType": "administrative.locality",
-                                "elementType": "all",
-                                "stylers": [
-                                    {
-                                        "hue": "#2c2e33"
-                                    },
-                                    {
-                                        "saturation": 80
-                                    },
-                                    {
-                                        "lightness": 19
-                                    },
-                                    {
-                                        "visibility": "on"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "landscape",
-                                "elementType": "all",
-                                "stylers": [
-                                    {
-                                        "hue": "#ffffff"
-                                    },
-                                    {
-                                        "saturation": 65
-                                    },
-                                    {
-                                        "lightness": 100
-                                    },
-                                    {
-                                        "visibility": "simplified"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "poi",
-                                "elementType": "all",
-                                "stylers": [
-                                    {
-                                        "hue": "#ffffff"
-                                    },
-                                    {
-                                        "saturation": 65
-                                    },
-                                    {
-                                        "lightness": 100
-                                    },
-                                    {
-                                        "visibility": "off"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "road",
-                                "elementType": "geometry",
-                                "stylers": [
-                                    {
-                                        "hue": "#1e3877"
-                                    },
-                                    {
-                                        "saturation": 15
-                                    },
-                                    {
-                                        "lightness": 5
-                                    },
-                                    {
-                                        "visibility": "simplified"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "road",
-                                "elementType": "labels",
-                                "stylers": [
-                                    {
-                                        "hue": "#1e3877"
-                                    },
-                                    {
-                                        "saturation": 15
-                                    },
-                                    {
-                                        "lightness": 5
-                                    },
-                                    {
-                                        "visibility": "on"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "road.arterial",
-                                "elementType": "labels",
-                                "stylers": [
-                                    {
-                                        "hue": "#1e3877"
-                                    },
-                                    {
-                                        "saturation": 100
-                                    },
-                                    {
-                                        "lightness": -2
-                                    },
-                                    {
-                                        "visibility": "simplified"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "road.local",
-                                "elementType": "geometry",
-                                "stylers": [
-                                    {
-                                        "hue": "#0f8fd1"
-                                    },
-                                    {
-                                        "saturation": 65
-                                    },
-                                    {
-                                        "lightness": -10
-                                    },
-                                    {
-                                        "visibility": "simplified"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "transit",
-                                "elementType": "all",
-                                "stylers": [
-                                    {
-                                        "hue": "#0f8fd1"
-                                    },
-                                    {
-                                        "saturation": 10
-                                    },
-                                    {
-                                        "lightness": 50
-                                    },
-                                    {
-                                        "visibility": "on"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "water",
-                                "elementType": "all",
-                                "stylers": [
-                                    {
-                                        "hue": "#0f8fd1"
-                                    },
-                                    {
-                                        "saturation": 100
-                                    },
-                                    {
-                                        "lightness": 25
-                                    },
-                                    {
-                                        "visibility": "simplified"
-                                    }
-                                ]
-                            }
-                        ]
+                        styles: $MSAC.MAPS_THEME
                     },
                     // icon: {
                     //     path: fontawesome.markers.EXCLAMATION,

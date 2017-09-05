@@ -56,7 +56,111 @@ function getMSAC() {
         },
         API_KEYS: {
             MAPS: "AIzaSyClOUgLxnK_B5-IdKK4EjavitUwoqxLr14"
-        }
+        },
+        MAPS_THEME: [
+            {
+                "featureType": "administrative",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                    {
+                        "color": "#444444"
+                    }
+                ]
+            },
+            {
+                "featureType": "landscape",
+                "elementType": "all",
+                "stylers": [
+                    {
+                        "color": "#f2f2f2"
+                    }
+                ]
+            },
+            {
+                "featureType": "poi",
+                "elementType": "all",
+                "stylers": [
+                    {
+                        "visibility": "off"
+                    }
+                ]
+            },
+            {
+                "featureType": "road",
+                "elementType": "all",
+                "stylers": [
+                    {
+                        "saturation": -100
+                    },
+                    {
+                        "lightness": 45
+                    }
+                ]
+            },
+            {
+                "featureType": "road.highway",
+                "elementType": "all",
+                "stylers": [
+                    {
+                        "visibility": "simplified"
+                    }
+                ]
+            },
+            {
+                "featureType": "road.arterial",
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "saturation": "100"
+                    },
+                    {
+                        "lightness": "-15"
+                    },
+                    {
+                        "visibility": "on"
+                    },
+                    {
+                        "hue": "#004aff"
+                    },
+                    {
+                        "gamma": "0.80"
+                    },
+                    {
+                        "weight": "1.50"
+                    }
+                ]
+            },
+            {
+                "featureType": "road.arterial",
+                "elementType": "labels.icon",
+                "stylers": [
+                    {
+                        "visibility": "off"
+                    }
+                ]
+            },
+            {
+                "featureType": "transit",
+                "elementType": "all",
+                "stylers": [
+                    {
+                        "visibility": "off"
+                    }
+                ]
+            },
+            {
+                "featureType": "water",
+                "elementType": "all",
+                "stylers": [
+                    {
+                        "color": "#0f8fd1"
+                    },
+                    {
+                        "visibility": "on"
+                    }
+                ]
+            }
+        ]
     };
 }
 
@@ -139,7 +243,7 @@ app.config(function ($translateProvider, $MSAC) {
 });
 
 /* Configurazione di Google Maps */
-app.config(function(uiGmapGoogleMapApiProvider, $MSAC) {
+app.config(function (uiGmapGoogleMapApiProvider, $MSAC) {
     uiGmapGoogleMapApiProvider.configure({
         key: $MSAC.API_KEYS.MAPS,
         v: '3',
