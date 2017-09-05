@@ -61,6 +61,7 @@ angular.module('msa').service(
                         "Content-Type": "application/json",
                         "user": '{"idUser": 1,"amministratore": true}'
                     }
+
                 });
 
             };
@@ -253,6 +254,18 @@ angular.module('msa').service(
                 var url = UtilSvc.stringFormat(msaServicesApiUrls.dannorcacontroparte, idSinistroProvvisorio);
                 return $http.post(url, dataObj);
 
+            };
+
+            $svc.salvaTerzeParti = function (idSinistroProvvisorio, anagrafiche) {
+
+                var data = [];
+                anagrafiche.forEach(function (element, index) {
+                   var temp = ConvertSvc.anagraficaToDTO(element);
+                   data.push(temp);
+                });
+
+                var url = UtilSvc.stringFormat(msaServicesApiUrls.dannorcaterzeparti, idSinistroProvvisorio);
+                return $http.post(url, data);
             };
 
             $svc.getCarrozzerie = function (indirizzo) {

@@ -1,7 +1,7 @@
 <div class="containerHeader">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container boxShadow">
         <div class="header">
-            <h1 class="titleSection">Terze Parti WIP</h1>
+            <h1 class="titleSection">{{'global.terzeparti.title' | translate}}</h1>
         </div>
     </div>
 </div>
@@ -44,18 +44,17 @@
                                 <th>{{'global.people.soggetto' | translate}}</th>
                                 <th>{{'global.people.indirizzo' | translate}}</th>
                                 <th>{{'global.people.cfopiva' | translate}}</th>
-                                <th>{{'global.generica.azione' | translate}}</th>
+                                <th>{{'global.generic.azione' | translate}}</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="controparte in $ctrl.dannoRca.controparti">
-                                <td>{{controparte.nome ? controparte.nome + " " + controparte.cognome :
-                                    controparte.ragioneSociale}}
+                            <tr ng-repeat="terzaparte in $ctrl.terzeParti">
+                                <td>{{terzaparte.nome ? terzaparte.nome + " " + terzaparte.cognome :
+                                    terzaparte.ragioneSociale}}
                                 </td>
-                                <td>{{controparte.residenza.indirizzo}}</td>
-                                <td>{{controparte.cf}}</td>
-                                <td><i ng-click="$ctrl.dannoRca.controparti.splice($index, 1);" class="fa fa-trash-o"
-                                       aria-hidden="true"></i></td>
+                                <td>{{terzaparte.residenza.indirizzo}}</td>
+                                <td>{{terzaparte.cf}}</td>
+                                <td><i ng-click="$ctrl.terzeParti.splice($index, 1);" class="fa fa-trash-o" aria-hidden="true"></i></td>
                             </tr>
                             </tbody>
                             <tfoot>

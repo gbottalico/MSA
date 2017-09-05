@@ -30,6 +30,7 @@
       "cf": "Codice Fiscale",
       "piva": "Partita IVA",
       "cfopiva": "CF / P.IVA",
+      "ruolo": "Ruolo",
       "nazione": "Nazione",
       "provincia": "Provincia",
       "comune": "Comune",

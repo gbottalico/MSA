@@ -8,8 +8,8 @@
             sinistroProvvisorio: "<",
             tempSegnalazione: "="
         },
-        controller: ("terzePartiController", ['$rootScope', '$scope', '$debugMode', '$filter', '$location', '$uibModal', 'toastr', 'SinistriSvc', 'DebugSvc', 'PathSvc',
-            function ($rootScope, $scope, $debugMode, $filter, $location, $uibModal, toastr, SinistriSvc, DebugSvc, PathSvc) {
+        controller: ("terzePartiController", ['_', '$rootScope', '$scope', '$debugMode', '$filter', '$location', '$uibModal', 'toastr', 'SinistriSvc', 'DebugSvc', 'ConvertSvc',
+            function (_, $rootScope, $scope, $debugMode, $filter, $location, $uibModal, toastr, SinistriSvc, DebugSvc, ConvertSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
@@ -28,8 +28,8 @@
                         size: 'lg',
                         component: 'msaAnagraficaModal',
                         resolve: {
-                            items: function () {
-                                return [{id: 1}, {id: 2}];
+                            hasRole: function () {
+                                return true;
                             }
                         }
                     });
@@ -42,8 +42,28 @@
                     });
                 };
 
+                $ctrl.salvaTerzeParti = function () {
+                    SinistriSvc.salvaTerzeParti($ctrl.numeroSinistroProvvisorio, $ctrl.terzeParti).then(function (response) {
+                        DebugSvc.log("salvaTerzeParti", response);
+                        if (response.data.status === 200) {
+                            parent.aggiornaMappe();
+                            toastr.success($translate('global.generic.saveok'));
+                        } else {
+                            toastr.error($translate('global.generic.saveko'));
+                        }
+                    });
+                };
+
                 $ctrl.$onInit = function () {
                     parent.mappaCaricata($ctrl.mapId);
+                };
+
+                $ctrl.bindTerzeParti = function () {
+                    $ctrl.terzeParti = [];
+                    $ctrl.sinistroProvvisorio.dannoRca.terzeParti.forEach(function (element, index) {
+                        $ctrl.terzeParti.push(ConvertSvc.dtoToAnagrafica(element));
+                    });
+                    $ctrl.presenzaTerzeParti = $ctrl.terzeParti.length > 0;
                 };
 
                 $scope.$watch(
@@ -54,7 +74,11 @@
                     },
                     function handleChanges(newValues, oldValues) {
 
-                        if (newValues.sinistroProvvisorio !== undefined) {
+                        if (_.isObject(newValues.sinistroProvvisorio) &&
+                            _.isObject(newValues.sinistroProvvisorio.dannoRca) &&
+                            _.isObject(newValues.sinistroProvvisorio.dannoRca.terzeParti)) {
+
+                            $ctrl.bindTerzeParti();
 
                         }
 

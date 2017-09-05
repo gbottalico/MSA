@@ -8,11 +8,12 @@
             close: '&',
             dismiss: '&'
         },
-        controller: ("headerController", ['$rootScope', 'UtilSvc', 'DebugSvc',
-            function ($rootScope, UtilSvc, DebugSvc) {
+        controller: ("headerController", ['$rootScope', 'UtilSvc', 'DebugSvc', 'DomainSvc',
+            function ($rootScope, UtilSvc, DebugSvc, DomainSvc) {
 
                 var $ctrl = this;
                 $ctrl.anagrafica = {};
+                $ctrl.ruoli = undefined;
 
                 $ctrl.TipologiaEnum = {
                     FISICA: "PF",
@@ -21,9 +22,14 @@
 
                 $ctrl.$onInit = function () {
                     // Per prendere input
-                    $ctrl.items = $ctrl.resolve.items;
-
+                    $ctrl.hasRole = $ctrl.resolve.hasRole;
                     $ctrl.anagrafica.tipoPersona = $ctrl.TipologiaEnum.FISICA;
+
+                    if($ctrl.hasRole) {
+                        DomainSvc.getRuoli().then(function (response) {
+                           $ctrl.ruoli = response.data.result;
+                        });
+                    }
 
                 };
 
