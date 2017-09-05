@@ -8,8 +8,8 @@
             sinistroProvvisorio: "<",
             tempSegnalazione: "="
         },
-        controller: ("carrozzeriaConvenzionataController", ['$MSAC', '$rootScope', '$scope', '$debugMode', 'PlacesSvc', 'DebugSvc', 'SinistriSvc', 'UtilSvc',
-            function ($MSAC, $rootScope, $scope, $debugMode, PlacesSvc, DebugSvc, SinistriSvc, UtilSvc) {
+        controller: ("carrozzeriaConvenzionataController", ['$MSAC', '$rootScope', '$scope', '$debugMode', 'toastr', 'PlacesSvc', 'DebugSvc', 'SinistriSvc', 'UtilSvc',
+            function ($MSAC, $rootScope, $scope, $debugMode, toastr, PlacesSvc, DebugSvc, SinistriSvc, UtilSvc) {
 
                 var $ctrl = this;
                 var parent = $scope.$parent;
@@ -26,21 +26,26 @@
                     },
                     events: {
                         zoom_changed: function (maps, eventName, args) {
+                            $ctrl.mapInstance = maps;
                             $ctrl.checkInBound(maps, eventName, args);
                         },
                         dragend: function (maps, eventName, args) {
+                            $ctrl.mapInstance = maps;
                             $ctrl.checkInBound(maps, eventName, args);
                         },
                         bounds_changed: function (maps, eventName, args) {
+                            $ctrl.mapInstance = maps;
                             $ctrl.checkInBound(maps, eventName, args);
                         }
                     }
                 };
 
+
                 $ctrl.markers = [];
                 $ctrl.visibleMarkers = [];
                 $ctrl.indirizzo = undefined;
                 $ctrl.carrozzeriaSelezionata = undefined;
+                $ctrl.mapInstance = undefined;
 
                 $ctrl.cercaCarrozzerie = function () {
                     $ctrl.cerca($ctrl.indirizzo);
@@ -52,9 +57,13 @@
                         try {
                             var lat = response.data.results["0"].geometry.location.lat;
                             var lng = response.data.results["0"].geometry.location.lng;
+                            var bounds = response.data.results["0"].geometry.bounds;
                             $scope.map.center.latitude = lat;
                             $scope.map.center.longitude = lng;
+                            $scope.map.zoom = PlacesSvc.getZoomLevel(bounds.northeast, bounds.southwest);
+                            DebugSvc.log("zoomLevel", $scope.map.zoom);
                             $ctrl.indirizzo = response.data.results["0"].formatted_address;
+
                             return SinistriSvc.getCarrozzerie(response.data.results["0"].formatted_address);
                         } catch (error) {
                             DebugSvc.log("Error", error);
