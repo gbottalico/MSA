@@ -17,10 +17,7 @@ import msa.application.service.interfaceDispatcher.DispatcherService;
 import msa.domain.Converter.FunctionUtils;
 import msa.domain.object.dominio.BaremesDO;
 import msa.domain.object.dominio.CompagniaDO;
-import msa.domain.object.sinistro.AnagraficaTerzePartiDO;
-import msa.domain.object.sinistro.BaseSinistroDO;
-import msa.domain.object.sinistro.InputRicercaDO;
-import msa.domain.object.sinistro.SinistroRcaDO;
+import msa.domain.object.sinistro.*;
 import msa.domain.object.sinistro.rca.AnagraficaDanniDO;
 import msa.domain.object.sinistro.rca.IncrociBaremesDO;
 import msa.infrastructure.repository.DomainRepository;
@@ -32,6 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -108,7 +106,8 @@ public class SinistriService extends BaseSinistroService {
      */
 
     public BaseDTO<Map<String, String>> inviaSegnalazione(SegnalazioneDTO input, Integer numSinistroProvv) throws InternalMsaException {
-        if(input.getGaranziaSelected() == null) throw  new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat(" E' necessario selezionare una garanzia.")));
+        if (input.getGaranziaSelected() == null)
+            throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat(" E' necessario selezionare una garanzia.")));
         if (!FunctionUtils.between(input.getDataDenuncia(), input.getDataOraSinistro(), FunctionUtils.nowAsDate(), Boolean.TRUE))
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005",
                     (String e) -> e.concat(" Data sinistro deve essere precedente alla data di denuncia ed alla data odierna.")));
@@ -294,10 +293,20 @@ public class SinistriService extends BaseSinistroService {
 
     }
 
-    public BaseDTO salvaDannoRcaLegale(List<AnagraficaTerzePartiDTO> input, Integer numeroSinistro) throws InternalMsaException {
-        BaseSinistroDO sinistroDOByDTO = LEGALE.apply(input, numeroSinistro);
-        List<AnagraficaTerzePartiDO> filteredList = converter.convertList(FunctionUtils.dinstictList(input, AnagraficaTerzePartiDTO::getCf), AnagraficaTerzePartiDO.class);
-        Boolean insertResult = salvaSinistro(sinistroDOByDTO);
+
+    public <K extends BaseSinistroDO> BaseDTO salvaDannoRcaLegale(List<AnagraficaTerzePartiDTO> input, Integer numeroSinistro) throws InternalMsaException {
+        //BaseSinistroDO sinistroDOByDTO = LEGALE.apply(input, numeroSinistro);
+        final K sinistroDOByDTO;
+        final Boolean insertResult;
+        final List<AnagraficaTerzePartiDO> filteredList;
+        try {
+            sinistroDOByDTO = sinistriRepository.getSinistroByNumProvv(numeroSinistro);
+            filteredList = converter.convertList(FunctionUtils.dinstictList(input, AnagraficaTerzePartiDTO::getCf), AnagraficaTerzePartiDO.class);
+            sinistroDOByDTO.setLegali(filteredList);
+            insertResult = salvaSinistro(sinistroDOByDTO);
+        } catch (Exception ex) {
+            throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione Salvataggio Legale")));
+        }
 
         if (insertResult) {
             return new BaseDTO<>(null, addWarningMessageByCondition(() -> "Sono stati inseriti codici fiscali o partite iva duplicati",
@@ -307,8 +316,16 @@ public class SinistriService extends BaseSinistroService {
         }
     }
 
-    public BaseDTO salvaPerito(PeritoDTO input, Integer numSinistro) throws InternalMsaException {
-        if (salvaSinistro(getSinistroDOByDTO(input, numSinistro))) {
+    public<K extends BaseSinistroDO> BaseDTO salvaPerito(PeritoDTO input, Integer numSinistro) throws InternalMsaException {
+
+        final K sinistroDOByDTO;
+        try {
+            sinistroDOByDTO = sinistriRepository.getSinistroByNumProvv(numSinistro);
+            sinistroDOByDTO.setPerito(converter.convertObject(input, PeritoDO.class));
+        } catch (Exception ex) {
+            throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione Salvataggio Legale")));
+        }
+        if (salvaSinistro(sinistroDOByDTO)) {
             return new BaseDTO<>();
         } else {
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione Salvataggio Perito")));
@@ -371,12 +388,14 @@ public class SinistriService extends BaseSinistroService {
         //TODO MOCK per mancanza del servizio sui centri convenzionati+ù
         // BISOGNA FARE ANCHE LA VERIFICA SULLA GARANZIA PRIMA DI RESTITUIRE UN CENTRO
         ArrayList<CentroConvenzionatoDTO> centri = new ArrayList<>();
-        if (indirizzo.contains("matarrese")) {
+        if (indirizzo.contains("david")) {
+
             centri.add(new CentroConvenzionatoDTO(1, "FinconsGroup", "16.853831", "41.103556"));
             centri.add(new CentroConvenzionatoDTO(2, "Angiulli", "16.855179", "41.1075051"));
-            centri.add(new CentroConvenzionatoDTO(3, "Policlinico", "16.862622", "41.112062"));
-        }
-        else {
+
+
+            centri.add(new CentroConvenzionatoDTO(3, "Policlinico", "16.862622", "41.112062", getPerito("ciao")));
+        } else {
             centri.add(new CentroConvenzionatoDTO(1, "Parco 2 Giugno", "16.8742974", "41.1044346"));
             centri.add(new CentroConvenzionatoDTO(2, "Campus Via Orabona ", "16.8789361", "41.1074986"));
         }
@@ -393,7 +412,7 @@ public class SinistriService extends BaseSinistroService {
 
     }
 
-    public PeritoDTO getPerito(IndirizzoDTO indirizzo) {
+    public PeritoDTO getPerito(String indirizzo) {
         //TODO MOCK per mancanza del servizio sul perito
 
         LuogoDTO luogoPerizia = new LuogoDTO();

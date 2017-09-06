@@ -5,6 +5,15 @@ public class CentroConvenzionatoDTO extends AbstractDTO{
     private String denominazione;
     private String longitudine;
     private String latitudine;
+    private PeritoDTO perito;
+
+    public PeritoDTO getPerito() {
+        return perito;
+    }
+
+    public void setPerito(PeritoDTO perito) {
+        this.perito = perito;
+    }
 
     public Integer getId() {
         return id;
@@ -43,6 +52,13 @@ public class CentroConvenzionatoDTO extends AbstractDTO{
         this.denominazione = denominazione;
         this.longitudine = longitudine;
         this.latitudine = latitudine;
+    }
+    public CentroConvenzionatoDTO(Integer id, String denominazione, String longitudine, String latitudine,PeritoDTO perito) {
+        this.id = id;
+        this.denominazione = denominazione;
+        this.longitudine = longitudine;
+        this.latitudine = latitudine;
+        this.perito = perito;
     }
 
     public CentroConvenzionatoDTO() {

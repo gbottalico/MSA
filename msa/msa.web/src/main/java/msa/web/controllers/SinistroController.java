@@ -218,7 +218,7 @@ public class SinistroController extends BaseController {
 
     @ApiOperation(value="Metodo che restituisce il perito in base all'indirizzo")
     @RequestMapping(value="/perito/", method = RequestMethod.POST)
-    public BaseDTO getPerito(@RequestBody final IndirizzoDTO input){
+    public BaseDTO getPerito(@RequestBody final String input){
     return new BaseDTO(sinistriService.getPerito(input));
     }
 }

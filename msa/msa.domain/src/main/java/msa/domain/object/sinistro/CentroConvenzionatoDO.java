@@ -5,6 +5,15 @@ public class CentroConvenzionatoDO {
     private String denominazione;
     private String longitudine;
     private String latitudine;
+    private PeritoDO perito;
+
+    public PeritoDO getPerito() {
+        return perito;
+    }
+
+    public void setPerito(PeritoDO perito) {
+        this.perito = perito;
+    }
 
     public Integer getId() {
         return id;
