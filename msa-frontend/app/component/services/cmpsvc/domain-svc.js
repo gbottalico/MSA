@@ -52,6 +52,29 @@ angular.module('msa').service(
                 return $http.get(msaServicesApiUrls.causerotturacristalli);
             };
 
+            //TODO MOCKUP
+            $svc.successCall = function () {
+                var deferred = $q.defer();
+                if ($rootScope.domain.casaRegole) {
+                    deferred.resolve($rootScope.domain.casaRegole);
+                    DebugSvc.log("Returning cached.");
+                    return deferred.promise;
+                }
+                // $http.get(msaServicesApiUrls.casaregole + "GGGGG").then(function(data){
+                //     deferred.resolve(data.result);
+                //     $rootScope.domain.casaRegole = data.result;
+                // }, function(data, status, headers, config) {
+                //     deferred.reject("Error: request returned status " + status);
+                // });
+                $http.get(msaServicesApiUrls.casaregole + "GGGGG").then(function successCallback(response) {
+                    DebugSvc.log("successCallback");
+                }, function errorCallback(response) {
+                    DebugSvc.log("errorCallback");
+                });
+                return deferred.promise;
+            };
+
+
         }
     ]
 );

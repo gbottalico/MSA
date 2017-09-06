@@ -14,6 +14,11 @@
                 var $ctrl = this;
                 var $translate = $filter('translate');
                 var parent = $scope.$parent;
+
+                //TODO spostare icone
+                $ctrl.homeIcon = "images/ico/ico-home.png";
+                $ctrl.wrenchIcon = "images/ico/ico-wrench.png";
+
                 $scope.$debugMode = $debugMode;
                 $scope.map = {
                     center: $MSAC.DEFAULT_MAPS_LOCATION,
@@ -23,7 +28,7 @@
                         mapTypeControl: false,
                         streetViewControl: false,
                         rotateControl: false,
-                        panControl: false,
+                        panControl: false
                     },
                     events: {
                         zoom_changed: function (maps, eventName, args) {
@@ -40,7 +45,17 @@
                         }
                     }
                 };
-
+                $scope.search = {
+                    center: {
+                        latitude: undefined,
+                        longitude: undefined
+                    },
+                    options: {
+                        icon: {
+                            url: $ctrl.homeIcon
+                        }
+                    }
+                };
 
                 $ctrl.markers = [];
                 $ctrl.visibleMarkers = [];
@@ -61,6 +76,8 @@
                             var bounds = response.data.results["0"].geometry.bounds;
                             $scope.map.center.latitude = lat;
                             $scope.map.center.longitude = lng;
+                            $scope.search.center.latitude = lat;
+                            $scope.search.center.longitude = lng;
                             $scope.map.zoom = PlacesSvc.getZoomLevel(bounds.northeast, bounds.southwest);
                             DebugSvc.log("zoomLevel", $scope.map.zoom);
                             $ctrl.indirizzo = response.data.results["0"].formatted_address;
@@ -90,6 +107,7 @@
                         marker.latitude = carrozzeria.latitudine;
                         marker.longitude = carrozzeria.longitudine;
                         marker.nome = carrozzeria.denominazione;
+                        marker.icon = $ctrl.wrenchIcon;
                         temp.push(marker);
                     });
                     $ctrl.markers = temp;

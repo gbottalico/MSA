@@ -23,6 +23,16 @@
                         $ctrl.casaRegole = response.data.result;
                     });
 
+                    // DomainSvc.successCall().then(function (response) {
+                    //    DebugSvc.log("successCall", response);
+                    //    return DomainSvc.successCall();
+                    // }).then(function (response) {
+                    //     DebugSvc.log("successCall", response);
+                    //     return DomainSvc.successCall();
+                    // }).catch(function (error) {
+                    //     DebugSvc.log("catch", error);
+                    // });
+
                 };
 
                 $ctrl.campiObbligatori = {

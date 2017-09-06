@@ -21,19 +21,34 @@
                 </div>
             </form>
 
+            <div class="col-lg-12">
+                <pre>{{search}}</pre>
+            </div>
+
             <div class="col-lg-8 noPaddingRight">
                 <ui-gmap-google-map
                         id="carrozzerieMap"
                         center="map.center"
                         zoom="map.zoom"
                         options="map.options"
-                        events="map.events">
+                        events="map.events"
+                        >
 
                     <ui-gmap-markers
                             models="$ctrl.markers"
                             coords="'self'"
-                            click="markerClick">
+                            click="markerClick"
+                            icon="'icon'"
+                            doClusters="true">
                     </ui-gmap-markers>
+
+                    <ui-gmap-marker
+                            idKey="9999"
+                            coords="search.center"
+                            options="search.options"
+                    >
+                    </ui-gmap-marker>
+
 
                 </ui-gmap-google-map>
             </div>
