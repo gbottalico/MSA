@@ -194,7 +194,8 @@ public class BaseSinistroService extends BaseService {
                 try {
                     final BaseSinistroDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv, BaseSinistroDO.class);
                     List<AnagraficaTerzePartiDO> anagraficaTerzePartiDO = converter.convertList(O, AnagraficaTerzePartiDO.class);
-                    if (sinistroByNumProvv.getLegali() == null) {
+
+                     if (anagraficaTerzePartiDO.size() == 0 || sinistroByNumProvv.getLegali() == null) {
                         sinistroByNumProvv.setLegali(new ArrayList<>());
                     }
                     sinistroByNumProvv.getLegali().addAll(anagraficaTerzePartiDO);
