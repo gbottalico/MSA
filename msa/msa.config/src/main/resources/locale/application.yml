@@ -32,7 +32,7 @@ logging:
   file: /Sviluppo/msa_logs/msa.log
 msa:
   profile: locale
-  pathDocumenti: \\FGBAL051641\DocumentiCaricati
+  pathDocumenti: \\Fgbal051641\condivisa-msa
   basePath: localhost:8080/msa
   restUrl:
     api:
