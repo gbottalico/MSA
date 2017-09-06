@@ -51,6 +51,10 @@ app.service('msaServicesApiUrls', function ($MSAC) {
 
     this.carrozzerie            = apiPath + "/sinistro/centri/{0}?param";           //0: indirizzo
 
+    /* DOCUMENTI */
+
+    this.upload                 = apiPath + "/documenti/{0}/{1}/upload";            //0: numero sinistro provvisorio, 1: codTipoDocumento
+
     /* DISPATCHER */
 
     this.nextpath               = apiPath + "/dispatcher/nextPath";

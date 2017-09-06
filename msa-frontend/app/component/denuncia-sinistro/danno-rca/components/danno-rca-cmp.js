@@ -186,7 +186,8 @@
                 $scope.$watch(
                     function watchScope(scope) {
                         return {
-                            sinistroProvvisorio: $ctrl.sinistroProvvisorio
+                            sinistroProvvisorio: $ctrl.sinistroProvvisorio,
+                            targa: $ctrl.dannoRca.veicoloControparte.targa
                         };
                     },
                     function handleChanges(newValues, oldValues) {
@@ -194,6 +195,10 @@
                         if (newValues.sinistroProvvisorio !== undefined && !$ctrl.isInputConsumed) {
                             $ctrl.bindDannoRca();
                             $ctrl.isInputConsumed = true;
+                        }
+
+                        if(newValues.targa !== undefined) {
+                            $ctrl.tempSegnalazione.targa = newValues.targa;
                         }
 
                     }, true
