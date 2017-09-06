@@ -268,6 +268,18 @@ angular.module('msa').service(
                 return $http.post(url, data);
             };
 
+            $svc.salvaLegali = function (idSinistroProvvisorio, anagrafiche) {
+
+                var data = [];
+                anagrafiche.forEach(function (element, index) {
+                   var temp = ConvertSvc.anagraficaToDTO(element);
+                   data.push(temp);
+                });
+
+                var url = UtilSvc.stringFormat(msaServicesApiUrls.legali, idSinistroProvvisorio);
+                return $http.post(url, data);
+            };
+
             $svc.getCarrozzerie = function (indirizzo) {
                 var url = UtilSvc.stringFormat(msaServicesApiUrls.carrozzerie, indirizzo);
                 return $http.get(url);

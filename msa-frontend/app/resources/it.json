@@ -205,6 +205,12 @@
         "terzeparti": "Ci sono terze parti coinvolte nel sinistro (ad es. altri veicoli, altre persone, altri oggetti, etc.)?"
       }
     },
+    "legale": {
+      "title": "Legale",
+      "labels": {
+        "legale": "È rappresentato da un legale?"
+      }
+    },
     "step": {
       "labels": {
         "nascita": "Nascita",
