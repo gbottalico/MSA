@@ -1,165 +1,106 @@
 <section class="row polizzeSinistri">
 
-	<div class="containerHeader">
-		<div class="col-lg-1 col-md-1 col-sm-0 col-xs-0"></div>
-		<div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 container boxShadow">
-			<div class="header">
-				<h1 class="titleSection">{{'global.polizzesinistri.title' | translate}}</h1>			
-			</div>
-		</div>
-		<div class="col-lg-1 col-md-1 col-sm-0 col-xs-0"></div>
-	</div>
+    <div class="containerHeader">
+        <div class="col-lg-1 col-md-1 col-sm-0 col-xs-0"></div>
+        <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 container boxShadow">
+            <div class="header">
+                <h1 class="titleSection">{{'global.polizzesinistri.title' | translate}}</h1>
+            </div>
+        </div>
+        <div class="col-lg-1 col-md-1 col-sm-0 col-xs-0"></div>
+    </div>
 
-	<div class="containerBody">
-		<div class="col-lg-1 col-md-1 col-sm-0 col-xs-0"></div>
-		<div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 container boxShadow">
-			<div class="body">
-				<div class="risultati" ng-repeat="polizza in $ctrl.valoriRicerca.polizze">
+    <div class="containerBody">
+        <div class="col-lg-1 col-md-1 col-sm-0 col-xs-0"></div>
+        <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 container boxShadow">
+            <div class="body">
+                <div class="risultati">
 
-					<!--POLIZZA-->
-					<div class="polizzacontainer">
-						<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 polizze">
-							<div class="col-lg-12 col-md-12 col-sm-6 col-xs-6 noPadding">
-								<label>{{'global.polizzesinistri.labels.numpoli' | translate}}</label>
-							</div>
-							<div class="col-lg-12 col-md-12 col-sm-6 col-xs-6 noPadding">
-								<p>{{polizza.numpoli}}</p>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 polizze">
-							<div class="col-lg-12 col-md-12 col-sm-6 col-xs-6 noPadding">
-								<label>{{'global.polizzesinistri.labels.attivazione' | translate}}</label>
-							</div>
-							<div class="col-lg-12 col-md-12 col-sm-6 col-xs-6 noPadding">
-								<p>{{polizza.attivazione}}</p>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 polizze">
-							<div class="col-lg-12 col-md-12 col-sm-6 col-xs-6 noPadding">
-								<label>{{'global.polizzesinistri.labels.scadenza' | translate}}</label>
-							</div>
-							<div class="col-lg-12 col-md-12 col-sm-6 col-xs-6 noPadding">
-								<p>{{polizza.scadenza}}</p>
-							</div>
-						</div>
+                    <!--SINISTRO-->
+                    <div class="table-responsive">
+                        <table class="table">
 
-						<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 polizze">
-							<div class="col-lg-12 col-md-12 col-sm-6 col-xs-6 noPadding">
-								<label>{{'global.polizzesinistri.labels.prodotto' | translate}}</label>
-							</div>
-							<div class="col-lg-12 col-md-12 col-sm-6 col-xs-6 noPadding">
-								<p>{{polizza.prodotto}}</p>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 polizze">
-							<div class="col-lg-12 col-md-12 col-sm-6 col-xs-6 noPadding">
-								<label>{{'global.polizzesinistri.labels.compagnia' | translate}}</label>
-							</div>
-							<div class="col-lg-12 col-md-12 col-sm-6 col-xs-6 noPadding">
-								<p>{{polizza.compagnia}}</p>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 polizze">
-							<div class="col-lg-12 col-md-12 col-sm-6 col-xs-6 noPadding">
-								<label>{{'global.polizzesinistri.labels.targabene' | translate}}</label>
-							</div>
-							<div class="col-lg-12 col-md-12 col-sm-6 col-xs-6 noPadding">
-								<p class="uppercase">{{polizza.targabene}}</p>
-							</div>
-						</div>
-						
-						<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 polizze">
-							<div class="col-lg-12 col-md-12 col-sm-6 col-xs-6 noPadding">
-								<label>{{'global.polizzesinistri.labels.contraente' | translate}}</label>
-							</div>
-							<div class="col-lg-12 col-md-12 col-sm-6 col-xs-6 noPadding">
-								<p>{{polizza.contraente}}</p>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 polizze">
-							<div class="col-lg-12 col-md-12 col-sm-6 col-xs-6 noPadding">
-								<label>{{'global.polizzesinistri.labels.stato' | translate}}</label>
-							</div>
-							<div class="col-lg-12 col-md-12 col-sm-6 col-xs-6 noPadding">
-								<p>{{polizza.stato}}</p>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 polizze">
-							<div class="col-lg-12 col-md-12 col-sm-6 col-xs-6 noPadding">
-								<label>{{'global.polizzesinistri.labels.variazione' | translate}}</label>
-							</div>
-							<div class="col-lg-12 col-md-12 col-sm-6 col-xs-6 noPadding">
-								<p>{{polizza.variazione}}</p>
-							</div>
-						</div>
-					</div>
-					<!--END POLIZZA-->
+                            <thead>
+                                <tr>
+                                    <th>
 
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 consulta">
-						<p><i class="fa fa-search" aria-hidden="true"></i> {{'global.polizzesinistri.labels.consultapolizza' | translate}}</p>
-					</div>
+                                        <p>{{'global.polizzesinistri.labels.numpoli' | translate}}</p>
 
-					<!--SINISTRO-->
-					<div class="sinistrotitlecontainer">
-						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 sinistrotitle">	
-						</div>
-						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 sinistrotitle">
-							<p>{{'global.polizzesinistri.labels.numsin' | translate}}</p>
-						</div>
-						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 sinistrotitle">
-							<p>{{'global.polizzesinistri.labels.data' | translate}}</p>
-						</div>
-						<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 sinistrotitle">
-							<p>{{'global.polizzesinistri.labels.tipo' | translate}}</p>
-						</div>
-						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 sinistrotitle">
-							<p>{{'global.polizzesinistri.labels.evento' | translate}}</p>
-						</div>
-						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 sinistrotitle">
-							<p>{{'global.polizzesinistri.labels.denunciatoda' | translate}}</p>
-						</div>
-						<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 sinistrotitle">
-							<p>{{'global.polizzesinistri.labels.stato' | translate}}</p>
-						</div>
-					</div>
+                                    </th>
+                                    <th>
+                                        <p>{{'global.polizzesinistri.labels.attivazione' | translate}}</p>
+                                    </th>
+                                    <th>
+                                        <p>{{'global.polizzesinistri.labels.scadenza' | translate}}</p>
+                                    </th>
+                                    <th>
+                                        <p>{{'global.polizzesinistri.labels.prodotto' | translate}}</p>
+                                    </th>
+                                    <th>
+                                        <p>{{'global.polizzesinistri.labels.targabene' | translate}}</p>
+                                    </th>
+                                    <th>
+                                        <p>{{'global.polizzesinistri.labels.contraente' | translate}}</p>
+                                    </th>
+                                    <th>
+                                        <p>{{'global.polizzesinistri.labels.stato' | translate}}</p>
+                                    </th>
+                                    <th>
+                                        <p>{{'global.polizzesinistri.labels.variazione' | translate}}</p>
+                                    </th>
+                                    <th>
+                                        <p>{{'global.polizzesinistri.labels.consulta' | translate}}</p>
+                                    </th>
+                                </tr>
+                            </thead>
 
-					<div ng-repeat="sinistro in polizza.sinistri" class="sinistrocontainer">
+                            
+                            <tr ng-repeat="polizza in $ctrl.polizze">
+                                <td>
+                                    <p><!--<i class="fa fa-chevron-right" aria-hidden="true"></i>-->
+                                        {{polizza.numpoli}}</p>
+                                </td>
+                                <td>
+                                    <p>{{polizza.attivazione}}</p>
+                                </td>
+                                <td>
+                                    <p>{{polizza.scadenza}}</p>
+                                </td>
+                                <td>
+                                    <p>{{polizza.prodotto}}</p>
+                                </td>
+                                <td>
+                                    <p>{{polizza.targabene}}</p>
+                                </td>
+                                <td>
+                                    <p>{{polizza.contraente}}</p>
+                                </td>
+                                <td>
+                                    <p>{{polizza.stato}}</p>
+                                </td>
+                                <td>
+                                    <p>{{polizza.variazione}}</p>
+                                </td>
+                                <td>
+                                    <p><i class="fa fa-search" aria-hidden="true"></i></p>
+                                </td>
+                            </tr>
 
-						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 sinistro">
-							<p><i class="fa fa-chevron-right" aria-hidden="true"></i> {{sinistro.nome}}</p>
-						</div>
-						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 sinistro">
-							<p>{{sinistro.numsin}}</p>
-						</div>
-						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 sinistro">
-							<p>{{sinistro.data}}</p>
-						</div>
-						<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 sinistro">
-							<p>{{sinistro.tipo}}</p>
-						</div>
-						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 sinistro">
-							<p>{{sinistro.evento}}</p>
-						</div>
-						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 sinistro">
-							<p>{{sinistro.denunciatoda}}</p>
-						</div>
-						<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 sinistro">
-							<p>{{sinistro.stato}}</p>
-						</div>
+                        </table>
 
-					</div>
-					<!--END SINISTRO-->
 
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 denuncia">
-						<p ng-click="$ctrl.denuncia()"><i class="fa fa-plus" aria-hidden="true"></i> {{'global.polizzesinistri.labels.denunciasinistro' | translate}}</p>
-					</div>
+                    </div>
+                </div>
 
-				</div>
-				
-			</div>
-		</div>
-		<div class="col-lg-1 col-md-1 col-sm-0 col-xs-0"></div>
+            </div>
+        </div>
+        <div class="col-lg-1 col-md-1 col-sm-0 col-xs-0"></div>
 
-	</div>
+    </div>
+    <!--END SINISTRO-->
 
+    <!--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 denuncia">-->
+    <!--<p ng-click="$ctrl.denuncia()"><i class="fa fa-plus" aria-hidden="true"></i>-->
+    <!--{{'global.polizzesinistri.labels.denunciasinistro' | translate}}</p>-->
+    <!--</div>-->
 </section>
