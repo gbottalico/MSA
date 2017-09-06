@@ -297,7 +297,6 @@ public class SinistriService extends BaseSinistroService {
     public BaseDTO salvaDannoRcaLegale(List<AnagraficaTerzePartiDTO> input, Integer numeroSinistro) throws InternalMsaException {
         BaseSinistroDO sinistroDOByDTO = LEGALE.apply(input, numeroSinistro);
         List<AnagraficaTerzePartiDO> filteredList = converter.convertList(FunctionUtils.dinstictList(input, AnagraficaTerzePartiDTO::getCf), AnagraficaTerzePartiDO.class);
-        sinistroDOByDTO.setLegali(replaceTerzePartiList(sinistroDOByDTO.getLegali(), filteredList, e -> !e.getCodRuolo().equals("13")));
         Boolean insertResult = salvaSinistro(sinistroDOByDTO);
 
         if (insertResult) {
