@@ -14,6 +14,7 @@
                 var $ctrl = this;
                 var $translate = $filter('translate');
                 var parent = $scope.$parent;
+                $ctrl.mapId = 'M24';
 
                 //TODO spostare icone
                 $ctrl.homeIcon = "images/ico/ico-home.png";

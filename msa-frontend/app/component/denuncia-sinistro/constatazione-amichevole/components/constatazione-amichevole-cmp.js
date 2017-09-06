@@ -17,6 +17,7 @@
                 $scope.$debugMode = $debugMode;
                 $ctrl.mapId = 'M13';
 
+                $ctrl.isInputConsumed = false;
                 $ctrl.ca = {};
                 $ctrl.ca.constatazioneAmichevole = true;
                 $ctrl.ca.constatazioneAmichevoleControparte = undefined;
@@ -54,13 +55,19 @@
                 $scope.$watch(
                     function watchScope(scope) {
                         return {
-                            sinistroProvvisorio: $ctrl.sinistroProvvisorio
+                            sinistroProvvisorio: $ctrl.sinistroProvvisorio,
+                            constatazioneAmichevole: $ctrl.ca.constatazioneAmichevole
                         };
                     },
                     function handleChanges(newValues, oldValues) {
 
-                        if (newValues.sinistroProvvisorio !== undefined) {
+                        if (newValues.sinistroProvvisorio !== undefined && !$ctrl.isInputConsumed) {
                             $ctrl.bindCa();
+                            $ctrl.isInputConsumed = true;
+                        }
+
+                        if(!newValues.constatazioneAmichevole) {
+                            $ctrl.ca.constatazioneAmichevoleControparte = null;
                         }
 
                     }, true
