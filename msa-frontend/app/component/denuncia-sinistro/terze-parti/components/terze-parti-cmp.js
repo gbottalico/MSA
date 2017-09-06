@@ -43,6 +43,10 @@
                 };
 
                 $ctrl.salvaTerzeParti = function () {
+                    if($ctrl.presenzaTerzeParti === false) {
+                        //Se dico che non ci sono terze parti quando la lista delle terze parti è già piena, la svuoto prima di salvare.
+                        $ctrl.terzeParti = [];
+                    }
                     SinistriSvc.salvaTerzeParti($ctrl.numeroSinistroProvvisorio, $ctrl.terzeParti).then(function (response) {
                         DebugSvc.log("salvaTerzeParti", response);
                         if (response.data.status === 200) {

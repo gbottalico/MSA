@@ -43,6 +43,10 @@
                 };
 
                 $ctrl.salvaLegali = function () {
+                    if($ctrl.presenzaLegali === false) {
+                        //Se dico che non ci sono legali quando la lista dei legali è già piena, la svuoto prima di salvare.
+                        $ctrl.legali = [];
+                    }
                     SinistriSvc.salvaLegali($ctrl.numeroSinistroProvvisorio, $ctrl.legali).then(function (response) {
                         DebugSvc.log("salvaLegali", response);
                         if (response.data.status === 200) {
@@ -63,7 +67,7 @@
                     $ctrl.sinistroProvvisorio.legali.forEach(function (element, index) {
                         $ctrl.legali.push(ConvertSvc.dtoToAnagrafica(element));
                     });
-                    $ctrl.presenzaLegali = $ctrl.presenzaLegali.length > 0;
+                    $ctrl.presenzaLegali = $ctrl.legali.length > 0;
                 };
 
                 $scope.$watch(
