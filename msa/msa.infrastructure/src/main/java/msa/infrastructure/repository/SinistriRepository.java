@@ -25,13 +25,13 @@ public class SinistriRepository extends BaseRepository {
      * se true va in IS, altrimenti la query va in LIKE
      */
     static {
-        //doToJson.put("compagnia", new AbstractMap.SimpleEntry<>(true, "compagnia"));
-        doToJson.put("dataEvento", new AbstractMap.SimpleEntry<>(true, "segnalazione.dataDenuncia"));
+        doToJson.put("compagnia", new AbstractMap.SimpleEntry<>(true, "compagnia"));
+        doToJson.put("dataEvento", new AbstractMap.SimpleEntry<>(true, "segnalazione.dataSinistro"));
         //se persona giuridica il cognome rappresenta la rag. sociale
         doToJson.put("cognome", new AbstractMap.SimpleEntry<>(false, "contraente.cognome"));
         doToJson.put("nome", new AbstractMap.SimpleEntry<>(false, "contraente.nome"));
-        doToJson.put("numeroPolizza", new AbstractMap.SimpleEntry<>(false, "numeroPolizza"));
-        //doToJson.put("numeroSinistro", "numeroSinistro");
+        //doToJson.put("numeroPolizza", new AbstractMap.SimpleEntry<>(false, "numeroPolizza"));
+        //doToJson.put("numeroSinistro", "numSinistroProvv");
         doToJson.put("targa", new AbstractMap.SimpleEntry<>(false, "targa"));
         doToJson.put("numeroProvvisorio", new AbstractMap.SimpleEntry<>(true, "numSinistroProvv"));
         //doToJson.put("numeroPreapertura", "numeroPreapertura");
