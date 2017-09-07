@@ -344,6 +344,30 @@ section {
   }
 }
 
+
+table.dettagliopolizzatable{
+  border-collapse: separate;
+tbody{
+  background-color: $light_gray;
+  color: black;
+  border-color: white;
+  border-width: 0;
+  border-right: 10px;
+  border-bottom-width:1px ;
+  margin: 100px;
+
+}
+
+
+  tr.header{
+    background-color: white;
+    text-transform:uppercase;
+    color: $light_blue;
+    background-color: white;
+  }
+
+
+}
 .classicButton {
   margin-top: 50px;
   margin-bottom: 30px;
@@ -452,6 +476,7 @@ section {
   text-transform: uppercase;
   font-size: 1.5rem;
 }
+ta
 
 .subsectionHint {
   color: $blue;

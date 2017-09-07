@@ -56,7 +56,10 @@
       "tipo": "Tipo",
       "targa": "Targa",
       "speciale": "Speciale",
-      "estera": "Estera"
+      "estera": "Estera",
+      "immatricolazione": "Data immatricolazione",
+      "marca": "Marca",
+      "modello":"Modello"
     },
     "header": {
       "labels": {
@@ -123,7 +126,20 @@
         "denunciatoda": "Denunciato da",
         "consultapolizza": "Consulta polizza",
         "consulta":"Consulta",
-        "denunciasinistro": "Denuncia sinistro"
+        "clearbox":"Clear Box",
+        "denunciasinistro": "Denuncia sinistro",
+        "dativeicolo":"Dati Veicolo",
+        "telaio":"Telaio",
+        "datesospensione":"Date sospensione",
+        "da": "da",
+        "a": "a",
+        "elencogp" :"Elenco garanzie e prestazioni",
+        "garanzia":"Garanzia",
+        "prestazione":"Prestazione",
+        "franchigia":"Franchigia",
+        "scoperto":"Scoperto",
+        "massimale":"Massimale"
+
       }
     },
     "denunciasinitro": {

@@ -7,11 +7,12 @@
     <div class="col-lg-12">
         <div class="row">
             <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 classicInputTextDisabled">
-                <input type="text" class="bold" name="numpoli" ng-model="$ctrl.dettagliopolizza.numpoli" ng-readonly="true">
+                <input type="text" class="bold" name="numpoli" ng-model="$scope.polizza.numPolizza"
+                       ng-readonly="true">
                 <label>{{'global.polizzesinistri.labels.numpoli' | translate}}</label>
             </div>
             <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 classicInputTextDisabled">
-                <input type="text" name="prodotto" ng-model="$ctrl.dettagliopolizza.prodotto" ng-readonly="true">
+                <input type="text" name="prodotto" ng-model="$scope.polizza.prodotto" ng-readonly="true">
                 <label>{{'global.polizzesinistri.labels.prodotto' | translate}}</label>
             </div>
 
@@ -30,20 +31,21 @@
     <div class="col-lg-12">
         <div class="row">
             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 classicInputTextDisabled">
-                <input type="text" class="bold" name="attivazione" ng-model="$ctrl.dettagliopolizza.attivazione"
+                <input type="text" class="bold" name="attivazione" ng-model="$scope.polizza.dataCopertura"
                        ng-readonly="true">
                 <label>{{'global.polizzesinistri.labels.attivazione' | translate}}</label>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 classicInputTextDisabled">
-                <input type="text" class="bold" name="scadenza" ng-model="$ctrl.dettagliopolizza.scadenza" ng-readonly="true">
+                <input type="text" class="bold" name="scadenza" ng-model="$scope.polizza.dataScadenza"
+                       ng-readonly="true">
                 <label>{{'global.polizzesinistri.labels.scadenza' | translate}}</label>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 classicInputTextDisabled">
-                <input type="text" name="stato" ng-model="$ctrl.dettagliopolizza.stato" ng-readonly="true" >
+                <input type="text" name="stato" value="ATTIVA" ng-readonly="true">
                 <label>{{'global.polizzesinistri.labels.stato' | translate}}</label>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 classicInputTextDisabled">
-                <input type="text" name="variazione" ng-model="$ctrl.dettagliopolizza.variazione" ng-readonly="true" >
+                <input type="text" name="variazione" ng-model="$scope.polizza.variazione" ng-readonly="true">
                 <label>{{'global.polizzesinistri.labels.variazione' | translate}}</label>
             </div>
         </div>
@@ -54,9 +56,7 @@
         <hr class="blueLine"/>
     </div>
 
-    <!-- SE PERSONA FISICA -->
-    <div class="col-lg-12" ng-if="$ctrl.anagrafica.tipoPersona === $ctrl.TipologiaEnum.FISICA">
-
+    <div class="col-lg-12">
         <div class="row">
 
             <div class="col-lg-12">
@@ -64,80 +64,120 @@
             </div>
 
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputTextDisabled">
-                <input type="text" class="uppercase" name="targabene" ng-model="$ctrl.dettagliopolizza.targabene"
+                <input type="text" class="uppercase" name="targabene" ng-model="$scope.polizza.targa"
                        ng-readonly="true">
                 <label>{{'global.polizzesinistri.labels.targabene' | translate }}</label>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputText">
-                <input type="textarea" class="uppercase" name="telaio" ng-model="$ctrl.dettagliopolizza.telaio"
-                       disabled>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputTextDisabled">
+                <input type="text" class="uppercase" name="telaio" ng-model="$scope.polizza.telaio"
+                       ng-readonly="true">
                 <label>{{'global.polizzesinistri.labels.telaio' | translate }}</label>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputText">
-                <input type="textarea" class="uppercase" name="telaio" ng-model="$ctrl.dettagliopolizza.telaio"
-                       disabled>
-                <label>{{'global.polizzesinistri.labels.telaio' | translate }}</label>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputTextDisabled">
+                <input type="text" class="uppercase" name="immatricolazione"
+                       ng-model="$scope.polizza.dataImmatricolazione"
+                       ng-readonly="true">
+                <label>{{'global.veicolo.immatricolazione' | translate }}</label>
             </div>
 
         </div>
-    </div>
 
-
-    <!-- SE PERSONA GIURIDICA -->
-    <div class="col-lg-12" ng-if="$ctrl.anagrafica.tipoPersona === $ctrl.TipologiaEnum.GIURIDICA">
 
         <div class="row">
 
-            <div class="col-lg-12">
-                <span class="subsectionTitle">{{'global.people.piva' | translate}}</span>
+
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicInputTextDisabled">
+                <input type="text" class="uppercase" name="marca" ng-model="$scope.polizza.marca"
+                       ng-readonly="true">
+                <label>{{'global.veicolo.marca' | translate }}</label>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicInputTextDisabled">
+                <input type="text" class="uppercase" name="modello" ng-model="$scope.polizza.modello"
+                       ng-readonly="true">
+                <label>{{'global.veicolo.modello' | translate }}</label>
             </div>
 
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputText">
-                <input type="text" name="cf" ng-model="$ctrl.anagrafica.cf">
-                <label>{{'global.people.piva' | translate}}</label>
-            </div>
         </div>
     </div>
 
-    <!-- In tutti i casi -->
-    <div class="col-lg-12">
-        <hr class="blueLine"/>
-    </div>
-    <div class="col-lg-12">
-        <span class="subsectionTitle">{{'global.people.tracking' | translate}}</span>
-    </div>
-
-    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicInputText">
-        <input type="text" name="telefono" ng-model="$ctrl.anagrafica.telefono">
-        <label>{{'global.people.telefono' | translate}}</label>
-    </div>
-    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicInputText">
-        <input type="text" name="mail" ng-model="$ctrl.anagrafica.mail">
-        <label>{{'global.people.email' | translate}}</label>
-    </div>
-
 
     <div class="col-lg-12">
         <hr class="blueLine"/>
     </div>
+
     <div class="col-lg-12">
-        <span class="subsectionTitle" ng-if="$ctrl.anagrafica.tipoPersona === $ctrl.TipologiaEnum.FISICA">{{'global.people.residenza' | translate}}</span>
-        <span class="subsectionTitle" ng-if="$ctrl.anagrafica.tipoPersona === $ctrl.TipologiaEnum.GIURIDICA">{{'global.people.posizione' | translate}}</span>
+        <div class="table-responsive">
+            <div class="col-lg-12">
+                <span class="subsectionTitle">{{'global.polizzesinistri.labels.datesospensione' | translate}}</span>
+            </div>
+            <div class="col-lg-12">
+                <div class="row">
+                    <table class="dettagliopolizzatable">
+                        <thead>
+                        <tr class="header">
+                            <th>{{'global.polizzesinistri.labels.da' | translate}}</th>
+                            <th>{{'global.polizzesinistri.labels.a' | translate}}</th>
+                        </tr>
+                        </thead>
+
+                        <tr class="elements">
+                            <td>25/12/2017</td>
+                            <td>25/12/2017</td>
+                        </tr>
+                        <tr class="elements">
+                            <td>25/12/2017</td>
+                            <td>25/12/2017</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        </div>
     </div>
 
-    <msa-place result="$ctrl.anagrafica.residenza"></msa-place>
-
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputText">
-        <input type="text" name="denominazioneStrada" ng-model="$ctrl.anagrafica.residenza.indirizzo"
-               ng-required="true">
-        <label>{{'global.denunciasinitro.labels.indirizzo' | translate}}</label>
+    <div class="col-lg-12">
+        <hr class="blueLine"/>
     </div>
+<div class="col-lg-12">
+    <div class="row">
+        <div class="col-lg-12">
+            <span class="subsectionTitle">{{'global.polizzesinistri.labels.elencogp' | translate}}</span>
+        </div>
+
+
 
 </div>
+</div>
+<div class="col-lg-12">
+    <div class="table-responsive">
+        <table class="table dettagliopolizzatable">
+            <thead>
+            <tr class="header">
+                <th>{{'global.polizzesinistri.labels.garanzia'| translate}}</th>
+                <th>{{'global.polizzesinistri.labels.prestazione'| translate}}</th>
+                <th>{{'global.polizzesinistri.labels.franchigia'| translate}}</th>
+                <th>{{'global.polizzesinistri.labels.scoperto'| translate}}</th>
+                <th>{{'global.polizzesinistri.labels.massimale'| translate}}</th>
+
+            </tr>
+
+            </thead>
+            <tr ng-repeat="garanzia in $scope.polizza.listaGaranzie">
+                <td> <p>{{garanzia.descrizione | capitalize }}</p></td>
+                <td> <p>{{garanzia.descrizione | capitalize}}</p></td>
+                <td> <p>{{garanzia.franchigia}}</p></td>
+                <td> <p>{{garanzia.scoperto }}</p></td>
+                <td> <p>{{garanzia.massimaleVeicolo }}</p></td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+</div>
+
 
 <div class="modal-footer">
     <div class="col-lg-12">
-        <button class="btn grayButton" type="button" ng-click="$ctrl.cancel()">Cancel</button>
-        <button class="btn blueButton" type="button" ng-click="$ctrl.ok()">OK</button>
+        <button class="btn grayButton" type="button" ng-click="$ctrl.cancel()">OK</button>
     </div>
 </div>
