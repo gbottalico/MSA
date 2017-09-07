@@ -26,6 +26,7 @@
       "soggetto": "Soggetto",
       "nome": "Nome",
       "cognome": "Cognome",
+      "denominazione": "Denominazione",
       "ragionesociale": "Ragione Sociale",
       "sesso": "Sesso",
       "cf": "Codice Fiscale",
@@ -212,6 +213,10 @@
         "legale": "È rappresentato da un legale?"
       }
     },
+    "perito": {
+      "title": "Perito",
+      "labels": {}
+    },
     "documenti": {
       "title": "Documenti",
       "labels": {
@@ -244,7 +249,8 @@
     "carrozzeria": {
       "title": "Carrozzeria Convenzionata",
       "labels": {
-        "selezionata": "Carrozzeria Selezionata"
+        "selezionata": "Carrozzeria Selezionata",
+        "perito": "Perito Associato"
       },
       "messaggi": {
         "nessuna": "Nessuna carrozzeria disponibile nell'aria selezionata.",

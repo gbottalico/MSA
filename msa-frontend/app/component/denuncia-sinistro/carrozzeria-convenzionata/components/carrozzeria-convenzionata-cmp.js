@@ -62,6 +62,7 @@
                 $ctrl.visibleMarkers = [];
                 $ctrl.indirizzo = undefined;
                 $ctrl.carrozzeriaSelezionata = undefined;
+                $ctrl.peritoAssociato = undefined;
                 $ctrl.mapInstance = undefined;
 
                 $ctrl.cercaCarrozzerie = function () {
@@ -108,6 +109,7 @@
                         marker.latitude = carrozzeria.latitudine;
                         marker.longitude = carrozzeria.longitudine;
                         marker.nome = carrozzeria.denominazione;
+                        marker.perito = carrozzeria.perito;
                         marker.icon = $ctrl.wrenchIcon;
                         temp.push(marker);
                     });
@@ -152,10 +154,12 @@
                 $ctrl.selezionaCarrozzeria = function (index) {
                     DebugSvc.log("selezionaCarrozzeria", $ctrl.visibleMarkers[index]);
                     $ctrl.carrozzeriaSelezionata = $ctrl.visibleMarkers[index];
+                    $ctrl.peritoAssociato = $ctrl.visibleMarkers[index].perito;
                 };
 
                 $ctrl.salvaCarrozzeria = function () {
                     //TODO salvataggio.
+                    $ctrl.tempSegnalazione.perito = $ctrl.peritoAssociato;
                     parent.aggiornaMappe();
                     toastr.success($translate('global.generic.saveok'));
                 };

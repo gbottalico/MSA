@@ -132,7 +132,6 @@ angular.module('msa').service(
                         "user": '{"idUser": 1,"amministratore": true}'
                     }
                 });
-
             };
 
             $svc.salvaCa = function (idSinistroProvvisorio, ca) {
@@ -260,8 +259,8 @@ angular.module('msa').service(
 
                 var data = [];
                 anagrafiche.forEach(function (element, index) {
-                   var temp = ConvertSvc.anagraficaToDTO(element);
-                   data.push(temp);
+                    var temp = ConvertSvc.anagraficaToDTO(element);
+                    data.push(temp);
                 });
 
                 var url = UtilSvc.stringFormat(msaServicesApiUrls.dannorcaterzeparti, idSinistroProvvisorio);
@@ -272,8 +271,8 @@ angular.module('msa').service(
 
                 var data = [];
                 anagrafiche.forEach(function (element, index) {
-                   var temp = ConvertSvc.anagraficaToDTO(element);
-                   data.push(temp);
+                    var temp = ConvertSvc.anagraficaToDTO(element);
+                    data.push(temp);
                 });
 
                 var url = UtilSvc.stringFormat(msaServicesApiUrls.legali, idSinistroProvvisorio);
@@ -283,7 +282,17 @@ angular.module('msa').service(
             $svc.getCarrozzerie = function (indirizzo) {
                 var url = UtilSvc.stringFormat(msaServicesApiUrls.carrozzerie, indirizzo);
                 return $http.get(url);
-            }
+            };
+
+            $svc.getPerito = function (indirizzo) {
+                var data = {input: indirizzo};
+                return $http.post(msaServicesApiUrls.perito, data);
+            };
+
+            $svc.salvaPerito = function (idSinistroProvvisorio, perito) {
+                var url = UtilSvc.stringFormat(msaServicesApiUrls.salvaperito, idSinistroProvvisorio);
+                return $http.post(url, perito);
+            };
 
         }
     ]
