@@ -8,8 +8,8 @@
             sinistroProvvisorio: "<",
             tempSegnalazione: "="
         },
-        controller: ("documentiController", ['_', '$rootScope', '$scope', '$debugMode', '$filter', '$location', 'toastr', 'SinistriSvc', 'DebugSvc', 'DocumentiSvc',
-            function (_, $rootScope, $scope, $debugMode, $filter, $location, toastr, SinistriSvc, DebugSvc, DocumentiSvc) {
+        controller: ("documentiController", ['_', '$rootScope', '$scope', '$debugMode', '$filter', '$location', '$uibModal', 'toastr', 'SinistriSvc', 'DebugSvc', 'DocumentiSvc',
+            function (_, $rootScope, $scope, $debugMode, $filter, $location, $uibModal, toastr, SinistriSvc, DebugSvc, DocumentiSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
@@ -31,7 +31,26 @@
                 };
 
                 $ctrl.aggiungiFile = function () {
+                    var modalInstance = $uibModal.open({
+                        animation: true,
+                        backdrop: 'static', // Evita che il modal sia chiuso cliccando sullo sfondo.
+                        windowClass: 'msaModal',
+                        size: 'lg',
+                        component: 'msaUploadModal',
+                        resolve: {
+                            numeroSinistroProvvisorio: function () {
+                                return $ctrl.numeroSinistroProvvisorio;
+                            }
+                        }
+                    });
 
+                    modalInstance.result.then(function (documento) {
+                        DebugSvc.log("aggiungiTerzeParti", documento);
+                        documento = DocumentiSvc.getName(documento);
+                        $ctrl.documenti.push(documento);
+                    }, function () {
+                        DebugSvc.log("aggiungiTerzeParti dismiss.");
+                    });
                 };
 
                 $scope.$watch(
