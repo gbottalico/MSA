@@ -392,12 +392,11 @@ public class SinistriService extends BaseSinistroService {
 
             centri.add(new CentroConvenzionatoDTO(1, "FinconsGroup", "16.853831", "41.103556"));
             centri.add(new CentroConvenzionatoDTO(2, "Angiulli", "16.855179", "41.1075051"));
-
-
-            centri.add(new CentroConvenzionatoDTO(3, "Policlinico", "16.862622", "41.112062", getPerito("ciao")));
         } else {
             centri.add(new CentroConvenzionatoDTO(1, "Parco 2 Giugno", "16.8742974", "41.1044346"));
             centri.add(new CentroConvenzionatoDTO(2, "Campus Via Orabona ", "16.8789361", "41.1074986"));
+            centri.add(new CentroConvenzionatoDTO(3, "Policlinico", "16.862622", "41.112062", getPerito("ciao")));
+
         }
         return centri;
 
