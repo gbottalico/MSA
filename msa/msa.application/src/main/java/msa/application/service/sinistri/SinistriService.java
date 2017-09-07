@@ -388,7 +388,7 @@ public class SinistriService extends BaseSinistroService {
         //TODO MOCK per mancanza del servizio sui centri convenzionati+ù
         // BISOGNA FARE ANCHE LA VERIFICA SULLA GARANZIA PRIMA DI RESTITUIRE UN CENTRO
         ArrayList<CentroConvenzionatoDTO> centri = new ArrayList<>();
-        if (indirizzo.contains("david")) {
+        if (indirizzo.toLowerCase().contains("david".toLowerCase())) {
 
             centri.add(new CentroConvenzionatoDTO(1, "FinconsGroup", "16.853831", "41.103556"));
             centri.add(new CentroConvenzionatoDTO(2, "Angiulli", "16.855179", "41.1075051"));

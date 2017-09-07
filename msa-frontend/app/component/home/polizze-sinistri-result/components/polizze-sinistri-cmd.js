@@ -8,8 +8,8 @@
             bannerSearch: '=',
             bannerDenuncia: '='
         },
-        controller: ("polizzeSinistriController", ['$rootScope', '$translate', '$log', 'toastr', '$analytics', '$location', '$cookies', '$window', '$sessionStorage',
-            function ($rootScope, $translate, $log, toastr, $analytics, location, $cookies, $window, $sessionStorage) {
+        controller: ("polizzeSinistriController", ['$rootScope','$scope', '$translate','$log', 'toastr', '$analytics', '$location', '$cookies', '$window', '$sessionStorage', 'DebugSvc','$uibModal',
+            function ($rootScope,$scope, $translate, $log, toastr, $analytics, location, $cookies, $window, $sessionStorage, DebugSvc, $uibModal) {
 
                 var $ctrl = this;
 
@@ -17,7 +17,7 @@
                     ctrl.bannerSearch = false;
                     ctrl.bannerDenuncia = true;
                 };
-
+                $ctrl.clearbox = "clear box";
                 $ctrl.polizze = [
                     {
                         numpoli: '100012058380',
@@ -149,6 +149,35 @@
                         ]
                     }
                 ];
+
+                $ctrl.dettaglioPolizza = function (index ) {
+
+                    var polizza = $ctrl.polizze[index];
+
+                    var modalInstance = $uibModal.open({
+                        animation: true,
+                        backdrop: 'static', // Evita che il modal sia chiuso cliccando sullo sfondo.
+                        windowClass: 'msaModal',
+                        size: 'lg',
+                        component: 'msaDettaglioPolizzaModal',
+                        resolve: {
+                            polizza: function () {
+                                $rootScope.polizza = polizza;
+                                return $rootScope.polizza;
+                            }
+                        }
+                    });
+
+                    modalInstance.result.then(function (dettagliopolizza) {
+                        DebugSvc.log("dettaglioPolizza" );
+                    }, function () {
+                        DebugSvc.log("dettaglio polizza chiuso dismiss.");
+                    });
+
+                }
+
+
+
 
             }])
     });

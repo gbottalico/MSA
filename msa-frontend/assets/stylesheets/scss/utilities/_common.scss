@@ -70,7 +70,7 @@ section {
 }
 
 .text-info {
-  color: $light_blue !important;
+  color: $light_blue!important;
 }
 
 .classicInputText {
@@ -165,7 +165,31 @@ section {
     white-space: nowrap;
   }
 }
-
+.classicInputTextDisabled{
+  input[type="text"]{
+    color : black;
+    border-width:0px;
+    align: left;
+    border-bottom-width: 1px;
+    background: transparent;
+    border-radius: 0;
+    border-color: $light_gray;
+    padding-top: 10px;
+  }
+  input[type="text"].bold{
+    font-weight: bold;
+  }
+  input[type="text"].uppercase{
+    text-transform: uppercase;
+  }
+  label {
+    font-weight: normal;
+    font-size: 1.5rem;
+    margin-top: 5px;
+    width: 100%;
+    white-space: nowrap;
+  }
+}
 .classicInputRadio {
   margin-top: 15px;
   margin-bottom: 15px;
@@ -517,6 +541,7 @@ button.formButton {
   width: 100%;
 }
 
+
 /* Date Picker */
 .uib-datepicker {
   button {
@@ -722,6 +747,8 @@ button.formButton {
   margin-bottom: 2rem;
 }
 
+
+
 /*Obbligatorio per Google Maps*/
 .angular-google-map-container {
   height: 40rem;
@@ -777,5 +804,7 @@ ul.carrozzerie {
     }
 
   }
+
+
 
 }
