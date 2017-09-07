@@ -17,16 +17,21 @@
                 $scope.$debugMode = $debugMode;
                 $ctrl.mapId = 'M26';
 
-                $ctrl.file = null;
-
-                $ctrl.salvaFile = function () {
-                  DocumentiSvc.upload($ctrl.numeroSinistroProvvisorio, $ctrl.file).then(function (response) {
-                     DebugSvc.log("salvaFile", response);
-                  });
-                };
+                $ctrl.documenti = [];
 
                 $ctrl.$onInit = function () {
                     parent.mappaCaricata($ctrl.mapId);
+                    DocumentiSvc.getLista($ctrl.numeroSinistroProvvisorio).then(function (response) {
+                        //TODO ceccare errori
+                        response.data.result.forEach(function (element, index) {
+                            element = DocumentiSvc.getName(element);
+                            $ctrl.documenti.push(element);
+                        });
+                    });
+                };
+
+                $ctrl.aggiungiFile = function () {
+
                 };
 
                 $scope.$watch(

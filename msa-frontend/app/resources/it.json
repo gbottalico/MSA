@@ -48,6 +48,10 @@
       "patente": "Patente",
       "scadenzapatente": "Data di Scadenza Patente"
     },
+    "docs": {
+      "documento": "Documento",
+      "tipo": "Tipo"
+    },
     "veicolo": {
       "tipo": "Tipo",
       "targa": "Targa",

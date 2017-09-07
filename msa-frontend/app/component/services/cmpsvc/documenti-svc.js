@@ -23,8 +23,18 @@ angular.module('msa').service(
                     }
                 });
 
-            }
+            };
 
+            $svc.getLista = function (idSinistroProvvisorio) {
+                var url = UtilSvc.stringFormat(msaServicesApiUrls.listadoc, idSinistroProvvisorio);
+                return $http.get(url);
+            };
+
+            $svc.getName = function (documento) {
+                documento.name = documento.path.split("\\");
+                documento.name = documento.name[documento.name.length - 1];
+                return documento;
+            };
         }
     ]
 );
