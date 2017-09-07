@@ -11,12 +11,13 @@
     </div>
 
     <div class="containerBody">
-        <div class="col-lg-1 col-md-1 col-sm-0 col-xs-0"></div>
+        <div class="col-lg-1 col-md-1 col-sm-0 col-xs-0"></div>\
         <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 container boxShadow">
             <div class="body">
                 <div class="risultati">
 
-                    <!--SINISTRO-->
+                    <pre>{{$ctrl.polizza | json}}</pre>
+
                     <div class="table-responsive">
                         <table class="table">
 
@@ -70,7 +71,7 @@
                                     <p>{{polizza.prodotto}}</p>
                                 </td>
                                 <td>
-                                    <p>{{polizza.targabene}}</p>
+                                    <p>{{polizza.targabene | uppercase}}</p>
                                 </td>
                                 <td>
                                     <p>{{polizza.contraente}}</p>
