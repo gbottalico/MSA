@@ -20,7 +20,8 @@
       "cfko": "Errore nel calcolo del Codice Fiscale.",
       "completa": "Completa la sezione precedente per proseguire.",
       "unknonwerror": "Errore sconosciuto.",
-      "erroremappe": "Errore durante il recupero della schermata successiva."
+      "erroremappe": "Errore durante il recupero della schermata successiva.",
+      "upload": "Trascina l'allegato qui o clicca per effettuare l'upload."
     },
     "people": {
       "soggetto": "Soggetto",

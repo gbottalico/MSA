@@ -10,20 +10,28 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container boxShadow">
         <div class="body">
 
+            <pre ng-if="$debugMode">{{$ctrl.file.name}}</pre>
+
             <div class="col-lg-12">
-                <pre>{{$ctrl.file}}</pre>
-                <input type="file" data-bind-file="" data-ng-model="theFile" />
-                <div ng-show="theFile">
-                    {{theFile.name}}<br />
-                    {{theFile.size}} byte(s)<br/>
-                    {{theFile.type}}
-                </div>
+                <div ngf-drop ngf-select ng-model="$ctrl.file" class="drop-box" ng-class="{'dragend': $ctrl.file.name}"
+                     ngf-drag-over-class="'dragover'" ngf-multiple="false" ngf-allow-dir="true"
+                     accept="image/*,application/pdf"
+                     ngf-pattern="'*/*'">
+                    <p ng-if="$ctrl.file.name"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;{{$ctrl.file.name}}</p>
+                    <p ng-if="!$ctrl.file.name"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;{{'global.generic.upload' | translate}}</p></div>
             </div>
 
-
-            <div class="col-lg-12 classicTextArea">
+            <div class="col-lg-12 classicTextArea margin-top-1">
                 <textarea class="textauto" ng-model="$ctrl.documenti.note"></textarea>
                 <label>{{'global.generic.note' | translate}}</label>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 classicButton margin-top-1">
+                    <button class="blueButton" ng-click="$ctrl.salvaPerito()">
+                        <a><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;{{'global.generic.salvaprocedi' | translate}}</a>
+                    </button>
+                </div>
             </div>
 
         </div>
