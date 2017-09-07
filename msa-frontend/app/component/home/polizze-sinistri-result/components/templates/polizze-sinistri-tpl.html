@@ -54,7 +54,7 @@
                                 </tr>
                             </thead>
 
-                            
+
                             <tr ng-repeat="polizza in $ctrl.polizze">
                                 <td>
                                     <p><!--<i class="fa fa-chevron-right" aria-hidden="true"></i>-->
@@ -81,7 +81,7 @@
                                 <td>
                                     <p>{{polizza.variazione}}</p>
                                 </td>
-                                <td>
+                                <td ng-click="$ctrl.dettaglioPolizza($index)">
                                     <p><i class="fa fa-search" aria-hidden="true"></i></p>
                                 </td>
                             </tr>
