@@ -1,5 +1,5 @@
 <div class="modal-header">
-    <h1>Denuncia Sinistro</h1> <!-- TODO: Stringhe scolpite in tutti i modal -->
+    <h1>{{'global.documenti.labels.upload' | translate}}</h1>
 </div>
 
 <div class="modal-body ">
@@ -16,19 +16,23 @@
 
             <p ng-if="$ctrl.file.name && !$ctrl.error && !$ctrl.inProgress && !$ctrl.success">
                 <i class="fa fa-cloud-upload fa-2x" aria-hidden="true"></i>
-                <br>{{$ctrl.file.name}} - Pronto <!-- TODO stringhe scolpite-->
+                <br>{{$ctrl.file.name}}
+                <br><span>{{'global.generic.pronto' | translate}}</span>
             </p>
             <p ng-if="$ctrl.file.name && $ctrl.error && !$ctrl.inProgress">
                 <i class="fa fa-exclamation fa-2x" aria-hidden="true"></i>
-                <br>{{$ctrl.file.name}} - Errore
+                <br>{{$ctrl.file.name}}
+                <br><span>{{'global.generic.errore' | translate}}</span>
             </p>
             <p ng-if="$ctrl.file.name && $ctrl.inProgress">
                 <i class="fa fa-cog fa-spin fa-2x fa-fw"></i>
-                <br>{{$ctrl.file.name}} - In Corso
+                <br>{{$ctrl.file.name}}
+                <br><span>{{'global.generic.incorso' | translate}}</span>
             </p>
             <p ng-if="$ctrl.file.name && $ctrl.success">
                 <i class="fa fa-check fa-2x" aria-hidden="true"></i>
-                <br>{{$ctrl.file.name}} - Completato
+                <br>{{$ctrl.file.name}}
+                <br><span>{{'global.generic.completato' | translate}}</span>
             </p>
             <p ng-if="!$ctrl.file.name">
                 <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
@@ -36,12 +40,11 @@
                 <br><span>Max 10MB</span>
             </p>
         </div>
-            <!--TODO: avvisare che max 10MB-->
     </div>
 </div>
 
 <div class="modal-footer">
-    <div class="col-lg-12">
+    <div class="col-lg-12 noPadding">
         <button class="btn grayButton" type="button" ng-click="$ctrl.cancel()" ng-disabled="!$ctrl.buttonsEnabled">Cancel</button>
         <button class="btn blueButton" type="button" ng-click="$ctrl.upload()" ng-disabled="!$ctrl.buttonsEnabled">Upload</button>
     </div>

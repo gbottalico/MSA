@@ -33,23 +33,23 @@
 
             <!-- TODO: Campi readonly con grafica readonly. Fare anche una ricerca globale -->
 
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputText margin-top-2">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputTextDisabled">
                 <input type="text" name="denominazione" ng-model="$ctrl.perito.denominazione" ng-readonly="true">
                 <label>{{'global.people.denominazione' | translate}}</label>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputText margin-top-2">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputTextDisabled">
                 <input type="text" name="cfopiva" ng-model="$ctrl.perito.cfPartitaIva" ng-readonly="true">
                 <label>{{'global.people.cfopiva' | translate}}</label>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputText margin-top-2">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputTextDisabled">
                 <input type="text" name="telefono" ng-model="$ctrl.perito.telefono" ng-readonly="true">
                 <label>{{'global.people.telefono' | translate}}</label>
             </div>
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputText">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputTextDisabled">
                 <input type="text" name="targa" ng-model="$ctrl.perito.targaDaPerizare" ng-readonly="true">
                 <label>{{'global.veicolo.targa' | translate}}</label>
             </div>
-            <div class="col-lg-12 classicTextArea">
+            <div class="col-lg-12 classicTextArea margin-top-2">
                 <textarea class="textauto" ng-model="$ctrl.perito.notePerizia"></textarea>
                 <label>{{'global.generic.note' | translate}}</label>
             </div>

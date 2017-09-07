@@ -248,7 +248,7 @@
                                         <th>{{'global.people.soggetto' | translate}}</th>
                                         <th>{{'global.people.indirizzo' | translate}}</th>
                                         <th>{{'global.people.cfopiva' | translate}}</th>
-                                        <th>{{'global.generica.azione' | translate}}</th>
+                                        <th>{{'global.generics.azione' | translate}}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -261,7 +261,7 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <td class="has-error">{{$ctrl.tempSegnalazione.nveicoli &gt; 1 && $ctrl.dannoRca.controparti &lt; 1 ? "Inserire almeno una controparte." : "&nbsp;"}}</td>
+                                        <td class="has-error">{{$ctrl.tempSegnalazione.nveicoli &gt; 1 && $ctrl.dannoRca.controparti &lt; 1 ? ('global.dannorca.labels.almenouna' | translate) : "&nbsp;"}}</td>
                                         <td>&nbsp;</td>
                                         <td>&nbsp;</td>
                                         <td ng-click="$ctrl.aggiungiControparte()">

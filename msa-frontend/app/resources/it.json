@@ -21,9 +21,14 @@
       "completa": "Completa la sezione precedente per proseguire.",
       "unknonwerror": "Errore sconosciuto.",
       "erroremappe": "Errore durante il recupero della schermata successiva.",
-      "upload": "Trascina l'allegato qui o clicca per effettuare l'upload."
+      "upload": "Trascina l'allegato qui o clicca per effettuare l'upload.",
+      "pronto": "Pronto",
+      "incorso": "In Corso",
+      "completato": "Completato",
+      "errore": "Errore"
     },
     "people": {
+      "anagrafica": "Anagrafica",
       "soggetto": "Soggetto",
       "nome": "Nome",
       "cognome": "Cognome",
@@ -219,19 +224,22 @@
         "dannicontroparte": "Danni Controparte",
         "descrizionedanno": "Descrizione Danno",
         "terzeparti": "Terze Parti",
-        "controparti": "Controparti"
+        "controparti": "Controparti",
+        "almenouna": "Inserire almeno una controparte"
       }
     },
     "terzeparti": {
       "title": "Terze Parti",
       "labels": {
-        "terzeparti": "Ci sono terze parti coinvolte nel sinistro (ad es. altri veicoli, altre persone, altri oggetti, etc.)?"
+        "terzeparti": "Ci sono terze parti coinvolte nel sinistro (ad es. altri veicoli, altre persone, altri oggetti, etc.)?",
+        "almenouna": "Inserire almeno una terza parte"
       }
     },
     "legale": {
       "title": "Legale",
       "labels": {
-        "legale": "È rappresentato da un legale?"
+        "legale": "È rappresentato da un legale?",
+        "almenouno": "Inserire almeno un legale"
       }
     },
     "perito": {
@@ -241,7 +249,8 @@
     "documenti": {
       "title": "Documenti",
       "labels": {
-        "legale": "È rappresentato da un legale?"
+        "legale": "È rappresentato da un legale?",
+        "upload": "Upload Documenti"
       }
     },
     "step": {
