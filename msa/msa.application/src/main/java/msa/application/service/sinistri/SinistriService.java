@@ -52,8 +52,6 @@ public class SinistriService extends BaseSinistroService {
 
     @SuppressWarnings("unchecked")
     public BaseDTO<OutputRicercaDTO> ricerca(InputRicercaDTO input) throws InternalMsaException {
-        List<? extends BaseSinistroDTO> baseSinistroDTOS = ricercaSinistriProvvisori(input);
-        List<BasePolizzaDTO> basePolizzaDTOS = ricercaPolizze(input);
         List<Object> objects = execInParallel(
                 () -> ricercaSinistriProvvisori(input),
                 () -> ricercaPolizze(input)
@@ -61,7 +59,7 @@ public class SinistriService extends BaseSinistroService {
         final OutputRicercaDTO toReturn = new OutputRicercaDTO();
         toReturn.setSinistriProvvisori((List<? extends BaseSinistroDTO>) objects.get(0));
         toReturn.setPolizze(FunctionUtils.castValueByClass((List) objects.get(1), BasePolizzaDTO.class));
-        LOGGER.info("" + System.currentTimeMillis()/1000);
+
 
         //TODO SALVARE LA POLIZZA IN MONGO
         return new BaseDTO<>(toReturn);
@@ -114,7 +112,6 @@ public class SinistriService extends BaseSinistroService {
 
     @Async
     public void asyncSavePolizzeInMongo(final List<FullPolizzaDTO> polizze) {
-        LOGGER.info("" + System.currentTimeMillis()/1000);
         polizzeRepository.savePolizzeMsa(converter.convertList(polizze, FullPolizzaDO.class));
     }
 

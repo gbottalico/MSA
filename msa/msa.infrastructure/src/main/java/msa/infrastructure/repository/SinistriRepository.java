@@ -13,6 +13,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -28,7 +29,7 @@ public class SinistriRepository extends BaseRepository {
      * se true va in IS, altrimenti la query va in LIKE
      */
     static {
-      //  doToJson.put("compagnia", new AbstractMap.SimpleEntry<>(true, "compagnia"));
+        //  doToJson.put("compagnia", new AbstractMap.SimpleEntry<>(true, "compagnia"));
         doToJson.put("dataEvento", new AbstractMap.SimpleEntry<>(true, "segnalazione.dataSinistro"));
         //se persona giuridica il cognome rappresenta la rag. sociale
         doToJson.put("cognome", new AbstractMap.SimpleEntry<>(false, "contraente.cognome"));
@@ -41,15 +42,66 @@ public class SinistriRepository extends BaseRepository {
         //doToJson.put("tipoPersona", "tipoPersona");
     }
 
-    private static Map<String,Class> classiGaranzieMap = new HashMap<>();
+    private static Map<String, Class> classiGaranzieMap = new HashMap<>();
 
     static {
-        classiGaranzieMap.put("0",SinistroRcaDO.class);
-        classiGaranzieMap.put("1",SinistroFurtoIncendioDO.class);
-        classiGaranzieMap.put("2",SinistroFurtoIncendioDO.class);
-        classiGaranzieMap.put("3",SinistroFurtoIncendioDO.class);
-        classiGaranzieMap.put("4",SinistroKaskoDO.class);
-        classiGaranzieMap.put("1",SinistroCristalliDO.class);
+        classiGaranzieMap.put("0", SinistroRcaDO.class);
+        classiGaranzieMap.put("1", SinistroFurtoIncendioDO.class);
+        classiGaranzieMap.put("2", SinistroFurtoIncendioDO.class);
+        classiGaranzieMap.put("3", SinistroFurtoIncendioDO.class);
+        classiGaranzieMap.put("4", SinistroKaskoDO.class);
+        classiGaranzieMap.put("1", SinistroCristalliDO.class);
+    }
+
+    private Query getQueryFromNotNullValues(InputRicercaDO inputRicerca) {
+        final Map<String, Object> fields = Arrays.stream(inputRicerca.getClass().getDeclaredFields())
+                .filter(e -> {
+                    try {
+                        e.setAccessible(true);
+                        return PropertyUtils.getProperty(inputRicerca, e.getName()) != null;
+                    } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e1) {
+                        return Boolean.FALSE;
+                    }
+                })
+                .collect(Collectors.toMap(Field::getName, e -> {
+                    try {
+                        e.setAccessible(true);
+                        return PropertyUtils.getProperty(inputRicerca, e.getName());
+                    } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e1) {
+                        return null;
+                    }
+                }));
+        final Criteria criteria = Criteria.where("compagnia").is(fields.remove("compagnia"));
+        return getCriteriaQueryBuilder().addCriteria(fields.entrySet()
+                .stream()
+                .reduce(criteria,
+                        (crit, set) -> {
+                            if (doToJson.get(set.getKey()).getKey()) {
+                                crit.and(doToJson.get(set.getKey()).getValue()).is(set.getValue());
+                            } else {
+                                return crit.and(doToJson.get(set.getKey()).getValue()).regex(Objects.toString(set.getValue()));
+                            }
+                            return crit;
+                        },
+                        (a, b) -> a));
+    }
+
+    /**
+     * Ottiene l'elenco dei sinistri provvisori in base ad i parametri passati in input
+     */
+    public <K extends BaseSinistroDO> List<K> getElencoSinistriProvvisori(final InputRicercaDO inputRicerca) {
+        Query queryFromNotNullValues = getQueryFromNotNullValues(inputRicerca);
+        List<SinistroDBO> sinistroDBOS = findAll(SinistroDBO.class, queryFromNotNullValues)
+                .stream()
+                .filter(e -> inputRicerca.getUserLogged().getAmministratore()
+                        || inputRicerca.getUserLogged().getIdUser().equalsIgnoreCase(e.getUserLogged().getIdUser()))
+                .collect(Collectors.toList());
+        return sinistroDBOS.stream().map(e -> {
+            final Class<K> toPass = e.getSegnalazione() == null
+                    ? (Class<K>) BaseSinistroDO.class
+                    : getClassByGaranzia(e.getSegnalazione().getGaranziaSelected());
+            return converter.convertObject(e, toPass);
+        }).collect(Collectors.toList());
     }
 
     protected <T extends BaseSinistroDO> Class<T> getClassByGaranzia(final String garanziaSelected) {
@@ -87,61 +139,13 @@ public class SinistriRepository extends BaseRepository {
         return Boolean.TRUE;
     }
 
-    private Query getQueryFromNotNullValues(InputRicercaDO inputRicerca) {
-        Map<String, Object> fieldsNotNull = Arrays.stream(inputRicerca.getClass().getDeclaredFields())
-                .reduce(new HashMap<String, Object>(),
-                        (map, field) -> {
-                            try {
-                                field.setAccessible(true);
-                                final Object value = PropertyUtils.getProperty(inputRicerca, field.getName());
-                                if (value != null) {
-                                    map.put(field.getName(), value);
-                                }
-                                return map;
-                            } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e1) {
-                                return null;
-                            }
-                        },
-                        (a, b) -> a);
-        return getCriteriaQueryBuilder()
-                .addCriteria(doToJson
-                        .entrySet()
-                        .stream()
-                        .filter(e -> fieldsNotNull.keySet().contains(e.getKey()))
-                        .reduce(Criteria.where("compagnia").is(fieldsNotNull.get("compagnia")),
-                                (criteria, row) -> {
-                                    if (row.getValue().getKey()) {
-                                        return criteria.and(row.getValue().getValue()).is(fieldsNotNull.get(row.getKey()));
-                                    } else {
-                                        return criteria.and(row.getValue().getValue()).regex(Objects.toString(fieldsNotNull.get(row.getKey())));
-                                    }
-                                },
-                                (a, b) -> a));
-    }
-
-    /**
-     * Ottiene l'elenco dei sinistri provvisori in base ad i parametri passati in input
-     */
-    public<K extends BaseSinistroDO> List<K> getElencoSinistriProvvisori(final InputRicercaDO inputRicerca) {
-        Query queryFromNotNullValues = getQueryFromNotNullValues(inputRicerca);
-        List<SinistroDBO> sinistroDBOS = findAll(SinistroDBO.class, queryFromNotNullValues)
-                .stream()
-                .filter(e -> inputRicerca.getUserLogged().getAmministratore()
-                        || inputRicerca.getUserLogged().getIdUser().equalsIgnoreCase(e.getUserLogged().getIdUser()))
-                .collect(Collectors.toList());
-        return sinistroDBOS.stream().map(e -> {
-            final Class<K> toPass = e.getSegnalazione() == null
-                    ? (Class<K>) BaseSinistroDO.class
-                    : getClassByGaranzia(e.getSegnalazione().getGaranziaSelected());
-            return converter.convertObject(e, toPass);
-        }).collect(Collectors.toList());
-    }
 
     public FullPolizzaDO getPolizzaByNumPoli(final String numPoli) throws Exception {
         FullPolizzaDO fullPolizzaDO = converter.convertObject(mongoTemplate.findById(numPoli, FullPolizzaDBO.class), FullPolizzaDO.class);
-        if(fullPolizzaDO == null) throw new Exception();
+        if (fullPolizzaDO == null) throw new Exception();
         return fullPolizzaDO;
     }
+
     /**
      * Metodo che serve ad ottenere l'ultimo ID inserito nel database
      *
