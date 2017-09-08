@@ -53,7 +53,7 @@ public class SinistroController extends BaseController {
     public BaseDTO ricercaCopertura(@RequestBody InputRicercaDTO input,
                                     @RequestHeader(value = "user") final String userHeader) throws InternalMsaException {
         input.parseUserLogged(userHeader);
-        return sinistriService.ricercaCopertura(input);
+        return sinistriService.ricerca(input);
     }
 
 
