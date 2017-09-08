@@ -24,8 +24,9 @@
                 $ctrl.caricaMappe = function () {
                     PathSvc.getPath($ctrl.sinistroProvvisorio.numSinistroProvv).then(function (response) {
                         DebugSvc.log("getPath", response);
+                        var path = undefined;
                         if (response.data.status === 200) {
-                            var path = UtilSvc.mapToValueArray(response.data.result);
+                            path = UtilSvc.mapToValueArray(response.data.result);
                             $ctrl.mappe = path;
                         } else {
                             toastr.error($translate('global.generic.erroremappe'));
@@ -42,8 +43,9 @@
 
                     PathSvc.getNextPath(garanzia, $ctrl.sinistroProvvisorio.numSinistroProvv).then(function (response) {
                         DebugSvc.log("getNextPath", response);
+                        var path = undefined;
                         if (response.data.status === 200) {
-                            var path = UtilSvc.mapToValueArray(response.data.result);
+                            path = UtilSvc.mapToValueArray(response.data.result);
                             $ctrl.mappe = path;
                         } else {
                             toastr.error($translate('global.generic.erroremappe'));
@@ -72,24 +74,19 @@
                     switch (nomeMappa) {
                         case 'M12':
                             return $ctrl.mappe.indexOf('M12') > -1;
-                            break;
                         case 'M13':
                             return $ctrl.mappe.indexOf('M14') > -1 && $ctrl.tempSegnalazione.nveicoli > 1;
-                            break;
                         case 'M14':
                             return $ctrl.mappe.indexOf('M14') > -1;
-                            break;
                         case 'M15':
                         case 'M18':
                             return $ctrl.mappe.indexOf('M15') > -1;
-                            break;
                         case 'M20':
                             return $ctrl.mappe.indexOf('M20') > -1;
                         case 'M24':
                             return $ctrl.mappe.indexOf('M24') > -1;
                         default:
                             return false;
-                            break;
                     }
                 };
 

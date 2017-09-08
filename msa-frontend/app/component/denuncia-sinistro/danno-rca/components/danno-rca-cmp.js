@@ -128,7 +128,7 @@
                         } else {
                             toastr.error($translate('global.generic.saveko'));
                         }
-                    })
+                    });
 
                 };
 
@@ -197,7 +197,7 @@
                             $ctrl.isInputConsumed = true;
                         }
 
-                        if(newValues.targa !== undefined) {
+                        if (newValues.targa !== undefined) {
                             $ctrl.tempSegnalazione.targa = newValues.targa;
                         }
 

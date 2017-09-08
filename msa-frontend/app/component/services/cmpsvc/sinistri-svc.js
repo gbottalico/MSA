@@ -118,7 +118,7 @@ angular.module('msa').service(
                 if (datiEventoRca.interventoAutorita) {
                     dataObj.codAutorita = datiEventoRca.autoritaIntervenuta;
                     dataObj.comandoAutorita = datiEventoRca.comandoAutorita;
-                    dataObj.dataDenuncia = datiEventoRca.dataDenuncia.date
+                    dataObj.dataDenuncia = datiEventoRca.dataDenuncia.date;
                 }
 
                 var stringUrl = UtilSvc.stringFormat(msaServicesApiUrls.rca, idSinistroProvvisorio);
@@ -246,7 +246,7 @@ angular.module('msa').service(
                         temp.anagrafica.veicolo = dannoRca.veicoloControparte.veicolo;
                     }
 
-                    dataObj.push(temp)
+                    dataObj.push(temp);
 
                 });
 

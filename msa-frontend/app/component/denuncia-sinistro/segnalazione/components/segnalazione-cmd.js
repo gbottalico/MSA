@@ -8,8 +8,8 @@
             sinistroProvvisorio: "<",
             tempSegnalazione: "="
         },
-        controller: ("segnalazioneController", ['$scope', '$rootScope', '$translate', '$debugMode', '$filter', 'toastr', 'DomainSvc', 'PlacesSvc', 'SinistriSvc', 'UtilSvc', 'RegexSvc', 'DebugSvc',
-            function ($scope, $rootScope, $translate, $debugMode, $filter, toastr, DomainSvc, PlacesSvc, SinistriSvc, UtilSvc, RegexSvc, DebugSvc) {
+        controller: ("segnalazioneController", ['$scope', '$rootScope', '$debugMode', '$filter', 'toastr', 'DomainSvc', 'PlacesSvc', 'SinistriSvc', 'UtilSvc', 'RegexSvc', 'DebugSvc',
+            function ($scope, $rootScope, $debugMode, $filter, toastr, DomainSvc, PlacesSvc, SinistriSvc, UtilSvc, RegexSvc, DebugSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');

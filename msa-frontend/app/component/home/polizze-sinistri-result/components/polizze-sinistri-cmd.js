@@ -8,8 +8,8 @@
             bannerSearch: '=',
             bannerDenuncia: '='
         },
-        controller: ("polizzeSinistriController", ['$rootScope','$scope', '$translate','$log', 'toastr', '$analytics', '$location', '$cookies', '$window', '$sessionStorage', 'DebugSvc','$uibModal',
-            function ($rootScope,$scope, $translate, $log, toastr, $analytics, location, $cookies, $window, $sessionStorage, DebugSvc, $uibModal) {
+        controller: ("polizzeSinistriController", ['$rootScope', '$scope', '$translate', '$log', 'toastr', '$analytics', '$location', '$cookies', '$window', '$sessionStorage', 'DebugSvc', '$uibModal',
+            function ($rootScope, $scope, $translate, $log, toastr, $analytics, location, $cookies, $window, $sessionStorage, DebugSvc, $uibModal) {
 
                 var $ctrl = this;
 
@@ -150,123 +150,122 @@
                     }
                 ];
                 $ctrl.dettagliopolizza = {
-                    "copertura" : true,
-                    "id" : 601569,
-                    "codErr" : 0,
-                    "errore" : "",
-                    "numPolizza" : "PRP8821973",
-                    "prodotto" : "Prodotto viaggia con me (clear box)",
-                    "dataCopertura" : "2016-11-06T00:00:00+0100",
-                    "dataScadenza" : "2017-11-06T00:00:00+0100",
-                    "frazionamento" : "ANNUALE",
-                    "dataImmatricolazione" : "2009-07-23T00:00:00+0200",
-                    "dataAcquisto" : "2009-07-23T00:00:00+0200",
-                    "classeVeicolo" : "AUTOVETTURA",
-                    "targa" : "DW192RT",
-                    "telaio" : "TEL000044423AIO",
-                    "marca" : "OPEL",
-                    "modello" : "Zafira 2^A Serie",
-                    "allestimento" : "Zafira 1.6 ecoM 94 CV Cosmo",
-                    "hp" : 94,
-                    "ql" : 1590,
-                    "cc" : 1598,
-                    "valoreAssicurato" : 5200,
-                    "tipoGuida" : "Guida esperta - tutti i guidatori hanno piÃÂ¹ di 26 anni",
-                    "progVeicolo" : null,
-                    "codfiscContraente" : "NGLFBA53E16L736S",
-                    "cognomeContraente" : "Angelini",
-                    "nomeContraente" : "Fabio",
-                    "indirizzoContraente" : "Via Berchet 10/A",
-                    "capContraente" : "30175",
-                    "cittaContraente" : "Venezia",
-                    "provinciaContraente" : "VE",
-                    "codfiscProprietario" : "NGLFBA53E16L736S",
-                    "cognomeProprietario" : "Angelini",
-                    "nomeProprietario" : "Fabio",
-                    "indirizzoProprietario" : "Via Berchet 10/A",
-                    "capProprietario" : "30175",
-                    "cittaProprietario" : "Venezia",
-                    "provinciaProprietario" : "VE",
-                    "codPacchetto" : null,
-                    "codPacchetto2" : null,
-                    "cellulare" : "3881824740",
-                    "email" : "angelini.alvise@hotmail.it",
-                    "brokerAgenzia" : null,
-                    "collabor" : null,
-                    "brokerAnagrafica" : null,
-                    "brokerIndirizzo" : null,
-                    "brokerCap" : null,
-                    "brokerCitta" : null,
-                    "brokerProvincia" : null,
-                    "utilizzatore" : null,
-                    "listaGaranzie" : [{
-                        "codice" : "rca",
-                        "descrizione" : "rca",
-                        "sommaAssicurata" : 0.0,
-                        "franchigia" : 0.0,
-                        "scoperto" : 0.0,
-                        "massimalePersone" : 1.0E7,
-                        "massimaleCose" : 5000000.0,
-                        "massimaleVeicolo" : 0.0,
-                        "dataCoperturaGaranzia" : null,
-                        "dataScadenzaGaranzia" : null,
-                        "isRcaConFranchigia" : false
+                    "copertura": true,
+                    "id": 601569,
+                    "codErr": 0,
+                    "errore": "",
+                    "numPolizza": "PRP8821973",
+                    "prodotto": "Prodotto viaggia con me (clear box)",
+                    "dataCopertura": "2016-11-06T00:00:00+0100",
+                    "dataScadenza": "2017-11-06T00:00:00+0100",
+                    "frazionamento": "ANNUALE",
+                    "dataImmatricolazione": "2009-07-23T00:00:00+0200",
+                    "dataAcquisto": "2009-07-23T00:00:00+0200",
+                    "classeVeicolo": "AUTOVETTURA",
+                    "targa": "DW192RT",
+                    "telaio": "TEL000044423AIO",
+                    "marca": "OPEL",
+                    "modello": "Zafira 2^A Serie",
+                    "allestimento": "Zafira 1.6 ecoM 94 CV Cosmo",
+                    "hp": 94,
+                    "ql": 1590,
+                    "cc": 1598,
+                    "valoreAssicurato": 5200,
+                    "tipoGuida": "Guida esperta - tutti i guidatori hanno più di 26 anni",
+                    "progVeicolo": null,
+                    "codfiscContraente": "NGLFBA53E16L736S",
+                    "cognomeContraente": "Angelini",
+                    "nomeContraente": "Fabio",
+                    "indirizzoContraente": "Via Berchet 10/A",
+                    "capContraente": "30175",
+                    "cittaContraente": "Venezia",
+                    "provinciaContraente": "VE",
+                    "codfiscProprietario": "NGLFBA53E16L736S",
+                    "cognomeProprietario": "Angelini",
+                    "nomeProprietario": "Fabio",
+                    "indirizzoProprietario": "Via Berchet 10/A",
+                    "capProprietario": "30175",
+                    "cittaProprietario": "Venezia",
+                    "provinciaProprietario": "VE",
+                    "codPacchetto": null,
+                    "codPacchetto2": null,
+                    "cellulare": "3881824740",
+                    "email": "angelini.alvise@hotmail.it",
+                    "brokerAgenzia": null,
+                    "collabor": null,
+                    "brokerAnagrafica": null,
+                    "brokerIndirizzo": null,
+                    "brokerCap": null,
+                    "brokerCitta": null,
+                    "brokerProvincia": null,
+                    "utilizzatore": null,
+                    "listaGaranzie": [{
+                        "codice": "rca",
+                        "descrizione": "rca",
+                        "sommaAssicurata": 0.0,
+                        "franchigia": 0.0,
+                        "scoperto": 0.0,
+                        "massimalePersone": 1.0E7,
+                        "massimaleCose": 5000000.0,
+                        "massimaleVeicolo": 0.0,
+                        "dataCoperturaGaranzia": null,
+                        "dataScadenzaGaranzia": null,
+                        "isRcaConFranchigia": false
                     }, {
-                        "codice" : "furto_incendio",
-                        "descrizione" : "furto incendio",
-                        "sommaAssicurata" : 0.0,
-                        "franchigia" : 200.0,
-                        "scoperto" : 10.0,
-                        "massimalePersone" : 0.0,
-                        "massimaleCose" : 0.0,
-                        "massimaleVeicolo" : 0.0,
-                        "dataCoperturaGaranzia" : null,
-                        "dataScadenzaGaranzia" : null,
-                        "isRcaConFranchigia" : false
+                        "codice": "furto_incendio",
+                        "descrizione": "furto incendio",
+                        "sommaAssicurata": 0.0,
+                        "franchigia": 200.0,
+                        "scoperto": 10.0,
+                        "massimalePersone": 0.0,
+                        "massimaleCose": 0.0,
+                        "massimaleVeicolo": 0.0,
+                        "dataCoperturaGaranzia": null,
+                        "dataScadenzaGaranzia": null,
+                        "isRcaConFranchigia": false
                     }, {
-                        "codice" : "assistenza_stradale",
-                        "descrizione" : "assistenza stradale",
-                        "sommaAssicurata" : 0.0,
-                        "franchigia" : 0.0,
-                        "scoperto" : 0.0,
-                        "massimalePersone" : 0.0,
-                        "massimaleCose" : 0.0,
-                        "massimaleVeicolo" : 0.0,
-                        "dataCoperturaGaranzia" : null,
-                        "dataScadenzaGaranzia" : null,
-                        "isRcaConFranchigia" : false
+                        "codice": "assistenza_stradale",
+                        "descrizione": "assistenza stradale",
+                        "sommaAssicurata": 0.0,
+                        "franchigia": 0.0,
+                        "scoperto": 0.0,
+                        "massimalePersone": 0.0,
+                        "massimaleCose": 0.0,
+                        "massimaleVeicolo": 0.0,
+                        "dataCoperturaGaranzia": null,
+                        "dataScadenzaGaranzia": null,
+                        "isRcaConFranchigia": false
                     }, {
-                        "codice" : "eventi_naturali",
-                        "descrizione" : "eventi naturali",
-                        "sommaAssicurata" : 0.0,
-                        "franchigia" : 500.0,
-                        "scoperto" : 10.0,
-                        "massimalePersone" : 0.0,
-                        "massimaleCose" : 0.0,
-                        "massimaleVeicolo" : 0.0,
-                        "dataCoperturaGaranzia" : null,
-                        "dataScadenzaGaranzia" : null,
-                        "isRcaConFranchigia" : false
+                        "codice": "eventi_naturali",
+                        "descrizione": "eventi naturali",
+                        "sommaAssicurata": 0.0,
+                        "franchigia": 500.0,
+                        "scoperto": 10.0,
+                        "massimalePersone": 0.0,
+                        "massimaleCose": 0.0,
+                        "massimaleVeicolo": 0.0,
+                        "dataCoperturaGaranzia": null,
+                        "dataScadenzaGaranzia": null,
+                        "isRcaConFranchigia": false
                     }, {
-                        "codice" : "eventi_sociopolitici",
-                        "descrizione" : "eventi sociopolitici",
-                        "sommaAssicurata" : 0.0,
-                        "franchigia" : 500.0,
-                        "scoperto" : 10.0,
-                        "massimalePersone" : 0.0,
-                        "massimaleCose" : 0.0,
-                        "massimaleVeicolo" : 0.0,
-                        "dataCoperturaGaranzia" : null,
-                        "dataScadenzaGaranzia" : null,
-                        "isRcaConFranchigia" : false
+                        "codice": "eventi_sociopolitici",
+                        "descrizione": "eventi sociopolitici",
+                        "sommaAssicurata": 0.0,
+                        "franchigia": 500.0,
+                        "scoperto": 10.0,
+                        "massimalePersone": 0.0,
+                        "massimaleCose": 0.0,
+                        "massimaleVeicolo": 0.0,
+                        "dataCoperturaGaranzia": null,
+                        "dataScadenzaGaranzia": null,
+                        "isRcaConFranchigia": false
                     }
                     ]
                 };
 
 
-                $ctrl.dettaglioPolizza = function (index ) {
-//Qui bisogna cercare in base al numero di polizza
-
+                $ctrl.dettaglioPolizza = function (index) {
+                    //Qui bisogna cercare in base al numero di polizza
 
                     var modalInstance = $uibModal.open({
                         animation: true,
@@ -276,21 +275,18 @@
                         component: 'msaDettaglioPolizzaModal',
                         resolve: {
                             polizza: function () {
-                               return $ctrl.dettagliopolizza;
+                                return $ctrl.dettagliopolizza;
                             }
                         }
                     });
 
                     modalInstance.result.then(function (dettagliopolizza) {
-                        DebugSvc.log("dettaglioPolizza" );
+                        DebugSvc.log("dettaglioPolizza");
                     }, function () {
                         DebugSvc.log("dettaglio polizza chiuso dismiss.");
                     });
 
-                }
-
-
-
+                };
 
             }])
     });
