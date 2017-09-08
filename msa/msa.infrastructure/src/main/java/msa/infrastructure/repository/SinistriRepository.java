@@ -118,15 +118,19 @@ public class SinistriRepository extends BaseRepository {
     /**
      * Ottiene l'elenco dei sinistri provvisori in base ad i parametri passati in input
      */
-    public List<BaseSinistroDO> getElencoSinistriProvvisori(final InputRicercaDO inputRicerca) {
+    public<K extends BaseSinistroDO> List<K> getElencoSinistriProvvisori(final InputRicercaDO inputRicerca) {
         Query queryFromNotNullValues = getQueryFromNotNullValues(inputRicerca);
         List<SinistroDBO> sinistroDBOS = findAll(SinistroDBO.class, queryFromNotNullValues)
                 .stream()
                 .filter(e -> inputRicerca.getUserLogged().getAmministratore()
                         || inputRicerca.getUserLogged().getIdUser().equalsIgnoreCase(e.getUserLogged().getIdUser()))
                 .collect(Collectors.toList());
-        //Todo MOCK codici garanzia
-        return converter.convertList(sinistroDBOS, BaseSinistroDO.class);
+        return sinistroDBOS.stream().map(e -> {
+            final Class<K> toPass = e.getSegnalazione() == null
+                    ? (Class<K>) BaseSinistroDO.class
+                    : getClassByGaranzia(e.getSegnalazione().getGaranziaSelected());
+            return converter.convertObject(e, toPass);
+        }).collect(Collectors.toList());
     }
 
     /**

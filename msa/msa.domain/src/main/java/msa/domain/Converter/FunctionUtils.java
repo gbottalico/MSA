@@ -108,4 +108,13 @@ public final class FunctionUtils {
     public static String removePatternInList(final String value, final String... toRemove) {
         return Stream.concat(Stream.of(value), Stream.of(toRemove)).reduce((a, b) -> a.replaceAll(b, "")).orElse(value);
     }
+
+    @SuppressWarnings("unchecked")
+    public static<T> T castValueByClass(Object elem, Class<T> clazz) {
+        return (T) elem;
+    }
+
+    public static<T> List<T> castValueByClass(List<Object> elems, Class<T> clazz) {
+        return elems.stream().map(e -> castValueByClass(e,clazz)).collect(Collectors.toList());
+    }
 }

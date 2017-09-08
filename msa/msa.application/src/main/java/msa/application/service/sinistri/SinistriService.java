@@ -4,6 +4,8 @@ import msa.application.commons.Constants;
 import msa.application.config.BaseDTO;
 import msa.application.config.enumerator.MessageType;
 import msa.application.dto.ricerca.InputRicercaDTO;
+import msa.application.dto.ricerca.OutputRicercaDTO;
+import msa.application.dto.ricerca.PolizzeDTO;
 import msa.application.dto.sinistro.*;
 import msa.application.dto.sinistro.anagrafica.AnagraficaTerzePartiDTO;
 import msa.application.dto.sinistro.rca.cai.CaiDTO;
@@ -43,6 +45,17 @@ public class SinistriService extends BaseSinistroService {
     @Autowired
     private DispatcherService dispatcherService;
 
+    @SuppressWarnings("unchecked")
+    public BaseDTO<OutputRicercaDTO> ricerca(InputRicercaDTO input) throws InternalMsaException {
+        List<Object> objects = execInParallel(
+                () -> ricercaSinistriProvvisori(input),
+                () -> ricercaPolizze(input)
+        );
+        final OutputRicercaDTO toReturn = new OutputRicercaDTO();
+        toReturn.setSinistriProvvisori((List<? extends BaseSinistroDTO>) objects.get(0));
+        toReturn.setPolizze(FunctionUtils.castValueByClass((List) objects.get(1), PolizzeDTO.class));
+        return new BaseDTO<>(toReturn);
+    }
 
     /**
      * Metodo che effettua la ricerca le coperture in base ai parametri passati in input
@@ -50,12 +63,23 @@ public class SinistriService extends BaseSinistroService {
      * @param input un oggetto di tipo InputRicercaDTO che contiene le informazioni con cui effettuare la ricerca
      * @return
      */
-    public BaseDTO<List<BaseSinistroDTO>> ricercaCopertura(InputRicercaDTO input) throws InternalMsaException {
+    private <K extends BaseSinistroDTO> List<K> ricercaSinistriProvvisori(final InputRicercaDTO input) throws InternalMsaException {
         if (FunctionUtils.checkIsNotNull(input.getCompagnia()/**, input.getDataEvento()*/)) {
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA003"));
         }
         InputRicercaDO inputRicercaDO = converter.convertObject(input, InputRicercaDO.class);
-        return new BaseDTO<>(converter.convertList(sinistriRepository.getElencoSinistriProvvisori(inputRicercaDO), BaseSinistroDTO.class));
+        return sinistriRepository.getElencoSinistriProvvisori(inputRicercaDO).stream().map(e -> {
+            final Class<K> toPass = e.getSegnalazione() == null
+                    ? (Class<K>) BaseSinistroDTO.class
+                    : getClassByGaranzia(e.getSegnalazione().getGaranziaSelected());
+            return converter.convertObject(e, toPass);
+        }).collect(Collectors.toList());
+    }
+
+    private List<PolizzeDTO> ricercaPolizze(final InputRicercaDTO input) throws InternalMsaException {
+        //Todo MOCK
+        //Todo Add polizze mock
+        return null;
     }
 
     /**
