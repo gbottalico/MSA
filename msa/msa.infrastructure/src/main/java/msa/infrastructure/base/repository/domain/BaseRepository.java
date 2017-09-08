@@ -1,6 +1,7 @@
 package msa.infrastructure.base.repository.domain;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mongodb.WriteResult;
 import msa.domain.Converter.MsaConverter;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.tuple.Pair;
@@ -125,5 +126,9 @@ public class BaseRepository {
 
     protected <T, I> T findById(Class<T> dboClass, I id) {
         return mongoTemplate.findById(id, dboClass);
+    }
+
+    protected<T> void delete(final T elem) {
+        mongoTemplate.remove(elem);
     }
 }

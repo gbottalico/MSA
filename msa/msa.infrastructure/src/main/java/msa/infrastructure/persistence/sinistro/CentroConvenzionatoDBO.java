@@ -1,6 +1,5 @@
 package msa.infrastructure.persistence.sinistro;
 
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 public class CentroConvenzionatoDBO {
@@ -12,8 +11,6 @@ public class CentroConvenzionatoDBO {
     private String longitudine;
     @Field("latitudines")
     private String latitudine;
-    @Field("perito")
-    private PeritoDBO perito;
 
     public Integer getId() {
         return id;
@@ -45,13 +42,5 @@ public class CentroConvenzionatoDBO {
 
     public void setLatitudine(String latitudine) {
         this.latitudine = latitudine;
-    }
-
-    public PeritoDBO getPerito() {
-        return perito;
-    }
-
-    public void setPerito(PeritoDBO perito) {
-        this.perito = perito;
     }
 }

@@ -28,7 +28,7 @@ public class DocumentiController extends BaseController {
 
     @ApiOperation(value = "Metodo che effettua il caricamento di un file")
     @RequestMapping(value = "/{numeroSinistro}/{codTipoDoc}/upload", method = RequestMethod.POST)
-    public BaseDTO uploadDocumenti(@RequestParam("file") final MultipartFile file,
+    public BaseDTO<DocumentoDTO> uploadDocumenti(@RequestParam("file") final MultipartFile file,
                                    @PathVariable("numeroSinistro") final Integer numSinistro,
                                    @PathVariable("codTipoDoc") final Integer codTipoDoc,
                                    @RequestParam(value = "dataRicezione", required = false) final Date dataRicezione,
@@ -42,12 +42,19 @@ public class DocumentiController extends BaseController {
         return documentiService.getListaDocumenti(numSinistro);
     }
 
-    @ApiOperation(value = "Metodo che restituisce tutti i documenti caricati per quel sinistro")
+    @ApiOperation(value = "Metodo che restituisce il documento selezionato")
     @RequestMapping(value = "/{idDoc}/get", method = RequestMethod.GET)
     public ResponseEntity<Resource> stampaDocumento(@PathVariable(value = "idDoc") final Integer idDoc) throws InternalMsaException {
 
         return documentiService.getDocumento(idDoc);
     }
+
+    @ApiOperation(value = "Metodo che elimina un documento tramite il suo id")
+    @RequestMapping(value = "/{idDoc}/delete", method = RequestMethod.GET)
+    public BaseDTO deleteDoc(@PathVariable(value = "idDoc") final Integer idDoc) throws InternalMsaException {
+        return documentiService.deleteDoc(idDoc);
+    }
+
 
 
 }

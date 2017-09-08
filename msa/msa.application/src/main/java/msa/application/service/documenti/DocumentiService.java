@@ -47,7 +47,7 @@ public class DocumentiService extends BaseService {
      * @return
      * @throws InternalMsaException
      */
-    public BaseDTO uploadDocumento(MultipartFile file, Integer numSinistro, Integer codTipoDoc, String userHeader, Optional<Date> dataRicezione) throws InternalMsaException {
+    public BaseDTO<DocumentoDTO> uploadDocumento(MultipartFile file, Integer numSinistro, Integer codTipoDoc, String userHeader, Optional<Date> dataRicezione) throws InternalMsaException {
         final String path = saveFileOnDirectory(file, numSinistro);
         try {
             DocumentoDTO documentoDTO = new DocumentoDTO();
@@ -58,7 +58,7 @@ public class DocumentiService extends BaseService {
             documentoDTO.setPath(path);
             documentoDTO.parseUserLogged(userHeader);
             if (documentiRepository.insertDocumento(converter.convertObject(documentoDTO, DocumentoDO.class))) {
-                return new BaseDTO<>();
+                return new BaseDTO<>(documentoDTO);
             } else {
                 throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA007"));
             }
@@ -69,7 +69,6 @@ public class DocumentiService extends BaseService {
             rollbackDocumento(path);
             throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA007"));
         }
-
     }
 
     /**
@@ -90,6 +89,14 @@ public class DocumentiService extends BaseService {
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA007"));
         }
 
+    }
+
+    public BaseDTO deleteDoc(final Integer idDoc) throws InternalMsaException {
+        DocumentoDO documentoDO = documentiRepository.find(idDoc);
+        if(documentiRepository.deleteDoc(documentoDO)) {
+            rollbackDocumento(documentoDO.getPath());
+        }
+        return new BaseDTO<>();
     }
 
     /**
@@ -133,7 +140,7 @@ public class DocumentiService extends BaseService {
         final Function<String, String> dateInStringPlusEstension = dateAsString -> dateAsString + "." + FilenameUtils.getExtension(originalFileName);
         final Function<String, String> completePath = dateAndExtension -> originalFileName.substring(0, originalFileName.indexOf(extension) - 1) + dateAndExtension;
         final Function<Date, String> DATE_TO_PATH = Constants.DATE_TO_STRING_DOT.andThen(dateInStringPlusEstension).andThen(completePath);
-        return dateToConcat.map(DATE_TO_PATH).orElse(null);
+        return dateToConcat.map(DATE_TO_PATH).orElse(null).replace(" ", "_");
 
     }
 

@@ -22,7 +22,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 /**
  * Created by simon.calabrese on 02/08/2017.
@@ -68,7 +67,7 @@ public class BaseSinistroService extends BaseService {
         coupleSinistroFunctions.add(new SinistroFunction<>(SinistroKaskoDTO.class, KASKO));
         coupleSinistroFunctions.add(new SinistroFunction<>(SinistroCristalliDTO.class, CRISTALLI));
         coupleSinistroFunctions.add(new SinistroFunction<>(SinistroInfortuniConducenteDTO.class, INFORTUNI_CONDUCENTE));
-        coupleSinistroFunctions.add(new SinistroFunction<>(CentroConvenzionatoDTO.class, CENTRO_CONVENZIONATO));
+        //coupleSinistroFunctions.add(new SinistroFunction<>(CentroConvenzionatoDTO.class, CENTRO_CONVENZIONATO));
 
     }
 
@@ -304,7 +303,7 @@ public class BaseSinistroService extends BaseService {
                 }
 
             };
-    private final MsaBiFunction<CentroConvenzionatoDTO, Integer, BaseSinistroDO> CENTRO_CONVENZIONATO =
+   /* private final MsaBiFunction<CentroConvenzionatoDTO, Integer, SinistroRcaDO> CENTRO_CONVENZIONATO =
             (o, numSinistro) -> {
                 try {
                     final BaseSinistroDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistro, BaseSinistroDO.class);
@@ -313,5 +312,5 @@ public class BaseSinistroService extends BaseService {
                 } catch (Exception e) {
                     throw new InternalMsaException();
                 }
-            };
+            };*/
 }

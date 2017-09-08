@@ -4,6 +4,7 @@ import msa.domain.object.documenti.DocumentoDO;
 import msa.infrastructure.base.repository.domain.BaseRepository;
 import msa.infrastructure.persistence.documenti.DocumentoDBO;
 import org.apache.commons.lang3.tuple.Pair;
+import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Repository;
 
 import java.util.Comparator;
@@ -32,14 +33,19 @@ public class DocumentiRepository extends BaseRepository {
     }
 
     public List<DocumentoDO> getListaDocumenti(Integer numSinistro) {
-        return getListaDocumenti(Pair.of("numSinistro",numSinistro));
+        return getListaDocumenti(Pair.of("numSinistro", numSinistro));
     }
 
-    public List<DocumentoDO> getListaDocumenti(Pair<String,Object> param) {
-        return converter.convertList(findAll(DocumentoDBO.class, param),DocumentoDO.class);
+    public List<DocumentoDO> getListaDocumenti(Pair<String, Object> param) {
+        return converter.convertList(findAll(DocumentoDBO.class, param), DocumentoDO.class);
     }
 
     public DocumentoDO find(Integer idDoc) {
-        return converter.convertObject(mongoTemplate.findById(idDoc,DocumentoDBO.class),DocumentoDO.class);
+        return converter.convertObject(mongoTemplate.findById(idDoc, DocumentoDBO.class), DocumentoDO.class);
+    }
+
+    public Boolean deleteDoc(DocumentoDO documentoDO) {
+        delete(converter.convertObject(documentoDO, DocumentoDBO.class));
+        return Boolean.TRUE;
     }
 }

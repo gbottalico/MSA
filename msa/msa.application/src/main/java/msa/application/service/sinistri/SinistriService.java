@@ -316,7 +316,7 @@ public class SinistriService extends BaseSinistroService {
         }
     }
 
-    public<K extends BaseSinistroDO> BaseDTO salvaPerito(PeritoDTO input, Integer numSinistro) throws InternalMsaException {
+    public <K extends BaseSinistroDO> BaseDTO salvaPerito(PeritoDTO input, Integer numSinistro) throws InternalMsaException {
 
         final K sinistroDOByDTO;
         try {
@@ -396,15 +396,25 @@ public class SinistriService extends BaseSinistroService {
             centri.add(new CentroConvenzionatoDTO(1, "Parco 2 Giugno", "16.8742974", "41.1044346"));
             centri.add(new CentroConvenzionatoDTO(2, "Campus Via Orabona ", "16.8789361", "41.1074986"));
             centri.add(new CentroConvenzionatoDTO(3, "Policlinico", "16.862622", "41.112062", getPerito("ciao")));
-
         }
         return centri;
 
 
     }
 
-    public BaseDTO salvaCentroConvenzionato(CentroConvenzionatoDTO input, Integer numSinistro) throws InternalMsaException {
-        if (salvaSinistro(getSinistroDOByDTO(input, numSinistro))) {
+    public <K extends BaseSinistroDO> BaseDTO salvaCentroConvenzionato(CentroConvenzionatoDTO input, Integer numSinistro) throws InternalMsaException {
+        final K sinistroDOByDTO;
+        try {
+            sinistroDOByDTO = sinistriRepository.getSinistroByNumProvv(numSinistro);
+            sinistroDOByDTO.setCentroConvenzionato(converter.convertObject(input, CentroConvenzionatoDO.class));
+        } catch (Exception ex) {
+            throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione Salvataggio dati centro convenzionato")));
+        }
+        if (input.getPerito() != null) {
+            //perito default per quel centro convenzionato
+            sinistroDOByDTO.setPerito(converter.convertObject(input.getPerito(), PeritoDO.class));
+        }
+        if (salvaSinistro(sinistroDOByDTO)) {
             return new BaseDTO<>();
         }
         throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione Salvataggio dati centro convenzionato")));
