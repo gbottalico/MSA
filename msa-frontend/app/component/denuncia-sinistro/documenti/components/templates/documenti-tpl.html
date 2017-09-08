@@ -28,6 +28,8 @@
                             <a href="{{documento.path}}" target="_self" download>
                                 <i class="fa fa-cloud-download" aria-hidden="true"></i>
                             </a>
+                            &nbsp;
+                            <i ng-click="$ctrl.cancellaFile($index);" class="fa fa-trash-o" aria-hidden="true"></i>
                         </td>
                     </tr>
                     </tbody>

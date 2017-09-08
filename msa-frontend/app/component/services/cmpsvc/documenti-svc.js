@@ -26,6 +26,11 @@ angular.module('msa').service(
 
             };
 
+            $svc.delete = function(idDocumento) {
+                var url = UtilSvc.stringFormat(msaServicesApiUrls.delete, idDocumento);
+                return $http.get(url);
+            };
+
             $svc.getLista = function (idSinistroProvvisorio) {
                 var url = UtilSvc.stringFormat(msaServicesApiUrls.listadoc, idSinistroProvvisorio);
                 return $http.get(url);

@@ -55,7 +55,7 @@ function getMSAC() {
             DENUNCIA: "/denuncia"
         },
         API_KEYS: {
-            MAPS: "AIzaSyClOUgLxnK_B5-IdKK4EjavitUwoqxLr14"
+            MAPS: "AIzaSyClOUgLxnK_B5-IdKK4EjavitUwoqxLr14" //TODO cambiare
         },
         MAPS_THEME: [
             {

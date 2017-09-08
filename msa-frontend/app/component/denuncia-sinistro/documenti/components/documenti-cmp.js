@@ -45,11 +45,24 @@
                     });
 
                     modalInstance.result.then(function (documento) {
-                        DebugSvc.log("aggiungiTerzeParti", documento);
+                        DebugSvc.log("aggiungiFile", documento);
                         documento = DocumentiSvc.getName(documento);
                         $ctrl.documenti.push(documento);
                     }, function () {
-                        DebugSvc.log("aggiungiTerzeParti dismiss.");
+                        DebugSvc.log("aggiungiFile dismiss.");
+                    });
+                };
+
+                $ctrl.cancellaFile = function (index) {
+                    var idDocumento = $ctrl.documenti[index].idDocumento;
+                    DocumentiSvc.delete(idDocumento).then(function (response) {
+                        DebugSvc.log("cancellaFile", response);
+                        if (response.data.status === 200) {
+                            $ctrl.documenti.splice(index, 1);
+                            toastr.success($translate('global.generic.saveok'));
+                        } else {
+                            toastr.error($translate('global.generic.saveko'));
+                        }
                     });
                 };
 

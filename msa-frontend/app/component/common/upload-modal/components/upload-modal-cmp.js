@@ -35,7 +35,7 @@
                             toastr.success($translate('global.generic.saveok'));
                             $ctrl.success = true;
                             $timeout(function () {
-                                $ctrl.ok(); //TODO restituire la roba.
+                                $ctrl.ok(response.data.result); //TODO restituire la roba.
                             }, 1500);
                         } else {
                             toastr.error($translate('global.generic.saveko'));
@@ -48,8 +48,8 @@
                     });
                 };
 
-                $ctrl.ok = function () {
-                    $ctrl.close({$value: undefined});
+                $ctrl.ok = function (result) {
+                    $ctrl.close({$value: result});
                 };
 
                 $ctrl.cancel = function () {
