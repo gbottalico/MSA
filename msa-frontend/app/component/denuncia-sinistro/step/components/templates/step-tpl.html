@@ -67,30 +67,17 @@
 </div>
 <!--END USER-->
 
-<!--BOTTONI-->
-<div class="containerBody">
-	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container boxShadow">
-		<div class="body">
-			<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 smallButton">
-				<p><i class="fa fa-floppy-o" aria-hidden="true"></i> {{'global.generic.salva' | translate}}</p>
-			</div>
-			<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 smallButton">
-				<p><i class="fa fa-question" aria-hidden="true"></i> {{'global.generic.help' | translate}}</p>
-			</div>
-		</div>
-	</div>
-</div>
-<!--END BOTTONI-->
-
 <!--SEGNALAZIONI-->
 <div class="containerBody">
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container boxShadow">
 		<ul class="listaSsegnalazioni">
 			<!--<li ng-click="$ctrl.step = 1" ng-show="$ctrl.step >= 1">-->
-			<li ng-click="$ctrl.step = 1">
-				<div class="segnalazione" ng-class="{'line-enabled': $ctrl.step == 1, 'line-disabled': $ctrl.step > 1}">{{'global.step.labels.segnalazione' | translate}}</div>
+			<li ng-click="$ctrl.scrollTo('M14')">
+				<div class="segnalazione" ng-class="{'line-enabled': $ctrl.step == 1, 'line-disabled': $ctrl.step > 1}">
+                    {{'global.step.labels.segnalazione' | translate}}
+                </div>
 			</li>
-			<li ng-click="$ctrl.step = 2">
+			<li ng-click="$ctrl.step = 2" ng-if="$parent.isMappaVisibile('M12')">
 				<div class="segnalazione" ng-class="{'line-enabled': $ctrl.step == 2, 'line-disabled': $ctrl.step > 2}">{{'global.step.labels.evento' | translate}}</div>
 			</li>
 			<li ng-click="$ctrl.step = 3">
@@ -115,3 +102,19 @@
 	</div>
 </div>
 <!--END SEGNALAZIONI-->
+
+
+<!--BOTTONI-->
+<div class="containerBody">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container boxShadow">
+        <div class="body">
+            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 smallButton">
+                <p><i class="fa fa-floppy-o" aria-hidden="true"></i> {{'global.generic.salva' | translate}}</p>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 smallButton">
+                <p><i class="fa fa-question" aria-hidden="true"></i> {{'global.generic.help' | translate}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--END BOTTONI-->

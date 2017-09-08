@@ -7,13 +7,15 @@
             valoriRicerca: '=',
             datiContraente: '='
         },
-        controller: ("stepController", ['$rootScope', '$scope', '$filter', 'UtilSvc', 'PlacesSvc',
-            function ($rootScope, $scope, $filter, UtilSvc, PlacesSvc) {
+        controller: ("stepController", ['$rootScope', '$scope', '$filter', '$document', '$location', '$anchorScroll', 'UtilSvc', 'PlacesSvc',
+            function ($rootScope, $scope, $filter, $document, $location, $anchorScroll, UtilSvc, PlacesSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
+                var parent = $scope.$parent;
                 $ctrl.step = 1;
                 $ctrl.user = {};
+
 
                 $ctrl.bindUser = function () {
 
@@ -56,6 +58,13 @@
                     $ctrl.user.recapiti = $ctrl.user.recapiti.join(", ") || $translate("global.step.labels.nessunrecapito");
                 };
 
+
+                $ctrl.scrollTo = function (id) {
+                    $location.hash(id);
+                    var elem = angular.element(document.getElementById(id));
+                    $document.scrollToElement(elem, 30, 500);
+                    //$anchorScroll();
+                };
 
                 $scope.$watch(
                     function watchScope(scope) {

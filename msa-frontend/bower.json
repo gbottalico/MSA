@@ -45,7 +45,8 @@
     "angulartics-google-analytics": "^0.4.0",
     "angulartics": "^1.4.0",
     "angular-google-maps": "^2.4.1",
-    "ngBootbox": "^0.2.0"
+    "ngBootbox": "^0.2.0",
+    "angular-scroll": "^1.0.2"
   },
   "resolutions": {
     "angular": "~1.5.9"

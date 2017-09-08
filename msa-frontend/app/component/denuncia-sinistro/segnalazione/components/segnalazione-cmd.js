@@ -104,6 +104,7 @@
 
                 $ctrl.$onInit = function () {
                     parent.mappaCaricata($ctrl.mapId);
+                    DebugSvc.log("$scope", $scope);
                 };
 
                 $scope.$watch(

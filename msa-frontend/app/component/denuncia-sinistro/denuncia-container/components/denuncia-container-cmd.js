@@ -102,6 +102,10 @@
                     $ctrl.mappaCaricata(mapId);
                 };
 
+                $scope.isMappaVisibile = function (nomeMappa) {
+                    return $ctrl.isMappaVisibile(nomeMappa);
+                };
+
                 $ctrl.getSinistroProvvisorio = function (numeroSinistroProvvisorio) {
                     SinistriSvc.cercaSinistroProvvisorio(numeroSinistroProvvisorio).then(function (response) {
                         var result = response.data.result;

@@ -4,7 +4,7 @@ var app = angular.module('msa', ['pascalprecht.translate', 'ngStorage',
     'ngAnimate', 'ui.select', 'ui.bootstrap.showErrors', 'ngFileUpload',
     'ngStomp', 'cgBusy', 'angular-loading-bar', 'textAngular', 'rzModule',
     'toastr', 'toggle-switch', 'angulartics',
-    'angulartics.google.analytics', 'ngRoute', 'uiGmapgoogle-maps', 'ngBootbox']);
+    'angulartics.google.analytics', 'ngRoute', 'uiGmapgoogle-maps', 'ngBootbox', 'duScroll']);
 
 /**
  * Parametri di configurazione dell'applicazione.
@@ -292,3 +292,4 @@ app.factory('messageInterceptor', function ($rootScope) {
 app.config(['$httpProvider', function ($httpProvider) {
     $httpProvider.interceptors.push("messageInterceptor");
 }]);
+
