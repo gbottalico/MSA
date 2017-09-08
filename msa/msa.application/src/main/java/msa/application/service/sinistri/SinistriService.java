@@ -3,6 +3,7 @@ package msa.application.service.sinistri;
 import msa.application.commons.Constants;
 import msa.application.config.BaseDTO;
 import msa.application.config.enumerator.MessageType;
+import msa.application.dto.ricerca.FullPolizzaDTO;
 import msa.application.dto.ricerca.InputRicercaDTO;
 import msa.application.dto.ricerca.OutputRicercaDTO;
 import msa.application.dto.ricerca.BasePolizzaDTO;
@@ -19,18 +20,18 @@ import msa.application.service.interfaceDispatcher.DispatcherService;
 import msa.domain.Converter.FunctionUtils;
 import msa.domain.object.dominio.BaremesDO;
 import msa.domain.object.dominio.CompagniaDO;
+import msa.domain.object.ricerca.FullPolizzaDO;
 import msa.domain.object.sinistro.*;
 import msa.domain.object.sinistro.rca.AnagraficaDanniDO;
 import msa.domain.object.sinistro.rca.IncrociBaremesDO;
 import msa.infrastructure.repository.DomainRepository;
+import msa.infrastructure.repository.PolizzeRepository;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -43,6 +44,9 @@ public class SinistriService extends BaseSinistroService {
 
     @Autowired
     private DispatcherService dispatcherService;
+
+    @Autowired
+    private PolizzeRepository polizzeRepository;
 
     @SuppressWarnings("unchecked")
     public BaseDTO<OutputRicercaDTO> ricerca(InputRicercaDTO input) throws InternalMsaException {
@@ -79,7 +83,30 @@ public class SinistriService extends BaseSinistroService {
         //Todo MOCK
         //Todo Add polizze mock
 
-        return null;
+        final FullPolizzaDTO polizza1 = new FullPolizzaDTO();
+        polizza1.setNumeroPolizza("abc");
+        polizza1.setTarga("ab123cd");
+        polizza1.setNominativoContraente("ciao ciao");
+        polizza1.setStato("stato");
+        polizza1.setDataVariazione(FunctionUtils.nowAsDate());
+        polizza1.setDataAttivazione(FunctionUtils.nowAsDate());
+        polizza1.setDataScadenza(FunctionUtils.nowAsDate());
+        final FullPolizzaDTO polizza2 = new FullPolizzaDTO();
+        polizza2.setNumeroPolizza("abc");
+        polizza2.setTarga("ab123cd");
+        polizza2.setNominativoContraente("ciao ciao");
+        polizza2.setStato("stato");
+        polizza2.setDataVariazione(FunctionUtils.nowAsDate());
+        polizza2.setDataAttivazione(FunctionUtils.nowAsDate());
+        polizza2.setDataScadenza(FunctionUtils.nowAsDate());
+        List<FullPolizzaDTO> collect = Stream.of(polizza1, polizza2).collect(Collectors.toList());
+        asyncSavePolizzeInMongo(collect);
+        return converter.convertList(collect, BasePolizzaDTO.class);
+    }
+
+    @Async
+    public void asyncSavePolizzeInMongo(final List<FullPolizzaDTO> polizze) {
+        polizzeRepository.savePolizzeMsa(converter.convertList(polizze, FullPolizzaDO.class));
     }
 
     /**
