@@ -85,6 +85,10 @@
                             return $ctrl.mappe.indexOf('M20') > -1;
                         case 'M24':
                             return $ctrl.mappe.indexOf('M24') > -1;
+                        case 'M25':
+                            return $ctrl.mappe.indexOf('M25') > -1; //TODO
+                        case 'M26':
+                            return $ctrl.mappe.indexOf('M26') > -1;
                         default:
                             return false;
                     }
