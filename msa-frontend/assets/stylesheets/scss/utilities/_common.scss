@@ -356,8 +356,11 @@ tbody{
   border-right: 10px;
   border-bottom-width:1px ;
   margin: 100px;
-
+p.capitalized{
+  text-transform: capitalize;
 }
+}
+
 
 
   tr.header{

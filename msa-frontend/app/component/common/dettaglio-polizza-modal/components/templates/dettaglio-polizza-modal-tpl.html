@@ -7,12 +7,12 @@
     <div class="col-lg-12">
         <div class="row">
             <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 classicInputTextDisabled">
-                <input type="text" class="bold" name="numpoli" ng-model="$scope.polizza.numPolizza"
+                <input type="text" class="bold" name="numpoli" ng-model="$ctrl.polizza.numPolizza"
                        ng-readonly="true">
                 <label>{{'global.polizzesinistri.labels.numpoli' | translate}}</label>
             </div>
             <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 classicInputTextDisabled">
-                <input type="text" name="prodotto" ng-model="$scope.polizza.prodotto" ng-readonly="true">
+                <input type="text" name="prodotto" ng-model="$ctrl.polizza.prodotto"  ng-readonly="true">
                 <label>{{'global.polizzesinistri.labels.prodotto' | translate}}</label>
             </div>
 
@@ -31,12 +31,12 @@
     <div class="col-lg-12">
         <div class="row">
             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 classicInputTextDisabled">
-                <input type="text" class="bold" name="attivazione" ng-model="$scope.polizza.dataCopertura"
+                <input type="text" class="bold" name="attivazione" ng-model="$ctrl.polizza.dataCopertura"
                        ng-readonly="true">
                 <label>{{'global.polizzesinistri.labels.attivazione' | translate}}</label>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 classicInputTextDisabled">
-                <input type="text" class="bold" name="scadenza" ng-model="$scope.polizza.dataScadenza"
+                <input type="text" class="bold" name="scadenza" ng-model="$ctrl.polizza.dataScadenza"
                        ng-readonly="true">
                 <label>{{'global.polizzesinistri.labels.scadenza' | translate}}</label>
             </div>
@@ -45,7 +45,7 @@
                 <label>{{'global.polizzesinistri.labels.stato' | translate}}</label>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 classicInputTextDisabled">
-                <input type="text" name="variazione" ng-model="$scope.polizza.variazione" ng-readonly="true">
+                <input type="text" name="variazione" ng-model="$ctrl.polizza.variazione" ng-readonly="true">
                 <label>{{'global.polizzesinistri.labels.variazione' | translate}}</label>
             </div>
         </div>
@@ -64,18 +64,18 @@
             </div>
 
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputTextDisabled">
-                <input type="text" class="uppercase" name="targabene" ng-model="$scope.polizza.targa"
+                <input type="text" class="uppercase" name="targabene" ng-model="$ctrl.polizza.targa"
                        ng-readonly="true">
                 <label>{{'global.polizzesinistri.labels.targabene' | translate }}</label>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputTextDisabled">
-                <input type="text" class="uppercase" name="telaio" ng-model="$scope.polizza.telaio"
+                <input type="text" class="uppercase" name="telaio" ng-model="$ctrl.polizza.telaio"
                        ng-readonly="true">
                 <label>{{'global.polizzesinistri.labels.telaio' | translate }}</label>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputTextDisabled">
                 <input type="text" class="uppercase" name="immatricolazione"
-                       ng-model="$scope.polizza.dataImmatricolazione"
+                       ng-model="$ctrl.polizza.dataImmatricolazione"
                        ng-readonly="true">
                 <label>{{'global.veicolo.immatricolazione' | translate }}</label>
             </div>
@@ -87,12 +87,12 @@
 
 
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicInputTextDisabled">
-                <input type="text" class="uppercase" name="marca" ng-model="$scope.polizza.marca"
+                <input type="text" class="uppercase" name="marca" ng-model="$ctrl.polizza.marca"
                        ng-readonly="true">
                 <label>{{'global.veicolo.marca' | translate }}</label>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicInputTextDisabled">
-                <input type="text" class="uppercase" name="modello" ng-model="$scope.polizza.modello"
+                <input type="text" class="uppercase" name="modello" ng-model="$ctrl.polizza.modello"
                        ng-readonly="true">
                 <label>{{'global.veicolo.modello' | translate }}</label>
             </div>
@@ -162,9 +162,9 @@
             </tr>
 
             </thead>
-            <tr ng-repeat="garanzia in $scope.polizza.listaGaranzie">
-                <td> <p>{{garanzia.descrizione | capitalize }}</p></td>
-                <td> <p>{{garanzia.descrizione | capitalize}}</p></td>
+            <tr ng-repeat="garanzia in $ctrl.polizza.listaGaranzie">
+                <td> <p class="capitalized">{{garanzia.descrizione }}</p></td>
+                <td> <p class="capitalized">{{garanzia.descrizione}}</p></td>
                 <td> <p>{{garanzia.franchigia}}</p></td>
                 <td> <p>{{garanzia.scoperto }}</p></td>
                 <td> <p>{{garanzia.massimaleVeicolo }}</p></td>

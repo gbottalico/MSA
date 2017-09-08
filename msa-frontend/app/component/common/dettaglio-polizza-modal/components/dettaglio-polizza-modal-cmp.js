@@ -12,15 +12,15 @@
             function ($rootScope, $scope, UtilSvc, DebugSvc, DomainSvc) {
 
                 var $ctrl = this;
-                var polizza = $ctrl.resolve.polizza;
-                polizza.dataCopertura = UtilSvc.dateFormat($ctrl.dettagliopolizza.dataCopertura);
-                polizza.dataScadenza = UtilSvc.dateFormat($ctrl.dettagliopolizza.dataScadenza);
-                polizza.dataImmatricolazione = UtilSvc.dateFormat($ctrl.dettagliopolizza.dataImmatricolazione);
-                $scope.polizza = polizza;
+                $ctrl.clearbox = "clear box";
+                $ctrl.polizza = $ctrl.resolve.polizza;
+                $ctrl.polizza.dataCopertura = UtilSvc.dateFormat($ctrl.polizza.dataCopertura);
+                $ctrl.polizza.dataScadenza = UtilSvc.dateFormat($ctrl.polizza.dataScadenza);
+                $ctrl.polizza.dataImmatricolazione = UtilSvc.dateFormat($ctrl.polizza.dataImmatricolazione);
 
 
                 //$ctrl.dettagliopolizza = $rootScope.polizza;
-                DebugSvc.log($ctrl.dettagliopolizza);
+                DebugSvc.log($ctrl.polizza);
                 $ctrl.cancel = function () {
                     $ctrl.dismiss({$value: undefined});
                 };
