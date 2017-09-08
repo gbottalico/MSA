@@ -5,7 +5,7 @@ import msa.application.config.BaseDTO;
 import msa.application.config.enumerator.MessageType;
 import msa.application.dto.ricerca.InputRicercaDTO;
 import msa.application.dto.ricerca.OutputRicercaDTO;
-import msa.application.dto.ricerca.PolizzeDTO;
+import msa.application.dto.ricerca.BasePolizzaDTO;
 import msa.application.dto.sinistro.*;
 import msa.application.dto.sinistro.anagrafica.AnagraficaTerzePartiDTO;
 import msa.application.dto.sinistro.rca.cai.CaiDTO;
@@ -31,7 +31,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -53,7 +52,7 @@ public class SinistriService extends BaseSinistroService {
         );
         final OutputRicercaDTO toReturn = new OutputRicercaDTO();
         toReturn.setSinistriProvvisori((List<? extends BaseSinistroDTO>) objects.get(0));
-        toReturn.setPolizze(FunctionUtils.castValueByClass((List) objects.get(1), PolizzeDTO.class));
+        toReturn.setPolizze(FunctionUtils.castValueByClass((List) objects.get(1), BasePolizzaDTO.class));
         return new BaseDTO<>(toReturn);
     }
 
@@ -76,9 +75,10 @@ public class SinistriService extends BaseSinistroService {
         }).collect(Collectors.toList());
     }
 
-    private List<PolizzeDTO> ricercaPolizze(final InputRicercaDTO input) throws InternalMsaException {
+    private List<BasePolizzaDTO> ricercaPolizze(final InputRicercaDTO input) throws InternalMsaException {
         //Todo MOCK
         //Todo Add polizze mock
+
         return null;
     }
 
