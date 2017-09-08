@@ -11,48 +11,49 @@
     </div>
 
     <div class="containerBody">
-        <div class="col-lg-1 col-md-1 col-sm-0 col-xs-0"></div>\
+        <div class="col-lg-1 col-md-1 col-sm-0 col-xs-0"></div>
+        \
         <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 container boxShadow">
             <div class="body">
                 <div class="risultati">
 
-                    <pre>{{$ctrl.polizza | json}}</pre>
+                    <pre ng-if="$debugMode">{{$ctrl.dettagliopolizza | json}}</pre>
 
                     <div class="table-responsive">
                         <table class="table">
 
                             <thead>
-                                <tr>
-                                    <th>
+                            <tr>
+                                <th>
 
-                                        <p>{{'global.polizzesinistri.labels.numpoli' | translate}}</p>
+                                    <p>{{'global.polizzesinistri.labels.numpoli' | translate}}</p>
 
-                                    </th>
-                                    <th>
-                                        <p>{{'global.polizzesinistri.labels.attivazione' | translate}}</p>
-                                    </th>
-                                    <th>
-                                        <p>{{'global.polizzesinistri.labels.scadenza' | translate}}</p>
-                                    </th>
-                                    <th>
-                                        <p>{{'global.polizzesinistri.labels.prodotto' | translate}}</p>
-                                    </th>
-                                    <th>
-                                        <p>{{'global.polizzesinistri.labels.targabene' | translate}}</p>
-                                    </th>
-                                    <th>
-                                        <p>{{'global.polizzesinistri.labels.contraente' | translate}}</p>
-                                    </th>
-                                    <th>
-                                        <p>{{'global.polizzesinistri.labels.stato' | translate}}</p>
-                                    </th>
-                                    <th>
-                                        <p>{{'global.polizzesinistri.labels.variazione' | translate}}</p>
-                                    </th>
-                                    <th>
-                                        <p>{{'global.polizzesinistri.labels.consulta' | translate}}</p>
-                                    </th>
-                                </tr>
+                                </th>
+                                <th>
+                                    <p>{{'global.polizzesinistri.labels.attivazione' | translate}}</p>
+                                </th>
+                                <th>
+                                    <p>{{'global.polizzesinistri.labels.scadenza' | translate}}</p>
+                                </th>
+                                <th>
+                                    <p>{{'global.polizzesinistri.labels.prodotto' | translate}}</p>
+                                </th>
+                                <th>
+                                    <p>{{'global.polizzesinistri.labels.targabene' | translate}}</p>
+                                </th>
+                                <th>
+                                    <p>{{'global.polizzesinistri.labels.contraente' | translate}}</p>
+                                </th>
+                                <th>
+                                    <p>{{'global.polizzesinistri.labels.stato' | translate}}</p>
+                                </th>
+                                <th>
+                                    <p>{{'global.polizzesinistri.labels.variazione' | translate}}</p>
+                                </th>
+                                <th>
+                                    <p>{{'global.polizzesinistri.labels.consulta' | translate}}</p>
+                                </th>
+                            </tr>
                             </thead>
 
 

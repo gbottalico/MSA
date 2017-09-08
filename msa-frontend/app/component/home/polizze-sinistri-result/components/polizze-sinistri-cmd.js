@@ -8,8 +8,8 @@
             bannerSearch: '=',
             bannerDenuncia: '='
         },
-        controller: ("polizzeSinistriController", ['$rootScope', '$scope', '$translate', '$log', 'toastr', '$analytics', '$location', '$cookies', '$window', '$sessionStorage', 'DebugSvc', '$uibModal',
-            function ($rootScope, $scope, $translate, $log, toastr, $analytics, location, $cookies, $window, $sessionStorage, DebugSvc, $uibModal) {
+        controller: ("polizzeSinistriController", ['$rootScope', '$scope', '$translate', '$log', 'toastr', '$analytics', '$location', '$cookies', '$window', '$sessionStorage', 'DebugSvc', '$uibModal', '$debugMode',
+            function ($rootScope, $scope, $translate, $log, toastr, $analytics, location, $cookies, $window, $sessionStorage, DebugSvc, $uibModal, $debugMode) {
 
                 var $ctrl = this;
 
@@ -275,7 +275,8 @@
                         component: 'msaDettaglioPolizzaModal',
                         resolve: {
                             polizza: function () {
-                                return $ctrl.dettagliopolizza;
+                                var polizza = JSON.parse(JSON.stringify($ctrl.dettagliopolizza));
+                                return polizza;
                             }
                         }
                     });
