@@ -24,6 +24,10 @@ html, body {
   outline: none;
 }
 
+.lightblue {
+  color: $light_blue;
+}
+
 section {
   padding-left: 30px;
   padding-right: 30px;
@@ -70,7 +74,7 @@ section {
 }
 
 .text-info {
-  color: $light_blue!important;
+  color: $light_blue !important;
 }
 
 .classicInputText {
@@ -165,11 +169,12 @@ section {
     white-space: nowrap;
   }
 }
-.classicInputTextDisabled{
-  input[type="text"]{
+
+.classicInputTextDisabled {
+  input[type="text"] {
     width: 100%;
-    color : black;
-    border-width:0px;
+    color: black;
+    border-width: 0px;
     align: left;
     border-bottom-width: 1px;
     background: transparent;
@@ -177,10 +182,7 @@ section {
     border-color: $light_gray;
     padding-top: 10px;
   }
-  input[type="text"].bold{
-    font-weight: bold;
-  }
-  input[type="text"].uppercase{
+  input[type="text"].uppercase {
     text-transform: uppercase;
   }
   label {
@@ -191,6 +193,7 @@ section {
     white-space: nowrap;
   }
 }
+
 .classicInputRadio {
   margin-top: 15px;
   margin-bottom: 15px;
@@ -263,6 +266,10 @@ section {
   li {
     display: inline;
   }
+}
+
+.bold {
+  font-weight: bold;
 }
 
 .classicInputTextList {
@@ -345,33 +352,48 @@ section {
   }
 }
 
-
-table.dettagliopolizzatable{
-  border-collapse: separate;
-tbody{
-  background-color: $light_gray;
-  color: black;
+table.dettagliopolizzatable {
+  border-collapse: collapse;
   border-color: white;
-  border-width: 0;
-  border-right: 10px;
-  border-bottom-width:1px ;
-  margin: 100px;
-p.capitalized{
-  text-transform: capitalize;
-}
-}
+  border-bottom: 3px solid white;
 
+  border-top: none;
 
+  tbody {
 
-  tr.header{
+    background-color: $light_gray;
+    color: black;
+
+    p.capitalized {
+      text-transform: capitalize;
+    }
+
+  }
+  th {
+    border-color: white;
+    font-weight: normal;
+
+    border-bottom: 3px solid white;
     background-color: white;
-    text-transform:uppercase;
+    text-transform: uppercase;
     color: $light_blue;
-    background-color: white;
+  }
+  td {
+    border-color: white;
+    font-weight: normal;
+
+    border-bottom: 3px solid white;
+
   }
 
+  tr.header {
+    background-color: white;
+    text-transform: uppercase;
+    color: $light_blue;
+  }
 
 }
+
 .classicButton {
   margin-top: 50px;
   margin-bottom: 30px;
@@ -479,6 +501,7 @@ p.capitalized{
   color: $light_blue;
   text-transform: uppercase;
   font-size: 1.5rem;
+
 }
 
 .subsectionHint {
@@ -529,7 +552,7 @@ p.capitalized{
     }
   }
 
-  .btn{
+  .btn {
     height: 4rem;
     line-height: 1;
   }
@@ -573,7 +596,6 @@ button.formButton {
   height: 4rem;
   width: 100%;
 }
-
 
 /* Date Picker */
 .uib-datepicker {
@@ -780,8 +802,6 @@ button.formButton {
   margin-bottom: 2rem;
 }
 
-
-
 /*Obbligatorio per Google Maps*/
 .angular-google-map-container {
   height: 40rem;
@@ -846,7 +866,5 @@ ul.carrozzerie {
     }
 
   }
-
-
 
 }
