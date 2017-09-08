@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.Date;
-@Document
+@Document(collection = "polizze")
 public class BasePolizzaDBO {
     @Id
     private String numeroPolizza;

@@ -1,8 +1,11 @@
 package msa.infrastructure.repository;
 
+import msa.domain.object.ricerca.BasePolizzaDO;
+import msa.domain.object.ricerca.FullPolizzaDO;
 import msa.domain.object.sinistro.*;
 import msa.infrastructure.base.repository.domain.BaseRepository;
 import msa.infrastructure.base.repository.sinistri.SinistriBaseRepository;
+import msa.infrastructure.persistence.ricerca.FullPolizzaDBO;
 import msa.infrastructure.persistence.sinistro.SinistroDBO;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +28,7 @@ public class SinistriRepository extends BaseRepository {
      * se true va in IS, altrimenti la query va in LIKE
      */
     static {
-        doToJson.put("compagnia", new AbstractMap.SimpleEntry<>(true, "compagnia"));
+      //  doToJson.put("compagnia", new AbstractMap.SimpleEntry<>(true, "compagnia"));
         doToJson.put("dataEvento", new AbstractMap.SimpleEntry<>(true, "segnalazione.dataSinistro"));
         //se persona giuridica il cognome rappresenta la rag. sociale
         doToJson.put("cognome", new AbstractMap.SimpleEntry<>(false, "contraente.cognome"));
@@ -65,6 +68,7 @@ public class SinistriRepository extends BaseRepository {
         insert(input);
         return Boolean.TRUE;
     }
+
 
     private <E extends BaseSinistroDO> void insert(E input) throws Exception {
         insert(input, SinistroDBO.class);
@@ -133,6 +137,11 @@ public class SinistriRepository extends BaseRepository {
         }).collect(Collectors.toList());
     }
 
+    public FullPolizzaDO getPolizzaByNumPoli(final String numPoli) throws Exception {
+        FullPolizzaDO fullPolizzaDO = converter.convertObject(mongoTemplate.findById(numPoli, FullPolizzaDBO.class), FullPolizzaDO.class);
+        if(fullPolizzaDO == null) throw new Exception();
+        return fullPolizzaDO;
+    }
     /**
      * Metodo che serve ad ottenere l'ultimo ID inserito nel database
      *

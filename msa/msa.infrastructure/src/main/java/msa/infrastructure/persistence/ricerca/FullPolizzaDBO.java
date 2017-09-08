@@ -38,7 +38,7 @@ public class FullPolizzaDBO extends BasePolizzaDBO{
     @Field("ql")
 
     private Integer ql;
-    @Field("ql")
+    @Field("cc")
 
     private Integer cc;
     @Field("valoreAssicurato")

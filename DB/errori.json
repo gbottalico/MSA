@@ -12,4 +12,4 @@
 { "_id" : 12, "codErrore" : "MSA011", "testo" : "Attenzione: Errore durante il recupero delle schermate già navigate" }
 { "_id" : 13, "codErrore" : "MSA012", "testo" : "Attenzione: Errore durante il recupero sinistro per il salvataggio" }
 { "_id" : 14, "codErrore" : "MSA013", "testo" : "Attenzione: Errore durante il calcolo della colpa" }
-{ "_id" : 15, "codErrore" : "MSA014", "testo" : "Attenzione: Errore durante il calcolo codice fiscale: " }
+{ "_id" : 15, "codErrore" : "MSA014", "testo" : "Attenzione: Errore durante il recupero della polizza" }

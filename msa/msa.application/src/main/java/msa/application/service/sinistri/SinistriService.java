@@ -27,6 +27,8 @@ import msa.domain.object.sinistro.rca.IncrociBaremesDO;
 import msa.infrastructure.repository.DomainRepository;
 import msa.infrastructure.repository.PolizzeRepository;
 import org.apache.commons.collections.CollectionUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
@@ -38,7 +40,7 @@ import java.util.stream.Stream;
 
 @Service
 public class SinistriService extends BaseSinistroService {
-
+    private static final Logger LOGGER = LoggerFactory.getLogger(SinistriService.class);
     @Autowired
     private DomainRepository domainRepository;
 
@@ -50,6 +52,8 @@ public class SinistriService extends BaseSinistroService {
 
     @SuppressWarnings("unchecked")
     public BaseDTO<OutputRicercaDTO> ricerca(InputRicercaDTO input) throws InternalMsaException {
+        List<? extends BaseSinistroDTO> baseSinistroDTOS = ricercaSinistriProvvisori(input);
+        List<BasePolizzaDTO> basePolizzaDTOS = ricercaPolizze(input);
         List<Object> objects = execInParallel(
                 () -> ricercaSinistriProvvisori(input),
                 () -> ricercaPolizze(input)
@@ -57,6 +61,9 @@ public class SinistriService extends BaseSinistroService {
         final OutputRicercaDTO toReturn = new OutputRicercaDTO();
         toReturn.setSinistriProvvisori((List<? extends BaseSinistroDTO>) objects.get(0));
         toReturn.setPolizze(FunctionUtils.castValueByClass((List) objects.get(1), BasePolizzaDTO.class));
+        LOGGER.info("" + System.currentTimeMillis()/1000);
+
+        //TODO SALVARE LA POLIZZA IN MONGO
         return new BaseDTO<>(toReturn);
     }
 
@@ -67,7 +74,7 @@ public class SinistriService extends BaseSinistroService {
      * @return
      */
     private <K extends BaseSinistroDTO> List<K> ricercaSinistriProvvisori(final InputRicercaDTO input) throws InternalMsaException {
-        if (FunctionUtils.checkIsNotNull(input.getCompagnia()/**, input.getDataEvento()*/)) {
+        if (!FunctionUtils.checkIsNotNull(input.getCompagnia()/**, input.getDataEvento()*/)) {
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA003"));
         }
         InputRicercaDO inputRicercaDO = converter.convertObject(input, InputRicercaDO.class);
@@ -77,6 +84,7 @@ public class SinistriService extends BaseSinistroService {
                     : getClassByGaranzia(e.getSegnalazione().getGaranziaSelected());
             return converter.convertObject(e, toPass);
         }).collect(Collectors.toList());
+
     }
 
     private List<BasePolizzaDTO> ricercaPolizze(final InputRicercaDTO input) throws InternalMsaException {
@@ -92,7 +100,7 @@ public class SinistriService extends BaseSinistroService {
         polizza1.setDataAttivazione(FunctionUtils.nowAsDate());
         polizza1.setDataScadenza(FunctionUtils.nowAsDate());
         final FullPolizzaDTO polizza2 = new FullPolizzaDTO();
-        polizza2.setNumeroPolizza("abc");
+        polizza2.setNumeroPolizza("abcd");
         polizza2.setTarga("ab123cd");
         polizza2.setNominativoContraente("ciao ciao");
         polizza2.setStato("stato");
@@ -106,6 +114,7 @@ public class SinistriService extends BaseSinistroService {
 
     @Async
     public void asyncSavePolizzeInMongo(final List<FullPolizzaDTO> polizze) {
+        LOGGER.info("" + System.currentTimeMillis()/1000);
         polizzeRepository.savePolizzeMsa(converter.convertList(polizze, FullPolizzaDO.class));
     }
 
@@ -490,6 +499,22 @@ public class SinistriService extends BaseSinistroService {
         perito.setTargaDaPerizare("XX555BB");
         return perito;
     }
+
+    /**
+     * Metodo che restituisce una polizza effettuando la ricerca in base al numpoli
+     * @param numPoli
+     * @return
+     */
+    public FullPolizzaDTO getPolizzaByNumPoli(String numPoli) throws InternalMsaException {
+        try {
+            return converter.convertObject(sinistriRepository.getPolizzaByNumPoli(numPoli),FullPolizzaDTO.class);
+        } catch (Exception e) {
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA013"));
+
+        }
+
+    }
+
 
 }
 

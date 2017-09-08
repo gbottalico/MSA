@@ -209,7 +209,7 @@ public class BaseService {
     }
 
     protected List<Object> execInParallel(Callable<Object>... callables) throws InternalMsaException {
-        ExecutorService executor = Executors.newWorkStealingPool();
+        ExecutorService executor = Executors.newFixedThreadPool(callables.length);
         try {
             return executor.invokeAll(Arrays.stream(callables).collect(Collectors.toList())).stream().reduce(new ArrayList<>(), (a, b) -> {
                 try {

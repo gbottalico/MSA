@@ -221,4 +221,12 @@ public class SinistroController extends BaseController {
     public BaseDTO getPerito(@RequestBody final String input){
     return new BaseDTO(sinistriService.getPerito(input));
     }
+
+
+
+    @ApiOperation(value="Metodo che restituisce una polizza in base al numero polizza")
+    @RequestMapping(value="/polizza/{numpoli}", method = RequestMethod.GET)
+    public BaseDTO getPolizzaByNum(@PathVariable("numpoli") String numPoli) throws InternalMsaException {
+        return new BaseDTO(sinistriService.getPolizzaByNumPoli(numPoli));
+    }
 }
