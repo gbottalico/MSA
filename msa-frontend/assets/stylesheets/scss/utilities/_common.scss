@@ -756,7 +756,7 @@ button.formButton {
   }
 }
 
-.cai-table {
+.msa-table {
 
   margin-top: 15px;
 
@@ -771,6 +771,7 @@ button.formButton {
     font-size: 1.25rem;
     color: $black;
     vertical-align: middle !important;
+    padding: 1.5rem 0!important;
   }
 
   td.has-error {
