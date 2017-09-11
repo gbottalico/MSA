@@ -5,12 +5,7 @@ angular.module('msa')
 
             $svc.log = function (name, obj) {
                 if ($debugMode) {
-                    if (obj) {
-                        console.log(name + ": ");
-                        console.log(obj);
-                    } else {
-                        console.log(name);
-                    }
+                    console.log(name, '->', obj);
                 }
             };
 

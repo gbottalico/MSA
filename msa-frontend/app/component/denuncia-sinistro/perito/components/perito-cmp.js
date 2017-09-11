@@ -58,13 +58,13 @@
                             _.isObject(newValues.sinistroProvvisorio) &&
                             !_.isObject(newValues.sinistroProvvisorio.perito) &&
                             !$ctrl.isInputConsumed) {
-                            DebugSvc.log("Using peritoTempSegnalazione");
+                            DebugSvc.log("Loading perito using peritoTempSegnalazione (temp)");
                             $ctrl.bindPerito(newValues.peritoTempSegnalazione);
                             $ctrl.isInputConsumed = true;
                         } else if (_.isObject(newValues.sinistroProvvisorio) &&
                             _.isObject(newValues.sinistroProvvisorio.perito) &&
                             !$ctrl.isInputConsumed) {
-                            DebugSvc.log("Using peritoSinistroProvvisorio");
+                            DebugSvc.log("Loading perito using peritoSinistroProvvisorio (persistence)");
                             $ctrl.bindPerito(newValues.sinistroProvvisorio.perito);
                             $ctrl.isInputConsumed = true;
 

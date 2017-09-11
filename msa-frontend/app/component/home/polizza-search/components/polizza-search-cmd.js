@@ -6,8 +6,8 @@
         bindings: {
             valoriRicerca: "="
         },
-        controller: ("polizzaSearchController", ["$scope", '$rootScope', '$translate', '$log', 'DomainSvc', 'SinistriSvc', 'PlacesSvc', 'toastr', '$analytics', '$location', '$anchorScroll', '$uibModal', '$cookies', '$window', '$sessionStorage', 'DebugSvc',
-            function ($scope, $rootScope, $translate, $log, DomainSvc, SinistriSvc, PlacesSvc, toastr, $analytics, $location, $anchorScroll, $uibModal, $cookies, $window, $sessionStorage, DebugSvc) {
+        controller: ("polizzaSearchController", ["$timeout", "$scope", '$rootScope', '$translate', '$log', 'DomainSvc', 'SinistriSvc', 'PlacesSvc', 'toastr', '$analytics', '$location', '$anchorScroll', '$uibModal', '$cookies', '$window', '$sessionStorage', 'DebugSvc',
+            function ($timeout, $scope, $rootScope, $translate, $log, DomainSvc, SinistriSvc, PlacesSvc, toastr, $analytics, $location, $anchorScroll, $uibModal, $cookies, $window, $sessionStorage, DebugSvc) {
 
                 var $ctrl = this;
                 //var modalInstance = undefined;
@@ -19,8 +19,8 @@
                 $ctrl.numSinistroProvv = undefined;
 
                 $ctrl.$onInit = function () {
-                    DomainSvc.getElencoRegole().then(function (response) {
-                        $ctrl.casaRegole = response.data.result;
+                    DomainSvc.getElencoRegole().then(function (data) {
+                        $ctrl.casaRegole = data.result;
                     });
 
                     // DomainSvc.successCall().then(function (response) {
