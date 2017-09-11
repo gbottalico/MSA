@@ -205,8 +205,8 @@ public class SinistriService extends BaseSinistroService {
         }
     }
 
-    private Boolean getFlagIsCard(SinistroRcaDO sinistroRcaDOByDTO) {
-        final CompagniaDO compagnia = domainRepository.getCompagniaByCodCompagnia(sinistroRcaDOByDTO.getCompagnia());
+    private Boolean getFlagIsCard(final Integer codCompagnia) {
+        final CompagniaDO compagnia = domainRepository.getCompagniaByCodCompagnia(codCompagnia);
         final Boolean isCard = FunctionUtils.between(
                 FunctionUtils.nowAsDate(),
                 compagnia.getDataInCard(),
@@ -237,11 +237,8 @@ public class SinistriService extends BaseSinistroService {
             sinistroRcaDOByDTO.getCai().setNoteControparte(null);
             sinistroRcaDOByDTO.getCai().setColpa(null);
         }
-        Boolean isCard = getFlagIsCard(sinistroRcaDOByDTO);
-        sinistroRcaDOByDTO.getEventoRca().setFlagCard(isCard);
         if (salvaSinistro(sinistroRcaDOByDTO)) {
-            return new BaseDTO<>(Stream.of(isCard)
-                    .collect(Collectors.toMap(e -> "flagCard", String::valueOf)));
+            return new BaseDTO<>();
         } else
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione Evento RCA")));
     }
@@ -302,6 +299,9 @@ public class SinistriService extends BaseSinistroService {
     public BaseDTO salvaDannoRcaConducente(DannoRcaDTO input, Integer numSinistro) throws InternalMsaException {
 
         SinistroRcaDO sinistroRcaDOByDTO = getSinistroDOByDTO(input, numSinistro);
+
+        Boolean isCard = getFlagIsCard(sinistroRcaDOByDTO.getCompagnia());
+        sinistroRcaDOByDTO.getDannoRca().getAnagraficaDanniCliente().getAnagrafica().setFlagCard(isCard);
         if (salvaSinistro(sinistroRcaDOByDTO)) {
             return new BaseDTO<>();
         } else {
@@ -316,7 +316,12 @@ public class SinistriService extends BaseSinistroService {
                     (String e) -> e.concat(" Devono essere censiti i danni di una sola controparte.  ")));
         }
         SinistroRcaDO sinistroRcaDOByDTO = getSinistroDOByDTO(new AnagraficaDanniDTO(), numSinistro);
-        sinistroRcaDOByDTO.getDannoRca().setAnagraficaDanniControparte(converter.convertList(input, AnagraficaDanniDO.class));
+        sinistroRcaDOByDTO.getDannoRca().setAnagraficaDanniControparte(converter.convertList(input, AnagraficaDanniDO.class).stream().map(e -> {
+            final Boolean flagIsCard = getFlagIsCard(FunctionUtils.numberConverter(e.getAnagrafica().getCompagnia(), Integer::valueOf));
+            e.getAnagrafica().setFlagCard(flagIsCard);
+            return e;
+        }).collect(Collectors.toList()));
+
         if (salvaSinistro(sinistroRcaDOByDTO)) {
             return new BaseDTO<>();
         } else {

@@ -13,22 +13,14 @@ public class TipoVeicoloDO {
 
     private Character codAnia;
 
-    private boolean gestioneCid;
+    private Boolean gestioneCid;
 
-    private boolean gestioneCtt;
+    private Boolean gestioneCtt;
 
-    private boolean targaObbligatori;
+    private Boolean targaObbligatori;
 
     private Character codTipologiaVeicoloForfaitCard;
     private String codFornitore;
-
-    public String getCodFornitore() {
-        return codFornitore;
-    }
-
-    public void setCodFornitore(String codFornitore) {
-        this.codFornitore = codFornitore;
-    }
 
     public Integer getId() {
         return id;
@@ -70,27 +62,27 @@ public class TipoVeicoloDO {
         this.codAnia = codAnia;
     }
 
-    public boolean isGestioneCid() {
+    public Boolean getGestioneCid() {
         return gestioneCid;
     }
 
-    public void setGestioneCid(boolean gestioneCid) {
+    public void setGestioneCid(Boolean gestioneCid) {
         this.gestioneCid = gestioneCid;
     }
 
-    public boolean isGestioneCtt() {
+    public Boolean getGestioneCtt() {
         return gestioneCtt;
     }
 
-    public void setGestioneCtt(boolean gestioneCtt) {
+    public void setGestioneCtt(Boolean gestioneCtt) {
         this.gestioneCtt = gestioneCtt;
     }
 
-    public boolean isTargaObbligatori() {
+    public Boolean getTargaObbligatori() {
         return targaObbligatori;
     }
 
-    public void setTargaObbligatori(boolean targaObbligatori) {
+    public void setTargaObbligatori(Boolean targaObbligatori) {
         this.targaObbligatori = targaObbligatori;
     }
 
@@ -100,5 +92,13 @@ public class TipoVeicoloDO {
 
     public void setCodTipologiaVeicoloForfaitCard(Character codTipologiaVeicoloForfaitCard) {
         this.codTipologiaVeicoloForfaitCard = codTipologiaVeicoloForfaitCard;
+    }
+
+    public String getCodFornitore() {
+        return codFornitore;
+    }
+
+    public void setCodFornitore(String codFornitore) {
+        this.codFornitore = codFornitore;
     }
 }

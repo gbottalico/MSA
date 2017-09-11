@@ -2,7 +2,7 @@ package msa.application.dto.sinistro.anagrafica;
 
 public class FullAnagraficaControparteDTO extends FullAnagraficaDTO {
     private String compagnia;
-    private String veicolo;
+    private String veicolo; //codice tipo veicolo
     private String targa;
     private Boolean targaEstera;
     private Boolean targaSpeciale;
