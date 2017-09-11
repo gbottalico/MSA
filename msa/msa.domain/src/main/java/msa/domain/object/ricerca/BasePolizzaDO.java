@@ -8,9 +8,9 @@ public class BasePolizzaDO {
     private String targa;
     private String nominativoContraente;
     private String stato;
-    private Date variazione;
-    private Date attivazione;
-    private Date scadenza;
+    private Date dataVariazione;
+    private Date dataAttivazione;
+    private Date dataScadenza;
 
 
     public String getNumeroPolizza() {
@@ -45,27 +45,27 @@ public class BasePolizzaDO {
         this.stato = stato;
     }
 
-    public Date getVariazione() {
-        return variazione;
+    public Date getDataVariazione() {
+        return dataVariazione;
     }
 
-    public void setVariazione(Date variazione) {
-        this.variazione = variazione;
+    public void setDataVariazione(Date dataVariazione) {
+        this.dataVariazione = dataVariazione;
     }
 
-    public Date getAttivazione() {
-        return attivazione;
+    public Date getDataAttivazione() {
+        return dataAttivazione;
     }
 
-    public void setAttivazione(Date attivazione) {
-        this.attivazione = attivazione;
+    public void setDataAttivazione(Date dataAttivazione) {
+        this.dataAttivazione = dataAttivazione;
     }
 
-    public Date getScadenza() {
-        return scadenza;
+    public Date getDataScadenza() {
+        return dataScadenza;
     }
 
-    public void setScadenza(Date scadenza) {
-        this.scadenza = scadenza;
+    public void setDataScadenza(Date dataScadenza) {
+        this.dataScadenza = dataScadenza;
     }
 }

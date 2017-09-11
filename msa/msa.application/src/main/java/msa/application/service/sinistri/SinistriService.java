@@ -506,7 +506,7 @@ public class SinistriService extends BaseSinistroService {
         try {
             return converter.convertObject(sinistriRepository.getPolizzaByNumPoli(numPoli),FullPolizzaDTO.class);
         } catch (Exception e) {
-            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA013"));
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA014"));
 
         }
 

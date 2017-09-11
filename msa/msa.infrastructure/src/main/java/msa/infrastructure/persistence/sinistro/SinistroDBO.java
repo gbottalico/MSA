@@ -9,6 +9,7 @@ import java.util.List;
 
 @Document(collection = "sinistri")
 public class SinistroDBO extends AbstractDBO {
+
     @Id
     private String id;
     @Field("numeroPolizza")
