@@ -30,6 +30,7 @@
     "people": {
       "anagrafica": "Anagrafica",
       "soggetto": "Soggetto",
+      "compagnia": "Compagnia",
       "nome": "Nome",
       "cognome": "Cognome",
       "denominazione": "Denominazione",

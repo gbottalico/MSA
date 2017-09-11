@@ -5,7 +5,22 @@
 <div class="modal-body ">
 
     <form name="anagraficaForm" novalidate>
-        <div class="col-lg-12"><span class="subsectionTitle">Tipologia</span></div>
+
+        <div class="col-lg-12" ng-if="$ctrl.hasCompagnia">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputText">
+                    <pre ng-if="$debugMode">{{$ctrl.anagrafica.compagnia}}</pre>
+                    <input name="compagnia" type="text" ng-model="$ctrl.anagrafica.compagnia" uib-typeahead="regola as regola.descrizioneCompagnia for regola in $ctrl.casaRegole | filter:{descrizioneCompagnia:$viewValue}"  ng-required="true" autocomplete="off">
+                    <label>{{'global.people.compagnia' | translate}}</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-12" ng-if="$ctrl.hasCompagnia">
+            <hr class="blueLine"/>
+        </div>
+
+        <div class="col-lg-12"><span class="subsectionTitle">Tipologia</span></div> <!-- TODO stringe scolpite -->
         <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 classicInputRadio">
             <div class="col-lg-6 noPaddingLeft">
                 <input type="radio" value="PF" name="tipologia" ng-model="$ctrl.anagrafica.tipoPersona">

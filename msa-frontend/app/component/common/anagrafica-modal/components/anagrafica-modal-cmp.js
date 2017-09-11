@@ -8,12 +8,13 @@
             close: '&',
             dismiss: '&'
         },
-        controller: ("headerController", ['$rootScope', 'UtilSvc', 'DebugSvc', 'DomainSvc',
-            function ($rootScope, UtilSvc, DebugSvc, DomainSvc) {
+        controller: ("headerController", ['$rootScope', '$scope', '$debugMode', 'UtilSvc', 'DebugSvc', 'DomainSvc',
+            function ($rootScope, $scope, $debugMode, UtilSvc, DebugSvc, DomainSvc) {
 
                 var $ctrl = this;
                 $ctrl.anagrafica = {};
                 $ctrl.ruoli = undefined;
+                $scope.$debugMode = $debugMode;
 
                 $ctrl.TipologiaEnum = {
                     FISICA: "PF",
@@ -23,6 +24,7 @@
                 $ctrl.$onInit = function () {
                     // Per prendere input
                     $ctrl.hasRole = $ctrl.resolve.hasRole;
+                    $ctrl.hasCompagnia = $ctrl.resolve.hasCompagnia;
                     $ctrl.anagrafica.tipoPersona = $ctrl.TipologiaEnum.FISICA;
 
                     if($ctrl.hasRole) {
@@ -31,6 +33,11 @@
                         });
                     }
 
+                    if($ctrl.hasCompagnia) {
+                        DomainSvc.getElencoRegole().then(function (response) {
+                            $ctrl.casaRegole = response.data.result;
+                        });
+                    }
                 };
 
                 $ctrl.calcolaCf = function () {

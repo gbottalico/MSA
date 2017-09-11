@@ -140,8 +140,8 @@
                         size: 'lg',
                         component: 'msaAnagraficaModal',
                         resolve: {
-                            items: function () {
-                                return [{id: 1}, {id: 2}];
+                            hasCompagnia: function () {
+                                return true;
                             }
                         }
                     });
