@@ -4,9 +4,9 @@ public class FullAnagraficaControparteDO extends FullAnagraficaDO {
     private String compagnia;
     private String veicolo;
     private String targa;
-    private boolean targaEstera;
-    private boolean targaSpeciale;
-
+    private Boolean targaEstera;
+    private Boolean targaSpeciale;
+    private Boolean flagCard;
 
 
     public String getCompagnia() {
@@ -33,19 +33,27 @@ public class FullAnagraficaControparteDO extends FullAnagraficaDO {
         this.targa = targa;
     }
 
-    public boolean isTargaEstera() {
+    public Boolean getTargaEstera() {
         return targaEstera;
     }
 
-    public void setTargaEstera(boolean targaEstera) {
+    public void setTargaEstera(Boolean targaEstera) {
         this.targaEstera = targaEstera;
     }
 
-    public boolean isTargaSpeciale() {
+    public Boolean getTargaSpeciale() {
         return targaSpeciale;
     }
 
-    public void setTargaSpeciale(boolean targaSpeciale) {
+    public void setTargaSpeciale(Boolean targaSpeciale) {
         this.targaSpeciale = targaSpeciale;
+    }
+
+    public Boolean getFlagCard() {
+        return flagCard;
+    }
+
+    public void setFlagCard(Boolean flagCard) {
+        this.flagCard = flagCard;
     }
 }

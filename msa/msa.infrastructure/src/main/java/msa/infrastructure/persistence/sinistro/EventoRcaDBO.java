@@ -18,8 +18,6 @@ public class EventoRcaDBO {
     @Field("dataDenuncia")
     private Date dataDenuncia;
 
-    @Field("flagCard")
-    private Boolean flagCard;
 
     public Boolean getCollisione() {
         return collisione;
@@ -69,11 +67,4 @@ public class EventoRcaDBO {
         this.dataDenuncia = dataDenuncia;
     }
 
-    public Boolean getFlagCard() {
-        return flagCard;
-    }
-
-    public void setFlagCard(Boolean flagCard) {
-        this.flagCard = flagCard;
-    }
 }

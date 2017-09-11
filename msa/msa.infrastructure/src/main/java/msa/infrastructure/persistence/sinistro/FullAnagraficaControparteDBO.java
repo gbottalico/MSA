@@ -15,6 +15,8 @@ public class FullAnagraficaControparteDBO extends FullAnagraficaDBO {
     @Field("speciale")
     private Boolean targaSpeciale;
 
+    @Field("flagCard")
+    private Boolean flagCard;
 
 
     public String getCompagnia() {
@@ -41,19 +43,27 @@ public class FullAnagraficaControparteDBO extends FullAnagraficaDBO {
         this.targa = targa;
     }
 
-    public boolean isTargaEstera() {
+    public Boolean getTargaEstera() {
         return targaEstera;
     }
 
-    public void setTargaEstera(boolean targaEstera) {
+    public void setTargaEstera(Boolean targaEstera) {
         this.targaEstera = targaEstera;
     }
 
-    public boolean isTargaSpeciale() {
+    public Boolean getTargaSpeciale() {
         return targaSpeciale;
     }
 
-    public void setTargaSpeciale(boolean targaSpeciale) {
+    public void setTargaSpeciale(Boolean targaSpeciale) {
         this.targaSpeciale = targaSpeciale;
+    }
+
+    public Boolean getFlagCard() {
+        return flagCard;
+    }
+
+    public void setFlagCard(Boolean flagCard) {
+        this.flagCard = flagCard;
     }
 }
