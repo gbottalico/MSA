@@ -8,6 +8,15 @@ public class IncrociBaremesDO {
     private Integer codBaremesCliente;
     private Integer codBaremesControparte;
     private String codResponsabilita;
+    private Integer percRespCliente;
+
+    public Integer getPercRespCliente() {
+        return percRespCliente;
+    }
+
+    public void setPercRespCliente(Integer percRespCliente) {
+        this.percRespCliente = percRespCliente;
+    }
 
     public Integer getId() {
         return id;

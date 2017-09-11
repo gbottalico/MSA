@@ -17,6 +17,8 @@ public class IncrociBaremesDBO {
     private Integer codBaremesControparte;
     @Field(value = "Cod_responsabilita")
     private String codResponsabilita;
+    @Field("Per_resp_cliente")
+    private Integer percRespCliente;
 
     public Integer getId() {
         return id;
@@ -48,5 +50,13 @@ public class IncrociBaremesDBO {
 
     public void setCodResponsabilita(String codResponsabilita) {
         this.codResponsabilita = codResponsabilita;
+    }
+
+    public Integer getPercRespCliente() {
+        return percRespCliente;
+    }
+
+    public void setPercRespCliente(Integer percRespCliente) {
+        this.percRespCliente = percRespCliente;
     }
 }
