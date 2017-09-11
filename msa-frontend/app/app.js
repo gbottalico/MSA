@@ -288,7 +288,6 @@ app.factory('messageInterceptor', function ($rootScope) {
     }
 });
 
-
 app.config(['$httpProvider', function ($httpProvider) {
     $httpProvider.interceptors.push("messageInterceptor");
 }]);

@@ -51,7 +51,11 @@
       "residenza": "Residenza",
       "posizione": "Posizione",
       "patente": "Patente",
-      "scadenzapatente": "Data di Scadenza Patente"
+      "nascita": "Nascita",
+      "recapiti": "Recapiti",
+      "scadenzapatente": "Data di Scadenza Patente",
+      "nessunrecapito": "Nessun recapito."
+
     },
     "docs": {
       "documento": "Documento",
@@ -255,18 +259,16 @@
     },
     "step": {
       "labels": {
-        "nascita": "Nascita",
-        "residenza": "Residenza",
-        "recapiti": "Recapiti",
-        "segnalazione": "Segnalazione",
-        "evento": "Evento RCA",
-        "constatazione": "Constatazione amichevole",
-        "danno": "Danno RCA",
-        "terzeparti": "Terze parti",
-        "legale": "Legale",
-        "daticonsultivi": "Dati consultivi",
-        "riepilogo": "Riepilogo",
-        "nessunrecapito": "Nessun Recapito."
+        "M11": "Segnalazione",
+        "M12": "Evento RCA",
+        "M13": "Constatazione Amichevole",
+        "M14": "CAI",
+        "M15": "Danno RCA",
+        "M18": "Terze Parti",
+        "M20": "Legale",
+        "M24": "Carrozzeria",
+        "M25": "Perito",
+        "M26": "Documenti"
       }
     },
     "auto": {
