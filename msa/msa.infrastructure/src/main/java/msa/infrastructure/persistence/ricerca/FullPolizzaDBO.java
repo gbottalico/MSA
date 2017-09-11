@@ -1,6 +1,7 @@
 package msa.infrastructure.persistence.ricerca;
 
 import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -12,8 +13,11 @@ public class FullPolizzaDBO extends BasePolizzaDBO{
     private List<Map<Date, Date>> dateSospensione; // la mappa è formata da -> valore, a-> valore
     @Field("telaio")
     private String telaio;
-    @Field("immatricolazione")
-    private Date immatricolazione;
+    @Field("dataImmatricolazione")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+
+
+    private Date dataImmatricolazione;
     @Field("marca")
     private String marca;
     @Field("modello")
@@ -25,8 +29,12 @@ public class FullPolizzaDBO extends BasePolizzaDBO{
     @Field("frazionamento")
     private String frazionamento;
     @Field("dataAcquisto")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+
     private Date dataAcquisto;
     @Field("dataCopertura")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+
     private Date dataCopertura;
     @Field("classeVeicolo")
     private String classeVeicolo;
@@ -111,12 +119,12 @@ public class FullPolizzaDBO extends BasePolizzaDBO{
         this.telaio = telaio;
     }
 
-    public Date getImmatricolazione() {
-        return immatricolazione;
+    public Date getDataImmatricolazione() {
+        return dataImmatricolazione;
     }
 
-    public void setImmatricolazione(Date immatricolazione) {
-        this.immatricolazione = immatricolazione;
+    public void setDataImmatricolazione(Date dataImmatricolazione) {
+        this.dataImmatricolazione = dataImmatricolazione;
     }
 
     public String getMarca() {

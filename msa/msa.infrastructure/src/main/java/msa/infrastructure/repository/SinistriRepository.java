@@ -141,9 +141,9 @@ public class SinistriRepository extends BaseRepository {
 
 
     public FullPolizzaDO getPolizzaByNumPoli(final String numPoli) throws Exception {
-        FullPolizzaDO fullPolizzaDO = converter.convertObject(mongoTemplate.findById(numPoli, FullPolizzaDBO.class), FullPolizzaDO.class);
-        if (fullPolizzaDO == null) throw new Exception();
-        return fullPolizzaDO;
+        FullPolizzaDBO polizzaById = mongoTemplate.findById(numPoli, FullPolizzaDBO.class);
+        if (polizzaById == null) throw new Exception();
+        return converter.convertObject(polizzaById, FullPolizzaDO.class);
     }
 
     /**
