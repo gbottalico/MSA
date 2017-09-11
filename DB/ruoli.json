@@ -1,60 +1,75 @@
 { 
     "_id" : NumberInt(1), 
-    "desRuolo" : "Pedone"
+    "desRuolo" : "Pedone",
+    "lesioni" : true
 }
 { 
     "_id" : NumberInt(2), 
-    "desRuolo" : "Ostacolo Fisso"
+    "desRuolo" : "Ostacolo Fisso",
+    "lesioni" : false
 }
 { 
     "_id" : NumberInt(3), 
-    "desRuolo" : "Altro Veicolo"
+    "desRuolo" : "Altro Veicolo",
+    "lesioni" : true
 }
 { 
     "_id" : NumberInt(4), 
-    "desRuolo" : "Testimone Assicurato"
+    "desRuolo" : "Testimone Assicurato",
+    "lesioni" : false
 }
 { 
     "_id" : NumberInt(5), 
-    "desRuolo" : "Testimone Controparte"
+    "desRuolo" : "Testimone Controparte",
+    "lesioni" : false
 }
 { 
     "_id" : NumberInt(6), 
-    "desRuolo" : "Terzo Trasportato Veicolo Assicurato"
+    "desRuolo" : "Terzo Trasportato Veicolo Assicurato",
+    "lesioni" : true
 }
 { 
     "_id" : NumberInt(7), 
-    "desRuolo" : "Terzo Trasportato Veicolo Controparte"
+    "desRuolo" : "Terzo Trasportato Veicolo Controparte",
+    "lesioni" : true
 }
 { 
     "_id" : NumberInt(8), 
-    "desRuolo" : "Cose Trasportate Proprietario/Conducente Veicolo Assicurato"
+    "desRuolo" : "Cose Trasportate Proprietario/Conducente Veicolo Assicurato",
+    "lesioni" : false
 }
 { 
     "_id" : NumberInt(9), 
-    "desRuolo" : "Cose Trasportate Proprietario/Conducente Veicolo Controparte"
+    "desRuolo" : "Cose Trasportate Proprietario/Conducente Veicolo Controparte",
+    "lesioni" : false
 }
 { 
     "_id" : NumberInt(10), 
-    "desRuolo" : "Cose Trasportate Terzi Veicolo Assicurato"
+    "desRuolo" : "Cose Trasportate Terzi Veicolo Assicurato",
+    "lesioni" : false
 }
 { 
     "_id" : NumberInt(11), 
-    "desRuolo" : "Cose Trasportate Terzi Veicolo Controparte"
+    "desRuolo" : "Cose Trasportate Terzi Veicolo Controparte",
+    "lesioni" : false
 }
 { 
     "_id" : NumberInt(12), 
-    "desRuolo" : "Conducente Altro Veicolo"
+    "desRuolo" : "Conducente Altro Veicolo",
+    "lesioni" : true
 }
 { 
     "_id" : NumberInt(13), 
-    "desRuolo" : "Legale"
+    "desRuolo" : "Legale",
+    "lesioni" : false
 }
 { 
     "_id" : NumberInt(14), 
-    "desRuolo" : "Assicurato"
+    "desRuolo" : "Assicurato",
+    "lesioni" : false
 }
 { 
     "_id" : NumberInt(15), 
-    "desRuolo" : "Controparte"
+    "desRuolo" : "Controparte",
+    "lesioni" : false
 }

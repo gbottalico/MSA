@@ -517,7 +517,6 @@ public class SinistriService extends BaseSinistroService {
             throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA014"));
 
         }
-
     }
 
 

@@ -10,6 +10,8 @@ public class RuoliDBO {
     private Integer id;
      @Field("desRuolo")
     private String descrizioneRuolo;
+     @Field("lesioni")
+     private Boolean lesioni;
 
     public Integer getId() {
         return id;
@@ -25,5 +27,13 @@ public class RuoliDBO {
 
     public void setDescrizioneRuolo(String descrizioneRuolo) {
         this.descrizioneRuolo = descrizioneRuolo;
+    }
+
+    public Boolean getLesioni() {
+        return lesioni;
+    }
+
+    public void setLesioni(Boolean lesioni) {
+        this.lesioni = lesioni;
     }
 }

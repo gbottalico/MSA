@@ -20,6 +20,7 @@ import msa.infrastructure.repository.DomainRepository;
 import msa.infrastructure.repository.SinistriRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.math.BigDecimal;
 import java.util.*;
 import java.util.function.Function;
 
@@ -326,4 +327,17 @@ public class BaseSinistroService extends BaseService {
         final Boolean targaEstera = Optional.ofNullable(anagrafica.getTargaEstera()).orElseGet(() -> Boolean.FALSE);
         return flagCard && flagGestioneCTTVeicolo && !targaEstera;
     };
+
+    protected final MsaFunction<CaiDO,Integer> getPercCID = cai -> {
+        final IncrociBaremesDO incrocio = domainRepository.getColpaByBaremes(cai.getBaremesCliente(), cai.getBaremesControparte());
+        return incrocio.getPercRespCliente();
+    };
+
+    protected final MsaBiFunction<List<AnagraficaTerzePartiDO>,Boolean,Boolean> nostroTrasportato = (anags,flagIsCliente) -> anags.stream()
+                .anyMatch(e -> flagIsCliente
+                        ? e.getCodRuolo().equalsIgnoreCase("6")
+                        : e.getCodRuolo().equalsIgnoreCase("7"));
+
+    protected final MsaFunction<AnagraficaTerzePartiDO,Boolean> hasLesioni = AnagraficaTerzePartiDO::getLesioni;
+
 }

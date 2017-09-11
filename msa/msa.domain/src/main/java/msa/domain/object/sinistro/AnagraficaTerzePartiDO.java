@@ -2,6 +2,7 @@ package msa.domain.object.sinistro;
 
 public class AnagraficaTerzePartiDO extends FullAnagraficaDO{
     private String note;
+    private Boolean lesioni;
 
     public String getNote() {
         return note;
@@ -11,5 +12,11 @@ public class AnagraficaTerzePartiDO extends FullAnagraficaDO{
         this.note = note;
     }
 
+    public Boolean getLesioni() {
+        return lesioni;
+    }
 
+    public void setLesioni(Boolean lesioni) {
+        this.lesioni = lesioni;
+    }
 }
