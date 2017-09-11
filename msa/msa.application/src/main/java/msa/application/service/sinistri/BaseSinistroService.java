@@ -12,10 +12,12 @@ import msa.application.dto.sinistro.segnalazione.SegnalazioneDTO;
 import msa.application.exceptions.InternalMsaException;
 import msa.application.service.base.BaseService;
 import msa.domain.Converter.FunctionUtils;
+import msa.domain.Converter.MsaConverter;
 import msa.domain.object.dominio.BaremesDO;
 import msa.domain.object.dominio.TipoVeicoloDO;
 import msa.domain.object.sinistro.*;
 import msa.domain.object.sinistro.rca.*;
+import msa.infrastructure.costanti.MsaCostanti;
 import msa.infrastructure.repository.DomainRepository;
 import msa.infrastructure.repository.SinistriRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -316,6 +318,8 @@ public class BaseSinistroService extends BaseService {
             };*/
 
 
+   protected final MsaFunction<SegnalazioneDO,Boolean> isInItalia = segnalazione -> Integer.compare(segnalazione.getCodNazione(), MsaCostanti.COD_NAZIONE_ITALIA) == 0;
+
     protected final MsaFunction<FullAnagraficaControparteDO, Boolean> isConvenzioneCTT = anagrafica -> {
         final Boolean flagGestioneCTTVeicolo = domainRepository.getElencoTipoVeicoli()
                 .parallelStream()
@@ -335,8 +339,8 @@ public class BaseSinistroService extends BaseService {
 
     protected final MsaBiFunction<List<AnagraficaTerzePartiDO>,Boolean,Boolean> nostroTrasportato = (anags,flagIsCliente) -> anags.stream()
                 .anyMatch(e -> flagIsCliente
-                        ? e.getCodRuolo().equalsIgnoreCase("6")
-                        : e.getCodRuolo().equalsIgnoreCase("7"));
+                        ? e.getCodRuolo().equals(MsaCostanti.COD_RUOLO_TERZO_TRASPORTATO_CLIENTE)
+                        : e.getCodRuolo().equals(MsaCostanti.COD_RUOLO_TERZO_TRASPORTATO_CONTROPARTE));
 
     protected final MsaFunction<AnagraficaTerzePartiDO,Boolean> hasLesioni = AnagraficaTerzePartiDO::getLesioni;
 
