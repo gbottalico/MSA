@@ -1,12 +1,13 @@
 package msa.infrastructure.persistence.ricerca;
 
+import msa.infrastructure.persistence.AbstractDBO;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.Date;
 @Document(collection = "polizze")
-public class BasePolizzaDBO {
+public class BasePolizzaDBO extends AbstractDBO{
     @Id
     private String numeroPolizza;
     @Field("targa")

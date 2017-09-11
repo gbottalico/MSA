@@ -15,6 +15,7 @@ import msa.application.dto.sinistro.rca.dannoRca.AnagraficaDanniDTO;
 import msa.application.dto.sinistro.rca.dannoRca.DannoRcaDTO;
 import msa.application.dto.sinistro.rca.eventoRca.EventoRcaDTO;
 import msa.application.dto.sinistro.segnalazione.SegnalazioneDTO;
+import msa.application.dto.user.UserLoggedDTO;
 import msa.application.exceptions.InternalMsaException;
 import msa.application.service.interfaceDispatcher.DispatcherService;
 import msa.domain.Converter.FunctionUtils;
@@ -106,12 +107,13 @@ public class SinistriService extends BaseSinistroService {
         polizza2.setDataAttivazione(FunctionUtils.nowAsDate());
         polizza2.setDataScadenza(FunctionUtils.nowAsDate());
         List<FullPolizzaDTO> collect = Stream.of(polizza1, polizza2).collect(Collectors.toList());
-        asyncSavePolizzeInMongo(collect);
+        asyncSavePolizzeInMongo(collect, input.getUserLogged());
         return converter.convertList(collect, BasePolizzaDTO.class);
     }
 
     @Async
-    public void asyncSavePolizzeInMongo(final List<FullPolizzaDTO> polizze) {
+    public void asyncSavePolizzeInMongo(final List<FullPolizzaDTO> polizze, UserLoggedDTO userLogged) {
+        polizzeRepository.deletePolizzeForUser(converter.convertObject(userLogged, UserLoggedDO.class));
         polizzeRepository.savePolizzeMsa(converter.convertList(polizze, FullPolizzaDO.class));
     }
 
@@ -499,12 +501,13 @@ public class SinistriService extends BaseSinistroService {
 
     /**
      * Metodo che restituisce una polizza effettuando la ricerca in base al numpoli
+     *
      * @param numPoli
      * @return
      */
     public FullPolizzaDTO getPolizzaByNumPoli(String numPoli) throws InternalMsaException {
         try {
-            return converter.convertObject(sinistriRepository.getPolizzaByNumPoli(numPoli),FullPolizzaDTO.class);
+            return converter.convertObject(sinistriRepository.getPolizzaByNumPoli(numPoli), FullPolizzaDTO.class);
         } catch (Exception e) {
             throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA013"));
 
