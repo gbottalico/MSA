@@ -22,12 +22,6 @@
                 $ctrl.ca.constatazioneAmichevole = true;
                 $ctrl.ca.constatazioneAmichevoleControparte = undefined;
 
-                // $ctrl.$onInit = function () {
-                //     $location.hash($ctrl.mapId);
-                //     PathSvc.smoothScroll($ctrl.mapId);
-                // };
-
-
                 $ctrl.salvaCa = function () {
                     SinistriSvc.salvaCa($ctrl.numeroSinistroProvvisorio, $ctrl.ca).then(function (response) {
                         DebugSvc.log("salvaCa", response);

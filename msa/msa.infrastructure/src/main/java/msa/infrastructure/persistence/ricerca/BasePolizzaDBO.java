@@ -4,8 +4,10 @@ import msa.infrastructure.persistence.AbstractDBO;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
+
 @Document(collection = "polizze")
 public class BasePolizzaDBO extends AbstractDBO{
     @Id
@@ -17,12 +19,21 @@ public class BasePolizzaDBO extends AbstractDBO{
     private String nominativoContraente;
     @Field("stato")
     private String stato;
-    @Field("variazione")
-    private Date variazione;
-    @Field("attivazione")
-    private Date attivazione;
-    @Field("scadenza")
-    private Date scadenza;
+    @Field("dataVariazione")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+
+    private Date dataVariazione;
+
+
+    @Field("dataAttivazione")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+
+    private Date dataAttivazione;
+
+    @Field("dataScadenza")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+
+    private Date dataScadenza;
 
 
     public String getNumeroPolizza() {
@@ -57,28 +68,28 @@ public class BasePolizzaDBO extends AbstractDBO{
         this.stato = stato;
     }
 
-    public Date getVariazione() {
-        return variazione;
+    public Date getDataVariazione() {
+        return dataVariazione;
     }
 
-    public void setVariazione(Date variazione) {
-        this.variazione = variazione;
+    public void setDataVariazione(Date dataVariazione) {
+        this.dataVariazione = dataVariazione;
     }
 
-    public Date getAttivazione() {
-        return attivazione;
+    public Date getDataAttivazione() {
+        return dataAttivazione;
     }
 
-    public void setAttivazione(Date attivazione) {
-        this.attivazione = attivazione;
+    public void setDataAttivazione(Date dataAttivazione) {
+        this.dataAttivazione = dataAttivazione;
     }
 
-    public Date getScadenza() {
-        return scadenza;
+    public Date getDataScadenza() {
+        return dataScadenza;
     }
 
-    public void setScadenza(Date scadenza) {
-        this.scadenza = scadenza;
+    public void setDataScadenza(Date dataScadenza) {
+        this.dataScadenza = dataScadenza;
     }
 
 }

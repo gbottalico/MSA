@@ -4,8 +4,8 @@
     app.component('msaDenunciaContainer', {
         templateUrl: '../../app/component/denuncia-sinistro/denuncia-container/components/templates/denuncia-container-tpl.html',
         bindings: {},
-        controller: ("denunciaContainerController", ['$rootScope', '$scope', '$routeParams', '$location', '$debugMode', '$timeout', '$filter', 'toastr', 'SmoothScroll', 'SinistriSvc', 'UtilSvc', 'PathSvc', 'DebugSvc',
-            function ($rootScope, $scope, $routeParams, $location, $debugMode, $timeout, $filter, toastr, SmoothScroll, SinistriSvc, UtilSvc, PathSvc, DebugSvc) {
+        controller: ("denunciaContainerController", ['$rootScope', '$scope', '$routeParams', '$location', '$debugMode', '$timeout', '$filter', '$anchorScroll', 'toastr', 'SinistriSvc', 'UtilSvc', 'PathSvc', 'DebugSvc',
+            function ($rootScope, $scope, $routeParams, $location, $debugMode, $timeout, $filter, $anchorScroll, toastr, SinistriSvc, UtilSvc, PathSvc, DebugSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
@@ -51,23 +51,12 @@
                             toastr.error($translate('global.generic.erroremappe'));
                         }
                         DebugSvc.log("aggiornaMappe", path);
-                        // Scroll to the new fresh map
-                        //DebugSvc.log("scrollTo", path[path.length - 1]);
-                        //$location.hash(path[path.length - 1]);
-                        //PathSvc.smoothScroll(path[path.length - 1]);
                     });
                 };
 
                 $ctrl.mappaCaricata = function (mapId) {
                     DebugSvc.log(mapId + " initialized.");
                     $ctrl.tempSegnalazione.lastMap = mapId;
-                    // $timeout(function () {
-                    //     SmoothScroll.$goTo(800).then(function (response) {
-                    //         DebugSvc.log("Scrolled to:", response);
-                    //     })
-                    // }, 5000);
-
-                    //TODO
                 };
 
                 $ctrl.isMappaVisibile = function (nomeMappa) {
@@ -92,6 +81,17 @@
                         default:
                             return false;
                     }
+                };
+
+                $ctrl.scrollTo = function (divId) {
+                    var id = $location.hash();
+                    $location.hash(divId);
+                    $anchorScroll();
+                    $location.hash(id);
+                };
+
+                $scope.scrollTo = function (divId) {
+                    $ctrl.scrollTo(divId);
                 };
 
                 $scope.aggiornaMappe = function () {

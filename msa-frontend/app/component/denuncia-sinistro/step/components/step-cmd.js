@@ -4,8 +4,8 @@
     app.component('msaStep', {
         templateUrl: '../../app/component/denuncia-sinistro/step/components/templates/step-tpl.html',
         bindings: {
-            valoriRicerca: '=',
-            datiContraente: '='
+            datiContraente: '<',
+            mappe: '<'
         },
         controller: ("stepController", ['$rootScope', '$scope', '$filter', '$document', '$location', '$anchorScroll', 'UtilSvc', 'PlacesSvc',
             function ($rootScope, $scope, $filter, $document, $location, $anchorScroll, UtilSvc, PlacesSvc) {
@@ -55,15 +55,12 @@
                     $ctrl.user.recapiti = $ctrl.user.recapiti.filter(function (e) {
                         return e === 0 || e;
                     });
-                    $ctrl.user.recapiti = $ctrl.user.recapiti.join(", ") || $translate("global.step.labels.nessunrecapito");
+                    $ctrl.user.recapiti = $ctrl.user.recapiti.join(", ") || $translate("global.people.nessunrecapito");
                 };
 
 
-                $ctrl.scrollTo = function (id) {
-                    $location.hash(id);
-                    var elem = angular.element(document.getElementById(id));
-                    $document.scrollToElement(elem, 30, 500);
-                    //$anchorScroll();
+                $ctrl.scrollTo = function (divId) {
+                    parent.scrollTo(divId);
                 };
 
                 $scope.$watch(

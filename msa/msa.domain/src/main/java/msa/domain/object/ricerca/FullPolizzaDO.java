@@ -9,7 +9,7 @@ public class FullPolizzaDO extends BasePolizzaDO {
     private List<Map<Date, Date>> dateSospensione; // la mappa è formata da -> valore, a-> valore
 
     private String telaio;
-    private Date immatricolazione;
+    private Date dataImmatricolazione;
     private String marca;
     private String modello;
     private Boolean copertura;
@@ -62,12 +62,12 @@ public class FullPolizzaDO extends BasePolizzaDO {
         this.telaio = telaio;
     }
 
-    public Date getImmatricolazione() {
-        return immatricolazione;
+    public Date getDataImmatricolazione() {
+        return dataImmatricolazione;
     }
 
-    public void setImmatricolazione(Date immatricolazione) {
-        this.immatricolazione = immatricolazione;
+    public void setDataImmatricolazione(Date dataImmatricolazione) {
+        this.dataImmatricolazione = dataImmatricolazione;
     }
 
     public String getMarca() {

@@ -34,11 +34,6 @@
                     $ctrl.autorita = response.data.result;
                 });
 
-                // $ctrl.$onInit = function () {
-                //     $location.hash($ctrl.mapId);
-                //     PathSvc.smoothScroll($ctrl.mapId);
-                // };
-
                 $ctrl.salvaEventoRca = function () {
                     SinistriSvc.salvaEventoRca($ctrl.numeroSinistroProvvisorio, $ctrl.eventoRca).then(function (response) {
                         DebugSvc.log("salvaEventoRca", response);
