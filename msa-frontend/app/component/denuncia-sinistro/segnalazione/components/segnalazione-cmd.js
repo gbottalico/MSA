@@ -8,8 +8,8 @@
             sinistroProvvisorio: "<",
             tempSegnalazione: "="
         },
-        controller: ("segnalazioneController", ['$scope', '$rootScope', '$debugMode', '$filter', 'toastr', 'DomainSvc', 'PlacesSvc', 'SinistriSvc', 'UtilSvc', 'RegexSvc', 'DebugSvc',
-            function ($scope, $rootScope, $debugMode, $filter, toastr, DomainSvc, PlacesSvc, SinistriSvc, UtilSvc, RegexSvc, DebugSvc) {
+        controller: ("segnalazioneController", ['_', '$scope', '$rootScope', '$debugMode', '$filter', 'toastr', 'DomainSvc', 'PlacesSvc', 'SinistriSvc', 'UtilSvc', 'RegexSvc', 'DebugSvc',
+            function (_, $scope, $rootScope, $debugMode, $filter, toastr, DomainSvc, PlacesSvc, SinistriSvc, UtilSvc, RegexSvc, DebugSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
@@ -37,6 +37,7 @@
                     segnalazione: {},
                     tracking: {},
                     provenienza: {},
+                    luogo: {}
                 };
 
                 DomainSvc.getMezziComunicazione().then(function (response) {
@@ -63,7 +64,7 @@
 
                 $ctrl.bindSinitroProvvisorio = function (sinitroProvvisorio) {
 
-                    if (sinitroProvvisorio.segnalazione !== undefined && sinitroProvvisorio.segnalazione !== null) {
+                    if (_.isObject(sinitroProvvisorio.segnalazione)) {
 
                         $ctrl.sinistro.segnalazione.nome = sinitroProvvisorio.segnalazione.denunciante.nome;
                         $ctrl.sinistro.segnalazione.cognome = sinitroProvvisorio.segnalazione.denunciante.cognome;
@@ -75,13 +76,13 @@
 
                         $ctrl.sinistro.provenienza.mezzoComunicazione = sinitroProvvisorio.segnalazione.codMezzo;
 
-                        if (sinitroProvvisorio.segnalazione.dataDenuncia !== undefined && sinitroProvvisorio.segnalazione.dataDenuncia !== null) {
+                        if (_.isObject(sinitroProvvisorio.segnalazione.dataDenuncia)) {
                             $ctrl.persistence.dataDenuncia = new Date(sinitroProvvisorio.segnalazione.dataDenuncia);
                         } else {
                             $ctrl.persistence.dataDenuncia = new Date();
                         }
 
-                        if (sinitroProvvisorio.segnalazione.dataOraSinistro !== undefined && sinitroProvvisorio.segnalazione.dataOraSinistro !== null) {
+                        if (_.isObject(sinitroProvvisorio.segnalazione.dataOraSinistro)) {
                             $ctrl.persistence.dataSinistro = new Date(sinitroProvvisorio.segnalazione.dataOraSinistro);
                         } else {
                             $ctrl.persistence.dataSinistro = new Date();
@@ -104,7 +105,6 @@
 
                 $ctrl.$onInit = function () {
                     parent.mappaCaricata($ctrl.mapId);
-                    DebugSvc.log("$scope", $scope);
                 };
 
                 $scope.$watch(
