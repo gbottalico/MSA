@@ -344,4 +344,16 @@ public class BaseSinistroService extends BaseService {
 
     protected final MsaFunction<AnagraficaTerzePartiDO,Boolean> hasLesioni = AnagraficaTerzePartiDO::getLesioni;
 
+    protected final MsaFunction<FullAnagraficaControparteDO, Boolean> isConvenzioneCID = anagrafica -> {
+        final Boolean flagGestioneCTTVeicolo = domainRepository.getElencoTipoVeicoli()
+                .parallelStream()
+                .filter(e -> e.getId().equals(FunctionUtils.numberConverter(anagrafica.getVeicolo(), Integer::valueOf)))
+                .findFirst()
+                .map(TipoVeicoloDO::getGestioneCid)
+                .orElse(Boolean.FALSE);
+        final Boolean flagCard = Optional.ofNullable(anagrafica.getFlagCard()).orElseGet(() -> Boolean.FALSE);
+        final Boolean targaEstera = Optional.ofNullable(anagrafica.getTargaEstera()).orElseGet(() -> Boolean.FALSE);
+        return flagCard && flagGestioneCTTVeicolo && !targaEstera;
+    };
+
 }
