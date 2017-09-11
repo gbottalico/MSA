@@ -207,8 +207,8 @@
                             </select>
                             <label>{{'global.veicolo.tipo' | translate}}</label>
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
-                            <input type="text" ng-model="$ctrl.dannoRca.veicoloControparte.targa">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText" ng-class="{'has-error' : dannoRcaForm.inputtarga.$invalid && !dannoRcaForm.inputtarga.$pristine}">
+                            <input type="text" name="inputtarga" ng-pattern="$ctrl.reTarga"  ng-model="$ctrl.dannoRca.veicoloControparte.targa">
                             <label>{{'global.veicolo.targa' | translate}}</label>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">

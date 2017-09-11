@@ -8,8 +8,8 @@
             sinistroProvvisorio: "<",
             tempSegnalazione: "="
         },
-        controller: ("dannoRcaContoller", ['_', '$rootScope', '$scope', '$debugMode', '$filter', '$uibModal', '$timeout', 'toastr', 'DomainSvc', 'SinistriSvc', 'DebugSvc', 'UtilSvc', 'ConvertSvc',
-            function (_, $rootScope, $scope, $debugMode, $filter, $uibModal, $timeout, toastr, DomainSvc, SinistriSvc, DebugSvc, UtilSvc, ConvertSvc) {
+        controller: ("dannoRcaContoller", ['_', '$rootScope', '$scope', '$debugMode', '$filter', '$uibModal', '$timeout', 'toastr', 'DomainSvc', 'SinistriSvc', 'DebugSvc', 'UtilSvc', 'ConvertSvc','RegexSvc',
+            function (_, $rootScope, $scope, $debugMode, $filter, $uibModal, $timeout, toastr, DomainSvc, SinistriSvc, DebugSvc, UtilSvc, ConvertSvc,RegexSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
@@ -18,7 +18,7 @@
 
                 $ctrl.mapId = 'M16';
                 $ctrl.isInputConsumed = false;
-
+                $ctrl.reTarga = RegexSvc.getTargaRegex();
                 $ctrl.persistence = {};
 
                 $ctrl.dannoRca = {
