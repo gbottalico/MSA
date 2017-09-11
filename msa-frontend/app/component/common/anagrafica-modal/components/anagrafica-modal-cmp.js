@@ -12,9 +12,16 @@
             function ($rootScope, $scope, $debugMode, UtilSvc, DebugSvc, DomainSvc) {
 
                 var $ctrl = this;
-                $ctrl.anagrafica = {};
+                $ctrl.anagrafica = {
+                    ruolo: undefined,
+                    lesioni: false
+                };
                 $ctrl.ruoli = undefined;
+                $ctrl.ruoliKeyValue = undefined;
+                $ctrl.ruoloConLesioni = undefined;
+
                 $scope.$debugMode = $debugMode;
+
 
                 $ctrl.TipologiaEnum = {
                     FISICA: "PF",
@@ -27,13 +34,14 @@
                     $ctrl.hasCompagnia = $ctrl.resolve.hasCompagnia;
                     $ctrl.anagrafica.tipoPersona = $ctrl.TipologiaEnum.FISICA;
 
-                    if($ctrl.hasRole) {
+                    if ($ctrl.hasRole) {
                         DomainSvc.getRuoli().then(function (response) {
-                           $ctrl.ruoli = response.data.result;
+                            $ctrl.ruoli = response.data.result;
+                            $ctrl.ruoliKeyValue = UtilSvc.arrayWithIdToMap($ctrl.ruoli);
                         });
                     }
 
-                    if($ctrl.hasCompagnia) {
+                    if ($ctrl.hasCompagnia) {
                         DomainSvc.getElencoRegole().then(function (response) {
                             $ctrl.casaRegole = response.data.result;
                         });
@@ -67,6 +75,22 @@
                 $ctrl.cancel = function () {
                     $ctrl.dismiss({$value: undefined});
                 };
+
+                $scope.$watch(
+                    function watchScope(scope) {
+                        return {
+                            ruolo: $ctrl.anagrafica.ruolo
+                        };
+                    },
+                    function handleChanges(newValues, oldValues) {
+
+                        if(newValues.ruolo !== undefined) {
+                            $ctrl.ruoloConLesioni = $ctrl.ruoliKeyValue[$ctrl.anagrafica.ruolo].lesioni;
+                        }
+
+                    }, true
+                );
+
             }])
     });
 

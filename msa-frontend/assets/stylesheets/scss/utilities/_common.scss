@@ -77,6 +77,10 @@ section {
   color: $light_blue !important;
 }
 
+.full-width {
+  width: 100%;
+}
+
 .classicInputText {
   margin-top: 15px;
   margin-bottom: 15px;
@@ -552,12 +556,9 @@ table.dettagliopolizzatable {
     }
   }
 
-  .btn {
+  .btn:not(.btn-special, .btn-sm) {
     height: 4rem;
     line-height: 1;
-  }
-
-  .btn:not(.btn-special) {
     color: $white;
     padding: 10px 20px;
     border-radius: 5px;
@@ -566,15 +567,17 @@ table.dettagliopolizzatable {
     font-size: 1.8rem;
     outline: none;
   }
-  .btn:not(.btn-special):hover {
+  .btn:hover {
     opacity: 0.7;
-    color: $white;
   }
+
   .btn.blueButton {
     background: $light_blue;
+    color: white;
   }
   .btn.grayButton {
     background: $gray;
+    color: white;
   }
   .btn.lightGrayButton {
     background: $light_gray;
