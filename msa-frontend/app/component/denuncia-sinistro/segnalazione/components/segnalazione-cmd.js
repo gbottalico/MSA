@@ -15,6 +15,7 @@
                 var $translate = $filter('translate');
                 var parent = $scope.$parent;
                 $scope.$debugMode = $debugMode;
+                $scope.$regex = RegexSvc;
 
                 $ctrl.mapId = "M11";
 

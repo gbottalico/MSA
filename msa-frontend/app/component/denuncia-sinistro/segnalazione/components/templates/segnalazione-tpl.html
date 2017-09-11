@@ -88,8 +88,8 @@
                     </msa-date-selector>
                     <label>{{'global.denunciasinitro.labels.dataSinistro' | translate}}</label>
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
-                    <input type="text" name="orasinistro" ng-model="$ctrl.sinistro.provenienza.oraSinistro">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText" ng-class="{'has-error' : segnalazioneForm.orasinistro.$invalid && !segnalazioneForm.orasinistro.$pristine}">
+                    <input type="text" name="orasinistro" ng-model="$ctrl.sinistro.provenienza.oraSinistro" ng-pattern="$regex.reOra" placeholder="HH:MM">
                     <label>{{'global.denunciasinitro.labels.oraSinistro' | translate}}</label>
                 </div>
 

@@ -8,8 +8,8 @@
             close: '&',
             dismiss: '&'
         },
-        controller: ("headerController", ['$rootScope', '$scope', '$debugMode', 'UtilSvc', 'DebugSvc', 'DomainSvc',
-            function ($rootScope, $scope, $debugMode, UtilSvc, DebugSvc, DomainSvc) {
+        controller: ("headerController", ['$rootScope', '$scope', '$debugMode', 'UtilSvc', 'DebugSvc', 'DomainSvc', 'RegexSvc',
+            function ($rootScope, $scope, $debugMode, UtilSvc, DebugSvc, DomainSvc, RegexSvc) {
 
                 var $ctrl = this;
                 $ctrl.anagrafica = {
@@ -21,7 +21,7 @@
                 $ctrl.ruoloConLesioni = undefined;
 
                 $scope.$debugMode = $debugMode;
-
+                $scope.$regex = RegexSvc;
 
                 $ctrl.TipologiaEnum = {
                     FISICA: "PF",
