@@ -275,7 +275,7 @@
     "_id" : NumberInt(40), 
     "iniValidita" : ISODate("1991-08-25T00:00:00.000+0000"), 
     "finValidita" : null, 
-    "descrizione" : "BIELORUSSIA=RUSSIA BIANCA", 
+    "descrizione" : "BIELORUSSIA / RUSSIA BIANCA", 
     "sigNazione" : "BY"
 }
 { 
@@ -401,7 +401,7 @@
     "_id" : NumberInt(58), 
     "iniValidita" : ISODate("1984-12-31T00:00:00.000+0000"), 
     "finValidita" : ISODate("1990-12-22T00:00:00.000+0000"), 
-    "descrizione" : "CAROLINE (ISOLE)=STATI FEDERATI DI MICRONESIA", 
+    "descrizione" : "CAROLINE (ISOLE) / STATI FEDERATI DI MICRONESIA", 
     "sigNazione" : null
 }
 { 
@@ -597,7 +597,7 @@
     "_id" : NumberInt(86), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "descrizione" : "COSTA DEI PIRATI=TRUCIAL STATES", 
+    "descrizione" : "COSTA DEI PIRATI / TRUCIAL STATES", 
     "sigNazione" : null
 }
 { 
@@ -625,7 +625,7 @@
     "_id" : NumberInt(90), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "descrizione" : "DAHOMEY=BENIN", 
+    "descrizione" : "DAHOMEY / BENIN", 
     "sigNazione" : "DY"
 }
 { 
@@ -793,14 +793,14 @@
     "_id" : NumberInt(114), 
     "iniValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
     "finValidita" : null, 
-    "descrizione" : "FIGI=VITI", 
+    "descrizione" : "FIGI / VITI", 
     "sigNazione" : "FJI"
 }
 { 
     "_id" : NumberInt(115), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "descrizione" : "FIGI=VITI (ISOLE)", 
+    "descrizione" : "FIGI / VITI (ISOLE)", 
     "sigNazione" : "FJI"
 }
 { 
@@ -821,7 +821,7 @@
     "_id" : NumberInt(118), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "descrizione" : "FORMOSA=TAIWAN", 
+    "descrizione" : "FORMOSA / TAIWAN", 
     "sigNazione" : null
 }
 { 
@@ -996,7 +996,7 @@
     "_id" : NumberInt(143), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
-    "descrizione" : "GUAYANA=GUIANA FRANCESE", 
+    "descrizione" : "GUAYANA / GUIANA FRANCESE", 
     "sigNazione" : "GUY"
 }
 { 
@@ -1129,7 +1129,7 @@
     "_id" : NumberInt(162), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
-    "descrizione" : "IRLANDA=EIRE", 
+    "descrizione" : "IRLANDA / EIRE", 
     "sigNazione" : "IRL"
 }
 { 
@@ -1374,7 +1374,7 @@
     "_id" : NumberInt(197), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
-    "descrizione" : "MALVINE=FALKLAND (ISOLE)", 
+    "descrizione" : "MALVINE / FALKLAND (ISOLE)", 
     "sigNazione" : null
 }
 { 
@@ -1528,7 +1528,7 @@
     "_id" : NumberInt(219), 
     "iniValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
     "finValidita" : ISODate("1978-12-31T00:00:00.000+0000"), 
-    "descrizione" : "NAMIBIA=AFRICA DEL SUD OVEST", 
+    "descrizione" : "NAMIBIA / AFRICA DEL SUD OVEST", 
     "sigNazione" : "NAM"
 }
 { 
@@ -1577,7 +1577,7 @@
     "_id" : NumberInt(226), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
-    "descrizione" : "NIUE=SAVAGE (ISOLE)", 
+    "descrizione" : "NIUE / SAVAGE (ISOLE)", 
     "sigNazione" : null
 }
 { 
@@ -1591,7 +1591,7 @@
     "_id" : NumberInt(228), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
-    "descrizione" : "NORMANNE (ISOLE)=ISOLE DEL CANALE", 
+    "descrizione" : "NORMANNE (ISOLE) / ISOLE DEL CANALE", 
     "sigNazione" : null
 }
 { 
@@ -1773,7 +1773,7 @@
     "_id" : NumberInt(254), 
     "iniValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
     "finValidita" : null, 
-    "descrizione" : "REPUBBLICA DELLA CINA NAZIONALE=TAIWAN", 
+    "descrizione" : "REPUBBLICA DELLA CINA NAZIONALE / TAIWAN", 
     "sigNazione" : null
 }
 { 
@@ -1808,7 +1808,7 @@
     "_id" : NumberInt(259), 
     "iniValidita" : ISODate("1992-03-31T00:00:00.000+0000"), 
     "finValidita" : null, 
-    "descrizione" : "RUSSIA=FEDERAZIONE RUSSA", 
+    "descrizione" : "RUSSIA / FEDERAZIONE RUSSA", 
     "sigNazione" : null
 }
 { 
@@ -1843,7 +1843,7 @@
     "_id" : NumberInt(264), 
     "iniValidita" : ISODate("1984-12-31T00:00:00.000+0000"), 
     "finValidita" : null, 
-    "descrizione" : "SAINT KITTS E NEVIS=SAINT CHRISTOPHER E NEVIS", 
+    "descrizione" : "SAINT KITTS E NEVIS / SAINT CHRISTOPHER E NEVIS", 
     "sigNazione" : null
 }
 { 
@@ -2158,21 +2158,21 @@
     "_id" : NumberInt(309), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
-    "descrizione" : "TOKELAU=ISOLE DELL'UNIONE", 
+    "descrizione" : "TOKELAU / ISOLE DELL'UNIONE", 
     "sigNazione" : null
 }
 { 
     "_id" : NumberInt(310), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "descrizione" : "TONGA=DEGLI AMICI (ISOLE)", 
+    "descrizione" : "TONGA / DEGLI AMICI (ISOLE)", 
     "sigNazione" : null
 }
 { 
     "_id" : NumberInt(311), 
     "iniValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
     "finValidita" : null, 
-    "descrizione" : "TONGA=ISOLE DEGLI AMICI", 
+    "descrizione" : "TONGA / ISOLE DEGLI AMICI", 
     "sigNazione" : null
 }
 { 
@@ -2340,7 +2340,7 @@
     "_id" : NumberInt(335), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : ISODate("1984-12-31T00:00:00.000+0000"), 
-    "descrizione" : "VOLTA=ALTOVOLTA", 
+    "descrizione" : "VOLTA / ALTOVOLTA", 
     "sigNazione" : "BF"
 }
 { 
