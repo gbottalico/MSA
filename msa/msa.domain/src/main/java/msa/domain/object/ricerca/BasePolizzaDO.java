@@ -1,8 +1,10 @@
 package msa.domain.object.ricerca;
 
+import msa.domain.object.sinistro.AbstractDO;
+
 import java.util.Date;
 
-public class BasePolizzaDO {
+public class BasePolizzaDO extends AbstractDO {
 
     private String numeroPolizza;
     private String targa;
