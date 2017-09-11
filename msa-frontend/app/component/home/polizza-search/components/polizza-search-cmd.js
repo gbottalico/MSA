@@ -6,98 +6,16 @@
         bindings: {
             valoriRicerca: "="
         },
-        controller: ("polizzaSearchController", ["$timeout", "$scope", '$rootScope', '$translate', '$log', 'DomainSvc', 'SinistriSvc', 'PlacesSvc', 'toastr', '$analytics', '$location', '$anchorScroll', '$uibModal', '$cookies', '$window', '$sessionStorage', 'DebugSvc',
-            function ($timeout, $scope, $rootScope, $translate, $log, DomainSvc, SinistriSvc, PlacesSvc, toastr, $analytics, $location, $anchorScroll, $uibModal, $cookies, $window, $sessionStorage, DebugSvc) {
+        controller: ("polizzaSearchController", ["$scope", '$rootScope', '$translate', '$filter', 'DomainSvc', 'SinistriSvc', 'PlacesSvc', 'toastr', '$analytics', '$location', '$anchorScroll', '$uibModal', '$cookies', '$window', '$sessionStorage', 'DebugSvc',
+            function ($scope, $rootScope, $translate, $filter, DomainSvc, SinistriSvc, PlacesSvc, toastr, $analytics, $location, $anchorScroll, $uibModal, $cookies, $window, $sessionStorage, DebugSvc) {
 
                 var $ctrl = this;
-                //var modalInstance = undefined;
+                var $translate = $filter('translate');
+                var parent = $scope.$parent;
 
                 $ctrl.casaRegole = undefined;
                 $ctrl.compagniaSelezionata = undefined;
-                $ctrl.valoriRicerca = undefined;
-
                 $ctrl.numSinistroProvv = undefined;
-
-                $ctrl.$onInit = function () {
-                    DomainSvc.getElencoRegole().then(function (data) {
-                        $ctrl.casaRegole = data.result;
-                    });
-
-                    // DomainSvc.successCall().then(function (response) {
-                    //    DebugSvc.log("successCall", response);
-                    //    return DomainSvc.successCall();
-                    // }).then(function (response) {
-                    //     DebugSvc.log("successCall", response);
-                    //     return DomainSvc.successCall();
-                    // }).catch(function (error) {
-                    //     DebugSvc.log("catch", error);
-                    // });
-
-                };
-
-                $ctrl.campiObbligatori = {
-                    cognome: false,
-                    nome: false,
-                    tipoPersona: false,
-                    numeroPolizza: false,
-                    numeroSinistro: false,
-                    dataEvento: false,
-                    targa: false,
-                    numeroProvvisorio: false,
-                    numeroPreapertura: false
-                };
-
-                $scope.$watch(
-                    function watch(scope) {
-                        return {
-                            compagniaSelezionata: $ctrl.compagniaSelezionata
-                        };
-                    },
-                    function handleChanges(newValue, oldValue) {
-
-                        if (newValue.compagniaSelezionata !== oldValue.compagniaSelezionata) {
-                            if (newValue.compagniaSelezionata instanceof Object &&
-                                newValue.compagniaSelezionata !== null) {
-
-                                // Eseguo il binding dei campi obbligatori.
-                                var campiObbligatoriRicerca = newValue.compagniaSelezionata.campiObbligatoriRicerca;
-                                for (var i = 0; i < campiObbligatoriRicerca.length; i++) {
-                                    switch (campiObbligatoriRicerca[i].idFE) {
-                                        case 1:
-                                            $ctrl.campiObbligatori.cognome = campiObbligatoriRicerca[i].required;
-                                            break;
-                                        case 2:
-                                            $ctrl.campiObbligatori.nome = campiObbligatoriRicerca[i].required;
-                                            break;
-                                        case 3:
-                                            $ctrl.campiObbligatori.tipoPersona = campiObbligatoriRicerca[i].required;
-                                            break;
-                                        case 4:
-                                            $ctrl.campiObbligatori.numeroPolizza = campiObbligatoriRicerca[i].required;
-                                            break;
-                                        case 5:
-                                            $ctrl.campiObbligatori.numeroSinistro = campiObbligatoriRicerca[i].required;
-                                            break;
-                                        case 6:
-                                            $ctrl.campiObbligatori.dataEvento = campiObbligatoriRicerca[i].required;
-                                            break;
-                                        case 7:
-                                            $ctrl.campiObbligatori.targa = campiObbligatoriRicerca[i].required;
-                                            break;
-                                        case 8:
-                                            $ctrl.campiObbligatori.numeroProvvisorio = campiObbligatoriRicerca[i].required;
-                                            break;
-                                        case 9:
-                                            $ctrl.campiObbligatori.numeroPreapertura = campiObbligatoriRicerca[i].required;
-                                            break;
-
-                                    }
-                                }
-                            }
-                        }
-
-                    }, true
-                );
 
                 $ctrl.ricercapolizza = {
                     cognome: '',
@@ -110,114 +28,6 @@
                     numeroProvvisorio: '',
                     numeroPreapertura: ''
                 };
-
-                $ctrl.open = function () {
-                    var modalInstance = $uibModal.open({
-                        templateUrl: 'denunciaSinistroModal',
-                        backdrop: 'static', // Evita che il modal sia chiuso cliccando sullo sfondo.
-                        windowClass: 'msaModal',
-                        size: 'lg',
-                        controller: function ($scope, $uibModalInstance, PlacesSvc, UtilSvc, denunciante) {
-
-                            var $ctrl = this;
-
-                            $scope.denunciante = denunciante;
-                            $ctrl.parent = $scope.$parent;
-
-                            $scope.ok = function () {
-                                $uibModalInstance.close($scope.denunciante);
-                            };
-
-                            $scope.cancel = function () {
-                                $uibModalInstance.dismiss('cancel');
-                            };
-
-                            $scope.isCalcolaCfDisabled = function () {
-                                return !($scope.denunciante &&
-                                    $scope.denunciante.cognome &&
-                                    $scope.denunciante.nome &&
-                                    $scope.denunciante.sesso &&
-                                    $scope.denunciante.nascita.data && $scope.denunciante.nascita.data.$valid &&
-                                    $scope.denunciante.nascita.$valid);
-                            };
-
-                            $scope.calcolaCf = function () {
-
-                                var luogoNascita = $scope.denunciante.nascita.comune ?
-                                    $scope.denunciante.nascita.comune.descrizione :
-                                    $scope.denunciante.nascita.nazione.descrizione;
-
-                                UtilSvc.calcolaCf($scope.denunciante.cognome, $scope.denunciante.nome, $scope.denunciante.sesso, $scope.denunciante.nascita.data.date, luogoNascita).then(function (response) {
-                                    console.log(response);
-                                    $scope.denunciante.cf = response.data.result;
-                                });
-
-                            };
-
-                        },
-                        resolve: {
-                            denunciante: function () {
-                                return $scope.denunciante;
-                            }
-                        }
-                    });//end of modal.open
-
-                    modalInstance.result.then(function (result) {
-                        console.log(result);
-                        $ctrl.apriSinistroProvvisorio(result);
-                    }, function () {
-                        toastr.info("Operazione annullata.");
-                    });
-
-                };
-
-                $ctrl.openAnagrafica = function () {
-                    var modalInstance = $uibModal.open({
-                        animation: true,
-                        backdrop: 'static', // Evita che il modal sia chiuso cliccando sullo sfondo.
-                        windowClass: 'msaModal',
-                        size: 'lg',
-                        component: 'msaAnagraficaModal',
-                        resolve: {
-                            items: function () {
-                                return [{id: 1}, {id: 2}];
-                            }
-                        }
-                    });
-
-                    modalInstance.result.then(function (result) {
-                        DebugSvc.log("openAnagrafica", result);
-                        $ctrl.apriSinistroProvvisorio(result);
-                    }, function () {
-                        DebugSvc.log("openAnagrafica dismiss.");
-                    });
-                };
-
-                $ctrl.apriSinistroProvvisorio = function (datiContraente) {
-                    SinistriSvc.apriSinistroProvvisorio(datiContraente, 37).then(function (response) {
-                        //FIXME rimuovere 37, mockup
-                        $ctrl.numSinistroProvv = response.data.result.numSinistroProvvisorio;
-                        console.log(response.data.result);
-                        $ctrl.denuncia();
-                    });
-                };
-
-                /* Navigazione */
-
-                $ctrl.denuncia = function () {
-                    var path = getMSAC().PATHS.DENUNCIA;
-                    if ($ctrl.numSinistroProvv !== undefined) {
-                        path = path + "/" + $ctrl.numSinistroProvv;
-                    }
-                    $location.path(path);
-                };
-
-                $ctrl.cerca = function () {
-                    // TODO valutarre
-                    //$location.hash('polizzaResult');
-                    //$anchorScroll();
-                };
-
                 $ctrl.valoriRicerca = {
                     bannersearch: $ctrl.bannersearch,
                     bannerdenuncia: $ctrl.bannerdenuncia,
@@ -367,6 +177,89 @@
                         }
                     ]
                 };
+
+                $ctrl.$onInit = function () {
+                    DomainSvc.getElencoRegole().then(function (data) {
+                        $ctrl.casaRegole = data.result;
+                    });
+
+                    // DomainSvc.successCall().then(function (response) {
+                    //    DebugSvc.log("successCall", response);
+                    //    return DomainSvc.successCall();
+                    // }).then(function (response) {
+                    //     DebugSvc.log("successCall", response);
+                    //     return DomainSvc.successCall();
+                    // }).catch(function (error) {
+                    //     DebugSvc.log("catch", error);
+                    // });
+
+                };
+
+                $ctrl.campiObbligatori = {
+                    cognome: false,
+                    nome: false,
+                    tipoPersona: false,
+                    numeroPolizza: false,
+                    numeroSinistro: false,
+                    dataEvento: false,
+                    targa: false,
+                    numeroProvvisorio: false,
+                    numeroPreapertura: false
+                };
+
+                $scope.$watch(
+                    function watch(scope) {
+                        return {
+                            compagniaSelezionata: $ctrl.compagniaSelezionata
+                        };
+                    },
+                    function handleChanges(newValue, oldValue) {
+
+                        if (newValue.compagniaSelezionata !== oldValue.compagniaSelezionata) {
+                            if (newValue.compagniaSelezionata instanceof Object &&
+                                newValue.compagniaSelezionata !== null) {
+
+                                // Eseguo il binding dei campi obbligatori.
+                                var campiObbligatoriRicerca = newValue.compagniaSelezionata.campiObbligatoriRicerca;
+                                for (var i = 0; i < campiObbligatoriRicerca.length; i++) {
+                                    switch (campiObbligatoriRicerca[i].idFE) {
+                                        case 1:
+                                            $ctrl.campiObbligatori.cognome = campiObbligatoriRicerca[i].required;
+                                            break;
+                                        case 2:
+                                            $ctrl.campiObbligatori.nome = campiObbligatoriRicerca[i].required;
+                                            break;
+                                        case 3:
+                                            $ctrl.campiObbligatori.tipoPersona = campiObbligatoriRicerca[i].required;
+                                            break;
+                                        case 4:
+                                            $ctrl.campiObbligatori.numeroPolizza = campiObbligatoriRicerca[i].required;
+                                            break;
+                                        case 5:
+                                            $ctrl.campiObbligatori.numeroSinistro = campiObbligatoriRicerca[i].required;
+                                            break;
+                                        case 6:
+                                            $ctrl.campiObbligatori.dataEvento = campiObbligatoriRicerca[i].required;
+                                            break;
+                                        case 7:
+                                            $ctrl.campiObbligatori.targa = campiObbligatoriRicerca[i].required;
+                                            break;
+                                        case 8:
+                                            $ctrl.campiObbligatori.numeroProvvisorio = campiObbligatoriRicerca[i].required;
+                                            break;
+                                        case 9:
+                                            $ctrl.campiObbligatori.numeroPreapertura = campiObbligatoriRicerca[i].required;
+                                            break;
+
+                                    }
+                                }
+                            }
+                        }
+
+                    }, true
+                );
+
+                $ctrl.cerca = function () {};
 
 
             }])
