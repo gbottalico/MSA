@@ -46,12 +46,33 @@ angular.module('msa').service(
                 array.length > 0);
         };
 
+        /**
+         * Trasforma una mappa in un array con i soli i valori associati alle chiavi.
+         * @param map
+         * @returns {Array}
+         */
         $svc.mapToValueArray = function (map) {
             var values = new Array();
             for (var key in map) {
                 values.push(map[key]);
             }
             return values;
+        };
+
+        /**
+         * Trasforma un array di elementi contenenti in id una mappa chiave valore accessibile tramite id.
+         *
+         * @param array
+         * @returns {{}}
+         */
+        $svc.arrayWithIdToMap = function (array) {
+            var temp = {};
+            if($svc.arrayHasElements(array)) {
+                array.forEach(function (element, index) {
+                    temp[element.id] = element;
+                });
+            }
+            return temp;
         };
 
         /**

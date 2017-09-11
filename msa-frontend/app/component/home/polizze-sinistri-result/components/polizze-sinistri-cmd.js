@@ -3,21 +3,14 @@
 
     app.component('msaPolizzeSinistri', {
         templateUrl: '../../app/component/home/polizze-sinistri-result/components/templates/polizze-sinistri-tpl.html',
-        bindings: {
-            valoriRicerca: '=',
-            bannerSearch: '=',
-            bannerDenuncia: '='
-        },
+        bindings: {},
         controller: ("polizzeSinistriController", ['$rootScope', '$scope', '$translate', '$log', 'toastr', '$analytics', '$location', '$cookies', '$window', '$sessionStorage', 'DebugSvc', '$uibModal', '$debugMode',
             function ($rootScope, $scope, $translate, $log, toastr, $analytics, location, $cookies, $window, $sessionStorage, DebugSvc, $uibModal, $debugMode) {
 
                 var $ctrl = this;
+                var parent = $scope.$parent;
 
-                $ctrl.denuncia = function () {
-                    ctrl.bannerSearch = false;
-                    ctrl.bannerDenuncia = true;
-                };
-                $ctrl.clearbox = "clear box";
+                $ctrl.clearbox = "clear box"; //TODO capire utilizzo e rimuovere
                 $ctrl.polizze = [
                     {
                         numpoli: '100012058380',
@@ -263,7 +256,6 @@
                     ]
                 };
 
-
                 $ctrl.dettaglioPolizza = function (index) {
                     //Qui bisogna cercare in base al numero di polizza
 
@@ -287,6 +279,10 @@
                         DebugSvc.log("dettaglio polizza chiuso dismiss.");
                     });
 
+                };
+
+                $ctrl.openAnagrafica = function () {
+                    parent.openAnagrafica();
                 };
 
             }])

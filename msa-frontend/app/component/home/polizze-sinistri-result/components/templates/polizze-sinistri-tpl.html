@@ -12,82 +12,81 @@
 
     <div class="containerBody">
         <div class="col-lg-1 col-md-1 col-sm-0 col-xs-0"></div>
-        \
         <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 container boxShadow">
             <div class="body">
                 <div class="risultati">
 
-                    <pre ng-if="$debugMode">{{$ctrl.dettagliopolizza | json}}</pre>
-
                     <div class="table-responsive">
-                        <table class="table">
+                        <table class="table msa-table">
 
                             <thead>
                             <tr>
                                 <th>
-
-                                    <p>{{'global.polizzesinistri.labels.numpoli' | translate}}</p>
-
+                                    <p class="noMargin">{{'global.polizzesinistri.labels.numpoli' | translate}}</p>
                                 </th>
                                 <th>
-                                    <p>{{'global.polizzesinistri.labels.attivazione' | translate}}</p>
+                                    <p class="noMargin">{{'global.polizzesinistri.labels.attivazione' | translate}}</p>
                                 </th>
                                 <th>
-                                    <p>{{'global.polizzesinistri.labels.scadenza' | translate}}</p>
+                                    <p class="noMargin">{{'global.polizzesinistri.labels.scadenza' | translate}}</p>
                                 </th>
                                 <th>
-                                    <p>{{'global.polizzesinistri.labels.prodotto' | translate}}</p>
+                                    <p class="noMargin">{{'global.polizzesinistri.labels.prodotto' | translate}}</p>
                                 </th>
                                 <th>
-                                    <p>{{'global.polizzesinistri.labels.targabene' | translate}}</p>
+                                    <p class="noMargin">{{'global.polizzesinistri.labels.targabene' | translate}}</p>
                                 </th>
                                 <th>
-                                    <p>{{'global.polizzesinistri.labels.contraente' | translate}}</p>
+                                    <p class="noMargin">{{'global.polizzesinistri.labels.contraente' | translate}}</p>
                                 </th>
                                 <th>
-                                    <p>{{'global.polizzesinistri.labels.stato' | translate}}</p>
+                                    <p class="noMargin">{{'global.polizzesinistri.labels.stato' | translate}}</p>
                                 </th>
                                 <th>
-                                    <p>{{'global.polizzesinistri.labels.variazione' | translate}}</p>
+                                    <p class="noMargin">{{'global.polizzesinistri.labels.variazione' | translate}}</p>
                                 </th>
                                 <th>
-                                    <p>{{'global.polizzesinistri.labels.consulta' | translate}}</p>
+                                    <p class="noMargin">{{'global.polizzesinistri.labels.consulta' | translate}}</p>
                                 </th>
                             </tr>
                             </thead>
 
-
+                            <tbody>
                             <tr ng-repeat="polizza in $ctrl.polizze">
                                 <td>
-                                    <p><!--<i class="fa fa-chevron-right" aria-hidden="true"></i>-->
-                                        {{polizza.numpoli}}</p>
+                                    <p class="noMargin"><i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;{{polizza.numpoli}}</p>
                                 </td>
                                 <td>
-                                    <p>{{polizza.attivazione}}</p>
+                                    <p class="noMargin">{{polizza.attivazione}}</p>
                                 </td>
                                 <td>
-                                    <p>{{polizza.scadenza}}</p>
+                                    <p class="noMargin">{{polizza.scadenza}}</p>
                                 </td>
                                 <td>
-                                    <p>{{polizza.prodotto}}</p>
+                                    <p class="noMargin">{{polizza.prodotto}}</p>
                                 </td>
                                 <td>
-                                    <p>{{polizza.targabene | uppercase}}</p>
+                                    <p class="noMargin">{{polizza.targabene | uppercase}}</p>
                                 </td>
                                 <td>
-                                    <p>{{polizza.contraente}}</p>
+                                    <p class="noMargin">{{polizza.contraente}}</p>
                                 </td>
                                 <td>
-                                    <p>{{polizza.stato}}</p>
+                                    <p class="noMargin">{{polizza.stato}}</p>
                                 </td>
                                 <td>
-                                    <p>{{polizza.variazione}}</p>
+                                    <p class="noMargin">{{polizza.variazione}}</p>
                                 </td>
                                 <td ng-click="$ctrl.dettaglioPolizza($index)">
-                                    <p><i class="fa fa-search lightblue" aria-hidden="true"></i></p>
+                                    <p class="noMargin"><i class="fa fa-search lightblue" aria-hidden="true"></i></p>
                                 </td>
                             </tr>
-
+                            </tbody>
+                            <tfoot>
+                                <td colspan="9" ng-click="$ctrl.openAnagrafica()">
+                                    <p class="noMargin"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;Nuovo Sinistro</p> <!-- TODO: stringhe scolpite -->
+                                </td>
+                            </tfoot>
                         </table>
 
 
@@ -100,9 +99,4 @@
 
     </div>
     <!--END SINISTRO-->
-
-    <!--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 denuncia">-->
-    <!--<p ng-click="$ctrl.denuncia()"><i class="fa fa-plus" aria-hidden="true"></i>-->
-    <!--{{'global.polizzesinistri.labels.denunciasinistro' | translate}}</p>-->
-    <!--</div>-->
 </section>

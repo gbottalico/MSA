@@ -20,6 +20,7 @@ angular.module('msa').service('ConvertSvc',
                 dto.sesso = anagrafica.sesso;
                 dto.cf = anagrafica.cf;
                 dto.codRuolo = anagrafica.ruolo;
+                dto.lesioni = anagrafica.lesioni;
 
                 if(_.isObject(anagrafica.compagnia)) {
                     dto.compagnia = anagrafica.compagnia.idCompagnia;
@@ -91,6 +92,7 @@ angular.module('msa').service('ConvertSvc',
                 anagrafica.sesso = dto.sesso;
                 anagrafica.cf = dto.cf;
                 anagrafica.ruolo = dto.codRuolo;
+                anagrafica.lesioni = dto.lesioni;
                 anagrafica.compagnia = dto.compagnia;
 
                 if (_.isObject(dto.luogoNascita)) {
