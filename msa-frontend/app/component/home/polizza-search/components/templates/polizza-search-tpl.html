@@ -104,7 +104,7 @@
                 <!--INPUT LIST-->
                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 classicInputText">
                         <label>{{'global.polizzasearch.labels.compagnia' | translate}}</label>
-                        <input name="compagnia" type="text" ng-model="$ctrl.compagniaSelezionata" uib-typeahead="regola as regola.descrizioneCompagnia for regola in $ctrl.casaRegole | filter:{descrizioneCompagnia:$viewValue}"  ng-required="true" autocomplete="off">
+                        <input name="compagnia" type="text" ng-model="$ctrl.ricercapolizza.compagniaSelezionata" uib-typeahead="regola as regola.descrizioneCompagnia for regola in $ctrl.casaRegole | filter:{descrizioneCompagnia:$viewValue}"  ng-required="true" autocomplete="off">
                         <label class="alert campoobbligatorio">{{'global.polizzasearch.labels.alert' | translate}}</label>
                     </div>
                     <!--END INPUT LIST-->
@@ -206,7 +206,7 @@
 </section>
 
 <msa-polizza-result data-valori-ricerca="$ctrl.valoriRicerca" ng-if="$ctrl.valoriRicerca != undefined && $ctrl.bannerDenuncia == false"></msa-polizza-result>
-<msa-polizze-sinistri data-valori-ricerca="$ctrl.valoriRicerca" data-banner-search="$ctrl.bannerSearch" data-banner-denuncia="$ctrl.bannerDenuncia" ng-if="$ctrl.valoriRicerca != undefined && $ctrl.bannerSearch == true && $ctrl.bannerDenuncia == false"></msa-polizze-sinistri>
+<msa-polizze-sinistri data-valori-ricerca="$ctrl.ricercapolizza" data-banner-search="$ctrl.bannerSearch" data-banner-denuncia="$ctrl.bannerDenuncia" ng-if="$ctrl.ricerca"></msa-polizze-sinistri>
 
 <!--<msa-denuncia-container numero-sinistro-provvisorio="$ctrl.numSinistroProvv" ng-if="$ctrl.bannerSearch == false && $ctrl.bannerDenuncia == true"></msa-denuncia-container>-->
 

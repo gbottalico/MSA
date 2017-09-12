@@ -14,12 +14,7 @@
                 var $ctrl = this;
                 $ctrl.clearbox = "clear box";
                 $ctrl.polizza = $ctrl.resolve.polizza;
-                $ctrl.polizza.dataCopertura = UtilSvc.dateFormat($ctrl.polizza.dataCopertura);
-                $ctrl.polizza.dataScadenza = UtilSvc.dateFormat($ctrl.polizza.dataScadenza);
-                $ctrl.polizza.dataImmatricolazione = UtilSvc.dateFormat($ctrl.polizza.dataImmatricolazione);
-
-
-                //$ctrl.dettagliopolizza = $rootScope.polizza;
+                              //$ctrl.dettagliopolizza = $rootScope.polizza;
                 DebugSvc.log($ctrl.polizza);
                 $ctrl.cancel = function () {
                     $ctrl.dismiss({$value: undefined});

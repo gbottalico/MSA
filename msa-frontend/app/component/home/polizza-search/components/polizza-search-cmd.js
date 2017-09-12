@@ -12,12 +12,14 @@
                 var $ctrl = this;
                 var $translate = $filter('translate');
                 var parent = $scope.$parent;
+                $ctrl.ricerca = false;
 
                 $ctrl.casaRegole = undefined;
-                $ctrl.compagniaSelezionata = undefined;
                 $ctrl.numSinistroProvv = undefined;
 
+                
                 $ctrl.ricercapolizza = {
+	                compagniaSelezionata: '',
                     cognome: '',
                     nome: '',
                     tipoPersona: undefined,
@@ -27,155 +29,6 @@
                     targa: '',
                     numeroProvvisorio: '',
                     numeroPreapertura: ''
-                };
-                $ctrl.valoriRicerca = {
-                    bannersearch: $ctrl.bannersearch,
-                    bannerdenuncia: $ctrl.bannerdenuncia,
-                    user: {
-                        cognome: "Piras",
-                        nome: 'Dario',
-                        cf: 'PRSDRA87E28B157S',
-                        luogonascita: 'Brescia',
-                        provincianascita: 'BS',
-                        datanascita: '15/01/1960',
-                        residenza: 'Brescia',
-                        provinciaresidenza: 'BS',
-                        indirizzo: 'Via Raffaello Sanzio, 11',
-                        telefono: '0331123456',
-                        cellulare: '3332363880',
-                        email: 'info@email.it'
-                    },
-                    polizze: [
-                        {
-                            numpoli: '100012058380',
-                            attivazione: '22/02/2016',
-                            scadenza: '22/02/2017',
-                            prodotto: 'Prodotto viaggia con me (clear box)',
-                            compagnia: 'Aviva',
-                            targabene: 'df832xb',
-                            contraente: 'Piras Dario',
-                            stato: 'Attivo',
-                            variazione: '18/02/2016',
-                            sinistri: [
-                                {
-                                    nome: 'Sinistro',
-                                    numsin: '100012058380',
-                                    data: '23/03/2016',
-                                    tipo: 'A',
-                                    evento: 'Amet',
-                                    denunciatoda: 'Piras Dario',
-                                    stato: 'Attivo'
-                                },
-                                {
-                                    nome: 'Sinistro provvisorio',
-                                    numsin: '100017432380',
-                                    data: '20/05/2016',
-                                    tipo: 'B',
-                                    evento: 'Consectetur',
-                                    denunciatoda: 'Piras Dario',
-                                    stato: 'Attivo'
-                                },
-                                {
-                                    nome: 'Pre-codifica',
-                                    numsin: '103212058363',
-                                    data: '03/01/2017',
-                                    tipo: 'C',
-                                    evento: 'Super alta',
-                                    denunciatoda: 'Anna Rossi',
-                                    stato: 'Attivo'
-                                }
-                            ]
-                        },
-                        {
-                            numpoli: '100012058380',
-                            attivazione: '22/02/2016',
-                            scadenza: '22/02/2017',
-                            prodotto: 'Prodotto viaggia con me (clear box)',
-                            compagnia: 'Aviva',
-                            targabene: 'df832xb',
-                            contraente: 'Piras Dario',
-                            stato: 'Attivo',
-                            variazione: '18/02/2016',
-                            sinistri: [
-                                {
-                                    nome: 'Sinistro',
-                                    numsin: '100012058380',
-                                    data: '23/03/2016',
-                                    tipo: 'A',
-                                    evento: 'Amet',
-                                    denunciatoda: 'Piras Dario',
-                                    stato: 'Attivo'
-                                },
-                                {
-                                    nome: 'Sinistro provvisorio',
-                                    numsin: '100017432380',
-                                    data: '20/05/2016',
-                                    tipo: 'B',
-                                    evento: 'Consectetur',
-                                    denunciatoda: 'Piras Dario',
-                                    stato: 'Attivo'
-                                },
-                                {
-                                    nome: 'Pre-codifica',
-                                    numsin: '103212058363',
-                                    data: '03/01/2017',
-                                    tipo: 'C',
-                                    evento: 'Super alta',
-                                    denunciatoda: 'Anna Rossi',
-                                    stato: 'Attivo'
-                                },
-                                {
-                                    nome: 'Pre-codifica',
-                                    numsin: '103212058363',
-                                    data: '03/01/2017',
-                                    tipo: 'C',
-                                    evento: 'Super alta',
-                                    denunciatoda: 'Anna Rossi',
-                                    stato: 'Attivo'
-                                }
-                            ]
-                        },
-                        {
-                            numpoli: '100012058380',
-                            attivazione: '22/02/2016',
-                            scadenza: '22/02/2017',
-                            prodotto: 'Prodotto viaggia con me (clear box)',
-                            compagnia: 'Aviva',
-                            targabene: 'df832xb',
-                            contraente: 'Piras Dario',
-                            stato: 'Attivo',
-                            variazione: '18/02/2016',
-                            sinistri: [
-                                {
-                                    nome: 'Sinistro',
-                                    numsin: '100012058380',
-                                    data: '23/03/2016',
-                                    tipo: 'A',
-                                    evento: 'Amet',
-                                    denunciatoda: 'Piras Dario',
-                                    stato: 'Attivo'
-                                },
-                                {
-                                    nome: 'Sinistro provvisorio',
-                                    numsin: '100017432380',
-                                    data: '20/05/2016',
-                                    tipo: 'B',
-                                    evento: 'Consectetur',
-                                    denunciatoda: 'Piras Dario',
-                                    stato: 'Attivo'
-                                },
-                                {
-                                    nome: 'Pre-codifica',
-                                    numsin: '103212058363',
-                                    data: '03/01/2017',
-                                    tipo: 'C',
-                                    evento: 'Super alta',
-                                    denunciatoda: 'Anna Rossi',
-                                    stato: 'Attivo'
-                                }
-                            ]
-                        }
-                    ]
                 };
 
                 $ctrl.$onInit = function () {
@@ -210,7 +63,7 @@
                 $scope.$watch(
                     function watch(scope) {
                         return {
-                            compagniaSelezionata: $ctrl.compagniaSelezionata
+                            compagniaSelezionata: $ctrl.ricercapolizza.compagniaSelezionata
                         };
                     },
                     function handleChanges(newValue, oldValue) {
@@ -259,7 +112,10 @@
                     }, true
                 );
 
-                $ctrl.cerca = function () {};
+                $ctrl.cerca = function () {
+                	console.log($ctrl.ricercapolizza)
+                	$ctrl.ricerca = true;
+                };
 
 
             }])

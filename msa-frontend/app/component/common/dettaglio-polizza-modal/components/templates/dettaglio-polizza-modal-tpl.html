@@ -31,12 +31,12 @@
     <div class="col-lg-12">
         <div class="row">
             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 classicInputTextDisabled">
-                <input type="text" class="bold" name="attivazione" ng-model="$ctrl.polizza.dataCopertura"
+                <input type="text" class="bold" name="attivazione" ng-model="$ctrl.polizza.dataCopertura | date:'dd/MM/yyyy'"
                        ng-readonly="true">
                 <label>{{'global.polizzesinistri.labels.attivazione' | translate}}</label>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 classicInputTextDisabled">
-                <input type="text" class="bold" name="scadenza" ng-model="$ctrl.polizza.dataScadenza"
+                <input type="text" class="bold" name="scadenza" ng-model="$ctrl.polizza.dataScadenza | date:'dd/MM/yyyy'"
                        ng-readonly="true">
                 <label>{{'global.polizzesinistri.labels.scadenza' | translate}}</label>
             </div>
@@ -64,7 +64,7 @@
             </div>
 
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputTextDisabled">
-                <input type="text" class="uppercase" name="targabene" ng-model="$ctrl.polizza.targa"
+                <input type="text" class="uppercase" name="targabene" ng-model="$ctrl.polizza.targa "
                        ng-readonly="true">
                 <label>{{'global.polizzesinistri.labels.targabene' | translate }}</label>
             </div>
@@ -75,7 +75,7 @@
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputTextDisabled">
                 <input type="text" class="uppercase" name="immatricolazione"
-                       ng-model="$ctrl.polizza.dataImmatricolazione"
+                       ng-model="$ctrl.polizza.dataImmatricolazione | date:'dd/MM/yyyy'" 
                        ng-readonly="true">
                 <label>{{'global.veicolo.immatricolazione' | translate }}</label>
             </div>
@@ -112,7 +112,7 @@
         </div>
 
 
-        <div class="col-lg-12">
+       <!--  <div class="col-lg-12">
             <div class="row">
                 <div class="table-responsive">
 
@@ -136,7 +136,7 @@
                     </table>
                 </div>
             </div>
-
+ 		-->
         </div>
     </div>
 

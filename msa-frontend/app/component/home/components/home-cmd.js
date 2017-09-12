@@ -13,11 +13,25 @@
 
                 $ctrl.numeroSinistroProvvisorio = undefined;
 
-                $scope.openAnagrafica = function () {
-                  $ctrl.openAnagrafica();
+                $scope.openSinistro = function (polizzaSelected, compagnia) {
+                  if (polizzaSelected != undefined){
+                	  var contraente = {};
+                	  contraente.cf = polizzaSelected.codfiscContraente;
+                	  contraente.cognome = polizzaSelected.cognomeContraente;
+                	  contraente.mail = polizzaSelected.email;
+                	  contraente.nome = polizzaSelected.nomeContraente;
+                	  contraente.residenza = {};
+                	  contraente.residenza.cap = polizzaSelected.capContraente;
+                	  contraente.residenza.provincia = polizzaSelected.provinciaContraente;
+                	  contraente.residenza.comune = polizzaSelected.cittaContraente;
+                	  contraente.telefono = polizzaSelected.cellulare;
+                	  $ctrl.apriSinistroProvvisorio(contraente, polizzaSelected);
+                  } else { 
+                	  $ctrl.openAnagrafica(compagnia);
+                  }
                 };
 
-                $ctrl.openAnagrafica = function () {
+                $ctrl.openAnagrafica = function (compagnia) {
                     var modalInstance = $uibModal.open({
                         animation: true,
                         backdrop: 'static', // Evita che il modal sia chiuso cliccando sullo sfondo.
@@ -27,9 +41,9 @@
                         resolve: {}
                     });
 
-                    modalInstance.result.then(function (contraente) {
+                    modalInstance.result.then(function (contraente, compagnia) {
                         DebugSvc.log("openAnagrafica", contraente);
-                        $ctrl.apriSinistroProvvisorio(contraente);
+                        $ctrl.apriSinistroProvvisorio(contraente, compagnia);
                     }, function () {
                         DebugSvc.log("openAnagrafica dismiss.");
                     });

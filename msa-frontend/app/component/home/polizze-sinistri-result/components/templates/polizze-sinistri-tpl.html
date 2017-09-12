@@ -52,24 +52,24 @@
                             </thead>
 
                             <tbody>
-                            <tr ng-repeat="polizza in $ctrl.polizze">
+                            <tr ng-repeat="polizza in $ctrl.polizze" ng-class="{selezionata: polizza == $ctrl.polizzaSelected}"  ng-click="$ctrl.selezionaPolizza(polizza)">
                                 <td>
-                                    <p class="noMargin"><i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;{{polizza.numpoli}}</p>
+                                    <p class="noMargin"><i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;{{polizza.numPolizza}}</p>
                                 </td>
                                 <td>
-                                    <p class="noMargin">{{polizza.attivazione}}</p>
+                                    <p class="noMargin">{{polizza.dataCopertura | date:'dd/MM/yyyy'}}</p>
                                 </td>
                                 <td>
-                                    <p class="noMargin">{{polizza.scadenza}}</p>
+                                    <p class="noMargin">{{polizza.dataScadenza  | date:'dd/MM/yyyy' }}</p>
                                 </td>
                                 <td>
                                     <p class="noMargin">{{polizza.prodotto}}</p>
                                 </td>
                                 <td>
-                                    <p class="noMargin">{{polizza.targabene | uppercase}}</p>
+                                    <p class="noMargin">{{polizza.targa | uppercase}}</p>
                                 </td>
                                 <td>
-                                    <p class="noMargin">{{polizza.contraente}}</p>
+                                    <p class="noMargin">{{polizza.cognomeContraente +" "+ polizza.nomeContraente}}</p>
                                 </td>
                                 <td>
                                     <p class="noMargin">{{polizza.stato}}</p>
@@ -77,13 +77,13 @@
                                 <td>
                                     <p class="noMargin">{{polizza.variazione}}</p>
                                 </td>
-                                <td ng-click="$ctrl.dettaglioPolizza($index)">
+                                <td ng-click="$ctrl.dettaglioPolizza(polizza)">
                                     <p class="noMargin"><i class="fa fa-search lightblue" aria-hidden="true"></i></p>
                                 </td>
                             </tr>
                             </tbody>
                             <tfoot>
-                                <td colspan="9" ng-click="$ctrl.openAnagrafica()">
+                                <td colspan="9" ng-click="$ctrl.openSinistro()">
                                     <p class="noMargin"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;Nuovo Sinistro</p> <!-- TODO: stringhe scolpite -->
                                 </td>
                             </tfoot>
