@@ -26,7 +26,7 @@
                     SinistriSvc.salvaCa($ctrl.numeroSinistroProvvisorio, $ctrl.ca).then(function (response) {
                         DebugSvc.log("salvaCa", response);
                         if (response.data.status === 200) {
-                            parent.aggiornaMappe();
+                            // parent.aggiornaMappe();
                             toastr.success($translate('global.generic.saveok'));
                         } else {
                             toastr.error($translate('global.generic.saveko'));

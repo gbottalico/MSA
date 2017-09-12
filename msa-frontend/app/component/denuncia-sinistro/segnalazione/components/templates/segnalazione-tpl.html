@@ -1,6 +1,6 @@
 <div class="containerHeader">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container boxShadow">
-        <div class="header">
+        <div class="header" ng-class="{'is-ok': segnalazioneForm.$pristine, 'has-error': !segnalazioneForm.$pristine}">
             <h1 class="titleSection">{{'global.denunciasinitro.labels.segnalazione' | translate}}</h1>
         </div>
     </div>
@@ -12,8 +12,8 @@
 
             <form name="segnalazioneForm" novalidate>
 
+
                 <pre ng-if="$debugMode" class="col-lg-12">{{$ctrl.numeroSinistroProvvisorio}}: {{$ctrl.sinistro}}</pre>
-                <pre ng-if="$debugMode" class="col-lg-12">{{$ctrl.persistence}}</pre>
 
                 <!-- Dati Segnalante -->
                 <div class="col-lg-12">
