@@ -52,7 +52,8 @@ function getMSAC() {
         },
         PATHS: {
             HOME: "/",
-            DENUNCIA: "/denuncia"
+            DENUNCIA: "/denuncia",
+            LOGIN: "/login"
         },
         API_KEYS: {
             MAPS: "AIzaSyClOUgLxnK_B5-IdKK4EjavitUwoqxLr14" //TODO cambiare
@@ -188,6 +189,9 @@ app.config(['$routeProvider', function ($routeProvider) {
         })
         .when(getMSAC().PATHS.DENUNCIA + "/:idSinistroProvvisorio", {
             template: "<msa-denuncia-container></msa-denuncia-container>"
+        })
+        .when(getMSAC().PATHS.LOGIN, {
+            template: "<mock-login></mock-login>"
         })
         .otherwise({
             redirectTo: getMSAC().PATHS.HOME
