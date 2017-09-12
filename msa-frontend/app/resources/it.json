@@ -251,6 +251,10 @@
       "title": "Perito",
       "labels": {}
     },
+    "riepilogo": {
+      "title": "Riepilogo",
+      "labels": {}
+    },
     "documenti": {
       "title": "Documenti",
       "labels": {
@@ -269,7 +273,8 @@
         "M20": "Legale",
         "M24": "Carrozzeria",
         "M25": "Perito",
-        "M26": "Documenti"
+        "M26": "Documenti",
+        "M27": "Riepilogo"
       }
     },
     "auto": {
