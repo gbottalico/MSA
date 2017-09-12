@@ -48,7 +48,7 @@
                                 $ctrl.dannoRca.conducenteIsNotContraente = true;
 
                                 $timeout(function () {
-                                    //FIXME timeout di 1ms per triggerare il $digest
+                                    //FIXME wrappare tutta la funzione e fare anche agli altri
                                     var anagrafica = $ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente.anagrafica;
 
                                     $ctrl.dannoRca.conducente.cognome = anagrafica.cognome;
@@ -125,6 +125,7 @@
                         if (response.data.status === 200) {
                             parent.aggiornaMappe();
                             toastr.success($translate('global.generic.saveok'));
+                            $scope.dannoRcaForm.$setPristine(true);
                         } else {
                             toastr.error($translate('global.generic.saveko'));
                         }
@@ -149,9 +150,15 @@
                     modalInstance.result.then(function (controparte) {
                         DebugSvc.log("aggiungiControparte", controparte);
                         $ctrl.dannoRca.controparti.push(controparte);
+                        $scope.dannoRcaForm.$setPristine(false);
                     }, function () {
                         DebugSvc.log("aggiungiControparte dismiss.");
                     });
+                };
+
+                $ctrl.rimuoviControparte = function (index) {
+                    $ctrl.dannoRca.controparti.splice($index, 1);
+                    $scope.dannoRcaForm.$setPristine(false);
                 };
 
                 $ctrl.calcolaCf = function () {

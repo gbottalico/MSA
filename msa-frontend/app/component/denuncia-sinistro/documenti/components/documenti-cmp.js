@@ -48,6 +48,7 @@
                         DebugSvc.log("aggiungiFile", documento);
                         documento = DocumentiSvc.getName(documento);
                         $ctrl.documenti.push(documento);
+                        $scope.documentiForm.$setPristine(false);
                     }, function () {
                         DebugSvc.log("aggiungiFile dismiss.");
                     });
@@ -60,10 +61,18 @@
                         if (response.data.status === 200) {
                             $ctrl.documenti.splice(index, 1);
                             toastr.success($translate('global.generic.saveok'));
+                            $scope.documentiForm.$setPristine(false);
+
                         } else {
                             toastr.error($translate('global.generic.saveko'));
                         }
                     });
+                };
+
+                $ctrl.salvaDocumenti = function () {
+                    //TODO
+                    parent.aggiornaMappe();
+                    $scope.documentiForm.$setPristine(true);
                 };
 
                 $scope.$watch(

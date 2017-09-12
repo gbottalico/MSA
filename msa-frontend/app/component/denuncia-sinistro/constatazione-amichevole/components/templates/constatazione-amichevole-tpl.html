@@ -1,6 +1,6 @@
 <div class="containerHeader">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container boxShadow">
-        <div class="header">
+        <div class="header" ng-class="{'is-ok': caForm.$pristine, 'has-error': !caForm.$pristine}">
             <h1 class="titleSection">{{'global.ca.title' | translate}}</h1>
         </div>
     </div>
@@ -13,42 +13,45 @@
             <pre ng-if="$debugMode">{{$ctrl.ca}}</pre>
             <pre ng-if="$debugMode">{{$ctrl.tempSegnalazione}}</pre>
 
-            <div class="col-lg-12">
-                <span class="subsectionTitle">{{'global.ca.title' | translate}}</span>
-            </div>
+            <form name="caForm" novalidate>
 
-            <!--INPUT RADIO-->
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputRadio">
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingLeft">
-                    <input type="radio" ng-value="true" name="compilata" ng-model="$ctrl.ca.constatazioneAmichevole">
-                    <label class="rightLabel">{{'global.generic.si' | translate}}</label>
+                <div class="col-lg-12">
+                    <span class="subsectionTitle">{{'global.ca.title' | translate}}</span>
                 </div>
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingRight">
-                    <input type="radio" ng-value="false" name="compilata" ng-model="$ctrl.ca.constatazioneAmichevole">
-                    <label class="rightLabel">{{'global.generic.no' | translate}}</label>
-                </div>
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 noPaddingRight">&nbsp;</div>
-                <label>{{'global.ca.labels.caicompilata' | translate}}</label>
-            </div>
-            <!--END INPUT RADIO-->
 
-            <!--INPUT RADIO-->
-            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 classicInputRadio" ng-if="$ctrl.ca.constatazioneAmichevole">
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingLeft">
-                    <input type="radio" ng-value="true" checked name="entrambi"
-                           ng-model="$ctrl.ca.constatazioneAmichevoleControparte">
-                    <label class="rightLabel">{{'global.generic.si' | translate}}</label>
+                <!--INPUT RADIO-->
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputRadio">
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingLeft">
+                        <input type="radio" ng-value="true" name="compilata" ng-model="$ctrl.ca.constatazioneAmichevole">
+                        <label class="rightLabel">{{'global.generic.si' | translate}}</label>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingRight">
+                        <input type="radio" ng-value="false" name="compilata" ng-model="$ctrl.ca.constatazioneAmichevole">
+                        <label class="rightLabel">{{'global.generic.no' | translate}}</label>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 noPaddingRight">&nbsp;</div>
+                    <label>{{'global.ca.labels.caicompilata' | translate}}</label>
                 </div>
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingLeft">
-                    <input type="radio" ng-value="false" name="entrambi"
-                           ng-model="$ctrl.ca.constatazioneAmichevoleControparte">
-                    <label class="rightLabel">{{'global.generic.no' | translate}}</label>
-                </div>
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 noPaddingRight">&nbsp;</div>
-                <label>{{'global.ca.labels.caicontroparte' | translate}}</label>
-            </div>
-            <!--END INPUT RADIO-->
+                <!--END INPUT RADIO-->
 
+                <!--INPUT RADIO-->
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 classicInputRadio" ng-if="$ctrl.ca.constatazioneAmichevole">
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingLeft">
+                        <input type="radio" ng-value="true" checked name="entrambi"
+                               ng-model="$ctrl.ca.constatazioneAmichevoleControparte">
+                        <label class="rightLabel">{{'global.generic.si' | translate}}</label>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingLeft">
+                        <input type="radio" ng-value="false" name="entrambi"
+                               ng-model="$ctrl.ca.constatazioneAmichevoleControparte">
+                        <label class="rightLabel">{{'global.generic.no' | translate}}</label>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 noPaddingRight">&nbsp;</div>
+                    <label>{{'global.ca.labels.caicontroparte' | translate}}</label>
+                </div>
+                <!--END INPUT RADIO-->
+
+            </form>
 
             <div class="row">
                 <div class="col-lg-12 classicButton">

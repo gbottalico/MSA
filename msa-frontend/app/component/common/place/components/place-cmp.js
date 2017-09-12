@@ -5,12 +5,14 @@
         templateUrl: '../../app/component/common/place/components/templates/place-tpl.html',
         bindings: {
             result: "=",
-            input: "="
+            input: "<",
+            name: "<"
         },
         controller: ("msaPlaceController", ['_', '$scope', '$debugMode', 'PlacesSvc', 'UtilSvc', function (_, $scope, $debugMode, PlacesSvc, UtilSvc) {
 
             var $ctrl = this;
             $scope.$debugMode = $debugMode;
+            $scope.name = $ctrl.name || "place" + Date.now();
             $ctrl.isInputConsumed = false;
 
             $ctrl.nazioneSelezionata = undefined;
@@ -165,7 +167,9 @@
                         }
                     }
 
-                    $ctrl.result.$valid = PlacesSvc.isValidPlace($ctrl.result.nazione, $ctrl.result.provincia, $ctrl.result.comune);
+                    $ctrl.$valid = PlacesSvc.isValidPlace($ctrl.result.nazione, $ctrl.result.provincia, $ctrl.result.comune);
+                    $ctrl.result.$valid = $ctrl.$valid;
+                    $scope[$scope.name].$setValidity("place", $ctrl.$valid, $ctrl);
                 }, true
             );
 

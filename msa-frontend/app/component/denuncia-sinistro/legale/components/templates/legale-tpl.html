@@ -1,6 +1,6 @@
 <div class="containerHeader">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container boxShadow">
-        <div class="header">
+        <div class="header" ng-class="{'is-ok': legaleForm.$pristine, 'has-error': !legaleForm.$pristine}">
             <h1 class="titleSection">{{'global.legale.title' | translate}}</h1>
         </div>
     </div>
@@ -10,7 +10,8 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container boxShadow">
         <div class="body">
 
-            <div class="col-lg-12">
+            <form name="legaleForm" novalidate>
+                <div class="col-lg-12">
 
                 <div class="row">
                     <div class="col-lg-12 classicInputRadio">
@@ -54,7 +55,7 @@
                                 </td>
                                 <td>{{legale.residenza.indirizzo}}</td>
                                 <td>{{legale.cf}}</td>
-                                <td><i ng-click="$ctrl.legali.splice($index, 1);" class="fa fa-trash-o" aria-hidden="true"></i></td>
+                                <td><i ng-click="$ctrl.rimuoviLegale($index)" class="fa fa-trash-o" aria-hidden="true"></i></td>
                             </tr>
                             </tbody>
                             <tfoot>
@@ -74,6 +75,7 @@
                 </div>
 
             </div>
+            </form>
 
             <div class="row">
                 <div class="col-lg-12 classicButton">

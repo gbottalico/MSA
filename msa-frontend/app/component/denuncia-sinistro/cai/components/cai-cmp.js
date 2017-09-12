@@ -49,6 +49,7 @@
                             }
                             parent.aggiornaMappe();
                             toastr.success($translate('global.generic.saveok'));
+                            $scope.caiForm.$setPristine(true);
                         } else {
                             toastr.error($translate('global.generic.saveko'));
                         }

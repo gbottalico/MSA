@@ -1,30 +1,32 @@
-<div class="col-lg-12"><pre ng-if="$debugMode">{{$ctrl.result}}</pre></div>
-<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
-    <input type="text"
-           ng-model="$ctrl.nazioneSelezionata"
-           uib-typeahead="nazione as nazione.descrizione for nazione in $ctrl.getNazioni($viewValue)"
-           autocomplete="off">
-    <label>{{'global.denunciasinitro.labels.nazione' | translate}}</label>
-</div>
-<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText" >
-    <input type="text"
-           ng-model="$ctrl.provinciaSelezionata"
-           uib-typeahead="provincia as provincia.descProvincia for provincia in $ctrl.getProvince($viewValue)"
-           ng-disabled="$ctrl.nazioneSelezionata.id > 1"
-           autocomplete="off">
-    <label>{{'global.denunciasinitro.labels.provincia' | translate}}</label>
-</div>
-<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText" ng-disabled="$ctrl.nazioneSelezionata.id > 1">
-    <input type="text"
-           ng-model="$ctrl.comuneSelezionato"
-           uib-typeahead="comune as comune.descrizione for comune in $ctrl.getComuni($viewValue)"
-           ng-disabled="$ctrl.nazioneSelezionata.id > 1"
-           autocomplete="off">
-    <label>{{'global.denunciasinitro.labels.comune' | translate}}</label>
-</div>
-<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText" ng-disabled="$ctrl.nazioneSelezionata.id > 1">
-    <select ng-disabled="$ctrl.nazioneSelezionata.id > 1" ng-model="$ctrl.capSelezionato">
-        <option ng-repeat="cap in $ctrl.caps" value="{{cap}}">{{cap}}</option>
-    </select>
-    <label>{{'global.denunciasinitro.labels.cap' | translate}}</label>
-</div>
+<ng-form name="{{name}}">
+    <div class="col-lg-12"><pre ng-if="$debugMode">{{$ctrl.result}}</pre></div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
+        <input type="text"
+               ng-model="$ctrl.nazioneSelezionata"
+               uib-typeahead="nazione as nazione.descrizione for nazione in $ctrl.getNazioni($viewValue)"
+               autocomplete="off">
+        <label>{{'global.denunciasinitro.labels.nazione' | translate}}</label>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText" >
+        <input type="text"
+               ng-model="$ctrl.provinciaSelezionata"
+               uib-typeahead="provincia as provincia.descProvincia for provincia in $ctrl.getProvince($viewValue)"
+               ng-disabled="$ctrl.nazioneSelezionata.id > 1"
+               autocomplete="off">
+        <label>{{'global.denunciasinitro.labels.provincia' | translate}}</label>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText" ng-disabled="$ctrl.nazioneSelezionata.id > 1">
+        <input type="text"
+               ng-model="$ctrl.comuneSelezionato"
+               uib-typeahead="comune as comune.descrizione for comune in $ctrl.getComuni($viewValue)"
+               ng-disabled="$ctrl.nazioneSelezionata.id > 1"
+               autocomplete="off">
+        <label>{{'global.denunciasinitro.labels.comune' | translate}}</label>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText" ng-disabled="$ctrl.nazioneSelezionata.id > 1">
+        <select ng-disabled="$ctrl.nazioneSelezionata.id > 1" ng-model="$ctrl.capSelezionato">
+            <option ng-repeat="cap in $ctrl.caps" value="{{cap}}">{{cap}}</option>
+        </select>
+        <label>{{'global.denunciasinitro.labels.cap' | translate}}</label>
+    </div>
+</ng-form>
