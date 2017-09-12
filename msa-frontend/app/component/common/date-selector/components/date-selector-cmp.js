@@ -14,22 +14,26 @@
             result: "=",
             required: "<",
             input: "<",
-            disabled: "<"
+            disabled: "<",
+            name: "<"
         },
-        controller: ("msaDateSelectorController", ['$scope', function ($scope) {
+        controller: ("msaDateSelectorController", ['$scope', 'DebugSvc', function ($scope, DebugSvc) {
 
-            var ctrl = this;
+            var $ctrl = this;
 
             $scope.opened = false;
             $scope.format = "dd/MM/yyyy";
-            ctrl.result = {};
-            ctrl.isInputConsumed = false;
+            $scope.name = $ctrl.name || "date" + Date.now();
+            $ctrl.result = {};
+            $ctrl.isInputConsumed = false;
 
             $scope.today = function () {
                 $scope.date = new Date();
             };
 
-            //$scope.today();
+            $scope.clear = function () {
+                $scope.date = null;
+            };
 
             $scope.dateOptions = {
                 formatYear: 'yy',
@@ -41,11 +45,16 @@
                 $scope.opened = true;
             };
 
+            $scope.today();
+            $scope.clear();
+
             $scope.$watch(
                 function watchScope(scope) {
                     return {
                         date: $scope.date,
-                        input: ctrl.input
+                        input: $ctrl.input,
+                        required: $ctrl.required,
+                        disabled: $ctrl.disabled
                     };
                 },
                 function handleChanges(newValues, oldValues) {
@@ -57,22 +66,25 @@
                      * non lo usa più.
                      */
 
-                    if (!ctrl.isInputConsumed) {
+                    if (!$ctrl.isInputConsumed) {
                         if (newValues.input !== undefined) {
-
-                            ctrl.isInputConsumed = true;
+                            $ctrl.isInputConsumed = true;
                             $scope.date = newValues.input;
 
                         }
                     }
 
-                    ctrl.result.date = $scope.date;
-                    if (ctrl.required) {
-                        ctrl.result.$valid = $scope.date !== undefined;
+                    $ctrl.result.date = $scope.date;
+                    if ($ctrl.required) {
+                        $ctrl.$valid = $scope.date !== undefined;
                     } else {
-                        ctrl.result.$valid = true;
+                        $ctrl.$valid = true;
                     }
-
+                    if($ctrl.disabled) {
+                        $ctrl.$valid = true;
+                    }
+                    $ctrl.result.$valid = $ctrl.$valid;
+                    $scope[$scope.name].$setValidity("date", $ctrl.$valid);
                 }, true
             );
 

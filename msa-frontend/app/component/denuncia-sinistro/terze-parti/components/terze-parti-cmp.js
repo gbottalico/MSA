@@ -37,9 +37,15 @@
                     modalInstance.result.then(function (terzaParte) {
                         DebugSvc.log("aggiungiTerzeParti", terzaParte);
                         $ctrl.terzeParti.push(terzaParte);
+                        $scope.formTerzeParti.$setPristine(false);
                     }, function () {
                         DebugSvc.log("aggiungiTerzeParti dismiss.");
                     });
+                };
+
+                $ctrl.rimuoviTerzaParte = function (index) {
+                    $ctrl.terzeParti.splice(index, 1);
+                    $scope.formTerzeParti.$setPristine(false);
                 };
 
                 $ctrl.salvaTerzeParti = function () {
@@ -52,6 +58,7 @@
                         if (response.data.status === 200) {
                             parent.aggiornaMappe();
                             toastr.success($translate('global.generic.saveok'));
+                            $scope.formTerzeParti.$setPristine(true);
                         } else {
                             toastr.error($translate('global.generic.saveko'));
                         }

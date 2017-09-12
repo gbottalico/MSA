@@ -1,7 +1,7 @@
 
 <div class="containerHeader">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container boxShadow">
-        <div class="header">
+        <div class="header" ng-class="{'is-ok': dannoRcaForm.$pristine, 'has-error': !dannoRcaForm.$pristine}">
             <h1 class="titleSection">{{'global.dannorca.title' | translate}}</h1>
         </div>
     </div>
@@ -256,7 +256,7 @@
                                         <td>{{controparte.nome ? controparte.nome + " " + controparte.cognome : controparte.ragioneSociale}}</td>
                                         <td>{{controparte.residenza.indirizzo}}</td>
                                         <td>{{controparte.cf}}</td>
-                                        <td><i ng-click="$ctrl.dannoRca.controparti.splice($index, 1);" class="fa fa-trash-o" aria-hidden="true"></i></td>
+                                        <td><i ng-click="$ctrl.rimuoviControparte($index)" class="fa fa-trash-o" aria-hidden="true"></i></td>
                                     </tr>
                                 </tbody>
                                 <tfoot>

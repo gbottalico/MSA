@@ -116,7 +116,7 @@ section {
   input[type="text"]:disabled, input[type="number"]:disabled, select:disabled {
     opacity: 0.25;
   }
-  input:focus {
+  input:focus, select:focus {
     outline: none;
     border: 2px solid $light_blue;
     box-sizing: border-box;

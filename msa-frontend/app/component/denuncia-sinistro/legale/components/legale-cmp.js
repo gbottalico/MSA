@@ -37,9 +37,15 @@
                     modalInstance.result.then(function (legale) {
                         DebugSvc.log("aggiungiLegale", legale);
                         $ctrl.legali.push(legale);
+                        $scope.legaleForm.$setPristine(false);
                     }, function () {
                         DebugSvc.log("aggiungiLegale dismiss.");
                     });
+                };
+
+                $ctrl.rimuoviLegale = function (index) {
+                    $ctrl.legali.splice(index, 1);
+                    $scope.legaleForm.$setPristine(false);
                 };
 
                 $ctrl.salvaLegali = function () {
@@ -52,6 +58,7 @@
                         if (response.data.status === 200) {
                             parent.aggiornaMappe();
                             toastr.success($translate('global.generic.saveok'));
+                            $scope.legaleForm.$setPristine(true);
                         } else {
                             toastr.error($translate('global.generic.saveko'));
                         }

@@ -162,6 +162,7 @@
                     $ctrl.tempSegnalazione.perito = $ctrl.peritoAssociato;
                     parent.aggiornaMappe();
                     toastr.success($translate('global.generic.saveok'));
+                    $scope.cercaCarrozzeriaForm.$setPristine(true);
                 };
 
                 $ctrl.bindCarrozzeriaConvenzionata = function () {

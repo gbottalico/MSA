@@ -1,6 +1,6 @@
 <div class="containerHeader">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container boxShadow">
-        <div class="header">
+        <div class="header" ng-class="{'is-ok': segnalazioneForm.$pristine && segnalazioneForm.$valid, 'has-error': !segnalazioneForm.$pristine || !segnalazioneForm.$valid}">
             <h1 class="titleSection">{{'global.denunciasinitro.labels.segnalazione' | translate}}</h1>
         </div>
     </div>
@@ -13,7 +13,7 @@
             <form name="segnalazioneForm" novalidate>
 
                 <pre ng-if="$debugMode" class="col-lg-12">{{$ctrl.numeroSinistroProvvisorio}}: {{$ctrl.sinistro}}</pre>
-                <pre ng-if="$debugMode" class="col-lg-12">{{$ctrl.persistence}}</pre>
+                <!--<pre ng-if="$debugMode" class="col-lg-12">{{segnalazioneForm | json}}</pre>-->
 
                 <!-- Dati Segnalante -->
                 <div class="col-lg-12">
@@ -26,15 +26,15 @@
                     </span>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 classicInputText">
-                    <input type="text" name="nome" ng-model="$ctrl.sinistro.segnalazione.nome">
+                    <input type="text" name="nome" ng-model="$ctrl.sinistro.segnalazione.nome" ng-required="true">
                     <label>{{'global.denunciasinitro.labels.nome' | translate}}</label>
                 </div>
                 <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12 classicInputText">
-                    <input type="text" name="cognome" ng-model="$ctrl.sinistro.segnalazione.cognome">
+                    <input type="text" name="cognome" ng-model="$ctrl.sinistro.segnalazione.cognome" ng-required="true">
                     <label>{{'global.denunciasinitro.labels.cognome' | translate}}</label>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
-                    <select name="ruolo" ng-model="$ctrl.sinistro.segnalazione.ruolo">
+                    <select name="ruolo" ng-model="$ctrl.sinistro.segnalazione.ruolo" ng-required="true">
                         <option ng-repeat="ruolo in $ctrl.ruoli" value="{{ruolo.id}}">{{ruolo.descrizioneRuolo}}</option>
                     </select>
                     <label>{{'global.denunciasinitro.labels.ruolo' | translate}}</label>
@@ -52,11 +52,11 @@
                     </span>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText" ng-class="{'has-error' : segnalazioneForm.cellulare.$invalid && !segnalazioneForm.cellulare.$pristine}">
-                    <input type="text" name="cellulare" ng-model="$ctrl.sinistro.tracking.cellulare" ng-pattern="$ctrl.reTelefono">
+                    <input type="text" name="cellulare" ng-model="$ctrl.sinistro.tracking.cellulare" ng-pattern="$ctrl.reTelefono" ng-required="false">
                     <label>{{'global.denunciasinitro.labels.cellulare' | translate}}</label>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText" ng-class="{'has-error' : segnalazioneForm.email.$invalid && !segnalazioneForm.email.$pristine}">
-                    <input type="text" name="email" ng-model="$ctrl.sinistro.tracking.email" ng-pattern="$ctrl.reEmail">
+                    <input type="text" name="email" ng-model="$ctrl.sinistro.tracking.email" ng-pattern="$ctrl.reEmail" ng-required="false">
                     <label>{{'global.denunciasinitro.labels.email' | translate}}</label>
                 </div>
                 <div class="col-lg-12">
@@ -67,7 +67,7 @@
                 </div>
                 <div class="col-lg-12 classicInputRadio">
                     <div class="col-lg-1 col-md-2 col-sm-6 col-xs-12 noPaddingLeft" ng-repeat="mezzo in $ctrl.mezzicomunicazione">
-                        <input type="radio" value="{{mezzo.id}}" name="mezzocomunicazione" ng-model="$ctrl.sinistro.provenienza.mezzoComunicazione">
+                        <input type="radio" value="{{mezzo.id}}" name="mezzocomunicazione" ng-model="$ctrl.sinistro.provenienza.mezzoComunicazione" ng-required="true">
                         <label class="rightLabel">{{mezzo.descrizione}}</label>
                     </div>
                 </div>
@@ -76,6 +76,7 @@
                     <msa-date-selector
                             data-result="$ctrl.sinistro.provenienza.dataDenuncia"
                             data-required="true"
+                            data-name="'dataDenuncia'"
                             data-input="$ctrl.persistence.dataDenuncia">
                     </msa-date-selector>
                     <label>{{'global.denunciasinitro.labels.dataDenuncia' | translate}}</label>
@@ -84,12 +85,13 @@
                     <msa-date-selector
                             data-result="$ctrl.sinistro.provenienza.dataSinistro"
                             data-required="true"
+                            data-name="'dataSinistro'"
                             data-input="$ctrl.persistence.dataSinistro">
                     </msa-date-selector>
                     <label>{{'global.denunciasinitro.labels.dataSinistro' | translate}}</label>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText" ng-class="{'has-error' : segnalazioneForm.orasinistro.$invalid && !segnalazioneForm.orasinistro.$pristine}">
-                    <input type="text" name="orasinistro" ng-model="$ctrl.sinistro.provenienza.oraSinistro" ng-pattern="$regex.reOra" placeholder="HH:MM">
+                    <input type="text" name="orasinistro" ng-model="$ctrl.sinistro.provenienza.oraSinistro" ng-pattern="$regex.reOra" placeholder="HH:MM" ng-required="true">
                     <label>{{'global.denunciasinitro.labels.oraSinistro' | translate}}</label>
                 </div>
 
@@ -107,10 +109,10 @@
                     </span>
                 </div>
 
-                <msa-place result="$ctrl.sinistro.luogo" input="$ctrl.persistence.luogo"></msa-place>
+                <msa-place result="$ctrl.sinistro.luogo" input="$ctrl.persistence.luogo" name="'luogoSinistro'"></msa-place>
 
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputText">
-                    <input type="text" name="indirizzo" ng-model="$ctrl.sinistro.luogo.indirizzo" ng-required="true">
+                    <input type="text" name="indirizzo" ng-model="$ctrl.sinistro.luogo.indirizzo" ng-required="false">
                     <label>{{'global.denunciasinitro.labels.indirizzo' | translate}}</label>
                 </div>
 
@@ -122,70 +124,70 @@
                 </div>
                 <div class="garanzieDisponibili col-lg-2">
                     <div class="garanziaBox noPadding">
-                        <input id="rca" type="radio" name="garanzie" ng-value="0" ng-model="$ctrl.sinistro.garanzia">
+                        <input id="rca" type="radio" name="garanzie" ng-value="0" ng-model="$ctrl.sinistro.garanzia" ng-required="true">
                         <label for="rca"><p>Rca</p></label>
                     </div>
                     <p>RCA</p>
                 </div>
                 <div class="garanzieDisponibili col-lg-2">
                     <div class="garanziaBox noPadding">
-                        <input id="fei" type="radio" name="garanzie" value="fei" ng-model="$ctrl.sinistro.garanzia">
+                        <input id="fei" type="radio" name="garanzie" value="fei" ng-model="$ctrl.sinistro.garanzia" ng-required="true">
                         <label for="fei"><p>F&amp;I</p></label>
                     </div>
                     <p>Furto e Incendio</p>
                 </div>
                 <div class="garanzieDisponibili col-lg-2">
                     <div class="garanziaBox noPadding">
-                        <input id="van" type="radio" name="garanzie" value="van" ng-model="$ctrl.sinistro.garanzia">
+                        <input id="van" type="radio" name="garanzie" value="van" ng-model="$ctrl.sinistro.garanzia" ng-required="true">
                         <label for="van"><p>Van</p></label>
                     </div>
                     <p>Atti Vandalici</p>
                 </div>
                 <div class="garanzieDisponibili col-lg-2">
                     <div class="garanziaBox noPadding">
-                        <input id="nat" type="radio" name="garanzie" value="nat" ng-model="$ctrl.sinistro.garanzia">
+                        <input id="nat" type="radio" name="garanzie" value="nat" ng-model="$ctrl.sinistro.garanzia" ng-required="true">
                         <label for="nat"><p>Nat</p></label>
                     </div>
                     <p>Eventi Naturali</p>
                 </div>
                 <div class="garanzieDisponibili col-lg-2">
                     <div class="garanziaBox noPadding">
-                        <input id="col" type="radio" name="garanzie" value="col" ng-model="$ctrl.sinistro.garanzia">
+                        <input id="col" type="radio" name="garanzie" value="col" ng-model="$ctrl.sinistro.garanzia" ng-required="true">
                         <label for="col"><p>Col</p></label>
                     </div>
                     <p>Collisione</p>
                 </div>
                 <div class="garanzieDisponibili col-lg-2">
                     <div class="garanziaBox noPadding">
-                        <input id="kas" type="radio" name="garanzie" value="kas" ng-model="$ctrl.sinistro.garanzia">
+                        <input id="kas" type="radio" name="garanzie" value="kas" ng-model="$ctrl.sinistro.garanzia" ng-required="true">
                         <label for="kas"><p>Kas</p></label>
                     </div>
                     <p>Kasko</p>
                 </div>
                 <div class="garanzieDisponibili col-lg-2">
                     <div class="garanziaBox noPadding">
-                        <input id="cri" type="radio" name="garanzie" value="cri" ng-model="$ctrl.sinistro.garanzia">
+                        <input id="cri" type="radio" name="garanzie" value="cri" ng-model="$ctrl.sinistro.garanzia" ng-required="true">
                         <label for="cri"><p>Cri</p></label>
                     </div>
                     <p>Cristalli</p>
                 </div>
                 <div class="garanzieDisponibili col-lg-2">
                     <div class="garanziaBox noPadding">
-                        <input id="con" type="radio" name="garanzie" value="con" ng-model="$ctrl.sinistro.garanzia">
+                        <input id="con" type="radio" name="garanzie" value="con" ng-model="$ctrl.sinistro.garanzia" ng-required="true">
                         <label for="con"><p>Con</p></label>
                     </div>
                     <p>Infortuni Conducente</p>
                 </div>
                 <div class="garanzieDisponibili col-lg-2">
                     <div class="garanziaBox noPadding">
-                        <input id="leg" type="radio" name="garanzie" value="leg" ng-model="$ctrl.sinistro.garanzia">
+                        <input id="leg" type="radio" name="garanzie" value="leg" ng-model="$ctrl.sinistro.garanzia" ng-required="true">
                         <label for="leg"><p>Leg</p></label>
                     </div>
                     <p>Tutela Legale</p>
                 </div>
                 <div class="garanzieDisponibili col-lg-2">
                     <div class="garanziaBox noPadding">
-                        <input id="str" type="radio" name="garanzie" value="str" ng-model="$ctrl.sinistro.garanzia">
+                        <input id="str" type="radio" name="garanzie" value="str" ng-model="$ctrl.sinistro.garanzia" ng-required="true">
                         <label for="str"><p>Str</p></label>
                     </div>
                     <p>Assistenza Stradale</p>
@@ -193,7 +195,8 @@
 
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicButton">
                     <button class="blueButton"
-                            ng-click="$ctrl.apriSegnalazione()">
+                            ng-click="$ctrl.apriSegnalazione()"
+                            ng-disabled="segnalazioneForm.$invalid">
                         <a><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;{{'global.generic.salvaprocedi' | translate}}</a>
                     </button>
                 </div>
