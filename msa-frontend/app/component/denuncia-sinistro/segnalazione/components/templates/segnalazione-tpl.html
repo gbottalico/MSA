@@ -14,6 +14,7 @@
 
 
                 <pre ng-if="$debugMode" class="col-lg-12">{{$ctrl.numeroSinistroProvvisorio}}: {{$ctrl.sinistro}}</pre>
+                <pre ng-if="$debugMode" class="col-lg-12">{{segnalazioneForm | json}}</pre>
 
                 <!-- Dati Segnalante -->
                 <div class="col-lg-12">
@@ -76,6 +77,7 @@
                     <msa-date-selector
                             data-result="$ctrl.sinistro.provenienza.dataDenuncia"
                             data-required="true"
+                            data-name="'dataDenuncia'"
                             data-input="$ctrl.persistence.dataDenuncia">
                     </msa-date-selector>
                     <label>{{'global.denunciasinitro.labels.dataDenuncia' | translate}}</label>
@@ -84,6 +86,7 @@
                     <msa-date-selector
                             data-result="$ctrl.sinistro.provenienza.dataSinistro"
                             data-required="true"
+                            data-name="'dataSinistro'"
                             data-input="$ctrl.persistence.dataSinistro">
                     </msa-date-selector>
                     <label>{{'global.denunciasinitro.labels.dataSinistro' | translate}}</label>
