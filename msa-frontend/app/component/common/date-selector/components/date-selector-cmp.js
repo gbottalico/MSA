@@ -74,7 +74,8 @@
                     } else {
                         $ctrl.$valid = true;
                     }
-                    $scope[$scope.name].$setValidity($scope.name, $ctrl.$valid, $ctrl);
+                    $ctrl.result.$valid = $ctrl.$valid;
+                    $scope[$scope.name].$setValidity("date", $ctrl.$valid, $ctrl);
                 }, true
             );
 
