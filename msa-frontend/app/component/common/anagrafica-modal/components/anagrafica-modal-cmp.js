@@ -42,8 +42,8 @@
                     }
 
                     if ($ctrl.hasCompagnia) {
-                        DomainSvc.getElencoRegole().then(function (response) {
-                            $ctrl.casaRegole = response.data.result;
+                        DomainSvc.getElencoRegole().then(function (data) {
+                            $ctrl.casaRegole = data.result;
                         });
                     }
                 };

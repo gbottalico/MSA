@@ -76,7 +76,7 @@
 
                                     $ctrl.persistence.residenza = tempLuogo;
 
-                                    $ctrl.dannoRca.conducente.indirizzo = anagrafica.tracking.indirizzo;
+                                    $ctrl.dannoRca.conducente.residenza.indirizzo = anagrafica.tracking.indirizzo;
 
                                 }, 1);
 

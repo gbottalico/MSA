@@ -69,7 +69,7 @@
         </msa-carrozzeria-convenzionata>
 
         <msa-perito id="M25"
-                ng-if="$ctrl.isMappaVisibile('M26')"
+                ng-if="$ctrl.isMappaVisibile('M25')"
                 numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
                 sinistro-provvisorio="$ctrl.sinistroProvvisorio"
                 temp-segnalazione="$ctrl.tempSegnalazione">
@@ -83,6 +83,14 @@
                temp-segnalazione="$ctrl.tempSegnalazione">
 
         </msa-documenti>
+
+        <msa-riepilogo id="M27"
+               ng-if="$ctrl.isMappaVisibile('M26')"
+               numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
+               sinistro-provvisorio="$ctrl.sinistroProvvisorio"
+               temp-segnalazione="$ctrl.tempSegnalazione">
+
+        </msa-riepilogo>
 
 
         <h2 class="backgroundHint">
