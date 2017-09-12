@@ -27,35 +27,39 @@ angular.module('msa').service('ConvertSvc',
                 }
 
                 dto.luogoNascita = {};
-                if (_.isObject(anagrafica.nascita.nazione)) {
-                    dto.luogoNascita.codNazione = anagrafica.nascita.nazione.id;
-                    dto.luogoNascita.descrizioneNazione = anagrafica.nascita.nazione.descrizione;
+                if (anagrafica.nascita!=undefined){
+	                if (_.isObject(anagrafica.nascita.nazione)) {
+	                    dto.luogoNascita.codNazione = anagrafica.nascita.nazione.id;
+	                    dto.luogoNascita.descrizioneNazione = anagrafica.nascita.nazione.descrizione;
+	                }
+	                if (_.isObject(anagrafica.nascita.provincia)) {
+	                    dto.luogoNascita.codProvincia = anagrafica.nascita.provincia.codProvincia;
+	                    dto.luogoNascita.descrizioneProvincia = anagrafica.nascita.provincia.desProv;
+	                }
+	                if (_.isObject(anagrafica.nascita.comune)) {
+	                    dto.luogoNascita.codComune = anagrafica.nascita.comune.codComune;
+	                    dto.luogoNascita.descrizioneComune = anagrafica.nascita.comune.descrizione;
+	                    dto.luogoNascita.cap = anagrafica.nascita.cap;
+	                }
+	
+	                dto.dataNascita = anagrafica.nascita.data.date;
                 }
-                if (_.isObject(anagrafica.nascita.provincia)) {
-                    dto.luogoNascita.codProvincia = anagrafica.nascita.provincia.codProvincia;
-                    dto.luogoNascita.descrizioneProvincia = anagrafica.nascita.provincia.desProv;
-                }
-                if (_.isObject(anagrafica.nascita.comune)) {
-                    dto.luogoNascita.codComune = anagrafica.nascita.comune.codComune;
-                    dto.luogoNascita.descrizioneComune = anagrafica.nascita.comune.descrizione;
-                    dto.luogoNascita.cap = anagrafica.nascita.cap;
-                }
-
-                dto.dataNascita = anagrafica.nascita.data.date;
 
                 dto.tracking = {};
-                if (_.isObject(anagrafica.residenza.nazione)) {
-                    dto.tracking.nazione = anagrafica.residenza.nazione.id;
+                if (anagrafica.residenza!=undefined){
+	                if (_.isObject(anagrafica.residenza.nazione)) {
+	                    dto.tracking.nazione = anagrafica.residenza.nazione.id;
+	                }
+	                if (_.isObject(anagrafica.residenza.provincia)) {
+	                    dto.tracking.provincia = anagrafica.residenza.provincia.codProvincia;
+	                }
+	                if (_.isObject(anagrafica.residenza.comune)) {
+	                    dto.tracking.comune = anagrafica.residenza.comune.codComune;
+	                    dto.tracking.cap = anagrafica.residenza.cap;
+	                }
+	
+	                dto.tracking.indirizzo = anagrafica.residenza.indirizzo;
                 }
-                if (_.isObject(anagrafica.residenza.provincia)) {
-                    dto.tracking.provincia = anagrafica.residenza.provincia.codProvincia;
-                }
-                if (_.isObject(anagrafica.residenza.comune)) {
-                    dto.tracking.comune = anagrafica.residenza.comune.codComune;
-                    dto.tracking.cap = anagrafica.residenza.cap;
-                }
-
-                dto.tracking.indirizzo = anagrafica.residenza.indirizzo;
                 dto.tracking.telefono = anagrafica.telefono;
                 dto.tracking.mail = anagrafica.mail;
 

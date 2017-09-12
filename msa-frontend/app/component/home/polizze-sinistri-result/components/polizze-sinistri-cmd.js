@@ -6,11 +6,12 @@
         bindings: {
         	valoriRicerca: "="
         },
-        controller: ("polizzeSinistriController", ['$rootScope', '$scope', '$translate', '$log', 'toastr', '$analytics', '$location', '$cookies', '$window', '$sessionStorage', 'DebugSvc', '$uibModal', '$debugMode',
-            function ($rootScope, $scope, $translate, $log, toastr, $analytics, location, $cookies, $window, $sessionStorage, DebugSvc, $uibModal, $debugMode) {
+        controller: ("polizzeSinistriController", ['$MSAC', '$location','$rootScope', '$scope', '$translate', '$log', 'toastr', '$analytics', '$location', '$cookies', '$window', '$sessionStorage', 'DebugSvc', '$uibModal', '$debugMode','SinistriSvc',
+            function ($MSAC, $location,$rootScope, $scope, $translate, $log, toastr, $analytics, location, $cookies, $window, $sessionStorage, DebugSvc, $uibModal, $debugMode, SinistriSvc) {
 
                 var $ctrl = this;
                 var parent = $scope.$parent;
+                $ctrl.numeroSinistroProvvisorio = undefined;
 
                 $ctrl.clearbox = "clear box"; //TODO capire utilizzo e rimuovere
                 $ctrl.polizze = [
@@ -388,7 +389,59 @@
                 };
 
                 $ctrl.openSinistro = function () {
-                    parent.openSinistro($ctrl.polizzaSelected, $ctrl.valoriRicerca.compagniaSelezionata.idCompagnia);
+                  if ($ctrl.polizzaSelected != undefined){
+                	  var contraente = {};
+                	  contraente.cf = $ctrl.polizzaSelected.codfiscContraente;
+                	  contraente.cognome = $ctrl.polizzaSelected.cognomeContraente;
+                	  contraente.mail = $ctrl.polizzaSelected.email;
+                	  contraente.nome = $ctrl.polizzaSelected.nomeContraente;
+                	  contraente.residenza = {};
+                	  contraente.residenza.cap = $ctrl.polizzaSelected.capContraente;
+                	  contraente.residenza.provincia = $ctrl.polizzaSelected.provinciaContraente;
+                	  contraente.residenza.comune = $ctrl.polizzaSelected.cittaContraente;
+                	  contraente.telefono = $ctrl.polizzaSelected.cellulare;
+                	  $ctrl.apriSinistroProvvisorio(contraente, $ctrl.valoriRicerca.compagniaSelezionata.idCompagnia);
+                  } else { 
+                	  $ctrl.openAnagrafica($ctrl.valoriRicerca.compagniaSelezionata.idCompagnia);
+                  }
+                };
+
+                $ctrl.openAnagrafica = function (compagnia) {
+                    var modalInstance = $uibModal.open({
+                        animation: true,
+                        backdrop: 'static', // Evita che il modal sia chiuso cliccando sullo sfondo.
+                        windowClass: 'msaModal',
+                        size: 'lg',
+                        component: 'msaAnagraficaModal',
+                        resolve: {}
+                    });
+
+                    modalInstance.result.then(function (contraente, compagnia) {
+                        DebugSvc.log("openAnagrafica", contraente);
+                        $ctrl.apriSinistroProvvisorio(contraente, compagnia);
+                    }, function () {
+                        DebugSvc.log("openAnagrafica dismiss.");
+                    });
+                };
+
+                //FIXME rimuovere 37, mockup
+                $ctrl.apriSinistroProvvisorio = function (datiContraente, codiceCompagnia) {
+                    codiceCompagnia = codiceCompagnia || 37;
+                    SinistriSvc.apriSinistroProvvisorio(datiContraente, codiceCompagnia).then(function (response) {
+                        DebugSvc.log("apriSinistroProvvisorio", response);
+                        if(response.status === 200 && response.data.status === 200) {
+
+                            $ctrl.numeroSinistroProvvisorio = response.data.result.numSinistroProvvisorio;
+                            var path = $MSAC.PATHS.DENUNCIA;
+                            path = path + "/" + $ctrl.numeroSinistroProvvisorio;
+                            $location.path(path);
+
+                            toastr.success($translate('global.generic.saveok'));
+
+                        } else {
+                            toastr.error($translate('global.generic.saveko'));
+                        }
+                    });
                 };
 
             }])
