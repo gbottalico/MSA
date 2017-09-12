@@ -1,6 +1,6 @@
 <div class="containerHeader">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container boxShadow">
-        <div class="header">
+        <div class="header" ng-class="{'is-ok': eventoRcaForm.$pristine, 'has-error': !eventoRcaForm.$pristine}">
             <h1 class="titleSection">{{'global.eventorca.title' | translate}}</h1>
         </div>
     </div>
@@ -14,72 +14,73 @@
                 <span class="subsectionTitle">{{'global.eventorca.labels.dettaglievento' | translate}}</span>
             </div>
 
-            <div class="row">
-            <!--INPUT RADIO-->
+            <form name="eventoRcaForm" novalidate>
 
-                <pre ng-if="$debugMode">{{$ctrl.eventoRca}}</pre>
-                <pre ng-if="$debugMode" class="col-lg-12">{{$ctrl.persistence}}</pre>
+                <div class="row">
+                <!--INPUT RADIO-->
 
-                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 classicInputRadio">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 noPaddingLeft">
-                        <input type="radio" ng-value="true" name="collisione" ng-model="$ctrl.eventoRca.collisione">
-                        <label class="rightLabel">{{'global.generic.si' | translate}}</label>
+                    <pre ng-if="$debugMode">{{$ctrl.eventoRca}}</pre>
+
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 classicInputRadio">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 noPaddingLeft">
+                            <input type="radio" ng-value="true" name="collisione" ng-model="$ctrl.eventoRca.collisione">
+                            <label class="rightLabel">{{'global.generic.si' | translate}}</label>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 noPaddingRight">
+                            <input type="radio" ng-value="false" name="collisione" ng-model="$ctrl.eventoRca.collisione">
+                            <label class="rightLabel">{{'global.generic.no' | translate}}</label>
+                        </div>
+                        <label>{{'global.eventorca.labels.collisione' | translate}}</label>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 noPaddingRight">
-                        <input type="radio" ng-value="false" name="collisione" ng-model="$ctrl.eventoRca.collisione">
-                        <label class="rightLabel">{{'global.generic.no' | translate}}</label>
+                    <!--END INPUT RADIO-->
+
+                    <!--INPUT TEXT-->
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 classicInputText">
+                        <input type="number" ng-model="$ctrl.eventoRca.nveicoli" min="1" ng-disabled="!$ctrl.eventoRca.collisione">
+                        <label>{{'global.eventorca.labels.nveicoli' | translate}}</label>
                     </div>
-                    <label>{{'global.eventorca.labels.collisione' | translate}}</label>
+                    <!--END INPUT TEXT-->
+
+                    <div class="col-lg-offset-6 col-md-offset-6 hidden-sm hidden-xs">&nbsp;</div>
                 </div>
-                <!--END INPUT RADIO-->
+                <div class="row">
 
-                <!--INPUT TEXT-->
-                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 classicInputText">
-                    <input type="number" ng-model="$ctrl.eventoRca.nveicoli" min="1" ng-disabled="!$ctrl.eventoRca.collisione">
-                    <label>{{'global.eventorca.labels.nveicoli' | translate}}</label>
-                </div>
-                <!--END INPUT TEXT-->
-
-                <div class="col-lg-offset-6 col-md-offset-6 hidden-sm hidden-xs">&nbsp;</div>
-            </div>
-
-            <div class="row">
-
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputRadio">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 noPaddingLeft">
-                        <input type="radio" ng-value="true" name="autorita" ng-model="$ctrl.eventoRca.interventoAutorita">
-                        <label class="rightLabel">{{'global.generic.si' | translate}}</label>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputRadio">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 noPaddingLeft">
+                            <input type="radio" ng-value="true" name="autorita" ng-model="$ctrl.eventoRca.interventoAutorita">
+                            <label class="rightLabel">{{'global.generic.si' | translate}}</label>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 noPaddingRight">
+                            <input type="radio" ng-value="false" name="autorita" ng-model="$ctrl.eventoRca.interventoAutorita">
+                            <label class="rightLabel">{{'global.generic.no' | translate}}</label>
+                        </div>
+                        <label>{{'global.eventorca.labels.autorita' | translate}}</label>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 noPaddingRight">
-                        <input type="radio" ng-value="false" name="autorita" ng-model="$ctrl.eventoRca.interventoAutorita">
-                        <label class="rightLabel">{{'global.generic.no' | translate}}</label>
+
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
+                        <select ng-disabled="!$ctrl.eventoRca.interventoAutorita" ng-model="$ctrl.eventoRca.autoritaIntervenuta">
+                            <option ng-repeat="autorita in $ctrl.autorita" ng-value="{{autorita.id}}" >{{autorita.descrizione}}</option>
+                        </select>
+                        <label>{{'global.eventorca.labels.qualiautorita' | translate}}</label>
                     </div>
-                    <label>{{'global.eventorca.labels.autorita' | translate}}</label>
+
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
+                        <input type="text" ng-disabled="!$ctrl.eventoRca.interventoAutorita" ng-model="$ctrl.eventoRca.comandoAutorita">
+                        <label>{{'global.eventorca.labels.comando' | translate}}</label>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
+
+                        <msa-date-selector
+                                data-result="$ctrl.eventoRca.dataDenuncia"
+                                data-input="$ctrl.persistence.dataDenuncia"
+                                data-disabled="!($ctrl.eventoRca.interventoAutorita)">
+
+                        </msa-date-selector>
+                        <label>{{'global.eventorca.labels.datadenuncia' | translate}}</label>
+                    </div>
                 </div>
 
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
-                    <select ng-disabled="!$ctrl.eventoRca.interventoAutorita" ng-model="$ctrl.eventoRca.autoritaIntervenuta">
-                        <option ng-repeat="autorita in $ctrl.autorita" ng-value="{{autorita.id}}" >{{autorita.descrizione}}</option>
-                    </select>
-                    <label>{{'global.eventorca.labels.qualiautorita' | translate}}</label>
-                </div>
-
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
-                    <input type="text" ng-disabled="!$ctrl.eventoRca.interventoAutorita" ng-model="$ctrl.eventoRca.comandoAutorita">
-                    <label>{{'global.eventorca.labels.comando' | translate}}</label>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
-
-                    <msa-date-selector
-                            data-result="$ctrl.eventoRca.dataDenuncia"
-                            data-input="$ctrl.persistence.dataDenuncia"
-                            data-disabled="!($ctrl.eventoRca.interventoAutorita)">
-
-                    </msa-date-selector>
-                    <label>{{'global.eventorca.labels.datadenuncia' | translate}}</label>
-                </div>
-            </div>
-
+            </form>
             <div class="row">
                 <div class="col-lg-12 classicButton">
                     <button class="blueButton" ng-click="$ctrl.salvaEventoRca()">

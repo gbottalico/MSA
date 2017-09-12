@@ -28,6 +28,7 @@
                         if (response.data.status === 200) {
                             // parent.aggiornaMappe();
                             toastr.success($translate('global.generic.saveok'));
+                            $scope.caForm.$setPristine(true);
                         } else {
                             toastr.error($translate('global.generic.saveko'));
                         }

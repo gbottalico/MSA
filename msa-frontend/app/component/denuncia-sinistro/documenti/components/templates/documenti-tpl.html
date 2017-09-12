@@ -1,6 +1,6 @@
 <div class="containerHeader">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container boxShadow">
-        <div class="header">
+        <div class="header" ng-class="{'is-ok': documentiForm.$pristine, 'has-error': !documentiForm.$pristine}">
             <h1 class="titleSection">{{'global.documenti.title' | translate}}</h1>
         </div>
     </div>
@@ -10,7 +10,8 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container boxShadow">
         <div class="body">
 
-            <div class="col-lg-12">
+            <form name="documentiForm" novalidate>
+                <div class="col-lg-12">
                 <pre ng-if="$debugMode">{{$ctrl.documenti | json}}</pre>
                 <table class="table msa-table">
                     <thead>
@@ -48,10 +49,10 @@
                 </table>
 
             </div>
-
+            </form>
             <div class="row">
                 <div class="col-lg-12 classicButton margin-top-1">
-                    <button class="blueButton" ng-click="$ctrl.salvaFile()">
+                    <button class="blueButton" ng-click="$ctrl.salvaDocumenti()">
                         <a><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;{{'global.generic.salvaprocedi' | translate}}</a>
                     </button>
                 </div>
