@@ -27,7 +27,8 @@
       "completato": "Completato",
       "errore": "Errore",
       "veicolicoinvolti":"Veicoli Coinvolti",
-      "particoinvolte":"Parti Coinvolte"
+      "particoinvolte":"Parti Coinvolte",
+      "mostrajson":"Mostra JSON"
     },
     "people": {
       "anagrafica": "Anagrafica",
@@ -253,7 +254,9 @@
     },
     "perito": {
       "title": "Perito",
-      "labels": {}
+      "labels": {
+        "denominazione":"Denominazione"
+      }
     },
     "riepilogo": {
       "title": "Riepilogo",

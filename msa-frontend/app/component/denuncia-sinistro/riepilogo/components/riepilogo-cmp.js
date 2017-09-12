@@ -4,8 +4,8 @@
     app.component('msaRiepilogo', {
         templateUrl: '../../app/component/denuncia-sinistro/riepilogo/components/templates/riepilogo-tpl.html',
         bindings: {},
-        controller: ("riepilogoController", ['_', '$rootScope', '$scope', '$routeParams', '$debugMode', '$filter', '$location', 'toastr', 'SinistriSvc', 'DebugSvc', 'PathSvc', 'PlacesSvc',
-            function (_, $rootScope, $scope, $routeParams, $debugMode, $filter, $location, toastr, SinistriSvc, DebugSvc, PathSvc, PlacesSvc) {
+        controller: ("riepilogoController", ['_', '$rootScope', '$uibModal','$scope', '$routeParams', '$debugMode', '$filter', '$location', 'toastr', 'SinistriSvc', 'DebugSvc', 'PathSvc', 'PlacesSvc',
+            function (_, $rootScope, $scope, $routeParams, $debugMode,$uibModal, $filter, $location, toastr, SinistriSvc, DebugSvc, PathSvc, PlacesSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
@@ -43,14 +43,6 @@
                     parent.mappaCaricata($ctrl.mapId);
                 };
 
-                $scope.$watch(
-                    function watchScope(scope) {
-                        return {};
-                    },
-                    function handleChanges(newValues, oldValues) {
-
-                    }, true
-                );
 
                 $ctrl.bindRiepilogo = function () {
                     $ctrl.nomeCognome = $ctrl.sinistroProvvisorio.segnalazione.denunciante.nome + " " + $ctrl.sinistroProvvisorio.segnalazione.denunciante.cognome;
@@ -72,24 +64,32 @@
                     }
 
                   $ctrl.constatazione = $ctrl.sinistroProvvisorio.constatazioneAmichevole.caCompilata;
-                    if(_.isObject($ctrl.sinistroProvvisorio.legali)){
-                        $ctrl.legaliPresenti = true;
+
                         $ctrl.legali = $ctrl.sinistroProvvisorio.legali;
 
-                    }
-                    else{
-                        $ctrl.legaliPresenti = false;
-
-                    }
 
 
-                    if(_.isObject($ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente)){
-                        $ctrl.conducente = $ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente;
-                    }
-                    else{
+
+
+
+                    if($ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente === undefined){
                         $ctrl.conducente = $ctrl.sinistroProvvisorio.contraente;
+                        $ctrl.targaConducente = $ctrl.sinistroProvvisorio.targa;
                     }
+                    else $ctrl.conducente = $ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente;
+
+
+                    if($ctrl.sinistroProvvisorio.eventoRca.numVeicoli > 1){
+                        $ctrl.contropartePresente = true;
+                        $ctrl.controparti = $ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniControparte;
+                    }
+                    else $ctrl.contropartePresente = false;
+
+
+                    $ctrl.perito = $ctrl.sinistroProvvisorio.perito;
+                    $ctrl.centroconv = $ctrl.sinistroProvvisorio
                 };
+
 
             }])
     });
