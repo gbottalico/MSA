@@ -1,6 +1,6 @@
 <div class="containerHeader">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container boxShadow">
-        <div class="header" ng-class="{'is-ok': caForm.$pristine, 'has-error': !caForm.$pristine}">
+        <div class="header" ng-class="{'is-ok': caForm.$pristine && caForm.$valid, 'has-error': !caForm.$pristine || !caForm.$valid}">
             <h1 class="titleSection">{{'global.ca.title' | translate}}</h1>
         </div>
     </div>
@@ -22,11 +22,11 @@
                 <!--INPUT RADIO-->
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputRadio">
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingLeft">
-                        <input type="radio" ng-value="true" name="compilata" ng-model="$ctrl.ca.constatazioneAmichevole">
+                        <input type="radio" ng-value="true" name="compilata" ng-model="$ctrl.ca.constatazioneAmichevole" ng-required="true">
                         <label class="rightLabel">{{'global.generic.si' | translate}}</label>
                     </div>
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingRight">
-                        <input type="radio" ng-value="false" name="compilata" ng-model="$ctrl.ca.constatazioneAmichevole">
+                        <input type="radio" ng-value="false" name="compilata" ng-model="$ctrl.ca.constatazioneAmichevole" ng-required="true">
                         <label class="rightLabel">{{'global.generic.no' | translate}}</label>
                     </div>
                     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 noPaddingRight">&nbsp;</div>
@@ -38,12 +38,14 @@
                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 classicInputRadio" ng-if="$ctrl.ca.constatazioneAmichevole">
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingLeft">
                         <input type="radio" ng-value="true" checked name="entrambi"
-                               ng-model="$ctrl.ca.constatazioneAmichevoleControparte">
+                               ng-model="$ctrl.ca.constatazioneAmichevoleControparte"
+                               ng-required="$ctrl.ca.constatazioneAmichevole">
                         <label class="rightLabel">{{'global.generic.si' | translate}}</label>
                     </div>
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingLeft">
                         <input type="radio" ng-value="false" name="entrambi"
-                               ng-model="$ctrl.ca.constatazioneAmichevoleControparte">
+                               ng-model="$ctrl.ca.constatazioneAmichevoleControparte"
+                               ng-required="$ctrl.ca.constatazioneAmichevole">
                         <label class="rightLabel">{{'global.generic.no' | translate}}</label>
                     </div>
                     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 noPaddingRight">&nbsp;</div>
@@ -55,7 +57,9 @@
 
             <div class="row">
                 <div class="col-lg-12 classicButton">
-                    <button class="blueButton" ng-click="$ctrl.salvaCa()">
+                    <button class="blueButton"
+                            ng-click="$ctrl.salvaCa()"
+                            ng-disabled="caForm.$invalid">
                         <a><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;{{'global.generic.salvaprocedi' | translate}}</a>
                     </button>
                 </div>

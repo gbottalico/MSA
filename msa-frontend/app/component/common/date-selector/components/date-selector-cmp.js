@@ -31,7 +31,9 @@
                 $scope.date = new Date();
             };
 
-            //$scope.today();
+            $scope.clear = function () {
+                $scope.date = null;
+            };
 
             $scope.dateOptions = {
                 formatYear: 'yy',
@@ -43,11 +45,16 @@
                 $scope.opened = true;
             };
 
+            $scope.today();
+            $scope.clear();
+
             $scope.$watch(
                 function watchScope(scope) {
                     return {
                         date: $scope.date,
-                        input: $ctrl.input
+                        input: $ctrl.input,
+                        required: $ctrl.required,
+                        disabled: $ctrl.disabled
                     };
                 },
                 function handleChanges(newValues, oldValues) {
@@ -61,21 +68,23 @@
 
                     if (!$ctrl.isInputConsumed) {
                         if (newValues.input !== undefined) {
-                            DebugSvc.log("$scope", $scope);
                             $ctrl.isInputConsumed = true;
                             $scope.date = newValues.input;
 
                         }
                     }
 
-                    $ctrl.result.date = $scope.date; // TODO mettere la data direttamente nel result, e poi aggiornare tutti quelli che la usano
+                    $ctrl.result.date = $scope.date;
                     if ($ctrl.required) {
                         $ctrl.$valid = $scope.date !== undefined;
                     } else {
                         $ctrl.$valid = true;
                     }
+                    if($ctrl.disabled) {
+                        $ctrl.$valid = true;
+                    }
                     $ctrl.result.$valid = $ctrl.$valid;
-                    $scope[$scope.name].$setValidity("date", $ctrl.$valid, $ctrl);
+                    $scope[$scope.name].$setValidity("date", $ctrl.$valid);
                 }, true
             );
 

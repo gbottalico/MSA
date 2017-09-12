@@ -56,7 +56,8 @@
                         return {
                             sinistroProvvisorio: $ctrl.sinistroProvvisorio,
                             collisione: $ctrl.eventoRca.collisione,
-                            nveicoli: $ctrl.eventoRca.nveicoli
+                            nveicoli: $ctrl.eventoRca.nveicoli,
+                            autorita: $ctrl.eventoRca.interventoAutorita
                         };
                     },
                     function handleChanges(newValues, oldValues) {
@@ -75,6 +76,12 @@
 
                         if(newValues.collisione !== undefined && newValues.collisione !== null && newValues.collisione === false) {
                             $ctrl.eventoRca.nveicoli = 1;
+                        }
+
+                        if(newValues.autorita !== undefined && newValues.autorita !== null && newValues.autorita === false) {
+                            $ctrl.eventoRca.autoritaIntervenuta = undefined;
+                            $ctrl.eventoRca.dataDenuncia = undefined;
+                            $ctrl.eventoRca.comandoAutorita = undefined;
                         }
 
                         if(newValues.nveicoli !== undefined) {
