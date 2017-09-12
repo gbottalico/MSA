@@ -25,7 +25,9 @@
       "pronto": "Pronto",
       "incorso": "In Corso",
       "completato": "Completato",
-      "errore": "Errore"
+      "errore": "Errore",
+      "veicolicoinvolti":"Veicoli Coinvolti",
+      "particoinvolte":"Parti Coinvolte"
     },
     "people": {
       "anagrafica": "Anagrafica",
@@ -55,7 +57,8 @@
       "nascita": "Nascita",
       "recapiti": "Recapiti",
       "scadenzapatente": "Data di Scadenza Patente",
-      "nessunrecapito": "Nessun recapito."
+      "nessunrecapito": "Nessun recapito.",
+      "nomecognome":"Nome e Cognome"
 
     },
     "docs": {
@@ -191,7 +194,8 @@
         "autorita": "Sono intervenute autorità?",
         "qualiautorita": "Quali autorità sono intervenute?",
         "comando": "Di quale comando?",
-        "datadenuncia": "Data Denuncia Autorità"
+        "datadenuncia": "Data Denuncia Autorità",
+        "intervento":"Intervento Autorita"
       }
     },
     "ca": {
