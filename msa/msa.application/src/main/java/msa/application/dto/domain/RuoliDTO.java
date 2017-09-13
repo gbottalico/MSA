@@ -5,7 +5,9 @@ import java.io.Serializable;
 public class RuoliDTO implements Serializable {
     private static final long serialVersionUID = 650299083224454039L;
     private Integer id;
-    private String descrizioneRuolo;
+    private String raggruppamento;
+    private String descrizione;
+    private String pdAss;
     private Boolean lesioni;
 
     public Integer getId() {
@@ -16,12 +18,28 @@ public class RuoliDTO implements Serializable {
         this.id = id;
     }
 
-    public String getDescrizioneRuolo() {
-        return descrizioneRuolo;
+    public String getRaggruppamento() {
+        return raggruppamento;
     }
 
-    public void setDescrizioneRuolo(String descrizioneRuolo) {
-        this.descrizioneRuolo = descrizioneRuolo;
+    public void setRaggruppamento(String raggruppamento) {
+        this.raggruppamento = raggruppamento;
+    }
+
+    public String getDescrizione() {
+        return descrizione;
+    }
+
+    public void setDescrizione(String descrizione) {
+        this.descrizione = descrizione;
+    }
+
+    public String getPdAss() {
+        return pdAss;
+    }
+
+    public void setPdAss(String pdAss) {
+        this.pdAss = pdAss;
     }
 
     public Boolean getLesioni() {

@@ -1,75 +1,147 @@
 { 
     "_id" : NumberInt(1), 
-    "desRuolo" : "Pedone",
+    "raggruppamento" : "ASSICURATO / CONTROPARTE", 
+    "descrizione" : "CONDUCENTE PROPRIETARIO", 
+    "Partita Danno - ASSociato" : "PD", 
     "lesioni" : true
 }
 { 
     "_id" : NumberInt(2), 
-    "desRuolo" : "Ostacolo Fisso",
-    "lesioni" : false
+    "raggruppamento" : "ASSICURATO / CONTROPARTE", 
+    "descrizione" : "CONDUCENTE NON PROPRIETARIO", 
+    "Partita Danno - ASSociato" : "PD", 
+    "lesioni" : true
 }
 { 
     "_id" : NumberInt(3), 
-    "desRuolo" : "Altro Veicolo",
+    "raggruppamento" : "ASSICURATO / CONTROPARTE", 
+    "descrizione" : "TRASPORTATO PROPRIETARIO", 
+    "Partita Danno - ASSociato" : "PD", 
     "lesioni" : true
 }
 { 
     "_id" : NumberInt(4), 
-    "desRuolo" : "Testimone Assicurato",
-    "lesioni" : false
+    "raggruppamento" : "ASSICURATO / CONTROPARTE", 
+    "descrizione" : "TRASPORTATO NON PROPRIETARIO", 
+    "Partita Danno - ASSociato" : "PD", 
+    "lesioni" : true
 }
 { 
     "_id" : NumberInt(5), 
-    "desRuolo" : "Testimone Controparte",
+    "raggruppamento" : "ASSICURATO / CONTROPARTE", 
+    "descrizione" : "PROPRIETARIO NON PRESENTE SUL VEICOLO", 
+    "Partita Danno - ASSociato" : "PD", 
     "lesioni" : false
 }
 { 
     "_id" : NumberInt(6), 
-    "desRuolo" : "Terzo Trasportato Veicolo Assicurato",
-    "lesioni" : true
+    "raggruppamento" : "ASSICURATO / CONTROPARTE", 
+    "descrizione" : "ENTE MUTUA/DATORE LAVORO", 
+    "Partita Danno - ASSociato" : "PD", 
+    "lesioni" : false
 }
 { 
     "_id" : NumberInt(7), 
-    "desRuolo" : "Terzo Trasportato Veicolo Controparte",
+    "raggruppamento" : "ASSICURATO / CONTROPARTE", 
+    "descrizione" : "CICLISTA", 
+    "Partita Danno - ASSociato" : "PD", 
     "lesioni" : true
 }
 { 
     "_id" : NumberInt(8), 
-    "desRuolo" : "Cose Trasportate Proprietario/Conducente Veicolo Assicurato",
-    "lesioni" : false
+    "raggruppamento" : "ASSICURATO / CONTROPARTE", 
+    "descrizione" : "PEDONE", 
+    "Partita Danno - ASSociato" : "PD", 
+    "lesioni" : true
 }
 { 
     "_id" : NumberInt(9), 
-    "desRuolo" : "Cose Trasportate Proprietario/Conducente Veicolo Controparte",
+    "raggruppamento" : "ASSICURATO / CONTROPARTE", 
+    "descrizione" : "CARROZZERIA", 
+    "Partita Danno - ASSociato" : "ASS", 
     "lesioni" : false
 }
 { 
     "_id" : NumberInt(10), 
-    "desRuolo" : "Cose Trasportate Terzi Veicolo Assicurato",
+    "raggruppamento" : "ASSICURATO / CONTROPARTE", 
+    "descrizione" : "CORRISPONDENTE (societ� delegata da UCI)", 
+    "Partita Danno - ASSociato" : "ASS", 
     "lesioni" : false
 }
 { 
     "_id" : NumberInt(11), 
-    "desRuolo" : "Cose Trasportate Terzi Veicolo Controparte",
+    "raggruppamento" : "ASSICURATO / CONTROPARTE", 
+    "descrizione" : "DATORE LAVORO", 
+    "Partita Danno - ASSociato" : "ASS/PD", 
     "lesioni" : false
 }
 { 
     "_id" : NumberInt(12), 
-    "desRuolo" : "Conducente Altro Veicolo",
-    "lesioni" : true
+    "raggruppamento" : "ASSICURATO / CONTROPARTE", 
+    "descrizione" : "ENTE GARANTE", 
+    "Partita Danno - ASSociato" : "ASS/PD", 
+    "lesioni" : false
 }
 { 
     "_id" : NumberInt(13), 
-    "desRuolo" : "Legale",
+    "raggruppamento" : "ASSICURATO / CONTROPARTE", 
+    "descrizione" : "INTERRUZIONE PUBLICO SERVIZIO", 
+    "Partita Danno - ASSociato" : "ASS", 
     "lesioni" : false
 }
 { 
     "_id" : NumberInt(14), 
-    "desRuolo" : "Assicurato",
+    "raggruppamento" : "ASSICURATO / CONTROPARTE", 
+    "descrizione" : "MEDICO", 
+    "Partita Danno - ASSociato" : "ASS", 
     "lesioni" : false
 }
 { 
     "_id" : NumberInt(15), 
-    "desRuolo" : "Controparte",
+    "raggruppamento" : "ASSICURATO / CONTROPARTE", 
+    "descrizione" : "OFFICINA MECCANICA - GARAGE", 
+    "Partita Danno - ASSociato" : "ASS", 
+    "lesioni" : false
+}
+{ 
+    "_id" : NumberInt(16), 
+    "raggruppamento" : "ASSICURATO / CONTROPARTE", 
+    "descrizione" : "OSPEDALE - PRONTO SOCCORSO", 
+    "Partita Danno - ASSociato" : "ASS", 
+    "lesioni" : false
+}
+{ 
+    "_id" : NumberInt(17), 
+    "raggruppamento" : "ASSICURATO / CONTROPARTE", 
+    "descrizione" : "PERITO", 
+    "Partita Danno - ASSociato" : "ASS", 
+    "lesioni" : false
+}
+{ 
+    "_id" : NumberInt(18), 
+    "raggruppamento" : "ASSICURATO / CONTROPARTE", 
+    "descrizione" : "PROPRIETARIO", 
+    "Partita Danno - ASSociato" : "ASS", 
+    "lesioni" : false
+}
+{ 
+    "_id" : NumberInt(19), 
+    "raggruppamento" : "ASSICURATO / CONTROPARTE", 
+    "descrizione" : "SOC. ASSISTENZA STRADALE", 
+    "Partita Danno - ASSociato" : "ASS", 
+    "lesioni" : false
+}
+{ 
+    "_id" : NumberInt(20), 
+    "raggruppamento" : "ASSICURATO / CONTROPARTE", 
+    "descrizione" : "TESTIMONE", 
+    "Partita Danno - ASSociato" : "ASS", 
+    "lesioni" : false
+}
+{ 
+    "_id" : NumberInt(21), 
+    "raggruppamento" : "ASSICURATO / CONTROPARTE", 
+    "descrizione" : "LEGALE", 
+    "Partita Danno - ASSociato" : "ASS", 
     "lesioni" : false
 }
