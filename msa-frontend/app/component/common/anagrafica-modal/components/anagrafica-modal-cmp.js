@@ -8,17 +8,19 @@
             close: '&',
             dismiss: '&'
         },
-        controller: ("headerController", ['$rootScope', '$scope', '$debugMode', 'UtilSvc', 'DebugSvc', 'DomainSvc', 'RegexSvc',
-            function ($rootScope, $scope, $debugMode, UtilSvc, DebugSvc, DomainSvc, RegexSvc) {
+        controller: ("headerController", ['_', '$rootScope', '$scope', '$debugMode', 'UtilSvc', 'DebugSvc', 'DomainSvc', 'RegexSvc',
+            function (_, $rootScope, $scope, $debugMode, UtilSvc, DebugSvc, DomainSvc, RegexSvc) {
 
                 var $ctrl = this;
                 $ctrl.anagrafica = {
                     ruolo: undefined,
-                    lesioni: false
+                    lesioni: false,
+                    compagnia:undefined
                 };
                 $ctrl.ruoli = undefined;
                 $ctrl.ruoliKeyValue = undefined;
                 $ctrl.ruoloConLesioni = undefined;
+                $ctrl.compagniaSelezionata = undefined;
 
                 $scope.$debugMode = $debugMode;
                 $scope.$regex = RegexSvc;
@@ -41,12 +43,16 @@
                         });
                     }
 
-                    if ($ctrl.hasCompagnia) {
-                        DomainSvc.getElencoRegole().then(function (data) {
-                            $ctrl.casaRegole = data.result;
-                        });
-                    }
+
                 };
+
+
+                $ctrl.getCompagnie = function (desc) {
+                    return DomainSvc.getCompagnie(desc).then(function (response) {
+                        return response.data.result;
+                    });
+                };
+
 
                 $ctrl.calcolaCf = function () {
                     var luogoNascita = $ctrl.anagrafica.nascita.comune ?
@@ -69,6 +75,7 @@
                 };
 
                 $ctrl.ok = function () {
+
                     $ctrl.close({$value: $ctrl.anagrafica});
                 };
 
@@ -77,20 +84,31 @@
                 };
 
                 $scope.$watch(
+
                     function watchScope(scope) {
                         return {
-                            ruolo: $ctrl.anagrafica.ruolo
+                            ruolo: $ctrl.anagrafica.ruolo,
+                            compagnia: $ctrl.compagniaSelezionata
                         };
                     },
                     function handleChanges(newValues, oldValues) {
 
-                        if(newValues.ruolo !== undefined) {
+                        if (newValues.ruolo !== undefined) {
                             $ctrl.ruoloConLesioni = $ctrl.ruoliKeyValue[$ctrl.anagrafica.ruolo].lesioni;
+                        }
+                        if(newValues.compagnia!==undefined && newValues.compagnia!==oldValues.compagnia){
+                            $ctrl.anagrafica.compagnia = $ctrl.compagniaSelezionata;
                         }
 
                     }, true
                 );
 
+                $ctrl.compagniaValid = function (compagnia) {
+                    return (_.isObject(compagnia));
+
+                }
+
+                $ctrl.$valid = $ctrl.compagniaValid($ctrl.compagniaSelezionata);
             }])
     });
 

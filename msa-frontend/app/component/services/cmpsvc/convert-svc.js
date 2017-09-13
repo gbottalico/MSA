@@ -23,7 +23,7 @@ angular.module('msa').service('ConvertSvc',
                 dto.lesioni = anagrafica.lesioni;
 
                 if(_.isObject(anagrafica.compagnia)) {
-                    dto.compagnia = anagrafica.compagnia.idCompagnia;
+                    dto.compagnia = anagrafica.compagnia.id;
                 }
 
                 dto.luogoNascita = {};
