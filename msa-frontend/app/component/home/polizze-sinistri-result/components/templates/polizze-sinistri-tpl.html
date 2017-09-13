@@ -51,7 +51,7 @@
                             </tr>
                             </thead>
 
-                            <tbody>
+                            <tbody id="risultatiPolizze">
                             <tr ng-repeat="polizza in $ctrl.polizze" ng-class="{selezionata: polizza == $ctrl.polizzaSelected}"  ng-click="$ctrl.selezionaPolizza(polizza)">
                                 <td>
                                     <p class="noMargin"><i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;{{polizza.numPolizza}}</p>

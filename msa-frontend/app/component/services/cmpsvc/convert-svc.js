@@ -49,12 +49,15 @@ angular.module('msa').service('ConvertSvc',
                 if (anagrafica.residenza!=undefined){
 	                if (_.isObject(anagrafica.residenza.nazione)) {
 	                    dto.tracking.nazione = anagrafica.residenza.nazione.id;
+	                    dto.tracking.descNazione = anagrafica.residenza.nazione.descrizione;
 	                }
 	                if (_.isObject(anagrafica.residenza.provincia)) {
 	                    dto.tracking.provincia = anagrafica.residenza.provincia.codProvincia;
+	                    dto.tracking.descProvincia = anagrafica.residenza.provincia.siglaProv;
 	                }
 	                if (_.isObject(anagrafica.residenza.comune)) {
 	                    dto.tracking.comune = anagrafica.residenza.comune.codComune;
+	                    dto.tracking.descComune = anagrafica.residenza.comune.descrizione;
 	                    dto.tracking.cap = anagrafica.residenza.cap;
 	                }
 	

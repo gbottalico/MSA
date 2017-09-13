@@ -115,6 +115,13 @@
                 $ctrl.cerca = function () {
                 	console.log($ctrl.ricercapolizza)
                 	$ctrl.ricerca = true;
+                	setTimeout(function(){ 
+                		var id = $location.hash();
+                		$location.hash('risultatiPolizze');
+                		$anchorScroll();
+                		$location.hash(id); 
+                	}, 1000);
+                	
                 };
 
 

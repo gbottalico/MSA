@@ -397,8 +397,11 @@
                 	  contraente.nome = $ctrl.polizzaSelected.nomeContraente;
                 	  contraente.residenza = {};
                 	  contraente.residenza.cap = $ctrl.polizzaSelected.capContraente;
-                	  contraente.residenza.provincia = $ctrl.polizzaSelected.provinciaContraente;
-                	  contraente.residenza.comune = $ctrl.polizzaSelected.cittaContraente;
+                	  contraente.residenza.provincia = {};
+                	  contraente.residenza.provincia.siglaProv = $ctrl.polizzaSelected.provinciaContraente;
+                	  contraente.residenza.comune={};
+                	  contraente.residenza.comune.descrizione = $ctrl.polizzaSelected.cittaContraente;
+                	  contraente.residenza.indirizzo = $ctrl.polizzaSelected.indirizzoContraente;
                 	  contraente.telefono = $ctrl.polizzaSelected.cellulare;
                 	  $ctrl.apriSinistroProvvisorio(contraente, $ctrl.valoriRicerca.compagniaSelezionata.idCompagnia);
                   } else { 

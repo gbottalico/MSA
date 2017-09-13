@@ -31,25 +31,26 @@
                         }
                     }
 
-                    if ($ctrl.datiContraente.dataNascita !== undefined) {
+                    if ($ctrl.datiContraente.dataNascita !== undefined && $ctrl.datiContraente.dataNascita !== null) {
                         $ctrl.user.nascita = $ctrl.user.nascita + ", " + UtilSvc.dateFormat($ctrl.datiContraente.dataNascita);
                     }
 
-                    if ($ctrl.datiContraente.tracking !== undefined && $ctrl.datiContraente.tracking !== null) {
-
-                        var promise = undefined;
-
-                        if ($ctrl.datiContraente.tracking.comune !== undefined && $ctrl.datiContraente.tracking.comune !== null) {
-                            promise = PlacesSvc.getComuneById($ctrl.datiContraente.tracking.comune);
-                        } else {
-                            promise = PlacesSvc.getNazioneById($ctrl.datiContraente.tracking.nazione);
-                        }
-
-                        promise.then(function (response) {
-                            $ctrl.user.residenza = $ctrl.datiContraente.tracking.indirizzo + ", " + response.data.result;
-                        });
-
-                    }
+//                    if ($ctrl.datiContraente.tracking !== undefined && $ctrl.datiContraente.tracking !== null) {
+//
+//                        var promise = undefined;
+//
+//                        if ($ctrl.datiContraente.tracking.comune !== undefined && $ctrl.datiContraente.tracking.comune !== null) {
+//                            promise = PlacesSvc.getComuneById($ctrl.datiContraente.tracking.comune);
+//                        } else {
+//                            promise = PlacesSvc.getNazioneById($ctrl.datiContraente.tracking.nazione);
+//                        }
+//
+//                        promise.then(function (response) {
+//                            $ctrl.user.residenza = $ctrl.datiContraente.tracking.indirizzo + ", " + response.data.result;
+//                        });
+//
+//                    }
+                    $ctrl.user.residenza = $ctrl.datiContraente.tracking.indirizzo + ", " + $ctrl.datiContraente.tracking.descComune + ", " + $ctrl.datiContraente.tracking.descProvincia;
 
                     $ctrl.user.recapiti = [$ctrl.datiContraente.tracking.cellulare, $ctrl.datiContraente.tracking.telefono, $ctrl.datiContraente.tracking.mail];
                     $ctrl.user.recapiti = $ctrl.user.recapiti.filter(function (e) {
