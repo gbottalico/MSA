@@ -56,10 +56,10 @@
             "thisView" : "M25", 
             "parameter" : null, 
             "nextView" : "M26"
-        },
+        }, 
         {
-            "thisView" : "M26",
-            "parameter" : null,
+            "thisView" : "M26", 
+            "parameter" : null, 
             "nextView" : "M27"
         }
     ]
@@ -112,10 +112,10 @@
             "thisView" : "M25", 
             "parameter" : null, 
             "nextView" : "M26"
-        },
+        }, 
         {
-            "thisView" : "M26",
-            "parameter" : null,
+            "thisView" : "M26", 
+            "parameter" : null, 
             "nextView" : "M27"
         }
     ]
@@ -168,10 +168,10 @@
             "thisView" : "M25", 
             "parameter" : null, 
             "nextView" : "M26"
-        },
+        }, 
         {
-            "thisView" : "M26",
-            "parameter" : null,
+            "thisView" : "M26", 
+            "parameter" : null, 
             "nextView" : "M27"
         }
     ]
@@ -224,10 +224,10 @@
             "thisView" : "M25", 
             "parameter" : null, 
             "nextView" : "M26"
-        },
+        }, 
         {
-            "thisView" : "M26",
-            "parameter" : null,
+            "thisView" : "M26", 
+            "parameter" : null, 
             "nextView" : "M27"
         }
     ]
@@ -280,10 +280,10 @@
             "thisView" : "M25", 
             "parameter" : null, 
             "nextView" : "M26"
-        },
+        }, 
         {
-            "thisView" : "M26",
-            "parameter" : null,
+            "thisView" : "M26", 
+            "parameter" : null, 
             "nextView" : "M27"
         }
     ]
@@ -331,10 +331,10 @@
             "thisView" : "M25", 
             "parameter" : null, 
             "nextView" : "M26"
-        },
+        }, 
         {
-            "thisView" : "M26",
-            "parameter" : null,
+            "thisView" : "M26", 
+            "parameter" : null, 
             "nextView" : "M27"
         }
     ]
@@ -387,10 +387,10 @@
             "thisView" : "M25", 
             "parameter" : null, 
             "nextView" : "M26"
-        },
+        }, 
         {
-            "thisView" : "M26",
-            "parameter" : null,
+            "thisView" : "M26", 
+            "parameter" : null, 
             "nextView" : "M27"
         }
     ]

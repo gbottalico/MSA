@@ -1,8 +1,10 @@
 package msa.application.dto.sinistro;
 
 import msa.application.dto.sinistro.anagrafica.AnagraficaTerzePartiDTO;
+import msa.application.dto.sinistro.anagrafica.FullAnagraficaControparteDTO;
 import msa.application.dto.sinistro.anagrafica.FullAnagraficaDTO;
 import msa.application.dto.sinistro.segnalazione.SegnalazioneDTO;
+import msa.domain.object.sinistro.FullAnagraficaControparteDO;
 import msa.infrastructure.persistence.sinistro.AnagraficaTerzePartiDBO;
 
 import java.util.List;
@@ -14,7 +16,7 @@ public class BaseSinistroDTO extends AbstractDTO {
     private static final long serialVersionUID = -5338122661424264125L;
 
     private String id;
-    private FullAnagraficaDTO contraente;
+    private FullAnagraficaControparteDTO contraente;
     private String numeroPolizza;
     private String compagnia;
     private String targa;
@@ -32,11 +34,11 @@ public class BaseSinistroDTO extends AbstractDTO {
         this.id = id;
     }
 
-    public FullAnagraficaDTO getContraente() {
+    public FullAnagraficaControparteDTO getContraente() {
         return contraente;
     }
 
-    public void setContraente(FullAnagraficaDTO contraente) {
+    public void setContraente(FullAnagraficaControparteDTO contraente) {
         this.contraente = contraente;
     }
 
