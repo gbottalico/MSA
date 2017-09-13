@@ -95,6 +95,7 @@
                             $ctrl.dannoRca.veicoloControparte.estera = firstElem.anagrafica.targaEstera.toString();
                             $ctrl.dannoRca.veicoloControparte.speciale = firstElem.anagrafica.targaSpeciale.toString();
 
+
                             $ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniControparte.forEach(function (element, index) {
                                 $ctrl.dannoRca.controparti.push(ConvertSvc.dtoToAnagrafica(element.anagrafica));
                             });
