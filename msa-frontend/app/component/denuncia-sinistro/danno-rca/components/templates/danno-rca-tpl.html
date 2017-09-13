@@ -56,26 +56,26 @@
                     </div>
 
                     <!-- FORM CONDUCENTE -->
-                    <div class="row" ng-show="$ctrl.dannoRca.conducenteIsNotContraente">
+                    <div class="row" ng-if="$ctrl.dannoRca.conducenteIsNotContraente">
 
                         <div class="col-lg-12">
                             <div class="row">
                                 <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 classicInputText">
-                                    <input type="text" name="cognome" ng-model="$ctrl.dannoRca.conducente.cognome">
+                                    <input type="text" name="cognome" ng-model="$ctrl.dannoRca.conducente.cognome" ng-required="true">
                                     <label>{{'global.people.cognome' | translate}}</label>
                                 </div>
                                 <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 classicInputText">
-                                    <input type="text" name="nome" ng-model="$ctrl.dannoRca.conducente.nome">
+                                    <input type="text" name="nome" ng-model="$ctrl.dannoRca.conducente.nome" ng-required="true">
                                     <label>{{'global.people.nome' | translate}}</label>
                                 </div>
 
                                 <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 classicInputRadio">
                                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 noPaddingLeft">
-                                        <input type="radio" value="M" name="sesso" ng-model="$ctrl.dannoRca.conducente.sesso">
+                                        <input type="radio" value="M" name="sesso" ng-model="$ctrl.dannoRca.conducente.sesso" ng-required="true">
                                         <label class="rightLabel">{{'global.generic.male' | translate}}</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 noPaddingRight">
-                                        <input type="radio" value="F" name="sesso" ng-model="$ctrl.dannoRca.conducente.sesso">
+                                        <input type="radio" value="F" name="sesso" ng-model="$ctrl.dannoRca.conducente.sesso" ng-required="true">
                                         <label class="rightLabel">{{'global.generic.female' | translate}}</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 hidden-sm hidden-xs noPaddingRight">&nbsp;</div>
@@ -89,9 +89,9 @@
                                 <div class="col-lg-12">
                                     <hr class="blueLine" />
                                 </div>
-                                <div class="col-lg-12"><span class="subsectionTitle">Luogo e Data di Nascita</span></div>
+                                <div class="col-lg-12"><span class="subsectionTitle">Luogo e Data di Nascita</span></div> <!-- TODO stringhe scolpite -->
 
-                                <msa-place result="$ctrl.dannoRca.conducente.nascita" data-input="$ctrl.persistence.luogoNascita"></msa-place>
+                                <msa-place result="$ctrl.dannoRca.conducente.nascita" data-input="$ctrl.persistence.luogoNascita" name="'luogoNascita'"></msa-place>
                                 <div class="col-lg-12 classicInputText">
                                     <msa-date-selector data-result="$ctrl.dannoRca.conducente.nascita.data" data-input="$ctrl.persistence.dataNascita"></msa-date-selector>
                                     <label>Data di Nascita</label>
@@ -134,11 +134,11 @@
                         </div>
 
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicInputText">
-                            <input type="text" name="telefono" ng-model="$ctrl.dannoRca.conducente.telefono">
+                            <input type="text" name="telefono" ng-model="$ctrl.dannoRca.conducente.telefono" ng-pattern="$regex.reTelefono">
                             <label>{{'global.people.telefono' | translate}}</label>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicInputText">
-                            <input type="text" name="mail" ng-model="$ctrl.dannoRca.conducente.mail">
+                            <input type="text" name="mail" ng-model="$ctrl.dannoRca.conducente.mail" ng-pattern="$regex.reEmail">
                             <label>{{'global.people.email' | translate}}</label>
                         </div>
 
@@ -150,7 +150,7 @@
                             <span class="subsectionTitle">{{'global.people.residenza' | translate}}</span>
                         </div>
 
-                        <msa-place result="$ctrl.dannoRca.conducente.residenza" data-input="$ctrl.persistence.residenza"></msa-place>
+                        <msa-place result="$ctrl.dannoRca.conducente.residenza" data-input="$ctrl.persistence.residenza" name="'luogoResidenza'"></msa-place>
 
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputText">
                             <input type="text" name="denominazioneStrada" ng-model="$ctrl.dannoRca.conducente.residenza.indirizzo">
@@ -197,26 +197,30 @@
                         </div>
 
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
-                            <select ng-model="$ctrl.dannoRca.veicoloCliente.veicolo" name="tipoVeicoloCliente">
+                            <select ng-model="$ctrl.dannoRca.veicoloCliente.veicolo" name="tipoVeicoloCliente" ng-required="true">
                                 <option ng-repeat="tipoVeicolo in $ctrl.tipoVeicoli" value="{{tipoVeicolo.id}}">
                                     {{tipoVeicolo.descVeicolo}}
                                 </option>
                             </select>
                             <label>{{'global.veicolo.tipo' | translate}}</label>
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText" ng-class="{'has-error' : dannoRcaForm.inputtarga.$invalid && !dannoRcaForm.inputtarga.$pristine}">
-                            <input type="text" name="inputTargaCliente" ng-pattern="$ctrl.reTarga"  ng-model="$ctrl.dannoRca.veicoloCliente.targa">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText" ng-class="{'has-error' : dannoRcaForm.inputTargaCliente.$invalid && !dannoRcaForm.inputtarga.$pristine}">
+                            <input type="text"
+                                   name="inputTargaCliente"
+                                   ng-pattern="$regex.reTarga"
+                                   ng-model="$ctrl.dannoRca.veicoloCliente.targa"
+                                   ng-required="true">
                             <label>{{'global.veicolo.targa' | translate}}</label>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
-                            <select ng-model="$ctrl.dannoRca.veicoloCliente.speciale" name="specialeCliente">
+                            <select ng-model="$ctrl.dannoRca.veicoloCliente.speciale" name="specialeCliente" ng-required="true">
                                 <option value="true">{{'global.generic.si' | translate}}</option>
                                 <option value="false">{{'global.generic.no' | translate}}</option>
                             </select>
                             <label>{{'global.veicolo.speciale' | translate}}</label>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
-                            <select ng-model="$ctrl.dannoRca.veicoloCliente.estera" name="esteraCliente">
+                            <select ng-model="$ctrl.dannoRca.veicoloCliente.estera" name="esteraCliente" ng-required="true">
                                 <option value="true">{{'global.generic.si' | translate}}</option>
                                 <option value="false">{{'global.generic.no' | translate}}</option>
                             </select>
@@ -235,25 +239,29 @@
                         </div>
 
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
-                            <select ng-model="$ctrl.dannoRca.veicoloControparte.veicolo" name="tipoVeicoloControparte">
+                            <select ng-model="$ctrl.dannoRca.veicoloControparte.veicolo" name="tipoVeicoloControparte" ng-required="true">
                                 <option ng-repeat="tipoVeicolo in $ctrl.tipoVeicoli" value="{{tipoVeicolo.id}}">
                                     {{tipoVeicolo.descVeicolo}}
                                 </option>
                             </select>
                             <label>{{'global.veicolo.tipo' | translate}}</label>
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText" ng-class="{'has-error' : dannoRcaForm.inputtarga.$invalid && !dannoRcaForm.inputtarga.$pristine}">
-                            <input type="text" name="inputTargaControparte" ng-pattern="$ctrl.reTarga"  ng-model="$ctrl.dannoRca.veicoloControparte.targa">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText" ng-class="{'has-error' : dannoRcaForm.inputTargaControparte.$invalid && !dannoRcaForm.inputtarga.$pristine}">
+                            <input type="text"
+                                   name="inputTargaControparte"
+                                   ng-pattern="$regex.reTarga"
+                                   ng-model="$ctrl.dannoRca.veicoloControparte.targa"
+                                   ng-required="true">
                             <label>{{'global.veicolo.targa' | translate}}</label>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
-                            <select ng-model="$ctrl.dannoRca.veicoloControparte.speciale" name="specialeControparte">
+                            <select ng-model="$ctrl.dannoRca.veicoloControparte.speciale" name="specialeControparte" ng-required="true">
                                 <option value="true">{{'global.generic.si' | translate}}</option>
                                 <option value="false">{{'global.generic.no' | translate}}</option>
                             </select>
                             <label>{{'global.veicolo.speciale' | translate}}</label>
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText" name="esteraControparte">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText" name="esteraControparte" ng-required="true">
                             <select ng-model="$ctrl.dannoRca.veicoloControparte.estera">
                                 <option value="true">{{'global.generic.si' | translate}}</option>
                                 <option value="false">{{'global.generic.no' | translate}}</option>
@@ -263,20 +271,16 @@
                     </div>
 
                     <div class="row" ng-if="$ctrl.tempSegnalazione.nveicoli > 1">
+
                         <div class="col-lg-12">
                             <hr class="blueLine">
                         </div>
-                    </div>
 
-                    <div class="row" ng-if="$ctrl.tempSegnalazione.nveicoli > 1">
                         <div class="margin-top-1 col-lg-12">
                             <span class="subsectionTitle">{{'global.dannorca.labels.controparti' | translate}}</span>
                         </div>
-                    </div>
 
-                    <div class="row" c>
                         <div class="col-lg-12">
-                            <pre ng-if="$debugMode">{{$ctrl.dannoRca.controparti}}</pre>
                             <table class="table msa-table">
                                 <thead>
                                     <tr>
@@ -310,7 +314,8 @@
                     </div>
 
                     <div class="col-lg-12 classicButton">
-                        <button class="blueButton" ng-click="$ctrl.salvaDannoRca()">
+                        <button class="blueButton" ng-click="$ctrl.salvaDannoRca()"
+                                ng-disabled="dannoRcaForm.$invalid || ($ctrl.tempSegnalazione.nveicoli > 1 ? $ctrl.dannoRca.controparti.length < 1 : false)">
                             <a><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;{{'global.generic.salvaprocedi' | translate}}</a>
                         </button>
                     </div>
