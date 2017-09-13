@@ -39,7 +39,7 @@
         <div ng-hide="$ctrl.hasRole" class="col-lg-4 col-md-4 hidden-sm hidden-xs">&nbsp;</div>
         <div ng-show="$ctrl.hasRole" class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputText">
             <select name="ruolo" ng-model="$ctrl.anagrafica.ruolo">
-                <option ng-repeat="ruolo in $ctrl.ruoli" value="{{ruolo.id}}">{{ruolo.descrizioneRuolo}}</option>
+                <option ng-repeat="ruolo in $ctrl.ruoli" value="{{ruolo.id}}">{{ruolo.descrizione}}</option>
             </select>
             <label>{{'global.people.ruolo' | translate}}</label>
         </div>
