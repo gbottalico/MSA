@@ -10,9 +10,11 @@
         },
         controller: ("headerController", ['$rootScope', '$scope', '$debugMode', 'UtilSvc', 'DebugSvc', 'DomainSvc', 'RegexSvc',
             function ($rootScope, $scope, $debugMode, UtilSvc, DebugSvc, DomainSvc, RegexSvc) {
-        $ctrl.json={
+            var $ctrl = this;
 
-                var $ctrl = this;
+
+
+
                 $ctrl.json = $ctrl.resolve.sinistroProvvisorio;
 
                 $ctrl.cancel = function () {
