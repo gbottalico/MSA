@@ -73,12 +73,10 @@
             <div class="col-lg-12">
                 <div class="col-lg-12">
                     <span class="subsectionTitle">{{'global.legale.title' | translate}}</span>
-
-
                 </div>
 
 
-                <div class="col-lg-12" ng-show="$ctrl.legali!==undefined">
+                <div class="col-lg-12" ng-show="$ctrl.legali.length &gt; 0">
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
@@ -105,7 +103,7 @@
                 </div>
 
 
-                <div class="col-lg-12" ng-show="$ctrl.legali===undefined">
+                <div class="col-lg-12" ng-show="$ctrl.legali.length ===0">
                     Nessun legale
                 </div>
 
@@ -116,8 +114,6 @@
             <div class="col-lg-12">
                 <div class="col-lg-12">
                     <span class="subsectionTitle">{{'global.generic.particoinvolte' | translate}}</span>
-
-
                 </div>
                 <div class="col-lg-12">
                     <div class="table-responsive">
@@ -134,6 +130,8 @@
                             </tr>
 
                             </thead>
+
+                            <tbody>
                             <tr>
                                 <td><p class="capitalized">{{$ctrl.conducente.nome}} {{$ctrl.conducente.cognome}}</p>
                                 </td>
@@ -144,8 +142,8 @@
 
 
                             </tr>
-                            <tr ng-repeat="controparte in $ctrl.controparti"
-                                ng-show="$ctrl.contropartePresente === true">
+
+                            <tr ng-repeat="controparte in $ctrl.controparti" ng-show="$ctrl.contropartePresente">
                                 <td><p class="capitalized">
                                     {{controparte.anagrafica.nome}}
                                 </p></td>
@@ -156,7 +154,7 @@
 
 
                             </tr>
-
+                            </tbody>
                         </table>
                     </div>
                 </div>
@@ -196,13 +194,19 @@
             </div>
 
             <div class="lg-col-12">
+
+
                 <div class="col-lg-12">
                     <span class="subsectionTitle">{{'global.carrozzeria.title' | translate}}</span>
 
 
                 </div>
 
-                <div class="col-lg-12" ng-show="$ctrl.centroconv!== undefined">
+
+
+
+
+                <div class="col-lg-12" ng-show="$ctrl.centroconv !== null">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputText">
                         <input type="text" name="centro" ng-model="$ctrl.centroconv.denominazioen" ng-readonly="true">
                         <label>{{'global.carrozzeria.title' | translate }}</label>
@@ -212,11 +216,14 @@
 
 
                 </div>
-                <div class="col-lg-12">
-                    <div class="col-lg-12" ng-show="$ctrl.centroconv===undefined">
+
+                    <div class="col-lg-12" ng-show="$ctrl.centroconv === null">
                         Nessun centro convenzionato selezionato.
-                    </div>
+
                 </div>
+                    </div>
+
+
                 <div class="row">
                     <div class="col-lg-12 classicButton margin-top-1">
                         <button class="blueButton" ng-click="$ctrl.mostraJson()">
