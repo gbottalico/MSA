@@ -28,6 +28,7 @@ import msa.domain.object.ricerca.FullPolizzaDO;
 import msa.domain.object.sinistro.*;
 import msa.domain.object.sinistro.rca.AnagraficaDanniDO;
 import msa.domain.object.sinistro.rca.IncrociBaremesDO;
+import msa.infrastructure.costanti.MsaCostanti;
 import msa.infrastructure.repository.DomainRepository;
 import msa.infrastructure.repository.PolizzeRepository;
 import org.apache.commons.collections.CollectionUtils;
@@ -324,7 +325,8 @@ public class SinistriService extends BaseSinistroService {
                 e.setTargaEstera(input.getAnagraficaDanniCliente().getAnagrafica().getTargaEstera());
                 e.setTargaSpeciale(input.getAnagraficaDanniCliente().getAnagrafica().getTargaSpeciale());
                 return e;
-            }))*/;
+            }))*/
+            ;
         }
 
         if (sinistroRcaDOByDTO.getEventoRca().getNumVeicoli() == 2) {
@@ -386,7 +388,13 @@ public class SinistriService extends BaseSinistroService {
         final List<AnagraficaTerzePartiDO> filteredList;
         try {
             sinistroDOByDTO = sinistriRepository.getSinistroByNumProvv(numeroSinistro);
-            filteredList = converter.convertList(FunctionUtils.dinstictList(input, AnagraficaTerzePartiDTO::getCf), AnagraficaTerzePartiDO.class);
+            final List<AnagraficaTerzePartiDTO> listaFiltrata = FunctionUtils.dinstictList(input, AnagraficaTerzePartiDTO::getCf);
+            filteredList = converter.convertList(listaFiltrata, AnagraficaTerzePartiDO.class)
+                    .stream()
+                    .map(e -> {
+                        e.setCodRuolo(MsaCostanti.COD_RUOLO_LEGALE.toString());
+                        return e;
+                    }).collect(Collectors.toList());
             sinistroDOByDTO.setLegali(filteredList);
             insertResult = salvaSinistro(sinistroDOByDTO);
         } catch (Exception ex) {

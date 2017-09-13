@@ -10,6 +10,7 @@ public final class MsaCostanti {
         public static final String COD_RUOLO_TERZO_TRASPORTATO_CLIENTE = "6";
         public static final String COD_RUOLO_TERZO_TRASPORTATO_CONTROPARTE = "7";
         public static final String COD_GARANZIA_RCA = "rca";
+        public static final Integer COD_RUOLO_LEGALE = 21;
 
 
 }
