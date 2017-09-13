@@ -26,12 +26,16 @@ angular.module('msa').service(
 
             };
 
-            $svc.apriSinistroProvvisorio = function (datiContraente, compagnia) {
+            $svc.apriSinistroProvvisorio = function (datiContraente, compagnia, polizza) {
 
                 var dataObj = {};
                 dataObj.compagnia = compagnia;
                 dataObj.contraente = ConvertSvc.anagraficaToDTO(datiContraente);
-
+                if (polizza!=null){
+	                dataObj.numeroPolizza = polizza.numPolizza;
+	                dataObj.targa = polizza.targa;
+                }
+                
                 //TODO fix
                 return $http({
                     method: 'PUT',

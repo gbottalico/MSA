@@ -403,7 +403,7 @@
                 	  contraente.residenza.comune.descrizione = $ctrl.polizzaSelected.cittaContraente;
                 	  contraente.residenza.indirizzo = $ctrl.polizzaSelected.indirizzoContraente;
                 	  contraente.telefono = $ctrl.polizzaSelected.cellulare;
-                	  $ctrl.apriSinistroProvvisorio(contraente, $ctrl.valoriRicerca.compagniaSelezionata.idCompagnia);
+                	  $ctrl.apriSinistroProvvisorio(contraente, $ctrl.valoriRicerca.compagniaSelezionata.idCompagnia, $ctrl.polizzaSelected);
                   } else { 
                 	  $ctrl.openAnagrafica($ctrl.valoriRicerca.compagniaSelezionata.idCompagnia);
                   }
@@ -421,16 +421,16 @@
 
                     modalInstance.result.then(function (contraente, compagnia) {
                         DebugSvc.log("openAnagrafica", contraente);
-                        $ctrl.apriSinistroProvvisorio(contraente, compagnia);
+                        $ctrl.apriSinistroProvvisorio(contraente, compagnia, null);
                     }, function () {
                         DebugSvc.log("openAnagrafica dismiss.");
                     });
                 };
 
                 //FIXME rimuovere 37, mockup
-                $ctrl.apriSinistroProvvisorio = function (datiContraente, codiceCompagnia) {
+                $ctrl.apriSinistroProvvisorio = function (datiContraente, codiceCompagnia, datiPolizza) {
                     codiceCompagnia = codiceCompagnia || 37;
-                    SinistriSvc.apriSinistroProvvisorio(datiContraente, codiceCompagnia).then(function (response) {
+                    SinistriSvc.apriSinistroProvvisorio(datiContraente, codiceCompagnia, datiPolizza).then(function (response) {
                         DebugSvc.log("apriSinistroProvvisorio", response);
                         if(response.status === 200 && response.data.status === 200) {
 
