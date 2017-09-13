@@ -14,11 +14,12 @@
                 var $ctrl = this;
                 var $translate = $filter('translate');
                 var parent = $scope.$parent;
+
                 $scope.$debugMode = $debugMode;
+                $scope.$regex = RegexSvc;
 
                 $ctrl.mapId = 'M16';
                 $ctrl.isInputConsumed = false;
-                $ctrl.reTarga = RegexSvc.getTargaRegex();
                 $ctrl.persistence = {};
 
                 $ctrl.dannoRca = {
@@ -40,13 +41,11 @@
                 $ctrl.bindDannoRca = function () {
                     if (_.isObject($ctrl.sinistroProvvisorio.dannoRca)) {
                         $ctrl.dannoRca.lesioniConducente = $ctrl.sinistroProvvisorio.dannoRca.lesioniConducente;
+                        $ctrl.dannoRca.conducenteIsNotContraente = $ctrl.sinistroProvvisorio.dannoRca.conducenteDiverso;
                         if (_.isObject($ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente)) {
                             $ctrl.persistence.dannoCliente = $ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente.danni;
                             $ctrl.dannoRca.descrizioneDannoCliente = $ctrl.persistence.dannoCliente.descrizioneDanno;
-                            if ($ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente.anagrafica) {
-
-                                $ctrl.dannoRca.conducenteIsNotContraente = true;
-
+                            if ($ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente.anagrafica && $ctrl.dannoRca.conducenteIsNotContraente === true) {
                                 $timeout(function () {
                                     //FIXME wrappare tutta la funzione e fare anche agli altri
                                     var anagrafica = $ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente.anagrafica;
@@ -161,7 +160,7 @@
                 };
 
                 $ctrl.rimuoviControparte = function (index) {
-                    $ctrl.dannoRca.controparti.splice($index, 1);
+                    $ctrl.dannoRca.controparti.splice(index, 1);
                     $scope.dannoRcaForm.$setPristine(false);
                 };
 
