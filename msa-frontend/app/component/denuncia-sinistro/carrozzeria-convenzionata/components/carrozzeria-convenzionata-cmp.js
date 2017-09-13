@@ -160,7 +160,7 @@
                 $ctrl.salvaCarrozzeria = function () {
                     //TODO salvataggio.
                     $ctrl.tempSegnalazione.perito = $ctrl.peritoAssociato;
-                    parent.aggiornaMappe();
+                    parent.aggiornaMappe($ctrl.mapId);
                     toastr.success($translate('global.generic.saveok'));
                     $scope.cercaCarrozzeriaForm.$setPristine(true);
                 };
