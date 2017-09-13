@@ -18,7 +18,7 @@
                 $scope.$debugMode = $debugMode;
                 $scope.$regex = RegexSvc;
 
-                $ctrl.mapId = 'M16';
+                $ctrl.mapId = 'M15';
                 $ctrl.isInputConsumed = false;
                 $ctrl.persistence = {};
 
