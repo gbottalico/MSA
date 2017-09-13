@@ -38,7 +38,7 @@
                     SinistriSvc.salvaEventoRca($ctrl.numeroSinistroProvvisorio, $ctrl.eventoRca).then(function (response) {
                         DebugSvc.log("salvaEventoRca", response);
                         if (response.data.status === 200) {
-                            parent.aggiornaMappe();
+                            parent.aggiornaMappe($ctrl.mapId);
                             toastr.success($translate('global.generic.saveok'));
                             $scope.eventoRcaForm.$setPristine(true);
                         } else {

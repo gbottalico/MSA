@@ -38,6 +38,7 @@
                     SinistriSvc.salvaPerito($ctrl.numeroSinistroProvvisorio, $ctrl.perito).then(function (response) {
                         //TODO Checcare errori
                         DebugSvc.log("salvaPerito", response);
+                        parent.aggiornaMappe($ctrl.mapId);
                     });
                 };
 

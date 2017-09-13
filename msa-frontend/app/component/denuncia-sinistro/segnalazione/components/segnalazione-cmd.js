@@ -52,7 +52,7 @@
                         if (response.data.status === 200) {
                             $ctrl.tempSegnalazione.tipoSinistro = response.data.result;
                             $ctrl.tempSegnalazione.garanzia = $ctrl.sinistro.garanzia;
-                            parent.aggiornaMappe();
+                            parent.aggiornaMappe($ctrl.mapId);
                             toastr.success($translate('global.generic.saveok'));
                             $scope.segnalazioneForm.$setPristine(true);
                         } else {

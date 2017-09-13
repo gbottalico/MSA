@@ -47,7 +47,7 @@
                                 // Il servizio restituisce un result solo se i veicoli son 2 o più.
                                 $ctrl.setResponsabilitaUI(response.data.result.responsabilita);
                             }
-                            parent.aggiornaMappe();
+                            parent.aggiornaMappe($ctrl.mapId);
                             toastr.success($translate('global.generic.saveok'));
                             $scope.caiForm.$setPristine(true);
                             $ctrl.isSaved = true;

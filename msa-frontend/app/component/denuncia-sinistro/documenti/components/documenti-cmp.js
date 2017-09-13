@@ -71,7 +71,7 @@
 
                 $ctrl.salvaDocumenti = function () {
                     //TODO
-                    parent.aggiornaMappe();
+                    parent.aggiornaMappe($ctrl.mapId);
                     $scope.documentiForm.$setPristine(true);
                 };
 

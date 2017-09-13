@@ -126,7 +126,7 @@
                         }).then(function (response) {
                         DebugSvc.log("salvaDannoRcaControparti", response);
                         if (response.data.status === 200) {
-                            parent.aggiornaMappe();
+                            parent.aggiornaMappe($ctrl.mapId);
                             toastr.success($translate('global.generic.saveok'));
                             $scope.dannoRcaForm.$setPristine(true);
                         } else {

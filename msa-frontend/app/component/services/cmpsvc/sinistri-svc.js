@@ -31,11 +31,11 @@ angular.module('msa').service(
                 var dataObj = {};
                 dataObj.compagnia = compagnia;
                 dataObj.contraente = ConvertSvc.anagraficaToDTO(datiContraente);
-                if (polizza!=null){
-	                dataObj.numeroPolizza = polizza.numPolizza;
-	                dataObj.targa = polizza.targa;
+                if (polizza != null) {
+                    dataObj.numeroPolizza = polizza.numPolizza;
+                    dataObj.targa = polizza.targa;
                 }
-                
+
                 //TODO fix
                 return $http({
                     method: 'PUT',
