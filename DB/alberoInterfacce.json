@@ -5,62 +5,74 @@
         {
             "thisView" : "M11", 
             "parameter" : "0", 
-            "nextView" : "M12"
+            "nextView" : "M12", 
+            "percentuale" : 0.0
         }, 
         {
             "thisView" : "M12", 
             "parameter" : null, 
-            "nextView" : "M14"
+            "nextView" : "M14", 
+            "percentuale" : 10.0
         }, 
         {
             "thisView" : "M14", 
             "parameter" : null, 
-            "nextView" : "M15"
+            "nextView" : "M15", 
+            "percentuale" : 20.0
         }, 
         {
             "thisView" : "M15", 
             "parameter" : null, 
-            "nextView" : "M20"
+            "nextView" : "M20", 
+            "percentuale" : 30.0
         }, 
         {
             "thisView" : "M20", 
             "parameter" : null, 
-            "nextView" : "M22"
+            "nextView" : "M22", 
+            "percentuale" : 50.0
         }, 
         {
             "thisView" : "M22", 
             "parameter" : "0", 
-            "nextView" : "M23"
+            "nextView" : "M23", 
+            "percentuale" : 70.0
         }, 
         {
             "thisView" : "M22", 
             "parameter" : "1", 
-            "nextView" : "M25"
+            "nextView" : "M25", 
+            "percentuale" : 70.0
         }, 
         {
             "thisView" : "M22", 
             "parameter" : "2", 
-            "nextView" : "M26"
+            "nextView" : "M26", 
+            "percentuale" : 70.0
         }, 
         {
             "thisView" : "M23", 
             "parameter" : "0", 
-            "nextView" : "M25"
+            "nextView" : "M25", 
+            "percentuale" : 80.0
         }, 
         {
             "thisView" : "M23", 
             "parameter" : "1", 
-            "nextView" : "M26"
+            "nextView" : "M26", 
+            "percentuale" : 80.0
         }, 
         {
             "thisView" : "M25", 
             "parameter" : null, 
-            "nextView" : "M26"
+            "nextView" : "M26", 
+            "percentuale" : 90.0
         }, 
         {
             "thisView" : "M26", 
             "parameter" : null, 
-            "nextView" : "M27"
+            "nextView" : "M27",
+            "percentuale": 100.0
         }
     ]
 }

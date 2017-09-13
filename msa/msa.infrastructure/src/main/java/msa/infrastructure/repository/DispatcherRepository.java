@@ -57,11 +57,11 @@ public class DispatcherRepository extends BaseRepository {
     }
 
     public Optional<List<Pair<String, Integer>>> getAllInterfaceByGaranzia(Integer garanziaSelected) {
-        final Query query = getCriteriaQueryBuilder().addCriteria(Criteria.where(getMongoNameByAttributeName("garanzia", AlberoInterfacceDBO.class)).is(garanziaSelected));
+        final Query query = getCriteriaQueryBuilder().addCriteria(Criteria.where("garanzia").is(garanziaSelected.toString()));
         final List<AlberoInterfacceDBO> all = findAll(AlberoInterfacceDBO.class, query);
         return Optional.of(all.stream()
                 .flatMap(e -> e.getNextTree().stream())
-                .map(e -> Pair.of(e.getNextView(), e.getPercentuale()))
+                .map(e -> Pair.of(e.getThisView(), e.getPercentuale()))
                 .distinct()
                 .collect(Collectors.toList()));
 

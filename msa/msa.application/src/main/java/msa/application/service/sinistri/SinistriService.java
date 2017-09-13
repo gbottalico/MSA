@@ -301,10 +301,20 @@ public class SinistriService extends BaseSinistroService {
     public BaseDTO salvaDannoRcaConducente(DannoRcaDTO input, Integer numSinistro) throws InternalMsaException {
 
         SinistroRcaDO sinistroRcaDOByDTO = getSinistroDOByDTO(input, numSinistro);
-        if(!input.getConducenteDiverso()) {
+        if (!input.getConducenteDiverso()) {
             sinistroRcaDOByDTO.getDannoRca()
                     .getAnagraficaDanniCliente()
                     .setAnagrafica(converter.convertObject(sinistroRcaDOByDTO.getContraente(), FullAnagraficaControparteDO.class));
+            sinistroRcaDOByDTO.getDannoRca().getAnagraficaDanniCliente().setAnagrafica(converter.convertObject(sinistroRcaDOByDTO
+                    .getDannoRca()
+                    .getAnagraficaDanniCliente()
+                    .getAnagrafica(), (FullAnagraficaControparteDO e) -> {
+                e.setTarga(input.getAnagraficaDanniCliente().getAnagrafica().getTarga());
+                e.setVeicolo(input.getAnagraficaDanniCliente().getAnagrafica().getVeicolo());
+                e.setTargaEstera(input.getAnagraficaDanniCliente().getAnagrafica().getTargaEstera());
+                e.setTargaSpeciale(input.getAnagraficaDanniCliente().getAnagrafica().getTargaSpeciale());
+                return e;
+            }));
         }
 
         if (sinistroRcaDOByDTO.getEventoRca().getNumVeicoli() == 2) {
