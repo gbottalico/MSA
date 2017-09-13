@@ -57,11 +57,6 @@
                 $ctrl.getSinistroProvvisorio($ctrl.numeroSinistroProvvisorio);
                 var sinistrodebug = $ctrl.sinistroProvvisorio;
 
-                $ctrl.$onInit = function () {
-                    parent.mappaCaricata($ctrl.mapId);
-                };
-
-
                 $ctrl.bindRiepilogo = function () {
                     $ctrl.nomeCognome = $ctrl.sinistroProvvisorio.segnalazione.denunciante.nome + " " + $ctrl.sinistroProvvisorio.segnalazione.denunciante.cognome;
                     $ctrl.luogoSinistro = $ctrl.sinistroProvvisorio.segnalazione.indirizzo;

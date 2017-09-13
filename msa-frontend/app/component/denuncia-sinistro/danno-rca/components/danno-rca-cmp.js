@@ -192,9 +192,9 @@
                         $ctrl.dannoRca.conducente.nascita.$valid);
                 };
 
-                $ctrl.$onInit = function () {
+                $timeout(function () {
                     parent.mappaCaricata($ctrl.mapId);
-                };
+                });
 
                 $scope.$watch(
                     function watchScope(scope) {

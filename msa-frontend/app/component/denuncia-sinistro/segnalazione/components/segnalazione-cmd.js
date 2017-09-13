@@ -105,9 +105,9 @@
 
                 };
 
-                $ctrl.$onInit = function () {
-                    parent.mappaCaricata($ctrl.mapId);
-                };
+                $timeout(function () {
+                    parent.mappaCaricata($ctrl.mapId)
+                });
 
                 $scope.$watch(
                     function watchScope(scope) {

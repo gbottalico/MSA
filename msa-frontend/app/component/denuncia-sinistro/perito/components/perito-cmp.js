@@ -8,8 +8,8 @@
             sinistroProvvisorio: "<",
             tempSegnalazione: "="
         },
-        controller: ("peritoController", ['_', '$rootScope', '$scope', '$debugMode', '$filter', '$location', 'toastr', 'SinistriSvc', 'DebugSvc', 'PlacesSvc',
-            function (_, $rootScope, $scope, $debugMode, $filter, $location, toastr, SinistriSvc, DebugSvc, PlacesSvc) {
+        controller: ("peritoController", ['_', '$rootScope', '$scope', '$debugMode', '$filter', '$location', '$timeout', 'toastr', 'SinistriSvc', 'DebugSvc', 'PlacesSvc',
+            function (_, $rootScope, $scope, $debugMode, $filter, $location, $timeout, toastr, SinistriSvc, DebugSvc, PlacesSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
@@ -42,9 +42,9 @@
                     });
                 };
 
-                $ctrl.$onInit = function () {
-                    parent.mappaCaricata($ctrl.mapId);
-                };
+                $timeout(function () {
+                    parent.mappaCaricata($ctrl.mapId)
+                });
 
                 $scope.$watch(
                     function watchScope(scope) {

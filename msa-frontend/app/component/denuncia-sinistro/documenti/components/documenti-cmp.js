@@ -8,8 +8,8 @@
             sinistroProvvisorio: "<",
             tempSegnalazione: "="
         },
-        controller: ("documentiController", ['_', '$rootScope', '$scope', '$debugMode', '$filter', '$location', '$uibModal', 'toastr', 'SinistriSvc', 'DebugSvc', 'DocumentiSvc',
-            function (_, $rootScope, $scope, $debugMode, $filter, $location, $uibModal, toastr, SinistriSvc, DebugSvc, DocumentiSvc) {
+        controller: ("documentiController", ['_', '$rootScope', '$scope', '$debugMode', '$filter', '$location', '$uibModal', '$timeout', 'toastr', 'SinistriSvc', 'DebugSvc', 'DocumentiSvc',
+            function (_, $rootScope, $scope, $debugMode, $filter, $location, $uibModal, $timeout, toastr, SinistriSvc, DebugSvc, DocumentiSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
@@ -19,7 +19,18 @@
 
                 $ctrl.documenti = [];
 
-                $ctrl.$onInit = function () {
+                // $ctrl.$onInit = function () {
+                //     parent.mappaCaricata($ctrl.mapId);
+                //     DocumentiSvc.getLista($ctrl.numeroSinistroProvvisorio).then(function (response) {
+                //         //TODO ceccare errori
+                //         response.data.result.forEach(function (element, index) {
+                //             element = DocumentiSvc.getName(element);
+                //             $ctrl.documenti.push(element);
+                //         });
+                //     });
+                // };
+
+                $timeout(function () {
                     parent.mappaCaricata($ctrl.mapId);
                     DocumentiSvc.getLista($ctrl.numeroSinistroProvvisorio).then(function (response) {
                         //TODO ceccare errori
@@ -28,7 +39,7 @@
                             $ctrl.documenti.push(element);
                         });
                     });
-                };
+                });
 
                 $ctrl.aggiungiFile = function () {
                     var modalInstance = $uibModal.open({
