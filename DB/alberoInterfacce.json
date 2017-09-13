@@ -1,6 +1,6 @@
 { 
     "_id" : "0", 
-    "garanzia" : "0", 
+    "garanzia" : "rca", 
     "nextTree" : [
         {
             "thisView" : "M11", 
@@ -71,14 +71,14 @@
         {
             "thisView" : "M26", 
             "parameter" : null, 
-            "nextView" : "M27",
-            "percentuale": 100.0
+            "nextView" : "M27", 
+            "percentuale" : 100.0
         }
     ]
 }
 { 
     "_id" : "1", 
-    "garanzia" : "1", 
+    "garanzia" : "incendio", 
     "nextTree" : [
         {
             "thisView" : "M11", 
@@ -134,7 +134,7 @@
 }
 { 
     "_id" : "2", 
-    "garanzia" : "2", 
+    "garanzia" : "furto_totale", 
     "nextTree" : [
         {
             "thisView" : "M11", 
@@ -190,7 +190,7 @@
 }
 { 
     "_id" : "3", 
-    "garanzia" : "3", 
+    "garanzia" : "furto_parziale", 
     "nextTree" : [
         {
             "thisView" : "M11", 
@@ -246,7 +246,7 @@
 }
 { 
     "_id" : "4", 
-    "garanzia" : "4", 
+    "garanzia" : "kasko", 
     "nextTree" : [
         {
             "thisView" : "M11", 
@@ -302,7 +302,7 @@
 }
 { 
     "_id" : "5", 
-    "garanzia" : "5", 
+    "garanzia" : "cristalli", 
     "nextTree" : [
         {
             "thisView" : "M11", 
@@ -353,7 +353,7 @@
 }
 { 
     "_id" : "6", 
-    "garanzia" : "6", 
+    "garanzia" : "inf_conducente", 
     "nextTree" : [
         {
             "thisView" : "M11", 
