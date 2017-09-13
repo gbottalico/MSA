@@ -45,12 +45,12 @@ public class SinistriRepository extends BaseRepository {
     private static Map<String, Class> classiGaranzieMap = new HashMap<>();
 
     static {
-        classiGaranzieMap.put("0", SinistroRcaDO.class);
-        classiGaranzieMap.put("1", SinistroFurtoIncendioDO.class);
-        classiGaranzieMap.put("2", SinistroFurtoIncendioDO.class);
-        classiGaranzieMap.put("3", SinistroFurtoIncendioDO.class);
-        classiGaranzieMap.put("4", SinistroKaskoDO.class);
-        classiGaranzieMap.put("1", SinistroCristalliDO.class);
+        classiGaranzieMap.put("rca", SinistroRcaDO.class);
+        classiGaranzieMap.put("incendio", SinistroFurtoIncendioDO.class);
+        classiGaranzieMap.put("urto_totale", SinistroFurtoIncendioDO.class);
+        classiGaranzieMap.put("furto_parziale", SinistroFurtoIncendioDO.class);
+        classiGaranzieMap.put("kasko", SinistroKaskoDO.class);
+        classiGaranzieMap.put("cristalli", SinistroCristalliDO.class);
     }
 
     private Query getQueryFromNotNullValues(InputRicercaDO inputRicerca) {
