@@ -56,7 +56,7 @@
                     SinistriSvc.salvaTerzeParti($ctrl.numeroSinistroProvvisorio, $ctrl.terzeParti).then(function (response) {
                         DebugSvc.log("salvaTerzeParti", response);
                         if (response.data.status === 200) {
-                            parent.aggiornaMappe();
+                            parent.aggiornaMappe($ctrl.mapId);
                             toastr.success($translate('global.generic.saveok'));
                             $scope.formTerzeParti.$setPristine(true);
                         } else {
