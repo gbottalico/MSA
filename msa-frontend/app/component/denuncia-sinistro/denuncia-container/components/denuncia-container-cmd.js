@@ -72,8 +72,8 @@
                             return $ctrl.mappe.indexOf('M15') > -1;
                         case 'M20':
                             return $ctrl.mappe.indexOf('M20') > -1;
-                        case 'M24':
-                            return $ctrl.mappe.indexOf('M24') > -1;
+                        case 'M23':
+                            return $ctrl.mappe.indexOf('M23') > -1;
                         case 'M25':
                             return $ctrl.mappe.indexOf('M25') > -1; //TODO
                         case 'M26':
