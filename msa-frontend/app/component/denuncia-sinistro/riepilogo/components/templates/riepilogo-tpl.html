@@ -213,15 +213,17 @@
 
                 </div>
                 <div class="col-lg-12">
-                <div class="col-lg-12" ng-show="$ctrl.centroconv===undefined">
-                    Nessun centro convenzionato selezionato.
+                    <div class="col-lg-12" ng-show="$ctrl.centroconv===undefined">
+                        Nessun centro convenzionato selezionato.
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12 classicButton margin-top-1">
-                    <button class="blueButton" ng-click="$ctrl.mostraJson()">
-                        <a><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;{{'global.generic.mostrajson' | translate}}</a>
-                    </button>
+                <div class="row">
+                    <div class="col-lg-12 classicButton margin-top-1">
+                        <button class="blueButton" ng-click="$ctrl.mostraJson()">
+                            <a><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;{{'global.generic.mostrajson' |
+                                translate}}</a>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
