@@ -35,7 +35,7 @@
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
                     <select name="ruolo" ng-model="$ctrl.sinistro.segnalazione.ruolo" ng-required="true">
-                        <option ng-repeat="ruolo in $ctrl.ruoli" value="{{ruolo.id}}">{{ruolo.descrizioneRuolo}}</option>
+                        <option ng-repeat="ruolo in $ctrl.ruoli" value="{{ruolo.id}}">{{ruolo.descrizione}}</option>
                     </select>
                     <label>{{'global.denunciasinitro.labels.ruolo' | translate}}</label>
                 </div>

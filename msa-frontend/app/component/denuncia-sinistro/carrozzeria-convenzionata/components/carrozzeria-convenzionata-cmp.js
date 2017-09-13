@@ -14,7 +14,7 @@
                 var $ctrl = this;
                 var $translate = $filter('translate');
                 var parent = $scope.$parent;
-                $ctrl.mapId = 'M24';
+                $ctrl.mapId = 'M23';
 
                 //TODO spostare icone
                 $ctrl.homeIcon = "images/ico/ico-home.png";
@@ -160,7 +160,7 @@
                 $ctrl.salvaCarrozzeria = function () {
                     //TODO salvataggio.
                     $ctrl.tempSegnalazione.perito = $ctrl.peritoAssociato;
-                    parent.aggiornaMappe();
+                    parent.aggiornaMappe($ctrl.mapId);
                     toastr.success($translate('global.generic.saveok'));
                     $scope.cercaCarrozzeriaForm.$setPristine(true);
                 };

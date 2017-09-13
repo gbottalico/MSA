@@ -26,7 +26,7 @@
                     SinistriSvc.salvaCa($ctrl.numeroSinistroProvvisorio, $ctrl.ca).then(function (response) {
                         DebugSvc.log("salvaCa", response);
                         if (response.data.status === 200) {
-                            // parent.aggiornaMappe();
+                            parent.aggiornaMappe($ctrl.mapId);
                             toastr.success($translate('global.generic.saveok'));
                             $scope.caForm.$setPristine(true);
                         } else {

@@ -15,7 +15,7 @@
                 var $translate = $filter('translate');
                 var parent = $scope.$parent;
                 $scope.$debugMode = $debugMode;
-                $ctrl.mapId = 'M18';
+                $ctrl.mapId = 'M20';
 
                 $ctrl.presenzaLegali = undefined;
                 $ctrl.legali = [];
@@ -56,7 +56,7 @@
                     SinistriSvc.salvaLegali($ctrl.numeroSinistroProvvisorio, $ctrl.legali).then(function (response) {
                         DebugSvc.log("salvaLegali", response);
                         if (response.data.status === 200) {
-                            parent.aggiornaMappe();
+                            parent.aggiornaMappe($ctrl.mapId);
                             toastr.success($translate('global.generic.saveok'));
                             $scope.legaleForm.$setPristine(true);
                         } else {

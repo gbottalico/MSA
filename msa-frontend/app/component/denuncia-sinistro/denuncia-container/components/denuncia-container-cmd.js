@@ -18,6 +18,8 @@
                 $ctrl.mappe = [];
                 $ctrl.sinistroProvvisorio = undefined;
 
+                $ctrl.START_MAP = "M11";
+
                 // Numero sinistro provvisorio da url
                 $ctrl.numeroSinistroProvvisorio = $routeParams.idSinistroProvvisorio;
 
@@ -27,31 +29,45 @@
                         var path = undefined;
                         if (response.data.status === 200) {
                             path = UtilSvc.mapToValueArray(response.data.result);
-                            $ctrl.mappe = path;
+                            if (path.length > 0) {
+                                $ctrl.mappe = path;
+                            } else {
+                                $ctrl.mappe.push($ctrl.START_MAP);
+                            }
                         } else {
                             toastr.error($translate('global.generic.erroremappe'));
                         }
-                        DebugSvc.log("caricaMappe", path);
+                        DebugSvc.log("caricaMappe", $ctrl.mappe);
                     });
                 };
 
-                $ctrl.aggiornaMappe = function () {
+                $ctrl.aggiornaMappe = function (callerMapId) {
                     //TODO se qualcuno cambia il tipo di garanzia in corso d'opera, probabilmente va scelto $ctrl.tempSegnalazione.garanzia.
                     var garanzia = $ctrl.sinistroProvvisorio.segnalazione ?
                         $ctrl.sinistroProvvisorio.segnalazione.garanziaSelected :
                         $ctrl.tempSegnalazione.garanzia;
 
-                    PathSvc.getNextPath(garanzia, $ctrl.sinistroProvvisorio.numSinistroProvv).then(function (response) {
-                        DebugSvc.log("getNextPath", response);
-                        var path = undefined;
-                        if (response.data.status === 200) {
-                            path = UtilSvc.mapToValueArray(response.data.result);
-                            $ctrl.mappe = path;
-                        } else {
-                            toastr.error($translate('global.generic.erroremappe'));
-                        }
-                        DebugSvc.log("aggiornaMappe", path);
-                    });
+                    // Carico la mappa successiva solo se sto salvando l'ultima caricata.
+                    if ($ctrl.mappe[$ctrl.mappe.length - 1] === callerMapId) {
+                        PathSvc.getNextPath(garanzia, $ctrl.sinistroProvvisorio.numSinistroProvv).then(function (response) {
+                            DebugSvc.log("getNextPath", response);
+                            var path = undefined;
+                            if (response.data.status === 200) {
+                                path = UtilSvc.mapToValueArray(response.data.result);
+                                $ctrl.mappe = path;
+                                // Scrolla alla mappa successiva al salvataggio della precedente.
+                                if (callerMapId) {
+                                    var id = $ctrl.mappe[$ctrl.mappe.indexOf(callerMapId) + 1];
+                                    $ctrl.scrollTo(id);
+                                }
+                            } else {
+                                toastr.error($translate('global.generic.erroremappe'));
+                            }
+                            DebugSvc.log("aggiornaMappe", $ctrl.mappe);
+                        });
+                    } else {
+                        DebugSvc.log("aggiornaMappe", "Path is up-to-date.");
+                    }
                 };
 
                 $ctrl.mappaCaricata = function (mapId) {
@@ -96,8 +112,8 @@
                     $ctrl.scrollTo(divId);
                 };
 
-                $scope.aggiornaMappe = function () {
-                    $ctrl.aggiornaMappe();
+                $scope.aggiornaMappe = function (mapId) {
+                    $ctrl.aggiornaMappe(mapId);
                 };
 
                 $scope.mappaCaricata = function (mapId) {
