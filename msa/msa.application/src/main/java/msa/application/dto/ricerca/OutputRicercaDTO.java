@@ -7,14 +7,14 @@ import java.util.List;
 
 public class OutputRicercaDTO implements Serializable {
     private static final long serialVersionUID = 4248903662200448918L;
-    private List<BasePolizzaDTO> polizze;
+    private List<FullPolizzaDTO> polizze;
     private List<? extends BaseSinistroDTO> sinistriProvvisori;
 
-    public List<BasePolizzaDTO> getPolizze() {
+    public List<FullPolizzaDTO> getPolizze() {
         return polizze;
     }
 
-    public void setPolizze(List<BasePolizzaDTO> polizze) {
+    public void setPolizze(List<FullPolizzaDTO> polizze) {
         this.polizze = polizze;
     }
 
