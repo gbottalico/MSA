@@ -23,14 +23,20 @@
         {
             "thisView" : "M15", 
             "parameter" : null, 
+            "nextView" : "M18", 
+            "percentuale" : 40.0
+        }, 
+        {
+            "thisView" : "M18", 
+            "parameter" : null, 
             "nextView" : "M20", 
-            "percentuale" : 30.0
+            "percentuale" : 50.0
         }, 
         {
             "thisView" : "M20", 
             "parameter" : null, 
             "nextView" : "M22", 
-            "percentuale" : 50.0
+            "percentuale" : 60.0
         }, 
         {
             "thisView" : "M22", 

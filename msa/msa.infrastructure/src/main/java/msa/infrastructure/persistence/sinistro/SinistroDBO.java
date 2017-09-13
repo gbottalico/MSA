@@ -32,7 +32,7 @@ public class SinistroDBO extends AbstractDBO {
     private List<AnagraficaTerzePartiDBO> legali;
 
     @Field("contraente")
-    private FullAnagraficaDBO contraente;
+    private FullAnagraficaControparteDBO contraente;
     @Field("perito")
     private PeritoDBO perito;
 
@@ -104,11 +104,11 @@ public class SinistroDBO extends AbstractDBO {
         this.anagrafica = anagrafica;
     }
 
-    public FullAnagraficaDBO getContraente() {
+    public FullAnagraficaControparteDBO getContraente() {
         return contraente;
     }
 
-    public void setContraente(FullAnagraficaDBO contraente) {
+    public void setContraente(FullAnagraficaControparteDBO contraente) {
         this.contraente = contraente;
     }
 

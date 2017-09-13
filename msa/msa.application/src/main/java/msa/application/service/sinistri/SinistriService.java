@@ -315,7 +315,7 @@ public class SinistriService extends BaseSinistroService {
             sinistroRcaDOByDTO.getDannoRca()
                     .getAnagraficaDanniCliente()
                     .setAnagrafica(converter.convertObject(sinistroRcaDOByDTO.getContraente(), FullAnagraficaControparteDO.class));
-            sinistroRcaDOByDTO.getDannoRca().getAnagraficaDanniCliente().setAnagrafica(converter.convertObject(sinistroRcaDOByDTO
+            /*sinistroRcaDOByDTO.getDannoRca().getAnagraficaDanniCliente().setAnagrafica(converter.convertObject(sinistroRcaDOByDTO
                     .getDannoRca()
                     .getAnagraficaDanniCliente()
                     .getAnagrafica(), (FullAnagraficaControparteDO e) -> {
@@ -324,7 +324,7 @@ public class SinistriService extends BaseSinistroService {
                 e.setTargaEstera(input.getAnagraficaDanniCliente().getAnagrafica().getTargaEstera());
                 e.setTargaSpeciale(input.getAnagraficaDanniCliente().getAnagrafica().getTargaSpeciale());
                 return e;
-            }));
+            }))*/;
         }
 
         if (sinistroRcaDOByDTO.getEventoRca().getNumVeicoli() == 2) {
