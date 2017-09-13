@@ -86,6 +86,10 @@ public class DispatcherService extends DispatcherUtils {
                         return navigazioneViewDO;
                     }).orElse(null);
         }
+        //TODO FIXME!!!!!!!!!!
+        if(navigazioneAggiornata.getViewNavigate().entrySet().stream().map(Map.Entry::getValue).filter(e -> e.equalsIgnoreCase("M22")).count() == 1L) {
+            navigazioneAggiornata.getViewNavigate().put(6,"M23");
+        }
         return navigazioneAggiornata;
     }
 
