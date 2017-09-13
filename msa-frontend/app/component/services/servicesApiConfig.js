@@ -5,7 +5,7 @@ app.service('msaServicesApiUrls', function ($MSAC) {
 
     /* DOMINIO */
 
-    this.compagnia              = apiPath + "/dominio/compagnia/";
+    this.compagnia              = apiPath + "/dominio/compagnia/{0}"; // 0: descrizione compagnia
 
     this.nazione                = apiPath + "/dominio/nazione/";
     this.provincia              = apiPath + "/dominio/provincia/";
@@ -29,6 +29,7 @@ app.service('msaServicesApiUrls', function ($MSAC) {
     this.baremes                = apiPath + "/dominio/baremes/";
 
     this.ruoli                  = apiPath + "/dominio/ruoli/";
+
 
     /* UTILS */
 
@@ -66,5 +67,7 @@ app.service('msaServicesApiUrls', function ($MSAC) {
 
     /* EXTERNAL */
     this.geocoding              = "https://maps.googleapis.com/maps/api/geocode/json?address={0}&key=" + $MSAC.API_KEYS.MAPS;
+
+
 
 });

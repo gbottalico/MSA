@@ -23,6 +23,7 @@ import msa.application.service.sinistri.tipoSinistro.TipoSinistroTreeMap;
 import msa.domain.Converter.FunctionUtils;
 import msa.domain.object.dominio.BaremesDO;
 import msa.domain.object.dominio.CompagniaDO;
+import msa.domain.object.dominio.TipoVeicoloDO;
 import msa.domain.object.ricerca.FullPolizzaDO;
 import msa.domain.object.sinistro.*;
 import msa.domain.object.sinistro.rca.AnagraficaDanniDO;
@@ -61,7 +62,7 @@ public class SinistriService extends BaseSinistroService {
         );
         final OutputRicercaDTO toReturn = new OutputRicercaDTO();
         toReturn.setSinistriProvvisori((List<? extends BaseSinistroDTO>) objects.get(0));
-        toReturn.setPolizze(FunctionUtils.castValueByClass((List) objects.get(1), BasePolizzaDTO.class));
+        toReturn.setPolizze(FunctionUtils.castValueByClass((List) objects.get(1), FullPolizzaDTO.class));
 
 
         //TODO SALVARE LA POLIZZA IN MONGO
@@ -88,7 +89,7 @@ public class SinistriService extends BaseSinistroService {
 
     }
 
-    private List<BasePolizzaDTO> ricercaPolizze(final InputRicercaDTO input) throws InternalMsaException {
+    private List<FullPolizzaDTO> ricercaPolizze(final InputRicercaDTO input) throws InternalMsaException {
         //Todo MOCK
         //Todo Add polizze mock
 
@@ -110,7 +111,7 @@ public class SinistriService extends BaseSinistroService {
         polizza2.setDataScadenza(FunctionUtils.nowAsDate());
         List<FullPolizzaDTO> collect = Stream.of(polizza1, polizza2).collect(Collectors.toList());
         asyncSavePolizzeInMongo(collect, input.getUserLogged());
-        return converter.convertList(collect, BasePolizzaDTO.class);
+        return converter.convertList(collect, FullPolizzaDTO.class);
     }
 
     @Async
@@ -128,6 +129,15 @@ public class SinistriService extends BaseSinistroService {
      */
     public BaseDTO<Map<String, Integer>> salvaSinistro(BaseSinistroDTO input) throws InternalMsaException {
         try {
+            if (!input.getContraente().getVeicolo().matches("[0-9]*")) {
+                input.getContraente().setVeicolo(domainRepository.getElencoTipoVeicoli()
+                        .stream()
+                        .filter(e -> e.getDescVeicolo().equalsIgnoreCase(input.getContraente().getVeicolo()))
+                        .map(TipoVeicoloDO::getId)
+                        .findFirst()
+                        .map(Object::toString)
+                        .orElse(null));
+            }
             final Integer numSinis = sinistriRepository.insertSinistroProvvisorioAndGetNum(converter.convertObject(input, BaseSinistroDO.class));
             return new BaseDTO(Stream.of(numSinis).collect(Collectors.toMap(e -> "numSinistroProvvisorio", String::valueOf)));
         } catch (Exception e) {
@@ -301,10 +311,20 @@ public class SinistriService extends BaseSinistroService {
     public BaseDTO salvaDannoRcaConducente(DannoRcaDTO input, Integer numSinistro) throws InternalMsaException {
 
         SinistroRcaDO sinistroRcaDOByDTO = getSinistroDOByDTO(input, numSinistro);
-        if(!input.getConducenteDiverso()) {
+        if (!input.getConducenteDiverso()) {
             sinistroRcaDOByDTO.getDannoRca()
                     .getAnagraficaDanniCliente()
                     .setAnagrafica(converter.convertObject(sinistroRcaDOByDTO.getContraente(), FullAnagraficaControparteDO.class));
+            sinistroRcaDOByDTO.getDannoRca().getAnagraficaDanniCliente().setAnagrafica(converter.convertObject(sinistroRcaDOByDTO
+                    .getDannoRca()
+                    .getAnagraficaDanniCliente()
+                    .getAnagrafica(), (FullAnagraficaControparteDO e) -> {
+                e.setTarga(input.getAnagraficaDanniCliente().getAnagrafica().getTarga());
+                e.setVeicolo(input.getAnagraficaDanniCliente().getAnagrafica().getVeicolo());
+                e.setTargaEstera(input.getAnagraficaDanniCliente().getAnagrafica().getTargaEstera());
+                e.setTargaSpeciale(input.getAnagraficaDanniCliente().getAnagrafica().getTargaSpeciale());
+                return e;
+            }));
         }
 
         if (sinistroRcaDOByDTO.getEventoRca().getNumVeicoli() == 2) {

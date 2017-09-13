@@ -145,8 +145,10 @@
                         component: 'msaAnagraficaModal',
                         resolve: {
                             hasCompagnia: function () {
+
                                 return true;
                             }
+
                         }
                     });
 
