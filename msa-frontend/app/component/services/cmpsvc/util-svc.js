@@ -148,13 +148,26 @@ angular.module('msa').service(
             };
             q.resolve(response);
             return q.promise;
-        }
+        };
 
         $svc.createErrorStatePromise = function () {
             var q = $q.defer();
             var response = {
+                status: -1,
                 data: {
                     status: -1
+                }
+            };
+            q.resolve(response);
+            return q.promise;
+        };
+
+        $svc.createSuccessStatePromise = function () {
+            var q = $q.defer();
+            var response = {
+                status: 200,
+                data: {
+                    status: 200
                 }
             };
             q.resolve(response);

@@ -31,7 +31,7 @@
                     nonClassificabile: false
                 };
 
-
+                $ctrl.isSaved = false;
                 $ctrl.isInputConsumed = false;
 
                 DomainSvc.getBaremes().then(function (response) {
@@ -50,6 +50,7 @@
                             parent.aggiornaMappe();
                             toastr.success($translate('global.generic.saveok'));
                             $scope.caiForm.$setPristine(true);
+                            $ctrl.isSaved = true;
                         } else {
                             toastr.error($translate('global.generic.saveko'));
                         }
@@ -116,6 +117,7 @@
                             $ctrl.cai.baremeControparte = $ctrl.sinistroProvvisorio.cai.baremesControparte.id;
                             $ctrl.cai.osservazioniControparte = $ctrl.sinistroProvvisorio.cai.noteControparte;
                         }
+                        $ctrl.isSaved = true;
                     }
                 };
 

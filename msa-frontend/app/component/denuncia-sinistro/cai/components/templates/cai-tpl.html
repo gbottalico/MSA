@@ -1,6 +1,6 @@
 <div class="containerHeader">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container boxShadow">
-        <div class="header" ng-class="{'is-ok': caiForm.$pristine && caiForm.$valid, 'has-error': !caiForm.$pristine || !caiForm.$valid}">
+        <div class="header" ng-class="{'is-ok': caiForm.$pristine && caiForm.$valid && $ctrl.isSaved, 'has-error': !caiForm.$pristine || !caiForm.$valid || !$ctrl.isSaved}">
             <h1 class="titleSection">{{'global.cai.title' | translate}}</h1>
         </div>
     </div>

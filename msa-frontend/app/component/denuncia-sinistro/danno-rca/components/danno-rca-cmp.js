@@ -116,7 +116,11 @@
                         .then(function (response) {
                             DebugSvc.log("salvaDannoRcaCliente", response);
                             if (response.data.status === 200) {
-                                return SinistriSvc.salvaDannoRcaControparti($ctrl.numeroSinistroProvvisorio, $ctrl.dannoRca);
+                                if($ctrl.tempSegnalazione.nveicoli > 1) {
+                                    return SinistriSvc.salvaDannoRcaControparti($ctrl.numeroSinistroProvvisorio, $ctrl.dannoRca);
+                                } else {
+                                    return UtilSvc.createSuccessStatePromise()
+                                }
                             } else {
                                 return UtilSvc.createErrorStatePromise();
                             }
