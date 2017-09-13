@@ -24,12 +24,18 @@ public class DispatcherController extends BaseController {
     @ApiOperation(value = "Metodo che recupera l' interfaccia successiva dato un path")
     @RequestMapping(value = "/nextPath", method = RequestMethod.POST)
     public BaseDTO<Map<Integer, String>> getNextInterface(@RequestBody final DispatcherDTO basePath) throws InternalMsaException {
-        return dispatcherService.getNextInterface(basePath);
+        return dispatcherService.getNextInterfaceAndPersist(basePath);
     }
 
     @ApiOperation("Metodo che recupera tutte le interfacce giù navigate per un sinistro")
     @RequestMapping(value = "/getPath",method = RequestMethod.GET)
     public BaseDTO<Map<Integer,String>> getAllInterface(@RequestParam(value = "numSinistro") final Integer numSinistroProvv) throws InternalMsaException {
         return dispatcherService.getAllInterface(numSinistroProvv);
+    }
+
+    @ApiOperation("Metodo che recupera la percentuale di avanzamento")
+    @RequestMapping(value = "/getPercentuale",method = RequestMethod.POST)
+    public BaseDTO<Integer> getPercentualeAvanzamento(@RequestBody final DispatcherDTO dispatcherDTO) throws InternalMsaException {
+        return new BaseDTO<>(dispatcherService.getPercentualeAvanzamento(dispatcherDTO));
     }
 }

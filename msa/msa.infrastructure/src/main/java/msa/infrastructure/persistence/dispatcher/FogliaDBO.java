@@ -14,6 +14,8 @@ public class FogliaDBO {
     @Field(value = "nextView")
     private String nextView;
 
+    private Integer percentuale;
+
     public String getThisView() {
         return thisView;
     }
@@ -36,5 +38,13 @@ public class FogliaDBO {
 
     public void setNextView(String nextView) {
         this.nextView = nextView;
+    }
+
+    public Integer getPercentuale() {
+        return percentuale;
+    }
+
+    public void setPercentuale(Integer percentuale) {
+        this.percentuale = percentuale;
     }
 }

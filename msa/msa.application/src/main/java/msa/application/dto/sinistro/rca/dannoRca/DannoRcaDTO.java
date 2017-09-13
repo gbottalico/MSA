@@ -8,6 +8,7 @@ import java.util.List;
 public class DannoRcaDTO  extends AbstractDTO {
     private static final long serialVersionUID = 2999366958849613093L;
     private Boolean lesioniConducente;
+    private Boolean conducenteDiverso;
     private AnagraficaDanniDTO anagraficaDanniCliente;
     private List<AnagraficaDanniDTO> anagraficaDanniControparte;
     private List<AnagraficaTerzePartiDTO> terzeParti;
@@ -19,6 +20,14 @@ public class DannoRcaDTO  extends AbstractDTO {
 
     public void setLesioniConducente(Boolean lesioniConducente) {
         this.lesioniConducente = lesioniConducente;
+    }
+
+    public Boolean getConducenteDiverso() {
+        return conducenteDiverso;
+    }
+
+    public void setConducenteDiverso(Boolean conducenteDiverso) {
+        this.conducenteDiverso = conducenteDiverso;
     }
 
     public AnagraficaDanniDTO getAnagraficaDanniCliente() {

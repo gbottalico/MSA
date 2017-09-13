@@ -7,6 +7,8 @@ import java.util.List;
 public class DannoRcaDBO {
     @Field("lesioniConducente")
     private Boolean lesioniConducente;
+    @Field("conducenteDiverso")
+    private Boolean conducenteDiverso;
     @Field("anagraficaDanniCliente")
     private AnagraficaDanniDBO anagraficaDanniCliente;
     @Field("anagraficaDanniControparte")
@@ -21,6 +23,14 @@ public class DannoRcaDBO {
 
     public void setLesioniConducente(Boolean lesioniConducente) {
         this.lesioniConducente = lesioniConducente;
+    }
+
+    public Boolean getConducenteDiverso() {
+        return conducenteDiverso;
+    }
+
+    public void setConducenteDiverso(Boolean conducenteDiverso) {
+        this.conducenteDiverso = conducenteDiverso;
     }
 
     public AnagraficaDanniDBO getAnagraficaDanniCliente() {

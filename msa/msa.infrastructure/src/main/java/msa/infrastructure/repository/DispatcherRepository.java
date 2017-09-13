@@ -14,6 +14,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * Created by simon.calabrese on 01/08/2017.
@@ -23,7 +24,7 @@ public class DispatcherRepository extends BaseRepository {
 
     public Optional<NavigazioneViewDO> getAllViewBySinistro(final Integer numSinistro) {
         final List<NavigazioneViewDBO> result = findAll(NavigazioneViewDBO.class, Pair.of("numSinistro", numSinistro));
-        if(CollectionUtils.isNotEmpty(result)){
+        if (CollectionUtils.isNotEmpty(result)) {
             return Optional.of(converter.convertObject(result.stream()
                     .reduce((a, b) -> b)
                     .orElse(null), NavigazioneViewDO.class));
@@ -52,6 +53,17 @@ public class DispatcherRepository extends BaseRepository {
 
     public Integer resetViewByNumSinistro(final DispatcherDO dispatcherDO) {
         final Query query = getCriteriaQueryBuilder().addCriteria(Criteria.where("_id").is(dispatcherDO.getNumSinistroProvv()));
-        return findAndDelete(query,NavigazioneViewDBO.class).size();
+        return findAndDelete(query, NavigazioneViewDBO.class).size();
+    }
+
+    public Optional<List<Pair<String, Integer>>> getAllInterfaceByGaranzia(Integer garanziaSelected) {
+        final Query query = getCriteriaQueryBuilder().addCriteria(Criteria.where(getMongoNameByAttributeName("garanzia", AlberoInterfacceDBO.class)).is(garanziaSelected));
+        final List<AlberoInterfacceDBO> all = findAll(AlberoInterfacceDBO.class, query);
+        return Optional.of(all.stream()
+                .flatMap(e -> e.getNextTree().stream())
+                .map(e -> Pair.of(e.getNextView(), e.getPercentuale()))
+                .distinct()
+                .collect(Collectors.toList()));
+
     }
 }
