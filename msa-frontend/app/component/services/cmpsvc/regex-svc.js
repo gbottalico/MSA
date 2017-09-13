@@ -10,7 +10,7 @@ angular.module('msa').service(
             $svc.reEmail = /^[\w\-\.]*[\w\.]\@[\w\.]*[\w\-\.]+[\w\-]+[\w]\.+[\w]+[\w $]/;
             $svc.reTelefono = /^[+]{0,1}[0-9 -]{5,20}$/;
             $svc.reTarga = /^(([a-zA-Z]{2}\d{3}[a-zA-Z]{2})|(([a-zA-Z]{2}|[a-zA-Z]{2}|roma)(\d{5}|[a-zA-Z]\d{5}|\d{5}[a-zA-Z]|\d{6})))$/;
-            $svc.reOra = /^((0[0-9]|1[0-9]|2[0-3]):(0[0-9]|1[0-9] |2[0-3]))$/;
+            $svc.reOra = /^[0-23]{2}\:[0-59]{2}$/;
 
             $svc.getTargaRegex = function () {
                 return $svc.reTarga;

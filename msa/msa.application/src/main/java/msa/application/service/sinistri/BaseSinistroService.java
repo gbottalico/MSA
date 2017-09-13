@@ -42,12 +42,12 @@ public class BaseSinistroService extends BaseService {
     private static Map<String, Class> classiGaranzieMap = new HashMap<>();
 
     static {
-        classiGaranzieMap.put("0", SinistroRcaDTO.class);
-        classiGaranzieMap.put("1", SinistroFurtoIncendioDTO.class);
-        classiGaranzieMap.put("2", SinistroFurtoIncendioDTO.class);
-        classiGaranzieMap.put("3", SinistroFurtoIncendioDTO.class);
-        classiGaranzieMap.put("4", SinistroKaskoDTO.class);
-        classiGaranzieMap.put("1", SinistroCristalliDTO.class);
+        classiGaranzieMap.put("rca", SinistroRcaDTO.class);
+        classiGaranzieMap.put("incendio", SinistroFurtoIncendioDTO.class);
+        classiGaranzieMap.put("urto_totale", SinistroFurtoIncendioDTO.class);
+        classiGaranzieMap.put("furto_parziale", SinistroFurtoIncendioDTO.class);
+        classiGaranzieMap.put("kasko", SinistroKaskoDTO.class);
+        classiGaranzieMap.put("cristalli", SinistroCristalliDTO.class);
     }
 
     protected <T extends BaseSinistroDTO> Class<T> getClassByGaranzia(final String garanziaSelected) {

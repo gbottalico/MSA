@@ -444,8 +444,9 @@ public class SinistriService extends BaseSinistroService {
         try {
             //Todo MOCK per mancanza di garanzie specifiche o tipi sinistri specifici
             final K sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistro);
-            final Class<T> toPass = sinistroByNumProvv.getSegnalazione() == null ? (Class<T>) BaseSinistroDTO.class : getClassByGaranzia(sinistroByNumProvv.getSegnalazione().getGaranziaSelected());
-            return converter.convertObject(sinistroByNumProvv, toPass);
+            final Class<T> toPass = sinistroByNumProvv.getSegnalazione() == null ? (Class<T>) BaseSinistroDTO.class : (Class<T>) getClassByGaranzia(sinistroByNumProvv.getSegnalazione().getGaranziaSelected());
+            final T t = converter.convertObject(sinistroByNumProvv, toPass);
+            return t;
         } catch (Exception e) {
             throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA009"));
         }
