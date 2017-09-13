@@ -52,11 +52,11 @@
                     </span>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText" ng-class="{'has-error' : segnalazioneForm.cellulare.$invalid && !segnalazioneForm.cellulare.$pristine}">
-                    <input type="text" name="cellulare" ng-model="$ctrl.sinistro.tracking.cellulare" ng-pattern="$ctrl.reTelefono" ng-required="false">
+                    <input type="text" name="cellulare" ng-model="$ctrl.sinistro.tracking.cellulare" ng-pattern="$regex.reTelefono" ng-required="false">
                     <label>{{'global.denunciasinitro.labels.cellulare' | translate}}</label>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText" ng-class="{'has-error' : segnalazioneForm.email.$invalid && !segnalazioneForm.email.$pristine}">
-                    <input type="text" name="email" ng-model="$ctrl.sinistro.tracking.email" ng-pattern="$ctrl.reEmail" ng-required="false">
+                    <input type="text" name="email" ng-model="$ctrl.sinistro.tracking.email" ng-pattern="$regex.reEmail" ng-required="false">
                     <label>{{'global.denunciasinitro.labels.email' | translate}}</label>
                 </div>
                 <div class="col-lg-12">

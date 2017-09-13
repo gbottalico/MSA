@@ -12,26 +12,12 @@
             function ($rootScope, $scope, $debugMode, UtilSvc, DebugSvc, DomainSvc, RegexSvc) {
         $ctrl.json={
 
-                "nome" : "ciaoooo",
-                "cognome" : "ffasfa",
-                "cf" : "abc",
+                var $ctrl = this;
+                $ctrl.json = $ctrl.resolve.sinistroProvvisorio;
 
-                "codComuneNascita" : "",
-                "descComuneNascita" : "",
-                "dataNascita" : null,
-                "tracking" : {
-                    "nazione" : "",
-                    "provincia" : "",
-                    "comune" : "",
-                    "cap" : "",
-                    "indirizzo" : "",
-                    "telefono" : "",
-                    "cellulare" : "",
-                    "mail" : ""
-                },
-                "note" : ""
-
-        };
+                $ctrl.cancel = function () {
+                    $ctrl.dismiss({$value: undefined});
+                };
             }])
     });
 

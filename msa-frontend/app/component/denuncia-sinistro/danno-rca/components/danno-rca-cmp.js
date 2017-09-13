@@ -8,8 +8,8 @@
             sinistroProvvisorio: "<",
             tempSegnalazione: "="
         },
-        controller: ("dannoRcaContoller", ['_', '$rootScope', '$scope', '$debugMode', '$filter', '$uibModal', '$timeout', 'toastr', 'DomainSvc', 'SinistriSvc', 'DebugSvc', 'UtilSvc', 'ConvertSvc','RegexSvc',
-            function (_, $rootScope, $scope, $debugMode, $filter, $uibModal, $timeout, toastr, DomainSvc, SinistriSvc, DebugSvc, UtilSvc, ConvertSvc,RegexSvc) {
+        controller: ("dannoRcaContoller", ['_', '$rootScope', '$scope', '$debugMode', '$filter', '$uibModal', '$timeout', 'toastr', 'DomainSvc', 'SinistriSvc', 'DebugSvc', 'UtilSvc', 'ConvertSvc', 'RegexSvc',
+            function (_, $rootScope, $scope, $debugMode, $filter, $uibModal, $timeout, toastr, DomainSvc, SinistriSvc, DebugSvc, UtilSvc, ConvertSvc, RegexSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
@@ -194,7 +194,9 @@
                     function watchScope(scope) {
                         return {
                             sinistroProvvisorio: $ctrl.sinistroProvvisorio,
-                            targa: $ctrl.dannoRca.veicoloControparte.targa
+                            targa: $ctrl.dannoRca.veicoloControparte.targa,
+                            danniCliente: $ctrl.dannoRca.dannoCliente,
+                            danniControparte: $ctrl.dannoRca.danniControparte
                         };
                     },
                     function handleChanges(newValues, oldValues) {
@@ -206,6 +208,11 @@
 
                         if (newValues.targa !== undefined) {
                             $ctrl.tempSegnalazione.targa = newValues.targa;
+                        }
+
+                        if((_.isObject(newValues.danniCliente) && newValues.danniCliente !== oldValues.danniCliente) ||
+                           (_.isObject(newValues.danniControparte) && newValues.danniControparte !== oldValues.danniControparte)) {
+                            $scope.dannoRcaForm.$setPristine(false);
                         }
 
                     }, true

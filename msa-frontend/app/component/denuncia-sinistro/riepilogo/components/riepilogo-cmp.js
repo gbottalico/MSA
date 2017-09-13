@@ -13,6 +13,7 @@
 
                 $scope.$debugMode = $debugMode;
                 $ctrl.mapId = 'M27';
+                $ctrl.numeroSinistroProvvisorio = $routeParams.idSinistroProvvisorio;
 
                 $ctrl.getNomeComune = function (codComune) {
                     PlacesSvc.getComuneById(codComune).then(function (response) {
@@ -26,7 +27,7 @@
                         var result = response.data.result;
                         DebugSvc.log("getSinistroProvvisorio", response);
                         $ctrl.sinistroProvvisorio = result;
-                        if (_.isObject(result)) {
+                        if (result !==undefined) {
                             $ctrl.getNomeComune(result.segnalazione.codComune);
 
                             $ctrl.bindRiepilogo();
@@ -35,7 +36,24 @@
 
                     });
                 };
-                $ctrl.numeroSinistroProvvisorio = $routeParams.idSinistroProvvisorio;
+
+                $ctrl.mostraJson = function () {
+
+                    var modalInstance = $uibModal.open({
+                        animation: true,
+                        backdrop: 'static', // Evita che il modal sia chiuso cliccando sullo sfondo.
+                        windowClass: 'msaModal',
+                        size: 'lg',
+                        component: 'msaJsonModal',
+                        resolve: {
+                            sinistroProvvisorio: function () {
+                                return $ctrl.sinistroProvvisorio;
+                            }
+                        }
+                    });
+                };
+
+
                 $ctrl.getSinistroProvvisorio($ctrl.numeroSinistroProvvisorio);
                 var sinistrodebug = $ctrl.sinistroProvvisorio;
 
@@ -83,7 +101,8 @@
 
 
                     $ctrl.perito = $ctrl.sinistroProvvisorio.perito;
-                    $ctrl.centroconv = $ctrl.sinistroProvvisorio
+
+                    $ctrl.centroconv = $ctrl.sinistroProvvisorio.centroConvenzionato;
                 };
 
 
