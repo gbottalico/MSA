@@ -129,7 +129,7 @@ public class SinistriService extends BaseSinistroService {
      */
     public BaseDTO<Map<String, Integer>> salvaSinistro(BaseSinistroDTO input) throws InternalMsaException {
         try {
-            if (!input.getContraente().getVeicolo().matches("[0-9]{2}|[0-9]{1}")) {
+            if (input.getContraente().getVeicolo() != null && !input.getContraente().getVeicolo().matches("[0-9]{2}|[0-9]{1}")) {
                 input.getContraente().setVeicolo(domainRepository.getElencoTipoVeicoli()
                         .stream()
                         .filter(e -> e.getDescVeicolo().equalsIgnoreCase(input.getContraente().getVeicolo()))

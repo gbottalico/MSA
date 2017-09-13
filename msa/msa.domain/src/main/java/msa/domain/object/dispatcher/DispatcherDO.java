@@ -4,16 +4,16 @@ package msa.domain.object.dispatcher;
  * Created by simon.calabrese on 01/08/2017.
  */
 public class DispatcherDO {
-    private Integer garanziaSelected;
+    private String garanziaSelected;
     private Integer numSinistroProvv;
     private String paramCod;
     private String lastView;
 
-    public Integer getGaranziaSelected() {
+    public String getGaranziaSelected() {
         return garanziaSelected;
     }
 
-    public void setGaranziaSelected(Integer garanziaSelected) {
+    public void setGaranziaSelected(String garanziaSelected) {
         this.garanziaSelected = garanziaSelected;
     }
 

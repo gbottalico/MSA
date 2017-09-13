@@ -7,7 +7,7 @@ public class CasaRegoleDO {
     private String descrizioneCompagnia;
     private List<CampiObbligatoriDO> campiObbligatoriRicerca;
     private Boolean aperturaSenzaCopertura;
-    private List<Integer> garanzieDefaultSenzaCopertura;
+    private List<String> garanzieDefaultSenzaCopertura;
     private Boolean sita;
     private Boolean sic;
     private Boolean carrozzeriaConvenzionata;
@@ -45,11 +45,11 @@ public class CasaRegoleDO {
         this.aperturaSenzaCopertura = aperturaSenzaCopertura;
     }
 
-    public List<Integer> getGaranzieDefaultSenzaCopertura() {
+    public List<String> getGaranzieDefaultSenzaCopertura() {
         return garanzieDefaultSenzaCopertura;
     }
 
-    public void setGaranzieDefaultSenzaCopertura(List<Integer> garanzieDefaultSenzaCopertura) {
+    public void setGaranzieDefaultSenzaCopertura(List<String> garanzieDefaultSenzaCopertura) {
         this.garanzieDefaultSenzaCopertura = garanzieDefaultSenzaCopertura;
     }
 

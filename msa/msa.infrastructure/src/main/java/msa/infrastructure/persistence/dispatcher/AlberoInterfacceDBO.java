@@ -16,7 +16,7 @@ public class AlberoInterfacceDBO {
     private String id;
 
     @Field(value = "garanzia")
-    private Integer garanzia;
+    private String garanzia;
 
     @Field(value = "nextTree")
     private List<FogliaDBO> nextTree;
@@ -29,11 +29,11 @@ public class AlberoInterfacceDBO {
         this.id = id;
     }
 
-    public Integer getGaranzia() {
+    public String getGaranzia() {
         return garanzia;
     }
 
-    public void setGaranzia(Integer garanzia) {
+    public void setGaranzia(String garanzia) {
         this.garanzia = garanzia;
     }
 

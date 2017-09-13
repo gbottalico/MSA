@@ -56,8 +56,8 @@ public class DispatcherRepository extends BaseRepository {
         return findAndDelete(query, NavigazioneViewDBO.class).size();
     }
 
-    public Optional<List<Pair<String, Integer>>> getAllInterfaceByGaranzia(Integer garanziaSelected) {
-        final Query query = getCriteriaQueryBuilder().addCriteria(Criteria.where("garanzia").is(garanziaSelected.toString()));
+    public Optional<List<Pair<String, Integer>>> getAllInterfaceByGaranzia(String garanziaSelected) {
+        final Query query = getCriteriaQueryBuilder().addCriteria(Criteria.where("garanzia").is(garanziaSelected));
         final List<AlberoInterfacceDBO> all = findAll(AlberoInterfacceDBO.class, query);
         return Optional.of(all.stream()
                 .flatMap(e -> e.getNextTree().stream())

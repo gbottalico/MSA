@@ -20,7 +20,7 @@ public class CasaRegoleDBO extends AbstractDBO {
     @Field("aperturaSenzaCopertura")
     private Boolean aperturaSenzaCopertura;
     @Field("garanzieDefaultSenzaCopertura")
-    private List<Integer> garanzieDefaultSenzaCopertura;
+    private List<String> garanzieDefaultSenzaCopertura;
     @Field("sita")
     private Boolean sita;
     @Field("sic")
@@ -62,11 +62,11 @@ public class CasaRegoleDBO extends AbstractDBO {
         this.aperturaSenzaCopertura = aperturaSenzaCopertura;
     }
 
-    public List<Integer> getGaranzieDefaultSenzaCopertura() {
+    public List<String> getGaranzieDefaultSenzaCopertura() {
         return garanzieDefaultSenzaCopertura;
     }
 
-    public void setGaranzieDefaultSenzaCopertura(List<Integer> garanzieDefaultSenzaCopertura) {
+    public void setGaranzieDefaultSenzaCopertura(List<String> garanzieDefaultSenzaCopertura) {
         this.garanzieDefaultSenzaCopertura = garanzieDefaultSenzaCopertura;
     }
 

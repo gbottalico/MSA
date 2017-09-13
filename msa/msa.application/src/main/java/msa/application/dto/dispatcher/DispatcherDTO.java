@@ -10,14 +10,14 @@ import java.io.Serializable;
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class DispatcherDTO implements Serializable{
     private static final long serialVersionUID = 7956107530079706346L;
-    private Integer garanziaSelected;
+    private String garanziaSelected;
     private Integer numSinistroProvv;
 
-    public Integer getGaranziaSelected() {
+    public String getGaranziaSelected() {
         return garanziaSelected;
     }
 
-    public void setGaranziaSelected(Integer garanziaSelected) {
+    public void setGaranziaSelected(String garanziaSelected) {
         this.garanziaSelected = garanziaSelected;
     }
 

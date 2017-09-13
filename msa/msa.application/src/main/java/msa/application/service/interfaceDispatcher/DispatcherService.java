@@ -1,11 +1,10 @@
 package msa.application.service.interfaceDispatcher;
 
-import com.gs.collections.impl.block.factory.*;
+import com.gs.collections.impl.block.factory.Comparators;
 import msa.application.config.BaseDTO;
 import msa.application.config.enumerator.MessageType;
 import msa.application.dto.dispatcher.DispatcherDTO;
 import msa.application.exceptions.InternalMsaException;
-import msa.domain.Converter.FunctionUtils;
 import msa.domain.object.dispatcher.DispatcherDO;
 import msa.domain.object.dispatcher.NavigazioneViewDO;
 import msa.infrastructure.repository.DispatcherRepository;
@@ -13,11 +12,8 @@ import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.*;
 import java.util.function.Supplier;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 /**
  * Created by simon.calabrese on 01/08/2017.
@@ -95,7 +91,7 @@ public class DispatcherService extends DispatcherUtils {
 
     public Integer resetView(final String garanziaSelected, final Integer numSinistroProvv) throws InternalMsaException {
         final DispatcherDO dispatcherDO = new DispatcherDO();
-        dispatcherDO.setGaranziaSelected(FunctionUtils.numberConverter(garanziaSelected, Integer::valueOf));
+        dispatcherDO.setGaranziaSelected(garanziaSelected);
         dispatcherDO.setNumSinistroProvv(numSinistroProvv);
         return dispatcherRepository.resetViewByNumSinistro(dispatcherDO);
     }
