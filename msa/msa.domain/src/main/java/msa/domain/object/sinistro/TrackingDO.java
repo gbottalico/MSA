@@ -2,8 +2,15 @@ package msa.domain.object.sinistro;
 
 public class TrackingDO {
     private String nazione;
+
+    private String descNazione;
+
     private String provincia;
+
+    private String descProvincia;
     private String comune;
+
+    private String descComune;
     private Integer cap;
     private String telefono;
     private String cellulare;
@@ -19,6 +26,14 @@ public class TrackingDO {
         this.nazione = nazione;
     }
 
+    public String getDescNazione() {
+        return descNazione;
+    }
+
+    public void setDescNazione(String descNazione) {
+        this.descNazione = descNazione;
+    }
+
     public String getProvincia() {
         return provincia;
     }
@@ -27,12 +42,28 @@ public class TrackingDO {
         this.provincia = provincia;
     }
 
+    public String getDescProvincia() {
+        return descProvincia;
+    }
+
+    public void setDescProvincia(String descProvincia) {
+        this.descProvincia = descProvincia;
+    }
+
     public String getComune() {
         return comune;
     }
 
     public void setComune(String comune) {
         this.comune = comune;
+    }
+
+    public String getDescComune() {
+        return descComune;
+    }
+
+    public void setDescComune(String descComune) {
+        this.descComune = descComune;
     }
 
     public Integer getCap() {

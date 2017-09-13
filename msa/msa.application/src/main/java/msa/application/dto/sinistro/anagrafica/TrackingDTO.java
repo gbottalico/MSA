@@ -2,8 +2,15 @@ package msa.application.dto.sinistro.anagrafica;
 
 public class TrackingDTO {
     private String nazione;
+
+    private String descNazione;
+
     private String provincia;
+
+    private String descProvincia;
     private String comune;
+
+    private String descComune;
     private Integer cap;
     private String telefono;
     private String cellulare;
@@ -74,4 +81,27 @@ public class TrackingDTO {
         this.indirizzo = indirizzo;
     }
 
+    public String getDescNazione() {
+        return descNazione;
+    }
+
+    public void setDescNazione(String descNazione) {
+        this.descNazione = descNazione;
+    }
+
+    public String getDescProvincia() {
+        return descProvincia;
+    }
+
+    public void setDescProvincia(String descProvincia) {
+        this.descProvincia = descProvincia;
+    }
+
+    public String getDescComune() {
+        return descComune;
+    }
+
+    public void setDescComune(String descComune) {
+        this.descComune = descComune;
+    }
 }
