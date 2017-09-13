@@ -203,9 +203,6 @@
                 </div>
 
 
-
-
-
                 <div class="col-lg-12" ng-show="$ctrl.centroconv !== null">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputText">
                         <input type="text" name="centro" ng-model="$ctrl.centroconv.denominazioen" ng-readonly="true">
@@ -217,20 +214,19 @@
 
                 </div>
 
-                    <div class="col-lg-12" ng-show="$ctrl.centroconv === null">
-                        Nessun centro convenzionato selezionato.
+                <div class="col-lg-12" ng-show="$ctrl.centroconv === null">
+                    Nessun centro convenzionato selezionato.
 
                 </div>
-                    </div>
+            </div>
 
 
-                <div class="row">
-                    <div class="col-lg-12 classicButton margin-top-1">
-                        <button class="blueButton" ng-click="$ctrl.mostraJson()">
-                            <a><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;{{'global.generic.mostrajson' |
-                                translate}}</a>
-                        </button>
-                    </div>
+            <div class="row">
+                <div class="col-lg-12 classicButton margin-top-1">
+                    <button class="blueButton" ng-click="$ctrl.mostraJson()">
+                        <a><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;{{'global.generic.mostrajson' |
+                            translate}}</a>
+                    </button>
                 </div>
             </div>
         </div>
