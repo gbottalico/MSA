@@ -52,6 +52,7 @@ public class SinistriService extends BaseSinistroService {
 
     @Autowired
     private PolizzeRepository polizzeRepository;
+
     @SuppressWarnings("unchecked")
     public BaseDTO<OutputRicercaDTO> ricerca(InputRicercaDTO input) throws InternalMsaException {
         List<Object> objects = execInParallel(
@@ -300,7 +301,13 @@ public class SinistriService extends BaseSinistroService {
     public BaseDTO salvaDannoRcaConducente(DannoRcaDTO input, Integer numSinistro) throws InternalMsaException {
 
         SinistroRcaDO sinistroRcaDOByDTO = getSinistroDOByDTO(input, numSinistro);
-
+        sinistroRcaDOByDTO.getDannoRca()
+                .getAnagraficaDanniCliente()
+                .setAnagrafica(Optional.ofNullable(sinistroRcaDOByDTO
+                        .getDannoRca()
+                        .getAnagraficaDanniCliente()
+                        .getAnagrafica())
+                        .orElse(converter.convertObject(sinistroRcaDOByDTO.getContraente(), FullAnagraficaControparteDO.class)));
         if (sinistroRcaDOByDTO.getEventoRca().getNumVeicoli() == 2) {
             Boolean isCard = getFlagIsCard(sinistroRcaDOByDTO.getCompagnia());
             sinistroRcaDOByDTO.getDannoRca().getAnagraficaDanniCliente().getAnagrafica().setFlagCard(isCard);
@@ -341,7 +348,7 @@ public class SinistriService extends BaseSinistroService {
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat(" Il codice ruolo di ogni terza parte deve essere valorizzato. ")));
         SinistroRcaDO sinistroDOByDTO = getSinistroDOByDTO(new AnagraficaTerzePartiDTO(), numSinistro);
         List<AnagraficaTerzePartiDO> filteredList = converter.convertList(FunctionUtils.dinstictList(input, AnagraficaTerzePartiDTO::getCf), AnagraficaTerzePartiDO.class);
-        sinistroDOByDTO.getDannoRca().setTerzeParti(replaceTerzePartiList(sinistroDOByDTO.getDannoRca().getTerzeParti(), filteredList, e -> e.getCodRuolo().equals("13")));
+        sinistroDOByDTO.getDannoRca().setTerzeParti(filteredList);
         Boolean insertResult = salvaSinistro(sinistroDOByDTO);
         if (insertResult) {
             return new BaseDTO<>(null, addWarningMessageByCondition(() -> "Sono stati inseriti codici fiscali o partite iva duplicati",
@@ -349,18 +356,6 @@ public class SinistriService extends BaseSinistroService {
         } else {
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione Salvataggio Danni Terze Parti")));
         }
-
-    }
-
-    private List<AnagraficaTerzePartiDO> replaceTerzePartiList(List<AnagraficaTerzePartiDO> oldList, List<AnagraficaTerzePartiDO> newList, Predicate<AnagraficaTerzePartiDO> toExclude) {
-
-        List<AnagraficaTerzePartiDO> filteredOldList = CollectionUtils.isEmpty(oldList) ? new ArrayList<>() : oldList.stream().filter(toExclude).collect(Collectors.toList());
-        if (CollectionUtils.isNotEmpty(filteredOldList) && CollectionUtils.isNotEmpty(newList)) {
-            return Stream.concat(newList.stream(), filteredOldList.stream()).collect(Collectors.toList());
-        } else if (CollectionUtils.isNotEmpty(filteredOldList) && CollectionUtils.isEmpty(newList)) {
-            return filteredOldList;
-
-        } else return newList;
 
     }
 
@@ -529,7 +524,7 @@ public class SinistriService extends BaseSinistroService {
     @Autowired
     private TipoSinistroTreeMap<? super BaseSinistroDO> tipoSinistroTreeMap;
 
-    public<T extends BaseSinistroDO> TipiSinisto getTipoSinistro(final Integer numSinistroProvv) throws InternalMsaException {
+    public <T extends BaseSinistroDO> TipiSinisto getTipoSinistro(final Integer numSinistroProvv) throws InternalMsaException {
         try {
             final T sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv);
             return tipoSinistroTreeMap.calcolaTipoSinistro(sinistroByNumProvv);

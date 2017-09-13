@@ -26,9 +26,6 @@
                 $ctrl.persistence.dataDenuncia = undefined;
                 $ctrl.persistence.dataSinistro = undefined;
 
-                $ctrl.reEmail = RegexSvc.getEmailRegex();
-                $ctrl.reTelefono = RegexSvc.getTelefonoRegex();
-
                 $ctrl.mezzicomunicazione = undefined;
                 $ctrl.ruoli = undefined;
 
