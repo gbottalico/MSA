@@ -21,6 +21,11 @@ angular.module('msa').service('ConvertSvc',
                 dto.cf = anagrafica.cf;
                 dto.codRuolo = anagrafica.ruolo;
                 dto.lesioni = anagrafica.lesioni;
+                dto.veicolo = anagrafica.veicolo;
+                dto.targa = anagrafica.targa;
+                dto.targaEstera = anagrafica.targaEstera;
+                dto.targaSpeciale = anagrafica.targaSpeciale;
+                
 
                 if (_.isObject(anagrafica.compagnia)) {
                     dto.compagnia = anagrafica.compagnia.id;

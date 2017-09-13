@@ -33,7 +33,6 @@ angular.module('msa').service(
                 dataObj.contraente = ConvertSvc.anagraficaToDTO(datiContraente);
                 if (polizza != null) {
                     dataObj.numeroPolizza = polizza.numPolizza;
-                    dataObj.targa = polizza.targa;
                 }
 
                 //TODO fix

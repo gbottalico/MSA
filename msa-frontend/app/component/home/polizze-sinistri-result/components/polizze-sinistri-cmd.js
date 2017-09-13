@@ -403,7 +403,11 @@
                 	  contraente.residenza.comune.descrizione = $ctrl.polizzaSelected.cittaContraente;
                 	  contraente.residenza.indirizzo = $ctrl.polizzaSelected.indirizzoContraente;
                 	  contraente.telefono = $ctrl.polizzaSelected.cellulare;
-                	  $ctrl.apriSinistroProvvisorio(contraente, $ctrl.valoriRicerca.compagniaSelezionata.idCompagnia, $ctrl.polizzaSelected);
+                	  contraente.veicolo = $ctrl.polizzaSelected.classeVeicolo;
+                	  contraente.targa = $ctrl.polizzaSelected.targa;
+                	  contraente.targaEstera = false;
+                	  contraente.targaSpeciale = false;
+                 	  $ctrl.apriSinistroProvvisorio(contraente, $ctrl.valoriRicerca.compagniaSelezionata.idCompagnia, $ctrl.polizzaSelected);
                   } else { 
                 	  $ctrl.openAnagrafica($ctrl.valoriRicerca.compagniaSelezionata.idCompagnia);
                   }
