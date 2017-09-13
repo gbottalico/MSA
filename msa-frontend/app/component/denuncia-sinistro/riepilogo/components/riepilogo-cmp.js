@@ -4,7 +4,7 @@
     app.component('msaRiepilogo', {
         templateUrl: '../../app/component/denuncia-sinistro/riepilogo/components/templates/riepilogo-tpl.html',
         bindings: {},
-        controller: ("riepilogoController", ['_', '$rootScope', '$uibModal', '$scope', '$routeParams', '$debugMode', '$filter', '$location', 'toastr', 'SinistriSvc', 'DebugSvc', 'PathSvc', 'PlacesSvc',
+        controller: ("riepilogoController", ['_', '$rootScope', '$scope', '$routeParams', '$debugMode', '$uibModal', '$filter', '$location', 'toastr', 'SinistriSvc', 'DebugSvc', 'PathSvc', 'PlacesSvc',
             function (_, $rootScope, $scope, $routeParams, $debugMode, $uibModal, $filter, $location, toastr, SinistriSvc, DebugSvc, PathSvc, PlacesSvc) {
 
                 var $ctrl = this;
