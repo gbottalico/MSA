@@ -13,6 +13,7 @@ import msa.application.dto.sinistro.rca.eventoRca.EventoRcaDTO;
 import msa.application.dto.sinistro.segnalazione.SegnalazioneDTO;
 import msa.application.exceptions.InternalMsaException;
 import msa.application.service.sinistri.SinistriService;
+import msa.application.service.sinistri.tipoSinistro.TipiSinisto;
 import msa.web.api.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -228,5 +229,11 @@ public class SinistroController extends BaseController {
     @RequestMapping(value="/polizza/{numpoli}", method = RequestMethod.GET)
     public BaseDTO getPolizzaByNum(@PathVariable("numpoli") String numPoli) throws InternalMsaException {
         return new BaseDTO(sinistriService.getPolizzaByNumPoli(numPoli));
+    }
+
+    @ApiOperation(value="Metodo che restituisce il tipo del Sinistro provvisorio")
+    @RequestMapping(value = "/{numero}/getTipoSinistro")
+    public BaseDTO<TipiSinisto> getTipoSinistro(@PathVariable(value = "numero") final Integer numSinistro) throws InternalMsaException {
+        return new BaseDTO<>(sinistriService.getTipoSinistro(numSinistro));
     }
 }

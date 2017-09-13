@@ -13,3 +13,4 @@
 { "_id" : 13, "codErrore" : "MSA012", "testo" : "Attenzione: Errore durante il recupero sinistro per il salvataggio" }
 { "_id" : 14, "codErrore" : "MSA013", "testo" : "Attenzione: Errore durante il calcolo della colpa" }
 { "_id" : 15, "codErrore" : "MSA014", "testo" : "Attenzione: Errore durante il recupero della polizza" }
+{ "_id" : 16, "codErrore" : "MSA015", "testo" : "Attenzione: Errore durante il recupero del tipo sinistro" }

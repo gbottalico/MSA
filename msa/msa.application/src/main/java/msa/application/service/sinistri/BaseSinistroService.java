@@ -306,54 +306,6 @@ public class BaseSinistroService extends BaseService {
                 }
 
             };
-   /* private final MsaBiFunction<CentroConvenzionatoDTO, Integer, SinistroRcaDO> CENTRO_CONVENZIONATO =
-            (o, numSinistro) -> {
-                try {
-                    final BaseSinistroDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistro, BaseSinistroDO.class);
-                    sinistroByNumProvv.setCentroConvenzionato(converter.convertObject(o, CentroConvenzionatoDO.class));
-                    return sinistroByNumProvv;
-                } catch (Exception e) {
-                    throw new InternalMsaException();
-                }
-            };*/
 
-
-   protected final MsaFunction<SegnalazioneDO,Boolean> isInItalia = segnalazione -> Integer.compare(segnalazione.getCodNazione(), MsaCostanti.COD_NAZIONE_ITALIA) == 0;
-
-    protected final MsaFunction<FullAnagraficaControparteDO, Boolean> isConvenzioneCTT = anagrafica -> {
-        final Boolean flagGestioneCTTVeicolo = domainRepository.getElencoTipoVeicoli()
-                .parallelStream()
-                .filter(e -> e.getId().equals(FunctionUtils.numberConverter(anagrafica.getVeicolo(), Integer::valueOf)))
-                .findFirst()
-                .map(TipoVeicoloDO::getGestioneCtt)
-                .orElse(Boolean.FALSE);
-        final Boolean flagCard = Optional.ofNullable(anagrafica.getFlagCard()).orElseGet(() -> Boolean.FALSE);
-        final Boolean targaEstera = Optional.ofNullable(anagrafica.getTargaEstera()).orElseGet(() -> Boolean.FALSE);
-        return flagCard && flagGestioneCTTVeicolo && !targaEstera;
-    };
-
-    protected final MsaFunction<CaiDO,Integer> getPercCID = cai -> {
-        final IncrociBaremesDO incrocio = domainRepository.getColpaByBaremes(cai.getBaremesCliente(), cai.getBaremesControparte());
-        return incrocio.getPercRespCliente();
-    };
-
-    protected final MsaBiFunction<List<AnagraficaTerzePartiDO>,Boolean,Boolean> nostroTrasportato = (anags,flagIsCliente) -> anags.stream()
-                .anyMatch(e -> flagIsCliente
-                        ? e.getCodRuolo().equals(MsaCostanti.COD_RUOLO_TERZO_TRASPORTATO_CLIENTE)
-                        : e.getCodRuolo().equals(MsaCostanti.COD_RUOLO_TERZO_TRASPORTATO_CONTROPARTE));
-
-    protected final MsaFunction<AnagraficaTerzePartiDO,Boolean> hasLesioni = AnagraficaTerzePartiDO::getLesioni;
-
-    protected final MsaFunction<FullAnagraficaControparteDO, Boolean> isConvenzioneCID = anagrafica -> {
-        final Boolean flagGestioneCTTVeicolo = domainRepository.getElencoTipoVeicoli()
-                .parallelStream()
-                .filter(e -> e.getId().equals(FunctionUtils.numberConverter(anagrafica.getVeicolo(), Integer::valueOf)))
-                .findFirst()
-                .map(TipoVeicoloDO::getGestioneCid)
-                .orElse(Boolean.FALSE);
-        final Boolean flagCard = Optional.ofNullable(anagrafica.getFlagCard()).orElseGet(() -> Boolean.FALSE);
-        final Boolean targaEstera = Optional.ofNullable(anagrafica.getTargaEstera()).orElseGet(() -> Boolean.FALSE);
-        return flagCard && flagGestioneCTTVeicolo && !targaEstera;
-    };
 
 }

@@ -18,6 +18,8 @@ import msa.application.dto.sinistro.segnalazione.SegnalazioneDTO;
 import msa.application.dto.user.UserLoggedDTO;
 import msa.application.exceptions.InternalMsaException;
 import msa.application.service.interfaceDispatcher.DispatcherService;
+import msa.application.service.sinistri.tipoSinistro.TipiSinisto;
+import msa.application.service.sinistri.tipoSinistro.TipoSinistroTreeMap;
 import msa.domain.Converter.FunctionUtils;
 import msa.domain.object.dominio.BaremesDO;
 import msa.domain.object.dominio.CompagniaDO;
@@ -50,7 +52,6 @@ public class SinistriService extends BaseSinistroService {
 
     @Autowired
     private PolizzeRepository polizzeRepository;
-
     @SuppressWarnings("unchecked")
     public BaseDTO<OutputRicercaDTO> ricerca(InputRicercaDTO input) throws InternalMsaException {
         List<Object> objects = execInParallel(
@@ -300,8 +301,13 @@ public class SinistriService extends BaseSinistroService {
 
         SinistroRcaDO sinistroRcaDOByDTO = getSinistroDOByDTO(input, numSinistro);
 
-        Boolean isCard = getFlagIsCard(sinistroRcaDOByDTO.getCompagnia());
-        sinistroRcaDOByDTO.getDannoRca().getAnagraficaDanniCliente().getAnagrafica().setFlagCard(isCard);
+        if (sinistroRcaDOByDTO.getEventoRca().getNumVeicoli() == 2) {
+            Boolean isCard = getFlagIsCard(sinistroRcaDOByDTO.getCompagnia());
+            sinistroRcaDOByDTO.getDannoRca().getAnagraficaDanniCliente().getAnagrafica().setFlagCard(isCard);
+        } else {
+            sinistroRcaDOByDTO.getDannoRca().getAnagraficaDanniCliente().getAnagrafica().setFlagCard(Boolean.FALSE);
+        }
+
         if (salvaSinistro(sinistroRcaDOByDTO)) {
             return new BaseDTO<>();
         } else {
@@ -317,8 +323,9 @@ public class SinistriService extends BaseSinistroService {
         }
         SinistroRcaDO sinistroRcaDOByDTO = getSinistroDOByDTO(new AnagraficaDanniDTO(), numSinistro);
         sinistroRcaDOByDTO.getDannoRca().setAnagraficaDanniControparte(converter.convertList(input, AnagraficaDanniDO.class).stream().map(e -> {
-            final Boolean flagIsCard = getFlagIsCard(FunctionUtils.numberConverter(e.getAnagrafica().getCompagnia(), Integer::valueOf));
-            e.getAnagrafica().setFlagCard(flagIsCard);
+            e.getAnagrafica().setFlagCard(sinistroRcaDOByDTO.getEventoRca().getNumVeicoli() == 2
+                    ? getFlagIsCard(FunctionUtils.numberConverter(e.getAnagrafica().getCompagnia(), Integer::valueOf))
+                    : Boolean.FALSE);
             return e;
         }).collect(Collectors.toList()));
 
@@ -515,6 +522,19 @@ public class SinistriService extends BaseSinistroService {
             return converter.convertObject(sinistriRepository.getPolizzaByNumPoli(numPoli), FullPolizzaDTO.class);
         } catch (Exception e) {
             throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA014"));
+
+        }
+    }
+
+    @Autowired
+    private TipoSinistroTreeMap<? super BaseSinistroDO> tipoSinistroTreeMap;
+
+    public<T extends BaseSinistroDO> TipiSinisto getTipoSinistro(final Integer numSinistroProvv) throws InternalMsaException {
+        try {
+            final T sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv);
+            return tipoSinistroTreeMap.calcolaTipoSinistro(sinistroByNumProvv);
+        } catch (Exception e) {
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA015"));
 
         }
     }

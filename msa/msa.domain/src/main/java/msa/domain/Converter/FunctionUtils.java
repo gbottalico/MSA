@@ -74,6 +74,12 @@ public final class FunctionUtils {
         }
     }
 
+    public static<T extends Comparable<T>> Boolean genericBetween(T left,T right,T evaluate,Boolean isIncl) {
+        return isIncl
+                ? left.compareTo(evaluate) <= 0  && right.compareTo(evaluate) >= 0
+                : left.compareTo(evaluate) == -1 && right.compareTo(evaluate) == 1;
+    }
+
 
 
     public final static Function<String, java.sql.Date> convertStringToLocaldate = s -> {
