@@ -8,8 +8,8 @@
             sinistroProvvisorio: "=",
             tempSegnalazione: "="
         },
-        controller: ("constatazioneAmichevoleController", ['_', '$rootScope', '$scope', '$debugMode', '$filter', 'toastr', 'DomainSvc', 'SinistriSvc', 'DebugSvc',
-            function (_, $rootScope, $scope, $debugMode, $filter, toastr, DomainSvc, SinistriSvc, DebugSvc) {
+        controller: ("constatazioneAmichevoleController", ['_', '$rootScope', '$scope', '$debugMode', '$filter', '$timeout', 'toastr', 'DomainSvc', 'SinistriSvc', 'DebugSvc',
+            function (_, $rootScope, $scope, $debugMode, $filter, $timeout, toastr, DomainSvc, SinistriSvc, DebugSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
@@ -121,9 +121,9 @@
                     }
                 };
 
-                $ctrl.$onInit = function () {
+                $timeout(function () {
                     parent.mappaCaricata($ctrl.mapId);
-                };
+                });
 
                 $scope.$watch(
                     function watchScope(scope) {

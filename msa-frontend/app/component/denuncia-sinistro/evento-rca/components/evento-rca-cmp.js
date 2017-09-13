@@ -6,10 +6,11 @@
         bindings: {
             numeroSinistroProvvisorio: "<",
             sinistroProvvisorio: "<",
-            tempSegnalazione: "="
+            tempSegnalazione: "=",
+            callback: "@"
         },
-        controller: ("eventoRcaController", ['_', '$rootScope', '$scope', '$filter', '$debugMode', '$location', 'toastr', 'SinistriSvc', 'DomainSvc', 'DebugSvc', 'PathSvc',
-            function (_, $rootScope, $scope, $filter, $debugMode, $location, toastr, SinistriSvc, DomainSvc, DebugSvc, PathSvc) {
+        controller: ("eventoRcaController", ['_', '$rootScope', '$scope', '$filter', '$debugMode', '$location', '$timeout', 'toastr', 'SinistriSvc', 'DomainSvc', 'DebugSvc', 'PathSvc',
+            function (_, $rootScope, $scope, $filter, $debugMode, $location, $timeout, toastr, SinistriSvc, DomainSvc, DebugSvc, PathSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
@@ -47,9 +48,9 @@
                     });
                 };
 
-                $ctrl.$onInit = function () {
-                    parent.mappaCaricata($ctrl.mapId);
-                };
+                $timeout(function () {
+                    parent.mappaCaricata($ctrl.mapId)
+                });
 
                 $scope.$watch(
                     function watchScope(scope) {

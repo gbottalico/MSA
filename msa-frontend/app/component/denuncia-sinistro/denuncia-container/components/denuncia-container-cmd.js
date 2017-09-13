@@ -17,6 +17,7 @@
                 };
                 $ctrl.mappe = [];
                 $ctrl.sinistroProvvisorio = undefined;
+                $ctrl.scrollable = false;
 
                 $ctrl.START_MAP = "M11";
 
@@ -34,6 +35,7 @@
                             } else {
                                 $ctrl.mappe.push($ctrl.START_MAP);
                             }
+                            $ctrl.scrollable = true;
                         } else {
                             toastr.error($translate('global.generic.erroremappe'));
                         }
@@ -73,6 +75,9 @@
                 $ctrl.mappaCaricata = function (mapId) {
                     DebugSvc.log(mapId + " initialized.");
                     $ctrl.tempSegnalazione.lastMap = mapId;
+                    // if($ctrl.scrollable) {
+                    //     $ctrl.scrollTo(mapId);
+                    // }
                 };
 
                 $ctrl.isMappaVisibile = function (nomeMappa) {

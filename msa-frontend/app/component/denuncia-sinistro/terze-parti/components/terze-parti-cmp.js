@@ -8,8 +8,8 @@
             sinistroProvvisorio: "<",
             tempSegnalazione: "="
         },
-        controller: ("terzePartiController", ['_', '$rootScope', '$scope', '$debugMode', '$filter', '$location', '$uibModal', 'toastr', 'SinistriSvc', 'DebugSvc', 'ConvertSvc',
-            function (_, $rootScope, $scope, $debugMode, $filter, $location, $uibModal, toastr, SinistriSvc, DebugSvc, ConvertSvc) {
+        controller: ("terzePartiController", ['_', '$rootScope', '$scope', '$debugMode', '$filter', '$location', '$uibModal', '$timeout','toastr', 'SinistriSvc', 'DebugSvc', 'ConvertSvc',
+            function (_, $rootScope, $scope, $debugMode, $filter, $location, $uibModal, $timeout, toastr, SinistriSvc, DebugSvc, ConvertSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
@@ -65,9 +65,9 @@
                     });
                 };
 
-                $ctrl.$onInit = function () {
-                    parent.mappaCaricata($ctrl.mapId);
-                };
+                $timeout(function () {
+                    parent.mappaCaricata($ctrl.mapId)
+                });
 
                 $ctrl.bindTerzeParti = function () {
                     $ctrl.terzeParti = [];

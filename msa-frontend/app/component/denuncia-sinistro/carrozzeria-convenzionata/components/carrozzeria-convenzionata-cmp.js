@@ -8,8 +8,8 @@
             sinistroProvvisorio: "<",
             tempSegnalazione: "="
         },
-        controller: ("carrozzeriaConvenzionataController", ['_', '$MSAC', '$rootScope', '$scope', '$debugMode', '$filter', 'toastr', 'PlacesSvc', 'DebugSvc', 'SinistriSvc', 'UtilSvc',
-            function (_, $MSAC, $rootScope, $scope, $debugMode, $filter, toastr, PlacesSvc, DebugSvc, SinistriSvc, UtilSvc) {
+        controller: ("carrozzeriaConvenzionataController", ['_', '$MSAC', '$rootScope', '$scope', '$debugMode', '$filter', '$timeout', 'toastr', 'PlacesSvc', 'DebugSvc', 'SinistriSvc', 'UtilSvc',
+            function (_, $MSAC, $rootScope, $scope, $debugMode, $filter, $timeout, toastr, PlacesSvc, DebugSvc, SinistriSvc, UtilSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
@@ -160,7 +160,7 @@
                 $ctrl.salvaCarrozzeria = function () {
                     //TODO salvataggio.
                     $ctrl.tempSegnalazione.perito = $ctrl.peritoAssociato;
-                    parent.aggiornaMappe($ctrl.mapId);
+                    parent.aggiornaMappe();
                     toastr.success($translate('global.generic.saveok'));
                     $scope.cercaCarrozzeriaForm.$setPristine(true);
                 };
@@ -182,6 +182,10 @@
 
                     }
                 };
+
+                $timeout(function () {
+                    parent.mappaCaricata($ctrl.mapId);
+                });
 
                 $scope.$watch(
                     function watchScope(scope) {
