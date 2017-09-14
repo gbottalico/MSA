@@ -207,7 +207,7 @@
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText" ng-class="{'has-error' : dannoRcaForm.inputTargaCliente.$invalid && !dannoRcaForm.inputtarga.$pristine}">
                             <input type="text"
                                    name="inputTargaCliente"
-                                   ng-pattern="$regex.reTarga"
+                                   ng-pattern="$ctrl.selectPattern"
                                    ng-model="$ctrl.dannoRca.veicoloCliente.targa"
                                    ng-required="true">
                             <label>{{'global.veicolo.targa' | translate}}</label>

@@ -14,7 +14,9 @@
                 var $ctrl = this;
                 var $translate = $filter('translate');
                 var parent = $scope.$parent;
-
+                var TIPO_AUTOVEICOLO = 1;
+                var TIPO_CICLOMOTORE = 6;
+                var TIPO_MOTOCICLO = 5;
                 $scope.$debugMode = $debugMode;
                 $scope.$regex = RegexSvc;
 
@@ -104,7 +106,24 @@
 
                     }
                 };
+                $ctrl.selectPattern = function () {
+                    return {
+                        test: function () {
 
+
+                            if ($ctrl.dannoRca.veicoloControparte.veicolo === TIPO_AUTOVEICOLO) {
+                                return RegexSvc.getTargaRegex().test($ctrl.dannoRca.veicoloControparte.veicolo);
+                            }
+                            else if ($ctrl.dannoRca.veicoloControparte.veicolo === TIPO_CICLOMOTORE) {
+                                return RegexSvc.getCiclomotoreRegex().test($ctrl.dannoRca.veicoloControparte.veicolo);
+                            }
+                            else if ($ctrl.dannoRca.veicoloControparte.veicolo === TIPO_MOTOCICLO) {
+                                return RegexSvc.getMotocicloRegex().test($ctrl.dannoRca.veicoloControparte.veicolo);
+                            }
+                            else return true;
+                        }
+                    }
+                };
                 $ctrl.salvaDannoRca = function () {
 
                     var dannoRca = $ctrl.dannoRca;
@@ -116,7 +135,7 @@
                         .then(function (response) {
                             DebugSvc.log("salvaDannoRcaCliente", response);
                             if (response.data.status === 200) {
-                                if($ctrl.tempSegnalazione.nveicoli > 1) {
+                                if ($ctrl.tempSegnalazione.nveicoli > 1) {
                                     return SinistriSvc.salvaDannoRcaControparti($ctrl.numeroSinistroProvvisorio, $ctrl.dannoRca);
                                 } else {
                                     return UtilSvc.createSuccessStatePromise()
@@ -216,8 +235,8 @@
                             $ctrl.tempSegnalazione.targa = newValues.targa;
                         }
 
-                        if((_.isObject(newValues.danniCliente) && newValues.danniCliente !== oldValues.danniCliente) ||
-                           (_.isObject(newValues.danniControparte) && newValues.danniControparte !== oldValues.danniControparte)) {
+                        if ((_.isObject(newValues.danniCliente) && newValues.danniCliente !== oldValues.danniCliente) ||
+                            (_.isObject(newValues.danniControparte) && newValues.danniControparte !== oldValues.danniControparte)) {
                             $scope.dannoRcaForm.$setDirty();
                         }
 
