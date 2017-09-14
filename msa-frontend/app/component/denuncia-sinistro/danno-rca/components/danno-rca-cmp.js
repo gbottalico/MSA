@@ -14,7 +14,9 @@
                 var $ctrl = this;
                 var $translate = $filter('translate');
                 var parent = $scope.$parent;
-
+                var TIPO_AUTOVEICOLO = 1;
+                var TIPO_CICLOMOTORE = 6;
+                var TIPO_MOTOCICLO = 5;
                 $scope.$debugMode = $debugMode;
                 $scope.$regex = RegexSvc;
 
@@ -40,49 +42,63 @@
 
                 $ctrl.bindDannoRca = function () {
                     if (_.isObject($ctrl.sinistroProvvisorio.dannoRca)) {
+
+
                         $ctrl.dannoRca.lesioniConducente = $ctrl.sinistroProvvisorio.dannoRca.lesioniConducente;
                         $ctrl.dannoRca.conducenteIsNotContraente = $ctrl.sinistroProvvisorio.dannoRca.conducenteDiverso;
                         if (_.isObject($ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente)) {
                             $ctrl.persistence.dannoCliente = $ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente.danni;
                             $ctrl.dannoRca.descrizioneDannoCliente = $ctrl.persistence.dannoCliente.descrizioneDanno;
                             if ($ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente.anagrafica && $ctrl.dannoRca.conducenteIsNotContraente === true) {
+                                //FIXME wrappare tutta la funzione e fare anche agli altri
+                                var anagrafica = $ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente.anagrafica;
+
+                                $ctrl.dannoRca.conducente.cognome = anagrafica.cognome;
+                                $ctrl.dannoRca.conducente.nome = anagrafica.nome;
+                                $ctrl.dannoRca.conducente.sesso = anagrafica.sesso;
+                                $ctrl.dannoRca.conducente.cf = anagrafica.cf;
+
+                                $ctrl.persistence.dataNascita = new Date(anagrafica.dataNascita);
+
+                                var tempLuogo = {};
+
+
                                 $timeout(function () {
-                                    //FIXME wrappare tutta la funzione e fare anche agli altri
-                                    var anagrafica = $ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente.anagrafica;
-
-                                    $ctrl.dannoRca.conducente.cognome = anagrafica.cognome;
-                                    $ctrl.dannoRca.conducente.nome = anagrafica.nome;
-                                    $ctrl.dannoRca.conducente.sesso = anagrafica.sesso;
-                                    $ctrl.dannoRca.conducente.cf = anagrafica.cf;
-
-                                    $ctrl.persistence.dataNascita = new Date(anagrafica.dataNascita);
-
-                                    var tempLuogo = {};
                                     tempLuogo.idNazione = anagrafica.luogoNascita.codNazione;
                                     tempLuogo.idProvincia = anagrafica.luogoNascita.codProvincia;
                                     tempLuogo.idComune = anagrafica.luogoNascita.codComune;
                                     tempLuogo.cap = anagrafica.luogoNascita.cap;
                                     $ctrl.persistence.luogoNascita = tempLuogo;
+                                });
 
-                                    $ctrl.dannoRca.conducente.telefono = anagrafica.tracking.telefono;
-                                    $ctrl.dannoRca.conducente.mail = anagrafica.tracking.mail;
 
-                                    tempLuogo = {};
+                                $ctrl.dannoRca.conducente.telefono = anagrafica.tracking.telefono;
+                                $ctrl.dannoRca.conducente.mail = anagrafica.tracking.mail;
+
+                                $timeout(function () {
                                     tempLuogo.idNazione = anagrafica.tracking.nazione;
                                     tempLuogo.idProvincia = anagrafica.tracking.provincia;
                                     tempLuogo.idComune = anagrafica.tracking.comune;
                                     tempLuogo.cap = anagrafica.tracking.cap;
+                                });
 
-                                    $ctrl.persistence.residenza = tempLuogo;
 
-                                    $ctrl.dannoRca.conducente.residenza.indirizzo = anagrafica.tracking.indirizzo;
+                                $ctrl.persistence.residenza = tempLuogo;
 
-                                }, 1);
+                                $ctrl.dannoRca.conducente.residenza = {};
+                                $ctrl.dannoRca.conducente.residenza.indirizzo = anagrafica.tracking.indirizzo;
 
+                                $ctrl.dannoRca.veicoloCliente = {};
+                                $ctrl.dannoRca.veicoloCliente.veicolo = anagrafica.veicolo;
+                                $ctrl.dannoRca.veicoloCliente.targa = anagrafica.targa;
+                                $ctrl.dannoRca.veicoloCliente.speciale = anagrafica.targaEstera.toString();
+                                $ctrl.dannoRca.veicoloCliente.estera = anagrafica.targaSpeciale.toString();
 
                             } else {
                                 $ctrl.dannoRca.conducenteIsNotContraente = false;
                             }
+
+
                         }
 
                         if (_.isObject($ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniControparte)) {
@@ -102,9 +118,31 @@
 
                         }
 
+                        $timeout(function () {
+                            $scope.dannoRcaForm.$setPristine();
+                        });
+
+
                     }
                 };
+                $ctrl.selectPattern = function () {
+                    return {
+                        test: function () {
 
+
+                            if ($ctrl.dannoRca.veicoloControparte.veicolo === TIPO_AUTOVEICOLO) {
+                                return RegexSvc.getTargaRegex().test($ctrl.dannoRca.veicoloControparte.veicolo);
+                            }
+                            else if ($ctrl.dannoRca.veicoloControparte.veicolo === TIPO_CICLOMOTORE) {
+                                return RegexSvc.getCiclomotoreRegex().test($ctrl.dannoRca.veicoloControparte.veicolo);
+                            }
+                            else if ($ctrl.dannoRca.veicoloControparte.veicolo === TIPO_MOTOCICLO) {
+                                return RegexSvc.getMotocicloRegex().test($ctrl.dannoRca.veicoloControparte.veicolo);
+                            }
+                            else return true;
+                        }
+                    }
+                };
                 $ctrl.salvaDannoRca = function () {
 
                     var dannoRca = $ctrl.dannoRca;
@@ -116,7 +154,7 @@
                         .then(function (response) {
                             DebugSvc.log("salvaDannoRcaCliente", response);
                             if (response.data.status === 200) {
-                                if($ctrl.tempSegnalazione.nveicoli > 1) {
+                                if ($ctrl.tempSegnalazione.nveicoli > 1) {
                                     return SinistriSvc.salvaDannoRcaControparti($ctrl.numeroSinistroProvvisorio, $ctrl.dannoRca);
                                 } else {
                                     return UtilSvc.createSuccessStatePromise()
@@ -183,13 +221,17 @@
                 };
 
                 $ctrl.isCalcolaCfDisabled = function () {
-                    return !($ctrl.dannoRca.conducente &&
-                        $ctrl.dannoRca.conducente.cognome &&
-                        $ctrl.dannoRca.conducente.nome &&
-                        $ctrl.dannoRca.conducente.sesso &&
-                        $ctrl.dannoRca.conducente.nascita.data &&
-                        $ctrl.dannoRca.conducente.nascita.data.$valid &&
-                        $ctrl.dannoRca.conducente.nascita.$valid);
+                    try {
+                        return !($ctrl.dannoRca.conducente &&
+                            $ctrl.dannoRca.conducente.cognome &&
+                            $ctrl.dannoRca.conducente.nome &&
+                            $ctrl.dannoRca.conducente.sesso &&
+                            $ctrl.dannoRca.conducente.nascita.data &&
+                            $ctrl.dannoRca.conducente.nascita.data.$valid &&
+                            $ctrl.dannoRca.conducente.nascita.$valid);
+                    } catch (error) {
+                        return false;
+                    }
                 };
 
                 $timeout(function () {
@@ -207,6 +249,7 @@
                     },
                     function handleChanges(newValues, oldValues) {
 
+
                         if (newValues.sinistroProvvisorio !== undefined && !$ctrl.isInputConsumed) {
                             $ctrl.bindDannoRca();
                             $ctrl.isInputConsumed = true;
@@ -216,9 +259,9 @@
                             $ctrl.tempSegnalazione.targa = newValues.targa;
                         }
 
-                        if((_.isObject(newValues.danniCliente) && newValues.danniCliente !== oldValues.danniCliente) ||
-                           (_.isObject(newValues.danniControparte) && newValues.danniControparte !== oldValues.danniControparte)) {
-                            $scope.dannoRcaForm.$setDirty();
+                        if ((_.isObject(newValues.danniCliente) && newValues.danniCliente !== oldValues.danniCliente) ||
+                            (_.isObject(newValues.danniControparte) && newValues.danniControparte !== oldValues.danniControparte)) {
+                            // $scope.dannoRcaForm.$setDirty();
                         }
 
                     }, true
