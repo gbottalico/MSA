@@ -11,6 +11,7 @@ public class SinistroRcaDO extends BaseSinistroDO {
     private ConstatazioneAmichevoleDO constatazioneAmichevole;
     private CaiDO cai;
     private DannoRcaDO dannoRca;
+    private Boolean flagSinistroCard;
 
     public EventoRcaDO getEventoRca() {
         return eventoRca;
@@ -42,5 +43,13 @@ public class SinistroRcaDO extends BaseSinistroDO {
 
     public void setDannoRca(DannoRcaDO dannoRca) {
         this.dannoRca = dannoRca;
+    }
+
+    public Boolean getFlagSinistroCard() {
+        return flagSinistroCard;
+    }
+
+    public void setFlagSinistroCard(Boolean flagSinistroCard) {
+        this.flagSinistroCard = flagSinistroCard;
     }
 }
