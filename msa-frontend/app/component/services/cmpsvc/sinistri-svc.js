@@ -297,6 +297,11 @@ angular.module('msa').service(
                 return $http.get(url);
             };
 
+            $svc.salvaCarrozzeria = function (idSinistroProvvisorio, carrozzeria) {
+                var url = UtilSvc.stringFormat(msaServicesApiUrls.salvacarrozzeria, idSinistroProvvisorio);
+                return $http.post(url, carrozzeria);
+            };
+
             $svc.getPerito = function (indirizzo) {
                 var data = {input: indirizzo};
                 return $http.post(msaServicesApiUrls.perito, data);

@@ -41,7 +41,7 @@
                         if (response.data.status === 200) {
                             parent.aggiornaMappe($ctrl.mapId);
                             toastr.success($translate('global.generic.saveok'));
-                            $scope.eventoRcaForm.$setPristine(true);
+                            $scope.eventoRcaForm.$setPristine();
                         } else {
                             toastr.error($translate('global.generic.saveko'));
                         }

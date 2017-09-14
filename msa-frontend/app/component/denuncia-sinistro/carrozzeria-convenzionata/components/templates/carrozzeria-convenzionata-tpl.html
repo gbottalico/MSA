@@ -1,6 +1,6 @@
 <div class="containerHeader">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container boxShadow">
-        <div class="header" ng-class="{'is-ok': cercaCarrozzeriaForm.$pristine, 'has-error': !cercaCarrozzeriaForm.$pristine}">
+        <div class="header" ng-class="{'is-ok': cercaCarrozzeriaForm.$pristine && cercaCarrozzeriaForm.$valid, 'has-error': !cercaCarrozzeriaForm.$pristine || !cercaCarrozzeriaForm.$valid}">
             <h1 class="titleSection">{{'global.carrozzeria.title' | translate}}</h1>
         </div>
     </div>
@@ -10,16 +10,15 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container boxShadow">
         <div class="body">
 
-            <form name="cercaCarrozzeriaForm" novalidate>
 
-                <div class="col-lg-10 classicInputText">
-                    <input type="text" name="indirizzo" ng-model="$ctrl.indirizzo">
-                    <label>{{'global.people.indirizzo' | translate}}</label>
-                </div>
-                <div class="col-lg-2 classicInputText">
-                    <button class="btn lightGrayButton formButton" ng-click="$ctrl.cercaCarrozzerie()"><i class="fa fa-search" aria-hidden="true"></i>&nbsp;{{'global.generic.cerca' | translate}}</button>
-                </div>
-            </form>
+            <div class="col-lg-10 classicInputText">
+                <input type="text" name="indirizzo" ng-model="$ctrl.indirizzo">
+                <label>{{'global.people.indirizzo' | translate}}</label>
+            </div>
+            <div class="col-lg-2 classicInputText">
+                <button class="btn lightGrayButton formButton" ng-click="$ctrl.cercaCarrozzerie()"><i class="fa fa-search" aria-hidden="true"></i>&nbsp;{{'global.generic.cerca' | translate}}</button>
+            </div>
+
 
             <div class="col-lg-12">
                 <pre>{{search}}</pre>
@@ -66,19 +65,22 @@
 
             </div>
 
+            <form name="cercaCarrozzeriaForm" novalidate>
 
-            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicInputTextDisabled margin-top-2">
-                <input type="text" name="carrozzeriaSelezionata" ng-model="$ctrl.carrozzeriaSelezionata.nome" ng-readonly="true">
-                <label>{{'global.carrozzeria.labels.selezionata' | translate}}</label>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicInputTextDisabled margin-top-2">
-                <input type="text" name="peritoAssociato" ng-model="$ctrl.peritoAssociato.denominazione" ng-readonly="true">
-                <label>{{'global.carrozzeria.labels.perito' | translate}}</label>
-            </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicInputTextDisabled margin-top-2">
+                    <input type="text" name="carrozzeriaSelezionata" ng-model="$ctrl.carrozzeriaSelezionata.nome" ng-readonly="true" ng-required="true">
+                    <label>{{'global.carrozzeria.labels.selezionata' | translate}}</label>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicInputTextDisabled margin-top-2">
+                    <input type="text" name="peritoAssociato" ng-model="$ctrl.peritoAssociato.denominazione" ng-readonly="true">
+                    <label>{{'global.carrozzeria.labels.perito' | translate}}</label>
+                </div>
+
+            </form>
 
             <div class="row">
                 <div class="col-lg-12 classicButton">
-                    <button class="blueButton" ng-click="$ctrl.salvaCarrozzeria()">
+                    <button class="blueButton" ng-click="$ctrl.salvaCarrozzeria()" ng-disabled="cercaCarrozzeriaForm.$invalid">
                         <a><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;{{'global.generic.salvaprocedi' | translate}}</a>
                     </button>
                 </div>

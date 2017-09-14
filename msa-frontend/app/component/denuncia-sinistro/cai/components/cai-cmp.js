@@ -49,13 +49,12 @@
                             }
                             parent.aggiornaMappe($ctrl.mapId);
                             toastr.success($translate('global.generic.saveok'));
-                            $scope.caiForm.$setPristine(true);
+                            $scope.caiForm.$setPristine();
                             $ctrl.isSaved = true;
                         } else {
                             toastr.error($translate('global.generic.saveko'));
                         }
                     });
-
                 };
 
                 $ctrl.calcolaResponsabilita = function () {

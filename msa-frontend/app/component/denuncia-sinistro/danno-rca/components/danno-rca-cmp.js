@@ -129,7 +129,7 @@
                         if (response.data.status === 200) {
                             parent.aggiornaMappe($ctrl.mapId);
                             toastr.success($translate('global.generic.saveok'));
-                            $scope.dannoRcaForm.$setPristine(true);
+                            $scope.dannoRcaForm.$setPristine();
                         } else {
                             toastr.error($translate('global.generic.saveko'));
                         }
@@ -156,7 +156,7 @@
                     modalInstance.result.then(function (controparte) {
                         DebugSvc.log("aggiungiControparte", controparte);
                         $ctrl.dannoRca.controparti.push(controparte);
-                        $scope.dannoRcaForm.$setPristine(false);
+                        $scope.dannoRcaForm.$setDirty();
                     }, function () {
                         DebugSvc.log("aggiungiControparte dismiss.");
                     });
@@ -164,7 +164,7 @@
 
                 $ctrl.rimuoviControparte = function (index) {
                     $ctrl.dannoRca.controparti.splice(index, 1);
-                    $scope.dannoRcaForm.$setPristine(false);
+                    $scope.dannoRcaForm.$setDirty();
                 };
 
                 $ctrl.calcolaCf = function () {
@@ -218,7 +218,7 @@
 
                         if((_.isObject(newValues.danniCliente) && newValues.danniCliente !== oldValues.danniCliente) ||
                            (_.isObject(newValues.danniControparte) && newValues.danniControparte !== oldValues.danniControparte)) {
-                            $scope.dannoRcaForm.$setPristine(false);
+                            $scope.dannoRcaForm.$setDirty();
                         }
 
                     }, true

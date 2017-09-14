@@ -1,6 +1,6 @@
 <div class="containerHeader">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container boxShadow">
-        <div class="header" ng-class="{'is-ok': legaleForm.$pristine, 'has-error': !legaleForm.$pristine}">
+        <div class="header" ng-class="{'is-ok': legaleForm.$pristine && legaleForm.$valid, 'has-error': !legaleForm.$pristine || !legaleForm.$valid}">
             <h1 class="titleSection">{{'global.legale.title' | translate}}</h1>
         </div>
     </div>
@@ -16,11 +16,11 @@
                 <div class="row">
                     <div class="col-lg-12 classicInputRadio">
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingLeft">
-                            <input type="radio" ng-value="true" name="legali" ng-model="$ctrl.presenzaLegali">
+                            <input type="radio" ng-value="true" name="legali" ng-model="$ctrl.presenzaLegali" ng-required="true">
                             <label class="rightLabel">{{'global.generic.si' | translate}}</label>
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingRight">
-                            <input type="radio" ng-value="false" name="legali" ng-model="$ctrl.presenzaLegali">
+                            <input type="radio" ng-value="false" name="legali" ng-model="$ctrl.presenzaLegali" ng-required="true">
                             <label class="rightLabel">{{'global.generic.no' | translate}}</label>
                         </div>
                         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 noPaddingRight">&nbsp;</div>
@@ -79,7 +79,8 @@
 
             <div class="row">
                 <div class="col-lg-12 classicButton">
-                    <button class="blueButton" ng-click="$ctrl.salvaLegali()">
+                    <button class="blueButton" ng-click="$ctrl.salvaLegali()"
+                            ng-disabled="legaleForm.$invalid || ($ctrl.presenzaLegali ? $ctrl.legali.length < 1 : false)">
                         <a><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;{{'global.generic.salvaprocedi' | translate}}</a>
                     </button>
                 </div>

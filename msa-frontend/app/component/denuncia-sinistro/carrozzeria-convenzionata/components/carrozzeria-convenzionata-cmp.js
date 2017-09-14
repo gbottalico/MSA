@@ -155,14 +155,21 @@
                     DebugSvc.log("selezionaCarrozzeria", $ctrl.visibleMarkers[index]);
                     $ctrl.carrozzeriaSelezionata = $ctrl.visibleMarkers[index];
                     $ctrl.peritoAssociato = $ctrl.visibleMarkers[index].perito;
+                    $scope.cercaCarrozzeriaForm.$setDirty();
                 };
 
                 $ctrl.salvaCarrozzeria = function () {
-                    //TODO salvataggio.
-                    $ctrl.tempSegnalazione.perito = $ctrl.peritoAssociato;
-                    parent.aggiornaMappe($ctrl.mapId);
-                    toastr.success($translate('global.generic.saveok'));
-                    $scope.cercaCarrozzeriaForm.$setPristine(true);
+                    SinistriSvc.salvaCarrozzeria($ctrl.numeroSinistroProvvisorio, $ctrl.carrozzeriaSelezionata).then(function (response) {
+                        if(response.data.status === 200) {
+                            $ctrl.tempSegnalazione.perito = $ctrl.peritoAssociato;
+                            parent.aggiornaMappe($ctrl.mapId);
+                            toastr.success($translate('global.generic.saveok'));
+                            $scope.cercaCarrozzeriaForm.$setPristine();
+                        } else {
+                            toastr.error($translate('global.generic.saveko'));
+                        }
+                    });
+
                 };
 
                 $ctrl.bindCarrozzeriaConvenzionata = function () {
@@ -179,6 +186,7 @@
                             $ctrl.indirizzo = $ctrl.sinistroProvvisorio.contraente.tracking.indirizzo + ", " + response.data.result;
                             $ctrl.cerca($ctrl.indirizzo);
                         });
+
 
                     }
                 };

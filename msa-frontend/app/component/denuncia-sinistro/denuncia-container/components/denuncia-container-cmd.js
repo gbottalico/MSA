@@ -81,6 +81,8 @@
                 };
 
                 $ctrl.isMappaVisibile = function (nomeMappa) {
+                    // if(!$ctrl.scrollable) TODO
+                    //     return false;
                     switch (nomeMappa) {
                         case 'M12':
                             return $ctrl.mappe.indexOf('M12') > -1;

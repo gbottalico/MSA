@@ -54,7 +54,7 @@
                             $ctrl.tempSegnalazione.garanzia = $ctrl.sinistro.garanzia;
                             parent.aggiornaMappe($ctrl.mapId);
                             toastr.success($translate('global.generic.saveok'));
-                            $scope.segnalazioneForm.$setPristine(true);
+                            $scope.segnalazioneForm.$setPristine();
                         } else {
                             toastr.error($translate('global.generic.saveko'));
                         }

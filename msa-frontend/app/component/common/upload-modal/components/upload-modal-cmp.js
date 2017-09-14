@@ -8,8 +8,8 @@
             close: '&',
             dismiss: '&'
         },
-        controller: ("uploadModalController", ['$scope', '$rootScope', '$filter', '$timeout', 'UtilSvc', 'DebugSvc', 'DocumentiSvc', 'toastr',
-            function ($scope, $rootScope, $filter, $timeout, UtilSvc, DebugSvc, DocumentiSvc, toastr) {
+        controller: ("uploadModalController", ['_', '$scope', '$rootScope', '$filter', '$timeout', 'UtilSvc', 'DebugSvc', 'DocumentiSvc', 'toastr',
+            function (_, $scope, $rootScope, $filter, $timeout, UtilSvc, DebugSvc, DocumentiSvc, toastr) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
@@ -31,7 +31,7 @@
                     $ctrl.buttonsEnabled = false;
                     DocumentiSvc.upload($ctrl.numeroSinistroProvvisorio, $ctrl.file).then(function (response) {
                         DebugSvc.log("upload", response);
-                        if (response.status === 200) { //TODO condizione moccata
+                        if (response.status === 200 && _.isObject(response.data) && response.data.status === 200) {
                             toastr.success($translate('global.generic.saveok'));
                             $ctrl.success = true;
                             $timeout(function () {
