@@ -127,7 +127,7 @@ public class SinistriService extends BaseSinistroService {
      */
     public BaseDTO<Map<String, Integer>> salvaSinistro(BaseSinistroDTO input) throws InternalMsaException {
         try {
-            if (input.getContraente().getVeicolo() != null && !input.getContraente().getVeicolo().matches("[0-9]{2}|[0-9]{1}")) {
+            if (input.getNumeroPolizza() != null) {
                 input.getContraente().setVeicolo(domainRepository.getElencoTipoVeicoli()
                         .stream()
                         .filter(e -> e.getDescVeicolo().equalsIgnoreCase(input.getContraente().getVeicolo()))
@@ -135,8 +135,6 @@ public class SinistriService extends BaseSinistroService {
                         .findFirst()
                         .map(Object::toString)
                         .orElse(null));
-            }
-            if (input.getNumeroPolizza() != null) {
                 final FullAnagraficaDTO proprietario = input.getProprietario();
                 final Optional<ProvinciaDO> provinviaBySiglaProvincia = domainRepository.getProvinviaBySiglaProvincia(proprietario.getTracking().getProvincia());
                 if (provinviaBySiglaProvincia.isPresent()) {
@@ -147,6 +145,7 @@ public class SinistriService extends BaseSinistroService {
                             provinviaBySiglaProvincia.map(ProvinciaDO::getCodProvincia).get(),
                             proprietario.getTracking().getDescComune()).stream().reduce((a, b) -> a).orElse(null);
                     proprietario.getTracking().setComune(comuneDO.getCodComune());
+                    input.setProprietario(proprietario);
                 }
             }
             final Integer numSinis = sinistriRepository.insertSinistroProvvisorioAndGetNum(converter.convertObject(input, BaseSinistroDO.class));
