@@ -154,6 +154,8 @@ public class BaseSinistroService extends BaseService {
                         sinistroByNumProvv.setDannoRca(converter.convertObject(o, DannoRcaDO.class));
                     } else {
                         final DannoRcaDO dannoRcaDO = converter.convertObject(o, DannoRcaDO.class);
+                        sinistroByNumProvv.getDannoRca().setLesioniConducente(dannoRcaDO.getLesioniConducente());
+                        sinistroByNumProvv.getDannoRca().setConducenteDiverso(dannoRcaDO.getConducenteDiverso());
                         sinistroByNumProvv.getDannoRca().setAnagraficaDanniCliente(dannoRcaDO.getAnagraficaDanniCliente());
                         sinistroByNumProvv.getDannoRca().setLesioniConducente(dannoRcaDO.getLesioniConducente());
                     }

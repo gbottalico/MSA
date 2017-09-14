@@ -87,8 +87,8 @@ public class DispatcherService extends DispatcherUtils {
                     }).orElse(null);
         }
         //TODO FIXME!!!!!!!!!!
-        if(navigazioneAggiornata.getViewNavigate().entrySet().stream().map(Map.Entry::getValue).filter(e -> e.equalsIgnoreCase("M22")).count() == 1L) {
-            navigazioneAggiornata.getViewNavigate().put(6,"M23");
+        if (navigazioneAggiornata.getViewNavigate().entrySet().stream().map(Map.Entry::getValue).filter(e -> e.equalsIgnoreCase("M22")).count() == 1L) {
+            navigazioneAggiornata.getViewNavigate().put(6, "M23");
         }
         return navigazioneAggiornata;
     }
@@ -106,14 +106,14 @@ public class DispatcherService extends DispatcherUtils {
 
     public Integer getPercentualeAvanzamento(DispatcherDTO dispatcherDTO) throws InternalMsaException {
         final List<Pair<String, Integer>> pairs = dispatcherRepository.getAllInterfaceByGaranzia(dispatcherDTO.getGaranziaSelected()).orElse(null);
-        final String integerStringEntry = getNextInterface(dispatcherDTO)
-                .getViewNavigate()
-                .entrySet()
+        final Map<Integer, String> viewNavigate = getNextInterface(dispatcherDTO).getViewNavigate();
+        final String integerStringEntry = viewNavigate.entrySet()
                 .stream()
+                .limit(viewNavigate.entrySet().size()-1)
                 .map(Map.Entry::getValue)
                 .max(Comparators.naturalOrder()).orElse(null);
 
-        return pairs.stream().filter(e -> e.getKey().equals(integerStringEntry)).map(Pair::getValue).findFirst().orElse(0);
+        return pairs.stream().filter(e -> e.getKey().equals(integerStringEntry)).map(Pair::getValue).findFirst().orElse(100);
 
     }
 }
