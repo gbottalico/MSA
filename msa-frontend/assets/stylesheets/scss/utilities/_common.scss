@@ -568,6 +568,12 @@ table.dettagliopolizzatable {
         right: 0;
         font-size: 2.5rem;
       }
+      .modal-close {
+        position: absolute;
+        right: 2rem;
+        cursor: pointer;
+      }
+
     }
     .modal-body, .modal-footer {
       display: inline-block;

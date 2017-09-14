@@ -164,7 +164,8 @@
                 $scope.$watch(
                     function watchScope(scope) {
                         return {
-                            numeroSinistroProvvisorio: $ctrl.numeroSinistroProvvisorio
+                            numeroSinistroProvvisorio: $ctrl.numeroSinistroProvvisorio,
+                            sinprov: $ctrl.sinistroProvvisorio
                         };
                     },
                     function handleChanges(newValues, oldValues) {
@@ -172,6 +173,7 @@
                         if (newValues.numeroSinistroProvvisorio !== undefined && !(isNaN(newValues.numeroSinistroProvvisorio))) {
                             $ctrl.getSinistroProvvisorio(newValues.numeroSinistroProvvisorio);
                         }
+
                     }, true
                 );
 
