@@ -1,0 +1,226 @@
+<div class="modal-header">
+    <h1>{{'global.people.anagrafica' | translate}}</h1>
+</div>
+
+<div class="modal-body ">
+
+    <form name="anagraficaForm" novalidate>
+
+        <div class="col-lg-12" ng-if="$ctrl.hasCompagnia">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputText"
+                     ng-class="{'has-error': anagraficaForm.compagnia.$invalid && !anagraficaForm.compagnia.$pristine}">
+                    <input name="compagnia" type="text" ng-model="$ctrl.compagniaSelezionata"
+                           uib-typeahead="compagnia as compagnia.descrizione for compagnia in $ctrl.getCompagnie($viewValue)"
+                           ng-required="true" autocomplete="off">
+                    <label>{{'global.people.compagnia' | translate}}</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-12" ng-if="$ctrl.hasCompagnia">
+            <hr class="blueLine"/>
+        </div>
+
+        <div class="col-lg-12"><span class="subsectionTitle">Tipologia</span></div> <!-- TODO stringe scolpite -->
+        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 classicInputRadio">
+            <div class="col-lg-6 noPaddingLeft">
+                <input type="radio" value="PF" name="tipologia" ng-model="$ctrl.anagrafica.tipoPersona"
+                       ng-required="true">
+                <label class="rightLabel">{{'global.generic.pf' | translate}}</label>
+            </div>
+            <div class="col-lg-6 noPaddingRight">
+                <input type="radio" value="PG" name="tipologia" ng-model="$ctrl.anagrafica.tipoPersona"
+                       ng-required="true">
+                <label class="rightLabel">{{'global.generic.pg' | translate}}</label>
+            </div>
+        </div>
+
+        <div ng-hide="$ctrl.hasRole" class="col-lg-4 col-md-4 hidden-sm hidden-xs">&nbsp;</div>
+        <div ng-show="$ctrl.hasRole" class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputText">
+            <select name="ruolo" ng-model="$ctrl.anagrafica.ruolo">
+                <option ng-repeat="ruolo in $ctrl.ruoli" value="{{ruolo.id}}">{{ruolo.descrizione}}</option>
+            </select>
+            <label>{{'global.people.ruolo' | translate}}</label>
+        </div>
+
+        <div class="col-lg-12">
+            <hr class="blueLine"/>
+        </div>
+        <div class="col-lg-12"><span class="subsectionTitle">Generalità</span></div>
+
+        <!-- SE PERSONA FISICA -->
+        <div class="col-lg-12" ng-if="$ctrl.anagrafica.tipoPersona === $ctrl.TipologiaEnum.FISICA">
+            <div class="row">
+                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 classicInputText"
+                     ng-class="{'has-error': anagraficaForm.cognome.$invalid && !anagraficaForm.cognome.$pristine}">
+                    <input type="text" name="cognome" ng-model="$ctrl.anagrafica.cognome" ng-required="true">
+                    <label>{{'global.people.cognome' | translate}}</label>
+                </div>
+                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 classicInputText"
+                     ng-class="{'has-error': anagraficaForm.nome.$invalid && !anagraficaForm.nome.$pristine}">
+                    <input type="text" name="nome" ng-model="$ctrl.anagrafica.nome" ng-required="true">
+                    <label>{{'global.people.nome' | translate}}</label>
+                </div>
+
+                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 classicInputRadio">
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 noPaddingLeft">
+                        <input type="radio" value="m" checked name="sesso" ng-model="$ctrl.anagrafica.sesso">
+                        <label class="rightLabel">{{'global.generic.male' | translate}}</label>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 noPaddingRight">
+                        <input type="radio" value="f" name="sesso" ng-model="$ctrl.anagrafica.sesso">
+                        <label class="rightLabel">{{'global.generic.female' | translate}}</label>
+                    </div>
+                    <div class="col-lg-4 col-md-4 hidden-sm hidden-xs noPaddingRight">&nbsp;</div>
+                    <label>{{'global.people.sesso' | translate}}</label>
+                </div>
+            </div>
+        </div>
+        <!-- SE PERSONA GIURIDICA -->
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputText"
+             ng-if="$ctrl.anagrafica.tipoPersona === $ctrl.TipologiaEnum.GIURIDICA">
+            <input type="text" name="ragionesociale" ng-model="$ctrl.anagrafica.ragioneSociale">
+            <label>{{'global.people.ragionesociale' | translate}}</label>
+        </div>
+
+        <!-- SOLO SE PERSONA FISICA -->
+        <div class="col-lg-12" ng-if="$ctrl.anagrafica.tipoPersona === $ctrl.TipologiaEnum.FISICA">
+            <div class="row">
+                <div class="col-lg-12">
+                    <hr class="blueLine"/>
+                </div>
+                <div class="col-lg-12"><span class="subsectionTitle">Luogo e Data di Nascita</span></div>
+
+                <msa-place result="$ctrl.anagrafica.nascita"></msa-place>
+                <div class="col-lg-12 classicInputText">
+                    <msa-date-selector data-result="$ctrl.anagrafica.nascita.data"
+                                       data-required="true"></msa-date-selector>
+                    <label>Data di Nascita</label>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-lg-12">
+            <hr class="blueLine"/>
+        </div>
+
+        <!-- SE PERSONA FISICA -->
+        <div class="col-lg-12" ng-if="$ctrl.anagrafica.tipoPersona === $ctrl.TipologiaEnum.FISICA">
+
+            <div class="row">
+
+                <div class="col-lg-12">
+                    <span class="subsectionTitle">{{'global.people.cf' | translate}}</span>
+                </div>
+
+                <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 classicInputText"
+                     ng-class="{'has-error': anagraficaForm.cf.$invalid && !anagraficaForm.cf.$pristine}">
+                    <input type="text"
+                           name="cf"
+                           ng-model="$ctrl.anagrafica.cf"
+                           ng-required="true"
+                           ng-pattern="$regex.reCodiceFiscale">
+                    <label>{{'global.people.cf' | translate}}</label>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 classicInputText">
+                    <button class="btn lightGrayButton full-width" ng-click="$ctrl.calcolaCf()"
+                            ng-disabled="$ctrl.isCalcolaCfDisabled()">Calcola
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- SE PERSONA GIURIDICA -->
+        <div class="col-lg-12" ng-if="$ctrl.anagrafica.tipoPersona === $ctrl.TipologiaEnum.GIURIDICA">
+
+            <div class="row">
+
+                <div class="col-lg-12">
+                    <span class="subsectionTitle">{{'global.people.piva' | translate}}</span>
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputText"
+                     ng-class="{'has-error': anagraficaForm.cf.$invalid && !anagraficaForm.cf.$pristine}">
+                    <input type="text" name="cf" ng-model="$ctrl.anagrafica.cf" ng-pattern="$regex.rePartitaIva">
+                    <label>{{'global.people.piva' | translate}}</label>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- In tutti i casi -->
+        <div class="col-lg-12">
+            <hr class="blueLine"/>
+        </div>
+        <div class="col-lg-12">
+            <span class="subsectionTitle">{{'global.people.tracking' | translate}}</span>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicInputText"
+             ng-class="{'has-error': anagraficaForm.telefono.$invalid && !anagraficaForm.telefono.$pristine}">
+            <input type="text" name="telefono" ng-model="$ctrl.anagrafica.telefono" ng-pattern="$regex.reTelefono">
+            <label>{{'global.people.telefono' | translate}}</label>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicInputText"
+             ng-class="{'has-error': anagraficaForm.mail.$invalid && !anagraficaForm.mail.$pristine}">
+            <input type="text" name="mail" ng-model="$ctrl.anagrafica.mail" ng-pattern="$regex.reEmail">
+            <label>{{'global.people.email' | translate}}</label>
+        </div>
+
+
+        <div class="col-lg-12">
+            <hr class="blueLine"/>
+        </div>
+        <div class="col-lg-12">
+            <span class="subsectionTitle" ng-if="$ctrl.anagrafica.tipoPersona === $ctrl.TipologiaEnum.FISICA">{{'global.people.residenza' | translate}}</span>
+            <span class="subsectionTitle" ng-if="$ctrl.anagrafica.tipoPersona === $ctrl.TipologiaEnum.GIURIDICA">{{'global.people.posizione' | translate}}</span>
+        </div>
+
+        <msa-place result="$ctrl.anagrafica.residenza"></msa-place>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputText">
+            <input type="text" name="denominazioneStrada" ng-model="$ctrl.anagrafica.residenza.indirizzo"
+                   ng-required="true">
+            <label>{{'global.denunciasinitro.labels.indirizzo' | translate}}</label>
+        </div>
+
+
+        <!-- SOLO SE IL RUOLO PUO AVERE LESIONI -->
+        <div class="col-lg-12" ng-if="$ctrl.ruoloConLesioni">
+
+            <div class="row">
+
+                <div class="col-lg-12">
+                    <hr class="blueLine"/>
+                </div>
+
+                <div class="col-lg-12">
+                    <span class="subsectionTitle">Lesioni</span>
+                    <pre>{{$ctrl.anagrafica.lesioni}}</pre>
+                </div>
+
+                <div class="col-lg-12 classicInputCheckBox margin-top-1">
+                    <div>
+                        <input type="checkbox" id="checkLesioni" ng-checked="$ctrl.anagrafica.lesioni"
+                               ng-model="$ctrl.anagrafica.lesioni">
+                        <label for="checkLesioni" class="rightLabel">Il soggetto ha riportato lesioni?</label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </form>
+</div>
+
+<div class="modal-footer">
+    <div class="col-lg-12">
+        <button class="btn grayButton" type="button" ng-click="$ctrl.cancel()">Cancel</button>
+        <button class="btn blueButton" type="button" ng-click="$ctrl.ok()" ng-disabled="anagraficaForm.$invalid">OK
+        </button>
+    </div>
+</div>
