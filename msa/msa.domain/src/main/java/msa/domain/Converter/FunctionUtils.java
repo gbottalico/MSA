@@ -123,4 +123,14 @@ public final class FunctionUtils {
     public static<T> List<T> castValueByClass(List<Object> elems, Class<T> clazz) {
         return elems.stream().map(e -> castValueByClass(e,clazz)).collect(Collectors.toList());
     }
+
+    //ritorna il frutto della funzione se l' optional è pieno altrimenti null
+    public static<T,U> U execIfIsPresent(final Optional<T> optional, final Function<T,U> mapper) {
+        return optional.map(mapper).orElse(null);
+    }
+
+    //ritorna il frutto della funzione se l' optional è pieno altrimenti null solo se soddisfa la condizione del predicate
+    public static<T,U> U execIfIsPresent(final Optional<T> optional, final Function<T,U> mapper, final Predicate<T> condition) {
+        return optional.filter(condition).map(mapper).orElse(null);
+    }
 }

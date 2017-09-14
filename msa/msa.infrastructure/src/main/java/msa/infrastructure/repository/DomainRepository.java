@@ -223,8 +223,9 @@ public class DomainRepository extends BaseRepository {
 
     public Optional<ComuneDO> getComuneById(final String id) {
         return Optional.ofNullable(converter.convertObject(findOne(ComuneDBO.class,
-                Pair.of(getMongoNameByAttributeName("codComune", ComuneDBO.class),  FunctionUtils.numberConverter(id, Integer::valueOf))
-        ), ComuneDO.class));    }
+                Pair.of(getMongoNameByAttributeName("codComune", ComuneDBO.class), FunctionUtils.numberConverter(id, Integer::valueOf))
+        ), ComuneDO.class));
+    }
 
     public Optional<NazioneDO> getNazioneById(final String id) {
         return Optional.ofNullable(converter.convertObject(findById(NazioneDBO.class, FunctionUtils.numberConverter(id, Integer::valueOf)), NazioneDO.class));
@@ -236,4 +237,11 @@ public class DomainRepository extends BaseRepository {
         ), ProvinciaDO.class));
     }
 
+    public Optional<ProvinciaDO> getProvinviaBySiglaProvincia(final String provincia) {
+        final Query query = getCriteriaQueryBuilder().addCriteria(
+                Criteria.where(
+                        getMongoNameByAttributeName("siglaProv", ProvinciaDBO.class))
+                        .is(provincia));
+        return findAll(ProvinciaDBO.class,query).stream().reduce((a,b) -> a).map(e -> converter.convertObject(e,ProvinciaDO.class));
+    }
 }
