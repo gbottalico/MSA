@@ -9,7 +9,7 @@ public class DannoRcaDBO {
     private Boolean lesioniConducente;
     @Field("conducenteDiverso")
     private Boolean conducenteDiverso;
-    @Field("anagraficaDanniCliente")
+    @Field("anagraficaDanniConducente")
     private AnagraficaDanniDBO anagraficaDanniCliente;
     @Field("anagraficaDanniControparte")
     private List<AnagraficaDanniDBO> anagraficaDanniControparte;

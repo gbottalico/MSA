@@ -31,8 +31,24 @@ angular.module('msa').service(
                 var dataObj = {};
                 dataObj.compagnia = compagnia;
                 dataObj.contraente = ConvertSvc.anagraficaToDTO(datiContraente);
-                if (polizza != null) {
+                if (polizza !== null) {
                     dataObj.numeroPolizza = polizza.numPolizza;
+                    dataObj.proprietario = {
+                        cf: polizza.codfiscProprietario,
+                        cognome: polizza.cognomeProprietario,
+                        nome: polizza.nomeProprietario,
+                        ragioneSociale: null,//TODO CHECK
+                        tipoPersona: "PF", //TODO CHECK
+                        tracking: {
+                            cap: polizza.capProprietario,
+                            comune: null,
+                            descComune: polizza.cittaProprietario,
+                            descNazione: "ITALIA", //TODO CHECK
+                            descProvincia: null,
+                            nazione: "1", // TODO MOCK
+                            provincia: polizza.provinciaProprietario
+                        }
+                    };
                 }
 
                 //TODO fix
@@ -202,7 +218,7 @@ angular.module('msa').service(
                     dataObj.anagraficaDanniCliente.anagrafica = ConvertSvc.anagraficaToDTO(dannoRca.conducente);
                 }
 
-                if(dannoRca.veicoloCliente) {
+                if (dannoRca.veicoloCliente) {
                     dataObj.anagraficaDanniCliente.anagrafica.targa = dannoRca.veicoloCliente.targa;
                     dataObj.anagraficaDanniCliente.anagrafica.targaEstera = dannoRca.veicoloCliente.estera;
                     dataObj.anagraficaDanniCliente.anagrafica.targaSpeciale = dannoRca.veicoloCliente.speciale;
