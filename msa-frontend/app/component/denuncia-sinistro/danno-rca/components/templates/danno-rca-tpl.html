@@ -133,11 +133,11 @@
                             <span class="subsectionTitle">{{'global.people.tracking' | translate}}</span>
                         </div>
 
-                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicInputText">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicInputText" ng-class="{'has-error' : dannoRcaForm.telefono.$invalid && !dannoRcaForm.telefono.$pristine}">
                             <input type="text" name="telefono" ng-model="$ctrl.dannoRca.conducente.telefono" ng-pattern="$regex.reTelefono">
                             <label>{{'global.people.telefono' | translate}}</label>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicInputText">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicInputText" ng-class="{'has-error' : dannoRcaForm.mail.$invalid && !dannoRcaForm.mail.$pristine}">
                             <input type="text" name="mail" ng-model="$ctrl.dannoRca.conducente.mail" ng-pattern="$regex.reEmail">
                             <label>{{'global.people.email' | translate}}</label>
                         </div>
