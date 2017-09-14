@@ -17,6 +17,7 @@ public class BaseSinistroDTO extends AbstractDTO {
 
     private String id;
     private FullAnagraficaControparteDTO contraente;
+    private FullAnagraficaDTO proprietario;
     private String numeroPolizza;
     private String compagnia;
     private String targa;
@@ -40,6 +41,14 @@ public class BaseSinistroDTO extends AbstractDTO {
 
     public void setContraente(FullAnagraficaControparteDTO contraente) {
         this.contraente = contraente;
+    }
+
+    public FullAnagraficaDTO getProprietario() {
+        return proprietario;
+    }
+
+    public void setProprietario(FullAnagraficaDTO proprietario) {
+        this.proprietario = proprietario;
     }
 
     public String getNumeroPolizza() {
