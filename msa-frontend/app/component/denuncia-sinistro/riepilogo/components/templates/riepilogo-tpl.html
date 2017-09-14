@@ -9,215 +9,167 @@
 <div class="containerBody">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container boxShadow">
         <div class="body">
+
             <div class="col-lg-12">
-                <div class="col-lg-12">
-                    <span class="subsectionTitle">{{'global.denunciasinitro.labels.datiDenunciante' | translate}}</span>
+                <span class="subsectionTitle">{{'global.denunciasinitro.labels.datiDenunciante' | translate}}</span>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputTextDisabled">
+                <input type="text" name="nome" ng-model="$ctrl.nomeCognome" ng-readonly="true">
+                <label>{{'global.denunciasinitro.labels.nome' | translate}}</label>
+            </div>
 
 
-                </div>
-
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputText">
-                    <input type="text" name="nome" ng-model="$ctrl.nomeCognome" ng-readonly="true">
-                    <label>{{'global.denunciasinitro.labels.nome' | translate}}
-                        {{'global.denunciasinitro.labels.cognome' |
-                        translate}}</label>
-                </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputTextDisabled">
+                <input type="text" name="luogosinistro" ng-model="$ctrl.luogoSinistro" ng-readonly="true">
+                <label>{{'global.denunciasinitro.labels.luogoSinistro' | translate}}</label>
+            </div>
 
 
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputText">
-                    <input type="text" name="luogosinistro" ng-model="$ctrl.luogoSinistro" ng-readonly="true">
-                    <label>{{'global.denunciasinitro.labels.luogoSinistro' | translate}}</label>
-                </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 classicInputTextDisabled">
+                <input type="text" name="cellulare" ng-model="$ctrl.cellulare" ng-readonly="true">
+                <label>{{'global.denunciasinitro.labels.cellulare' | translate}}</label>
+            </div>
 
-
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 classicInputText">
-                    <input type="text" name="cellulare" ng-model="$ctrl.cellulare" ng-readonly="true">
-                    <label>{{'global.denunciasinitro.labels.cellulare' | translate}}</label>
-                </div>
-
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 classicInputText"
-                     ng-class="{'has-error' : segnalazioneForm.cellulare.$invalid && !segnalazioneForm.cellulare.$pristine}">
-                    <input type="text" name="email" ng-model="$ctrl.email" ng-readonly="true">
-                    <label>{{'global.denunciasinitro.labels.email' | translate}}</label>
-                </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 classicInputTextDisabled">
+                <input type="text" name="email" ng-model="$ctrl.email" ng-readonly="true">
+                <label>{{'global.denunciasinitro.labels.email' | translate}}</label>
             </div>
 
             <div class="col-lg-12">
-                <div class="col-lg-12">
-                    <span class="subsectionTitle">{{'global.eventorca.labels.dettaglievento' | translate}}</span>
+                <span class="subsectionTitle">{{'global.eventorca.labels.dettaglievento' | translate}}</span>
+
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 classicInputTextDisabled">
+                <input type="text" name="numveicoli" ng-model="$ctrl.numveicoli" ng-readonly="true">
+                <label>{{'global.generic.veicolicoinvolti' | translate}}</label>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 classicInputTextDisabled">
+                <input type="text" name="garanziaselected" ng-model="$ctrl.garanzia" ng-readonly="true">
+                <label>{{'global.polizzesinistri.labels.garanzia' | translate}}</label>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 classicInputCheckBox">
+                <input type="checkbox" name="interventoautorita" ng-checked="$ctrl.interventoAutorita"
+                       ng-readonly="true">
+                <label>{{'global.eventorca.labels.intervento' | translate}}</label>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 classicInputCheckBox">
+                <input type="checkbox" name="constatazione" ng-checked="$ctrl.constatazione"
+                       ng-readonly="true">
+                <label>{{'global.ca.title' | translate}}</label>
+            </div>
 
 
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 classicInputText">
-                    <input type="text" name="numveicoli" ng-model="$ctrl.numveicoli" ng-readonly="true">
-                    <label>{{'global.generic.veicolicoinvolti' | translate}}</label>
-                </div>
+            <div class="col-lg-12">
+                <span class="subsectionTitle">{{'global.legale.title' | translate}}</span>
+            </div>
 
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 classicInputText">
-                    <input type="text" name="garanziaselected" ng-model="$ctrl.garanzia" ng-readonly="true">
-                    <label>{{'global.polizzesinistri.labels.garanzia' | translate}}</label>
+
+            <div class="col-lg-12" ng-show="$ctrl.legali.length &gt; 0">
+                <div class="table-responsive">
+                    <table class="table msa-table">
+                        <thead>
+                        <tr class="header">
+                            <th>{{'global.people.nomecognome'| translate}}</th>
+                            <th>{{'global.people.cfopiva'| translate}}</th>
+                            <th>{{'global.people.indirizzo'| translate}}</th>
+                            <th>{{'global.people.telefono'| translate}}</th>
+
+
+                        </tr>
+
+                        </thead>
+                        <tr ng-repeat="legale in $ctrl.legali">
+                            <td><p>{{legale.nome }} {{ legale.cognome |uppercase}}</p></td>
+                            <td><p>{{legale.cf | uppercase}}</p></td>
+                            <td><p>{{legale.tracking.indirizzo}}</p></td>
+                            <td><p>{{legale.tracking.telefono }}</p></td>
+
+                        </tr>
+
+                    </table>
                 </div>
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 classicInputCheckBox">
-                    <input type="checkbox" name="interventoautorita" ng-checked="$ctrl.interventoAutorita"
+            </div>
+
+
+            <div class="col-lg-12" ng-show="$ctrl.legali.length === 0">
+                Nessun legale
+            </div>
+
+
+            <div class="col-lg-12">
+                <span class="subsectionTitle">{{'global.generic.particoinvolte' | translate}}</span>
+            </div>
+            <div class="col-lg-12">
+                <div class="table-responsive">
+                    <table class="table msa-table">
+                        <thead>
+                        <tr>
+                            <th>{{'global.people.nomecognome'| translate}}</th>
+                            <th>{{'global.people.cfopiva'| translate}}</th>
+                            <th>{{'global.people.indirizzo'| translate}}</th>
+                            <th>{{'global.people.telefono'| translate}}</th>
+                            <th>{{'global.veicolo.targa'|translate}}</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr ng-repeat="controparte in $ctrl.controparti" ng-show="$ctrl.contropartePresente">
+                            <td><p class="capitalized">
+                                {{controparte.anagrafica.nome}}
+                            </p></td>
+                            <td><p class="capitalized">{{controparte.anagrafica.cognome | uppercase}}</p></td>
+                            <td><p>{{controparte.anagrafica.tracking.indirizzo}}</p></td>
+                            <td><p>{{$ctrl.controparte.anagrafica.tracking.telefono }}</p></td>
+                            <td><p>{{$ctrl.controparte.anagrafica.targa }}</p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+
+            <div class="col-lg-12">
+                <span class="subsectionTitle">{{'global.perito.title' | translate}}</span>
+            </div>
+            <div ng-show="$ctrl.perito!==undefined ">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 classicInputTextDisabled">
+                    <input type="text" name="denominazione" ng-model="$ctrl.perito.denominazione"
                            ng-readonly="true">
-                    <label>{{'global.eventorca.labels.intervento' | translate}}</label>
+                    <label>{{'global.perito.labels.denominazione' | translate }}</label>
+
+
                 </div>
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 classicInputCheckBox">
-                    <input type="checkbox" name="constatazione" ng-checked="$ctrl.constatazione"
-                           ng-readonly="true">
-                    <label>{{'global.ca.title' | translate}}</label>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 classicInputTextDisabled">
+                    <input type="text" name="cfperito" ng-model="$ctrl.perito.cfPartitaIva" ng-readonly="true">
+                    <label>{{'global.people.cfopiva' | translate }}</label>
+
+
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 classicInputTextDisabled">
+                    <input type="text" name="telefono" ng-model="$ctrl.perito.telefono" ng-readonly="true">
+                    <label>{{'global.people.telefono' | translate }}</label>
+
+
                 </div>
             </div>
+            <div class="col-lg-12" ng-show="$ctrl.perito===undefined">Nessun perito selezionato.</div>
 
 
             <div class="col-lg-12">
-                <div class="col-lg-12">
-                    <span class="subsectionTitle">{{'global.legale.title' | translate}}</span>
-                </div>
-
-
-                <div class="col-lg-12" ng-show="$ctrl.legali.length &gt; 0">
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                            <tr class="header">
-                                <th>{{'global.people.nomecognome'| translate}}</th>
-                                <th>{{'global.people.cfopiva'| translate}}</th>
-                                <th>{{'global.people.indirizzo'| translate}}</th>
-                                <th>{{'global.people.telefono'| translate}}</th>
-
-
-                            </tr>
-
-                            </thead>
-                            <tr ng-repeat="legale in $ctrl.legali">
-                                <td><p>{{legale.nome }} {{ legale.cognome |uppercase}}</p></td>
-                                <td><p>{{legale.cf | uppercase}}</p></td>
-                                <td><p>{{legale.tracking.indirizzo}}</p></td>
-                                <td><p>{{legale.tracking.telefono }}</p></td>
-
-                            </tr>
-
-                        </table>
-                    </div>
-                </div>
-
-
-                <div class="col-lg-12" ng-show="$ctrl.legali.length ===0">
-                    Nessun legale
-                </div>
-
-
+                <span class="subsectionTitle">{{'global.carrozzeria.title' | translate}}</span>
             </div>
 
 
-            <div class="col-lg-12">
-                <div class="col-lg-12">
-                    <span class="subsectionTitle">{{'global.generic.particoinvolte' | translate}}</span>
-                </div>
-                <div class="col-lg-12">
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                            <tr class="header">
-                                <th>{{'global.people.nomecognome'| translate}}</th>
-                                <th>{{'global.people.cfopiva'| translate}}</th>
-                                <th>{{'global.people.indirizzo'| translate}}</th>
-                                <th>{{'global.people.telefono'| translate}}</th>
-                                <th>{{'global.veicolo.targa'|translate}}</th>
-
-
-                            </tr>
-
-                            </thead>
-
-                            <tbody>
-                            <tr>
-                                <td><p class="capitalized">{{$ctrl.conducente.nome}} {{$ctrl.conducente.cognome}}</p>
-                                </td>
-                                <td><p class="capitalized">{{$ctrl.conducente.cognome | uppercase}}</p></td>
-                                <td><p>{{$ctrl.conducente.tracking.indirizzo}}</p></td>
-                                <td><p>{{$ctrl.conducente.tracking.telefono }}</p></td>
-                                <td><p>{{$ctrl.targaConducente}}</p></td>
-
-
-                            </tr>
-
-                            <tr ng-repeat="controparte in $ctrl.controparti" ng-show="$ctrl.contropartePresente">
-                                <td><p class="capitalized">
-                                    {{controparte.anagrafica.nome}}
-                                </p></td>
-                                <td><p class="capitalized">{{controparte.anagrafica.cognome | uppercase}}</p></td>
-                                <td><p>{{controparte.anagrafica.tracking.indirizzo}}</p></td>
-                                <td><p>{{$ctrl.controparte.anagrafica.tracking.telefono }}</p></td>
-                                <td><p>{{$ctrl.controparte.anagrafica.targa }}</p></td>
-
-
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputTextDisabled" ng-show="$ctrl.centroconv">
+                <input type="text" name="centro" ng-model="$ctrl.centroconv.denominazioen" ng-readonly="true" >
+                <label>{{'global.carrozzeria.title' | translate }}</label>
             </div>
 
-
-            <div class="col-lg-12">
-                <div class="col-lg-12">
-                    <span class="subsectionTitle">{{'global.perito.title' | translate}}</span>
-
-
-                </div>
-                <div class="col-lg-12" ng-show="$ctrl.perito!==undefined ">
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 classicInputText">
-                        <input type="text" name="denominazione" ng-model="$ctrl.perito.denominazione"
-                               ng-readonly="true">
-                        <label>{{'global.perito.labels.denominazione' | translate }}</label>
-
-
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 classicInputText">
-                        <input type="text" name="cfperito" ng-model="$ctrl.perito.cfPartitaIva" ng-readonly="true">
-                        <label>{{'global.people.cfopiva' | translate }}</label>
-
-
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 classicInputText">
-                        <input type="text" name="telefono" ng-model="$ctrl.perito.telefono" ng-readonly="true">
-                        <label>{{'global.people.telefono' | translate }}</label>
-
-
-                    </div>
-                </div>
-                <div class="col-lg-12" ng-show="$ctrl.perito===undefined">Nessun perito selezionato.</div>
-
-            </div>
-
-            <div class="lg-col-12">
-
-
-                <div class="col-lg-12">
-                    <span class="subsectionTitle">{{'global.carrozzeria.title' | translate}}</span>
-
-
-                </div>
-
-
-                <div class="col-lg-12" ng-show="$ctrl.centroconv !== null">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputText">
-                        <input type="text" name="centro" ng-model="$ctrl.centroconv.denominazioen" ng-readonly="true">
-                        <label>{{'global.carrozzeria.title' | translate }}</label>
-
-
-                    </div>
-
-
-                </div>
-
-                <div class="col-lg-12" ng-show="$ctrl.centroconv === null">
-                    Nessun centro convenzionato selezionato.
-
-                </div>
+            <div class="col-lg-12" ng-show="$ctrl.centroconv === null">
+                Nessun centro convenzionato selezionato.
             </div>
 
 

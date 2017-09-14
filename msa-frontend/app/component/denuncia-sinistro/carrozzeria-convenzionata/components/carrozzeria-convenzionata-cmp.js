@@ -111,6 +111,7 @@
                         marker.nome = carrozzeria.denominazione;
                         marker.perito = carrozzeria.perito;
                         marker.icon = $ctrl.wrenchIcon;
+                        marker.fullData = carrozzeria;
                         temp.push(marker);
                     });
                     $ctrl.markers = temp;
@@ -142,7 +143,7 @@
 
                     $ctrl.markers.forEach(function (element, index) {
                         var latLng = new google.maps.LatLng(element.latitude, element.longitude);
-                        if(bounds.contains(latLng)) {
+                        if (bounds.contains(latLng)) {
                             visibleMarkers.push(element);
                         }
                     });
@@ -153,14 +154,14 @@
 
                 $ctrl.selezionaCarrozzeria = function (index) {
                     DebugSvc.log("selezionaCarrozzeria", $ctrl.visibleMarkers[index]);
-                    $ctrl.carrozzeriaSelezionata = $ctrl.visibleMarkers[index];
+                    $ctrl.carrozzeriaSelezionata = $ctrl.visibleMarkers[index].fullData;
                     $ctrl.peritoAssociato = $ctrl.visibleMarkers[index].perito;
                     $scope.cercaCarrozzeriaForm.$setDirty();
                 };
 
                 $ctrl.salvaCarrozzeria = function () {
                     SinistriSvc.salvaCarrozzeria($ctrl.numeroSinistroProvvisorio, $ctrl.carrozzeriaSelezionata).then(function (response) {
-                        if(response.data.status === 200) {
+                        if (response.data.status === 200) {
                             $ctrl.tempSegnalazione.perito = $ctrl.peritoAssociato;
                             parent.aggiornaMappe($ctrl.mapId);
                             toastr.success($translate('global.generic.saveok'));
@@ -186,9 +187,13 @@
                             $ctrl.indirizzo = $ctrl.sinistroProvvisorio.contraente.tracking.indirizzo + ", " + response.data.result;
                             $ctrl.cerca($ctrl.indirizzo);
                         });
-
-
                     }
+
+                    if(_.isObject($ctrl.sinistroProvvisorio.centroConvenzionato)) {
+                        $ctrl.carrozzeriaSelezionata = $ctrl.sinistroProvvisorio.centroConvenzionato;
+                        $ctrl.peritoAssociato = $ctrl.sinistroProvvisorio.centroConvenzionato.perito;
+                    }
+
                 };
 
                 $timeout(function () {
@@ -203,7 +208,7 @@
                     },
                     function handleChanges(newValues, oldValues) {
 
-                        if (newValues.sinistroProvvisorio !== undefined) {
+                        if (_.isObject(newValues.sinistroProvvisorio)) {
                             $ctrl.bindCarrozzeriaConvenzionata();
                         }
 
