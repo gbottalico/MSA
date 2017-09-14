@@ -26,6 +26,9 @@ public class SinistroDBO extends AbstractDBO {
     private CaiDBO cai;
     @Field("dannoRCA")
     private DannoRcaDBO dannoRca;
+
+    @Field("flagIsCard")
+    private Boolean flagSinistroCard;
     @Field("terzeParti")
     private List<AnagraficaTerzePartiDBO> anagraficaTerzeParti;
     @Field("legali")
@@ -79,6 +82,14 @@ public class SinistroDBO extends AbstractDBO {
     private String osservazioniInfortunato;
     @Field("anagrafica")
     private FullAnagraficaDBO anagrafica;
+
+    public Boolean getFlagSinistroCard() {
+        return flagSinistroCard;
+    }
+
+    public void setFlagSinistroCard(Boolean flagSinistroCard) {
+        this.flagSinistroCard = flagSinistroCard;
+    }
 
     public Boolean getConducenteDiversoContraente() {
         return conducenteDiversoContraente;

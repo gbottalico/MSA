@@ -54,7 +54,7 @@ class CalcoloTipoSinistroFunctions<T extends BaseSinistroDO> {
                 .map(TipoVeicoloDO::getGestioneCid)
                 .orElse(Boolean.FALSE);
         final Boolean flagCard = Optional.ofNullable(anagrafica.getFlagCard()).orElseGet(() -> Boolean.FALSE);
-        final Boolean targaEstera = Optional.ofNullable(anagrafica.getTargaEstera()).orElseGet(() -> Boolean.FALSE);
+        final Boolean targaEstera = Optional.ofNullable(!anagrafica.getTargaEstera()).orElseGet(() -> Boolean.FALSE);
         return flagCard && flagGestioneCTTVeicolo && !targaEstera;
     };
 
@@ -66,7 +66,7 @@ class CalcoloTipoSinistroFunctions<T extends BaseSinistroDO> {
                 .map(TipoVeicoloDO::getGestioneCtt)
                 .orElse(Boolean.FALSE);
         final Boolean flagCard = Optional.ofNullable(anagrafica.getFlagCard()).orElseGet(() -> Boolean.FALSE);
-        final Boolean targaEstera = Optional.ofNullable(anagrafica.getTargaEstera()).orElseGet(() -> Boolean.FALSE);
+        final Boolean targaEstera = Optional.ofNullable(!anagrafica.getTargaEstera()).orElseGet(() -> Boolean.FALSE);
         return flagCard && flagGestioneCTTVeicolo && !targaEstera;
     };
 

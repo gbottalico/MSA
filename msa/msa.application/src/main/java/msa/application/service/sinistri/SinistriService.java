@@ -6,7 +6,6 @@ import msa.application.config.enumerator.MessageType;
 import msa.application.dto.ricerca.FullPolizzaDTO;
 import msa.application.dto.ricerca.InputRicercaDTO;
 import msa.application.dto.ricerca.OutputRicercaDTO;
-import msa.application.dto.ricerca.BasePolizzaDTO;
 import msa.application.dto.sinistro.*;
 import msa.application.dto.sinistro.anagrafica.AnagraficaTerzePartiDTO;
 import msa.application.dto.sinistro.rca.cai.CaiDTO;
@@ -31,7 +30,7 @@ import msa.domain.object.sinistro.rca.IncrociBaremesDO;
 import msa.infrastructure.costanti.MsaCostanti;
 import msa.infrastructure.repository.DomainRepository;
 import msa.infrastructure.repository.PolizzeRepository;
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang3.BooleanUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +38,6 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -218,7 +216,7 @@ public class SinistriService extends BaseSinistroService {
         }
     }
 
-    private Boolean getFlagIsCard(final Integer codCompagnia) {
+    private Boolean getFlagIsCardCompagnia(final Integer codCompagnia) {
         final CompagniaDO compagnia = domainRepository.getCompagniaByCodCompagnia(codCompagnia);
         final Boolean isCard = FunctionUtils.between(
                 FunctionUtils.nowAsDate(),
@@ -316,21 +314,10 @@ public class SinistriService extends BaseSinistroService {
             sinistroRcaDOByDTO.getDannoRca()
                     .getAnagraficaDanniCliente()
                     .setAnagrafica(converter.convertObject(sinistroRcaDOByDTO.getContraente(), FullAnagraficaControparteDO.class));
-            /*sinistroRcaDOByDTO.getDannoRca().getAnagraficaDanniCliente().setAnagrafica(converter.convertObject(sinistroRcaDOByDTO
-                    .getDannoRca()
-                    .getAnagraficaDanniCliente()
-                    .getAnagrafica(), (FullAnagraficaControparteDO e) -> {
-                e.setTarga(input.getAnagraficaDanniCliente().getAnagrafica().getTarga());
-                e.setVeicolo(input.getAnagraficaDanniCliente().getAnagrafica().getVeicolo());
-                e.setTargaEstera(input.getAnagraficaDanniCliente().getAnagrafica().getTargaEstera());
-                e.setTargaSpeciale(input.getAnagraficaDanniCliente().getAnagrafica().getTargaSpeciale());
-                return e;
-            }))*/
-            ;
         }
 
         if (sinistroRcaDOByDTO.getEventoRca().getNumVeicoli() == 2) {
-            Boolean isCard = getFlagIsCard(sinistroRcaDOByDTO.getCompagnia());
+            Boolean isCard = getFlagIsCardCompagnia(sinistroRcaDOByDTO.getCompagnia());
             sinistroRcaDOByDTO.getDannoRca().getAnagraficaDanniCliente().getAnagrafica().setFlagCard(isCard);
         } else {
             sinistroRcaDOByDTO.getDannoRca().getAnagraficaDanniCliente().getAnagrafica().setFlagCard(Boolean.FALSE);
@@ -352,15 +339,45 @@ public class SinistriService extends BaseSinistroService {
         SinistroRcaDO sinistroRcaDOByDTO = getSinistroDOByDTO(new AnagraficaDanniDTO(), numSinistro);
         sinistroRcaDOByDTO.getDannoRca().setAnagraficaDanniControparte(converter.convertList(input, AnagraficaDanniDO.class).stream().map(e -> {
             e.getAnagrafica().setFlagCard(sinistroRcaDOByDTO.getEventoRca().getNumVeicoli() == 2
-                    ? getFlagIsCard(FunctionUtils.numberConverter(e.getAnagrafica().getCompagnia(), Integer::valueOf))
+                    ? getFlagIsCardCompagnia(FunctionUtils.numberConverter(e.getAnagrafica().getCompagnia(), Integer::valueOf))
                     : Boolean.FALSE);
             return e;
         }).collect(Collectors.toList()));
+        salvaFlagCardPerSinistro(sinistroRcaDOByDTO);
 
         if (salvaSinistro(sinistroRcaDOByDTO)) {
             return new BaseDTO<>();
         } else {
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione Salvataggio Danni Controparte")));
+        }
+    }
+
+    @Async
+    public void salvaFlagCardPerSinistro(final SinistroRcaDO sinistroByNumProvv) throws InternalMsaException {
+        try {
+            final List<Object> objects = execInParallel(
+                    () -> FunctionUtils.between(sinistroByNumProvv.getSegnalazione().getDataOraSinistro(),
+                            MsaCostanti.dataInizioCard.get(),
+                            new Date(),
+                            Boolean.TRUE),
+                    () -> Integer.compare(sinistroByNumProvv.getEventoRca().getNumVeicoli(), 2) == 0,
+                    () -> MsaCostanti.nazioneInCard.test(sinistroByNumProvv.getSegnalazione().getCodNazione()),
+                    () -> sinistroByNumProvv.getDannoRca().getAnagraficaDanniCliente().getAnagrafica().getFlagCard(),
+                    () -> sinistroByNumProvv.getDannoRca()
+                            .getAnagraficaDanniControparte()
+                            .stream()
+                            .limit(1)
+                            .map(AnagraficaDanniDO::getAnagrafica)
+                            .map(FullAnagraficaControparteDO::getFlagCard)
+                            .reduce((a, b) -> a).orElse(null)
+            );
+            final boolean b = objects.stream().allMatch(e -> BooleanUtils.compare((Boolean) e, Boolean.TRUE) == 0);
+            sinistroByNumProvv.setFlagSinistroCard(b);
+            if(!salvaSinistro(sinistroByNumProvv)) {
+                throw new InternalMsaException();
+            }
+        } catch (Exception e) {
+            throw new InternalMsaException();
         }
     }
 
