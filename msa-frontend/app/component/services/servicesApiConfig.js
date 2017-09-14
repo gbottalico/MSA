@@ -65,6 +65,7 @@ app.service('msaServicesApiUrls', function ($MSAC) {
 
     this.nextpath               = apiPath + "/dispatcher/nextPath";
     this.path                   = apiPath + "/dispatcher/getPath?numSinistro={0}&param";
+    this.percentuale            = apiPath + "/dispatcher/getPercentuale";
 
     /* EXTERNAL */
     this.geocoding              = "https://maps.googleapis.com/maps/api/geocode/json?address={0}&key=" + $MSAC.API_KEYS.MAPS;

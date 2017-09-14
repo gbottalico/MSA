@@ -4,8 +4,8 @@
     app.component('msaDenunciaContainer', {
         templateUrl: '../../app/component/denuncia-sinistro/denuncia-container/components/templates/denuncia-container-tpl.html',
         bindings: {},
-        controller: ("denunciaContainerController", ['$rootScope', '$scope', '$routeParams', '$location', '$debugMode', '$timeout', '$filter', '$anchorScroll', 'toastr', 'SinistriSvc', 'UtilSvc', 'PathSvc', 'DebugSvc',
-            function ($rootScope, $scope, $routeParams, $location, $debugMode, $timeout, $filter, $anchorScroll, toastr, SinistriSvc, UtilSvc, PathSvc, DebugSvc) {
+        controller: ("denunciaContainerController", ['_', '$rootScope', '$scope', '$routeParams', '$location', '$debugMode', '$timeout', '$filter', '$anchorScroll', 'toastr', 'SinistriSvc', 'UtilSvc', 'PathSvc', 'DebugSvc',
+            function (_, $rootScope, $scope, $routeParams, $location, $debugMode, $timeout, $filter, $anchorScroll, toastr, SinistriSvc, UtilSvc, PathSvc, DebugSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
@@ -18,6 +18,7 @@
                 $ctrl.mappe = [];
                 $ctrl.sinistroProvvisorio = undefined;
                 $ctrl.scrollable = false;
+                $ctrl.percentuale = 0;
 
                 $ctrl.START_MAP = "M11";
 
@@ -25,7 +26,7 @@
                 $ctrl.numeroSinistroProvvisorio = $routeParams.idSinistroProvvisorio;
 
                 $ctrl.caricaMappe = function () {
-                    PathSvc.getPath($ctrl.sinistroProvvisorio.numSinistroProvv).then(function (response) {
+                    PathSvc.getPath($ctrl.numeroSinistroProvvisorio).then(function (response) {
                         DebugSvc.log("getPath", response);
                         var path = undefined;
                         if (response.data.status === 200) {
@@ -51,12 +52,13 @@
 
                     // Carico la mappa successiva solo se sto salvando l'ultima caricata.
                     if ($ctrl.mappe[$ctrl.mappe.length - 1] === callerMapId) {
-                        PathSvc.getNextPath(garanzia, $ctrl.sinistroProvvisorio.numSinistroProvv).then(function (response) {
+                        PathSvc.getNextPath(garanzia, $ctrl.numeroSinistroProvvisorio).then(function (response) {
                             DebugSvc.log("getNextPath", response);
                             var path = undefined;
                             if (response.data.status === 200) {
                                 path = UtilSvc.mapToValueArray(response.data.result);
                                 $ctrl.mappe = path;
+                                $ctrl.aggiornaPercentuale();
                                 // Scrolla alla mappa successiva al salvataggio della precedente.
                                 if (callerMapId) {
                                     var id = $ctrl.mappe[$ctrl.mappe.indexOf(callerMapId) + 1];
@@ -78,6 +80,19 @@
                     // if($ctrl.scrollable) {
                     //     $ctrl.scrollTo(mapId);
                     // }
+                };
+
+                $ctrl.aggiornaPercentuale = function () {
+                    if($ctrl.tempSegnalazione.garanzia) {
+                        PathSvc.getPercentuale($ctrl.numeroSinistroProvvisorio, $ctrl.tempSegnalazione.garanzia).then(function (response) {
+                            DebugSvc.log("getPercentuale", response);
+                            if(response.data.status === 200) {
+                               $ctrl.percentuale = response.data.result;
+                           }
+                        });
+                    } else {
+                        $ctrl.percentuale = 0;
+                    }
                 };
 
                 $ctrl.isMappaVisibile = function (nomeMappa) {
@@ -138,6 +153,8 @@
                         DebugSvc.log("getSinistroProvvisorio", response);
                         $ctrl.sinistroProvvisorio = result;
                         $ctrl.caricaMappe();
+                        $ctrl.tempSegnalazione.garanzia = $ctrl.tempSegnalazione.garanzia || (_.isObject($ctrl.sinistroProvvisorio.segnalazione) ? $ctrl.sinistroProvvisorio.segnalazione.garanziaSelected : null);
+                        $ctrl.aggiornaPercentuale();
                     });
                 };
 

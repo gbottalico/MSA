@@ -27,6 +27,14 @@ angular.module('msa').service(
 
             };
 
+            $svc.getPercentuale = function (numSinistroProvvisiorio, garanzia) {
+                var data = {
+                    garanziaSelected: garanzia,
+                    numSinistroProvv: numSinistroProvvisiorio
+                };
+                return $http.post(msaServicesApiUrls.percentuale, data);
+            };
+
         }
     ]
 );

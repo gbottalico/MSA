@@ -5,17 +5,24 @@
         templateUrl: '../../app/component/denuncia-sinistro/step/components/templates/step-tpl.html',
         bindings: {
             datiContraente: '<',
-            mappe: '<'
+            mappe: '<',
+            percentuale: '<'
         },
-        controller: ("stepController", ['$rootScope', '$scope', '$filter', '$document', '$location', '$anchorScroll', 'UtilSvc', 'PlacesSvc',
-            function ($rootScope, $scope, $filter, $document, $location, $anchorScroll, UtilSvc, PlacesSvc) {
+        controller: ("stepController", ['_', '$rootScope', '$scope', '$filter', '$document', '$location', '$anchorScroll', 'UtilSvc', 'DebugSvc',
+            function (_, $rootScope, $scope, $filter, $document, $location, $anchorScroll, UtilSvc, DebugSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
                 var parent = $scope.$parent;
+
+                $ctrl.MAX_STEPS = 8;
                 $ctrl.step = 1;
                 $ctrl.user = {};
 
+                $ctrl.calcolaStep = function (percentuale) {
+                    $ctrl.step = Math.ceil(percentuale * ($ctrl.MAX_STEPS - 1) / 100) + 1;
+                    DebugSvc.log("step", $ctrl.step);
+                };
 
                 $ctrl.bindUser = function () {
 
@@ -35,21 +42,6 @@
                         $ctrl.user.nascita = $ctrl.user.nascita + ", " + UtilSvc.dateFormat($ctrl.datiContraente.dataNascita);
                     }
 
-//                    if ($ctrl.datiContraente.tracking !== undefined && $ctrl.datiContraente.tracking !== null) {
-//
-//                        var promise = undefined;
-//
-//                        if ($ctrl.datiContraente.tracking.comune !== undefined && $ctrl.datiContraente.tracking.comune !== null) {
-//                            promise = PlacesSvc.getComuneById($ctrl.datiContraente.tracking.comune);
-//                        } else {
-//                            promise = PlacesSvc.getNazioneById($ctrl.datiContraente.tracking.nazione);
-//                        }
-//
-//                        promise.then(function (response) {
-//                            $ctrl.user.residenza = $ctrl.datiContraente.tracking.indirizzo + ", " + response.data.result;
-//                        });
-//
-//                    }
                     $ctrl.user.residenza = $ctrl.datiContraente.tracking.indirizzo + ", " + $ctrl.datiContraente.tracking.descComune + ", " + $ctrl.datiContraente.tracking.descProvincia;
 
                     $ctrl.user.recapiti = [$ctrl.datiContraente.tracking.cellulare, $ctrl.datiContraente.tracking.telefono, $ctrl.datiContraente.tracking.mail];
@@ -67,13 +59,18 @@
                 $scope.$watch(
                     function watchScope(scope) {
                         return {
-                            datiContraente: $ctrl.datiContraente
+                            datiContraente: $ctrl.datiContraente,
+                            percentuale: $ctrl.percentuale
                         };
                     },
                     function handleChanges(newValues, oldValues) {
 
-                        if (newValues.datiContraente !== undefined) {
+                        if (_.isObject(newValues.datiContraente)) {
                             $ctrl.bindUser();
+                        }
+
+                        if(_.isNumber(newValues.percentuale)){
+                            $ctrl.calcolaStep(newValues.percentuale);
                         }
 
                     }, true

@@ -2,12 +2,16 @@
 
 <section class="row denunciaSinistro">
     <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 leftContainer sticky">
-        <msa-step dati-contraente="$ctrl.sinistroProvvisorio.contraente"
-                  mappe="$ctrl.mappe">
+        <msa-step
+                dati-contraente="$ctrl.sinistroProvvisorio.contraente"
+                mappe="$ctrl.mappe"
+                percentuale="$ctrl.percentuale">
 
         </msa-step>
     </div>
     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-12 rightContainer">
+
+        <pre>{{$ctrl.tempSegnalazione}}</pre>
 
         <msa-segnalazione id="M11"
                 numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
