@@ -14,7 +14,7 @@
                 var $ctrl = this;
                 var $translate = $filter('translate');
                 var parent = $scope.$parent;
-                var TIPO_AUTOVEICOLO = 1;
+                var TIPO_AUTOVEICOLO = 1; // todo spostare
                 var TIPO_CICLOMOTORE = 6;
                 var TIPO_MOTOCICLO = 5;
                 $scope.$debugMode = $debugMode;
@@ -125,11 +125,10 @@
 
                     }
                 };
-                $ctrl.selectPattern = function () {
+
+                $ctrl.selectPattern = (function () {
                     return {
                         test: function () {
-
-
                             if ($ctrl.dannoRca.veicoloControparte.veicolo === TIPO_AUTOVEICOLO) {
                                 return RegexSvc.getTargaRegex().test($ctrl.dannoRca.veicoloControparte.veicolo);
                             }
@@ -142,7 +141,8 @@
                             else return true;
                         }
                     }
-                };
+                })();
+
                 $ctrl.salvaDannoRca = function () {
 
                     var dannoRca = $ctrl.dannoRca;
