@@ -13,7 +13,8 @@
                 $ctrl.tempSegnalazione = {
                     nveicoli: undefined,
                     garanzia: undefined,
-                    tipoSinistro: undefined
+                    tipoSinistro: undefined,
+                    numeroPolizza: undefined
                 };
                 $ctrl.mappe = [];
                 $ctrl.sinistroProvvisorio = undefined;
@@ -151,10 +152,12 @@
                     SinistriSvc.cercaSinistroProvvisorio(numeroSinistroProvvisorio).then(function (response) {
                         var result = response.data.result;
                         DebugSvc.log("getSinistroProvvisorio", response);
+
                         $ctrl.sinistroProvvisorio = result;
                         $ctrl.caricaMappe();
                         $ctrl.tempSegnalazione.garanzia = $ctrl.tempSegnalazione.garanzia || (_.isObject($ctrl.sinistroProvvisorio.segnalazione) ? $ctrl.sinistroProvvisorio.segnalazione.garanziaSelected : null);
                         $ctrl.aggiornaPercentuale();
+                        $ctrl.tempSegnalazione.numeroPolizza = $ctrl.sinistroProvvisorio.numeroPolizza;
                     });
                 };
 
