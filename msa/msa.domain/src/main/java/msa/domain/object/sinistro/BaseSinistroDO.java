@@ -10,6 +10,7 @@ import java.util.List;
 public class BaseSinistroDO extends AbstractDO  {
     private String id;
     private FullAnagraficaControparteDO contraente;
+    private FullAnagraficaDO proprietario;
     private String numeroPolizza;
     private Integer compagnia;
     private String targa;
@@ -33,6 +34,14 @@ public class BaseSinistroDO extends AbstractDO  {
 
     public void setContraente(FullAnagraficaControparteDO contraente) {
         this.contraente = contraente;
+    }
+
+    public FullAnagraficaDO getProprietario() {
+        return proprietario;
+    }
+
+    public void setProprietario(FullAnagraficaDO proprietario) {
+        this.proprietario = proprietario;
     }
 
     public String getNumeroPolizza() {

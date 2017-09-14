@@ -36,6 +36,9 @@ public class SinistroDBO extends AbstractDBO {
 
     @Field("contraente")
     private FullAnagraficaControparteDBO contraente;
+    @Field("proprietario")
+    private FullAnagraficaDBO proprietario;
+
     @Field("perito")
     private PeritoDBO perito;
 
@@ -113,6 +116,14 @@ public class SinistroDBO extends AbstractDBO {
 
     public void setAnagrafica(FullAnagraficaDBO anagrafica) {
         this.anagrafica = anagrafica;
+    }
+
+    public FullAnagraficaDBO getProprietario() {
+        return proprietario;
+    }
+
+    public void setProprietario(FullAnagraficaDBO proprietario) {
+        this.proprietario = proprietario;
     }
 
     public FullAnagraficaControparteDBO getContraente() {
