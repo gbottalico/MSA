@@ -11,7 +11,16 @@ angular.module('msa').service(
             $svc.reTelefono = /^[+]{0,1}[0-9 -]{5,20}$/;
             $svc.reTarga = /^(([a-zA-Z]{2}\d{3}[a-zA-Z]{2})|(([a-zA-Z]{2}|[a-zA-Z]{2}|roma)(\d{5}|[a-zA-Z]\d{5}|\d{5}[a-zA-Z]|\d{6})))$/;
             $svc.reOra = /^[0-23]{2}\:[0-59]{2}$/;
+            $svc.reCiclomotore = /^(([a-zA-Z]\d[a-zA-Z]\d[a-zA-Z])|([a-zA-Z]\d{3}[a-zA-Z]{2}))$/;
+            $svc.reMotociclo = /^((([a-zA-Z]{2}|roma)\d{5,6})|([a-zA-Z]\d{3}[a-zA-Z]{2}))$/;
 
+            $svc.getCiclomotoreRegex = function () {
+                return $svc.reCiclomotore;
+            };
+
+            $svc.getMotocicloRegex = function () {
+              return $svc.reMotociclo;
+            };
             $svc.getTargaRegex = function () {
                 return $svc.reTarga;
             };
