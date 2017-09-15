@@ -1,6 +1,6 @@
 package msa.domain.object.sinistro;
 
-public class SinistroFurtoIncendioDO extends BaseSinistroDO{
+public class SinistroFurtoIncendioDO extends SinistroNoRcaDO{
     private Boolean sviluppoFiamme;
     private Boolean responsabilita;
     private String descrizioneDanni;
