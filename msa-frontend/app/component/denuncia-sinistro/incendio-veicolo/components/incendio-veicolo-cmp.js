@@ -8,8 +8,8 @@
             sinistroProvvisorio: "<",
             tempSegnalazione: "="
         },
-        controller: ("incendioVeicoloController", ['_', '$rootScope', '$scope', '$debugMode', '$filter', '$location', '$timeout', 'toastr', 'SinistriSvc', 'DebugSvc', 'PathSvc',
-            function (_, $rootScope, $scope, $debugMode, $filter, $location, $timeout, toastr, SinistriSvc, DebugSvc, PathSvc) {
+        controller: ("incendioVeicoloController", ['_', '$rootScope', '$scope', '$debugMode', '$filter', '$location', '$timeout', 'toastr', 'SinistriSvc', 'DebugSvc', 'DomainSvc',
+            function (_, $rootScope, $scope, $debugMode, $filter, $location, $timeout, toastr, SinistriSvc, DebugSvc, DomainSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
@@ -19,11 +19,28 @@
 
                 $ctrl.isInputConsumed = false;
                 $ctrl.incendio = {};
-
+                $ctrl.persistence = {};
 
                 $timeout(function () {
                     parent.mappaCaricata($ctrl.mapId);
                 });
+
+                DomainSvc.getAutorita().then(function (response) {
+                    $ctrl.autorita = response.data.result;
+                });
+
+                $ctrl.salvaIncendio = function () {
+                    SinistriSvc.salvaIncendio($ctrl.numeroSinistroProvvisorio, $ctrl.incendio).then(function (response) {
+                        DebugSvc.log("salvaIncendio", response);
+                        if(response.status === 200 && _.isObject(response.data) && response.data.status === 200) {
+                            parent.aggiornaMappe($ctrl.mapId);
+                            toastr.success($translate('global.generic.saveok'));
+                            $scope.formIncendioVeicolo.$setPristine();
+                        } else {
+                            toastr.error($translate('global.generic.saveko'));
+                        }
+                    });
+                };
 
                 $scope.$watch(
                     function watchScope(scope) {

@@ -17,6 +17,8 @@
                 temp-segnalazione="$ctrl.tempSegnalazione">
         </msa-segnalazione>
 
+
+        <!-- RCA -->
         <msa-evento-rca id="M12"
                 ng-if="$ctrl.isMappaVisibile('M12')"
                 numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
@@ -46,6 +48,17 @@
                 temp-segnalazione="$ctrl.tempSegnalazione">
 
         </msa-danno-rca>
+        <!-- //RCA -->
+
+        <!-- INCENDIO -->
+        <msa-incendio-veicolo id="M28"
+              ng-if="$ctrl.isMappaVisibile('M28')"
+              numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
+              sinistro-provvisorio="$ctrl.sinistroProvvisorio"
+              temp-segnalazione="$ctrl.tempSegnalazione">
+        </msa-incendio-veicolo>
+
+        <!-- //INCENDIO -->
 
         <msa-terze-parti id="M18"
                  ng-if="$ctrl.isMappaVisibile('M18')"

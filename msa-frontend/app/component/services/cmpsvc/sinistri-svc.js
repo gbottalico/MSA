@@ -330,6 +330,20 @@ angular.module('msa').service(
                 return $http.post(url, perito);
             };
 
+            $svc.salvaIncendio = function (idSinistroProvvisorio, incendio) {
+                var dataObj = {
+                    responsabilita: incendio.responsabilitaTerzi,
+                    descrizioneDanni: incendio.descrizioneDanni,
+                    osservazioniCliente: incendio.osservazioniCliente,
+                    interventoAutorita: incendio.interventoAutorita,
+                    codAutorita: incendio.autoritaIntervenuta,
+                    comandoAutorita: incendio.comandoAutorita,
+                    dataDenuncia: incendio.dataDenuncia.date
+                };
+                var url = UtilSvc.stringFormat(msaServicesApiUrls.furtoincendio, idSinistroProvvisorio);
+                return $http.post(url, dataObj);
+            };
+
         }
     ]
 );

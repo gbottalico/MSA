@@ -270,6 +270,15 @@
         "upload": "Upload Documenti"
       }
     },
+    "incendio": {
+      "title": "Incendio Veicolo",
+      "labels": {
+        "sviluppoFiamme": "C'è stato sviluppo di fiamme?",
+        "responsabilitaTerzi": "La responsabilità dell'incendio è attribuibile a terzi?",
+        "descrizioneDanni": "Descrizione Danni",
+        "osservazioniCliente": "Ulteriori osservazioni del cliente sulle circostanze dell'incidente"
+      }
+    },
     "step": {
       "labels": {
         "M11": "Segnalazione",
@@ -282,7 +291,8 @@
         "M23": "Carrozzeria",
         "M25": "Perito",
         "M26": "Documenti",
-        "M27": "Riepilogo"
+        "M27": "Riepilogo",
+        "M28": "Incendio Veicolo"
       }
     },
     "auto": {

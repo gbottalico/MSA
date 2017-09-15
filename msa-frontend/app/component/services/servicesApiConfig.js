@@ -6,30 +6,19 @@ app.service('msaServicesApiUrls', function ($MSAC) {
     /* DOMINIO */
 
     this.compagnia              = apiPath + "/dominio/compagnia/{0}"; // 0: descrizione compagnia
-
     this.nazione                = apiPath + "/dominio/nazione/";
     this.provincia              = apiPath + "/dominio/provincia/";
     this.comune                 = apiPath + "/dominio/comune/";
-
     this.luogoById              = apiPath + "/dominio/desLuogoById?id={0}&codLuogo={1}&param";  //0: idLuogo.
-
     this.autorita               = apiPath + "/dominio/autorita/";
-
     this.mezzicomunicazione     = apiPath + "/dominio/mezzicomunicazione/";
-
     this.causerotturacristalli  = apiPath + "/dominio/causerotturacristalli/";
-
     this.tipotarghe             = apiPath + "/dominio/tipotarghe/";
     this.tipoveicoli            = apiPath + "/dominio/tipoveicoli/";
-
     this.toponomastiche         = apiPath + "/dominio/particelleToponomastiche";
-
     this.casaregole             = apiPath + "/dominio/casaregole/";
-
     this.baremes                = apiPath + "/dominio/baremes/";
-
     this.ruoli                  = apiPath + "/dominio/ruoli/";
-
 
     /* UTILS */
 
@@ -54,6 +43,7 @@ app.service('msaServicesApiUrls', function ($MSAC) {
 
     this.carrozzerie            = apiPath + "/sinistro/centri/{0}?param";           //0: indirizzo
     this.salvacarrozzeria       = apiPath + "/sinistro/{0}/centroConvenzionato/";   //0: indirizzo
+    this.furtoincendio          = apiPath + "/sinistro/{0}/furtoIncendio";          //0: indirizzo
 
     /* DOCUMENTI */
 
