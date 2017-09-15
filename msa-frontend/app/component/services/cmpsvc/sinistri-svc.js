@@ -350,8 +350,23 @@ angular.module('msa').service(
             };
 
             $svc.salvaCristalli = function (idSinistroProvvisorio, cristalli) {
+
+                var dataObj = {
+                    desCristalloRotto: cristalli.desCristalloRotto,
+                    codRotturaCristalli: cristalli.codRotturaCristalli,
+                    flagRiparazione: cristalli.flagRiparazione,
+                    flagFattura: cristalli.flagFattura,
+                    interventoAutorita: cristalli.interventoAutorita,
+                };
+
+                if (cristalli.interventoAutorita) {
+                    dataObj.codAutorita = cristalli.autoritaIntervenuta;
+                    dataObj.comandoAutorita = cristalli.comandoAutorita;
+                    dataObj.dataDenuncia = cristalli.dataDenuncia.date;
+                }
+
                 var url = UtilSvc.stringFormat(msaServicesApiUrls.cristalli, idSinistroProvvisorio);
-                return $http.post(url, cristalli);
+                return $http.post(url, dataObj);
             }
 
         }

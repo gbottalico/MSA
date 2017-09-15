@@ -30,12 +30,13 @@
                 function watchScope(scope) {
                     return {
                         result: $ctrl.result,
+                        interventoAutorita: $ctrl.result.interventoAutorita
                     };
                 },
                 function handleChanges(newValues, oldValues) {
 
-                    if (_.isObject(newValues.result) && newValues.result.dataDenuncia) {
-                        $ctrl.persistence.dataDenuncia = newValues.result.dataDenuncia;
+                    if (_.isObject(newValues.result)  && newValues.result.dataDenuncia) {
+                        $ctrl.persistence.dataDenuncia = _.cloneDeep(newValues.result.dataDenuncia.date);
                     }
 
                 }, true
