@@ -1,11 +1,16 @@
 package msa.domain.object.sinistro;
 
+import java.util.Date;
+
 public class SinistroFurtoIncendioDO extends BaseSinistroDO{
     private Boolean sviluppoFiamme;
     private Boolean responsabilita;
     private String descrizioneDanni;
     private String osservazioniCliente;
     private Boolean interventoAutorita;
+    private Integer codAutorita;
+    private String comandoAutorita;
+    private Date dataDenuncia;
 
     public Boolean getInterventoAutorita() {
         return interventoAutorita;
@@ -45,5 +50,29 @@ public class SinistroFurtoIncendioDO extends BaseSinistroDO{
 
     public void setOsservazioniCliente(String osservazioniCliente) {
         this.osservazioniCliente = osservazioniCliente;
+    }
+
+    public Integer getCodAutorita() {
+        return codAutorita;
+    }
+
+    public void setCodAutorita(Integer codAutorita) {
+        this.codAutorita = codAutorita;
+    }
+
+    public String getComandoAutorita() {
+        return comandoAutorita;
+    }
+
+    public void setComandoAutorita(String comandoAutorita) {
+        this.comandoAutorita = comandoAutorita;
+    }
+
+    public Date getDataDenuncia() {
+        return dataDenuncia;
+    }
+
+    public void setDataDenuncia(Date dataDenuncia) {
+        this.dataDenuncia = dataDenuncia;
     }
 }

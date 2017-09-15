@@ -5,6 +5,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.util.Date;
 import java.util.List;
 
 @Document(collection = "sinistri")
@@ -55,6 +56,12 @@ public class SinistroDBO extends AbstractDBO {
 
     @Field("interventoAutorita")
     private Boolean interventoAutorita;
+    @Field("codAutorita")
+    private Integer codAutorita;
+    @Field("comandoAutorita")
+    private String comandoAutorita;
+    @Field("dataDenunciaAutorita")
+    private Date dataDenuncia;
 
 
     //FINE FURTO INCENDIO
