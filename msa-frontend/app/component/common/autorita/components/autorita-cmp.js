@@ -29,14 +29,17 @@
             $scope.$watch(
                 function watchScope(scope) {
                     return {
-                        result: $ctrl.result,
-                        interventoAutorita: $ctrl.result.interventoAutorita
+                        result: $ctrl.result
                     };
                 },
                 function handleChanges(newValues, oldValues) {
 
                     if (_.isObject(newValues.result)  && newValues.result.dataDenuncia) {
-                        $ctrl.persistence.dataDenuncia = _.cloneDeep(newValues.result.dataDenuncia.date);
+                        if(_.isObject(newValues.result.dataDenuncia)) {
+                            $ctrl.persistence.dataDenuncia = _.cloneDeep(newValues.result.dataDenuncia.date);
+                        } else {
+                            $ctrl.persistence.dataDenuncia = new Date(newValues.result.dataDenuncia);
+                        }
                     }
 
                 }, true
