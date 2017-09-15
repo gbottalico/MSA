@@ -349,6 +349,11 @@ angular.module('msa').service(
                 return $http.post(url, dataObj);
             };
 
+            $svc.salvaCristalli = function (idSinistroProvvisorio, cristalli) {
+                var url = UtilSvc.stringFormat(msaServicesApiUrls.cristalli, idSinistroProvvisorio);
+                return $http.post(url, cristalli);
+            }
+
         }
     ]
 );
