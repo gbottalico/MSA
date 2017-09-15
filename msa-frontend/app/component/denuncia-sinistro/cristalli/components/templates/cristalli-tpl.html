@@ -1,0 +1,83 @@
+<div class="containerHeader">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container boxShadow">
+        <div class="header" ng-class="{'is-ok': cristalliForm.$pristine && cristalliForm.$valid, 'has-error': !cristalliForm.$pristine || !cristalliForm.$valid}">
+            <h1 class="titleSection">{{'global.cristalli.title' | translate}}</h1>
+        </div>
+    </div>
+</div>
+
+<div class="containerBody">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container boxShadow">
+        <div class="body">
+
+            <pre ng-if="$debugMode">{{$ctrl.cristalli}}</pre>
+
+            <form name="cristalliForm" novalidate>
+
+                <div class="col-lg-12">
+                    <span class="subsectionTitle">{{'global.cristalli.title' | translate}}</span>
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicTextArea">
+                    <textarea class="textauto" name="cristalloDanneggiato" ng-model="$ctrl.cristalli.cristalloDanneggiato" ng-required="true"></textarea>
+                    <label>{{'global.cristalli.labels.cristalloDanneggiato' | translate}}</label>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputText" ng-if="$ctrl.result.interventoAutorita">
+                    <select name="causaRottura"
+                            ng-model="$ctrl.cristalli.causaRottura"
+                            ng-required="true">
+                        <option ng-repeat="causa in $ctrl.causeRotturaCristalli" ng-value="{{causa.codRottura}}">{{causa.descrizioneRottura}}</option>
+                    </select>
+                    <label>{{'global.cristalli.labels.causaRottura' | translate}}</label>
+                </div>
+
+                <!--INPUT RADIO-->
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputRadio">
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingLeft">
+                        <input type="radio" ng-value="true" name="riparato" ng-model="$ctrl.cristalli.riparato" ng-required="true">
+                        <label class="rightLabel">{{'global.generic.si' | translate}}</label>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingRight">
+                        <input type="radio" ng-value="false" name="riparato" ng-model="$ctrl.cristalli.riparato" ng-required="true">
+                        <label class="rightLabel">{{'global.generic.no' | translate}}</label>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 noPaddingRight">&nbsp;</div>
+                    <label>{{'global.cristalli.labels.riparato' | translate}}</label>
+                </div>
+                <!--END INPUT RADIO-->
+
+                <!--INPUT RADIO-->
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputRadio" ng-if="$ctrl.ca.constatazioneAmichevole">
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingLeft">
+                        <input type="radio" ng-value="true" name="fattura"
+                               ng-model="$ctrl.cristalli.fattura"
+                               ng-required="true">
+                        <label class="rightLabel">{{'global.generic.si' | translate}}</label>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingLeft">
+                        <input type="radio" ng-value="false" name="fattura"
+                               ng-model="$ctrl.cristalli.fattura"
+                               ng-required="true">
+                        <label class="rightLabel">{{'global.generic.no' | translate}}</label>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 noPaddingRight">&nbsp;</div>
+                    <label>{{'global.cristalli.labels.fattura' | translate}}</label>
+                </div>
+                <!--END INPUT RADIO-->
+
+            </form>
+
+            <div class="row">
+                <div class="col-lg-12 classicButton">
+                    <button class="blueButton"
+                            ng-click="$ctrl.salvaCa()"
+                            ng-disabled="cristalliForm.$invalid">
+                        <a><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;{{'global.generic.salvaprocedi' | translate}}</a>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -279,6 +279,15 @@
         "osservazioniCliente": "Ulteriori osservazioni del cliente sulle circostanze dell'incidente"
       }
     },
+    "cristalli": {
+      "title": "Cristalli",
+      "labels": {
+        "cristalloDanneggiato": "Quale cristallo del veicolo è stato danneggiato?",
+        "causaRottura": "Qual è stata la causa della rottura?",
+        "riparato": "Ha già provveduto alla riparazione?",
+        "fattura": "È in possesso della fattura?"
+      }
+    },
     "autorita": {
       "title": "Autorità",
       "labels": {
