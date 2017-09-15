@@ -163,6 +163,7 @@ public class SinistriService extends BaseSinistroService {
                         .map(Object::toString)
                         .orElse(null));
                 input.getContraente().setCodRuolo(MsaCostanti.COD_RUOLO_CONTRAENTE.toString());
+                input.getContraente().setCompagnia(input.getCompagnia());
                 input.setProprietario(getProprietarioIfIsDifferent(input));
             }
             final Integer numSinis = sinistriRepository.insertSinistroProvvisorioAndGetNum(converter.convertObject(input, BaseSinistroDO.class));
