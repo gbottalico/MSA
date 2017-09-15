@@ -38,7 +38,8 @@
             $scope.dateOptions = {
                 formatYear: 'yy',
                 maxDate: new Date(),
-                startingDay: 1
+                startingDay: 1,
+                timezone: 'utc'
             };
 
             $scope.open = function () {
@@ -90,6 +91,24 @@
 
 
         }])
+    }).directive('datetimepickerNeutralTimezone', function() {
+        return {
+            restrict: 'A',
+            priority: 1,
+            require: 'ngModel',
+            link: function (scope, element, attrs, ctrl) {
+                ctrl.$formatters.push(function (value) {
+                    var date = new Date(Date.parse(value));
+                    date = new Date(date.getTime() + (60000 * date.getTimezoneOffset()));
+                    return date;
+                });
+
+                ctrl.$parsers.push(function (value) {
+                    var date = new Date(value.getTime() - (60000 * value.getTimezoneOffset()));
+                    return date;
+                });
+            }
+        };
     });
 
 }());
