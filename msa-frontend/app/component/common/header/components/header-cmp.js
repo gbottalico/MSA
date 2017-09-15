@@ -4,13 +4,14 @@
 	app.component('msaHeader', {
 	    templateUrl: '../../app/component/common/header/components/templates/header-tpl.html',
 	    bindings: {},
-	    controller: ("headerController", ['$rootScope', '$translate', '$log', 'toastr', '$analytics', '$location', '$cookies', '$window', '$sessionStorage',
-	        function($rootScope, $translate, $log, toastr, $analytics, location, $cookies, $window, $sessionStorage) {
+	    controller: ("headerController", ['$MSAC', '$location',
+	        function($MSAC, $location) {
 	            
-	        var ctrl = this;
+	        var $ctrl = this;
 
-			ctrl.reloadRoute = function() {
-				$window.location.reload();
+			$ctrl.reloadRoute = function() {
+				var path = $MSAC.PATHS.HOME;
+				$location.path(path);
 			};
 
 	    }])
