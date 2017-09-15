@@ -159,3 +159,10 @@
     "Partita Danno - ASSociato" : "PD", 
     "lesioni" : true
 }
+{ 
+    "_id" : NumberInt(24), 
+    "raggruppamento" : "ASSICURATO / CONTROPARTE", 
+    "descrizione" : "PROPRIETARIO NON CONTRAENTE", 
+    "Partita Danno - ASSociato" : "PD", 
+    "lesioni" : true
+}
