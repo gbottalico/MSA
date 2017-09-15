@@ -145,3 +145,17 @@
     "Partita Danno - ASSociato" : "ASS", 
     "lesioni" : false
 }
+{ 
+    "_id" : NumberInt(22), 
+    "raggruppamento" : "ASSICURATO / CONTROPARTE", 
+    "descrizione" : "CONTRAENTE", 
+    "Partita Danno - ASSociato" : "PD", 
+    "lesioni" : true
+}
+{ 
+    "_id" : NumberInt(23), 
+    "raggruppamento" : "ASSICURATO / CONTROPARTE", 
+    "descrizione" : "CONTROPARTE", 
+    "Partita Danno - ASSociato" : "PD", 
+    "lesioni" : true
+}
