@@ -19,6 +19,10 @@ public final class MsaCostanti {
         public static final String COD_RUOLO_TERZO_TRASPORTATO_CONTROPARTE = "7";
         public static final String COD_GARANZIA_RCA = "rca";
         public static final Integer COD_RUOLO_LEGALE = 21;
+        public static final Integer COD_RUOLO_CONTRAENTE = 22;
+        public static final Integer COD_RUOLO_CONTROPARTE = 23;
+        public static final Integer COD_RUOLO_PROPRIETARIO = 24;
+        public static final String COD_PARTITA_DANNO = "PD";
 
         public static final Supplier<Date> dataInizioCard = () -> {
                 final Calendar ca = Calendar.getInstance();

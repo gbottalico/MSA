@@ -3,7 +3,7 @@ package msa.infrastructure.persistence.sinistro;
 
 import org.springframework.data.mongodb.core.mapping.Field;
 
-public class AnagraficaTerzePartiDBO extends FullAnagraficaDBO {
+public class AnagraficaTerzePartiDBO extends FullAnagraficaControparteDBO {
     @Field("note")
     private String note;
     @Field("lesioni")

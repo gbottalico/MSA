@@ -242,6 +242,13 @@ public class DomainRepository extends BaseRepository {
                 Criteria.where(
                         getMongoNameByAttributeName("siglaProv", ProvinciaDBO.class))
                         .is(provincia));
-        return findAll(ProvinciaDBO.class,query).stream().reduce((a,b) -> a).map(e -> converter.convertObject(e,ProvinciaDO.class));
+        return findAll(ProvinciaDBO.class, query).stream().reduce((a, b) -> a).map(e -> converter.convertObject(e, ProvinciaDO.class));
+    }
+
+    public RuoliDO getDesRuoloById(String codRuolo) {
+        return Optional.ofNullable(findById(RuoliDBO.class,
+                FunctionUtils.numberConverter(codRuolo, Integer::valueOf)))
+                .map(e -> converter.convertObject(e,RuoliDO.class))
+                .orElse(null);
     }
 }

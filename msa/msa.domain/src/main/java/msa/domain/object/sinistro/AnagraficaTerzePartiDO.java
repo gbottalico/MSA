@@ -1,6 +1,6 @@
 package msa.domain.object.sinistro;
 
-public class AnagraficaTerzePartiDO extends FullAnagraficaDO{
+public class AnagraficaTerzePartiDO extends FullAnagraficaControparteDO {
     private String note;
     private Boolean lesioni;
 

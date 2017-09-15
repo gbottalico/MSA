@@ -1,6 +1,6 @@
 package msa.application.dto.sinistro.anagrafica;
 
-public class AnagraficaTerzePartiDTO extends FullAnagraficaDTO {
+public class AnagraficaTerzePartiDTO extends FullAnagraficaControparteDTO {
     private static final long serialVersionUID = -5033305975768471583L;
     private String note;
     private Boolean lesioni;
