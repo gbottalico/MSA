@@ -25,10 +25,6 @@
                     parent.mappaCaricata($ctrl.mapId);
                 });
 
-                DomainSvc.getAutorita().then(function (response) {
-                    $ctrl.autorita = response.data.result;
-                });
-
                 $ctrl.salvaIncendio = function () {
                     SinistriSvc.salvaIncendio($ctrl.numeroSinistroProvvisorio, $ctrl.incendio).then(function (response) {
                         DebugSvc.log("salvaIncendio", response);
@@ -50,8 +46,7 @@
                     $ctrl.incendio.interventoAutorita = $ctrl.sinistroProvvisorio.interventoAutorita;
                     $ctrl.incendio.autoritaIntervenuta = $ctrl.sinistroProvvisorio.codAutorita;
                     $ctrl.incendio.comandoAutorita = $ctrl.sinistroProvvisorio.comandoAutorita;
-
-                    $ctrl.persistence.dataDenuncia = $ctrl.sinistroProvvisorio.dataDenuncia ? new Date($ctrl.sinistroProvvisorio.dataDenuncia) : null;
+                    $ctrl.incendio.dataDenuncia = $ctrl.sinistroProvvisorio.dataDenuncia;
                 };
 
                 $scope.$watch(

@@ -279,6 +279,15 @@
         "osservazioniCliente": "Ulteriori osservazioni del cliente sulle circostanze dell'incidente"
       }
     },
+    "autorita": {
+      "title": "Autorità",
+      "labels": {
+        "interventoAutorita": "Sono intervenute autorità?",
+        "autoritaIntervenuta": "Quali autorità sono intervenute?",
+        "comando": "Di quale comando?",
+        "dataDenuncia": "Data Denuncia Autorità"
+      }
+    },
     "step": {
       "labels": {
         "M11": "Segnalazione",
