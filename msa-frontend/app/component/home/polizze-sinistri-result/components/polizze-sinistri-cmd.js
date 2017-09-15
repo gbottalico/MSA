@@ -362,7 +362,7 @@
                 	}else{
                 		$ctrl.polizzaSelected = polizza;
                 	}
-                }
+                };
                 
                 $ctrl.dettaglioPolizza = function (polizza) {
                     //Qui bisogna cercare in base al numero di polizza

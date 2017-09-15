@@ -165,7 +165,6 @@
                     function watchScope(scope) {
                         return {
                             numeroSinistroProvvisorio: $ctrl.numeroSinistroProvvisorio,
-                            sinprov: $ctrl.sinistroProvvisorio
                         };
                     },
                     function handleChanges(newValues, oldValues) {
