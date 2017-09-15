@@ -44,7 +44,7 @@ public class BaseSinistroService extends BaseService {
     static {
         classiGaranzieMap.put("rca", SinistroRcaDTO.class);
         classiGaranzieMap.put("incendio", SinistroFurtoIncendioDTO.class);
-        classiGaranzieMap.put("urto_totale", SinistroFurtoIncendioDTO.class);
+        classiGaranzieMap.put("furto_totale", SinistroFurtoIncendioDTO.class);
         classiGaranzieMap.put("furto_parziale", SinistroFurtoIncendioDTO.class);
         classiGaranzieMap.put("kasko", SinistroKaskoDTO.class);
         classiGaranzieMap.put("cristalli", SinistroCristalliDTO.class);
@@ -254,6 +254,9 @@ public class BaseSinistroService extends BaseService {
                     sinistroByNumProvv.setResponsabilita(o.getResponsabilita());
                     sinistroByNumProvv.setSviluppoFiamme(o.getSviluppoFiamme());
                     sinistroByNumProvv.setInterventoAutorita(o.getInterventoAutorita());
+                    sinistroByNumProvv.setCodAutorita(o.getCodAutorita());
+                    sinistroByNumProvv.setComandoAutorita(o.getComandoAutorita());
+                    sinistroByNumProvv.setDataDenuncia(o.getDataDenuncia());
                     return sinistroByNumProvv;
 
                 } catch (Exception e) {

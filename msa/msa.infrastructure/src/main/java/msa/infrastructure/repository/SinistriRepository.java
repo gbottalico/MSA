@@ -47,7 +47,7 @@ public class SinistriRepository extends BaseRepository {
     static {
         classiGaranzieMap.put("rca", SinistroRcaDO.class);
         classiGaranzieMap.put("incendio", SinistroFurtoIncendioDO.class);
-        classiGaranzieMap.put("urto_totale", SinistroFurtoIncendioDO.class);
+        classiGaranzieMap.put("furto_totale", SinistroFurtoIncendioDO.class);
         classiGaranzieMap.put("furto_parziale", SinistroFurtoIncendioDO.class);
         classiGaranzieMap.put("kasko", SinistroKaskoDO.class);
         classiGaranzieMap.put("cristalli", SinistroCristalliDO.class);
