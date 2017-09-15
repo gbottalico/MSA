@@ -99,6 +99,7 @@
                 $ctrl.isMappaVisibile = function (nomeMappa) {
                     // if(!$ctrl.scrollable) TODO
                     //     return false;
+                    // TODO ad un certo punto, escluso m13, gli altri potrebbero essere case default
                     switch (nomeMappa) {
                         case 'M12':
                             return $ctrl.mappe.indexOf('M12') > -1;
@@ -115,13 +116,15 @@
                         case 'M23':
                             return $ctrl.mappe.indexOf('M23') > -1;
                         case 'M25':
-                            return $ctrl.mappe.indexOf('M25') > -1; //TODO
+                            return $ctrl.mappe.indexOf('M25') > -1;
                         case 'M26':
                             return $ctrl.mappe.indexOf('M26') > -1;
                         case 'M27':
                             return $ctrl.mappe.indexOf('M27') > -1;
                         case 'M28':
                             return $ctrl.mappe.indexOf('M28') > -1;
+                        case 'M33':
+                            return $ctrl.mappe.indexOf('M33') > -1;
                         default:
                             return false;
                     }

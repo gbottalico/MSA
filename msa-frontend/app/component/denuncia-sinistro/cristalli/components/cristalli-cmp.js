@@ -2,7 +2,7 @@
     "use strict";
 
     app.component('msaCristalli', {
-        templateUrl: '../../app/component/cristalli/incendio-veicolo/components/templates/cristalli-tpl.html',
+        templateUrl: '../../app/component/denuncia-sinistro/cristalli/components/templates/cristalli-tpl.html',
         bindings: {
             numeroSinistroProvvisorio: "<",
             sinistroProvvisorio: "<",
@@ -15,14 +15,33 @@
                 var $translate = $filter('translate');
                 var parent = $scope.$parent;
                 $scope.$debugMode = $debugMode;
-                $ctrl.mapId = 'M32';
+                $ctrl.mapId = 'M33';
 
                 $ctrl.isInputConsumed = false;
                 $ctrl.causeRotturaCristalli = undefined;
 
+                $ctrl.cristalli = {};
+
                 DomainSvc.getCauseRotturaCristalli().then(function (response) {
                    $ctrl.causeRotturaCristalli = response.data.result;
                 });
+
+                $ctrl.salvaCristalli = function () {
+                    SinistriSvc.salvaCristalli($ctrl.numeroSinistroProvvisorio, $ctrl.cristalli).then(function (response) {
+                        DebugSvc.log("salvaCristalli", response);
+                        if(response.status === 200 && _.isObject(response.data) && response.data.status === 200) {
+                            parent.aggiornaMappe($ctrl.mapId);
+                            toastr.success($translate('global.generic.saveok'));
+                            $scope.cristalliForm.$setPristine();
+                        } else {
+                            toastr.error($translate('global.generic.saveko'));
+                        }
+                    });
+                };
+
+                $ctrl.bindCristalli = function () {
+
+                };
 
                 $timeout(function () {
                     parent.mappaCaricata($ctrl.mapId);

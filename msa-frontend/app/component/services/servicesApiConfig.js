@@ -44,6 +44,7 @@ app.service('msaServicesApiUrls', function ($MSAC) {
     this.carrozzerie            = apiPath + "/sinistro/centri/{0}?param";           //0: indirizzo
     this.salvacarrozzeria       = apiPath + "/sinistro/{0}/centroConvenzionato/";   //0: indirizzo
     this.furtoincendio          = apiPath + "/sinistro/{0}/furtoIncendio";          //0: indirizzo
+    this.cristalli              = apiPath + "/sinistro/{0}/cristalli";          //0: indirizzo
 
     /* DOCUMENTI */
 
