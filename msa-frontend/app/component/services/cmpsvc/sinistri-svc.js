@@ -164,7 +164,50 @@ angular.module('msa').service(
                 return $http.post(url, data);
 
             };
+            $svc.salvaFurtoTotale = function (numeroSinistroProvvisorio, furtoTotale) {
+                var dataObj = {
 
+                    descrizioneDanni: furtoTotale.descrizionedanni,
+                    interventoAutorita: furtoTotale.autorita.interventoAutorita,
+                };
+
+                if (furtoTotale.autorita.interventoAutorita) {
+                    dataObj.codAutorita = furtoTotale.autorita.autoritaIntervenuta;
+                    dataObj.comandoAutorita = furtoTotale.autorita.comandoAutorita;
+                    dataObj.dataDenuncia = furtoTotale.autorita.dataDenuncia.date;
+                }
+
+                var url = UtilSvc.stringFormat(msaServicesApiUrls.furtoincendio, numeroSinistroProvvisorio);
+                return $http.post(url, dataObj);
+
+            };
+            $svc.salvaDannoRcaCliente = function (idSinistroProvvisorio, dannoRca) {
+
+                var dataObj = {};
+                dataObj.anagraficaDanniCliente = {
+                    anagrafica: {}
+                };
+
+                dataObj.anagraficaDanniCliente.danni = ConvertSvc.danniAutoToDTO(dannoRca.dannoCliente, dannoRca.descrizioneDannoCliente);
+                dataObj.lesioniConducente = dannoRca.lesioniConducente;
+                dataObj.conducenteDiverso = dannoRca.conducenteIsNotContraente;
+
+                if (dannoRca.conducente) {
+                    dataObj.anagraficaDanniCliente.anagrafica = ConvertSvc.anagraficaToDTO(dannoRca.conducente);
+                }
+
+                if (dannoRca.veicoloCliente) {
+                    dataObj.anagraficaDanniCliente.anagrafica.targa = dannoRca.veicoloCliente.targa;
+                    dataObj.anagraficaDanniCliente.anagrafica.targaEstera = dannoRca.veicoloCliente.estera;
+                    dataObj.anagraficaDanniCliente.anagrafica.targaSpeciale = dannoRca.veicoloCliente.speciale;
+                    dataObj.anagraficaDanniCliente.anagrafica.veicolo = dannoRca.veicoloCliente.veicolo;
+                }
+
+                var url = UtilSvc.stringFormat(msaServicesApiUrls.dannorcacliente, idSinistroProvvisorio);
+
+                return $http.post(url, dataObj);
+
+            };
             $svc.saveCai = function (numeroSinistroProvvisorio, cai, nveicoli) {
 
                 var data = {};
@@ -203,33 +246,7 @@ angular.module('msa').service(
 
             };
 
-            $svc.salvaDannoRcaCliente = function (idSinistroProvvisorio, dannoRca) {
 
-                var dataObj = {};
-                dataObj.anagraficaDanniCliente = {
-                    anagrafica: {}
-                };
-
-                dataObj.anagraficaDanniCliente.danni = ConvertSvc.danniAutoToDTO(dannoRca.dannoCliente, dannoRca.descrizioneDannoCliente);
-                dataObj.lesioniConducente = dannoRca.lesioniConducente;
-                dataObj.conducenteDiverso = dannoRca.conducenteIsNotContraente;
-
-                if (dannoRca.conducente) {
-                    dataObj.anagraficaDanniCliente.anagrafica = ConvertSvc.anagraficaToDTO(dannoRca.conducente);
-                }
-
-                if (dannoRca.veicoloCliente) {
-                    dataObj.anagraficaDanniCliente.anagrafica.targa = dannoRca.veicoloCliente.targa;
-                    dataObj.anagraficaDanniCliente.anagrafica.targaEstera = dannoRca.veicoloCliente.estera;
-                    dataObj.anagraficaDanniCliente.anagrafica.targaSpeciale = dannoRca.veicoloCliente.speciale;
-                    dataObj.anagraficaDanniCliente.anagrafica.veicolo = dannoRca.veicoloCliente.veicolo;
-                }
-
-                var url = UtilSvc.stringFormat(msaServicesApiUrls.dannorcacliente, idSinistroProvvisorio);
-
-                return $http.post(url, dataObj);
-
-            };
 
 
             $svc.salvaDannoRcaControparti = function (idSinistroProvvisorio, dannoRca) {

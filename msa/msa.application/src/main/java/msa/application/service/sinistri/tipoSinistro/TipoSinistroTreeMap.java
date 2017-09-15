@@ -36,7 +36,7 @@ public class TipoSinistroTreeMap<T extends BaseSinistroDO> extends CalcoloTipoSi
 
         //LeafRca isInItaliaAndCTTContrAndContr = new LeafRca();
 
-        if (isRca.apply(sinistro).equals(1)) {
+        if (isRca.apply(sinistro).equals(Boolean.TRUE)) {
             final SinistroRcaDO sinistroRca = (SinistroRcaDO) sinistro;
 
 
@@ -44,27 +44,27 @@ public class TipoSinistroTreeMap<T extends BaseSinistroDO> extends CalcoloTipoSi
                     Stream.of(
                             new LeafRca(sinistroRca, 0, isIntaliaAndCTTClienteAndControparte,
                                     Stream.of(
-                                            new LeafRca(sinistroRca, 1, getByCidAndPresente, finalStep),
-                                            new LeafRca(sinistroRca, 0, fromSinistroToRca, finalStep)
+                                            new LeafRca(sinistroRca, 1, getByCidAndPresente, finalStepRca),
+                                            new LeafRca(sinistroRca, 0, fromSinistroToRca, finalStepRca)
                                     ).collect(Collectors.toList())),
                             new LeafRca(sinistroRca, 1, isIntaliaAndCardClienteAndControparte,
                                     Stream.of(
-                                            new LeafRca(sinistroRca, 0, getByCidAndPresente, finalStep),
-                                            new LeafRca(sinistroRca, 1, getGetPercCIDFull, finalStep)
+                                            new LeafRca(sinistroRca, 0, getByCidAndPresente, finalStepRca),
+                                            new LeafRca(sinistroRca, 1, getGetPercCIDFull, finalStepRca)
                                     ).collect(Collectors.toList()))
                     ).collect(Collectors.toList()));
         } else {
-            this.leafOther = new LeafOther<>(sinistro,getGaranzia,finalStep); //Todo FIXME!
+            this.leafOther = new LeafOther<>(sinistro,getGaranzia, finalStepOthers); //Todo FIXME!
         }
 
     }
 
     private class LeafOther<T> {
         private T sinistro;
-        private Function<T, Integer> functionforResult;
-        private Function<Integer, TipiSinisto> finalStep;
+        private Function<T, String> functionforResult;
+        private Function<String, TipiSinisto> finalStep;
 
-        public LeafOther(T sinistro, Function<T, Integer> functionforResult, Function<Integer, TipiSinisto> finalStep) {
+        public LeafOther(T sinistro, Function<T, String> functionforResult, Function<String, TipiSinisto> finalStep) {
             this.sinistro = sinistro;
             this.functionforResult = functionforResult;
             this.finalStep = finalStep;

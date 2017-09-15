@@ -151,19 +151,20 @@ class CalcoloTipoSinistroFunctions<T extends BaseSinistroDO> {
         return numVeicoli ? 1 : 0;
     };
 
-    protected Function<BaseSinistroDO, Integer> isRca = sinistro -> {
-        final Boolean rca = sinistro.getSegnalazione().getGaranziaSelected().equals(MsaCostanti.COD_GARANZIA_RCA);
-        return rca ? 1 : 0;
-    };
+    protected Function<BaseSinistroDO, Boolean> isRca = sinistro -> sinistro.getSegnalazione().getGaranziaSelected().equals(MsaCostanti.COD_GARANZIA_RCA);
 
-    protected Function<Integer, TipiSinisto> finalStep = key -> Arrays.stream(TipiSinisto.values())
+    protected Function<Integer, TipiSinisto> finalStepRca = key -> Arrays.stream(TipiSinisto.values())
             .filter(e -> e.ordinal() == key)
+            .findFirst()
+            .orElse(null);
+    protected Function<String, TipiSinisto> finalStepOthers = key -> Arrays.stream(TipiSinisto.values())
+            .filter(e -> e.getDes().equalsIgnoreCase(key))
             .findFirst()
             .orElse(null);
 
     protected Function<SinistroRcaDO, Integer> fromSinistroToRca = e -> TipiSinisto.RCA.ordinal();
 
-    protected Function<BaseSinistroDO, Integer> getGaranzia = e -> FunctionUtils.numberConverter(e.getSegnalazione().getGaranziaSelected(), Integer::valueOf);
+    protected Function<BaseSinistroDO, String> getGaranzia = e -> e.getSegnalazione().getGaranziaSelected();
 
 
 }

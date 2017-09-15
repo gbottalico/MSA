@@ -9,6 +9,7 @@ public class SinistroFurtoIncendioDTO extends SinistroNoRcaDTO {
     private String descrizioneDanni;
     private String osservazioniCliente;
 
+
     public Boolean getSviluppoFiamme() {
         return sviluppoFiamme;
     }

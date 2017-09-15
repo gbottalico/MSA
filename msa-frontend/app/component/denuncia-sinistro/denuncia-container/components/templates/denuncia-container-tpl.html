@@ -12,50 +12,56 @@
     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-12 rightContainer">
 
         <msa-segnalazione id="M11"
-                numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
-                sinistro-provvisorio="$ctrl.sinistroProvvisorio"
-                temp-segnalazione="$ctrl.tempSegnalazione">
+                          numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
+                          sinistro-provvisorio="$ctrl.sinistroProvvisorio"
+                          temp-segnalazione="$ctrl.tempSegnalazione">
         </msa-segnalazione>
 
 
         <!-- RCA -->
         <msa-evento-rca id="M12"
-                ng-if="$ctrl.isMappaVisibile('M12')"
-                numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
-                sinistro-provvisorio="$ctrl.sinistroProvvisorio"
-                temp-segnalazione="$ctrl.tempSegnalazione"
-                class="msaModule">
+                        ng-if="$ctrl.isMappaVisibile('M12')"
+                        numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
+                        sinistro-provvisorio="$ctrl.sinistroProvvisorio"
+                        temp-segnalazione="$ctrl.tempSegnalazione"
+                        class="msaModule">
         </msa-evento-rca>
 
         <msa-constatazione-amichevole id="M13"
-                ng-if="$ctrl.isMappaVisibile('M13')"
-                numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
-                sinistro-provvisorio="$ctrl.sinistroProvvisorio"
-                temp-segnalazione="$ctrl.tempSegnalazione">
+                                      ng-if="$ctrl.isMappaVisibile('M13')"
+                                      numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
+                                      sinistro-provvisorio="$ctrl.sinistroProvvisorio"
+                                      temp-segnalazione="$ctrl.tempSegnalazione">
         </msa-constatazione-amichevole>
 
         <msa-cai id="M14"
-                ng-if="$ctrl.isMappaVisibile('M14')"
-                numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
-                sinistro-provvisorio="$ctrl.sinistroProvvisorio"
-                temp-segnalazione="$ctrl.tempSegnalazione">
+                 ng-if="$ctrl.isMappaVisibile('M14')"
+                 numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
+                 sinistro-provvisorio="$ctrl.sinistroProvvisorio"
+                 temp-segnalazione="$ctrl.tempSegnalazione">
         </msa-cai>
 
         <msa-danno-rca id="M15"
-                ng-if="$ctrl.isMappaVisibile('M15')"
-                numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
-                sinistro-provvisorio="$ctrl.sinistroProvvisorio"
-                temp-segnalazione="$ctrl.tempSegnalazione">
+                       ng-if="$ctrl.isMappaVisibile('M15')"
+                       numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
+                       sinistro-provvisorio="$ctrl.sinistroProvvisorio"
+                       temp-segnalazione="$ctrl.tempSegnalazione">
 
         </msa-danno-rca>
         <!-- //RCA -->
+        <!-- FURTO TOTALE -->
+
+        <msa-furto-totale id="M30" numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
+                          sinistro-provvisorio="$ctrl.sinistroProvvisorio"
+                          temp-segnalazione="$ctrl.tempSegnalazione"></msa-furto-totale>
+        <!-- END FURTO TOTALE -->
 
         <!-- INCENDIO -->
         <msa-incendio-veicolo id="M28"
-              ng-if="$ctrl.isMappaVisibile('M28')"
-              numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
-              sinistro-provvisorio="$ctrl.sinistroProvvisorio"
-              temp-segnalazione="$ctrl.tempSegnalazione">
+                              ng-if="$ctrl.isMappaVisibile('M28')"
+                              numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
+                              sinistro-provvisorio="$ctrl.sinistroProvvisorio"
+                              temp-segnalazione="$ctrl.tempSegnalazione">
         </msa-incendio-veicolo>
 
         <!-- //INCENDIO -->
@@ -71,50 +77,50 @@
         <!-- //CRISTALLI -->
 
         <msa-terze-parti id="M18"
-                 ng-if="$ctrl.isMappaVisibile('M18')"
-                 numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
-                 sinistro-provvisorio="$ctrl.sinistroProvvisorio"
-                 temp-segnalazione="$ctrl.tempSegnalazione">
+                         ng-if="$ctrl.isMappaVisibile('M18')"
+                         numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
+                         sinistro-provvisorio="$ctrl.sinistroProvvisorio"
+                         temp-segnalazione="$ctrl.tempSegnalazione">
 
         </msa-terze-parti>
 
         <msa-legale id="M20"
-                ng-if="$ctrl.isMappaVisibile('M20')"
-                numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
-                sinistro-provvisorio="$ctrl.sinistroProvvisorio"
-                temp-segnalazione="$ctrl.tempSegnalazione">
+                    ng-if="$ctrl.isMappaVisibile('M20')"
+                    numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
+                    sinistro-provvisorio="$ctrl.sinistroProvvisorio"
+                    temp-segnalazione="$ctrl.tempSegnalazione">
 
         </msa-legale>
 
         <msa-carrozzeria-convenzionata id="M23"
-                ng-if="$ctrl.isMappaVisibile('M23')"
-                numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
-                sinistro-provvisorio="$ctrl.sinistroProvvisorio"
-                temp-segnalazione="$ctrl.tempSegnalazione">
+                                       ng-if="$ctrl.isMappaVisibile('M23')"
+                                       numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
+                                       sinistro-provvisorio="$ctrl.sinistroProvvisorio"
+                                       temp-segnalazione="$ctrl.tempSegnalazione">
 
         </msa-carrozzeria-convenzionata>
 
         <msa-perito id="M25"
-                ng-if="$ctrl.isMappaVisibile('M25')"
-                numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
-                sinistro-provvisorio="$ctrl.sinistroProvvisorio"
-                temp-segnalazione="$ctrl.tempSegnalazione">
+                    ng-if="$ctrl.isMappaVisibile('M25')"
+                    numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
+                    sinistro-provvisorio="$ctrl.sinistroProvvisorio"
+                    temp-segnalazione="$ctrl.tempSegnalazione">
 
         </msa-perito>
 
         <msa-documenti id="M26"
-               ng-if="$ctrl.isMappaVisibile('M26')"
-               numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
-               sinistro-provvisorio="$ctrl.sinistroProvvisorio"
-               temp-segnalazione="$ctrl.tempSegnalazione">
+                       ng-if="$ctrl.isMappaVisibile('M26')"
+                       numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
+                       sinistro-provvisorio="$ctrl.sinistroProvvisorio"
+                       temp-segnalazione="$ctrl.tempSegnalazione">
 
         </msa-documenti>
 
         <msa-riepilogo id="M27"
-               ng-if="$ctrl.isMappaVisibile('M27')"
-               numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
-               sinistro-provvisorio="$ctrl.sinistroProvvisorio"
-               temp-segnalazione="$ctrl.tempSegnalazione">
+                       ng-if="$ctrl.isMappaVisibile('M27')"
+                       numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
+                       sinistro-provvisorio="$ctrl.sinistroProvvisorio"
+                       temp-segnalazione="$ctrl.tempSegnalazione">
 
         </msa-riepilogo>
 

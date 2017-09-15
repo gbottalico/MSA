@@ -259,6 +259,11 @@
         "denominazione":"Denominazione"
       }
     },
+    "furtoTotale":{
+      "title":"Furto del veicolo",
+      "labels":{
+      "descrizionedanno": "Descrizione danno"}
+    },
     "riepilogo": {
       "title": "Riepilogo",
       "labels": {}
