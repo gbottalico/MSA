@@ -15,7 +15,7 @@
                 var $translate = $filter('translate');
                 var parent = $scope.$parent;
                 $scope.$debugMode = $debugMode;
-                $ctrl.mapId = 'M27';
+                $ctrl.mapId = 'M28';
 
                 $ctrl.isInputConsumed = false;
                 $ctrl.incendio = {};
