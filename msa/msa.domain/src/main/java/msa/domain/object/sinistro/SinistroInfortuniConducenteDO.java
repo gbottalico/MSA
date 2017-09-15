@@ -1,19 +1,10 @@
 package msa.domain.object.sinistro;
 
-public class SinistroInfortuniConducenteDO extends BaseSinistroDO{
+public class SinistroInfortuniConducenteDO extends SinistroNoRcaDO{
     private Boolean conducenteDiversoContraente;
     private String descrizioneDanni;
     private String osservazioniInfortunato;
     private FullAnagraficaDO anagraficaInfortunato;
-    private Boolean interventoAutorita;
-
-    public Boolean getInterventoAutorita() {
-        return interventoAutorita;
-    }
-
-    public void setInterventoAutorita(Boolean interventoAutorita) {
-        this.interventoAutorita = interventoAutorita;
-    }
 
     public Boolean getConducenteDiversoContraente() {
         return conducenteDiversoContraente;

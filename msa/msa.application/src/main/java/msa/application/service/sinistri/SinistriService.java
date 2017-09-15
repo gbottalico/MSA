@@ -167,7 +167,7 @@ public class SinistriService extends BaseSinistroService {
                 input.setProprietario(getProprietarioIfIsDifferent(input));
             }
             final Integer numSinis = sinistriRepository.insertSinistroProvvisorioAndGetNum(converter.convertObject(input, BaseSinistroDO.class));
-            return new BaseDTO(Stream.of(numSinis).collect(Collectors.toMap(e -> "numSinistroProvvisorio", String::valueOf)));
+            return new BaseDTO(Stream.of(numSinis).collect(Collectors.toMap(e -> "numSinistroProvvisorio", Integer::valueOf)));
         } catch (Exception e) {
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA004"));
         }

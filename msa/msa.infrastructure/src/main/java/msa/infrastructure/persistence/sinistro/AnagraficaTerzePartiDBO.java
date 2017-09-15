@@ -8,6 +8,8 @@ public class AnagraficaTerzePartiDBO extends FullAnagraficaControparteDBO {
     private String note;
     @Field("lesioni")
     private Boolean lesioni;
+    @Field("associato")
+    private FullAnagraficaControparteDBO associato;
 
 
     public String getNote() {
@@ -24,5 +26,13 @@ public class AnagraficaTerzePartiDBO extends FullAnagraficaControparteDBO {
 
     public void setLesioni(Boolean lesioni) {
         this.lesioni = lesioni;
+    }
+
+    public FullAnagraficaControparteDBO getAssociato() {
+        return associato;
+    }
+
+    public void setAssociato(FullAnagraficaControparteDBO associato) {
+        this.associato = associato;
     }
 }

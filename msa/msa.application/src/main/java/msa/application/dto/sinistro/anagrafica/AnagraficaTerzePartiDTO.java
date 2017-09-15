@@ -4,6 +4,7 @@ public class AnagraficaTerzePartiDTO extends FullAnagraficaControparteDTO {
     private static final long serialVersionUID = -5033305975768471583L;
     private String note;
     private Boolean lesioni;
+    private FullAnagraficaControparteDTO associato;
 
     public String getNote() {
         return note;
@@ -19,5 +20,13 @@ public class AnagraficaTerzePartiDTO extends FullAnagraficaControparteDTO {
 
     public void setLesioni(Boolean lesioni) {
         this.lesioni = lesioni;
+    }
+
+    public FullAnagraficaControparteDTO getAssociato() {
+        return associato;
+    }
+
+    public void setAssociato(FullAnagraficaControparteDTO associato) {
+        this.associato = associato;
     }
 }
