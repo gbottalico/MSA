@@ -42,6 +42,18 @@
                     });
                 };
 
+                $ctrl.bindIncendio = function () {
+                    $ctrl.incendio.sviluppoFiamme = $ctrl.sinistroProvvisorio.sviluppoFiamme;
+                    $ctrl.incendio.responsabilitaTerzi = $ctrl.sinistroProvvisorio.responsabilita;
+                    $ctrl.incendio.descrizioneDanni = $ctrl.sinistroProvvisorio.descrizioneDanni;
+                    $ctrl.incendio.osservazioniCliente = $ctrl.sinistroProvvisorio.osservazioniCliente;
+                    $ctrl.incendio.interventoAutorita = $ctrl.sinistroProvvisorio.interventoAutorita;
+                    $ctrl.incendio.autoritaIntervenuta = $ctrl.sinistroProvvisorio.codAutorita;
+                    $ctrl.incendio.comandoAutorita = $ctrl.sinistroProvvisorio.comandoAutorita;
+
+                    $ctrl.persistence.dataDenuncia = $ctrl.sinistroProvvisorio.dataDenuncia ? new Date($ctrl.sinistroProvvisorio.dataDenuncia) : null;
+                };
+
                 $scope.$watch(
                     function watchScope(scope) {
                         return {
@@ -51,7 +63,7 @@
                     function handleChanges(newValues, oldValues) {
 
                         if (_.isObject(newValues.sinistroProvvisorio) && !$ctrl.isInputConsumed) {
-
+                            $ctrl.bindIncendio();
                             $ctrl.isInputConsumed = true;
                         }
 

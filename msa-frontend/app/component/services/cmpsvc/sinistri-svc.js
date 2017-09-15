@@ -332,14 +332,19 @@ angular.module('msa').service(
 
             $svc.salvaIncendio = function (idSinistroProvvisorio, incendio) {
                 var dataObj = {
+                    sviluppoFiamme: incendio.sviluppoFiamme,
                     responsabilita: incendio.responsabilitaTerzi,
                     descrizioneDanni: incendio.descrizioneDanni,
                     osservazioniCliente: incendio.osservazioniCliente,
                     interventoAutorita: incendio.interventoAutorita,
-                    codAutorita: incendio.autoritaIntervenuta,
-                    comandoAutorita: incendio.comandoAutorita,
-                    dataDenuncia: incendio.dataDenuncia.date
                 };
+
+                if (incendio.interventoAutorita) {
+                    dataObj.codAutorita = incendio.autoritaIntervenuta;
+                    dataObj.comandoAutorita = incendio.comandoAutorita;
+                    dataObj.dataDenuncia = incendio.dataDenuncia.date;
+                }
+
                 var url = UtilSvc.stringFormat(msaServicesApiUrls.furtoincendio, idSinistroProvvisorio);
                 return $http.post(url, dataObj);
             };
