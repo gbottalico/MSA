@@ -271,6 +271,9 @@ public class BaseSinistroService extends BaseService {
                     sinistroByNumProvv.setDanniKasko(converter.convertObject(o.getDanniKasko(), DanniDO.class));
                     sinistroByNumProvv.setOsservazioniCliente(o.getOsservazioniCliente());
                     sinistroByNumProvv.setInterventoAutorita(o.getInterventoAutorita());
+                    sinistroByNumProvv.setCodAutorita(o.getCodAutorita());
+                    sinistroByNumProvv.setComandoAutorita(o.getComandoAutorita());
+                    sinistroByNumProvv.setDataDenuncia(o.getDataDenuncia());
 
                     return sinistroByNumProvv;
                 } catch (Exception e) {
@@ -287,6 +290,9 @@ public class BaseSinistroService extends BaseService {
                     sinistroByNumProvv.setFlagFattura(o.getFlagFattura());
                     sinistroByNumProvv.setFlagRiparazione(o.getFlagRiparazione());
                     sinistroByNumProvv.setInterventoAutorita(o.getInterventoAutorita());
+                    sinistroByNumProvv.setCodAutorita(o.getCodAutorita());
+                    sinistroByNumProvv.setComandoAutorita(o.getComandoAutorita());
+                    sinistroByNumProvv.setDataDenuncia(o.getDataDenuncia()); 
 
                     return sinistroByNumProvv;
                 } catch (Exception e) {
@@ -302,6 +308,9 @@ public class BaseSinistroService extends BaseService {
                     sinistroByNumProvv.setDescrizioneDanni(o.getDescrizioneDanni());
                     sinistroByNumProvv.setOsservazioniInfortunato(o.getOsservazioniInfortunato());
                     sinistroByNumProvv.setInterventoAutorita(o.getInterventoAutorita());
+                    sinistroByNumProvv.setCodAutorita(o.getCodAutorita());
+                    sinistroByNumProvv.setComandoAutorita(o.getComandoAutorita());
+                    sinistroByNumProvv.setDataDenuncia(o.getDataDenuncia());
                     if (o.getAnagraficaInfortunato() != null) {
                         sinistroByNumProvv.setAnagraficaInfortunato(converter.convertObject(o.getAnagraficaInfortunato(), FullAnagraficaDO.class));
                     }

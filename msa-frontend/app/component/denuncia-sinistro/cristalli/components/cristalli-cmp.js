@@ -40,7 +40,14 @@
                 };
 
                 $ctrl.bindCristalli = function () {
-
+                    $ctrl.cristalli.desCristalloRotto = $ctrl.sinistroProvvisorio.desCristalloRotto;
+                    $ctrl.cristalli.codRotturaCristalli = parseInt($ctrl.sinistroProvvisorio.codRotturaCristalli);
+                    $ctrl.cristalli.flagRiparazione = $ctrl.sinistroProvvisorio.flagRiparazione;
+                    $ctrl.cristalli.flagFattura = $ctrl.sinistroProvvisorio.flagFattura;
+                    $ctrl.cristalli.interventoAutorita = $ctrl.sinistroProvvisorio.interventoAutorita;
+                    $ctrl.cristalli.autoritaIntervenuta = $ctrl.sinistroProvvisorio.codAutorita;
+                    $ctrl.cristalli.comandoAutorita = $ctrl.sinistroProvvisorio.comandoAutorita;
+                    $ctrl.cristalli.dataDenuncia = $ctrl.sinistroProvvisorio.dataDenuncia;
                 };
 
                 $timeout(function () {
@@ -56,7 +63,7 @@
                     function handleChanges(newValues, oldValues) {
 
                         if (_.isObject(newValues.sinistroProvvisorio) && !$ctrl.isInputConsumed) {
-
+                            $ctrl.bindCristalli();
                             $ctrl.isInputConsumed = true;
                         }
 
