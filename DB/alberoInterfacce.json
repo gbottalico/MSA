@@ -89,11 +89,11 @@
         {
             "thisView" : "M11", 
             "parameter" : "1", 
-            "nextView" : "M27", 
+            "nextView" : "M28", 
             "percentuale" : 10.0
         }, 
         {
-            "thisView" : "M27", 
+            "thisView" : "M28", 
             "parameter" : "1", 
             "nextView" : "M20", 
             "percentuale" : 20.0
@@ -155,11 +155,11 @@
         {
             "thisView" : "M11", 
             "parameter" : "2", 
-            "nextView" : "M29", 
+            "nextView" : "M30", 
             "percentuale" : 10.0
         }, 
         {
-            "thisView" : "M29", 
+            "thisView" : "M30", 
             "parameter" : "1", 
             "nextView" : "M20", 
             "percentuale" : 20.0
@@ -221,10 +221,10 @@
         {
             "thisView" : "M11", 
             "parameter" : "3", 
-            "nextView" : "M30"
+            "nextView" : "M31"
         }, 
         {
-            "thisView" : "M30", 
+            "thisView" : "M31", 
             "parameter" : "1", 
             "nextView" : "M20"
         }, 
@@ -277,10 +277,10 @@
         {
             "thisView" : "M11", 
             "parameter" : "3", 
-            "nextView" : "M31"
+            "nextView" : "M32"
         }, 
         {
-            "thisView" : "M31", 
+            "thisView" : "M32", 
             "parameter" : "1", 
             "nextView" : "M20"
         }, 
@@ -333,10 +333,10 @@
         {
             "thisView" : "M11", 
             "parameter" : "3", 
-            "nextView" : "M32"
+            "nextView" : "M33"
         }, 
         {
-            "thisView" : "M32", 
+            "thisView" : "M33", 
             "parameter" : "1", 
             "nextView" : "M22"
         }, 
