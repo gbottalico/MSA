@@ -5,6 +5,7 @@ import msa.application.config.BaseDTO;
 import msa.application.dto.ricerca.InputRicercaDTO;
 import msa.application.dto.sinistro.*;
 import msa.application.dto.sinistro.anagrafica.AnagraficaTerzePartiDTO;
+import msa.application.dto.sinistro.anagrafica.FullAnagraficaDTO;
 import msa.application.dto.sinistro.rca.cai.CaiDTO;
 import msa.application.dto.sinistro.rca.constatazioneAmichevole.ConstatazioneAmichevoleDTO;
 import msa.application.dto.sinistro.rca.dannoRca.AnagraficaDanniDTO;
@@ -156,6 +157,18 @@ public class SinistroController extends BaseController {
 
         return sinistriService.salvaDannoRcaLegale(input, numeroSinistro);
 
+    }
+
+    @ApiOperation(value = "Metodo che mostra i sinistri e le partite danno")
+    @RequestMapping(value = "/{numero}/PD", method = RequestMethod.GET)
+    public BaseDTO getSinistriPartiteDanno(@PathVariable("numero") final Integer numSinistroProvv) throws InternalMsaException {
+        return new BaseDTO<>(sinistriService.getSinistroPartiteDanno(numSinistroProvv));
+    }
+
+    @ApiOperation(value = "Metodo che mostra le partite danno da associare a terze parti o legale")
+    @RequestMapping(value = "/{numero}/anagraficheAssociabili", method = RequestMethod.GET)
+    public BaseDTO getAnagrafichePartiteDanno(@PathVariable("numero") final Integer numSinistroProvv) throws InternalMsaException {
+        return new BaseDTO<>(sinistriService.getAnagrafichePartiteDanno(numSinistroProvv));
     }
 
     @ApiOperation(value = "Metodo che salva il perito incaricato")

@@ -1,6 +1,8 @@
 package msa.domain.object.sinistro;
 
-public class RuoliDO {
+import java.io.Serializable;
+
+public class RuoliDO implements Serializable {
     private Integer id;
     private String raggruppamento;
     private String descrizione;

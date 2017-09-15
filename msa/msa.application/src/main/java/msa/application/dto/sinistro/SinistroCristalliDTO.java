@@ -3,13 +3,12 @@ package msa.application.dto.sinistro;
 /**
  * Created by simon.calabrese on 23/08/2017.
  */
-public class SinistroCristalliDTO extends BaseSinistroDTO{
+public class SinistroCristalliDTO extends SinistroNoRcaDTO{
     private static final long serialVersionUID = -6763745521786366887L;
     private String desCristalloRotto;
     private String codRotturaCristalli;
     private Boolean flagRiparazione;
     private Boolean flagFattura;
-    private Boolean interventoAutorita;
 
     public String getDesCristalloRotto() {
         return desCristalloRotto;
@@ -43,11 +42,4 @@ public class SinistroCristalliDTO extends BaseSinistroDTO{
         this.flagFattura = flagFattura;
     }
 
-    public Boolean getInterventoAutorita() {
-        return interventoAutorita;
-    }
-
-    public void setInterventoAutorita(Boolean interventoAutorita) {
-        this.interventoAutorita = interventoAutorita;
-    }
 }

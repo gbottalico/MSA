@@ -2,21 +2,12 @@ package msa.application.dto.sinistro;
 
 import msa.application.dto.sinistro.anagrafica.FullAnagraficaDTO;
 
-public class SinistroInfortuniConducenteDTO extends BaseSinistroDTO{
+public class SinistroInfortuniConducenteDTO extends SinistroNoRcaDTO {
     private static final long serialVersionUID = 3026178539055839655L;
     private Boolean conducenteDiversoContraente;
     private String descrizioneDanni;
     private String osservazioniInfortunato;
     private FullAnagraficaDTO anagraficaInfortunato;
-    private Boolean interventoAutorita;
-
-    public Boolean getInterventoAutorita() {
-        return interventoAutorita;
-    }
-
-    public void setInterventoAutorita(Boolean interventoAutorita) {
-        this.interventoAutorita = interventoAutorita;
-    }
 
     public Boolean getConducenteDiversoContraente() {
         return conducenteDiversoContraente;

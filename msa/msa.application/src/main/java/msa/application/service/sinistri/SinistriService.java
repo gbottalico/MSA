@@ -8,6 +8,7 @@ import msa.application.dto.ricerca.InputRicercaDTO;
 import msa.application.dto.ricerca.OutputRicercaDTO;
 import msa.application.dto.sinistro.*;
 import msa.application.dto.sinistro.anagrafica.AnagraficaTerzePartiDTO;
+import msa.application.dto.sinistro.anagrafica.FullAnagraficaControparteDTO;
 import msa.application.dto.sinistro.anagrafica.FullAnagraficaDTO;
 import msa.application.dto.sinistro.rca.cai.CaiDTO;
 import msa.application.dto.sinistro.rca.constatazioneAmichevole.ConstatazioneAmichevoleDTO;
@@ -21,6 +22,7 @@ import msa.application.service.interfaceDispatcher.DispatcherService;
 import msa.application.service.sinistri.tipoSinistro.TipiSinisto;
 import msa.application.service.sinistri.tipoSinistro.TipoSinistroTreeMap;
 import msa.domain.Converter.FunctionUtils;
+import msa.domain.Converter.commonObject.GenericTupla;
 import msa.domain.object.dominio.*;
 import msa.domain.object.ricerca.FullPolizzaDO;
 import msa.domain.object.sinistro.*;
@@ -36,7 +38,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
+import java.io.Serializable;
 import java.util.*;
+import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -118,6 +123,28 @@ public class SinistriService extends BaseSinistroService {
         polizzeRepository.savePolizzeMsa(converter.convertList(polizze, FullPolizzaDO.class));
     }
 
+
+    private FullAnagraficaControparteDTO getProprietarioIfIsDifferent(final BaseSinistroDTO input) {
+        if (input.getContraente().getCf().equalsIgnoreCase(input.getProprietario().getCf())) {
+            return input.getContraente();
+        } else {
+            final FullAnagraficaControparteDTO proprietario = input.getProprietario();
+            final Optional<ProvinciaDO> provinviaBySiglaProvincia = domainRepository.getProvinviaBySiglaProvincia(proprietario.getTracking().getProvincia());
+            if (provinviaBySiglaProvincia.isPresent()) {
+                proprietario.getTracking().setProvincia(provinviaBySiglaProvincia.map(ProvinciaDO::getCodProvincia).map(Object::toString).get());
+                proprietario.getTracking().setDescProvincia(provinviaBySiglaProvincia.map(ProvinciaDO::getDescProvincia).get());
+                final ComuneDO comuneDO = domainRepository.getElencoComuni(
+                        FunctionUtils.numberConverter(proprietario.getTracking().getNazione(), Integer::valueOf),
+                        provinviaBySiglaProvincia.map(ProvinciaDO::getCodProvincia).get(),
+                        proprietario.getTracking().getDescComune()).stream().reduce((a, b) -> a).orElse(null);
+                proprietario.getTracking().setComune(comuneDO.getCodComune());
+                proprietario.setCodRuolo(MsaCostanti.COD_RUOLO_PROPRIETARIO.toString());
+                input.setProprietario(proprietario);
+            }
+            return proprietario;
+        }
+    }
+
     /**
      * Metodo esposto per l' inserimento del sinistro alla prima fase
      *
@@ -135,21 +162,12 @@ public class SinistriService extends BaseSinistroService {
                         .findFirst()
                         .map(Object::toString)
                         .orElse(null));
-                final FullAnagraficaDTO proprietario = input.getProprietario();
-                final Optional<ProvinciaDO> provinviaBySiglaProvincia = domainRepository.getProvinviaBySiglaProvincia(proprietario.getTracking().getProvincia());
-                if (provinviaBySiglaProvincia.isPresent()) {
-                    proprietario.getTracking().setProvincia(provinviaBySiglaProvincia.map(ProvinciaDO::getCodProvincia).map(Object::toString).get());
-                    proprietario.getTracking().setDescProvincia(provinviaBySiglaProvincia.map(ProvinciaDO::getDescProvincia).get());
-                    final ComuneDO comuneDO = domainRepository.getElencoComuni(
-                            FunctionUtils.numberConverter(proprietario.getTracking().getNazione(), Integer::valueOf),
-                            provinviaBySiglaProvincia.map(ProvinciaDO::getCodProvincia).get(),
-                            proprietario.getTracking().getDescComune()).stream().reduce((a, b) -> a).orElse(null);
-                    proprietario.getTracking().setComune(comuneDO.getCodComune());
-                    input.setProprietario(proprietario);
-                }
+                input.getContraente().setCodRuolo(MsaCostanti.COD_RUOLO_CONTRAENTE.toString());
+                input.getContraente().setCompagnia(input.getCompagnia());
+                input.setProprietario(getProprietarioIfIsDifferent(input));
             }
             final Integer numSinis = sinistriRepository.insertSinistroProvvisorioAndGetNum(converter.convertObject(input, BaseSinistroDO.class));
-            return new BaseDTO(Stream.of(numSinis).collect(Collectors.toMap(e -> "numSinistroProvvisorio", String::valueOf)));
+            return new BaseDTO(Stream.of(numSinis).collect(Collectors.toMap(e -> "numSinistroProvvisorio", Integer::valueOf)));
         } catch (Exception e) {
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA004"));
         }
@@ -352,6 +370,7 @@ public class SinistriService extends BaseSinistroService {
             e.getAnagrafica().setFlagCard(sinistroRcaDOByDTO.getEventoRca().getNumVeicoli() == 2
                     ? getFlagIsCardCompagnia(FunctionUtils.numberConverter(e.getAnagrafica().getCompagnia(), Integer::valueOf))
                     : Boolean.FALSE);
+            e.getAnagrafica().setCodRuolo(MsaCostanti.COD_RUOLO_CONTROPARTE.toString());
             return e;
         }).collect(Collectors.toList()));
         salvaFlagCardPerSinistro(sinistroRcaDOByDTO);
@@ -435,6 +454,65 @@ public class SinistriService extends BaseSinistroService {
         } else {
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione Salvataggio Legale")));
         }
+    }
+
+    private Predicate<AnagraficaTerzePartiDO> terzePartiPD =
+            e -> {
+                final Optional<RuoliDO> first = domainRepository.getElencoRuoli().stream().filter(elem -> elem.getId().toString().equals(e.getCodRuolo())).findFirst();
+                final String pdAss = first.map(RuoliDO::getPdAss).orElse(null);
+                return pdAss.equals(MsaCostanti.COD_PARTITA_DANNO);
+            };
+
+    public List<Map<String, Serializable>> getSinistroPartiteDanno(final Integer numSinistroProvv) throws InternalMsaException {
+        return getSinistroPartiteDannoSvc(numSinistroProvv);
+    }
+
+    private List<Map<String, Serializable>> getSinistroPartiteDannoSvc(final Integer numSinistroProvv) throws InternalMsaException {
+        try {
+            final SinistroRcaDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv, SinistroRcaDO.class);
+            final Map<SinistroRcaDO, List<Function<SinistroRcaDO, Stream<FullAnagraficaControparteDO>>>> map = new HashMap<>();
+            final List<Function<SinistroRcaDO, Stream<FullAnagraficaControparteDO>>> functions = new ArrayList<>();
+            functions.add((SinistroRcaDO e) -> {
+                final Boolean sameproprietario = e.getContraente().getCf().equalsIgnoreCase(e.getProprietario().getCf());
+                if (sameproprietario) {
+                    return Stream.of(e.getContraente());
+                } else {
+                    return Stream.of(e.getContraente(), e.getProprietario());
+                }
+            });
+            if (sinistroByNumProvv.getDannoRca().getConducenteDiverso()) {
+                functions.add(e -> Stream.of(e.getDannoRca().getAnagraficaDanniCliente().getAnagrafica()));
+            }
+            functions.add(e -> e.getDannoRca().getAnagraficaDanniControparte().stream().map(AnagraficaDanniDO::getAnagrafica));
+            functions.add(e -> e.getDannoRca()
+                    .getTerzeParti()
+                    .stream()
+                    .filter(elem -> {
+                        final Optional<RuoliDO> first = domainRepository.getElencoRuoli().stream().filter(elem2 -> elem2.getId().toString().equals(elem.getCodRuolo())).findFirst();
+                        final String pdAss = first.map(RuoliDO::getPdAss).orElse(null);
+                        return pdAss.equals(MsaCostanti.COD_PARTITA_DANNO);
+                    }).map(row -> converter.convertObject(row, FullAnagraficaControparteDO.class)));
+            map.put(sinistroByNumProvv, functions);
+            FunctionUtils.StreamBuilder<FullAnagraficaControparteDO> streamBuilder = new FunctionUtils.StreamBuilder<>();
+            streamBuilder.of(map);
+            return streamBuilder.getStream()
+                    .map(e -> GenericTupla.instance(
+                            e.getVeicolo(), //Todo check if is terza parte
+                            domainRepository.getDesRuoloById(e.getCodRuolo()),
+                            e).parse(() -> "bene", () -> "ruolo", () -> "note")).collect(Collectors.toList());
+
+        } catch (Exception ex) {
+            throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione Partite Danno")));
+        }
+    }
+
+    public List<FullAnagraficaControparteDTO> getAnagrafichePartiteDanno(final Integer numSinistroProvv) throws InternalMsaException {
+        return getSinistroPartiteDannoSvc(numSinistroProvv)
+                .stream()
+                .map(e -> e.get("note"))
+                .flatMap(Stream::of)
+                .map(e -> converter.convertObject(FunctionUtils.castValueByClass(e, FullAnagraficaControparteDO.class), FullAnagraficaControparteDTO.class))
+                .collect(Collectors.toList());
     }
 
     public <K extends BaseSinistroDO> BaseDTO salvaPerito(PeritoDTO input, Integer numSinistro) throws InternalMsaException {

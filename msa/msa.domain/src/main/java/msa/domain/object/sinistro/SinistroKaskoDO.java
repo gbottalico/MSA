@@ -2,10 +2,9 @@ package msa.domain.object.sinistro;
 
 import msa.domain.object.sinistro.rca.DanniDO;
 
-public class SinistroKaskoDO extends BaseSinistroDO{
+public class SinistroKaskoDO extends SinistroNoRcaDO{
     private DanniDO danniKasko;
     private String osservazioniCliente;
-    private Boolean interventoAutorita;
 
     public DanniDO getDanniKasko() {
         return danniKasko;
@@ -23,11 +22,4 @@ public class SinistroKaskoDO extends BaseSinistroDO{
         this.osservazioniCliente = osservazioniCliente;
     }
 
-    public Boolean getInterventoAutorita() {
-        return interventoAutorita;
-    }
-
-    public void setInterventoAutorita(Boolean interventoAutorita) {
-        this.interventoAutorita = interventoAutorita;
-    }
 }

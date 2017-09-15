@@ -1,8 +1,9 @@
 package msa.domain.object.sinistro;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class BaseAnagraficaDO {
+public class BaseAnagraficaDO implements Serializable{
     private String nome;
     private String cognome;
     private String codRuolo;

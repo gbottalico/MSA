@@ -1,5 +1,7 @@
 package msa.domain.Converter;
 
+import org.apache.commons.lang3.tuple.Pair;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -132,5 +134,24 @@ public final class FunctionUtils {
     //ritorna il frutto della funzione se l' optional è pieno altrimenti null solo se soddisfa la condizione del predicate
     public static<T,U> U execIfIsPresent(final Optional<T> optional, final Function<T,U> mapper, final Predicate<T> condition) {
         return optional.filter(condition).map(mapper).orElse(null);
+    }
+
+    public static class StreamBuilder<T> {
+        private Stream<T> stream;
+
+        public StreamBuilder() {
+        }
+
+        public <U> void of(Map<U,List<Function<U,Stream<T>>>> map) {
+            this.stream = map.entrySet().stream()
+                    .flatMap(e -> e.getValue().stream().map(elem -> elem.apply(e.getKey())))
+                    .reduce(null,
+                            (a,b) -> Optional.ofNullable(a).map(e -> Stream.concat(e, b)).orElseGet(() -> b),
+                            (a,b) -> a);
+        }
+
+        public Stream<T> getStream() {
+            return stream;
+        }
     }
 }
