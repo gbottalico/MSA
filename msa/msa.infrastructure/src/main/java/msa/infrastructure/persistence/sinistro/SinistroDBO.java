@@ -326,4 +326,28 @@ public class SinistroDBO extends AbstractDBO {
     public void setLegali(List<AnagraficaTerzePartiDBO> legali) {
         this.legali = legali;
     }
+
+    public Integer getCodAutorita() {
+        return codAutorita;
+    }
+
+    public void setCodAutorita(Integer codAutorita) {
+        this.codAutorita = codAutorita;
+    }
+
+    public String getComandoAutorita() {
+        return comandoAutorita;
+    }
+
+    public void setComandoAutorita(String comandoAutorita) {
+        this.comandoAutorita = comandoAutorita;
+    }
+
+    public Date getDataDenuncia() {
+        return dataDenuncia;
+    }
+
+    public void setDataDenuncia(Date dataDenuncia) {
+        this.dataDenuncia = dataDenuncia;
+    }
 }
