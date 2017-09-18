@@ -9,13 +9,14 @@
             tempSegnalazione: "=",
             callback: "@"
         },
-        controller: ("eventoRcaController", ['_', '$rootScope', '$scope', '$filter', '$debugMode', '$location', '$timeout', 'toastr', 'SinistriSvc', 'DomainSvc', 'DebugSvc', 'PathSvc',
-            function (_, $rootScope, $scope, $filter, $debugMode, $location, $timeout, toastr, SinistriSvc, DomainSvc, DebugSvc, PathSvc) {
+        controller: ("eventoRcaController", ['_', '$MSAC','$rootScope', '$scope', '$filter', '$debugMode', '$location', '$timeout', 'toastr', 'SinistriSvc', 'DomainSvc', 'DebugSvc', 'PathSvc',
+            function (_, $MSAC, $rootScope, $scope, $filter, $debugMode, $location, $timeout, toastr, SinistriSvc, DomainSvc, DebugSvc, PathSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
                 var parent = $scope.$parent;
                 $scope.$debugMode = $debugMode;
+                $scope.$MSAC = $MSAC;
                 $ctrl.mapId = 'M12';
 
                 $ctrl.eventoRca = {};
@@ -26,10 +27,6 @@
                 $ctrl.eventoRca.comandoAutorita = undefined;
                 $ctrl.eventoRca.dataDenuncia = {};
                 $ctrl.isInputConsumed = false;
-
-                $ctrl.persistence = {
-                    dataDenuncia: {}
-                };
 
                 DomainSvc.getAutorita().then(function (response) {
                     $ctrl.autorita = response.data.result;
@@ -70,7 +67,7 @@
                                 $ctrl.eventoRca.nveicoli = newValues.sinistroProvvisorio.eventoRca.numVeicoli;
                                 $ctrl.eventoRca.autoritaIntervenuta = newValues.sinistroProvvisorio.eventoRca.codAutorita;
                                 $ctrl.eventoRca.comandoAutorita = newValues.sinistroProvvisorio.eventoRca.comandoAutorita;
-                                $ctrl.persistence.dataDenuncia = newValues.sinistroProvvisorio.eventoRca.dataDenuncia ? new Date(newValues.sinistroProvvisorio.eventoRca.dataDenuncia) : undefined;
+                                $ctrl.eventoRca.dataDenuncia = newValues.sinistroProvvisorio.eventoRca.dataDenuncia ? new Date(newValues.sinistroProvvisorio.eventoRca.dataDenuncia) : undefined;
                                 $ctrl.isInputConsumed = true;
                             }
                         }

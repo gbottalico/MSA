@@ -14,13 +14,10 @@
             result: "=",
             name: "<"
         },
-        controller: ("autoritaController", ['_', '$scope', 'DebugSvc', 'DomainSvc', function (_, $scope, DebugSvc, DomainSvc) {
+        controller: ("autoritaController", ['_', '$MSAC', '$scope', 'DebugSvc', 'DomainSvc', function (_, $MSAC, $scope, DebugSvc, DomainSvc) {
 
             var $ctrl = this;
-
-            $ctrl.persistence = {
-
-            };
+            $scope.$MSAC = $MSAC;
 
             DomainSvc.getAutorita().then(function (response) {
                 $ctrl.autorita = response.data.result;
@@ -28,21 +25,10 @@
 
             $scope.$watch(
                 function watchScope(scope) {
-                    return {
-                        result: $ctrl.result
-                    };
+                    return {};
                 },
-                function handleChanges(newValues, oldValues) {
-
-                    if (_.isObject(newValues.result)  && newValues.result.dataDenuncia) {
-                        if(_.isObject(newValues.result.dataDenuncia)) {
-                            $ctrl.persistence.dataDenuncia = _.cloneDeep(newValues.result.dataDenuncia.date);
-                        } else {
-                            $ctrl.persistence.dataDenuncia = new Date(newValues.result.dataDenuncia);
-                        }
-                    }
-
-                }, true
+                function handleChanges(newValues, oldValues) {},
+                true
             );
 
         }])

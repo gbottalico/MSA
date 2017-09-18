@@ -8,10 +8,12 @@
             close: '&',
             dismiss: '&'
         },
-        controller: ("headerController", ['_', '$rootScope', '$scope', '$debugMode', 'UtilSvc', 'DebugSvc', 'DomainSvc', 'RegexSvc',
-            function (_, $rootScope, $scope, $debugMode, UtilSvc, DebugSvc, DomainSvc, RegexSvc) {
+        controller: ("headerController", ['_', '$MSAC', '$rootScope', '$scope', '$debugMode', 'UtilSvc', 'DebugSvc', 'DomainSvc', 'RegexSvc',
+            function (_, $MSAC, $rootScope, $scope, $debugMode, UtilSvc, DebugSvc, DomainSvc, RegexSvc) {
 
                 var $ctrl = this;
+                $scope.$MSAC = $MSAC;
+
                 $ctrl.anagrafica = {
                     ruolo: undefined,
                     lesioni: false,
@@ -59,28 +61,21 @@
                         $ctrl.anagrafica.nascita.comune.descrizione :
                         $ctrl.anagrafica.nascita.nazione.descrizione;
 
-                    UtilSvc.calcolaCf($ctrl.anagrafica.nome, $ctrl.anagrafica.cognome, $ctrl.anagrafica.sesso, $ctrl.anagrafica.nascita.data.date, luogoNascita).then(function (response) {
+                    UtilSvc.calcolaCf($ctrl.anagrafica.nome, $ctrl.anagrafica.cognome, $ctrl.anagrafica.sesso, $ctrl.anagrafica.nascita.data, luogoNascita).then(function (response) {
                         DebugSvc.log("calcolaCf", response);
                         $ctrl.anagrafica.cf = response.data.result;
                     });
                 };
 
                 $ctrl.isCalcolaCfDisabled = function () {
-                    if($ctrl.anagrafica.nascita.data){
-                        DebugSvc.log($ctrl.anagrafica.nascita.data);
-
-                    }
                     return !($ctrl.anagrafica &&
                         $ctrl.anagrafica.cognome &&
                         $ctrl.anagrafica.nome &&
                         $ctrl.anagrafica.sesso &&
-                        $ctrl.anagrafica.nascita.data &&
-                        $ctrl.anagrafica.nascita.data.$valid &&
-                        $ctrl.anagrafica.nascita.$valid);
+                        $ctrl.anagrafica.nascita.data);
                 };
 
                 $ctrl.ok = function () {
-
                     $ctrl.close({$value: $ctrl.anagrafica});
                 };
 

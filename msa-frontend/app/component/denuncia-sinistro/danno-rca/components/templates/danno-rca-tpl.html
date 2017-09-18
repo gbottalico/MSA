@@ -93,8 +93,27 @@
 
                                 <msa-place result="$ctrl.dannoRca.conducente.nascita" data-input="$ctrl.persistence.luogoNascita" name="'luogoNascita'"></msa-place>
                                 <div class="col-lg-12 classicInputText">
-                                    <msa-date-selector data-result="$ctrl.dannoRca.conducente.nascita.data" data-input="$ctrl.persistence.dataNascita"></msa-date-selector>
-                                    <label>Data di Nascita</label>
+                                    <p class="input-group">
+                                        <input datetimepicker-neutral-timezone type="text"
+                                               uib-datepicker-popup="{{$MSAC.DEFAULT_DATE_OPTIONS.format}}"
+                                               ng-model="$ctrl.dannoRca.conducente.nascita.data"
+                                               is-open="openedDataNascita"
+                                               datepicker-options="$MSAC.DEFAULT_DATE_OPTIONS.options"
+                                               show-button-bar="{{$MSAC.DEFAULT_DATE_OPTIONS.showButtonBar}}"
+                                               placeholder="{{$MSAC.DEFAULT_DATE_OPTIONS.placeholder}}"
+                                               ng-required="true"
+                                               name="dataNascita"
+                                        />
+
+                                        <span class="input-group-btn">
+                                            <button type="button"
+                                                    class="btn btn-default btn-special"
+                                                    ng-click="openedDataNascita = !openedDataNascita">
+                                                <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                                            </button>
+                                        </span>
+                                    </p>
+                                    <label>Data di Nascita</label> <!-- TODO: Stringhe scolpite -->
                                 </div>
 
                             </div>
@@ -214,15 +233,15 @@
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
                             <select ng-model="$ctrl.dannoRca.veicoloCliente.speciale" name="specialeCliente" ng-required="true">
-                                <option value="true">{{'global.generic.si' | translate}}</option>
                                 <option value="false">{{'global.generic.no' | translate}}</option>
+                                <option value="true">{{'global.generic.si' | translate}}</option>
                             </select>
                             <label>{{'global.veicolo.speciale' | translate}}</label>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
                             <select ng-model="$ctrl.dannoRca.veicoloCliente.estera" name="esteraCliente" ng-required="true">
-                                <option value="true">{{'global.generic.si' | translate}}</option>
                                 <option value="false">{{'global.generic.no' | translate}}</option>
+                                <option value="true">{{'global.generic.si' | translate}}</option>
                             </select>
                             <label>{{'global.veicolo.estera' | translate}}</label>
                         </div>
@@ -257,15 +276,15 @@
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
                             <select ng-model="$ctrl.dannoRca.veicoloControparte.speciale" name="specialeControparte" ng-required="true">
-                                <option value="true">{{'global.generic.si' | translate}}</option>
                                 <option value="false">{{'global.generic.no' | translate}}</option>
+                                <option value="true">{{'global.generic.si' | translate}}</option>
                             </select>
                             <label>{{'global.veicolo.speciale' | translate}}</label>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText" name="esteraControparte" ng-required="true">
                             <select ng-model="$ctrl.dannoRca.veicoloControparte.estera">
-                                <option value="true">{{'global.generic.si' | translate}}</option>
                                 <option value="false">{{'global.generic.no' | translate}}</option>
+                                <option value="true">{{'global.generic.si' | translate}}</option>
                             </select>
                             <label>{{'global.veicolo.estera' | translate}}</label>
                         </div>

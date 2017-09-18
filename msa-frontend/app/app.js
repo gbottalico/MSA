@@ -165,6 +165,17 @@ function getMSAC() {
         DEFAULT_MAPS_LOCATION: {
             latitude: 41.9102415,
             longitude: 12.3959131
+        },
+        DEFAULT_DATE_OPTIONS: {
+            options: {
+                maxDate: new Date(),
+                startingDay: 1,
+                timezone: 'utc',
+                showWeeks: false
+            },
+            format: "dd/MM/yyyy",
+            placeholder: "DD/MM/YYYY",
+            showButtonBar: false
         }
     };
 }
@@ -296,3 +307,25 @@ app.config(['$httpProvider', function ($httpProvider) {
     $httpProvider.interceptors.push("messageInterceptor");
 }]);
 
+/**
+ * Salvataggio della data senza informazioni sull'orario.
+ */
+app.directive('datetimepickerNeutralTimezone', function() {
+    return {
+        restrict: 'A',
+        priority: 1,
+        require: 'ngModel',
+        link: function (scope, element, attrs, ctrl) {
+            ctrl.$formatters.push(function (value) {
+                var date = new Date(Date.parse(value));
+                date = new Date(date.getTime() + (60000 * date.getTimezoneOffset()));
+                return date;
+            });
+
+            ctrl.$parsers.push(function (value) {
+                var date = new Date(value.getTime() - (60000 * value.getTimezoneOffset()));
+                return date;
+            });
+        }
+    };
+});
