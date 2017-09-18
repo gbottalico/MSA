@@ -20,7 +20,7 @@
                 $ctrl.presenzaTerzeParti = undefined;
                 $ctrl.terzeParti = [];
 
-                $ctrl.aggiungiTerzaParte = function () {
+                $ctrl.aggiungiTerzaParte = function (index) {
                     var modalInstance = $uibModal.open({
                         animation: true,
                         backdrop: 'static', // Evita che il modal sia chiuso cliccando sullo sfondo.
@@ -30,13 +30,23 @@
                         resolve: {
                             hasRole: function () {
                                 return true;
+                            },
+                            input: function () {
+                                try {
+                                    $ctrl.terzeParti[index].index = index;
+                                } catch(err){}
+                                return $ctrl.terzeParti[index];
                             }
                         }
                     });
 
                     modalInstance.result.then(function (terzaParte) {
                         DebugSvc.log("aggiungiTerzeParti", terzaParte);
-                        $ctrl.terzeParti.push(terzaParte);
+                        if(_.isNumber(terzaParte.index)) {
+                            $ctrl.terzeParti[terzaParte.index] = terzaParte;
+                        } else {
+                            $ctrl.terzeParti.push(terzaParte);
+                        }
                         $scope.formTerzeParti.$setDirty();
                     }, function () {
                         DebugSvc.log("aggiungiTerzeParti dismiss.");

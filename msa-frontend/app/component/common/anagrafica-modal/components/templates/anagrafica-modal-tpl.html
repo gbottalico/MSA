@@ -92,7 +92,10 @@
                 </div>
                 <div class="col-lg-12"><span class="subsectionTitle">Luogo e Data di Nascita</span></div>
 
-                <msa-place result="$ctrl.anagrafica.nascita" required="false"></msa-place>
+                <msa-place
+                        input="$ctrl.anagrafica.nascita"
+                        result="$ctrl.anagrafica.nascita"
+                        required="false"></msa-place>
                 <div class="col-lg-12 classicInputText">
                     <p class="input-group">
                         <input datetimepicker-neutral-timezone type="text"
@@ -198,7 +201,10 @@
             <span class="subsectionTitle" ng-if="$ctrl.anagrafica.tipoPersona === $ctrl.TipologiaEnum.GIURIDICA">{{'global.people.posizione' | translate}}</span>
         </div>
 
-        <msa-place result="$ctrl.anagrafica.residenza" required="false"></msa-place>
+        <msa-place
+                input="$ctrl.anagrafica.residenza"
+                result="$ctrl.anagrafica.residenza"
+                required="false"></msa-place>
 
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputText">
             <input type="text" name="denominazioneStrada" ng-model="$ctrl.anagrafica.residenza.indirizzo"

@@ -19,6 +19,7 @@
                     lesioni: false,
                     compagnia:undefined
                 };
+                $ctrl.persistence = {};
                 $ctrl.ruoli = undefined;
                 $ctrl.ruoliKeyValue = undefined;
                 $ctrl.ruoloConLesioni = undefined;
@@ -33,7 +34,7 @@
                 };
 
                 $ctrl.$onInit = function () {
-                    // Per prendere input
+
                     $ctrl.hasRole = $ctrl.resolve.hasRole;
                     $ctrl.hasCompagnia = $ctrl.resolve.hasCompagnia;
                     $ctrl.anagrafica.tipoPersona = $ctrl.TipologiaEnum.FISICA;
@@ -45,6 +46,10 @@
                         });
                     }
 
+                    if($ctrl.resolve.input) {
+                        $ctrl.anagrafica = $ctrl.resolve.input;
+                        //TODO FIXME binding data.
+                    }
 
                 };
 

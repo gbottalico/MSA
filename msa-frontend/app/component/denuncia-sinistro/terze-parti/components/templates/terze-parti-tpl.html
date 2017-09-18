@@ -55,7 +55,10 @@
                                 </td>
                                 <td>{{terzaparte.residenza.indirizzo}}</td>
                                 <td>{{terzaparte.cf}}</td>
-                                <td><i ng-click="$ctrl.rimuoviTerzaParte($index);" class="fa fa-trash-o" aria-hidden="true"></i></td>
+                                <td>
+                                    <i ng-click="$ctrl.aggiungiTerzaParte($index);" class="fa fa-pencil" aria-hidden="true"></i>&nbsp;&nbsp;
+                                    <i ng-click="$ctrl.rimuoviTerzaParte($index);" class="fa fa-trash-o" aria-hidden="true"></i>
+                                </td>
                             </tr>
                             </tbody>
                             <tfoot>

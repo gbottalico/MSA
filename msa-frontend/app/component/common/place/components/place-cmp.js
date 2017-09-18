@@ -128,8 +128,7 @@
                     /* Input TODO: rivedere */
 
                     if (!$ctrl.isInputConsumed) {
-                        if (newValue.input !== undefined &&
-                            newValue.input !== oldValue.input) {
+                        if (newValue.input !== undefined && newValue.input !== oldValue.input) {
 
                             $ctrl.isInputConsumed = true;
 
