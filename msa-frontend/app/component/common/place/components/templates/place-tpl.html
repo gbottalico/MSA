@@ -1,13 +1,16 @@
 <ng-form name="{{name}}">
-    <div class="col-lg-12"><pre ng-if="$debugMode">{{$ctrl.result}}</pre></div>
+    <div class="col-lg-12">
+        <pre ng-if="$debugMode">{{$ctrl.result}}</pre>
+    </div>
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
         <input type="text"
                ng-model="$ctrl.nazioneSelezionata"
                uib-typeahead="nazione as nazione.descrizione for nazione in $ctrl.getNazioni($viewValue)"
-               autocomplete="off">
+               autocomplete="off"
+               ng-required="$ctrl.required">
         <label>{{'global.denunciasinitro.labels.nazione' | translate}}</label>
     </div>
-    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText" >
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
         <input type="text"
                ng-model="$ctrl.provinciaSelezionata"
                uib-typeahead="provincia as provincia.descProvincia for provincia in $ctrl.getProvince($viewValue)"
