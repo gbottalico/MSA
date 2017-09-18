@@ -1,5 +1,6 @@
 package msa.infrastructure.persistence.sinistro;
 
+import msa.domain.object.enums.TipiSinisto;
 import msa.infrastructure.persistence.AbstractDBO;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -92,6 +93,9 @@ public class SinistroDBO extends AbstractDBO {
     private String osservazioniInfortunato;
     @Field("anagrafica")
     private FullAnagraficaDBO anagrafica;
+
+    @Field("tipoSinistro")
+    private TipiSinisto tipoSinisto;
 
     public Boolean getFlagSinistroCard() {
         return flagSinistroCard;
@@ -349,5 +353,13 @@ public class SinistroDBO extends AbstractDBO {
 
     public void setDataDenuncia(Date dataDenuncia) {
         this.dataDenuncia = dataDenuncia;
+    }
+
+    public TipiSinisto getTipoSinisto() {
+        return tipoSinisto;
+    }
+
+    public void setTipoSinisto(TipiSinisto tipoSinisto) {
+        this.tipoSinisto = tipoSinisto;
     }
 }

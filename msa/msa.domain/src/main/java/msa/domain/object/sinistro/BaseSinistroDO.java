@@ -1,5 +1,6 @@
 package msa.domain.object.sinistro;
 
+import msa.domain.object.enums.TipiSinisto;
 import msa.domain.object.sinistro.rca.SegnalazioneDO;
 
 import java.util.List;
@@ -19,6 +20,7 @@ public class BaseSinistroDO extends AbstractDO  {
     private PeritoDO perito;
     private Integer numSinistroProvv;
     private CentroConvenzionatoDO centroConvenzionato;
+    private TipiSinisto tipoSinisto;
 
     public String getId() {
         return id;
@@ -106,5 +108,13 @@ public class BaseSinistroDO extends AbstractDO  {
 
     public void setCentroConvenzionato(CentroConvenzionatoDO centroConvenzionato) {
         this.centroConvenzionato = centroConvenzionato;
+    }
+
+    public TipiSinisto getTipoSinisto() {
+        return tipoSinisto;
+    }
+
+    public void setTipoSinisto(TipiSinisto tipoSinisto) {
+        this.tipoSinisto = tipoSinisto;
     }
 }

@@ -2,10 +2,8 @@ package msa.application.dto.sinistro;
 
 import msa.application.dto.sinistro.anagrafica.AnagraficaTerzePartiDTO;
 import msa.application.dto.sinistro.anagrafica.FullAnagraficaControparteDTO;
-import msa.application.dto.sinistro.anagrafica.FullAnagraficaDTO;
 import msa.application.dto.sinistro.segnalazione.SegnalazioneDTO;
-import msa.domain.object.sinistro.FullAnagraficaControparteDO;
-import msa.infrastructure.persistence.sinistro.AnagraficaTerzePartiDBO;
+import msa.domain.object.enums.TipiSinisto;
 
 import java.util.List;
 
@@ -26,6 +24,7 @@ public class BaseSinistroDTO extends AbstractDTO {
     private PeritoDTO perito;
     private Integer numSinistroProvv;
     private CentroConvenzionatoDTO centroConvenzionato;
+    private TipiSinisto tipoSinisto;
 
     public String getId() {
         return id;
@@ -113,5 +112,13 @@ public class BaseSinistroDTO extends AbstractDTO {
 
     public void setCentroConvenzionato(CentroConvenzionatoDTO centroConvenzionato) {
         this.centroConvenzionato = centroConvenzionato;
+    }
+
+    public TipiSinisto getTipoSinisto() {
+        return tipoSinisto;
+    }
+
+    public void setTipoSinisto(TipiSinisto tipoSinisto) {
+        this.tipoSinisto = tipoSinisto;
     }
 }

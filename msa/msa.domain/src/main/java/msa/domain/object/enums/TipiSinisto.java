@@ -1,4 +1,4 @@
-package msa.application.service.sinistri.tipoSinistro;
+package msa.domain.object.enums;
 
 /**
  * Created by simon.calabrese on 11/09/2017.
