@@ -9,7 +9,6 @@ import msa.application.dto.ricerca.OutputRicercaDTO;
 import msa.application.dto.sinistro.*;
 import msa.application.dto.sinistro.anagrafica.AnagraficaTerzePartiDTO;
 import msa.application.dto.sinistro.anagrafica.FullAnagraficaControparteDTO;
-import msa.application.dto.sinistro.anagrafica.FullAnagraficaDTO;
 import msa.application.dto.sinistro.rca.cai.CaiDTO;
 import msa.application.dto.sinistro.rca.constatazioneAmichevole.ConstatazioneAmichevoleDTO;
 import msa.application.dto.sinistro.rca.dannoRca.AnagraficaDanniDTO;
@@ -19,7 +18,7 @@ import msa.application.dto.sinistro.segnalazione.SegnalazioneDTO;
 import msa.application.dto.user.UserLoggedDTO;
 import msa.application.exceptions.InternalMsaException;
 import msa.application.service.interfaceDispatcher.DispatcherService;
-import msa.application.service.sinistri.tipoSinistro.TipiSinisto;
+import msa.domain.object.enums.TipiSinisto;
 import msa.application.service.sinistri.tipoSinistro.TipoSinistroTreeMap;
 import msa.domain.Converter.FunctionUtils;
 import msa.domain.Converter.commonObject.GenericTupla;
@@ -661,7 +660,13 @@ public class SinistriService extends BaseSinistroService {
     public <T extends BaseSinistroDO> TipiSinisto getTipoSinistro(final Integer numSinistroProvv) throws InternalMsaException {
         try {
             final T sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv);
-            return tipoSinistroTreeMap.calcolaTipoSinistro(sinistroByNumProvv);
+            final TipiSinisto tipiSinisto = tipoSinistroTreeMap.calcolaTipoSinistro(sinistroByNumProvv);
+            sinistroByNumProvv.setTipoSinisto(tipiSinisto);
+            if (salvaSinistro(sinistroByNumProvv)) {
+                return tipiSinisto;
+            } else {
+                throw new InternalMsaException();
+            }
         } catch (Exception e) {
             throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA015"));
 

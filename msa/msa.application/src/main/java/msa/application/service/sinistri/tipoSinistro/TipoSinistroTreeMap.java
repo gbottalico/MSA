@@ -3,6 +3,7 @@ package msa.application.service.sinistri.tipoSinistro;
 import msa.application.exceptions.InternalMsaException;
 import msa.domain.object.sinistro.BaseSinistroDO;
 import msa.domain.object.sinistro.SinistroRcaDO;
+import msa.domain.object.enums.TipiSinisto;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

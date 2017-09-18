@@ -2,10 +2,8 @@ package msa.application.service.sinistri.tipoSinistro;
 
 import msa.domain.Converter.FunctionUtils;
 import msa.domain.object.dominio.TipoVeicoloDO;
-import msa.domain.object.sinistro.AnagraficaTerzePartiDO;
-import msa.domain.object.sinistro.BaseSinistroDO;
-import msa.domain.object.sinistro.FullAnagraficaControparteDO;
-import msa.domain.object.sinistro.SinistroRcaDO;
+import msa.domain.object.enums.TipiSinisto;
+import msa.domain.object.sinistro.*;
 import msa.domain.object.sinistro.rca.AnagraficaDanniDO;
 import msa.domain.object.sinistro.rca.IncrociBaremesDO;
 import msa.infrastructure.costanti.MsaCostanti;
@@ -18,7 +16,7 @@ import java.util.Optional;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-class CalcoloTipoSinistroFunctions<T extends BaseSinistroDO> {
+abstract class CalcoloTipoSinistroFunctions<T extends BaseSinistroDO> {
 
     @Autowired
     private DomainRepository domainRepository;
@@ -166,5 +164,5 @@ class CalcoloTipoSinistroFunctions<T extends BaseSinistroDO> {
 
     protected Function<BaseSinistroDO, String> getGaranzia = e -> e.getSegnalazione().getGaranziaSelected();
 
-
+    protected Function<T,TipiSinisto> getTipoSinistro = BaseSinistroDO::getTipoSinisto;
 }
