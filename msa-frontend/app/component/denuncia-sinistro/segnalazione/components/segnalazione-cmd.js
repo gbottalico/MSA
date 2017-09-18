@@ -8,14 +8,15 @@
             sinistroProvvisorio: "<",
             tempSegnalazione: "="
         },
-        controller: ("segnalazioneController", ['_', '$scope', '$rootScope', '$debugMode', '$filter', '$timeout', 'toastr', 'DomainSvc', 'PlacesSvc', 'SinistriSvc', 'UtilSvc', 'RegexSvc', 'DebugSvc',
-            function (_, $scope, $rootScope, $debugMode, $filter, $timeout, toastr, DomainSvc, PlacesSvc, SinistriSvc, UtilSvc, RegexSvc, DebugSvc) {
+        controller: ("segnalazioneController", ['_', '$MSAC', '$scope', '$rootScope', '$debugMode', '$filter', '$timeout', 'toastr', 'DomainSvc', 'PlacesSvc', 'SinistriSvc', 'UtilSvc', 'RegexSvc', 'DebugSvc',
+            function (_, $MSAC, $scope, $rootScope, $debugMode, $filter, $timeout, toastr, DomainSvc, PlacesSvc, SinistriSvc, UtilSvc, RegexSvc, DebugSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
                 var parent = $scope.$parent;
                 $scope.$debugMode = $debugMode;
                 $scope.$regex = RegexSvc;
+                $scope.$MSAC = $MSAC;
 
                 $ctrl.mapId = "M11";
 
@@ -71,21 +72,19 @@
                             $ctrl.sinistro.segnalazione.telefono = sinitroProvvisorio.segnalazione.denunciante.telefono;
                             $ctrl.sinistro.segnalazione.ruolo = sinitroProvvisorio.segnalazione.denunciante.codRuolo;
 
-                            $ctrl.sinistro.tracking.cellulare = sinitroProvvisorio.segnalazione.denunciante.tracking.cellulare;
-                            $ctrl.sinistro.tracking.email = sinitroProvvisorio.segnalazione.denunciante.tracking.mail;
+                            if (sinitroProvvisorio.segnalazione.denunciante.tracking) {
+                                $ctrl.sinistro.tracking.cellulare = sinitroProvvisorio.segnalazione.denunciante.tracking.cellulare;
+                                $ctrl.sinistro.tracking.email = sinitroProvvisorio.segnalazione.denunciante.tracking.mail;
+                            }
 
                             $ctrl.sinistro.provenienza.mezzoComunicazione = sinitroProvvisorio.segnalazione.codMezzo;
 
                             if (sinitroProvvisorio.segnalazione.dataDenuncia) {
-                                $ctrl.persistence.dataDenuncia = new Date(sinitroProvvisorio.segnalazione.dataDenuncia);
-                            } else {
-                                $ctrl.persistence.dataDenuncia = new Date();
-                            }
+                                $ctrl.sinistro.provenienza.dataDenuncia = new Date(sinitroProvvisorio.segnalazione.dataDenuncia);
+                            } else {}
 
                             if (sinitroProvvisorio.segnalazione.dataOraSinistro) {
-                                $ctrl.persistence.dataSinistro = new Date(sinitroProvvisorio.segnalazione.dataOraSinistro);
-                            } else {
-                                $ctrl.persistence.dataSinistro = new Date();
+                                $ctrl.sinistro.provenienza.dataSinistro = new Date(sinitroProvvisorio.segnalazione.dataOraSinistro);
                             }
 
                             $ctrl.sinistro.provenienza.oraSinistro = sinitroProvvisorio.segnalazione.oraSinistro;
@@ -107,6 +106,8 @@
 
                 $timeout(function () {
                     parent.mappaCaricata($ctrl.mapId)
+
+                    $ctrl.sinistro.provenienza.dataDenuncia = new Date();
                 });
 
                 $scope.$watch(

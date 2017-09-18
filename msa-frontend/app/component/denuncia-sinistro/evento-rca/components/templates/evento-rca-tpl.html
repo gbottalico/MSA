@@ -103,12 +103,26 @@
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText" ng-if="$ctrl.eventoRca.interventoAutorita">
 
-                        <msa-date-selector
-                                data-result="$ctrl.eventoRca.dataDenuncia"
-                                data-input="$ctrl.persistence.dataDenuncia"
-                                data-required="true"
-                                data-name="'dataDenunciaAttivita'">
-                        </msa-date-selector>
+                        <p class="input-group">
+                            <input datetimepicker-neutral-timezone type="text"
+                                   uib-datepicker-popup="{{$MSAC.DEFAULT_DATE_OPTIONS.format}}"
+                                   ng-model="$ctrl.eventoRca.dataDenuncia"
+                                   is-open="openedDataDenuncia"
+                                   datepicker-options="$MSAC.DEFAULT_DATE_OPTIONS.options"
+                                   show-button-bar="{{$MSAC.DEFAULT_DATE_OPTIONS.showButtonBar}}"
+                                   placeholder="{{$MSAC.DEFAULT_DATE_OPTIONS.placeholder}}"
+                                   ng-required="false"
+                                   name="dataDenuncia"
+                            />
+
+                            <span class="input-group-btn">
+                                <button type="button"
+                                        class="btn btn-default btn-special"
+                                        ng-click="openedDataDenuncia = !openedDataDenuncia">
+                                    <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                                </button>
+                            </span>
+                        </p>
                         <label>{{'global.eventorca.labels.datadenuncia' | translate}}</label>
                     </div>
                 </div>

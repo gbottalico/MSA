@@ -49,11 +49,16 @@
 
         </msa-danno-rca>
         <!-- //RCA -->
-        <!-- FURTO TOTALE -->
 
-        <msa-furto-totale id="M30" numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
-                          sinistro-provvisorio="$ctrl.sinistroProvvisorio"
-                          temp-segnalazione="$ctrl.tempSegnalazione"></msa-furto-totale>
+        <!-- FURTO TOTALE -->
+        <msa-furto-totale
+                      id="M30"
+                      ng-if="false"
+                      numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
+                      sinistro-provvisorio="$ctrl.sinistroProvvisorio"
+                      temp-segnalazione="$ctrl.tempSegnalazione">
+
+        </msa-furto-totale>
         <!-- END FURTO TOTALE -->
 
         <!-- INCENDIO -->

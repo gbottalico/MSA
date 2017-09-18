@@ -1,10 +1,4 @@
 { 
-    "_id" : NumberInt(0), 
-    "DescrizioneAutorita" : "NESSUN INTERVENTO AUTORITA", 
-    "DataInserimento" : null, 
-    "DataVariazione" : null
-}
-{ 
     "_id" : NumberInt(1), 
     "DescrizioneAutorita" : "AERONAUTICA MILITARE", 
     "DataInserimento" : null, 

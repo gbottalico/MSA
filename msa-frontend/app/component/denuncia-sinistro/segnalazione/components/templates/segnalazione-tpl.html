@@ -73,25 +73,60 @@
                 </div>
 
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
-                    <msa-date-selector
-                            data-result="$ctrl.sinistro.provenienza.dataDenuncia"
-                            data-required="true"
-                            data-name="'dataDenuncia'"
-                            data-input="$ctrl.persistence.dataDenuncia">
-                    </msa-date-selector>
+                    <p class="input-group">
+                        <input datetimepicker-neutral-timezone type="text"
+                               uib-datepicker-popup="{{$MSAC.DEFAULT_DATE_OPTIONS.format}}"
+                               ng-model="$ctrl.sinistro.provenienza.dataDenuncia"
+                               is-open="openedDataDenuncia"
+                               datepicker-options="$MSAC.DEFAULT_DATE_OPTIONS.options"
+                               show-button-bar="{{$MSAC.DEFAULT_DATE_OPTIONS.showButtonBar}}"
+                               placeholder="{{$MSAC.DEFAULT_DATE_OPTIONS.placeholder}}"
+                               ng-required="true"
+                               name="dataDenuncia"
+                        />
+
+                        <span class="input-group-btn">
+                            <button type="button"
+                                    class="btn btn-default btn-special"
+                                    ng-click="openedDataDenuncia = !openedDataDenuncia">
+                                <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                            </button>
+                        </span>
+                    </p>
+
                     <label>{{'global.denunciasinitro.labels.dataDenuncia' | translate}}</label>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText">
-                    <msa-date-selector
-                            data-result="$ctrl.sinistro.provenienza.dataSinistro"
-                            data-required="true"
-                            data-name="'dataSinistro'"
-                            data-input="$ctrl.persistence.dataSinistro">
-                    </msa-date-selector>
+                    <p class="input-group">
+                        <input datetimepicker-neutral-timezone type="text"
+                               uib-datepicker-popup="{{$MSAC.DEFAULT_DATE_OPTIONS.format}}"
+                               ng-model="$ctrl.sinistro.provenienza.dataSinistro"
+                               is-open="openedDataSinistro"
+                               datepicker-options="$MSAC.DEFAULT_DATE_OPTIONS.options"
+                               show-button-bar="{{$MSAC.DEFAULT_DATE_OPTIONS.showButtonBar}}"
+                               placeholder="{{$MSAC.DEFAULT_DATE_OPTIONS.placeholder}}"
+                               ng-required="true"
+                               name="dataSinistro"
+                        />
+
+                        <span class="input-group-btn">
+                            <button type="button"
+                                    class="btn btn-default btn-special"
+                                    ng-click="openedDataSinistro = !openedDataSinistro">
+                                <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                            </button>
+                        </span>
+                    </p>
                     <label>{{'global.denunciasinitro.labels.dataSinistro' | translate}}</label>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText" ng-class="{'has-error' : segnalazioneForm.orasinistro.$invalid && !segnalazioneForm.orasinistro.$pristine}">
-                    <input type="text" name="orasinistro" ng-model="$ctrl.sinistro.provenienza.oraSinistro" ng-pattern="$regex.reOra" placeholder="HH:MM" ng-required="true">
+                    <input type="text"
+                           name="orasinistro"
+                           ng-model="$ctrl.sinistro.provenienza.oraSinistro"
+                           ng-pattern="$regex.reOra"
+                           placeholder="HH:MM"
+                           ng-required="true"
+                           >
                     <label>{{'global.denunciasinitro.labels.oraSinistro' | translate}}</label>
                 </div>
 

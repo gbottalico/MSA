@@ -100,8 +100,8 @@ angular.module('msa').service(
                 data.denunciante.tracking.mail = datiSegnalazione.tracking.email;
 
                 data.codMezzo = datiSegnalazione.provenienza.mezzoComunicazione;
-                data.dataDenuncia = datiSegnalazione.provenienza.dataDenuncia.date;
-                data.dataOraSinistro = datiSegnalazione.provenienza.dataSinistro.date;
+                data.dataDenuncia = datiSegnalazione.provenienza.dataDenuncia;
+                data.dataOraSinistro = datiSegnalazione.provenienza.dataSinistro;
                 data.oraSinistro = datiSegnalazione.provenienza.oraSinistro;
 
                 data.codNazione = datiSegnalazione.luogo.nazione.id;
@@ -137,7 +137,7 @@ angular.module('msa').service(
                 if (datiEventoRca.interventoAutorita) {
                     dataObj.codAutorita = datiEventoRca.autoritaIntervenuta;
                     dataObj.comandoAutorita = datiEventoRca.comandoAutorita;
-                    dataObj.dataDenuncia = datiEventoRca.dataDenuncia.date;
+                    dataObj.dataDenuncia = datiEventoRca.dataDenuncia;
                 }
 
                 var stringUrl = UtilSvc.stringFormat(msaServicesApiUrls.rca, idSinistroProvvisorio);
@@ -359,7 +359,7 @@ angular.module('msa').service(
                 if (incendio.interventoAutorita) {
                     dataObj.codAutorita = incendio.autoritaIntervenuta;
                     dataObj.comandoAutorita = incendio.comandoAutorita;
-                    dataObj.dataDenuncia = incendio.dataDenuncia.date;
+                    dataObj.dataDenuncia = incendio.dataDenuncia;
                 }
 
                 var url = UtilSvc.stringFormat(msaServicesApiUrls.furtoincendio, idSinistroProvvisorio);
@@ -367,8 +367,23 @@ angular.module('msa').service(
             };
 
             $svc.salvaCristalli = function (idSinistroProvvisorio, cristalli) {
+
+                var dataObj = {
+                    desCristalloRotto: cristalli.desCristalloRotto,
+                    codRotturaCristalli: cristalli.codRotturaCristalli,
+                    flagRiparazione: cristalli.flagRiparazione,
+                    flagFattura: cristalli.flagFattura,
+                    interventoAutorita: cristalli.interventoAutorita,
+                };
+
+                if (cristalli.interventoAutorita) {
+                    dataObj.codAutorita = cristalli.autoritaIntervenuta;
+                    dataObj.comandoAutorita = cristalli.comandoAutorita;
+                    dataObj.dataDenuncia = cristalli.dataDenuncia;
+                }
+
                 var url = UtilSvc.stringFormat(msaServicesApiUrls.cristalli, idSinistroProvvisorio);
-                return $http.post(url, cristalli);
+                return $http.post(url, dataObj);
             }
 
         }

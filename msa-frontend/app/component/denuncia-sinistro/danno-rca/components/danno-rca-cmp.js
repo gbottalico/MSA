@@ -8,8 +8,8 @@
             sinistroProvvisorio: "<",
             tempSegnalazione: "="
         },
-        controller: ("dannoRcaContoller", ['_', '$rootScope', '$scope', '$debugMode', '$filter', '$uibModal', '$timeout', 'toastr', 'DomainSvc', 'SinistriSvc', 'DebugSvc', 'UtilSvc', 'ConvertSvc', 'RegexSvc',
-            function (_, $rootScope, $scope, $debugMode, $filter, $uibModal, $timeout, toastr, DomainSvc, SinistriSvc, DebugSvc, UtilSvc, ConvertSvc, RegexSvc) {
+        controller: ("dannoRcaContoller", ['_', '$MSAC', '$rootScope', '$scope', '$debugMode', '$filter', '$uibModal', '$timeout', 'toastr', 'DomainSvc', 'SinistriSvc', 'DebugSvc', 'UtilSvc', 'ConvertSvc', 'RegexSvc',
+            function (_, $MSAC, $rootScope, $scope, $debugMode, $filter, $uibModal, $timeout, toastr, DomainSvc, SinistriSvc, DebugSvc, UtilSvc, ConvertSvc, RegexSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
@@ -19,6 +19,7 @@
                 var TIPO_MOTOCICLO = 5;
                 $scope.$debugMode = $debugMode;
                 $scope.$regex = RegexSvc;
+                $scope.$MSAC = $MSAC;
 
                 $ctrl.mapId = 'M15';
                 $ctrl.isInputConsumed = false;
@@ -57,11 +58,13 @@
                                 $ctrl.dannoRca.conducente.nome = anagrafica.nome;
                                 $ctrl.dannoRca.conducente.sesso = anagrafica.sesso;
                                 $ctrl.dannoRca.conducente.cf = anagrafica.cf;
+                                $ctrl.dannoRca.conducente.nascita = {};
 
-                                $ctrl.persistence.dataNascita = new Date(anagrafica.dataNascita);
+                                if (anagrafica.dataNascita) {
+                                    $ctrl.dannoRca.conducente.nascita.data = new Date(anagrafica.dataNascita);
+                                }
 
                                 var tempLuogo = {};
-
 
                                 $timeout(function () {
                                     tempLuogo.idNazione = anagrafica.luogoNascita.codNazione;
@@ -89,10 +92,12 @@
                                 $ctrl.dannoRca.conducente.residenza.indirizzo = anagrafica.tracking.indirizzo;
 
                                 $ctrl.dannoRca.veicoloCliente = {};
-                                $ctrl.dannoRca.veicoloCliente.veicolo = anagrafica.veicolo;
-                                $ctrl.dannoRca.veicoloCliente.targa = anagrafica.targa;
-                                $ctrl.dannoRca.veicoloCliente.speciale = anagrafica.targaEstera.toString();
-                                $ctrl.dannoRca.veicoloCliente.estera = anagrafica.targaSpeciale.toString();
+                                if (anagrafica.veicolo) {
+                                    $ctrl.dannoRca.veicoloCliente.veicolo = anagrafica.veicolo;
+                                    $ctrl.dannoRca.veicoloCliente.targa = anagrafica.targa;
+                                    $ctrl.dannoRca.veicoloCliente.speciale = anagrafica.targaEstera.toString();
+                                    $ctrl.dannoRca.veicoloCliente.estera = anagrafica.targaSpeciale.toString();
+                                }
 
                             } else {
                                 $ctrl.dannoRca.conducenteIsNotContraente = false;
@@ -210,7 +215,7 @@
                         $ctrl.dannoRca.conducente.nascita.comune.descrizione :
                         $ctrl.dannoRca.conducente.nascita.nazione.descrizione;
 
-                    UtilSvc.calcolaCf($ctrl.dannoRca.conducente.cognome, $ctrl.dannoRca.conducente.nome, $ctrl.dannoRca.conducente.sesso, $ctrl.dannoRca.conducente.nascita.data.date, luogoNascita).then(function (response) {
+                    UtilSvc.calcolaCf($ctrl.dannoRca.conducente.cognome, $ctrl.dannoRca.conducente.nome, $ctrl.dannoRca.conducente.sesso, $ctrl.dannoRca.conducente.nascita.data, luogoNascita).then(function (response) {
                         DebugSvc.log("calcolaCf", response);
                         if (response.data.status === 200) {
                             $ctrl.dannoRca.conducente.cf = response.data.result;
@@ -226,9 +231,7 @@
                             $ctrl.dannoRca.conducente.cognome &&
                             $ctrl.dannoRca.conducente.nome &&
                             $ctrl.dannoRca.conducente.sesso &&
-                            $ctrl.dannoRca.conducente.nascita.data &&
-                            $ctrl.dannoRca.conducente.nascita.data.$valid &&
-                            $ctrl.dannoRca.conducente.nascita.$valid);
+                            $ctrl.dannoRca.conducente.nascita.data);
                     } catch (error) {
                         return false;
                     }

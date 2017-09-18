@@ -47,7 +47,7 @@ angular.module('msa').service('ConvertSvc',
                         dto.luogoNascita.cap = anagrafica.nascita.cap;
                     }
 
-                    dto.dataNascita = anagrafica.nascita.data.date;
+                    dto.dataNascita = anagrafica.nascita.data;
                 }
 
                 dto.tracking = {};

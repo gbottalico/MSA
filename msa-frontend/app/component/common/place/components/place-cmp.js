@@ -6,7 +6,8 @@
         bindings: {
             result: "=",
             input: "<",
-            name: "<"
+            name: "<",
+            required: "<"
         },
         controller: ("msaPlaceController", ['_', '$scope', '$debugMode', 'PlacesSvc', 'UtilSvc', function (_, $scope, $debugMode, PlacesSvc, UtilSvc) {
 
@@ -55,6 +56,13 @@
                         descrizione: "Provincia non valida."
                     }];
                 }
+            };
+
+            $ctrl.isFormEmpty = function () {
+                return (!$ctrl.nazioneSelezionata || $ctrl.nazioneSelezionata.length === 0) &&
+                    (!$ctrl.provinciaSelezionata || $ctrl.provinciaSelezionata.length === 0) &&
+                    (!$ctrl.comuneSelezionato || $ctrl.comuneSelezionato.length === 0);
+
             };
 
             $scope.$watch(
@@ -167,9 +175,16 @@
                         }
                     }
 
-                    $ctrl.$valid = PlacesSvc.isValidPlace($ctrl.result.nazione, $ctrl.result.provincia, $ctrl.result.comune);
-                    $ctrl.result.$valid = $ctrl.$valid;
+                    $ctrl.$valid = false;
+                    if ($ctrl.required) {
+                        $ctrl.$valid = PlacesSvc.isValidPlace($ctrl.result.nazione, $ctrl.result.provincia, $ctrl.result.comune);
+                    } else {
+                        $ctrl.$valid = PlacesSvc.isValidPlace($ctrl.result.nazione, $ctrl.result.provincia, $ctrl.result.comune) || $ctrl.isFormEmpty();
+                    }
                     $scope[$scope.name].$setValidity("place", $ctrl.$valid, $ctrl);
+                    $ctrl.result.$valid = $ctrl.$valid;
+
+
                 }, true
             );
 
