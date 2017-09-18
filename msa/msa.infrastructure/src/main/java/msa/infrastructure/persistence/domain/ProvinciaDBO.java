@@ -8,84 +8,73 @@ import java.util.Date;
 
 @Document(collection = "province")
 public class ProvinciaDBO {
-	@Id
-	private String id;
-	@Field("codNazione")
-	private int codNazione;
-	@Field("codProvincia")
-	private int codProvincia;
-	@Field("iniValidita")
-	private Date iniValidita;
-	@Field("finValidita")
-	private Date finValidita;
-	@Field("desProv")
-	private String descProvincia;
-	@Field("siglaProv")
-	private String siglaProv;
-	private String codFornitore;
+    @Id
+    private String codProvincia;
+    @Field("codNazione")
+    private String codNazione;
+    @Field("iniValidita")
+    private Date iniValidita;
+    @Field("finValidita")
+    private Date finValidita;
+    @Field("desProv")
+    private String descProvincia;
+    @Field("siglaProv")
+    private String siglaProv;
+    private String codFornitore;
 
-	public String getCodFornitore() {
-		return codFornitore;
-	}
+    public String getCodProvincia() {
+        return codProvincia;
+    }
 
-	public void setCodFornitore(String codFornitore) {
-		this.codFornitore = codFornitore;
-	}
+    public void setCodProvincia(String codProvincia) {
+        this.codProvincia = codProvincia;
+    }
 
-	public String getId() {
-		return id;
-	}
+    public String getCodNazione() {
+        return codNazione;
+    }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    public void setCodNazione(String codNazione) {
+        this.codNazione = codNazione;
+    }
 
-	public int getCodNazione() {
-		return codNazione;
-	}
+    public Date getIniValidita() {
+        return iniValidita;
+    }
 
-	public void setCodNazione(int codNazione) {
-		this.codNazione = codNazione;
-	}
+    public void setIniValidita(Date iniValidita) {
+        this.iniValidita = iniValidita;
+    }
 
-	public int getCodProvincia() {
-		return codProvincia;
-	}
+    public Date getFinValidita() {
+        return finValidita;
+    }
 
-	public void setCodProvincia(int codProvincia) {
-		this.codProvincia = codProvincia;
-	}
+    public void setFinValidita(Date finValidita) {
+        this.finValidita = finValidita;
+    }
 
-	public Date getIniValidita() {
-		return iniValidita;
-	}
+    public String getDescProvincia() {
+        return descProvincia;
+    }
 
-	public void setIniValidita(Date iniValidita) {
-		this.iniValidita = iniValidita;
-	}
+    public void setDescProvincia(String descProvincia) {
+        this.descProvincia = descProvincia;
+    }
 
-	public Date getFinValidita() {
-		return finValidita;
-	}
+    public String getSiglaProv() {
+        return siglaProv;
+    }
 
-	public void setFinValidita(Date finValidita) {
-		this.finValidita = finValidita;
-	}
+    public void setSiglaProv(String siglaProv) {
+        this.siglaProv = siglaProv;
+    }
 
-	public String getDescProvincia() {
-		return descProvincia;
-	}
+    public String getCodFornitore() {
+        return codFornitore;
+    }
 
-	public void setDescProvincia(String descProvincia) {
-		this.descProvincia = descProvincia;
-	}
-
-	public String getSiglaProv() {
-		return siglaProv;
-	}
-
-	public void setSiglaProv(String siglaProv) {
-		this.siglaProv = siglaProv;
-	}
-
+    public void setCodFornitore(String codFornitore) {
+        this.codFornitore = codFornitore;
+    }
 }

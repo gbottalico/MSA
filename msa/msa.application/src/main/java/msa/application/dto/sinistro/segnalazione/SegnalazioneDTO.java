@@ -1,6 +1,7 @@
 package msa.application.dto.sinistro.segnalazione;
 
 import msa.application.dto.sinistro.AbstractDTO;
+import msa.application.dto.sinistro.LuogoDTO;
 import msa.application.dto.sinistro.anagrafica.FullAnagraficaDTO;
 
 import java.util.Date;
@@ -12,10 +13,7 @@ public class SegnalazioneDTO extends AbstractDTO {
     private Date dataDenuncia;
     private Date dataOraSinistro;
     private String oraSinistro;
-    private Integer codNazione;
-    private Integer codProvincia;
-    private Integer codComune;
-    private Integer cap;
+    private LuogoDTO luogoSinistro;
     private String indirizzo;
     private String garanziaSelected;
 
@@ -59,45 +57,12 @@ public class SegnalazioneDTO extends AbstractDTO {
         this.oraSinistro = oraSinistro;
     }
 
-    public Integer getCodNazione() {
-        return codNazione;
+    public LuogoDTO getLuogoSinistro() {
+        return luogoSinistro;
     }
 
-    public void setCodNazione(Integer codNazione) {
-        this.codNazione = codNazione;
-    }
-
-    public Integer getCodProvincia() {
-        return codProvincia;
-    }
-
-    public void setCodProvincia(Integer codProvincia) {
-        this.codProvincia = codProvincia;
-    }
-
-    public Integer getCodComune() {
-        return codComune;
-    }
-
-    public void setCodComune(Integer codComune) {
-        this.codComune = codComune;
-    }
-
-    public Integer getCap() {
-        return cap;
-    }
-
-    public void setCap(Integer cap) {
-        this.cap = cap;
-    }
-
-
-    public String getGaranziaSelected() {
-        return garanziaSelected;
-    }
-
-    public void setGaranziaSelected(String garanziaSelected) {
-        this.garanziaSelected = garanziaSelected;
+    public void setLuogoSinistro(LuogoDTO luogoSinistro) {
+        this.luogoSinistro = luogoSinistro;
     }
 
     public String getIndirizzo() {
@@ -106,5 +71,13 @@ public class SegnalazioneDTO extends AbstractDTO {
 
     public void setIndirizzo(String indirizzo) {
         this.indirizzo = indirizzo;
+    }
+
+    public String getGaranziaSelected() {
+        return garanziaSelected;
+    }
+
+    public void setGaranziaSelected(String garanziaSelected) {
+        this.garanziaSelected = garanziaSelected;
     }
 }

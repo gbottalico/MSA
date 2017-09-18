@@ -32,8 +32,7 @@ public final class FunctionUtils {
 
     public static <T extends Number> Boolean isNumber(String value, Function<String, T> function) {
         try {
-            function.apply(value);
-            return Boolean.TRUE;
+            return Optional.ofNullable(value).map(function).map(e -> Boolean.TRUE).orElse(null);
         } catch (Exception e) {
             return Boolean.FALSE;
         }

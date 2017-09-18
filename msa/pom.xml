@@ -110,7 +110,7 @@
 
     <profiles>
         <profile>
-            <id>locale</id>
+            <codNazione>locale</codNazione>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
@@ -119,25 +119,25 @@
             </properties>
         </profile>
         <profile>
-            <id>svil</id>
+            <codNazione>svil</codNazione>
             <properties>
                 <env>svil</env>
             </properties>
         </profile>
         <profile>
-            <id>int</id>
+            <codNazione>int</codNazione>
             <properties>
                 <env>int</env>
             </properties>
         </profile>
         <profile>
-            <id>test</id>
+            <codNazione>test</codNazione>
             <properties>
                 <env>test</env>
             </properties>
         </profile>
         <profile>
-            <id>prod</id>
+            <codNazione>prod</codNazione>
             <properties>
                 <env>prod</env>
             </properties>

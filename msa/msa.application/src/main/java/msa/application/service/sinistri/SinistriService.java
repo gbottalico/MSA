@@ -18,11 +18,11 @@ import msa.application.dto.sinistro.segnalazione.SegnalazioneDTO;
 import msa.application.dto.user.UserLoggedDTO;
 import msa.application.exceptions.InternalMsaException;
 import msa.application.service.interfaceDispatcher.DispatcherService;
-import msa.domain.object.enums.TipiSinisto;
 import msa.application.service.sinistri.tipoSinistro.TipoSinistroTreeMap;
 import msa.domain.Converter.FunctionUtils;
 import msa.domain.Converter.commonObject.GenericTupla;
 import msa.domain.object.dominio.*;
+import msa.domain.object.enums.TipiSinisto;
 import msa.domain.object.ricerca.FullPolizzaDO;
 import msa.domain.object.sinistro.*;
 import msa.domain.object.sinistro.rca.AnagraficaDanniDO;
@@ -128,15 +128,15 @@ public class SinistriService extends BaseSinistroService {
             return input.getContraente();
         } else {
             final FullAnagraficaControparteDTO proprietario = input.getProprietario();
-            final Optional<ProvinciaDO> provinviaBySiglaProvincia = domainRepository.getProvinviaBySiglaProvincia(proprietario.getTracking().getProvincia());
+            final Optional<ProvinciaDO> provinviaBySiglaProvincia = domainRepository.getProvinviaBySiglaProvincia(proprietario.getTracking().getResidenza().getCodProvincia());
             if (provinviaBySiglaProvincia.isPresent()) {
-                proprietario.getTracking().setProvincia(provinviaBySiglaProvincia.map(ProvinciaDO::getCodProvincia).map(Object::toString).get());
-                proprietario.getTracking().setDescProvincia(provinviaBySiglaProvincia.map(ProvinciaDO::getDescProvincia).get());
+                proprietario.getTracking().getResidenza().setCodProvincia(provinviaBySiglaProvincia.map(ProvinciaDO::getCodProvincia).map(Object::toString).get());
+                proprietario.getTracking().getResidenza().setDescrizioneProvincia(provinviaBySiglaProvincia.map(ProvinciaDO::getDescProvincia).get());
                 final ComuneDO comuneDO = domainRepository.getElencoComuni(
-                        FunctionUtils.numberConverter(proprietario.getTracking().getNazione(), Integer::valueOf),
+                        proprietario.getTracking().getResidenza().getCodNazione(),
                         provinviaBySiglaProvincia.map(ProvinciaDO::getCodProvincia).get(),
-                        proprietario.getTracking().getDescComune()).stream().reduce((a, b) -> a).orElse(null);
-                proprietario.getTracking().setComune(comuneDO.getCodComune());
+                        proprietario.getTracking().getResidenza().getDescrizioneComune()).stream().reduce((a, b) -> a).orElse(null);
+                proprietario.getTracking().getResidenza().setCodComune(comuneDO.getCodComune());
                 proprietario.setCodRuolo(MsaCostanti.COD_RUOLO_PROPRIETARIO.toString());
                 input.setProprietario(proprietario);
             }
@@ -390,7 +390,9 @@ public class SinistriService extends BaseSinistroService {
                             new Date(),
                             Boolean.TRUE),
                     () -> Integer.compare(sinistroByNumProvv.getEventoRca().getNumVeicoli(), 2) == 0,
-                    () -> MsaCostanti.nazioneInCard.test(sinistroByNumProvv.getSegnalazione().getCodNazione()),
+                    () -> MsaCostanti.nazioneInCard.test(FunctionUtils.numberConverter(
+                            sinistroByNumProvv.getSegnalazione().getLuogoSinistro().getCodNazione(),
+                            Integer::valueOf)),
                     () -> sinistroByNumProvv.getDannoRca().getAnagraficaDanniCliente().getAnagrafica().getFlagCard(),
                     () -> sinistroByNumProvv.getDannoRca()
                             .getAnagraficaDanniControparte()

@@ -1,6 +1,7 @@
 package msa.domain.object.sinistro.rca;
 
 import msa.domain.object.sinistro.FullAnagraficaDO;
+import msa.domain.object.sinistro.LuogoDO;
 
 import java.util.Date;
 
@@ -10,10 +11,7 @@ public class SegnalazioneDO {
     private Date dataDenuncia;
     private Date dataOraSinistro;
     private String oraSinistro;
-    private Integer codNazione;
-    private Integer codProvincia;
-    private Integer codComune;
-    private Integer cap;
+    private LuogoDO luogoSinistro;
     private String indirizzo;
     private String garanziaSelected;
 
@@ -57,46 +55,12 @@ public class SegnalazioneDO {
         this.oraSinistro = oraSinistro;
     }
 
-    public Integer getCodNazione() {
-        return codNazione;
+    public LuogoDO getLuogoSinistro() {
+        return luogoSinistro;
     }
 
-    public void setCodNazione(Integer codNazione) {
-        this.codNazione = codNazione;
-    }
-
-    public Integer getCodProvincia() {
-        return codProvincia;
-    }
-
-    public void setCodProvincia(Integer codProvincia) {
-        this.codProvincia = codProvincia;
-    }
-
-    public Integer getCodComune() {
-        return codComune;
-    }
-
-    public void setCodComune(Integer codComune) {
-        this.codComune = codComune;
-    }
-
-    public Integer getCap() {
-        return cap;
-    }
-
-    public void setCap(Integer cap) {
-        this.cap = cap;
-    }
-
-
-
-    public String getGaranziaSelected() {
-        return garanziaSelected;
-    }
-
-    public void setGaranziaSelected(String garanziaSelected) {
-        this.garanziaSelected = garanziaSelected;
+    public void setLuogoSinistro(LuogoDO luogoSinistro) {
+        this.luogoSinistro = luogoSinistro;
     }
 
     public String getIndirizzo() {
@@ -105,5 +69,13 @@ public class SegnalazioneDO {
 
     public void setIndirizzo(String indirizzo) {
         this.indirizzo = indirizzo;
+    }
+
+    public String getGaranziaSelected() {
+        return garanziaSelected;
+    }
+
+    public void setGaranziaSelected(String garanziaSelected) {
+        this.garanziaSelected = garanziaSelected;
     }
 }

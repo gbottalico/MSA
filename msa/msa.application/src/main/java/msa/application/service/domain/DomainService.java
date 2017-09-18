@@ -6,8 +6,6 @@ import msa.application.dto.domain.baremes.BaremesDTO;
 import msa.application.exceptions.InternalMsaException;
 import msa.application.service.base.BaseService;
 import msa.domain.object.dominio.ComuneDO;
-import msa.domain.object.dominio.NazioneDO;
-import msa.domain.object.dominio.ProvinciaDO;
 import msa.infrastructure.costanti.MsaCostanti;
 import msa.infrastructure.repository.DomainRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,7 +69,7 @@ public class DomainService extends BaseService {
      * @return una lista di oggetti ComuneDTO
      * @throws InternalMsaException
      */
-    public List<ComuneDTO> getElencoComuni(Integer idNazione, Integer idProvincia, String desc) throws InternalMsaException {
+    public List<ComuneDTO> getElencoComuni(String idNazione, String idProvincia, String desc) throws InternalMsaException {
         try {
 
             return converter.convertList(domainRepository.getElencoComuni(idNazione, idProvincia, desc), ComuneDTO.class);

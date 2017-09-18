@@ -7,6 +7,7 @@ public class LuogoDO {
     private String descrizioneNazione;
     private String descrizioneProvincia;
     private String descrizioneComune;
+    private String cap;
 
     public String getCodNazione() {
         return codNazione;
@@ -54,5 +55,13 @@ public class LuogoDO {
 
     public void setDescrizioneComune(String descrizioneComune) {
         this.descrizioneComune = descrizioneComune;
+    }
+
+    public String getCap() {
+        return cap;
+    }
+
+    public void setCap(String cap) {
+        this.cap = cap;
     }
 }

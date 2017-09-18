@@ -1,52 +1,20 @@
 package msa.application.dto.sinistro.anagrafica;
 
+import msa.application.dto.sinistro.LuogoDTO;
+
 public class TrackingDTO {
-    private String nazione;
-
-    private String descNazione;
-
-    private String provincia;
-
-    private String descProvincia;
-    private String comune;
-
-    private String descComune;
-    private Integer cap;
+    private LuogoDTO residenza;
     private String telefono;
     private String cellulare;
     private String mail;
     private String indirizzo;
 
-    public String getNazione() {
-        return nazione;
+    public LuogoDTO getResidenza() {
+        return residenza;
     }
 
-    public void setNazione(String nazione) {
-        this.nazione = nazione;
-    }
-
-    public String getProvincia() {
-        return provincia;
-    }
-
-    public void setProvincia(String provincia) {
-        this.provincia = provincia;
-    }
-
-    public String getComune() {
-        return comune;
-    }
-
-    public void setComune(String comune) {
-        this.comune = comune;
-    }
-
-    public Integer getCap() {
-        return cap;
-    }
-
-    public void setCap(Integer cap) {
-        this.cap = cap;
+    public void setResidenza(LuogoDTO residenza) {
+        this.residenza = residenza;
     }
 
     public String getTelefono() {
@@ -79,29 +47,5 @@ public class TrackingDTO {
 
     public void setIndirizzo(String indirizzo) {
         this.indirizzo = indirizzo;
-    }
-
-    public String getDescNazione() {
-        return descNazione;
-    }
-
-    public void setDescNazione(String descNazione) {
-        this.descNazione = descNazione;
-    }
-
-    public String getDescProvincia() {
-        return descProvincia;
-    }
-
-    public void setDescProvincia(String descProvincia) {
-        this.descProvincia = descProvincia;
-    }
-
-    public String getDescComune() {
-        return descComune;
-    }
-
-    public void setDescComune(String descComune) {
-        this.descComune = descComune;
     }
 }

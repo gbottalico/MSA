@@ -85,18 +85,16 @@ public class DomainRepository extends BaseRepository {
      * @throws IllegalAccessException
      * @throws InvocationTargetException
      */
-    public List<ComuneDO> getElencoComuni(Integer idNazione, Integer codProvincia, String desc) {
-        return converter.convertList(comuniRepository.findByDesc(idNazione, codProvincia, desc), ComuneDO.class);
+    public List<ComuneDO> getElencoComuni(String idNazione, String codProvincia, String desc) {
+        final Query query = getCriteriaQueryBuilder().addCriteria(
+                Criteria.where(getMongoNameByAttributeName("codNazione", ComuneDBO.class))
+                        .is(FunctionUtils.numberConverter(idNazione, Integer::valueOf))
+                        .and(getMongoNameByAttributeName("codProvincia", ComuneDBO.class))
+                        .is(FunctionUtils.numberConverter(codProvincia, Integer::valueOf))
+                        .and(getMongoNameByAttributeName("descrizione", ComuneDBO.class))
+                        .regex(desc));
+        return converter.convertList(findAll(ComuneDBO.class,query), ComuneDO.class);
     }
-
-    public List<ComuneDO> getElencoComuni() {
-        return converter.convertList(comuniRepository.findAll(), ComuneDO.class);
-    }
-
-    public void updateComuni(List<ComuneDO> comuni) {
-        update(comuni, ComuneDBO.class);
-    }
-
 
     /**
      * Ottiene tutte le autorità presenti nel database
@@ -248,7 +246,7 @@ public class DomainRepository extends BaseRepository {
     public RuoliDO getDesRuoloById(String codRuolo) {
         return Optional.ofNullable(findById(RuoliDBO.class,
                 FunctionUtils.numberConverter(codRuolo, Integer::valueOf)))
-                .map(e -> converter.convertObject(e,RuoliDO.class))
+                .map(e -> converter.convertObject(e, RuoliDO.class))
                 .orElse(null);
     }
 }

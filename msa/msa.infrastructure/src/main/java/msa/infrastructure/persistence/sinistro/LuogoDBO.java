@@ -15,6 +15,8 @@ public class LuogoDBO {
     private String descrizioneProvincia;
     @Field("descrizioneComune")
     private String descrizioneComune;
+    @Field("cap")
+    private String cap;
 
     public String getCodNazione() {
         return codNazione;
@@ -62,5 +64,13 @@ public class LuogoDBO {
 
     public void setDescrizioneComune(String descrizioneComune) {
         this.descrizioneComune = descrizioneComune;
+    }
+
+    public String getCap() {
+        return cap;
+    }
+
+    public void setCap(String cap) {
+        this.cap = cap;
     }
 }

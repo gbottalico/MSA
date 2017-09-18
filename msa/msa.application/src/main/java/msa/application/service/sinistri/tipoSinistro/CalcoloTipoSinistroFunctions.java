@@ -22,7 +22,9 @@ abstract class CalcoloTipoSinistroFunctions<T extends BaseSinistroDO> {
     private DomainRepository domainRepository;
 
 
-    protected final Function<SinistroRcaDO, Boolean> isInItalia = sinis -> Integer.compare(sinis.getSegnalazione().getCodNazione(), MsaCostanti.COD_NAZIONE_ITALIA) == 0;
+    protected final Function<SinistroRcaDO, Boolean> isInItalia = sinis -> Integer.compare(
+            FunctionUtils.numberConverter(sinis.getSegnalazione().getLuogoSinistro().getCodNazione(),Integer::valueOf),
+            MsaCostanti.COD_NAZIONE_ITALIA) == 0;
 
     protected final Function<SinistroRcaDO, Integer> getPercCID = sinis -> {
         final IncrociBaremesDO incrocio = domainRepository.getColpaByBaremes(sinis.getCai().getBaremesCliente(), sinis.getCai().getBaremesControparte());

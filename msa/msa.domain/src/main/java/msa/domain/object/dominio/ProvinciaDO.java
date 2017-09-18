@@ -4,11 +4,8 @@ import java.util.Date;
 
 
 public class ProvinciaDO {
-	private String id;
-
-	private Integer codNazione;
-
-	private Integer codProvincia;
+	private String codNazione;
+	private String codProvincia;
 	private Date iniValidita;
 	private Date finValidita;
 	private String descProvincia;
@@ -23,27 +20,19 @@ public class ProvinciaDO {
 		this.codFornitore = codFornitore;
 	}
 
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public Integer getCodNazione() {
+	public String getCodNazione() {
 		return codNazione;
 	}
 
-	public void setCodNazione(Integer codNazione) {
+	public void setCodNazione(String codNazione) {
 		this.codNazione = codNazione;
 	}
 
-	public Integer getCodProvincia() {
+	public String getCodProvincia() {
 		return codProvincia;
 	}
 
-	public void setCodProvincia(Integer codProvincia) {
+	public void setCodProvincia(String codProvincia) {
 		this.codProvincia = codProvincia;
 	}
 

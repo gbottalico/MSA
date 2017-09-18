@@ -1,64 +1,62 @@
-	package msa.domain.object.dominio;
+package msa.domain.object.dominio;
 
-	import java.util.Date;
+import java.util.Date;
 
 
-	public class NazioneDO {
+public class NazioneDO {
 
-		private String id;
+    private String codNazione;
+    private Date inizioValidita;
+    private Date fineValidita;
+    private String descrizione;
+    private String sigla;
+    private String codFornitore;
 
-		private Date inizioValidita;
-		private Date fineValidita;
-		private String descrizione;
-		private String sigla;
-		private String codFornitore;
+    public String getCodNazione() {
+        return codNazione;
+    }
 
-		public String getCodFornitore() {
-			return codFornitore;
-		}
+    public void setCodNazione(String codNazione) {
+        this.codNazione = codNazione;
+    }
 
-		public void setCodFornitore(String codFornitore) {
-			this.codFornitore = codFornitore;
-		}
+    public Date getInizioValidita() {
+        return inizioValidita;
+    }
 
-		public String getId() {
-			return id;
-		}
+    public void setInizioValidita(Date inizioValidita) {
+        this.inizioValidita = inizioValidita;
+    }
 
-		public void setId(String id) {
-			this.id = id;
-		}
+    public Date getFineValidita() {
+        return fineValidita;
+    }
 
-		public Date getInizioValidita() {
-			return inizioValidita;
-		}
+    public void setFineValidita(Date fineValidita) {
+        this.fineValidita = fineValidita;
+    }
 
-		public void setInizioValidita(Date inizioValidita) {
-			this.inizioValidita = inizioValidita;
-		}
+    public String getDescrizione() {
+        return descrizione;
+    }
 
-		public Date getFineValidita() {
-			return fineValidita;
-		}
+    public void setDescrizione(String descrizione) {
+        this.descrizione = descrizione;
+    }
 
-		public void setFineValidita(Date fineValidita) {
-			this.fineValidita = fineValidita;
-		}
+    public String getSigla() {
+        return sigla;
+    }
 
-		public String getDescrizione() {
-			return descrizione;
-		}
+    public void setSigla(String sigla) {
+        this.sigla = sigla;
+    }
 
-		public void setDescrizione(String descrizione) {
-			this.descrizione = descrizione;
-		}
+    public String getCodFornitore() {
+        return codFornitore;
+    }
 
-		public String getSigla() {
-			return sigla;
-		}
-
-		public void setSigla(String sigla) {
-			this.sigla = sigla;
-		}
-
-	}
+    public void setCodFornitore(String codFornitore) {
+        this.codFornitore = codFornitore;
+    }
+}
