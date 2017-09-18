@@ -6,13 +6,15 @@
         bindings: {
             valoriRicerca: "="
         },
-        controller: ("polizzaSearchController", ["$scope", '$rootScope', '$translate', '$filter', 'DomainSvc', 'SinistriSvc', 'PlacesSvc', 'toastr', '$analytics', '$location', '$anchorScroll', '$uibModal', '$cookies', '$window', '$sessionStorage', 'DebugSvc',
-            function ($scope, $rootScope, $translate, $filter, DomainSvc, SinistriSvc, PlacesSvc, toastr, $analytics, $location, $anchorScroll, $uibModal, $cookies, $window, $sessionStorage, DebugSvc) {
+        controller: ("polizzaSearchController", ['_', '$MSAC', '$scope', '$rootScope', '$translate', '$filter', 'DomainSvc', 'SinistriSvc', 'PlacesSvc', 'toastr', '$analytics', '$location', '$anchorScroll', '$uibModal', '$cookies', '$window', '$sessionStorage', 'DebugSvc',
+            function (_, $MSAC, $scope, $rootScope, $translate, $filter, DomainSvc, SinistriSvc, PlacesSvc, toastr, $analytics, $location, $anchorScroll, $uibModal, $cookies, $window, $sessionStorage, DebugSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
                 var parent = $scope.$parent;
                 $ctrl.ricerca = false;
+
+                $scope.$MSAC = $MSAC;
 
                 $ctrl.casaRegole = undefined;
                 $ctrl.numSinistroProvv = undefined;
@@ -36,16 +38,6 @@
                         $ctrl.casaRegole = data.result;
                     });
 
-                    // DomainSvc.successCall().then(function (response) {
-                    //    DebugSvc.log("successCall", response);
-                    //    return DomainSvc.successCall();
-                    // }).then(function (response) {
-                    //     DebugSvc.log("successCall", response);
-                    //     return DomainSvc.successCall();
-                    // }).catch(function (error) {
-                    //     DebugSvc.log("catch", error);
-                    // });
-
                 };
 
                 $ctrl.campiObbligatori = {
@@ -54,10 +46,14 @@
                     tipoPersona: false,
                     numeroPolizza: false,
                     numeroSinistro: false,
-                    dataEvento: false,
+                    dataEvento: true,
                     targa: false,
                     numeroProvvisorio: false,
                     numeroPreapertura: false
+                };
+
+                $ctrl.isSearchDisabled = function () {
+                    return $scope.polizzaSearchForm.$invalid || !_.isObject($ctrl.ricercapolizza.compagniaSelezionata);
                 };
 
                 $scope.$watch(
@@ -91,9 +87,9 @@
                                         case 5:
                                             $ctrl.campiObbligatori.numeroSinistro = campiObbligatoriRicerca[i].required;
                                             break;
-                                        case 6:
-                                            $ctrl.campiObbligatori.dataEvento = campiObbligatoriRicerca[i].required;
-                                            break;
+                                        // case 6:
+                                        //     $ctrl.campiObbligatori.dataEvento = campiObbligatoriRicerca[i].required;
+                                        //     break;
                                         case 7:
                                             $ctrl.campiObbligatori.targa = campiObbligatoriRicerca[i].required;
                                             break;

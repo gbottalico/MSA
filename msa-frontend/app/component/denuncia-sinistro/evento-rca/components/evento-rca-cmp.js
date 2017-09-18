@@ -9,7 +9,7 @@
             tempSegnalazione: "=",
             callback: "@"
         },
-        controller: ("eventoRcaController", ['_', '$MSAC','$rootScope', '$scope', '$filter', '$debugMode', '$location', '$timeout', 'toastr', 'SinistriSvc', 'DomainSvc', 'DebugSvc', 'PathSvc',
+        controller: ("eventoRcaController", ['_', '$MSAC', '$rootScope', '$scope', '$filter', '$debugMode', '$location', '$timeout', 'toastr', 'SinistriSvc', 'DomainSvc', 'DebugSvc', 'PathSvc',
             function (_, $MSAC, $rootScope, $scope, $filter, $debugMode, $location, $timeout, toastr, SinistriSvc, DomainSvc, DebugSvc, PathSvc) {
 
                 var $ctrl = this;
@@ -19,13 +19,16 @@
                 $scope.$MSAC = $MSAC;
                 $ctrl.mapId = 'M12';
 
-                $ctrl.eventoRca = {};
-                $ctrl.eventoRca.collisione = true;
-                $ctrl.eventoRca.interventoAutorita = true;
-                $ctrl.eventoRca.nveicoli = 2;
-                $ctrl.eventoRca.autoritaIntervenuta = undefined;
-                $ctrl.eventoRca.comandoAutorita = undefined;
-                $ctrl.eventoRca.dataDenuncia = {};
+                $ctrl.eventoRca = {
+                    collisione: undefined,
+                    interventoAutorita: undefined,
+                    nveicoli: undefined,
+                    autoritaIntervenuta: undefined,
+                    comandoAutorita: undefined,
+                    dataDenuncia: {}
+                };
+
+
                 $ctrl.isInputConsumed = false;
 
                 DomainSvc.getAutorita().then(function (response) {
@@ -60,7 +63,7 @@
                     },
                     function handleChanges(newValues, oldValues) {
 
-                        if(!$ctrl.isInputConsumed) {
+                        if (!$ctrl.isInputConsumed) {
                             if (_.isObject(newValues.sinistroProvvisorio) && _.isObject(newValues.sinistroProvvisorio.eventoRca)) {
                                 $ctrl.eventoRca.collisione = newValues.sinistroProvvisorio.eventoRca.collisione;
                                 $ctrl.eventoRca.interventoAutorita = newValues.sinistroProvvisorio.eventoRca.interventoAutorita;
@@ -72,17 +75,17 @@
                             }
                         }
 
-                        if(newValues.collisione !== undefined && newValues.collisione !== null && newValues.collisione === false) {
+                        if (newValues.collisione !== undefined && newValues.collisione !== null && newValues.collisione === false) {
                             $ctrl.eventoRca.nveicoli = 1;
                         }
 
-                        if(newValues.autorita !== undefined && newValues.autorita !== null && newValues.autorita === false) {
+                        if (newValues.autorita !== undefined && newValues.autorita !== null && newValues.autorita === false) {
                             $ctrl.eventoRca.autoritaIntervenuta = undefined;
                             $ctrl.eventoRca.dataDenuncia = undefined;
                             $ctrl.eventoRca.comandoAutorita = undefined;
                         }
 
-                        if(newValues.nveicoli !== undefined) {
+                        if (newValues.nveicoli !== undefined) {
                             $ctrl.tempSegnalazione.nveicoli = newValues.nveicoli;
                         }
 

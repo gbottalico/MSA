@@ -71,11 +71,11 @@
 
                                 <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 classicInputRadio">
                                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 noPaddingLeft">
-                                        <input type="radio" value="M" name="sesso" ng-model="$ctrl.dannoRca.conducente.sesso" ng-required="true">
+                                        <input type="radio" value="M" name="sesso" ng-model="$ctrl.dannoRca.conducente.sesso" ng-required="false">
                                         <label class="rightLabel">{{'global.generic.male' | translate}}</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 noPaddingRight">
-                                        <input type="radio" value="F" name="sesso" ng-model="$ctrl.dannoRca.conducente.sesso" ng-required="true">
+                                        <input type="radio" value="F" name="sesso" ng-model="$ctrl.dannoRca.conducente.sesso" ng-required="false">
                                         <label class="rightLabel">{{'global.generic.female' | translate}}</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 hidden-sm hidden-xs noPaddingRight">&nbsp;</div>
@@ -101,7 +101,7 @@
                                                datepicker-options="$MSAC.DEFAULT_DATE_OPTIONS.options"
                                                show-button-bar="{{$MSAC.DEFAULT_DATE_OPTIONS.showButtonBar}}"
                                                placeholder="{{$MSAC.DEFAULT_DATE_OPTIONS.placeholder}}"
-                                               ng-required="true"
+                                               ng-required="false"
                                                name="dataNascita"
                                         />
 
@@ -133,7 +133,7 @@
                                 </div>
 
                                 <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 classicInputText">
-                                    <input type="text" name="cf" ng-model="$ctrl.dannoRca.conducente.cf" ng-required="true">
+                                    <input type="text" name="cf" ng-model="$ctrl.dannoRca.conducente.cf" ng-required="false">
                                     <label>{{'global.people.cf' | translate}}</label>
                                 </div>
                                 <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 classicInputText">
@@ -153,11 +153,11 @@
                         </div>
 
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicInputText" ng-class="{'has-error' : dannoRcaForm.telefono.$invalid && !dannoRcaForm.telefono.$pristine}">
-                            <input type="text" name="telefono" ng-model="$ctrl.dannoRca.conducente.telefono" ng-pattern="$regex.reTelefono">
+                            <input type="text" name="telefono" ng-model="$ctrl.dannoRca.conducente.telefono" ng-pattern="$regex.reTelefono" ng-required="false">
                             <label>{{'global.people.telefono' | translate}}</label>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicInputText" ng-class="{'has-error' : dannoRcaForm.mail.$invalid && !dannoRcaForm.mail.$pristine}">
-                            <input type="text" name="mail" ng-model="$ctrl.dannoRca.conducente.mail" ng-pattern="$regex.reEmail">
+                            <input type="text" name="mail" ng-model="$ctrl.dannoRca.conducente.mail" ng-pattern="$regex.reEmail" ng-required="false">
                             <label>{{'global.people.email' | translate}}</label>
                         </div>
 
@@ -172,7 +172,7 @@
                         <msa-place result="$ctrl.dannoRca.conducente.residenza" data-input="$ctrl.persistence.residenza" name="'luogoResidenza'"></msa-place>
 
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputText">
-                            <input type="text" name="denominazioneStrada" ng-model="$ctrl.dannoRca.conducente.residenza.indirizzo">
+                            <input type="text" name="denominazioneStrada" ng-model="$ctrl.dannoRca.conducente.residenza.indirizzo" ng-required="false">
                             <label>{{'global.denunciasinitro.labels.indirizzo' | translate}}</label>
                         </div>
                     </div>

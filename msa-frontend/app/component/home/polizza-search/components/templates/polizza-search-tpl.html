@@ -72,7 +72,26 @@
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 classicInputText noPaddingRight">
                             <label>{{'global.polizzasearch.labels.dataevento' | translate}}</label>
-                            <input type="text" name="dataevento" ng-model="$ctrl.ricercapolizza.dataEvento" ng-required="$ctrl.campiObbligatori.dataEvento">
+                            <p class="input-group">
+                                <input datetimepicker-neutral-timezone type="text"
+                                       uib-datepicker-popup="{{$MSAC.DEFAULT_DATE_OPTIONS.format}}"
+                                       ng-model="$ctrl.ricercapolizza.dataEvento"
+                                       is-open="openedDataDenuncia"
+                                       datepicker-options="$MSAC.DEFAULT_DATE_OPTIONS.options"
+                                       show-button-bar="{{$MSAC.DEFAULT_DATE_OPTIONS.showButtonBar}}"
+                                       placeholder="{{$MSAC.DEFAULT_DATE_OPTIONS.placeholder}}"
+                                       ng-required="$ctrl.campiObbligatori.dataEvento"
+                                       name="dataevento"
+                                />
+
+                                <span class="input-group-btn">
+                                    <button type="button"
+                                            class="btn btn-default btn-special"
+                                            ng-click="openedDataDenuncia = !openedDataDenuncia">
+                                        <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                                    </button>
+                                </span>
+                            </p>
                             <label class="alert campoobbligatorio" ng-show="$ctrl.campiObbligatori.dataEvento">{{'global.polizzasearch.labels.alert' | translate}}</label>
                         </div>
                     </div>
@@ -105,7 +124,7 @@
                     <!--COMMON SEARCH BUTTON-->
                     <div class="col-lg-12 classicButton">
                         <button class="blueButton"
-                                ng-disabled="polizzaSearchForm.$invalid"
+                                ng-disabled="$ctrl.isSearchDisabled()"
                                 ng-click="$ctrl.cerca()">
                             <a><i class="fa fa-search" aria-hidden="true"></i> {{'global.generic.cerca' | translate}}</a>
                         </button>

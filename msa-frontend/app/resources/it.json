@@ -100,7 +100,7 @@
         "dataevento": "Data evento",
         "targa": "Targa",
         "numprov": "Numero provvisorio",
-        "numpre": "Numero preapertura",
+        "numpre": "Numero pre-codifica",
         "compagnia": "Compagnia",
         "istruzioni": "Cerca e seleziona una polizza per procedere"
       }
@@ -143,6 +143,7 @@
         "clearbox":"Clear Box",
         "denunciasinistro": "Denuncia sinistro",
         "dativeicolo":"Dati Veicolo",
+        "beneassicurato":"Bene Assicurato",
         "telaio":"Telaio",
         "datesospensione":"Date sospensione",
         "da": "da",

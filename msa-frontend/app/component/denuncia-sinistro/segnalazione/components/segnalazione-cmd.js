@@ -81,7 +81,7 @@
 
                             if (sinitroProvvisorio.segnalazione.dataDenuncia) {
                                 $ctrl.sinistro.provenienza.dataDenuncia = new Date(sinitroProvvisorio.segnalazione.dataDenuncia);
-                            }
+                            } else {}
 
                             if (sinitroProvvisorio.segnalazione.dataOraSinistro) {
                                 $ctrl.sinistro.provenienza.dataSinistro = new Date(sinitroProvvisorio.segnalazione.dataOraSinistro);
@@ -105,8 +105,9 @@
                 };
 
                 $timeout(function () {
-                    DebugSvc.log($scope);
                     parent.mappaCaricata($ctrl.mapId)
+
+                    $ctrl.sinistro.provenienza.dataDenuncia = new Date();
                 });
 
                 $scope.$watch(
