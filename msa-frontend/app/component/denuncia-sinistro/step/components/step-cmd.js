@@ -42,7 +42,15 @@
                         $ctrl.user.nascita = $ctrl.user.nascita + ", " + UtilSvc.dateFormat($ctrl.datiContraente.dataNascita);
                     }
 
-                    $ctrl.user.residenza = $ctrl.datiContraente.tracking.indirizzo + ", " + $ctrl.datiContraente.tracking.descComune + ", " + $ctrl.datiContraente.tracking.descProvincia;
+                    var citta = undefined;
+                    if(_.isObject($ctrl.datiContraente.tracking.residenza)) {
+                        citta = $ctrl.datiContraente.tracking.residenza.descrizioneComune ?
+                                $ctrl.datiContraente.tracking.residenza.descrizioneComune :
+                                $ctrl.datiContraente.tracking.residenza.descrizioneNazione;
+                    }
+
+                    //TODO creare metodo
+                    $ctrl.user.residenza = $ctrl.datiContraente.tracking.indirizzo + (citta ? ", " + citta : "");
 
                     $ctrl.user.recapiti = [$ctrl.datiContraente.tracking.cellulare, $ctrl.datiContraente.tracking.telefono, $ctrl.datiContraente.tracking.mail];
                     $ctrl.user.recapiti = $ctrl.user.recapiti.filter(function (e) {
