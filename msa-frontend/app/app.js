@@ -309,7 +309,7 @@ app.config(['$httpProvider', function ($httpProvider) {
 /**
  * Salvataggio della data senza informazioni sull'orario.
  */
-app.directive('datetimepickerNeutralTimezone', function() {
+app.directive('datetimepickerNeutralTimezone', function () {
     return {
         restrict: 'A',
         priority: 1,
@@ -318,14 +318,16 @@ app.directive('datetimepickerNeutralTimezone', function() {
             ctrl.$formatters.push(function (value) {
                 var date = new Date(Date.parse(value));
                 date = new Date(date.getTime() + (60000 * date.getTimezoneOffset()));
-                //TODO serve?
-
                 return date;
             });
 
             ctrl.$parsers.push(function (value) {
-                var date = new Date(value.getTime() - (60000 * value.getTimezoneOffset()));
-                return date;
+                try {
+                    var date = new Date(value.getTime() - (60000 * value.getTimezoneOffset()));
+                    return date;
+                } catch (err) {
+                    return null;
+                }
             });
         }
     };
