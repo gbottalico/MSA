@@ -8,8 +8,8 @@
             close: '&',
             dismiss: '&'
         },
-        controller: ("headerController", ['_', '$MSAC', '$rootScope', '$scope', '$debugMode', 'UtilSvc', 'DebugSvc', 'DomainSvc', 'RegexSvc',
-            function (_, $MSAC, $rootScope, $scope, $debugMode, UtilSvc, DebugSvc, DomainSvc, RegexSvc) {
+        controller: ("headerController", ['_', '$MSAC', '$rootScope', '$scope', '$debugMode', 'UtilSvc', 'DebugSvc', 'DomainSvc', 'RegexSvc', 'ConvertSvc',
+            function (_, $MSAC, $rootScope, $scope, $debugMode, UtilSvc, DebugSvc, DomainSvc, RegexSvc, ConvertSvc) {
 
                 var $ctrl = this;
                 $scope.$MSAC = $MSAC;
@@ -20,8 +20,8 @@
                     compagnia:undefined
                 };
                 $ctrl.persistence = {};
-                $ctrl.ruoli = undefined;
-                $ctrl.ruoliKeyValue = undefined;
+                $ctrl.ruoli = [];
+                $ctrl.ruoliKeyValue = {};
                 $ctrl.ruoloConLesioni = undefined;
                 $ctrl.compagniaSelezionata = undefined;
 
@@ -48,7 +48,9 @@
 
                     if($ctrl.resolve.input) {
                         $ctrl.anagrafica = $ctrl.resolve.input;
-                        //TODO FIXME binding data.
+                        $ctrl.persistence.luogoNascita = ConvertSvc.luogoToDTO($ctrl.resolve.input.nascita);
+                        $ctrl.persistence.residenza = ConvertSvc.luogoToDTO($ctrl.resolve.input.residenza);
+
                     }
 
                 };
@@ -97,7 +99,7 @@
                     },
                     function handleChanges(newValues, oldValues) {
 
-                        if (newValues.ruolo !== undefined) {
+                        if (newValues.ruolo !== undefined && $ctrl.hasRole) {
                             $ctrl.ruoloConLesioni = $ctrl.ruoliKeyValue[$ctrl.anagrafica.ruolo].lesioni;
                         }
                         if (newValues.compagnia !== undefined && newValues.compagnia !== oldValues.compagnia) {

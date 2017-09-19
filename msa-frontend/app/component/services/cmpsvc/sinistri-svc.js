@@ -257,30 +257,6 @@ angular.module('msa').service(
                 var dataObj = [];
 
                 dannoRca.controparti.forEach(function (element, index) {
-                    // var temp = {
-                    //     anagrafica: {
-                    //         nome: element.nome,
-                    //         cognome: element.cognome,
-                    //         sesso: element.sesso ? element.sesso.toUpperCase() : null,
-                    //         cf: element.cf,
-                    //         tipoPersona: element.tipoPersona,
-                    //         dataNascita: element.nascita.data.date,
-                    //         luogoNascita: {
-                    //             codComune: element.nascita.comune ? element.nascita.comune.codComune : -1,
-                    //             codProvincia: element.nascita.provincia ? element.nascita.comune.codProvincia : -1,
-                    //             codNazione: element.nascita.nazione.id
-                    //         },
-                    //         tracking: {
-                    //             comune: element.residenza.comune ? element.residenza.comune.codComune : -1,
-                    //             provincia: element.residenza.provincia ? element.residenza.comune.codProvincia : -1,
-                    //             nazione: element.residenza.nazione.id,
-                    //             cap: element.residenza.cap,
-                    //             indirizzo: element.residenza.indirizzo,
-                    //             telefono: element.telefono,
-                    //             mail: element.mail
-                    //         }
-                    //     }
-                    // };
 
                     var temp = {};
 

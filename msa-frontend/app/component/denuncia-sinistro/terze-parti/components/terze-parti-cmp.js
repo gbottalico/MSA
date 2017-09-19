@@ -8,7 +8,7 @@
             sinistroProvvisorio: "<",
             tempSegnalazione: "="
         },
-        controller: ("terzePartiController", ['_', '$rootScope', '$scope', '$debugMode', '$filter', '$location', '$uibModal', '$timeout','toastr', 'SinistriSvc', 'DebugSvc', 'ConvertSvc',
+        controller: ("terzePartiController", ['_', '$rootScope', '$scope', '$debugMode', '$filter', '$location', '$uibModal', '$timeout', 'toastr', 'SinistriSvc', 'DebugSvc', 'ConvertSvc',
             function (_, $rootScope, $scope, $debugMode, $filter, $location, $uibModal, $timeout, toastr, SinistriSvc, DebugSvc, ConvertSvc) {
 
                 var $ctrl = this;
@@ -34,7 +34,8 @@
                             input: function () {
                                 try {
                                     $ctrl.terzeParti[index].index = index;
-                                } catch(err){}
+                                } catch (err) {
+                                }
                                 return $ctrl.terzeParti[index];
                             }
                         }
@@ -42,7 +43,7 @@
 
                     modalInstance.result.then(function (terzaParte) {
                         DebugSvc.log("aggiungiTerzeParti", terzaParte);
-                        if(_.isNumber(terzaParte.index)) {
+                        if (_.isNumber(terzaParte.index)) {
                             $ctrl.terzeParti[terzaParte.index] = terzaParte;
                         } else {
                             $ctrl.terzeParti.push(terzaParte);
@@ -59,7 +60,7 @@
                 };
 
                 $ctrl.salvaTerzeParti = function () {
-                    if($ctrl.presenzaTerzeParti === false) {
+                    if ($ctrl.presenzaTerzeParti === false) {
                         //Se dico che non ci sono terze parti quando la lista delle terze parti è già piena, la svuoto prima di salvare.
                         $ctrl.terzeParti = [];
                     }

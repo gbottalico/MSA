@@ -322,7 +322,10 @@
                                         <td>{{controparte.nome ? controparte.nome + " " + controparte.cognome : controparte.ragioneSociale}}</td>
                                         <td>{{controparte.residenza.indirizzo}}</td>
                                         <td>{{controparte.cf}}</td>
-                                        <td><i ng-click="$ctrl.rimuoviControparte($index)" class="fa fa-trash-o" aria-hidden="true"></i></td>
+                                        <td>
+                                            <i ng-click="$ctrl.aggiungiControparte($index);" class="fa fa-pencil" aria-hidden="true"></i>&nbsp;&nbsp;
+                                            <i ng-click="$ctrl.rimuoviControparte($index)" class="fa fa-trash-o" aria-hidden="true"></i>
+                                        </td>
                                     </tr>
                                 </tbody>
                                 <tfoot>

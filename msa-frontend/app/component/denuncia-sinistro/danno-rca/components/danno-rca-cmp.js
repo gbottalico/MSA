@@ -44,14 +44,12 @@
                 $ctrl.bindDannoRca = function () {
                     if (_.isObject($ctrl.sinistroProvvisorio.dannoRca)) {
 
-
                         $ctrl.dannoRca.lesioniConducente = $ctrl.sinistroProvvisorio.dannoRca.lesioniConducente;
                         $ctrl.dannoRca.conducenteIsNotContraente = $ctrl.sinistroProvvisorio.dannoRca.conducenteDiverso;
                         if (_.isObject($ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente)) {
                             $ctrl.persistence.dannoCliente = $ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente.danni;
                             $ctrl.dannoRca.descrizioneDannoCliente = $ctrl.persistence.dannoCliente.descrizioneDanno;
                             if ($ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente.anagrafica && $ctrl.dannoRca.conducenteIsNotContraente === true) {
-                                //FIXME wrappare tutta la funzione e fare anche agli altri
                                 var anagrafica = $ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente.anagrafica;
 
                                 $ctrl.dannoRca.conducente.cognome = anagrafica.cognome;
@@ -64,32 +62,16 @@
                                     $ctrl.dannoRca.conducente.nascita.data = new Date(anagrafica.dataNascita);
                                 }
 
-                                var tempLuogo = {};
+                                $ctrl.persistence.luogoNascita = anagrafica.luogoNascita;
 
-                                $timeout(function () {
-                                    tempLuogo.idNazione = anagrafica.luogoNascita.codNazione;
-                                    tempLuogo.idProvincia = anagrafica.luogoNascita.codProvincia;
-                                    tempLuogo.idComune = anagrafica.luogoNascita.codComune;
-                                    tempLuogo.cap = anagrafica.luogoNascita.cap;
-                                    $ctrl.persistence.luogoNascita = tempLuogo;
-                                });
+                                if (_.isObject(anagrafica.tracking)) {
+                                    $ctrl.dannoRca.conducente.telefono = anagrafica.tracking.telefono;
+                                    $ctrl.dannoRca.conducente.mail = anagrafica.tracking.mail;
+                                    $ctrl.persistence.residenza = anagrafica.tracking.residenza;
 
-
-                                $ctrl.dannoRca.conducente.telefono = anagrafica.tracking.telefono;
-                                $ctrl.dannoRca.conducente.mail = anagrafica.tracking.mail;
-
-                                $timeout(function () {
-                                    tempLuogo.idNazione = anagrafica.tracking.nazione;
-                                    tempLuogo.idProvincia = anagrafica.tracking.provincia;
-                                    tempLuogo.idComune = anagrafica.tracking.comune;
-                                    tempLuogo.cap = anagrafica.tracking.cap;
-                                });
-
-
-                                $ctrl.persistence.residenza = tempLuogo;
-
-                                $ctrl.dannoRca.conducente.residenza = {};
-                                $ctrl.dannoRca.conducente.residenza.indirizzo = anagrafica.tracking.indirizzo;
+                                    $ctrl.dannoRca.conducente.residenza = {};
+                                    $ctrl.dannoRca.conducente.residenza.indirizzo = anagrafica.tracking.indirizzo;
+                                }
 
                                 $ctrl.dannoRca.veicoloCliente = {};
                                 if (anagrafica.veicolo) {
@@ -102,7 +84,6 @@
                             } else {
                                 $ctrl.dannoRca.conducenteIsNotContraente = false;
                             }
-
 
                         }
 
@@ -126,7 +107,6 @@
                         $timeout(function () {
                             $scope.dannoRcaForm.$setPristine();
                         });
-
 
                     }
                 };
@@ -180,7 +160,7 @@
 
                 };
 
-                $ctrl.aggiungiControparte = function () {
+                $ctrl.aggiungiControparte = function (index) {
                     var modalInstance = $uibModal.open({
                         animation: true,
                         backdrop: 'static', // Evita che il modal sia chiuso cliccando sullo sfondo.
@@ -189,16 +169,25 @@
                         component: 'msaAnagraficaModal',
                         resolve: {
                             hasCompagnia: function () {
-
                                 return true;
+                            },
+                            input: function () {
+                                try {
+                                    $ctrl.dannoRca.controparti[index].index = index;
+                                } catch (err) {
+                                }
+                                return $ctrl.dannoRca.controparti[index];
                             }
-
                         }
                     });
 
                     modalInstance.result.then(function (controparte) {
                         DebugSvc.log("aggiungiControparte", controparte);
-                        $ctrl.dannoRca.controparti.push(controparte);
+                        if (_.isNumber(controparte.index)) {
+                            $ctrl.dannoRca.controparti[controparte.index] = controparte
+                        } else {
+                            $ctrl.dannoRca.controparti.push(controparte);
+                        }
                         $scope.dannoRcaForm.$setDirty();
                     }, function () {
                         DebugSvc.log("aggiungiControparte dismiss.");

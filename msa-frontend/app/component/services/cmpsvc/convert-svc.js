@@ -25,47 +25,21 @@ angular.module('msa').service('ConvertSvc',
                 dto.targa = anagrafica.targa;
                 dto.targaEstera = anagrafica.targaEstera;
                 dto.targaSpeciale = anagrafica.targaSpeciale;
-                
+
 
                 if (_.isObject(anagrafica.compagnia)) {
                     dto.compagnia = anagrafica.compagnia.id;
                 }
 
                 dto.luogoNascita = {};
-                if (anagrafica.nascita != undefined) {
-                    if (_.isObject(anagrafica.nascita.nazione)) {
-                        dto.luogoNascita.codNazione = anagrafica.nascita.nazione.id;
-                        dto.luogoNascita.descrizioneNazione = anagrafica.nascita.nazione.descrizione;
-                    }
-                    if (_.isObject(anagrafica.nascita.provincia)) {
-                        dto.luogoNascita.codProvincia = anagrafica.nascita.provincia.codProvincia;
-                        dto.luogoNascita.descrizioneProvincia = anagrafica.nascita.provincia.desProv;
-                    }
-                    if (_.isObject(anagrafica.nascita.comune)) {
-                        dto.luogoNascita.codComune = anagrafica.nascita.comune.codComune;
-                        dto.luogoNascita.descrizioneComune = anagrafica.nascita.comune.descrizione;
-                        dto.luogoNascita.cap = anagrafica.nascita.cap;
-                    }
-
+                if (_.isObject(anagrafica.nascita)) {
+                    dto.luogoNascita = $svc.luogoToDTO(anagrafica.nascita);
                     dto.dataNascita = anagrafica.nascita.data;
                 }
 
                 dto.tracking = {};
-                if (anagrafica.residenza != undefined) {
-                    if (_.isObject(anagrafica.residenza.nazione)) {
-                        dto.tracking.nazione = anagrafica.residenza.nazione.id;
-                        dto.tracking.descNazione = anagrafica.residenza.nazione.descrizione;
-                    }
-                    if (_.isObject(anagrafica.residenza.provincia)) {
-                        dto.tracking.provincia = anagrafica.residenza.provincia.codProvincia;
-                        dto.tracking.descProvincia = anagrafica.residenza.provincia.siglaProv;
-                    }
-                    if (_.isObject(anagrafica.residenza.comune)) {
-                        dto.tracking.comune = anagrafica.residenza.comune.codComune;
-                        dto.tracking.descComune = anagrafica.residenza.comune.descrizione;
-                        dto.tracking.cap = anagrafica.residenza.cap;
-                    }
-
+                if (_.isObject(anagrafica.residenza)) {
+                    dto.tracking.residenza = $svc.luogoToDTO(anagrafica.residenza);
                     dto.tracking.indirizzo = anagrafica.residenza.indirizzo;
                 }
                 dto.tracking.telefono = anagrafica.telefono;
@@ -110,33 +84,58 @@ angular.module('msa').service('ConvertSvc',
                 };
 
                 if (_.isObject(dto.luogoNascita)) {
-
-                    anagrafica.nascita.nazione.id = dto.luogoNascita.codNazione;
-                    anagrafica.nascita.provincia.codProvincia = dto.luogoNascita.codProvincia;
-                    anagrafica.nascita.comune.codComune = dto.luogoNascita.codComune;
-                    anagrafica.nascita.cap = dto.luogoNascita.cap;
-
+                    anagrafica.nascita = $svc.dtoToLuogo(dto.luogoNascita)
                 }
 
-                anagrafica.nascita.data.date = dto.dataNascita ? new Date(dto.dataNascita) : undefined;
+                anagrafica.nascita.data = dto.dataNascita ? new Date(dto.dataNascita) : undefined;
 
                 if (_.isObject(dto.tracking)) {
-
-                    anagrafica.residenza.nazione.id = dto.tracking.nazione;
-                    anagrafica.residenza.provincia.codProvincia = dto.tracking.provincia;
-                    anagrafica.residenza.comune.codComune = dto.tracking.comune;
-                    anagrafica.residenza.cap = dto.tracking.cap;
-                    anagrafica.residenza.indirizzo = dto.tracking.indirizzo;
-
+                    if (_.isObject(dto.tracking.residenza)) {
+                        anagrafica.residenza = $svc.dtoToLuogo(dto.tracking.residenza);
+                        anagrafica.residenza.indirizzo = dto.tracking.indirizzo
+                    }
                     anagrafica.telefono = dto.tracking.telefono;
                     anagrafica.mail = dto.tracking.mail;
-
                 }
-
                 return anagrafica;
-
             };
 
+            $svc.luogoToDTO = function (luogo) {
+                var dto = {};
+                if (_.isObject(luogo.nazione)) {
+                    dto.codNazione = luogo.nazione.codNazione;
+                    dto.descrizioneNazione = luogo.nazione.descrizione;
+                }
+                if (_.isObject(luogo.provincia)) {
+                    dto.codProvincia = luogo.provincia.codProvincia;
+                    dto.descrizioneProvincia = luogo.provincia.descProvincia;
+                }
+                if (_.isObject(luogo.comune)) {
+                    dto.codComune = luogo.comune.codComune;
+                    dto.descrizioneComune = luogo.comune.descrizione;
+                    dto.cap = luogo.cap;
+                }
+                return dto;
+            };
+
+            $svc.dtoToLuogo = function (dto) {
+                var luogo = {
+                    nazione: {
+                        codNazione: dto.codNazione,
+                        descrizione: dto.descrizioneNazione
+                    },
+                    provincia: {
+                        codProvincia: dto.codProvincia,
+                        descProvincia: dto.descrizioneProvincia
+                    },
+                    comune: {
+                        codComune: dto.codComune,
+                        descrizione: dto.descrizioneComune
+                    },
+                    cap: dto.cap
+                };
+                return luogo;
+            };
 
             /**
              * Converte l'oggetto danni auto in DTO.

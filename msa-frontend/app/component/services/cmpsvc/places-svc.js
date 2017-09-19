@@ -94,13 +94,6 @@ angular.module('msa').service(
                 return Math.min(latZoom, lngZoom, ZOOM_MAX);
             };
 
-            var hasId = function (obj) {
-                return (
-                    obj !== undefined &&
-                    obj !== null &&
-                    obj.id !== undefined &&
-                    obj.id !== null);
-            };
 
         }
     ]

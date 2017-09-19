@@ -169,7 +169,6 @@
                     } else {
                         $ctrl.$valid = PlacesSvc.isValidPlace($ctrl.result.nazione, $ctrl.result.provincia, $ctrl.result.comune) || $ctrl.isFormEmpty();
                     }
-                    DebugSvc.log("$valid", $ctrl.$valid);
                     $scope[$scope.name].$setValidity("place", $ctrl.$valid, $ctrl);
 
                 }, true
