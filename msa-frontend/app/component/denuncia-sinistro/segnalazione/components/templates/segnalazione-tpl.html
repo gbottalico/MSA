@@ -144,7 +144,11 @@
                     </span>
                 </div>
 
-                <msa-place result="$ctrl.sinistro.luogo" input="$ctrl.persistence.luogo" name="'luogoSinistro'"></msa-place>
+                <msa-place
+                        result="$ctrl.sinistro.luogo"
+                        input="$ctrl.persistence.luogo"
+                        required="true"
+                        name="'luogoSinistro'"></msa-place>
 
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputText">
                     <input type="text" name="indirizzo" ng-model="$ctrl.sinistro.luogo.indirizzo" ng-required="false">

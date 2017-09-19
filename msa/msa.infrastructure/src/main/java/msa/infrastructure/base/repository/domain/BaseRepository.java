@@ -2,6 +2,8 @@ package msa.infrastructure.base.repository.domain;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mongodb.WriteResult;
+
+import msa.domain.Converter.FunctionUtils;
 import msa.domain.Converter.MsaConverter;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.tuple.Pair;
@@ -124,6 +126,10 @@ public class BaseRepository {
         return mongoTemplate.find(query,dboClass);
     }
 
+    protected <T,N extends Number> T findById(Class<T> dboClass, String id, Function<String,N> castingid) {
+        return mongoTemplate.findById(FunctionUtils.numberConverter(id,castingid), dboClass);
+    }
+    
     protected <T, I> T findById(Class<T> dboClass, I id) {
         return mongoTemplate.findById(id, dboClass);
     }

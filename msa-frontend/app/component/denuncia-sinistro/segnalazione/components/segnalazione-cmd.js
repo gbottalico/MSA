@@ -64,43 +64,36 @@
 
                 $ctrl.bindSinitroProvvisorio = function (sinitroProvvisorio) {
 
-                    $timeout(function () {
-                        if (_.isObject(sinitroProvvisorio.segnalazione)) {
+                    if (_.isObject(sinitroProvvisorio.segnalazione)) {
 
-                            $ctrl.sinistro.segnalazione.nome = sinitroProvvisorio.segnalazione.denunciante.nome;
-                            $ctrl.sinistro.segnalazione.cognome = sinitroProvvisorio.segnalazione.denunciante.cognome;
-                            $ctrl.sinistro.segnalazione.telefono = sinitroProvvisorio.segnalazione.denunciante.telefono;
-                            $ctrl.sinistro.segnalazione.ruolo = sinitroProvvisorio.segnalazione.denunciante.codRuolo;
+                        $ctrl.sinistro.segnalazione.nome = sinitroProvvisorio.segnalazione.denunciante.nome;
+                        $ctrl.sinistro.segnalazione.cognome = sinitroProvvisorio.segnalazione.denunciante.cognome;
+                        $ctrl.sinistro.segnalazione.telefono = sinitroProvvisorio.segnalazione.denunciante.telefono;
+                        $ctrl.sinistro.segnalazione.ruolo = sinitroProvvisorio.segnalazione.denunciante.codRuolo;
 
-                            if (sinitroProvvisorio.segnalazione.denunciante.tracking) {
-                                $ctrl.sinistro.tracking.cellulare = sinitroProvvisorio.segnalazione.denunciante.tracking.cellulare;
-                                $ctrl.sinistro.tracking.email = sinitroProvvisorio.segnalazione.denunciante.tracking.mail;
-                            }
-
-                            $ctrl.sinistro.provenienza.mezzoComunicazione = sinitroProvvisorio.segnalazione.codMezzo;
-
-                            if (sinitroProvvisorio.segnalazione.dataDenuncia) {
-                                $ctrl.sinistro.provenienza.dataDenuncia = new Date(sinitroProvvisorio.segnalazione.dataDenuncia);
-                            } else {}
-
-                            if (sinitroProvvisorio.segnalazione.dataOraSinistro) {
-                                $ctrl.sinistro.provenienza.dataSinistro = new Date(sinitroProvvisorio.segnalazione.dataOraSinistro);
-                            }
-
-                            $ctrl.sinistro.provenienza.oraSinistro = sinitroProvvisorio.segnalazione.oraSinistro;
-
-                            var tempLuogo = {};
-                            tempLuogo.idNazione = sinitroProvvisorio.segnalazione.codNazione;
-                            tempLuogo.idProvincia = sinitroProvvisorio.segnalazione.codProvincia;
-                            tempLuogo.idComune = sinitroProvvisorio.segnalazione.codComune;
-                            tempLuogo.cap = sinitroProvvisorio.segnalazione.cap;
-                            $ctrl.persistence.luogo = tempLuogo;
-
-                            $ctrl.sinistro.luogo.indirizzo = sinitroProvvisorio.segnalazione.indirizzo;
-                            $ctrl.sinistro.garanzia = sinitroProvvisorio.segnalazione.garanziaSelected;
+                        if (sinitroProvvisorio.segnalazione.denunciante.tracking) {
+                            $ctrl.sinistro.tracking.cellulare = sinitroProvvisorio.segnalazione.denunciante.tracking.cellulare;
+                            $ctrl.sinistro.tracking.email = sinitroProvvisorio.segnalazione.denunciante.tracking.mail;
                         }
-                    }, 0);
 
+                        $ctrl.sinistro.provenienza.mezzoComunicazione = sinitroProvvisorio.segnalazione.codMezzo;
+
+                        if (sinitroProvvisorio.segnalazione.dataDenuncia) {
+                            $ctrl.sinistro.provenienza.dataDenuncia = new Date(sinitroProvvisorio.segnalazione.dataDenuncia);
+                        } else {
+                        }
+
+                        if (sinitroProvvisorio.segnalazione.dataOraSinistro) {
+                            $ctrl.sinistro.provenienza.dataSinistro = new Date(sinitroProvvisorio.segnalazione.dataOraSinistro);
+                        }
+
+                        $ctrl.sinistro.provenienza.oraSinistro = sinitroProvvisorio.segnalazione.oraSinistro;
+
+                        $ctrl.persistence.luogo = sinitroProvvisorio.segnalazione.luogoSinistro;
+
+                        $ctrl.sinistro.luogo.indirizzo = sinitroProvvisorio.segnalazione.indirizzo;
+                        $ctrl.sinistro.garanzia = sinitroProvvisorio.segnalazione.garanziaSelected;
+                    }
 
                 };
 

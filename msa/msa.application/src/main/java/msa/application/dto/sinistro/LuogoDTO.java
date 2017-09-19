@@ -7,7 +7,8 @@ public class LuogoDTO {
     private String descrizioneNazione;
     private String descrizioneProvincia;
     private String descrizioneComune;
-
+    private String cap;
+    
     public String getCodNazione() {
         return codNazione;
     }
@@ -56,32 +57,12 @@ public class LuogoDTO {
         this.descrizioneComune = descrizioneComune;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+	public String getCap() {
+		return cap;
+	}
 
-        LuogoDTO luogoDTO = (LuogoDTO) o;
+	public void setCap(String cap) {
+		this.cap = cap;
+	}
 
-        if (codNazione != null ? !codNazione.equals(luogoDTO.codNazione) : luogoDTO.codNazione != null) return false;
-        if (codProvincia != null ? !codProvincia.equals(luogoDTO.codProvincia) : luogoDTO.codProvincia != null)
-            return false;
-        if (codComune != null ? !codComune.equals(luogoDTO.codComune) : luogoDTO.codComune != null) return false;
-        if (descrizioneNazione != null ? !descrizioneNazione.equals(luogoDTO.descrizioneNazione) : luogoDTO.descrizioneNazione != null)
-            return false;
-        if (descrizioneProvincia != null ? !descrizioneProvincia.equals(luogoDTO.descrizioneProvincia) : luogoDTO.descrizioneProvincia != null)
-            return false;
-        return descrizioneComune != null ? descrizioneComune.equals(luogoDTO.descrizioneComune) : luogoDTO.descrizioneComune == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = codNazione != null ? codNazione.hashCode() : 0;
-        result = 31 * result + (codProvincia != null ? codProvincia.hashCode() : 0);
-        result = 31 * result + (codComune != null ? codComune.hashCode() : 0);
-        result = 31 * result + (descrizioneNazione != null ? descrizioneNazione.hashCode() : 0);
-        result = 31 * result + (descrizioneProvincia != null ? descrizioneProvincia.hashCode() : 0);
-        result = 31 * result + (descrizioneComune != null ? descrizioneComune.hashCode() : 0);
-        return result;
-    }
 }

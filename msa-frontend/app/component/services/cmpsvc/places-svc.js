@@ -1,10 +1,11 @@
 angular.module('msa').service(
     'PlacesSvc',
     [
+        '_',
         '$http',
         'msaServicesApiUrls',
         'UtilSvc',
-        function ($http, msaServicesApiUrls, UtilSvc) {
+        function (_, $http, msaServicesApiUrls, UtilSvc) {
 
             var $svc = this;
 
@@ -16,8 +17,8 @@ angular.module('msa').service(
             };
 
             $svc.getGeoconding = function (indirizzo) {
-              var url = UtilSvc.stringFormat(msaServicesApiUrls.geocoding, indirizzo);
-              return $http.get(url);
+                var url = UtilSvc.stringFormat(msaServicesApiUrls.geocoding, indirizzo);
+                return $http.get(url);
             };
 
             $svc.getNazioni = function (nomeNazione) {
@@ -57,11 +58,11 @@ angular.module('msa').service(
             };
 
             $svc.isValidPlace = function (nazione, provincia, comune) {
-                if (hasId(nazione)) {
-                    if (nazione.id > 1) {
+                if (_.isObject(nazione)) {
+                    if (nazione.codNazione > 1) {
                         return true;
                     } else {
-                        return hasId(provincia) && hasId(comune);
+                        return !!(_.isObject(provincia) && provincia.codProvincia && _.isObject(comune) && comune.codComune);
                     }
                 } else {
                     return false;
@@ -69,7 +70,7 @@ angular.module('msa').service(
             };
 
             $svc.getZoomLevel = function (northEast, southWest) {
-                var WORLD_DIM = { height: 256, width: 256 };
+                var WORLD_DIM = {height: 256, width: 256};
                 var ZOOM_MAX = 21;
 
                 function latRad(lat) {

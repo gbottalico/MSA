@@ -1,12 +1,13 @@
 angular.module('msa').service(
     'SinistriSvc',
     [
+        '_',
         '$http',
         'msaServicesApiUrls',
         'UtilSvc',
         'DebugSvc',
         'ConvertSvc',
-        function ($http, msaServicesApiUrls, UtilSvc, DebugSvc, ConvertSvc) {
+        function (_, $http, msaServicesApiUrls, UtilSvc, DebugSvc, ConvertSvc) {
 
             var $svc = this;
             var getOggettoRicerca = function () {
@@ -104,18 +105,20 @@ angular.module('msa').service(
                 data.dataOraSinistro = datiSegnalazione.provenienza.dataSinistro;
                 data.oraSinistro = datiSegnalazione.provenienza.oraSinistro;
 
-                data.codNazione = datiSegnalazione.luogo.nazione.id;
-                if (UtilSvc.hasId(datiSegnalazione.luogo.provincia)) {
-                    data.codProvincia = datiSegnalazione.luogo.provincia.codProvincia;
-                } else {
-                    data.codProvincia = -1;
+                //TODO creare un metodo di questa roba.
+                data.luogoSinistro = {};
+                data.luogoSinistro.codNazione = datiSegnalazione.luogo.nazione.codNazione;
+                data.luogoSinistro.descrizioneNazione = datiSegnalazione.luogo.nazione.descrizione;
+                if(_.isObject(datiSegnalazione.luogo.provincia)) {
+                    data.luogoSinistro.codProvincia = datiSegnalazione.luogo.provincia.codProvincia;
+                    data.luogoSinistro.descrizioneProvincia = datiSegnalazione.luogo.provincia.descProvincia;
                 }
-                if (UtilSvc.hasId(datiSegnalazione.luogo.comune)) {
-                    data.codComune = datiSegnalazione.luogo.comune.codComune;
-                } else {
-                    data.codComune = -1;
+                if(_.isObject(datiSegnalazione.luogo.comune)) {
+                    data.luogoSinistro.codComune = datiSegnalazione.luogo.comune.codComune;
+                    data.luogoSinistro.descrizioneComune = datiSegnalazione.luogo.comune.descrizione;
+                    data.luogoSinistro.cap = datiSegnalazione.luogo.cap;
                 }
-                data.cap = datiSegnalazione.luogo.cap;
+
                 data.indirizzo = datiSegnalazione.luogo.indirizzo;
 
                 data.garanziaSelected = datiSegnalazione.garanzia;

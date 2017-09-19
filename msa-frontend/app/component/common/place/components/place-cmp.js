@@ -9,12 +9,16 @@
             name: "<",
             required: "<"
         },
-        controller: ("msaPlaceController", ['_', '$scope', '$debugMode', 'PlacesSvc', 'UtilSvc', function (_, $scope, $debugMode, PlacesSvc, UtilSvc) {
+        controller: ("msaPlaceController", ['_', '$scope', '$debugMode', 'PlacesSvc', 'UtilSvc', 'DebugSvc', function (_, $scope, $debugMode, PlacesSvc, UtilSvc, DebugSvc) {
 
             var $ctrl = this;
             $scope.$debugMode = $debugMode;
             $scope.name = $ctrl.name || "place" + Date.now();
             $ctrl.isInputConsumed = false;
+
+            $ctrl.options = {
+                ID_ITALIA: 1
+            };
 
             $ctrl.nazioneSelezionata = undefined;
             $ctrl.provinciaSelezionata = undefined;
@@ -33,8 +37,8 @@
             };
 
             $ctrl.getProvince = function (nomeProvincia) {
-                if (UtilSvc.hasId($ctrl.nazioneSelezionata)) {
-                    return PlacesSvc.getProvince($ctrl.nazioneSelezionata.id, nomeProvincia).then(function (response) {
+                if (_.isObject($ctrl.nazioneSelezionata) && $ctrl.nazioneSelezionata.codNazione) {
+                    return PlacesSvc.getProvince($ctrl.nazioneSelezionata.codNazione, nomeProvincia).then(function (response) {
                         return response.data.result;
                     });
                 } else {
@@ -46,8 +50,8 @@
             };
 
             $ctrl.getComuni = function (nomeComune) {
-                if (UtilSvc.hasId($ctrl.nazioneSelezionata) && UtilSvc.hasId($ctrl.provinciaSelezionata)) {
-                    return PlacesSvc.getComuni($ctrl.nazioneSelezionata.id, $ctrl.provinciaSelezionata.codProvincia, nomeComune).then(function (response) {
+                if (_.isObject($ctrl.nazioneSelezionata) && _.isObject($ctrl.provinciaSelezionata) && $ctrl.provinciaSelezionata.codProvincia) {
+                    return PlacesSvc.getComuni($ctrl.nazioneSelezionata.codNazione, $ctrl.provinciaSelezionata.codProvincia, nomeComune).then(function (response) {
                         return response.data.result;
                     });
                 } else {
@@ -114,7 +118,10 @@
                             $ctrl.result.comune = undefined;
                             $ctrl.caps = [];
                         } else {
-                            $ctrl.caps = newValue.comuneSelezionato.cap;
+
+                            if(_.isObject(newValue.comuneSelezionato.cap)) {
+                                $ctrl.caps = newValue.comuneSelezionato.cap;
+                            }
                             if (newValue.comuneSelezionato.cap !== undefined &&
                                 newValue.comuneSelezionato.cap.length === 1) {
                                 $ctrl.capSelezionato = newValue.comuneSelezionato.cap[0];
@@ -125,53 +132,35 @@
 
                     $ctrl.result.cap = newValue.capSelezionato;
 
-                    /* Input TODO: rivedere */
-
                     if (!$ctrl.isInputConsumed) {
-                        if (newValue.input !== undefined && newValue.input !== oldValue.input) {
+                        if (_.isObject(newValue.input)) {
+                            var nazione = {
+                                codNazione: newValue.input.codNazione,
+                                descrizione: newValue.input.descrizioneNazione
+                            };
+                            var provincia = {
+                                codProvincia: newValue.input.codProvincia,
+                                descProvincia: newValue.input.descrizioneProvincia
+                            };
+                            var comune = {
+                                codComune: newValue.input.codComune,
+                                descrizione: newValue.input.descrizioneComune
+                            };
 
-                            $ctrl.isInputConsumed = true;
-
-                            PlacesSvc.getNazioneById(newValue.input.idNazione).then(function (response) {
-
-                                var desNazione = response.data.result[0];
-                                var nazione = {
-                                    id: newValue.input.idNazione,
-                                    descrizione: desNazione
-                                };
+                            var q = newValue.input.cap ? PlacesSvc.getCapsByIdComune(newValue.input.codComune) : UtilSvc.createPromise([]);
+                            q.then(function (response) {
 
                                 $ctrl.nazioneSelezionata = nazione;
+                                $ctrl.provinciaSelezionata = provincia;
+                                $ctrl.comuneSelezionato = comune;
+
+                                $ctrl.caps = response.data.result;
+                                $ctrl.capSelezionato = newValue.input.cap;
 
                             });
-
-                            if (UtilSvc.exists(newValue.input.idComune) && newValue.input.idComune > -1) {
-
-                                PlacesSvc.getProvinciaById(newValue.input.idProvincia).then(function (response) {
-                                    var desProvincia = response.data.result[0];
-                                    var provincia = {
-                                        id: 1, //serve un id per forza! :(
-                                        codProvincia: newValue.input.idProvincia,
-                                        descProvincia: desProvincia
-                                    };
-                                    $ctrl.provinciaSelezionata = provincia;
-                                    return PlacesSvc.getComuneById(newValue.input.idComune);
-                                }).then(function (response) {
-                                    var desComune = response.data.result[0];
-                                    var comune = {
-                                        id: newValue.input.idComune,
-                                        descrizione: desComune
-                                    };
-                                    $ctrl.comuneSelezionato = comune;
-                                    return PlacesSvc.getCapsByIdComune(newValue.input.idComune);
-                                }).then(function (response) {
-                                    var caps = response.data.result;
-                                    $ctrl.caps = caps;
-                                    $ctrl.comuneSelezionato.cap = caps;
-                                    $ctrl.capSelezionato = newValue.input.cap ? newValue.input.cap.toString() : undefined;
-                                });
-
-                            }
                         }
+
+                        $ctrl.isInputConsumed = true;
                     }
 
                     $ctrl.$valid = false;
@@ -180,9 +169,8 @@
                     } else {
                         $ctrl.$valid = PlacesSvc.isValidPlace($ctrl.result.nazione, $ctrl.result.provincia, $ctrl.result.comune) || $ctrl.isFormEmpty();
                     }
+                    DebugSvc.log("$valid", $ctrl.$valid);
                     $scope[$scope.name].$setValidity("place", $ctrl.$valid, $ctrl);
-                    $ctrl.result.$valid = $ctrl.$valid;
-
 
                 }, true
             );

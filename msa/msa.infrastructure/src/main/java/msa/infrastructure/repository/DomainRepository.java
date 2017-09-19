@@ -220,19 +220,15 @@ public class DomainRepository extends BaseRepository {
     }
 
     public Optional<ComuneDO> getComuneById(final String id) {
-        return Optional.ofNullable(converter.convertObject(findOne(ComuneDBO.class,
-                Pair.of(getMongoNameByAttributeName("codComune", ComuneDBO.class), FunctionUtils.numberConverter(id, Integer::valueOf))
-        ), ComuneDO.class));
+        return Optional.ofNullable(converter.convertObject(findById(ComuneDBO.class, id, Integer::valueOf),ComuneDO.class));
     }
 
     public Optional<NazioneDO> getNazioneById(final String id) {
-        return Optional.ofNullable(converter.convertObject(findById(NazioneDBO.class, FunctionUtils.numberConverter(id, Integer::valueOf)), NazioneDO.class));
+        return Optional.ofNullable(converter.convertObject(findById(NazioneDBO.class, id), NazioneDO.class));
     }
 
     public Optional<ProvinciaDO> getProvinciaById(final String id) {
-        return Optional.ofNullable(converter.convertObject(findOne(ProvinciaDBO.class,
-                Pair.of(getMongoNameByAttributeName("codProvincia", ProvinciaDBO.class), FunctionUtils.numberConverter(id, Integer::valueOf))
-        ), ProvinciaDO.class));
+        return Optional.ofNullable(converter.convertObject(findById(ProvinciaDBO.class, id), ProvinciaDO.class));
     }
 
     public Optional<ProvinciaDO> getProvinviaBySiglaProvincia(final String provincia) {
