@@ -165,7 +165,8 @@ section {
 }
 
 .classicInputText.has-error {
-  input:focus {
+  //input:focus {
+  input, select {
     outline: none;
     border: 2px solid $badred;
     box-sizing: border-box;
