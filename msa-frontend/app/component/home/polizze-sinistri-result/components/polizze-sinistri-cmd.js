@@ -6,11 +6,12 @@
         bindings: {
         	valoriRicerca: "="
         },
-        controller: ("polizzeSinistriController", ['$MSAC', '$location','$rootScope', '$scope', '$translate', '$log', 'toastr', '$analytics', '$location', '$cookies', '$window', '$sessionStorage', 'DebugSvc', '$uibModal', '$debugMode','SinistriSvc',
-            function ($MSAC, $location,$rootScope, $scope, $translate, $log, toastr, $analytics, location, $cookies, $window, $sessionStorage, DebugSvc, $uibModal, $debugMode, SinistriSvc) {
+        controller: ("polizzeSinistriController", ['$MSAC', '$location','$rootScope', '$scope', '$filter', '$log', 'toastr', '$analytics', '$location', '$cookies', '$window', '$sessionStorage', 'DebugSvc', '$uibModal', '$debugMode','SinistriSvc',
+            function ($MSAC, $location,$rootScope, $scope, $filter, $log, toastr, $analytics, location, $cookies, $window, $sessionStorage, DebugSvc, $uibModal, $debugMode, SinistriSvc) {
 
                 var $ctrl = this;
                 var parent = $scope.$parent;
+                var $translate = $filter('translate')
                 $ctrl.numeroSinistroProvvisorio = undefined;
 
                 $ctrl.clearbox = "clear box"; //TODO capire utilizzo e rimuovere
