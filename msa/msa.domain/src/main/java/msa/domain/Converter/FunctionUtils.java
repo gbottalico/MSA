@@ -1,8 +1,7 @@
 package msa.domain.Converter;
 
-import org.apache.commons.lang3.tuple.Pair;
-
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.function.Function;
@@ -38,6 +37,10 @@ public final class FunctionUtils {
         }
     }
 
+    public static LocalDate dateToLocalDate(final Date date) {
+    	return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    }
+    
     /**
      * between NOT inclusive
      *
@@ -48,7 +51,7 @@ public final class FunctionUtils {
      * @return is between or not
      */
     public static <T extends Date> Boolean between(T toEvaluate, T dateStart, T dateEnd) {
-        return between(toEvaluate, dateStart, dateEnd, null);
+        return between(toEvaluate, dateStart, dateEnd, Boolean.FALSE);
     }
 
     /**
@@ -62,16 +65,12 @@ public final class FunctionUtils {
      * @return is between or not
      */
     public static <T extends Date> Boolean between(T toEvaluate, T dateStart, T dateEnd, Boolean isInclusive) {
-        Calendar calToEval = Calendar.getInstance();
-        Calendar cal1 = Calendar.getInstance();
-        Calendar cal2 = Calendar.getInstance();
-        calToEval.setTime(toEvaluate);
-        cal1.setTime(dateStart);
-        cal2.setTime(dateEnd);
-        if (isInclusive == null || !isInclusive) {
-            return calToEval.before(cal2) && calToEval.after(cal1);
+        if(isInclusive == null || !isInclusive) {
+        	return dateToLocalDate(toEvaluate).compareTo(dateToLocalDate(dateStart)) == 1
+        			&& dateToLocalDate(toEvaluate).compareTo(dateToLocalDate(dateEnd)) == -1;
         } else {
-            return (calToEval.before(cal2) || calToEval.equals(cal2)) && (calToEval.after(cal1) || calToEval.equals(cal1));
+        	return dateToLocalDate(toEvaluate).compareTo(dateToLocalDate(dateStart)) <= 1
+        			&& dateToLocalDate(toEvaluate).compareTo(dateToLocalDate(dateEnd)) >= -1;
         }
     }
 
@@ -90,8 +89,8 @@ public final class FunctionUtils {
         return java.sql.Date.valueOf(LocalDate.parse(s, FORMATTER));
     };
 
-    public static java.sql.Date nowAsDate() {
-        return java.sql.Date.valueOf(LocalDate.now());
+    public static Date nowAsDate() {
+        return Date.from((LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant()));
     }
 
     public static <T> List<T> dinstictList(List<T> toFilter, Function<T, Object> keyEstractor) {

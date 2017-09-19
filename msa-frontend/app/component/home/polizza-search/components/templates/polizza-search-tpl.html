@@ -17,9 +17,12 @@
 			<div class="body">
                 <form name="polizzaSearchForm" novalidate>
                 <!--INPUT LIST-->
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 classicInputText">
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 classicInputText" ng-class="{'has-error': $ctrl.checkCompagnia()}">
                         <label>{{'global.polizzasearch.labels.compagnia' | translate}}</label>
-                        <input name="compagnia" type="text" ng-model="$ctrl.ricercapolizza.compagniaSelezionata" uib-typeahead="regola as regola.descrizioneCompagnia for regola in $ctrl.casaRegole | filter:{descrizioneCompagnia:$viewValue}"  ng-required="true" autocomplete="off">
+                        <input name="compagnia" type="text" ng-model="$ctrl.ricercapolizza.compagniaSelezionata"
+                               uib-typeahead="regola as regola.descrizioneCompagnia for regola in $ctrl.casaRegole | filter:{descrizioneCompagnia:$viewValue}"
+                               ng-required="true"
+                               autocomplete="off">
                         <label class="alert campoobbligatorio">{{'global.polizzasearch.labels.alert' | translate}}</label>
                     </div>
                     <!--END INPUT LIST-->

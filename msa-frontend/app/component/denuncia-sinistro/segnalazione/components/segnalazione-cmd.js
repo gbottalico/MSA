@@ -80,7 +80,6 @@
 
                         if (sinitroProvvisorio.segnalazione.dataDenuncia) {
                             $ctrl.sinistro.provenienza.dataDenuncia = new Date(sinitroProvvisorio.segnalazione.dataDenuncia);
-                        } else {
                         }
 
                         if (sinitroProvvisorio.segnalazione.dataOraSinistro) {
@@ -98,8 +97,7 @@
                 };
 
                 $timeout(function () {
-                    parent.mappaCaricata($ctrl.mapId)
-
+                    parent.mappaCaricata($ctrl.mapId);
                     $ctrl.sinistro.provenienza.dataDenuncia = new Date();
                 });
 

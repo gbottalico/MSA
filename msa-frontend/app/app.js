@@ -170,7 +170,6 @@ function getMSAC() {
             options: {
                 maxDate: new Date(),
                 startingDay: 1,
-                timezone: 'utc',
                 showWeeks: false
             },
             format: "dd/MM/yyyy",
@@ -319,6 +318,8 @@ app.directive('datetimepickerNeutralTimezone', function() {
             ctrl.$formatters.push(function (value) {
                 var date = new Date(Date.parse(value));
                 date = new Date(date.getTime() + (60000 * date.getTimezoneOffset()));
+                //TODO serve?
+
                 return date;
             });
 

@@ -56,6 +56,11 @@
                     return $scope.polizzaSearchForm.$invalid || !_.isObject($ctrl.ricercapolizza.compagniaSelezionata);
                 };
 
+                $ctrl.checkCompagnia = function () {
+                    return ($scope.polizzaSearchForm.compagnia.$invalid || !_.isObject($ctrl.ricercapolizza.compagniaSelezionata))
+                        && !$scope.polizzaSearchForm.compagnia.$pristine
+                };
+
                 $scope.$watch(
                     function watch(scope) {
                         return {

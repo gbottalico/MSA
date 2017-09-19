@@ -138,6 +138,12 @@ angular.module('msa').service(
 
         };
 
+        $svc.newDateWithoutTime = function () {
+            var date = new Date();
+            console.log("date", date);
+            console.log("toDateString", date.toLocaleDateString());
+            return new Date(date.toLocaleDateString());
+        };
 
         $svc.createPromise = function (valueToReturn) {
             var q = $q.defer();
