@@ -20,7 +20,7 @@
                 $ctrl.presenzaLegali = undefined;
                 $ctrl.legali = [];
 
-                $ctrl.aggiungiLegale = function () {
+                $ctrl.aggiungiLegale = function (index) {
                     var modalInstance = $uibModal.open({
                         animation: true,
                         backdrop: 'static', // Evita che il modal sia chiuso cliccando sullo sfondo.
@@ -30,13 +30,24 @@
                         resolve: {
                             hasRole: function () {
                                 return false;
+                            },
+                            input: function () {
+                                try {
+                                    $ctrl.legali[index].index = index;
+                                } catch (err) {
+                                }
+                                return $ctrl.legali[index];
                             }
                         }
                     });
 
                     modalInstance.result.then(function (legale) {
                         DebugSvc.log("aggiungiLegale", legale);
-                        $ctrl.legali.push(legale);
+                        if (_.isNumber(legale.index)) {
+                            $ctrl.legali[legale.index] = legale;
+                        } else {
+                            $ctrl.legali.push(legale);
+                        }
                         $scope.legaleForm.$setDirty();
                     }, function () {
                         DebugSvc.log("aggiungiLegale dismiss.");

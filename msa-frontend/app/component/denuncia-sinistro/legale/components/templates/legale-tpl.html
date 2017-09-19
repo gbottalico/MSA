@@ -55,7 +55,10 @@
                                 </td>
                                 <td>{{legale.residenza.indirizzo}}</td>
                                 <td>{{legale.cf}}</td>
-                                <td><i ng-click="$ctrl.rimuoviLegale($index)" class="fa fa-trash-o" aria-hidden="true"></i></td>
+                                <td>
+                                    <i ng-click="$ctrl.aggiungiLegale($index);" class="fa fa-pencil" aria-hidden="true"></i>&nbsp;&nbsp;
+                                    <i ng-click="$ctrl.rimuoviLegale($index)" class="fa fa-trash-o" aria-hidden="true"></i>
+                                </td>
                             </tr>
                             </tbody>
                             <tfoot>
