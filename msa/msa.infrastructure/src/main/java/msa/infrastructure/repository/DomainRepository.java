@@ -92,7 +92,7 @@ public class DomainRepository extends BaseRepository {
                         .and(getMongoNameByAttributeName("codProvincia", ComuneDBO.class))
                         .is(FunctionUtils.numberConverter(codProvincia, Integer::valueOf))
                         .and(getMongoNameByAttributeName("descrizione", ComuneDBO.class))
-                        .regex(desc.toUpperCase()));
+                        .regex(desc,"i"));
         return converter.convertList(findAll(ComuneDBO.class,query), ComuneDO.class);
     }
 
