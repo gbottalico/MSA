@@ -1,6 +1,7 @@
 package msa.application.service.sinistri;
 
 import msa.application.commons.Constants;
+import msa.application.commons.SuperConverter;
 import msa.application.config.BaseDTO;
 import msa.application.config.enumerator.MessageType;
 import msa.application.dto.ricerca.FullPolizzaDTO;
@@ -346,7 +347,23 @@ public class SinistriService extends BaseSinistroService {
             sinistroRcaDOByDTO.getDannoRca()
                     .getAnagraficaDanniCliente().getAnagrafica().setCodRuolo(MsaCostanti.COD_RUOLO_CONDUCENTE_PROPR.toString());
         } else {
-            sinistroRcaDOByDTO.getDannoRca().getAnagraficaDanniCliente().getAnagrafica().setCodRuolo(MsaCostanti.COD_RUOLO_CONDUCENTE_NO_PROPR.toString());
+            sinistroRcaDOByDTO
+                    .getDannoRca()
+                    .getAnagraficaDanniCliente()
+                    .getAnagrafica()
+                    .setCodRuolo(MsaCostanti.COD_RUOLO_CONDUCENTE_NO_PROPR.toString());
+            if (sinistroRcaDOByDTO.getContraente() != null) {
+                converter.biConvertObject(sinistroRcaDOByDTO
+                                .getDannoRca()
+                                .getAnagraficaDanniCliente().getAnagrafica(), sinistroRcaDOByDTO.getContraente(),
+                        (conducente, contraente) -> {
+                            conducente.setTarga(conducente.getTarga());
+                            conducente.setVeicolo(contraente.getVeicolo());
+                            conducente.setTargaEstera(contraente.getTargaEstera());
+                            conducente.setTargaSpeciale(contraente.getTargaSpeciale());
+                            return conducente;
+                        });
+            }
         }
 
         if (sinistroRcaDOByDTO.getEventoRca().getNumVeicoli() == 2) {
@@ -361,7 +378,6 @@ public class SinistriService extends BaseSinistroService {
         } else {
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione Salvataggio Danni Conducente")));
         }
-
     }
 
     public BaseDTO salvaDannoRcaControparte(List<AnagraficaDanniDTO> input, Integer numSinistro) throws InternalMsaException {

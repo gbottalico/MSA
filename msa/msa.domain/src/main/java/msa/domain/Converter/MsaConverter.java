@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -40,6 +41,9 @@ public class MsaConverter {
 
     public <T, S> List<T> convertObject(List<S> source, Function<S, T> conversionFunction) {
         return source.stream().map(e -> convertObject(e, conversionFunction)).collect(Collectors.toList());
+    }
+    public <T, U, S> T biConvertObject(S sourceA, U sourceB, BiFunction<S,U,T> biMapper) {
+        return biMapper.apply(sourceA,sourceB);
     }
 
 }
