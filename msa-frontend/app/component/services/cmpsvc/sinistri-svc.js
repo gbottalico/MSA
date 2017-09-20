@@ -375,7 +375,10 @@ angular.module('msa').service(
                 return $http.get(url);
             };
 
-
+            $svc.getTipoSinistro = function (idSinistroProvvisorio) {
+                var url = UtilSvc.stringFormat(msaServicesApiUrls.tipoSinistro, idSinistroProvvisorio);
+                return $http.get(url);
+            };
 
         }
     ]

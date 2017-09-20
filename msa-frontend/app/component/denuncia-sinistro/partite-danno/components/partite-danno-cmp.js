@@ -8,8 +8,8 @@
             sinistroProvvisorio: "<",
             tempSegnalazione: "="
         },
-        controller: ("partiteDannoController", ['_', '$rootScope', '$scope', '$debugMode', '$filter', '$location', '$timeout', 'toastr', 'SinistriSvc', 'DebugSvc', 'PathSvc',
-            function (_, $rootScope, $scope, $debugMode, $filter, $location, $timeout, toastr, SinistriSvc, DebugSvc, PathSvc) {
+        controller: ("partiteDannoController", ['_', '$MSAC', '$rootScope', '$scope', '$debugMode', '$filter', '$location', '$timeout', 'toastr', 'SinistriSvc', 'DebugSvc', 'PathSvc',
+            function (_, $MSAC, $rootScope, $scope, $debugMode, $filter, $location, $timeout, toastr, SinistriSvc, DebugSvc, PathSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
@@ -22,18 +22,26 @@
 
                 $timeout(function () {
                     parent.mappaCaricata($ctrl.mapId);
-                    SinistriSvc.getPartiteDanno($ctrl.numeroSinistroProvvisorio).then(function (response) {
-                        if (response.status === 200 && _.isObject(response.data) && response.data.status === 200) {
-                            $ctrl.pd = response.data.result;
-                        }
-                    });
-
+                    $ctrl.aggiornaPartiteDanno();
                 });
 
                 $ctrl.salvaPd = function () {
                     parent.aggiornaMappe($ctrl.mapId);
                     toastr.success($translate('global.generic.saveok'));
                 };
+
+                $ctrl.aggiornaPartiteDanno = function () {
+                    SinistriSvc.getPartiteDanno($ctrl.numeroSinistroProvvisorio).then(function (response) {
+                        if (response.status === 200 && _.isObject(response.data) && response.data.status === 200) {
+                            $ctrl.pd = response.data.result;
+                        }
+                    });
+                };
+
+                $scope.$on($MSAC.EVENTS.MAPPA_SALVATA, function(event, message){
+                    DebugSvc.log("Aggiornamento partite danno.");
+                    $ctrl.aggiornaPartiteDanno();
+                });
 
                 $scope.$watch(
                     function watchScope(scope) {

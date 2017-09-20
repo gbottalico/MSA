@@ -175,6 +175,9 @@ function getMSAC() {
             format: "dd/MM/yyyy",
             placeholder: "DD/MM/YYYY",
             showButtonBar: false
+        },
+        EVENTS: {
+            MAPPA_SALVATA: "mappaSalvata"
         }
     };
 }

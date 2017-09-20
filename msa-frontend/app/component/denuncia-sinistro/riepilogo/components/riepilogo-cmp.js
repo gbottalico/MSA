@@ -3,9 +3,11 @@
 
     app.component('msaRiepilogo', {
         templateUrl: '../../app/component/denuncia-sinistro/riepilogo/components/templates/riepilogo-tpl.html',
-        bindings: {},
-        controller: ("riepilogoController", ['_', '$rootScope', '$scope', '$routeParams', '$debugMode', '$uibModal', '$filter', '$location', 'toastr', 'SinistriSvc', 'DebugSvc', 'PathSvc', 'PlacesSvc',
-            function (_, $rootScope, $scope, $routeParams, $debugMode, $uibModal, $filter, $location, toastr, SinistriSvc, DebugSvc, PathSvc, PlacesSvc) {
+        bindings: {
+            numeroSinistroProvvisorio: "<"
+        },
+        controller: ("riepilogoController", ['_', '$MSAC', '$rootScope', '$scope', '$routeParams', '$debugMode', '$timeout', '$filter', '$location', 'toastr', 'SinistriSvc', 'DebugSvc', 'PathSvc', 'PlacesSvc',
+            function (_, $MSAC, $rootScope, $scope, $routeParams, $debugMode, $timeout, $filter, $location, toastr, SinistriSvc, DebugSvc, PathSvc, PlacesSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
@@ -13,7 +15,8 @@
 
                 $scope.$debugMode = $debugMode;
                 $ctrl.mapId = 'M27';
-                $ctrl.numeroSinistroProvvisorio = $routeParams.idSinistroProvvisorio;
+                $ctrl.sinistroProvvisorio = undefined;
+                $ctrl.tipoSinistro = undefined;
 
                 $ctrl.getNomeComune = function (codComune) {
                     PlacesSvc.getComuneById(codComune).then(function (response) {
@@ -22,23 +25,29 @@
 
                     });
                 };
+
                 $ctrl.getSinistroProvvisorio = function (numeroSinistroProvvisorio) {
                     SinistriSvc.cercaSinistroProvvisorio(numeroSinistroProvvisorio).then(function (response) {
-                        var result = response.data.result;
                         DebugSvc.log("getSinistroProvvisorio", response);
-                        $ctrl.sinistroProvvisorio = result;
-                        if (result !==undefined) {
-                            $ctrl.getNomeComune(result.segnalazione.codComune);
-
+                        var result = response.data.result;
+                        if (_.isObject(result)) {
+                            $ctrl.sinistroProvvisorio = result;
+                            $ctrl.getNomeComune(result.segnalazione.codComune); //TODO refactor
                             $ctrl.bindRiepilogo();
-                        }
 
+                        }
 
                     });
                 };
 
-                $ctrl.mostraJson = function () {
+                $ctrl.getTipoSinistro = function (numeroSinistroProvvisorio) {
+                    SinistriSvc.getTipoSinistro(numeroSinistroProvvisorio).then(function (response) {
+                        DebugSvc.log("getTipoSinistro", response);
+                        $ctrl.tipoSinistro = response.data.result;
+                    });
+                };
 
+                $ctrl.mostraJson = function () {
                     var modalInstance = $uibModal.open({
                         animation: true,
                         backdrop: 'static', // Evita che il modal sia chiuso cliccando sullo sfondo.
@@ -52,10 +61,6 @@
                         }
                     });
                 };
-
-
-                $ctrl.getSinistroProvvisorio($ctrl.numeroSinistroProvvisorio);
-                var sinistrodebug = $ctrl.sinistroProvvisorio;
 
                 $ctrl.bindRiepilogo = function () {
                     $ctrl.nomeCognome = $ctrl.sinistroProvvisorio.segnalazione.denunciante.nome + " " + $ctrl.sinistroProvvisorio.segnalazione.denunciante.cognome;
@@ -100,6 +105,17 @@
                     $ctrl.centroconv = $ctrl.sinistroProvvisorio.centroConvenzionato;
                 };
 
+                $timeout(function () {
+                    parent.mappaCaricata($ctrl.mapId);
+                    $ctrl.getSinistroProvvisorio($ctrl.numeroSinistroProvvisorio);
+                    $ctrl.getTipoSinistro($ctrl.numeroSinistroProvvisorio);
+                });
+
+                $scope.$on($MSAC.EVENTS.MAPPA_SALVATA, function (event, message) {
+                    DebugSvc.log("Aggiornamento riepilogo.");
+                    $ctrl.getSinistroProvvisorio($ctrl.numeroSinistroProvvisorio);
+                    $ctrl.getTipoSinistro($ctrl.numeroSinistroProvvisorio);
+                });
 
             }])
     });
