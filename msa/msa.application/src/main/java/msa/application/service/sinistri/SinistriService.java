@@ -503,7 +503,7 @@ public class SinistriService extends BaseSinistroService {
                             e).parse(() -> "bene", () -> "ruolo", () -> "note")).collect(Collectors.toList());
 
         } catch (Exception ex) {
-            throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione Partite Danno")));
+            throw new InternalMsaException(ex, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione Partite Danno")));
         }
     }
 

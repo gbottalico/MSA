@@ -50,7 +50,7 @@ public final class FunctionUtils {
      * @param <T>        all date's son
      * @return is between or not
      */
-    public static <T extends Date> Boolean between(T toEvaluate, T dateStart, T dateEnd) {
+    public static Boolean between(Date toEvaluate, Date dateStart, Date dateEnd) {
         return between(toEvaluate, dateStart, dateEnd, Boolean.FALSE);
     }
 
@@ -64,7 +64,7 @@ public final class FunctionUtils {
      * @param <T>         all date's son
      * @return is between or not
      */
-    public static <T extends Date> Boolean between(T toEvaluate, T dateStart, T dateEnd, Boolean isInclusive) {
+    public static Boolean between(Date toEvaluate, Date dateStart, Date dateEnd, Boolean isInclusive) {
         if(isInclusive == null || !isInclusive) {
         	return dateToLocalDate(toEvaluate).compareTo(dateToLocalDate(dateStart)) == 1
         			&& dateToLocalDate(toEvaluate).compareTo(dateToLocalDate(dateEnd)) == -1;
@@ -82,11 +82,11 @@ public final class FunctionUtils {
 
 
 
-    public final static Function<String, java.sql.Date> convertStringToLocaldate = s -> {
+    public final static Function<String, Date> convertStringToLocaldate = s -> {
         if (s == null) {
             return null;
         }
-        return java.sql.Date.valueOf(LocalDate.parse(s, FORMATTER));
+        return Date.from(LocalDate.parse(s, FORMATTER).atStartOfDay(ZoneId.systemDefault()).toInstant());
     };
 
     public static Date nowAsDate() {
