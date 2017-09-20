@@ -41,9 +41,20 @@
         <div ng-hide="$ctrl.hasRole" class="col-lg-4 col-md-4 hidden-sm hidden-xs">&nbsp;</div>
         <div ng-if="$ctrl.hasRole" class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputText">
             <select name="ruolo" ng-model="$ctrl.anagrafica.ruolo" ng-required="true">
-                <option ng-repeat="ruolo in $ctrl.ruoli" value="{{ruolo.id}}">{{ruolo.descrizione}}</option>
+                <option ng-repeat="ruolo in $ctrl.ruoli" value="{{ruolo.id}}">
+                    {{ruolo.descrizione}}
+                </option>
             </select>
             <label>{{'global.people.ruolo' | translate}}</label>
+        </div>
+
+        <div ng-if="$ctrl.isAssociatoVisible()"
+             class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputText">
+            <select name="associato" ng-model="$ctrl.anagrafica.associato" ng-required="true"
+                ng-options="associato as $ctrl.getNomeFromAssociato(associato) for associato in $ctrl.anagraficheAssociabili track by (associato.nome + associato.cognome)">
+            </select>
+            <!-- TODO: track by (associato.nome + associato.cognome) non è buono. Servirebbe un ID univoco. -->
+            <label>{{'global.people.associatoa' | translate}}</label>
         </div>
 
         <div class="col-lg-12">

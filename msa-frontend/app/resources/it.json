@@ -59,7 +59,8 @@
       "recapiti": "Recapiti",
       "scadenzapatente": "Data di Scadenza Patente",
       "nessunrecapito": "Nessun recapito.",
-      "nomecognome":"Nome e Cognome"
+      "nomecognome":"Nome e Cognome",
+      "associatoa":"Associato a"
 
     },
     "docs": {

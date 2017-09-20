@@ -31,6 +31,12 @@
                             hasRole: function () {
                                 return true;
                             },
+                            hasAssociato: function () {
+                                return true;
+                            },
+                            numeroSinistroProvvisorio: function () {
+                                return $ctrl.numeroSinistroProvvisorio;
+                            },
                             input: function () {
                                 try {
                                     $ctrl.terzeParti[index].index = index;

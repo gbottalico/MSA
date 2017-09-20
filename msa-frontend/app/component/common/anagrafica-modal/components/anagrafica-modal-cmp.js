@@ -8,8 +8,8 @@
             close: '&',
             dismiss: '&'
         },
-        controller: ("headerController", ['_', '$MSAC', '$rootScope', '$scope', '$debugMode', 'UtilSvc', 'DebugSvc', 'DomainSvc', 'RegexSvc', 'ConvertSvc',
-            function (_, $MSAC, $rootScope, $scope, $debugMode, UtilSvc, DebugSvc, DomainSvc, RegexSvc, ConvertSvc) {
+        controller: ("headerController", ['_', '$MSAC', '$rootScope', '$scope', '$debugMode', 'UtilSvc', 'DebugSvc', 'DomainSvc', 'RegexSvc', 'ConvertSvc', 'SinistriSvc',
+            function (_, $MSAC, $rootScope, $scope, $debugMode, UtilSvc, DebugSvc, DomainSvc, RegexSvc, ConvertSvc, SinistriSvc) {
 
                 var $ctrl = this;
                 $scope.$MSAC = $MSAC;
@@ -17,10 +17,11 @@
                 $ctrl.anagrafica = {
                     ruolo: undefined,
                     lesioni: false,
-                    compagnia:undefined
+                    compagnia: undefined
                 };
                 $ctrl.persistence = {};
                 $ctrl.ruoli = [];
+                $ctrl.anagraficheAssociabili = [];
                 $ctrl.ruoliKeyValue = {};
                 $ctrl.ruoloConLesioni = undefined;
                 $ctrl.compagniaSelezionata = undefined;
@@ -44,9 +45,17 @@
                             $ctrl.ruoli = response.data.result;
                             $ctrl.ruoliKeyValue = UtilSvc.arrayWithIdToMap($ctrl.ruoli);
                         });
+
+                        $ctrl.hasAssociato = $ctrl.resolve.hasAssociato;
+                        if ($ctrl.hasAssociato) {
+                            SinistriSvc.getAnagraficheAssociabili($ctrl.resolve.numeroSinistroProvvisorio).then(function (response) {
+                               $ctrl.anagraficheAssociabili = response.data.result;
+                            });
+                        }
+
                     }
 
-                    if($ctrl.resolve.input) {
+                    if ($ctrl.resolve.input) {
                         $ctrl.anagrafica = $ctrl.resolve.input;
                         $ctrl.persistence.luogoNascita = ConvertSvc.luogoToDTO($ctrl.resolve.input.nascita);
                         $ctrl.persistence.residenza = ConvertSvc.luogoToDTO($ctrl.resolve.input.residenza);
@@ -80,6 +89,17 @@
                         $ctrl.anagrafica.nome &&
                         $ctrl.anagrafica.sesso &&
                         $ctrl.anagrafica.nascita.data);
+                };
+
+                $ctrl.isAssociatoVisible = function () {
+                    return $ctrl.hasAssociato &&
+                        $ctrl.anagrafica.ruolo &&
+                        $ctrl.ruoliKeyValue[$ctrl.anagrafica.ruolo] &&
+                        $ctrl.ruoliKeyValue[$ctrl.anagrafica.ruolo].pdAss === 'ASS';
+                };
+
+                $ctrl.getNomeFromAssociato = function (associato) {
+                    return (associato.nome ? associato.nome + " " + associato.cognome : associato.ragioneSociale) + (associato.cf ? ", " + associato.cf : "");
                 };
 
                 $ctrl.ok = function () {

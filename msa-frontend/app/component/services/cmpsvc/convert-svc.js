@@ -26,6 +26,9 @@ angular.module('msa').service('ConvertSvc',
                 dto.targaEstera = anagrafica.targaEstera;
                 dto.targaSpeciale = anagrafica.targaSpeciale;
 
+                if(_.isObject(anagrafica.associato)) {
+                    dto.associato = anagrafica.associato;
+                }
 
                 if (_.isObject(anagrafica.compagnia)) {
                     dto.compagnia = anagrafica.compagnia.id;
@@ -97,6 +100,11 @@ angular.module('msa').service('ConvertSvc',
                     anagrafica.telefono = dto.tracking.telefono;
                     anagrafica.mail = dto.tracking.mail;
                 }
+
+                if(_.isObject(dto.associato)) {
+                    anagrafica.associato = dto.associato;
+                }
+
                 return anagrafica;
             };
 

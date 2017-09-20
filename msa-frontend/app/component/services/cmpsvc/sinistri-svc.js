@@ -370,6 +370,13 @@ angular.module('msa').service(
                 return $http.get(url);
             };
 
+            $svc.getAnagraficheAssociabili = function (idSinistroProvvisorio) {
+                var url = UtilSvc.stringFormat(msaServicesApiUrls.anagraficheass, idSinistroProvvisorio);
+                return $http.get(url);
+            };
+
+
+
         }
     ]
 );
