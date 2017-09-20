@@ -23,9 +23,9 @@
                     </thead>
                     <tbody>
                         <tr ng-repeat="partita in $ctrl.pd">
-                            <td>{{partita.bene}}</td>
+                            <td>{{partita.bene | uppercase}}</td>
                             <td>{{partita.ruolo.descrizione}}</td>
-                            <td>{{(partita.note.nome ? partita.note.nome + " " + partita.note.cognome : partita.note.ragioneSociale) + ", " + partita.note.cf}}</td>
+                            <td>{{(partita.note.nome ? partita.note.nome + " " + partita.note.cognome : partita.note.ragioneSociale) + (partita.note.cf ? ", " + partita.note.cf : "")}}</td>
                         </tr>
                     </tbody>
                 </table>

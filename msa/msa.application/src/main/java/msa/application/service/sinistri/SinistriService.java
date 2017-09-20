@@ -357,7 +357,7 @@ public class SinistriService extends BaseSinistroService {
                                 .getDannoRca()
                                 .getAnagraficaDanniCliente().getAnagrafica(), sinistroRcaDOByDTO.getContraente(),
                         (conducente, contraente) -> {
-                            conducente.setTarga(conducente.getTarga());
+                            conducente.setTarga(contraente.getTarga());
                             conducente.setVeicolo(contraente.getVeicolo());
                             conducente.setTargaEstera(contraente.getTargaEstera());
                             conducente.setTargaSpeciale(contraente.getTargaSpeciale());
@@ -519,7 +519,7 @@ public class SinistriService extends BaseSinistroService {
             streamBuilder.of(map);
             return streamBuilder.getStream()
                     .map(e -> GenericTupla.instance(
-                            e.getVeicolo(), //Todo check if is terza parte
+                            e.getTarga(), //Todo check if is terza parte
                             domainRepository.getDesRuoloById(e.getCodRuolo()),
                             e).parse(() -> "bene", () -> "ruolo", () -> "note")).collect(Collectors.toList());
 
