@@ -40,26 +40,25 @@
                 <span class="subsectionTitle">{{'global.eventorca.labels.dettaglievento' | translate}}</span>
 
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 classicInputTextDisabled">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputTextDisabled">
                 <input type="text" name="numveicoli" ng-model="$ctrl.numveicoli" ng-readonly="true">
                 <label>{{'global.generic.veicolicoinvolti' | translate}}</label>
             </div>
 
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 classicInputTextDisabled">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputTextDisabled">
                 <input type="text" name="garanziaselected" ng-model="$ctrl.garanzia" ng-readonly="true">
                 <label>{{'global.polizzesinistri.labels.garanzia' | translate}}</label>
             </div>
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 classicInputCheckBox">
-                <input type="checkbox" name="interventoautorita" ng-checked="$ctrl.interventoAutorita"
-                       ng-readonly="true">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputTextDisabled">
+                <input type="text" name="interventoautorita" ng-readonly="true"
+                       value="{{$ctrl.interventoAutorita ? ('global.generic.si' | translate) : ('global.generic.no' | translate)}}">
                 <label>{{'global.eventorca.labels.intervento' | translate}}</label>
             </div>
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 classicInputCheckBox">
-                <input type="checkbox" name="constatazione" ng-checked="$ctrl.constatazione"
-                       ng-readonly="true">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputTextDisabled">
+                <input type="text" name="constatazione" ng-readonly="true"
+                       value="{{$ctrl.constatazione ? ('global.generic.si' | translate) : ('global.generic.no' | translate)}}">
                 <label>{{'global.ca.title' | translate}}</label>
             </div>
-
 
             <div class="col-lg-12">
                 <span class="subsectionTitle">{{'global.legale.title' | translate}}</span>

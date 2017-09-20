@@ -180,18 +180,12 @@
           position: relative;
 
           &.has-error {
-            /* IE10 */
-            background-image: -ms-linear-gradient(top right, $lightred 0%, $badred 100%);
-            /* Mozilla Firefox */
-            background-image: -moz-linear-gradient(top right, $lightred 0%, $badred 100%);
-            /* Opera */
-            background-image: -o-linear-gradient(top right, $lightred 0%, $badred 100%);
-            /* Webkit (Safari/Chrome 10) */
-            background-image: -webkit-gradient(linear, right top, left bottom, color-stop(0, $lightred), color-stop(1, $badred));
-            /* Webkit (Chrome 11+) */
-            background-image: -webkit-linear-gradient(top right, $lightred 0%, $badred 100%);
-            /* Regola standard */
-            background-image: linear-gradient(to top right, $lightred 0%, $badred 100%);
+            //background-image: -ms-linear-gradient(top right, $lightred 0%, $badred 100%);
+            //background-image: -moz-linear-gradient(top right, $lightred 0%, $badred 100%);
+            //background-image: -o-linear-gradient(top right, $lightred 0%, $badred 100%);
+            //background-image: -webkit-gradient(linear, right top, left bottom, color-stop(0, $lightred), color-stop(1, $badred));
+            //background-image: -webkit-linear-gradient(top right, $lightred 0%, $badred 100%);
+            //background-image: linear-gradient(to top right, $lightred 0%, $badred 100%);
           }
 
           &.is-ok {
