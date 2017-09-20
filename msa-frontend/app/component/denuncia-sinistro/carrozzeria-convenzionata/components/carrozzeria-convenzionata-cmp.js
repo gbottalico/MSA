@@ -149,7 +149,7 @@
                     });
 
                     $ctrl.visibleMarkers = visibleMarkers;
-                    DebugSvc.log("VisibileMarkers", $ctrl.visibleMarkers);
+                    // DebugSvc.log("VisibileMarkers", $ctrl.visibleMarkers);
                 };
 
                 $ctrl.selezionaCarrozzeria = function (index) {
@@ -178,6 +178,7 @@
 
                         var promise = undefined;
 
+                        //FIXME
                         if (_.isObject($ctrl.sinistroProvvisorio.contraente.tracking.comune)) {
                             promise = PlacesSvc.getComuneById($ctrl.sinistroProvvisorio.contraente.tracking.comune);
                         } else {

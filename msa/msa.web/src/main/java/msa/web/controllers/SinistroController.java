@@ -244,7 +244,7 @@ public class SinistroController extends BaseController {
     }
 
     @ApiOperation(value="Metodo che restituisce il tipo del Sinistro provvisorio")
-    @RequestMapping(value = "/{numero}/getTipoSinistro")
+    @RequestMapping(value = "/{numero}/getTipoSinistro",  method = RequestMethod.GET)
     public BaseDTO<TipiSinisto> getTipoSinistro(@PathVariable(value = "numero") final Integer numSinistro) throws InternalMsaException {
         return new BaseDTO<>(sinistriService.getTipoSinistro(numSinistro));
     }
