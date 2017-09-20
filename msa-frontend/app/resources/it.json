@@ -254,6 +254,10 @@
         "almenouno": "Inserire almeno un legale"
       }
     },
+    "partitedanno": {
+      "title": "Sinistri e Partite Danno",
+      "labels": {}
+    },
     "perito": {
       "title": "Perito",
       "labels": {

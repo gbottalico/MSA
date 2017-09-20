@@ -86,10 +86,6 @@ public class DispatcherService extends DispatcherUtils {
                         return navigazioneViewDO;
                     }).orElse(null);
         }
-        //TODO FIXME!!!!!!!!!!
-        if (navigazioneAggiornata.getViewNavigate().entrySet().stream().map(Map.Entry::getValue).filter(e -> e.equalsIgnoreCase("M22")).count() == 1L) {
-            navigazioneAggiornata.getViewNavigate().put(6, "M23");
-        }
         return navigazioneAggiornata;
     }
 
@@ -114,6 +110,5 @@ public class DispatcherService extends DispatcherUtils {
                 .max(Comparators.naturalOrder()).orElse(null);
 
         return pairs.stream().filter(e -> e.getKey().equals(integerStringEntry)).map(Pair::getValue).findFirst().orElse(100);
-
     }
 }

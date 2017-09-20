@@ -97,6 +97,13 @@
 
         </msa-legale>
 
+        <msa-partite-danno id="M22"
+                ng-if="$ctrl.isMappaVisibile('M22')"
+                numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
+                sinistro-provvisorio="$ctrl.sinistroProvvisorio"
+                temp-segnalazione="$ctrl.tempSegnalazione">
+        </msa-partite-danno>
+
         <msa-carrozzeria-convenzionata id="M23"
                                        ng-if="$ctrl.isMappaVisibile('M23')"
                                        numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"

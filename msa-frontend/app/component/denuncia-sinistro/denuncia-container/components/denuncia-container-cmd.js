@@ -113,6 +113,8 @@
                             return $ctrl.mappe.indexOf('M18') > -1;
                         case 'M20':
                             return $ctrl.mappe.indexOf('M20') > -1;
+                        case 'M22':
+                            return $ctrl.mappe.indexOf('M22') > -1;
                         case 'M23':
                             return $ctrl.mappe.indexOf('M23') > -1;
                         case 'M25':

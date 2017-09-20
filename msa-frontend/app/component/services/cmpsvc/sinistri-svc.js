@@ -363,7 +363,12 @@ angular.module('msa').service(
 
                 var url = UtilSvc.stringFormat(msaServicesApiUrls.cristalli, idSinistroProvvisorio);
                 return $http.post(url, dataObj);
-            }
+            };
+
+            $svc.getPartiteDanno = function (idSinistroProvvisorio) {
+                var url = UtilSvc.stringFormat(msaServicesApiUrls.partitedanno, idSinistroProvvisorio);
+                return $http.get(url);
+            };
 
         }
     ]
