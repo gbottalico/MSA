@@ -28,6 +28,7 @@ import msa.domain.object.ricerca.FullPolizzaDO;
 import msa.domain.object.sinistro.*;
 import msa.domain.object.sinistro.rca.AnagraficaDanniDO;
 import msa.domain.object.sinistro.rca.IncrociBaremesDO;
+import msa.domain.object.sinistro.rca.SegnalazioneDO;
 import msa.infrastructure.costanti.MsaCostanti;
 import msa.infrastructure.repository.DomainRepository;
 import msa.infrastructure.repository.PolizzeRepository;
@@ -204,18 +205,25 @@ public class SinistriService extends BaseSinistroService {
      * @return
      */
 
-    public BaseDTO<Map<String, String>> inviaSegnalazione(SegnalazioneDTO input, Integer numSinistroProvv) throws InternalMsaException {
+    public<T extends BaseSinistroDO> BaseDTO inviaSegnalazione(SegnalazioneDTO input, Integer numSinistroProvv) throws InternalMsaException {
+
         if (input.getGaranziaSelected() == null)
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat(" E' necessario selezionare una garanzia.")));
         if (!FunctionUtils.between(input.getDataDenuncia(), input.getDataOraSinistro(), FunctionUtils.nowAsDate(), Boolean.TRUE))
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005",
                     (String e) -> e.concat(" Data sinistro deve essere precedente alla data di denuncia ed alla data odierna.")));
-        final BaseSinistroDO newSinistro = getSinistroDOByDTO(input, numSinistroProvv);
-        final BaseSinistroDO oldSinistro = GET_SINISTRO.apply(numSinistroProvv);
-        final BaseDTO<Map<String, String>> result = new BaseDTO(Stream.of("").collect(Collectors.toMap(elem -> "tipoSinistro", elem -> "TODO")));
+        final T newSinistro;
+        final T oldSinistro;
+        try {
+            newSinistro = oldSinistro = sinistriRepository.getSinistroByNumProvv(numSinistroProvv);//getSinistroDOByDTO(input, numSinistroProvv);
+            newSinistro.setSegnalazione(converter.convertObject(input,SegnalazioneDO.class));
+        }catch (Exception ex) {
+            throw new InternalMsaException(ex, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione segnalazione")));
+        }
+        final BaseDTO result = new BaseDTO();
         if (oldSinistro.getSegnalazione() != null && !(input.getGaranziaSelected().equals(oldSinistro.getSegnalazione().getGaranziaSelected()))) {
             final List<Object> objects = execInParallel(
-                    () -> salvaSinistro(newSinistro),
+                    () -> salvaSinistro(converter.convertObject(newSinistro,BaseSinistroDO.class)),
                     () -> dispatcherService.resetView(input.getGaranziaSelected(), numSinistroProvv)
             );
             final Optional<Boolean> conditions = Optional.of(objects.stream().filter(e -> e.getClass().isAssignableFrom(Boolean.class))
