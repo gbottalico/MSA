@@ -342,6 +342,11 @@ public class SinistriService extends BaseSinistroService {
             sinistroRcaDOByDTO.getDannoRca()
                     .getAnagraficaDanniCliente()
                     .setAnagrafica(converter.convertObject(sinistroRcaDOByDTO.getContraente(), FullAnagraficaControparteDO.class));
+
+            sinistroRcaDOByDTO.getDannoRca()
+                    .getAnagraficaDanniCliente().getAnagrafica().setCodRuolo(MsaCostanti.COD_RUOLO_CONDUCENTE_PROPR.toString());
+        } else {
+            sinistroRcaDOByDTO.getDannoRca().getAnagraficaDanniCliente().getAnagrafica().setCodRuolo(MsaCostanti.COD_RUOLO_CONDUCENTE_NO_PROPR.toString());
         }
 
         if (sinistroRcaDOByDTO.getEventoRca().getNumVeicoli() == 2) {
