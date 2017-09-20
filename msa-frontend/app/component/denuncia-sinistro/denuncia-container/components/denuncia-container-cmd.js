@@ -104,6 +104,8 @@
                     //     return false;
                     // TODO ad un certo punto, escluso m13, gli altri potrebbero essere case default
                     switch (nomeMappa) {
+                        case 'M11':
+                            return $ctrl.mappe.indexOf('M11') > -1;
                         case 'M12':
                             return $ctrl.mappe.indexOf('M12') > -1;
                         case 'M13':

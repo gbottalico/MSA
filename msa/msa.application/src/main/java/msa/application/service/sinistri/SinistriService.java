@@ -32,6 +32,8 @@ import msa.domain.object.sinistro.rca.SegnalazioneDO;
 import msa.infrastructure.costanti.MsaCostanti;
 import msa.infrastructure.repository.DomainRepository;
 import msa.infrastructure.repository.PolizzeRepository;
+
+import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang3.BooleanUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -213,17 +215,20 @@ public class SinistriService extends BaseSinistroService {
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005",
                     (String e) -> e.concat(" Data sinistro deve essere precedente alla data di denuncia ed alla data odierna.")));
         final T newSinistro;
-        final T oldSinistro;
+        T oldSinistro = null;
         try {
-            newSinistro = oldSinistro = sinistriRepository.getSinistroByNumProvv(numSinistroProvv);//getSinistroDOByDTO(input, numSinistroProvv);
-            newSinistro.setSegnalazione(converter.convertObject(input,SegnalazioneDO.class));
+            newSinistro = sinistriRepository.getSinistroByNumProvv(numSinistroProvv);//getSinistroDOByDTO(input, numSinistroProvv);
+            oldSinistro = converter.clone(newSinistro);
         }catch (Exception ex) {
             throw new InternalMsaException(ex, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione segnalazione")));
         }
         final BaseDTO result = new BaseDTO();
         if (oldSinistro.getSegnalazione() != null && !(input.getGaranziaSelected().equals(oldSinistro.getSegnalazione().getGaranziaSelected()))) {
             final List<Object> objects = execInParallel(
-                    () -> salvaSinistro(converter.convertObject(newSinistro,BaseSinistroDO.class)),
+                    () -> {
+                    	newSinistro.setSegnalazione(converter.convertObject(input,SegnalazioneDO.class));
+                    	return salvaSinistro(converter.convertObject(newSinistro,BaseSinistroDO.class));
+                    },
                     () -> dispatcherService.resetView(input.getGaranziaSelected(), numSinistroProvv)
             );
             final Optional<Boolean> conditions = Optional.of(objects.stream().filter(e -> e.getClass().isAssignableFrom(Boolean.class))
@@ -245,6 +250,7 @@ public class SinistriService extends BaseSinistroService {
 
             return conditions.map(e -> result).orElseThrow(() -> new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione segnalazione"))));
         } else {
+        	newSinistro.setSegnalazione(converter.convertObject(input,SegnalazioneDO.class));
             if (salvaSinistro(newSinistro)) {
                 return result;
             } else

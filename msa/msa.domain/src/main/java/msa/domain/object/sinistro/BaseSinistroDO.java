@@ -117,4 +117,6 @@ public class BaseSinistroDO extends AbstractDO  {
     public void setTipoSinisto(TipiSinisto tipoSinisto) {
         this.tipoSinisto = tipoSinisto;
     }
+    
+    
 }

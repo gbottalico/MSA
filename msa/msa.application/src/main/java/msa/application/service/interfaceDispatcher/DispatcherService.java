@@ -93,7 +93,9 @@ public class DispatcherService extends DispatcherUtils {
         final DispatcherDO dispatcherDO = new DispatcherDO();
         dispatcherDO.setGaranziaSelected(garanziaSelected);
         dispatcherDO.setNumSinistroProvv(numSinistroProvv);
-        return dispatcherRepository.resetViewByNumSinistro(dispatcherDO);
+        final Integer deletedNumber = dispatcherRepository.resetViewByNumSinistro(dispatcherDO);
+        getNextInterfaceAndPersist(converter.convertObject(dispatcherDO,DispatcherDTO.class));
+        return deletedNumber;
     }
 
     private Integer getNewIndex(Map<Integer, String> indexViews) {

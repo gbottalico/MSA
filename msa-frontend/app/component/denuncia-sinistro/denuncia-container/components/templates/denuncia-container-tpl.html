@@ -11,6 +11,10 @@
     </div>
     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-12 rightContainer">
 
+        <div class="well margin-top-2" ng-if="$debugMode">
+            <pre>{{$ctrl.tempSegnalazione}}</pre>
+        </div>
+
         <msa-segnalazione id="M11"
                           numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
                           sinistro-provvisorio="$ctrl.sinistroProvvisorio"

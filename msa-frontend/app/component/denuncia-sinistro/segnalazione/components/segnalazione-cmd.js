@@ -8,8 +8,8 @@
             sinistroProvvisorio: "<",
             tempSegnalazione: "="
         },
-        controller: ("segnalazioneController", ['_', '$MSAC', '$scope', '$rootScope', '$debugMode', '$filter', '$timeout', 'toastr', 'DomainSvc', 'PlacesSvc', 'SinistriSvc', 'UtilSvc', 'RegexSvc', 'DebugSvc',
-            function (_, $MSAC, $scope, $rootScope, $debugMode, $filter, $timeout, toastr, DomainSvc, PlacesSvc, SinistriSvc, UtilSvc, RegexSvc, DebugSvc) {
+        controller: ("segnalazioneController", ['_', '$MSAC', '$window',  '$scope', '$rootScope', '$debugMode', '$filter', '$timeout', '$ngBootbox', 'toastr', 'DomainSvc', 'PlacesSvc', 'SinistriSvc', 'UtilSvc', 'RegexSvc', 'DebugSvc',
+            function (_, $MSAC, $window, $scope, $rootScope, $debugMode, $filter, $timeout, $ngBootbox, toastr, DomainSvc, PlacesSvc, SinistriSvc, UtilSvc, RegexSvc, DebugSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
@@ -48,7 +48,7 @@
                 });
 
                 $ctrl.apriSegnalazione = function () {
-                    SinistriSvc.apriSegnalazione($ctrl.numeroSinistroProvvisorio, $ctrl.sinistro).then(function (response) {
+                    return SinistriSvc.apriSegnalazione($ctrl.numeroSinistroProvvisorio, $ctrl.sinistro).then(function (response) {
                         DebugSvc.log("apriSegnalazione", response);
                         if (response.data.status === 200) {
                             $ctrl.tempSegnalazione.tipoSinistro = response.data.result;
@@ -56,14 +56,31 @@
                             parent.aggiornaMappe($ctrl.mapId);
                             toastr.success($translate('global.generic.saveok'));
                             $scope.segnalazioneForm.$setPristine();
+                            return true;
                         } else {
                             toastr.error($translate('global.generic.saveko'));
+                            return false;
                         }
                     });
                 };
 
-                $ctrl.bindSinitroProvvisorio = function (sinitroProvvisorio) {
+                $ctrl.confermaSegnalazione = function () {
+                    //TODO stile popup e stringhe scolpite
+                    if (!$ctrl.tempSegnalazione.garanzia || $ctrl.tempSegnalazione.garanzia === $ctrl.sinistro.garanzia) {
+                        $ctrl.apriSegnalazione();
+                    } else {
+                        $ngBootbox.confirm('Attenzione, cambiando il tipo di garanzia tutti i danni inputati andranno persi.').then(function () {
+                            var result = $ctrl.apriSegnalazione();
+                            result.then(function (response) {
+                                if(response === true) {
+                                    $window.location.reload();
+                                }
+                            });
+                        }, function () {/*NOPE*/});
+                    }
+                };
 
+                $ctrl.bindSinitroProvvisorio = function (sinitroProvvisorio) {
                     if (_.isObject(sinitroProvvisorio.segnalazione)) {
 
                         $ctrl.sinistro.segnalazione.nome = sinitroProvvisorio.segnalazione.denunciante.nome;

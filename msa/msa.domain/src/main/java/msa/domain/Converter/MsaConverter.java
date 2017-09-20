@@ -45,5 +45,9 @@ public class MsaConverter {
     public <T, U, S> T biConvertObject(S sourceA, U sourceB, BiFunction<S,U,T> biMapper) {
         return biMapper.apply(sourceA,sourceB);
     }
+    
+    public <T> T clone(T source) {
+    	return (T) convertObject(source, source.getClass());
+    }
 
 }
