@@ -69,8 +69,8 @@ public final class FunctionUtils {
         	return dateToLocalDate(toEvaluate).compareTo(dateToLocalDate(dateStart)) == 1
         			&& dateToLocalDate(toEvaluate).compareTo(dateToLocalDate(dateEnd)) == -1;
         } else {
-        	return dateToLocalDate(toEvaluate).compareTo(dateToLocalDate(dateStart)) <= 1
-        			&& dateToLocalDate(toEvaluate).compareTo(dateToLocalDate(dateEnd)) >= -1;
+        	return dateToLocalDate(toEvaluate).compareTo(dateToLocalDate(dateStart)) >= 0
+        			&& dateToLocalDate(toEvaluate).compareTo(dateToLocalDate(dateEnd)) <= 0;
         }
     }
 
