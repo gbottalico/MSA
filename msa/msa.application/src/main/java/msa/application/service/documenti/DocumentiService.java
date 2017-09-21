@@ -87,7 +87,7 @@ public class DocumentiService extends BaseService {
                 Files.delete(path.getParent());
             }
         } catch (Exception e) {
-            throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA007"));
+            throw new InternalMsaException(e,getErrorMessagesByCodErrore(MessageType.ERROR, "MSA007"));
         }
 
     }
@@ -114,10 +114,10 @@ public class DocumentiService extends BaseService {
     private String saveFileOnDirectory(final MultipartFile file, final Integer numSinistro) throws InternalMsaException {
         try {
             if(!Files.exists(Paths.get(properties.getPathDocumenti())))
-                Files.createDirectory(Paths.get(properties.getPathDocumenti()));
+                Files.createDirectories(Paths.get(properties.getPathDocumenti()));
 
             if (!Files.exists(Paths.get(properties.getPathDocumenti() + "\\" + numSinistro + "\\"))) {
-                Files.createDirectory(Paths.get(properties.getPathDocumenti() + "\\" + numSinistro + "\\"));
+                Files.createDirectories(Paths.get(properties.getPathDocumenti() + "\\" + numSinistro + "\\"));
             }
             final String pathAsString = properties.getPathDocumenti()
                     + "\\" + numSinistro
