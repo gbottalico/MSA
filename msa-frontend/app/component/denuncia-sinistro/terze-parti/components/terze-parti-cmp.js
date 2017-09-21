@@ -83,7 +83,7 @@
                 };
 
                 $timeout(function () {
-                    parent.mappaCaricata($ctrl.mapId)
+                    parent.mappaCaricata($ctrl.mapId);
                 });
 
                 $ctrl.bindTerzeParti = function () {

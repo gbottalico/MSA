@@ -11,7 +11,7 @@
 
                 var $ctrl = this;
                 var parent = $scope.$parent;
-                var $translate = $filter('translate')
+                var $translate = $filter('translate');
                 $ctrl.numeroSinistroProvvisorio = undefined;
 
                 $ctrl.clearbox = "clear box"; //TODO capire utilizzo e rimuovere
@@ -390,7 +390,7 @@
                 };
 
                 $ctrl.openSinistro = function () {
-                  if ($ctrl.polizzaSelected != undefined){
+                  if ($ctrl.polizzaSelected !== undefined){
                 	  var contraente = {};
                 	  contraente.cf = $ctrl.polizzaSelected.codfiscContraente;
                 	  contraente.cognome = $ctrl.polizzaSelected.cognomeContraente;

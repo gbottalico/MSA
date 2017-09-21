@@ -131,8 +131,7 @@
 
                 $ctrl.compagniaValid = function (compagnia) {
                     return (_.isObject(compagnia));
-
-                }
+                };
 
                 $ctrl.$valid = $ctrl.compagniaValid($ctrl.compagniaSelezionata);
             }])

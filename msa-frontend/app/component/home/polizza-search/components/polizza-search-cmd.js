@@ -6,8 +6,8 @@
         bindings: {
             valoriRicerca: "="
         },
-        controller: ("polizzaSearchController", ['_', '$MSAC', '$scope', '$rootScope', '$translate', '$filter', 'DomainSvc', 'SinistriSvc', 'PlacesSvc', 'toastr', '$analytics', '$location', '$anchorScroll', '$uibModal', '$cookies', '$window', '$sessionStorage', 'DebugSvc',
-            function (_, $MSAC, $scope, $rootScope, $translate, $filter, DomainSvc, SinistriSvc, PlacesSvc, toastr, $analytics, $location, $anchorScroll, $uibModal, $cookies, $window, $sessionStorage, DebugSvc) {
+        controller: ("polizzaSearchController", ['_', '$MSAC', '$scope', '$rootScope', '$filter', 'DomainSvc', 'SinistriSvc', 'PlacesSvc', 'toastr', '$analytics', '$location', '$anchorScroll', '$uibModal', '$cookies', '$window', '$sessionStorage', 'DebugSvc',
+            function (_, $MSAC, $scope, $rootScope, $filter, DomainSvc, SinistriSvc, PlacesSvc, toastr, $analytics, $location, $anchorScroll, $uibModal, $cookies, $window, $sessionStorage, DebugSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
@@ -57,8 +57,8 @@
                 };
 
                 $ctrl.checkCompagnia = function () {
-                    return ($scope.polizzaSearchForm.compagnia.$invalid || !_.isObject($ctrl.ricercapolizza.compagniaSelezionata))
-                        && !$scope.polizzaSearchForm.compagnia.$pristine
+                    return ($scope.polizzaSearchForm.compagnia.$invalid || !_.isObject($ctrl.ricercapolizza.compagniaSelezionata)) &&
+                        !$scope.polizzaSearchForm.compagnia.$pristine;
                 };
 
                 $scope.$watch(
@@ -114,15 +114,7 @@
                 );
 
                 $ctrl.cerca = function () {
-                	console.log($ctrl.ricercapolizza)
                 	$ctrl.ricerca = true;
-                	setTimeout(function(){ 
-                		var id = $location.hash();
-                		$location.hash('risultatiPolizze');
-                		$anchorScroll();
-                		$location.hash(id); 
-                	}, 1000);
-                	
                 };
 
 

@@ -147,9 +147,7 @@
                             visibleMarkers.push(element);
                         }
                     });
-
                     $ctrl.visibleMarkers = visibleMarkers;
-                    // DebugSvc.log("VisibileMarkers", $ctrl.visibleMarkers);
                 };
 
                 $ctrl.selezionaCarrozzeria = function (index) {

@@ -87,7 +87,7 @@ angular.module('msa').service('ConvertSvc',
                 };
 
                 if (_.isObject(dto.luogoNascita)) {
-                    anagrafica.nascita = $svc.dtoToLuogo(dto.luogoNascita)
+                    anagrafica.nascita = $svc.dtoToLuogo(dto.luogoNascita);
                 }
 
                 anagrafica.nascita.data = dto.dataNascita ? new Date(dto.dataNascita) : undefined;
@@ -95,7 +95,7 @@ angular.module('msa').service('ConvertSvc',
                 if (_.isObject(dto.tracking)) {
                     if (_.isObject(dto.tracking.residenza)) {
                         anagrafica.residenza = $svc.dtoToLuogo(dto.tracking.residenza);
-                        anagrafica.residenza.indirizzo = dto.tracking.indirizzo
+                        anagrafica.residenza.indirizzo = dto.tracking.indirizzo;
                     }
                     anagrafica.telefono = dto.tracking.telefono;
                     anagrafica.mail = dto.tracking.mail;
@@ -168,7 +168,7 @@ angular.module('msa').service('ConvertSvc',
 
                 return dto;
 
-            }
+            };
 
         }
     ]

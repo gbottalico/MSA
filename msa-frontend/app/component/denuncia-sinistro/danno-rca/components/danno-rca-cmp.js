@@ -125,7 +125,7 @@
                             }
                             else return true;
                         }
-                    }
+                    };
                 })();
 
                 $ctrl.salvaDannoRca = function () {
@@ -142,7 +142,7 @@
                                 if ($ctrl.tempSegnalazione.nveicoli > 1) {
                                     return SinistriSvc.salvaDannoRcaControparti($ctrl.numeroSinistroProvvisorio, $ctrl.dannoRca);
                                 } else {
-                                    return UtilSvc.createSuccessStatePromise()
+                                    return UtilSvc.createSuccessStatePromise();
                                 }
                             } else {
                                 return UtilSvc.createErrorStatePromise();
@@ -184,7 +184,7 @@
                     modalInstance.result.then(function (controparte) {
                         DebugSvc.log("aggiungiControparte", controparte);
                         if (_.isNumber(controparte.index)) {
-                            $ctrl.dannoRca.controparti[controparte.index] = controparte
+                            $ctrl.dannoRca.controparti[controparte.index] = controparte;
                         } else {
                             $ctrl.dannoRca.controparti.push(controparte);
                         }

@@ -77,7 +77,7 @@
                 };
 
                 $timeout(function () {
-                    parent.mappaCaricata($ctrl.mapId)
+                    parent.mappaCaricata($ctrl.mapId);
                 });
 
                 $ctrl.bindLegali = function () {

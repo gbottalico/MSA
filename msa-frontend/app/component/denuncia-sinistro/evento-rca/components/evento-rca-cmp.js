@@ -49,7 +49,7 @@
                 };
 
                 $timeout(function () {
-                    parent.mappaCaricata($ctrl.mapId)
+                    parent.mappaCaricata($ctrl.mapId);
                 });
 
                 $scope.$watch(
