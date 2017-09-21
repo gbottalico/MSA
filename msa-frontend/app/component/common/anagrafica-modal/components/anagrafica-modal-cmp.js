@@ -40,16 +40,19 @@
                     $ctrl.hasCompagnia = $ctrl.resolve.hasCompagnia;
                     $ctrl.anagrafica.tipoPersona = $ctrl.TipologiaEnum.FISICA;
 
-                    if ($ctrl.hasRole) {
+                    $ctrl.hasPatrocinante = $ctrl.resolve.hasPatrocinante;
+
+                    if ($ctrl.hasRole || $ctrl.hasPatrocinante) {
                         DomainSvc.getRuoli().then(function (response) {
                             $ctrl.ruoli = response.data.result;
                             $ctrl.ruoliKeyValue = UtilSvc.arrayWithIdToMap($ctrl.ruoli);
                         });
 
                         $ctrl.hasAssociato = $ctrl.resolve.hasAssociato;
-                        if ($ctrl.hasAssociato) {
+
+                        if ($ctrl.hasAssociato || $ctrl.hasPatrocinante) {
                             SinistriSvc.getAnagraficheAssociabili($ctrl.resolve.numeroSinistroProvvisorio).then(function (response) {
-                               $ctrl.anagraficheAssociabili = response.data.result;
+                                $ctrl.anagraficheAssociabili = response.data.result;
                             });
                         }
 
@@ -92,10 +95,11 @@
                 };
 
                 $ctrl.isAssociatoVisible = function () {
-                    return $ctrl.hasAssociato &&
-                        $ctrl.anagrafica.ruolo &&
-                        $ctrl.ruoliKeyValue[$ctrl.anagrafica.ruolo] &&
-                        $ctrl.ruoliKeyValue[$ctrl.anagrafica.ruolo].pdAss === 'ASS';
+                    return $ctrl.hasPatrocinante ||
+                        ($ctrl.hasAssociato &&
+                            $ctrl.anagrafica.ruolo &&
+                            $ctrl.ruoliKeyValue[$ctrl.anagrafica.ruolo] &&
+                            $ctrl.ruoliKeyValue[$ctrl.anagrafica.ruolo].pdAss === 'ASS');
                 };
 
                 $ctrl.getNomeFromAssociato = function (associato) {

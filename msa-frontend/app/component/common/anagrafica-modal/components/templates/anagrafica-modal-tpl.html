@@ -54,7 +54,8 @@
                 ng-options="associato as $ctrl.getNomeFromAssociato(associato) for associato in $ctrl.anagraficheAssociabili track by (associato.nome + associato.cognome)">
             </select>
             <!-- TODO: track by (associato.nome + associato.cognome) non è buono. Servirebbe un ID univoco. -->
-            <label>{{'global.people.associatoa' | translate}}</label>
+            <label ng-if="$ctrl.hasAssociato">{{'global.people.associatoa' | translate}}</label>
+            <label ng-if="$ctrl.hasPatrocinante">{{'global.people.patrocinantedi' | translate}}</label>
         </div>
 
         <div class="col-lg-12">

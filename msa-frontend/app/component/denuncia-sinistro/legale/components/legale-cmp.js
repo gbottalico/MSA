@@ -31,6 +31,12 @@
                             hasRole: function () {
                                 return false;
                             },
+                            hasPatrocinante: function () {
+                                return true;
+                            },
+                            numeroSinistroProvvisorio: function () {
+                                return $ctrl.numeroSinistroProvvisorio;
+                            },
                             input: function () {
                                 try {
                                     $ctrl.legali[index].index = index;

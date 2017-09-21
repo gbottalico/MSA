@@ -60,7 +60,8 @@
       "scadenzapatente": "Data di Scadenza Patente",
       "nessunrecapito": "Nessun recapito.",
       "nomecognome":"Nome e Cognome",
-      "associatoa":"Associato a"
+      "associatoa":"Associato a",
+      "patrocinantedi":"Patrocinante di"
 
     },
     "docs": {
