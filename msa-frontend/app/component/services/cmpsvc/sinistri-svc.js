@@ -93,12 +93,12 @@ angular.module('msa').service(
 
                 data.denunciante.nome = datiSegnalazione.segnalazione.nome;
                 data.denunciante.cognome = datiSegnalazione.segnalazione.cognome;
-                data.denunciante.telefono = datiSegnalazione.segnalazione.telefono;
                 data.denunciante.codRuolo = datiSegnalazione.segnalazione.ruolo;
 
                 data.denunciante.tracking = {};
                 data.denunciante.tracking.cellulare = datiSegnalazione.tracking.cellulare;
                 data.denunciante.tracking.mail = datiSegnalazione.tracking.email;
+                data.denunciante.tracking.telefono = datiSegnalazione.segnalazione.telefono;
 
                 data.codMezzo = datiSegnalazione.provenienza.mezzoComunicazione;
                 data.dataDenuncia = datiSegnalazione.provenienza.dataDenuncia;
