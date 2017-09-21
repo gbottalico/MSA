@@ -8,7 +8,7 @@
             sinistroProvvisorio: "<",
             tempSegnalazione: "="
         },
-        controller: ("segnalazioneController", ['_', '$MSAC', '$window',  '$scope', '$rootScope', '$debugMode', '$filter', '$timeout', '$ngBootbox', 'toastr', 'DomainSvc', 'PlacesSvc', 'SinistriSvc', 'UtilSvc', 'RegexSvc', 'DebugSvc',
+        controller: ("segnalazioneController", ['_', '$MSAC', '$window', '$scope', '$rootScope', '$debugMode', '$filter', '$timeout', '$ngBootbox', 'toastr', 'DomainSvc', 'PlacesSvc', 'SinistriSvc', 'UtilSvc', 'RegexSvc', 'DebugSvc',
             function (_, $MSAC, $window, $scope, $rootScope, $debugMode, $filter, $timeout, $ngBootbox, toastr, DomainSvc, PlacesSvc, SinistriSvc, UtilSvc, RegexSvc, DebugSvc) {
 
                 var $ctrl = this;
@@ -72,11 +72,12 @@
                         $ngBootbox.confirm('Attenzione, cambiando il tipo di garanzia tutti i danni inputati andranno persi.').then(function () {
                             var result = $ctrl.apriSegnalazione();
                             result.then(function (response) {
-                                if(response === true) {
+                                if (response === true) {
                                     $window.location.reload();
                                 }
                             });
-                        }, function () {/*NOPE*/});
+                        }, function () {/*NOPE*/
+                        });
                     }
                 };
 
@@ -109,13 +110,19 @@
 
                         $ctrl.sinistro.luogo.indirizzo = sinitroProvvisorio.segnalazione.indirizzo;
                         $ctrl.sinistro.garanzia = sinitroProvvisorio.segnalazione.garanziaSelected;
+                    } else {
+                        // Imposto la data di oggi come data denuncia, e la data della ricerca (se presente) come data sinistro.
+                        $ctrl.sinistro.provenienza.dataDenuncia = new Date();
+                        if (_.isObject($ctrl.tempSegnalazione.lastSearch)) {
+                            $ctrl.sinistro.provenienza.dataSinistro = new Date($ctrl.tempSegnalazione.lastSearch.dataEvento);
+                        }
+
                     }
 
                 };
 
                 $timeout(function () {
                     parent.mappaCaricata($ctrl.mapId);
-                    $ctrl.sinistro.provenienza.dataDenuncia = new Date();
                 });
 
                 $scope.$watch(
@@ -126,8 +133,7 @@
                     },
                     function handleChanges(newValues, oldValues) {
 
-                        if (newValues.sinistroProvvisorio !== undefined &&
-                            newValues.sinistroProvvisorio !== oldValues.sinistroProvvisorio) {
+                        if (_.isObject(newValues.sinistroProvvisorio)) {
                             $ctrl.bindSinitroProvvisorio(newValues.sinistroProvvisorio);
                         }
 

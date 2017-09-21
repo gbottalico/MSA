@@ -4,12 +4,13 @@
     app.component('msaDenunciaContainer', {
         templateUrl: '../../app/component/denuncia-sinistro/denuncia-container/components/templates/denuncia-container-tpl.html',
         bindings: {},
-        controller: ("denunciaContainerController", ['_', '$MSAC', '$rootScope', '$scope', '$routeParams', '$location', '$debugMode', '$timeout', '$filter', '$anchorScroll', 'toastr', 'SinistriSvc', 'UtilSvc', 'PathSvc', 'DebugSvc',
-            function (_, $MSAC, $rootScope, $scope, $routeParams, $location, $debugMode, $timeout, $filter, $anchorScroll, toastr, SinistriSvc, UtilSvc, PathSvc, DebugSvc) {
+        controller: ("denunciaContainerController", ['_', '$MSAC', '$rootScope', '$scope', '$routeParams', '$location', '$debugMode', '$timeout', '$filter', '$anchorScroll', '$sessionStorage', 'toastr', 'SinistriSvc', 'UtilSvc', 'PathSvc', 'DebugSvc',
+            function (_, $MSAC, $rootScope, $scope, $routeParams, $location, $debugMode, $timeout, $filter, $anchorScroll, $sessionStorage, toastr, SinistriSvc, UtilSvc, PathSvc, DebugSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
                 $scope.$debugMode = $debugMode;
+                $scope.$storage = $sessionStorage;
                 $ctrl.tempSegnalazione = {
                     nveicoli: undefined,
                     garanzia: undefined,
@@ -171,6 +172,7 @@
                         $ctrl.aggiornaPercentuale();
                         $ctrl.tempSegnalazione.numeroPolizza = $ctrl.sinistroProvvisorio.numeroPolizza;
                         $ctrl.setScrollabile();
+                        $ctrl.tempSegnalazione.lastSearch = $scope.$storage.lastSearch;
                     });
                 };
 

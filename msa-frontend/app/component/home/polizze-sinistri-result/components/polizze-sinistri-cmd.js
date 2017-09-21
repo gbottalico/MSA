@@ -358,7 +358,7 @@
                 ];
                 
                 $ctrl.selezionaPolizza = function (polizza){
-                	if ($ctrl.polizzaSelected == polizza){
+                	if ($ctrl.polizzaSelected === polizza){
                 		$ctrl.polizzaSelected = undefined;
                 	}else{
                 		$ctrl.polizzaSelected = polizza;

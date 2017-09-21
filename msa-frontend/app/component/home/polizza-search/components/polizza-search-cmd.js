@@ -6,12 +6,13 @@
         bindings: {
             valoriRicerca: "="
         },
-        controller: ("polizzaSearchController", ['_', '$MSAC', '$scope', '$rootScope', '$filter', 'DomainSvc', 'SinistriSvc', 'PlacesSvc', 'toastr', '$analytics', '$location', '$anchorScroll', '$uibModal', '$cookies', '$window', '$sessionStorage', 'DebugSvc',
-            function (_, $MSAC, $scope, $rootScope, $filter, DomainSvc, SinistriSvc, PlacesSvc, toastr, $analytics, $location, $anchorScroll, $uibModal, $cookies, $window, $sessionStorage, DebugSvc) {
+        controller: ("polizzaSearchController", ['_', '$MSAC', '$scope', '$rootScope', '$filter', 'DomainSvc', '$sessionStorage',
+            function (_, $MSAC, $scope, $rootScope, $filter, DomainSvc, $sessionStorage) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
                 var parent = $scope.$parent;
+                $scope.$storage = $sessionStorage;
                 $ctrl.ricerca = false;
 
                 $scope.$MSAC = $MSAC;
@@ -115,6 +116,7 @@
 
                 $ctrl.cerca = function () {
                 	$ctrl.ricerca = true;
+                    $scope.$storage.lastSearch = $ctrl.ricercapolizza;
                 };
 
 
