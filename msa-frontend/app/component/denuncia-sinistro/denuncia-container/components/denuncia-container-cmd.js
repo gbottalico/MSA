@@ -4,7 +4,7 @@
     app.component('msaDenunciaContainer', {
         templateUrl: '../../app/component/denuncia-sinistro/denuncia-container/components/templates/denuncia-container-tpl.html',
         bindings: {},
-        controller: ("denunciaContainerController", ['_', '$MSAC','$rootScope', '$scope', '$routeParams', '$location', '$debugMode', '$timeout', '$filter', '$anchorScroll', 'toastr', 'SinistriSvc', 'UtilSvc', 'PathSvc', 'DebugSvc',
+        controller: ("denunciaContainerController", ['_', '$MSAC', '$rootScope', '$scope', '$routeParams', '$location', '$debugMode', '$timeout', '$filter', '$anchorScroll', 'toastr', 'SinistriSvc', 'UtilSvc', 'PathSvc', 'DebugSvc',
             function (_, $MSAC, $rootScope, $scope, $routeParams, $location, $debugMode, $timeout, $filter, $anchorScroll, toastr, SinistriSvc, UtilSvc, PathSvc, DebugSvc) {
 
                 var $ctrl = this;
@@ -37,7 +37,6 @@
                             } else {
                                 $ctrl.mappe.push($ctrl.START_MAP);
                             }
-                            $ctrl.scrollable = true;
                         } else {
                             toastr.error($translate('global.generic.erroremappe'));
                         }
@@ -60,11 +59,6 @@
                                 path = UtilSvc.mapToValueArray(response.data.result);
                                 $ctrl.mappe = path;
                                 $ctrl.aggiornaPercentuale();
-                                // Scrolla alla mappa successiva al salvataggio della precedente.
-                                if (callerMapId) {
-                                    var id = $ctrl.mappe[$ctrl.mappe.indexOf(callerMapId) + 1];
-                                    $ctrl.scrollTo(id);
-                                }
                             } else {
                                 toastr.error($translate('global.generic.erroremappe'));
                             }
@@ -81,18 +75,18 @@
                 $ctrl.mappaCaricata = function (mapId) {
                     DebugSvc.log(mapId + " initialized.");
                     $ctrl.tempSegnalazione.lastMap = mapId;
-                    // if($ctrl.scrollable) {
-                    //     $ctrl.scrollTo(mapId);
-                    // }
+                    if ($ctrl.scrollable) {
+                        $ctrl.scrollTo(mapId);
+                    }
                 };
 
                 $ctrl.aggiornaPercentuale = function () {
-                    if($ctrl.tempSegnalazione.garanzia) {
+                    if ($ctrl.tempSegnalazione.garanzia) {
                         PathSvc.getPercentuale($ctrl.numeroSinistroProvvisorio, $ctrl.tempSegnalazione.garanzia).then(function (response) {
                             DebugSvc.log("getPercentuale", response);
-                            if(response.data.status === 200) {
-                               $ctrl.percentuale = response.data.result;
-                           }
+                            if (response.data.status === 200) {
+                                $ctrl.percentuale = response.data.result;
+                            }
                         });
                     } else {
                         $ctrl.percentuale = 0;
@@ -142,6 +136,14 @@
                     $location.hash(id);
                 };
 
+                $ctrl.setScrollabile = function () {
+                    $timeout(function () {
+                        //TODO assumiamo che dopo 10 secondi la pagina sia caricata
+                        $ctrl.scrollable = true;
+                        DebugSvc.log("Setting scrollable to true");
+                    }, 5000);
+                };
+
                 $scope.scrollTo = function (divId) {
                     $ctrl.scrollTo(divId);
                 };
@@ -160,18 +162,19 @@
 
                 $ctrl.getSinistroProvvisorio = function (numeroSinistroProvvisorio) {
                     SinistriSvc.cercaSinistroProvvisorio(numeroSinistroProvvisorio).then(function (response) {
+                        //TODO check che il sinistro sia caricato correttamente
                         var result = response.data.result;
                         DebugSvc.log("getSinistroProvvisorio", response);
-
                         $ctrl.sinistroProvvisorio = result;
                         $ctrl.caricaMappe();
                         $ctrl.tempSegnalazione.garanzia = $ctrl.tempSegnalazione.garanzia || (_.isObject($ctrl.sinistroProvvisorio.segnalazione) ? $ctrl.sinistroProvvisorio.segnalazione.garanziaSelected : null);
                         $ctrl.aggiornaPercentuale();
                         $ctrl.tempSegnalazione.numeroPolizza = $ctrl.sinistroProvvisorio.numeroPolizza;
+                        $ctrl.setScrollabile();
                     });
                 };
 
-                $scope.$on("$locationChangeStart", function(event, next, current) {
+                $scope.$on("$locationChangeStart", function (event, next, current) {
                     DebugSvc.log("$locationChangeStart, svuoto cache sinistro");
                     $ctrl.mappe = [];
                     $ctrl.sinistroProvvisorio = undefined;
