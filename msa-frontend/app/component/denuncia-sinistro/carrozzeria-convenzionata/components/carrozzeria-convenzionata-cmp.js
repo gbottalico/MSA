@@ -16,9 +16,8 @@
                 var parent = $scope.$parent;
                 $ctrl.mapId = 'M23';
 
-                //TODO spostare icone
-                $ctrl.homeIcon = "images/ico/ico-home.png";
-                $ctrl.wrenchIcon = "images/ico/ico-wrench.png";
+                $ctrl.homeIcon = $MSAC.RESOURCES.HOME_ICON;
+                $ctrl.wrenchIcon = $MSAC.RESOURCES.WRENCH_ICON;
 
                 $scope.$debugMode = $debugMode;
                 $scope.map = {

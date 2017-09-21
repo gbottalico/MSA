@@ -178,6 +178,10 @@ function getMSAC() {
         },
         EVENTS: {
             MAPPA_SALVATA: "mappaSalvata"
+        },
+        RESOURCES: {
+            WRENCH_ICON: "images/ico/ico-wrench.png",
+            HOME_ICON: "images/ico/ico-home.png"
         }
     };
 }
@@ -333,5 +337,15 @@ app.directive('datetimepickerNeutralTimezone', function () {
                 }
             });
         }
+    };
+});
+
+/**
+ * Utils
+ */
+
+app.filter('capitalize', function () {
+    return function (input) {
+        return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
     };
 });

@@ -3,6 +3,7 @@
     "title": "Msa",
     "generic": {
       "azione": "Azione",
+      "calcola": "Calcola",
       "cerca": "Cerca",
       "annulla": "Annulla ricerca",
       "salva": "Salva",
@@ -36,6 +37,8 @@
       "compagnia": "Compagnia",
       "nome": "Nome",
       "cognome": "Cognome",
+      "datanascita": "Data di Nascita",
+      "luogodatanascita": "Luogo e Data di Nascita",
       "denominazione": "Denominazione",
       "ragionesociale": "Ragione Sociale",
       "sesso": "Sesso",
@@ -57,11 +60,14 @@
       "patente": "Patente",
       "nascita": "Nascita",
       "recapiti": "Recapiti",
+      "tipologia": "Tipologia",
       "scadenzapatente": "Data di Scadenza Patente",
       "nessunrecapito": "Nessun recapito.",
       "nomecognome":"Nome e Cognome",
       "associatoa":"Associato a",
-      "patrocinantedi":"Patrocinante di"
+      "patrocinantedi":"Patrocinante di",
+      "lesioni":"Lesioni",
+      "presenzalesioni":"Il soggetto ha riportato lesioni?"
 
     },
     "docs": {
