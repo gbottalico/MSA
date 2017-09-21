@@ -23,10 +23,12 @@ import java.io.FileInputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * Created by simon.calabrese on 11/08/2017.
@@ -81,10 +83,11 @@ public class DocumentiService extends BaseService {
      */
     private void rollbackDocumento(final String pathAsString) throws InternalMsaException {
         try {
-            Path path = Paths.get(pathAsString);
-            Files.delete(path);
-            if (!Files.newDirectoryStream(path.getParent()).iterator().hasNext()) {
-                Files.delete(path.getParent());
+            final String[] split = pathAsString.split("\\\\");
+            if(!pathAsString.equalsIgnoreCase(properties.getPathDocumenti())) {
+                Path path = Paths.get(pathAsString);
+                Files.delete(path);
+                rollbackDocumento(Arrays.stream(split).limit((long) (split.length - 1)).collect(Collectors.joining("\\")));
             }
         } catch (Exception e) {
             throw new InternalMsaException(e,getErrorMessagesByCodErrore(MessageType.ERROR, "MSA007"));
