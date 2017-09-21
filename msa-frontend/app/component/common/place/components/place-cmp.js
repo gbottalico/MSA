@@ -158,9 +158,8 @@
                                 $ctrl.capSelezionato = newValue.input.cap;
 
                             });
+                            $ctrl.isInputConsumed = true;
                         }
-
-                        $ctrl.isInputConsumed = true;
                     }
 
                     $ctrl.$valid = false;
