@@ -221,6 +221,13 @@ section {
 }
 
 .classicInputRadio {
+
+  &.has-error {
+    input[type='radio']:after {
+      border-color: $badred;
+    }
+  }
+
   margin-top: 15px;
   margin-bottom: 15px;
   div {
