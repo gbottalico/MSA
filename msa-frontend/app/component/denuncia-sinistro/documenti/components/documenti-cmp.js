@@ -19,17 +19,6 @@
 
                 $ctrl.documenti = [];
 
-                // $ctrl.$onInit = function () {
-                //     parent.mappaCaricata($ctrl.mapId);
-                //     DocumentiSvc.getLista($ctrl.numeroSinistroProvvisorio).then(function (response) {
-                //         //TODO ceccare errori
-                //         response.data.result.forEach(function (element, index) {
-                //             element = DocumentiSvc.getName(element);
-                //             $ctrl.documenti.push(element);
-                //         });
-                //     });
-                // };
-
                 $timeout(function () {
                     parent.mappaCaricata($ctrl.mapId);
                     DocumentiSvc.getLista($ctrl.numeroSinistroProvvisorio).then(function (response) {
@@ -84,6 +73,12 @@
                     //TODO
                     parent.aggiornaMappe($ctrl.mapId);
                     $scope.documentiForm.$setPristine();
+                };
+
+                $ctrl.getDocumento = function (index) {
+                    var idDocumento = $ctrl.documenti[index].idDocumento;
+                    var nome = $ctrl.documenti[index].name;
+                    DocumentiSvc.getDocumento(idDocumento, nome);
                 };
 
                 $scope.$watch(

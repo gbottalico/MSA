@@ -55,6 +55,7 @@ app.service('msaServicesApiUrls', function ($MSAC) {
     this.upload                 = apiPath + "/documenti/{0}/{1}/upload";            //0: numero sinistro provvisorio, 1: codTipoDocumento
     this.delete                 = apiPath + "/documenti/{0}/delete";                //0: idDocumento
     this.listadoc               = apiPath + "/documenti/{0}/lista";                 //0: numero sinistro provvisorio
+    this.getdocumento           = apiPath + "/documenti/{0}/get";                 //0: numero sinistro provvisorio
 
     /* DISPATCHER */
 

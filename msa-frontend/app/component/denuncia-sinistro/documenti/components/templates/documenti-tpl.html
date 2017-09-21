@@ -26,9 +26,10 @@
                         <td>{{documento.name}}</td>
                         <td>{{documento.codTipoDocumento}}</td>
                         <td>
-                            <a href="{{documento.path}}" target="_self" download>
-                                <i class="fa fa-cloud-download" aria-hidden="true"></i>
-                            </a>
+                            <!--<a href="{{documento.path}}" target="_self" download>-->
+                                <!--<i class="fa fa-cloud-download" aria-hidden="true"></i>-->
+                            <!--</a>-->
+                            <i class="fa fa-cloud-download" ng-click="$ctrl.getDocumento($index)" aria-hidden="true"></i>
                             &nbsp;
                             <i ng-bootbox-confirm-action="$ctrl.cancellaFile($index);"
                                ng-bootbox-confirm="Are you sure you want to confirm this?"
