@@ -207,7 +207,7 @@ public class SinistriService extends BaseSinistroService {
      * @return
      */
 
-    public<T extends BaseSinistroDO> BaseDTO inviaSegnalazione(SegnalazioneDTO input, Integer numSinistroProvv) throws InternalMsaException {
+    public <T extends BaseSinistroDO> BaseDTO inviaSegnalazione(SegnalazioneDTO input, Integer numSinistroProvv) throws InternalMsaException {
 
         if (input.getGaranziaSelected() == null)
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat(" E' necessario selezionare una garanzia.")));
@@ -219,15 +219,15 @@ public class SinistriService extends BaseSinistroService {
         try {
             newSinistro = sinistriRepository.getSinistroByNumProvv(numSinistroProvv);//getSinistroDOByDTO(input, numSinistroProvv);
             oldSinistro = converter.clone(newSinistro);
-        }catch (Exception ex) {
+        } catch (Exception ex) {
             throw new InternalMsaException(ex, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione segnalazione")));
         }
         final BaseDTO result = new BaseDTO();
         if (oldSinistro.getSegnalazione() != null && !(input.getGaranziaSelected().equals(oldSinistro.getSegnalazione().getGaranziaSelected()))) {
             final List<Object> objects = execInParallel(
                     () -> {
-                    	newSinistro.setSegnalazione(converter.convertObject(input,SegnalazioneDO.class));
-                    	return salvaSinistro(converter.convertObject(newSinistro,BaseSinistroDO.class));
+                        newSinistro.setSegnalazione(converter.convertObject(input, SegnalazioneDO.class));
+                        return salvaSinistro(converter.convertObject(newSinistro, BaseSinistroDO.class));
                     },
                     () -> dispatcherService.resetView(input.getGaranziaSelected(), numSinistroProvv)
             );
@@ -250,7 +250,7 @@ public class SinistriService extends BaseSinistroService {
 
             return conditions.map(e -> result).orElseThrow(() -> new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione segnalazione"))));
         } else {
-        	newSinistro.setSegnalazione(converter.convertObject(input,SegnalazioneDO.class));
+            newSinistro.setSegnalazione(converter.convertObject(input, SegnalazioneDO.class));
             if (salvaSinistro(newSinistro)) {
                 return result;
             } else
@@ -519,15 +519,19 @@ public class SinistriService extends BaseSinistroService {
             if (sinistroByNumProvv.getDannoRca().getConducenteDiverso()) {
                 functions.add(e -> Stream.of(e.getDannoRca().getAnagraficaDanniCliente().getAnagrafica()));
             }
-            functions.add(e -> e.getDannoRca().getAnagraficaDanniControparte().stream().map(AnagraficaDanniDO::getAnagrafica));
-            functions.add(e -> e.getDannoRca()
-                    .getTerzeParti()
-                    .stream()
-                    .filter(elem -> {
-                        final Optional<RuoliDO> first = domainRepository.getElencoRuoli().stream().filter(elem2 -> elem2.getId().toString().equals(elem.getCodRuolo())).findFirst();
-                        final String pdAss = first.map(RuoliDO::getPdAss).orElse(null);
-                        return pdAss.equals(MsaCostanti.COD_PARTITA_DANNO);
-                    }).map(row -> converter.convertObject(row, FullAnagraficaControparteDO.class)));
+            functions.add(e -> Optional.ofNullable(e.getDannoRca()
+                    .getAnagraficaDanniControparte())
+                    .map(elem -> elem.stream().map(AnagraficaDanniDO::getAnagrafica))
+                    .orElse(Stream.empty()));
+            functions.add(e -> Optional.ofNullable(e.getDannoRca()
+                    .getTerzeParti())
+                    .map(terzaParte -> terzaParte.stream()
+                            .filter(elem -> {
+                                final Optional<RuoliDO> first = domainRepository.getElencoRuoli().stream().filter(elem2 -> elem2.getId().toString().equals(elem.getCodRuolo())).findFirst();
+                                final String pdAss = first.map(RuoliDO::getPdAss).orElse(null);
+                                return pdAss.equals(MsaCostanti.COD_PARTITA_DANNO);
+                            }).map(row -> converter.convertObject(row, FullAnagraficaControparteDO.class)))
+                    .orElse(Stream.empty()));
             map.put(sinistroByNumProvv, functions);
             FunctionUtils.StreamBuilder<FullAnagraficaControparteDO> streamBuilder = new FunctionUtils.StreamBuilder<>();
             streamBuilder.of(map);

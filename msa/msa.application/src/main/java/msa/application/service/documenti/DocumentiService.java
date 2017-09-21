@@ -9,6 +9,7 @@ import msa.application.exceptions.InternalMsaException;
 import msa.application.service.base.BaseService;
 import msa.domain.object.documenti.DocumentoDO;
 import msa.infrastructure.repository.DocumentiRepository;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
@@ -112,6 +113,9 @@ public class DocumentiService extends BaseService {
      */
     private String saveFileOnDirectory(final MultipartFile file, final Integer numSinistro) throws InternalMsaException {
         try {
+            if(!Files.exists(Paths.get(properties.getPathDocumenti())))
+                Files.createDirectory(Paths.get(properties.getPathDocumenti()));
+
             if (!Files.exists(Paths.get(properties.getPathDocumenti() + "\\" + numSinistro + "\\"))) {
                 Files.createDirectory(Paths.get(properties.getPathDocumenti() + "\\" + numSinistro + "\\"));
             }

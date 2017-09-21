@@ -141,8 +141,11 @@ public final class FunctionUtils {
         }
 
         public <U> void of(Map<U,List<Function<U,Stream<T>>>> map) {
-            this.stream = map.entrySet().stream()
-                    .flatMap(e -> e.getValue().stream().map(elem -> elem.apply(e.getKey())))
+            this.stream = map.entrySet()
+                    .stream()
+                    .flatMap(e -> e.getValue()
+                            .stream()
+                            .map(elem -> elem.apply(e.getKey())))
                     .reduce(null,
                             (a,b) -> Optional.ofNullable(a).map(e -> Stream.concat(e, b)).orElseGet(() -> b),
                             (a,b) -> a);
