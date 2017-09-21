@@ -47,7 +47,6 @@ public final class FunctionUtils {
      * @param toEvaluate date to check
      * @param dateStart  left side date
      * @param dateEnd    right side date
-     * @param <T>        all date's son
      * @return is between or not
      */
     public static Boolean between(Date toEvaluate, Date dateStart, Date dateEnd) {
@@ -61,7 +60,6 @@ public final class FunctionUtils {
      * @param dateStart   left side date
      * @param dateEnd     right side date
      * @param isInclusive is inclusive or not
-     * @param <T>         all date's son
      * @return is between or not
      */
     public static Boolean between(Date toEvaluate, Date dateStart, Date dateEnd, Boolean isInclusive) {
@@ -140,7 +138,7 @@ public final class FunctionUtils {
         public StreamBuilder() {
         }
 
-        public <U> void of(Map<U,List<Function<U,Stream<T>>>> map) {
+        public <U> StreamBuilder<T> of(Map<U,List<Function<U,Stream<T>>>> map) {
             this.stream = map.entrySet()
                     .stream()
                     .flatMap(e -> e.getValue()
@@ -149,6 +147,7 @@ public final class FunctionUtils {
                     .reduce(null,
                             (a,b) -> Optional.ofNullable(a).map(e -> Stream.concat(e, b)).orElseGet(() -> b),
                             (a,b) -> a);
+            return this;
         }
 
         public Stream<T> getStream() {

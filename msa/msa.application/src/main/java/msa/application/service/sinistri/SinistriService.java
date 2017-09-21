@@ -495,50 +495,13 @@ public class SinistriService extends BaseSinistroService {
         }
     }
 
-    private Predicate<AnagraficaTerzePartiDO> terzePartiPD =
-            e -> {
-                final Optional<RuoliDO> first = domainRepository.getElencoRuoli().stream().filter(elem -> elem.getId().toString().equals(e.getCodRuolo())).findFirst();
-                final String pdAss = first.map(RuoliDO::getPdAss).orElse(null);
-                return pdAss.equals(MsaCostanti.COD_PARTITA_DANNO);
-            };
-
     public List<Map<String, Serializable>> getSinistroPartiteDanno(final Integer numSinistroProvv) throws InternalMsaException {
         return getSinistroPartiteDannoSvc(numSinistroProvv);
     }
 
     private List<Map<String, Serializable>> getSinistroPartiteDannoSvc(final Integer numSinistroProvv) throws InternalMsaException {
         try {
-            final SinistroRcaDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv, SinistroRcaDO.class);
-            final Map<SinistroRcaDO, List<Function<SinistroRcaDO, Stream<FullAnagraficaControparteDO>>>> map = new HashMap<>();
-            final List<Function<SinistroRcaDO, Stream<FullAnagraficaControparteDO>>> functions = new ArrayList<>();
-            functions.add((SinistroRcaDO e) -> {
-                final Boolean sameproprietario = e.getContraente().getCf().equalsIgnoreCase(e.getProprietario().getCf());
-                if (sameproprietario) {
-                    return Stream.of(e.getContraente());
-                } else {
-                    return Stream.of(e.getContraente(), e.getProprietario());
-                }
-            });
-            if (sinistroByNumProvv.getDannoRca().getConducenteDiverso()) {
-                functions.add(e -> Stream.of(e.getDannoRca().getAnagraficaDanniCliente().getAnagrafica()));
-            }
-            functions.add(e -> Optional.ofNullable(e.getDannoRca()
-                    .getAnagraficaDanniControparte())
-                    .map(elem -> elem.stream().map(AnagraficaDanniDO::getAnagrafica))
-                    .orElse(Stream.empty()));
-            functions.add(e -> Optional.ofNullable(e.getDannoRca()
-                    .getTerzeParti())
-                    .map(terzaParte -> terzaParte.stream()
-                            .filter(elem -> {
-                                final Optional<RuoliDO> first = domainRepository.getElencoRuoli().stream().filter(elem2 -> elem2.getId().toString().equals(elem.getCodRuolo())).findFirst();
-                                final String pdAss = first.map(RuoliDO::getPdAss).orElse(null);
-                                return pdAss.equals(MsaCostanti.COD_PARTITA_DANNO);
-                            }).map(row -> converter.convertObject(row, FullAnagraficaControparteDO.class)))
-                    .orElse(Stream.empty()));
-            map.put(sinistroByNumProvv, functions);
-            FunctionUtils.StreamBuilder<FullAnagraficaControparteDO> streamBuilder = new FunctionUtils.StreamBuilder<>();
-            streamBuilder.of(map);
-            return streamBuilder.getStream()
+            return getStreamPd(numSinistroProvv)
                     .map(e -> GenericTupla.instance(
                             e.getTarga(), //Todo check if is terza parte
                             domainRepository.getDesRuoloById(e.getCodRuolo()),

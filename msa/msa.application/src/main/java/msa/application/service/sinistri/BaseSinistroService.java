@@ -25,6 +25,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.math.BigDecimal;
 import java.util.*;
 import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Created by simon.calabrese on 02/08/2017.
@@ -72,10 +74,6 @@ public class BaseSinistroService extends BaseService {
         coupleSinistroFunctions.add(new SinistroFunction<>(SinistroInfortuniConducenteDTO.class, INFORTUNI_CONDUCENTE));
         //coupleSinistroFunctions.add(new SinistroFunction<>(CentroConvenzionatoDTO.class, CENTRO_CONVENZIONATO));
 
-    }
-
-    protected <T extends AbstractDTO, E extends BaseSinistroDO> BaseSinistroDO getSinistroDOByDTOAndFunction(T dto, Integer numProvv, MsaBiFunction<T, Integer, E> andThen) throws InternalMsaException {
-        return andThen.apply(dto, numProvv);
     }
 
 
@@ -195,21 +193,6 @@ public class BaseSinistroService extends BaseService {
                     throw new InternalMsaException();
                 }
             };
-    /* protected final MsaBiFunction<List<AnagraficaTerzePartiDTO>, Integer, BaseSinistroDO> LEGALE =
-             (O, numSinistroProvv) -> {
-                 try {
-                     final BaseSinistroDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv, BaseSinistroDO.class);
-                     List<AnagraficaTerzePartiDO> anagraficaTerzePartiDO = converter.convertList(O, AnagraficaTerzePartiDO.class);
-
-                      if (anagraficaTerzePartiDO.size() == 0 || sinistroByNumProvv.getLegali() == null) {
-                         sinistroByNumProvv.setLegali(new ArrayList<>());
-                     }
-                     sinistroByNumProvv.getLegali().addAll(anagraficaTerzePartiDO);
-                     return sinistroByNumProvv;
-                 } catch (Exception e) {
-                     throw new InternalMsaException();
-                 }
-             };*/
     private final MsaFunction<SinistroRcaDO, SinistroRcaDO> ADD_DES_TO_CAI = cai -> {
         try {
             cai.getCai().getBaremesCliente().setDescrizione(domainRepository.getDesbaremesById(cai.getCai().getBaremesCliente().getId()).getDescrizione());
@@ -234,17 +217,6 @@ public class BaseSinistroService extends BaseService {
                 }
             };
 
-    /*    private final MsaBiFunction<PeritoDTO, Integer, BaseSinistroDO> PERITO =
-                (perito, numSinistro) -> {
-                    try {
-                        final BaseSinistroDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistro, BaseSinistroDO.class);
-                        PeritoDO peritoDO = converter.convertObject(perito, PeritoDO.class);
-                        sinistroByNumProvv.setPerito(peritoDO);
-                        return sinistroByNumProvv;
-                    } catch (Exception e) {
-                        throw new InternalMsaException();
-                    }
-                };*/
     private final MsaBiFunction<SinistroFurtoIncendioDTO, Integer, SinistroFurtoIncendioDO> SINISTRO_FURTO_INCENDIO =
             (o, numSinistro) -> {
                 try {
@@ -322,4 +294,55 @@ public class BaseSinistroService extends BaseService {
             };
 
 
+    protected<T extends BaseSinistroDO> Stream<FullAnagraficaControparteDO> getStreamPd(Integer numSinistroProvv) throws Exception {
+        T sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv);
+        if(sinistroByNumProvv.getSegnalazione().getGaranziaSelected().equals(MsaCostanti.COD_GARANZIA_RCA)) {
+            final Map<SinistroRcaDO, List<Function<SinistroRcaDO, Stream<FullAnagraficaControparteDO>>>> mapRca = new HashMap<>();
+            final List<Function<SinistroRcaDO, Stream<FullAnagraficaControparteDO>>> functionsRca = new ArrayList<>();
+            functionsRca.add(e -> {
+                final Boolean sameproprietario = e.getContraente().getCf().equalsIgnoreCase(e.getProprietario().getCf());
+                if (sameproprietario) {
+                    return Stream.of(e.getContraente());
+                } else {
+                    return Stream.of(e.getContraente(), e.getProprietario());
+                }
+            });
+            final SinistroRcaDO sinistroRcaDO = (SinistroRcaDO) sinistroByNumProvv;
+            if (sinistroRcaDO.getDannoRca().getConducenteDiverso()) {
+                functionsRca.add(e -> Stream.of(e.getDannoRca().getAnagraficaDanniCliente().getAnagrafica()));
+            }
+            functionsRca.add(e -> Optional.ofNullable(e.getDannoRca()
+                    .getAnagraficaDanniControparte())
+                    .map(elem -> elem.stream().map(AnagraficaDanniDO::getAnagrafica))
+                    .orElse(Stream.empty()));
+            functionsRca.add(e -> Optional.ofNullable(e.getDannoRca()
+                    .getTerzeParti())
+                    .map(terzaParte -> terzaParte.stream()
+                            .filter(elem -> {
+                                final Optional<RuoliDO> first = domainRepository.getElencoRuoli().stream().filter(elem2 -> elem2.getId().toString().equals(elem.getCodRuolo())).findFirst();
+                                final String pdAss = first.map(RuoliDO::getPdAss).orElse(null);
+                                return pdAss.equals(MsaCostanti.COD_PARTITA_DANNO);
+                            }).map(row -> converter.convertObject(row, FullAnagraficaControparteDO.class)))
+                    .orElse(Stream.empty()));
+            mapRca.put(sinistroRcaDO, functionsRca);
+            final FunctionUtils.StreamBuilder<FullAnagraficaControparteDO> streamBuilder = new FunctionUtils.StreamBuilder<>();
+            streamBuilder.of(mapRca);
+            return streamBuilder.getStream();
+        } else {
+            final Map<T, List<Function<T, Stream<FullAnagraficaControparteDO>>>> map = new HashMap<>();
+            final List<Function<T, Stream<FullAnagraficaControparteDO>>> functions = new ArrayList<>();
+            functions.add(e -> {
+                final Boolean sameproprietario = e.getContraente().getCf().equalsIgnoreCase(e.getProprietario().getCf());
+                if (sameproprietario) {
+                    return Stream.of(e.getContraente());
+                } else {
+                    return Stream.of(e.getContraente(), e.getProprietario());
+                }
+            });
+            map.put(sinistroByNumProvv,functions);
+            final FunctionUtils.StreamBuilder<FullAnagraficaControparteDO> streamBuilder = new FunctionUtils.StreamBuilder<>();
+            streamBuilder.of(map);
+            return streamBuilder.getStream();
+        }
+    }
 }
