@@ -227,6 +227,9 @@ public class SinistriService extends BaseSinistroService {
             final List<Object> objects = execInParallel(
                     () -> {
                         newSinistro.setSegnalazione(converter.convertObject(input, SegnalazioneDO.class));
+                        newSinistro.setLegali(null);
+                        newSinistro.setCentroConvenzionato(null);
+                        newSinistro.setPerito(null);
                         return salvaSinistro(converter.convertObject(newSinistro, BaseSinistroDO.class));
                     },
                     () -> dispatcherService.resetView(input.getGaranziaSelected(), numSinistroProvv)
