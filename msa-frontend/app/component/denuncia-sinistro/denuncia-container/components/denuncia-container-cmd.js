@@ -100,8 +100,6 @@
                 };
 
                 $ctrl.isMappaVisibile = function (nomeMappa) {
-                    // if(!$ctrl.scrollable) TODO
-                    //     return false;
                     // TODO ad un certo punto, escluso m13, gli altri potrebbero essere case default
                     switch (nomeMappa) {
                         case 'M11':
@@ -172,6 +170,14 @@
                         $ctrl.tempSegnalazione.numeroPolizza = $ctrl.sinistroProvvisorio.numeroPolizza;
                     });
                 };
+
+                $scope.$on("$locationChangeStart", function(event, next, current) {
+                    DebugSvc.log("$locationChangeStart, svuoto cache sinistro");
+                    $ctrl.mappe = [];
+                    $ctrl.sinistroProvvisorio = undefined;
+                    $ctrl.scrollable = false;
+                    $ctrl.percentuale = 0;
+                });
 
                 $scope.$watch(
                     function watchScope(scope) {
