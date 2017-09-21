@@ -116,6 +116,7 @@
                     if (newValue.comuneSelezionato !== oldValue.comuneSelezionato) {
                         if (!_.isObject(newValue.comuneSelezionato)) {
                             $ctrl.result.comune = undefined;
+                            $ctrl.capSelezionato = undefined;
                             $ctrl.caps = [];
                         } else {
 
@@ -164,9 +165,9 @@
 
                     $ctrl.$valid = false;
                     if ($ctrl.required) {
-                        $ctrl.$valid = PlacesSvc.isValidPlace($ctrl.result.nazione, $ctrl.result.provincia, $ctrl.result.comune);
+                        $ctrl.$valid = PlacesSvc.isValidPlace($ctrl.result.nazione, $ctrl.result.provincia, $ctrl.result.comune, $ctrl.result.cap);
                     } else {
-                        $ctrl.$valid = PlacesSvc.isValidPlace($ctrl.result.nazione, $ctrl.result.provincia, $ctrl.result.comune) || $ctrl.isFormEmpty();
+                        $ctrl.$valid = PlacesSvc.isValidPlace($ctrl.result.nazione, $ctrl.result.provincia, $ctrl.result.comune, $ctrl.result.cap) || $ctrl.isFormEmpty();
                     }
                     $scope[$scope.name].$setValidity("place", $ctrl.$valid, $ctrl);
 

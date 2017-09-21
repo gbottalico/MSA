@@ -57,12 +57,12 @@ angular.module('msa').service(
                 return $http.get(msaServicesApiUrls.toponomastiche);
             };
 
-            $svc.isValidPlace = function (nazione, provincia, comune) {
+            $svc.isValidPlace = function (nazione, provincia, comune, cap) {
                 if (_.isObject(nazione)) {
                     if (nazione.codNazione > 1) {
                         return true;
                     } else {
-                        return !!(_.isObject(provincia) && provincia.codProvincia && _.isObject(comune) && comune.codComune);
+                        return !!(_.isObject(provincia) && provincia.codProvincia && _.isObject(comune) && comune.codComune && cap);
                     }
                 } else {
                     return false;
