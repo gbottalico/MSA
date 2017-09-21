@@ -66,7 +66,7 @@ angular.module('msa').service(
                         DebugSvc.log("Exception", ex);
                     }
                 }).error(function (data) {
-                    DebugSvc.log("Impossibile scaricare il file.");
+                    DebugSvc.log("Impossibile scaricare il file.", data);
                 });
             }
         }
