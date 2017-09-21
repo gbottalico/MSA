@@ -33,7 +33,7 @@ logging:
   file: /Sviluppo/msa_logs/msa.log
 msa:
   profile: locale
-  pathDocumenti: C:\MSA\DOCUMENTI\
+  pathDocumenti: C:\MSA\DOCUMENTI
   basePath: localhost:8080/msa
   restUrl:
     api:
