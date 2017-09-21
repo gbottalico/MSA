@@ -105,22 +105,8 @@ angular.module('msa').service(
                 data.dataOraSinistro = datiSegnalazione.provenienza.dataSinistro;
                 data.oraSinistro = datiSegnalazione.provenienza.oraSinistro;
 
-                //TODO creare un metodo di questa roba.
-                data.luogoSinistro = {};
-                data.luogoSinistro.codNazione = datiSegnalazione.luogo.nazione.codNazione;
-                data.luogoSinistro.descrizioneNazione = datiSegnalazione.luogo.nazione.descrizione;
-                if(_.isObject(datiSegnalazione.luogo.provincia)) {
-                    data.luogoSinistro.codProvincia = datiSegnalazione.luogo.provincia.codProvincia;
-                    data.luogoSinistro.descrizioneProvincia = datiSegnalazione.luogo.provincia.descProvincia;
-                }
-                if(_.isObject(datiSegnalazione.luogo.comune)) {
-                    data.luogoSinistro.codComune = datiSegnalazione.luogo.comune.codComune;
-                    data.luogoSinistro.descrizioneComune = datiSegnalazione.luogo.comune.descrizione;
-                    data.luogoSinistro.cap = datiSegnalazione.luogo.cap;
-                }
-
+                data.luogoSinistro = ConvertSvc.luogoToDTO(datiSegnalazione.luogo);
                 data.indirizzo = datiSegnalazione.luogo.indirizzo;
-
                 data.garanziaSelected = datiSegnalazione.garanzia;
 
                 var url = UtilSvc.stringFormat(msaServicesApiUrls.aprisegnalazione, idSinistroProvvisorio);
