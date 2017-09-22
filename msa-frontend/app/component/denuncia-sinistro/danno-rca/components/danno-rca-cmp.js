@@ -42,36 +42,17 @@
                 });
 
                 $ctrl.bindDannoRca = function () {
-                    if (_.isObject($ctrl.sinistroProvvisorio.dannoRca)) {
 
+                    if (_.isObject($ctrl.sinistroProvvisorio.dannoRca)) {
                         $ctrl.dannoRca.lesioniConducente = $ctrl.sinistroProvvisorio.dannoRca.lesioniConducente;
                         $ctrl.dannoRca.conducenteIsNotContraente = $ctrl.sinistroProvvisorio.dannoRca.conducenteDiverso;
                         if (_.isObject($ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente)) {
                             $ctrl.persistence.dannoCliente = $ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente.danni;
                             $ctrl.dannoRca.descrizioneDannoCliente = $ctrl.persistence.dannoCliente.descrizioneDanno;
                             if ($ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente.anagrafica && $ctrl.dannoRca.conducenteIsNotContraente === true) {
-                                var anagrafica = $ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente.anagrafica;
 
-                                $ctrl.dannoRca.conducente.cognome = anagrafica.cognome;
-                                $ctrl.dannoRca.conducente.nome = anagrafica.nome;
-                                $ctrl.dannoRca.conducente.sesso = anagrafica.sesso;
-                                $ctrl.dannoRca.conducente.cf = anagrafica.cf;
-                                $ctrl.dannoRca.conducente.nascita = {};
-
-                                if (anagrafica.dataNascita) {
-                                    $ctrl.dannoRca.conducente.nascita.data = new Date(anagrafica.dataNascita);
-                                }
-
-                                $ctrl.persistence.luogoNascita = anagrafica.luogoNascita;
-
-                                if (_.isObject(anagrafica.tracking)) {
-                                    $ctrl.dannoRca.conducente.telefono = anagrafica.tracking.telefono;
-                                    $ctrl.dannoRca.conducente.mail = anagrafica.tracking.mail;
-                                    $ctrl.persistence.residenza = anagrafica.tracking.residenza;
-
-                                    $ctrl.dannoRca.conducente.residenza = {};
-                                    $ctrl.dannoRca.conducente.residenza.indirizzo = anagrafica.tracking.indirizzo;
-                                }
+                                var anagrafica = _.cloneDeep($ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente.anagrafica);
+                                $ctrl.dannoRca.conducente = anagrafica;
 
                                 $ctrl.dannoRca.veicoloCliente = {};
                                 if (anagrafica.veicolo) {

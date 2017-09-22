@@ -15,6 +15,7 @@
                 var $translate = $filter('translate');
                 var parent = $scope.$parent;
                 $ctrl.mapId = 'M23';
+                $ctrl.isInputConsumed = false;
 
                 $ctrl.homeIcon = $MSAC.RESOURCES.HOME_ICON;
                 $ctrl.wrenchIcon = $MSAC.RESOURCES.WRENCH_ICON;
@@ -206,8 +207,9 @@
                     },
                     function handleChanges(newValues, oldValues) {
 
-                        if (_.isObject(newValues.sinistroProvvisorio)) {
+                        if (!$ctrl.isInputConsumed && _.isObject(newValues.sinistroProvvisorio)) {
                             $ctrl.bindCarrozzeriaConvenzionata();
+                            $ctrl.isInputConsumed = true;
                         }
 
                     }, true
