@@ -131,6 +131,8 @@
                             return $ctrl.mappe.indexOf('M32') > -1;
                         case 'M33':
                             return $ctrl.mappe.indexOf('M33') > -1;
+                        case 'M34':
+                            return $ctrl.mappe.indexOf('M34') > -1;
                         default:
                             return false;
                     }

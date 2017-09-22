@@ -381,6 +381,31 @@ angular.module('msa').service(
 
             };
 
+            $svc.salvaInfortuni = function (idSinistroProvvisorio, infortuni) {
+
+                var dataObj = {
+                    descrizioneDanni: infortuni.descrizioneDanni,
+                    osservazioniCliente: infortuni.osservazioniCliente,
+                    interventoAutorita: infortuni.interventoAutorita,
+                };
+
+                if (infortuni.interventoAutorita) {
+                    dataObj.codAutorita = infortuni.autoritaIntervenuta;
+                    dataObj.comandoAutorita = infortuni.comandoAutorita;
+                    dataObj.dataDenuncia = infortuni.dataDenuncia;
+                }
+
+                dataObj.conducenteDiverso = infortuni.conducenteIsNotContraente;
+
+                if (infortuni.conducente) {
+                    dataObj.conducente = ConvertSvc.anagraficaToDTO(infortuni.conducente);
+                }
+
+                var url = UtilSvc.stringFormat(msaServicesApiUrls.infortuni, idSinistroProvvisorio);
+                return $http.post(url, dataObj);
+
+            };
+
             $svc.getPartiteDanno = function (idSinistroProvvisorio) {
                 var url = UtilSvc.stringFormat(msaServicesApiUrls.partitedanno, idSinistroProvvisorio);
                 return $http.get(url);
