@@ -1,4131 +1,904 @@
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(47), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "AREZZO", 
     "siglaProv" : "AR"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(48), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "FIRENZE", 
     "siglaProv" : "FI"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(45), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "REGGIO EMILIA", 
     "siglaProv" : "RE"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(42), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "PARMA", 
     "siglaProv" : "PR"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(43), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "PIACENZA", 
     "siglaProv" : "PC"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(44), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "RAVENNA", 
     "siglaProv" : "RA"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(24), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "PADOVA", 
     "siglaProv" : "PD"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(23), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "BELLUNO", 
     "siglaProv" : "BL"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(22), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "TRENTO", 
     "siglaProv" : "TN"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(96), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "PALERMO", 
     "siglaProv" : "PA"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(95), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "MESSINA", 
     "siglaProv" : "ME"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(93), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "CATANIA", 
     "siglaProv" : "CT"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(94), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "ENNA", 
     "siglaProv" : "EN"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(74), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "AVELLINO", 
     "siglaProv" : "AV"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(73), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "ISERNIA", 
     "siglaProv" : "IS"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(72), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "CAMPOBASSO", 
     "siglaProv" : "CB"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(40), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "FORLI CESENA", 
     "siglaProv" : "FC"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(41), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "MODENA", 
     "siglaProv" : "MO"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(90), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "VIBO VALENTIA", 
     "siglaProv" : "VV"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(91), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "AGRIGENTO", 
     "siglaProv" : "AG"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(92), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "CALTANISSETTA", 
     "siglaProv" : "CL"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(70), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "PESCARA", 
     "siglaProv" : "PE"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(71), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "TERAMO", 
     "siglaProv" : "TE"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(38), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "BOLOGNA", 
     "siglaProv" : "BO"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(39), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "FERRARA", 
     "siglaProv" : "FE"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(104), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : ISODate("1947-12-31T00:00:00.000+0000"), 
     "desProv" : "FIUME", 
     "siglaProv" : "FM"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(105), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : ISODate("1947-09-01T00:00:00.000+0000"), 
     "desProv" : "POLA", 
     "siglaProv" : "PL"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(106), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : ISODate("1945-01-01T00:00:00.000+0000"), 
     "desProv" : "ZARA", 
     "siglaProv" : "ZA"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(99), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "TRAPANI", 
     "siglaProv" : "TP"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(100), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "CAGLIARI", 
     "siglaProv" : "CA"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(101), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "NUORO", 
     "siglaProv" : "NU"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(102), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "ORISTANO", 
     "siglaProv" : "OR"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(103), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "SASSARI", 
     "siglaProv" : "SS"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(6), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "TORINO", 
     "siglaProv" : "TO"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(5), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "NOVARA", 
     "siglaProv" : "NO"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(4), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "CUNEO", 
     "siglaProv" : "CN"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "ALESSANDRIA", 
-    "siglaProv" : "AL"
+    "codNazione" : NumberInt(347), 
+    "iniValidita" : ISODate("2008-08-21T00:00:00.000+0000"), 
+    "finValidita" : ISODate("2012-10-31T00:00:00.000+0000"), 
+    "desProv" : "TERRITORI DELL'AUTONOMIA PALESTINESE", 
+    "siglaProv" : "EE"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(35), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "IMPERIA", 
     "siglaProv" : "IM"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(20), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "VARESE", 
     "siglaProv" : "VA"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(12), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "COMO", 
     "siglaProv" : "CO"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(17), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "MILANO", 
     "siglaProv" : "MI"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(10), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "BERGAMO", 
     "siglaProv" : "BG"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(11), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "BRESCIA", 
     "siglaProv" : "BS"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(18), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "PAVIA", 
     "siglaProv" : "PV"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(13), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "CREMONA", 
     "siglaProv" : "CR"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(21), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "BOLZANO", 
     "siglaProv" : "BZ"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(30), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "GORIZIA", 
     "siglaProv" : "GO"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(32), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "TRIESTE", 
     "siglaProv" : "TS"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(62), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "PESARO E URBINO", 
     "siglaProv" : "PU"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(60), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "ASCOLI PICENO", 
     "siglaProv" : "AP"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(89), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "REGGIO CALABRIA", 
     "siglaProv" : "RC"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(69), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "L AQUILA", 
     "siglaProv" : "AQ"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(36), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "LA SPEZIA", 
     "siglaProv" : "SP"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(37), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "SAVONA", 
     "siglaProv" : "SV"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(57), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "PERUGIA", 
     "siglaProv" : "PG"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(66), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "ROMA", 
     "siglaProv" : "RM"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(75), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "BENEVENTO", 
     "siglaProv" : "BN"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(87), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "COSENZA", 
     "siglaProv" : "CS"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(76), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "CASERTA", 
     "siglaProv" : "CE"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(77), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "NAPOLI", 
     "siglaProv" : "NA"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(78), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "SALERNO", 
     "siglaProv" : "SA"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(79), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "BARI", 
     "siglaProv" : "BA"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(80), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "BRINDISI", 
     "siglaProv" : "BR"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(81), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "FOGGIA", 
     "siglaProv" : "FG"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(82), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "LECCE", 
     "siglaProv" : "LE"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(84), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "MATERA", 
     "siglaProv" : "MT"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(85), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "POTENZA", 
     "siglaProv" : "PZ"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(86), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "CATANZARO", 
     "siglaProv" : "CZ"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(88), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "CROTONE", 
     "siglaProv" : "KR"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(68), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "CHIETI", 
     "siglaProv" : "CH"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(53), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "PISA", 
     "siglaProv" : "PI"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(56), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "SIENA", 
     "siglaProv" : "SI"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(59), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "ANCONA", 
     "siglaProv" : "AN"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(61), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "MACERATA", 
     "siglaProv" : "MC"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(63), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "FROSINONE", 
     "siglaProv" : "FR"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(64), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "LATINA", 
     "siglaProv" : "LT"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(65), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "RIETI", 
     "siglaProv" : "RI"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(67), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "VITERBO", 
     "siglaProv" : "VT"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(34), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "GENOVA", 
     "siglaProv" : "GE"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(52), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "MASSA", 
     "siglaProv" : "MS"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(26), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "TREVISO", 
     "siglaProv" : "TV"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(27), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "VENEZIA", 
     "siglaProv" : "VE"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(28), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "VERONA", 
     "siglaProv" : "VR"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(29), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "VICENZA", 
     "siglaProv" : "VI"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(33), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "UDINE", 
     "siglaProv" : "UD"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(46), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "RIMINI", 
     "siglaProv" : "RN"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(49), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "GROSSETO", 
     "siglaProv" : "GR"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(15), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "LODI", 
     "siglaProv" : "LO"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(16), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "MANTOVA", 
     "siglaProv" : "MN"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(19), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "SONDRIO", 
     "siglaProv" : "SO"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(83), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "TARANTO", 
     "siglaProv" : "TA"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(31), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "PORDENONE", 
     "siglaProv" : "PN"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(25), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "ROVIGO", 
     "siglaProv" : "RO"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(7), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "VERBANO CUSIO OSSOLA", 
     "siglaProv" : "VB"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(8), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "VERCELLI", 
     "siglaProv" : "VC"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(9), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "AOSTA", 
     "siglaProv" : "AO"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(14), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "LECCO", 
     "siglaProv" : "LC"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(2), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "ASTI", 
     "siglaProv" : "AT"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(58), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "TERNI", 
     "siglaProv" : "TR"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(51), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "LUCCA", 
     "siglaProv" : "LU"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(54), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "PISTOIA", 
     "siglaProv" : "PT"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(97), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "RAGUSA", 
     "siglaProv" : "RG"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(98), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "SIRACUSA", 
     "siglaProv" : "SR"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(55), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1992-04-16T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "PRATO", 
     "siglaProv" : "PO"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(50), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "LIVORNO", 
     "siglaProv" : "LI"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(3), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "BIELLA", 
     "siglaProv" : "BI"
 }
 { 
-     
-    "codNazione" : NumberInt(2), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "AFGHANISTAN", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(3), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "desProv" : "AFRICA DEL SUD-OVEST", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(4), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "ALBANIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(5), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "ALGERIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(6), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "ANDORRA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(7), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1977-12-31T00:00:00.000+0000"), 
-    "desProv" : "ANGOLA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(8), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1977-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "ANGOLA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(9), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1980-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "ANGUILLA (ISOLA)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(10), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1984-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "ANTIGUA E BARBUDA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(11), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "desProv" : "ANTILLE BRITANNICHE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(12), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1977-12-31T00:00:00.000+0000"), 
-    "desProv" : "ANTILLE BRITANNICHE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(13), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1977-12-31T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1980-12-31T00:00:00.000+0000"), 
-    "desProv" : "ANTILLE BRITANNICHE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(14), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1980-12-31T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1984-12-31T00:00:00.000+0000"), 
-    "desProv" : "ANTILLE BRITANNICHE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(15), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "ANTILLE OLANDESI", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(16), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "desProv" : "ARABIA MERIDIONALE FEDERAZIONE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(17), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "desProv" : "ARABIA MERIDIONALE PROTETTORATO", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(18), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "ARABIA SAUDITA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(19), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "ARGENTINA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(20), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1991-09-23T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1994-01-01T00:00:00.000+0000"), 
-    "desProv" : "ARMENIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(21), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "ARMENIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(22), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "AUSTRALIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(23), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "AUSTRIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(24), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1991-08-30T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1994-01-01T00:00:00.000+0000"), 
-    "desProv" : "AZERBAIGIAN", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(25), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1994-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "AZERBAIGIAN", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(26), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "BAHAMA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(27), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "desProv" : "BAHAMA (ISOLE)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(28), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "desProv" : "BAHREIN", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(29), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "BAHREIN", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(30), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "BANGLADESH", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(31), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "BARBADOS", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(32), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1966-10-01T00:00:00.000+0000"), 
-    "desProv" : "BASUTOLAND-SUD AFRICA BRITANNICO", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(33), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1966-10-01T00:00:00.000+0000"), 
-    "desProv" : "BECIUANIA-SUD AFRICA BRITANNICO", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(34), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "BELGIO", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(35), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1984-12-31T00:00:00.000+0000"), 
-    "desProv" : "BELIZE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(36), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1984-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "BELIZE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(37), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "BENIN", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(38), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "BERMUDA (ISOLE)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(39), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "BHUTAN", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(40), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1991-08-25T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "BIELORUSSIA=RUSSIA BIANCA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(41), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "BIRMANIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(42), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "BOLIVIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(43), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1978-12-31T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1994-01-01T00:00:00.000+0000"), 
-    "desProv" : "BOPHUTHATSWANA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(44), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1992-03-03T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "BOSNIA ED ERZEGOVINA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(45), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1966-10-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "BOTSWANA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(46), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "BRASILE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(47), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1984-12-31T00:00:00.000+0000"), 
-    "desProv" : "BRUNEI", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(48), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1984-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "BRUNEI", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(49), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "BULGARIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(50), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1984-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "BURKINA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(51), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "BURUNDI", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(52), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "CAMBOGIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(53), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "CAMERUN", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(54), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "CANADA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(55), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "CAPO VERDE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(56), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "desProv" : "CAPO VERDE (ISOLE)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(57), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1984-12-31T00:00:00.000+0000"), 
-    "desProv" : "CAROLINE (ISOLE)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(58), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1984-12-31T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1990-12-22T00:00:00.000+0000"), 
-    "desProv" : "CAROLINE (ISOLE)=STATI FEDERATI DI MICRONESIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(59), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1980-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "CAYMAN (ISOLE)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(60), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1993-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "CECA REPUBBLICA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(61), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1993-01-01T00:00:00.000+0000"), 
-    "desProv" : "CECOSLOVACCHIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(62), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1980-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "CENTRAFRICANA REPUBBLICA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(63), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1977-12-31T00:00:00.000+0000"), 
-    "desProv" : "CENTROAFRICANA REPUBBLICA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(64), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1977-12-31T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1980-12-31T00:00:00.000+0000"), 
-    "desProv" : "CENTROAFRICANO IMPERO", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(65), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "desProv" : "CEYLON", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(66), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "CHRISTMAS (ISOLA)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(67), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "CIAD", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(68), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "CILE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(69), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "CINA REPUBBLICA POPOLARE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(70), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "CIPRO", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(71), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1984-12-31T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1994-01-01T00:00:00.000+0000"), 
-    "desProv" : "CISKEI", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(72), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "CITTA' DEL VATICANO", 
-    "siglaProv" : "SCV"
-}
-{ 
-     
-    "codNazione" : NumberInt(73), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "COCOS (ISOLE)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(74), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "COLOMBIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(75), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1977-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "COMORE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(76), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "desProv" : "COMORE (ISOLE)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(77), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1977-12-31T00:00:00.000+0000"), 
-    "desProv" : "COMORE (ISOLE)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(78), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "desProv" : "CONGO BRAZZAVILLE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(79), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "desProv" : "CONGO LEOPOLDVILLE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(80), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1997-05-17T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "CONGO REPUBBLICA DEMOCRATICA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(81), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "CONGO REPUBBLICA POPOLARE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(82), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "COOK (ISOLE)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(83), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "COREA DEL NORD", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(84), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "COREA DEL SUD", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(85), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "COSTA D'AVORIO", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(86), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "desProv" : "COSTA DEI PIRATI=TRUCIAL STATES", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(87), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "COSTA RICA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(88), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1991-10-08T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "CROAZIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(89), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "CUBA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(90), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "desProv" : "DAHOMEY=BENIN", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(91), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "DANIMARCA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(92), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "DIPENDENZE AUSTRALIANE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(93), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "DIPENDENZE BRITANNICHE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(94), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "DIPENDENZE CANADESI", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(95), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "DIPENDENZE FRANCESI", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(96), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "DIPENDENZE NEOZELANDESI", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(97), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "DIPENDENZE NORVEGESI ANTARTICHE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(98), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "DIPENDENZE NORVEGESI ARTICHE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(99), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1992-03-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "DIPENDENZE RUSSE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(197), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "MALVINE=FALKLAND (ISOLE)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(198), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "MAN (ISOLA)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(199), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "desProv" : "MARCUS (ISOLE)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(200), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "MARIANNE (ISOLE)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(201), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "MAROCCO", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(202), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1990-12-22T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "MARSHALL", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(203), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1990-12-22T00:00:00.000+0000"), 
-    "desProv" : "MARSHALL (ISOLE)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(204), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "MARTINICA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(205), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "MAURITANIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(206), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "MAURIZIO", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(207), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "desProv" : "MAURIZIO (ISOLE)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(208), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1977-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "MAYOTTE (ISOLA)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(209), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "MESSICO", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(210), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1990-12-22T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "MICRONESIA STATI FEDERATI", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(211), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "MIDWAY (ISOLE)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(212), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "MOLDAVIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(213), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "MONACO", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(214), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "MONGOLIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(215), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1980-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "MONTSERRAT", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(216), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "desProv" : "MOZAMBICO", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(217), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "MOZAMBICO", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(218), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1978-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "NAMIBIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(219), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1978-12-31T00:00:00.000+0000"), 
-    "desProv" : "NAMIBIA=AFRICA DEL SUD OVEST", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(220), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "NAURU", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(221), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "desProv" : "NAURU (ISOLE)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(222), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "NEPAL", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(223), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "NICARAGUA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(224), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "NIGER", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(225), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "NIGERIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(226), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "NIUE=SAVAGE (ISOLE)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(227), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "NORFOLK (ISOLE E ISOLE DEL MAR DEI CORALLI)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(228), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "NORMANNE (ISOLE)=ISOLE DEL CANALE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(229), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "NORVEGIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(230), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "NUOVA CALEDONIA (ISOLE E DIPENDENZE)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(231), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "desProv" : "NUOVA GUINEA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(232), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "NUOVA ZELANDA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(233), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1980-12-31T00:00:00.000+0000"), 
-    "desProv" : "NUOVE EBRIDI (ISOLE CONDOMINIO FRANCO-INGLESE)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(234), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "OMAN", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(235), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "PAESI BASSI", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(236), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "PAKISTAN", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(237), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1997-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "PALAU", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(238), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1984-12-31T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1997-01-01T00:00:00.000+0000"), 
-    "desProv" : "PALAU REPUBBLICA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(239), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "PANAMA'", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(240), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1980-12-31T00:00:00.000+0000"), 
-    "desProv" : "PANAMA ZONA DEL CANALE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(241), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1980-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "PANAMA ZONA DEL CANALE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(242), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "PAPUA NUOVA GUINEA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(243), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "desProv" : "PAPUASIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(244), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "PARAGUAY", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(245), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1984-12-31T00:00:00.000+0000"), 
-    "desProv" : "PASQUA (ISOLA)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(246), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "PERU'", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(247), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "PITCAIRN (E DIPENDENZE)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(248), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "POLINESIA FRANCESE (ISOLE)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(249), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1989-12-31T00:00:00.000+0000"), 
-    "desProv" : "POLONIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(250), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "PORTOGALLO", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(251), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "PUERTO RICO", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(252), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "desProv" : "QATAR", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(253), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "QATAR", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(254), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "REPUBBLICA DELLA CINA NAZIONALE=TAIWAN", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(255), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1989-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "REPUBBLICA DI POLONIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(256), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1980-12-31T00:00:00.000+0000"), 
-    "desProv" : "RHODESIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(257), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "ROMANIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(258), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "RUANDA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(100), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1992-03-31T00:00:00.000+0000"), 
-    "desProv" : "DIPENDENZE SOVIETICHE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(101), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "DIPENDENZE STATUNITENSI", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(102), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "DIPENDENZE SUDAFRICANE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(103), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1980-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "DOMINICA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(104), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "DOMINICANA REPUBBLICA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(105), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "ECUADOR", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(106), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "EGITTO", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(107), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "EL SALVADOR", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(108), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "EMIRATI ARABI UNITI", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(109), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1993-05-24T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "ERITREA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(110), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1991-09-06T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "ESTONIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(111), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1993-05-24T00:00:00.000+0000"), 
-    "desProv" : "ETIOPIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(112), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1993-05-24T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "ETIOPIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(113), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "FAER OER (ISOLE)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(114), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "FIGI=VITI", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(115), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "desProv" : "FIGI=VITI (ISOLE)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(116), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "FILIPPINE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(117), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "FINLANDIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(118), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "desProv" : "FORMOSA=TAIWAN", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(119), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "FRANCIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(120), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "GABON", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(121), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "GAMBIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(122), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "GAZA (TERRITORIO DI)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(123), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1991-09-09T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1994-01-01T00:00:00.000+0000"), 
-    "desProv" : "GEORGIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(124), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "GEORGIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(125), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1990-10-03T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "GERMANIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(126), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1990-10-03T00:00:00.000+0000"), 
-    "desProv" : "GERMANIA REPUBBLICA DEMOCRATICA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(127), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1990-10-03T00:00:00.000+0000"), 
-    "desProv" : "GERMANIA REPUBBLICA FEDERALE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(128), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "GHANA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(129), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "GIAMAICA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(130), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "GIAPPONE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(131), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "GIBILTERRA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(132), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1977-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "GIBUTI", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(133), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1980-12-31T00:00:00.000+0000"), 
-    "desProv" : "GILBERT E ELLICE (ISOLE)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(134), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "GIORDANIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(135), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "GRAN BRETAGNA E IRLANDA DEL NORD", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(136), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "GRECIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(137), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1977-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "GRENADA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(138), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "GROENLANDIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(139), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "GUADALUPA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(140), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "GUAM (ISOLA)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(141), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "GUATEMALA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(142), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "desProv" : "GUAYANA OLANDESE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(143), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "GUAYANA=GUIANA FRANCESE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(144), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "GUINEA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(145), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "GUINEA BISSAU", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(146), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "GUINEA EQUATORIALE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(147), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "desProv" : "GUINEA PORTOGHESE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(148), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "desProv" : "GUINEA SPAGNOLA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(149), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "GUYANA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(150), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "desProv" : "GUYANA BRITANNICA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(151), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "HAITI", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(152), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "HONDURAS", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(153), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "desProv" : "HONDURAS BRITANNICO", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(154), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1997-07-01T00:00:00.000+0000"), 
-    "desProv" : "HONG KONG", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(155), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "desProv" : "IFNI", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(156), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1984-12-31T00:00:00.000+0000"), 
-    "desProv" : "IFNI", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(157), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "INDIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(158), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "INDONESIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(159), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "IRAN", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(160), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "IRAQ", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(161), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "IRIAN OCCIDENTALE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(162), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "IRLANDA=EIRE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(163), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "ISLANDA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(164), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1984-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "ISOLE CILENE (PASQUA E SALA Y GOMEZ)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(165), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "ISRAELE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(166), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1991-09-15T00:00:00.000+0000"), 
-    "desProv" : "IUGOSLAVIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(167), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1991-09-15T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1991-10-08T00:00:00.000+0000"), 
-    "desProv" : "IUGOSLAVIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(168), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1991-10-08T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1992-03-03T00:00:00.000+0000"), 
-    "desProv" : "IUGOSLAVIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(169), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1992-03-03T00:00:00.000+0000"), 
-    "finValidita" : ISODate("2003-02-04T00:00:00.000+0000"), 
-    "desProv" : "IUGOSLAVIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(170), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1991-12-16T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1994-01-01T00:00:00.000+0000"), 
-    "desProv" : "KAZAKISTAN", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(171), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1994-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "KAZAKISTAN", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(172), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "KENYA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(173), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1991-08-31T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1994-01-01T00:00:00.000+0000"), 
-    "desProv" : "KIRGHIZISTAN", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(174), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1994-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "KIRGHIZISTAN", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(175), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1980-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "KIRIBATI", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(176), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "KUWAIT", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(177), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "LA REUNION (ISOLA)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(178), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "LAOS", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(179), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1966-10-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "LESOTHO", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(180), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1991-09-06T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "LETTONIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(181), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "LIBANO", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(182), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "LIBERIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(183), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "LIBIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(184), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "LIECHTENSTEIN", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(185), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1991-09-06T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "LITUANIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(186), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "LUSSEMBURGO", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(187), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "MACAO", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(188), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1991-09-15T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "MACEDONIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(189), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "MACQUARIE (ISOLE)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(190), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "MADAGASCAR", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(191), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "MALAWI", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(192), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1966-10-01T00:00:00.000+0000"), 
-    "desProv" : "MALAYSIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(193), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1966-10-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "MALAYSIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(194), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "MALDIVE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(195), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "MALI", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(196), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "MALTA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(259), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1992-03-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "RUSSIA=FEDERAZIONE RUSSA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(260), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "desProv" : "RYUKYU (ISOLE)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(261), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1977-12-31T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1984-12-31T00:00:00.000+0000"), 
-    "desProv" : "SAHARA MERIDIONALE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(262), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1977-12-31T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1984-12-31T00:00:00.000+0000"), 
-    "desProv" : "SAHARA SETTENTRIONALE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(263), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1977-12-31T00:00:00.000+0000"), 
-    "desProv" : "SAHARA SPAGNOLO", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(264), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1984-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "SAINT KITTS E NEVIS=SAINT CHRISTOPHER E NEVIS", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(265), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1980-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "SAINT LUCIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(266), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "SAINT PIERRE ET MIQUELON (ISOLE)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(267), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1980-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "SAINT VINCENT E GRENADINE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(268), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1978-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "SALOMONE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(269), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1978-12-31T00:00:00.000+0000"), 
-    "desProv" : "SALOMONE (ISOLE)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(270), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "SAMOA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(271), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "SAMOA AMERICANE (ISOLE)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(272), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "SAN MARINO", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(273), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "SANT'ELENA (ISOLA)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(274), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "SAO TOME' E PRINCIPE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(275), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "desProv" : "SAO TOME' E PRINCIPE (ISOLE)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(276), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1977-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "SEICELLE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(277), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1977-12-31T00:00:00.000+0000"), 
-    "desProv" : "SEICELLE (ISOLE)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(278), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "SENEGAL", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(279), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("2003-02-04T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "SERBIA E MONTENEGRO", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(280), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "SIERRA LEONE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(281), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "desProv" : "SIKKIM", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(297), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "SVEZIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(298), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "SVIZZERA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(312), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1978-12-31T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1994-01-01T00:00:00.000+0000"), 
-    "desProv" : "TRANSKEI", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(313), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "TRINIDAD E TOBAGO", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(314), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "TUNISIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(315), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "TURCHIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(299), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "SWAZILAND", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(300), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "desProv" : "SWAZILAND-SUDAFRICA BRITANNICO", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(301), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1991-09-09T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1994-01-01T00:00:00.000+0000"), 
-    "desProv" : "TAGIKISTAN", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(302), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1994-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "TAGIKISTAN", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(303), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1966-10-01T00:00:00.000+0000"), 
-    "desProv" : "TANGANICA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(304), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1966-10-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "TANZANIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(305), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1977-12-31T00:00:00.000+0000"), 
-    "desProv" : "TERRITORIO FRANCESE DEGLI AFAR E DEGLI ISSA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(306), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "THAILANDIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(307), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1978-12-31T00:00:00.000+0000"), 
-    "desProv" : "TIMOR (ISOLA)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(308), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "TOGO", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(309), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "TOKELAU=ISOLE DELL'UNIONE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(310), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "desProv" : "TONGA=DEGLI AMICI (ISOLE)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(311), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "TONGA=ISOLE DEGLI AMICI", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(316), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1991-10-29T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1994-01-01T00:00:00.000+0000"), 
-    "desProv" : "TURKEMENISTAN", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(317), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1994-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "TURKEMENISTAN", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(318), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "TURKS E CAICOS (ISOLE)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(319), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1980-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "TUVALU", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(320), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1991-08-24T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "UCRAINA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(321), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "UGANDA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(322), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "UNGHERIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(323), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1991-08-24T00:00:00.000+0000"), 
-    "desProv" : "UNIONE REPUBBLICHE SOCIALISTE SOVIETICHE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(324), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "URUGUAY", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(325), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1991-08-31T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1994-01-01T00:00:00.000+0000"), 
-    "desProv" : "UZBEKISTAN", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(326), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1994-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "UZBEKISTAN", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(327), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1980-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "VANUATU", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(328), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1980-12-31T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1994-01-01T00:00:00.000+0000"), 
-    "desProv" : "VENDA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(329), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "VENEZUELA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(330), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "VERGINI AMERICANE (ISOLE)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(331), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1978-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "VERGINI BRITANNICHE (ISOLE)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(332), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1977-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "VIETNAM", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(333), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1977-12-31T00:00:00.000+0000"), 
-    "desProv" : "VIETNAM DEL NORD", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(334), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1977-12-31T00:00:00.000+0000"), 
-    "desProv" : "VIETNAM DEL SUD", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(335), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1984-12-31T00:00:00.000+0000"), 
-    "desProv" : "VOLTA=ALTOVOLTA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(336), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "WALLIS E FUTUNA (ISOLE)", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(337), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "YEMEN", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(338), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1990-05-22T00:00:00.000+0000"), 
-    "desProv" : "YEMEN REPUBBLICA DEMOCRATICA POPOLARE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(339), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1997-05-17T00:00:00.000+0000"), 
-    "desProv" : "ZAIRE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(340), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "ZAMBIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(341), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1966-10-01T00:00:00.000+0000"), 
-    "desProv" : "ZANZIBAR", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(342), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1980-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "ZIMBABWE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(282), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1966-10-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "SINGAPORE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(283), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "SIRIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(284), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1993-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "SLOVACCHIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(285), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1991-10-08T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "SLOVENIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(286), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "SOMALIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(287), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "desProv" : "SOMALIA FRANCESE", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(288), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "SPAGNA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(289), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "SRI LANKA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(290), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "STATI UNITI D'AMERICA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(291), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1978-12-31T00:00:00.000+0000"), 
-    "desProv" : "SUDAFRICANA REPUBBLICA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(292), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1978-12-31T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1980-12-31T00:00:00.000+0000"), 
-    "desProv" : "SUDAFRICANA REPUBBLICA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(293), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1980-12-31T00:00:00.000+0000"), 
-    "finValidita" : ISODate("1984-12-31T00:00:00.000+0000"), 
-    "desProv" : "SUDAFRICANA REPUBBLICA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(294), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1984-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "SUDAFRICANA REPUBBLICA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(295), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "SUDAN", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(296), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1975-12-31T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "SURINAME", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(343), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("2006-06-03T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "SERBIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(344), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("2006-06-03T00:00:00.000+0000"), 
-    "finValidita" : null, 
-    "desProv" : "MONTENEGRO", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(345), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("1900-01-01T00:00:00.000+0000"), 
-    "finValidita" : ISODate("2006-06-02T00:00:00.000+0000"), 
-    "desProv" : "SERBIA", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(107), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("2009-05-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "CARBONIA IGLESIAS", 
     "siglaProv" : "CI"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(108), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("2009-05-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "MEDIO CAMPIDANO", 
     "siglaProv" : "VS"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(109), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("2009-05-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "OGLIASTRA", 
     "siglaProv" : "OG"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(110), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("2006-08-31T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "OLBIA TEMPIO", 
     "siglaProv" : "OT"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(111), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("2009-06-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "BARLETTA ANDRIA TRANI", 
     "siglaProv" : "BT"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(112), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("2009-06-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "FERMO", 
     "siglaProv" : "FM"
 }
 { 
-     
-    "codNazione" : NumberInt(1), 
     "_id" : NumberInt(113), 
+    "codNazione" : NumberInt(1), 
     "iniValidita" : ISODate("2009-06-01T00:00:00.000+0000"), 
     "finValidita" : null, 
     "desProv" : "MONZA E DELLA BRIANZA", 
     "siglaProv" : "MB"
-}
-{ 
-     
-    "codNazione" : NumberInt(346), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("2008-03-17T00:00:00.000+0000"), 
-    "finValidita" : ISODate("2009-07-27T00:00:00.000+0000"), 
-    "desProv" : "KOSOVO", 
-    "siglaProv" : "EE"
-}
-{ 
-     
-    "codNazione" : NumberInt(347), 
-    "_id" : NumberInt(1), 
-    "iniValidita" : ISODate("2008-08-21T00:00:00.000+0000"), 
-    "finValidita" : ISODate("2012-10-31T00:00:00.000+0000"), 
-    "desProv" : "TERRITORI DELL'AUTONOMIA PALESTINESE", 
-    "siglaProv" : "EE"
 }

@@ -45,14 +45,14 @@ abstract class CalcoloTipoSinistroFunctions<T extends BaseSinistroDO> {
             MsaCostanti.COD_NAZIONE_ITALIA) == 0;
 
     private final Function<List<AnagraficaTerzePartiDO>, Boolean> nostroTrasportatoCliente = (anags) -> {
-        final Predicate<AnagraficaTerzePartiDO> isTrasportato = e -> e.getCodRuolo().equals(MsaCostanti.COD_RUOLO_TERZO_TRASPORTATO_CLIENTE);
+        final Predicate<AnagraficaTerzePartiDO> isTrasportato = e -> e.getCodRuolo().equals(MsaCostanti.COD_RUOLO_TERZO_TRASPORTATO_CLIENTE.toString());
         final Predicate<AnagraficaTerzePartiDO> concat = hasLesioni.and(isTrasportato);
 
         return anags.stream().anyMatch(concat);
     };
 
     private final Function<List<AnagraficaTerzePartiDO>, Boolean> nostroTrasportatoControparte = (anags) -> {
-        final Predicate<AnagraficaTerzePartiDO> isTrasportato = e -> e.getCodRuolo().equals(MsaCostanti.COD_RUOLO_TERZO_TRASPORTATO_CONTROPARTE);
+        final Predicate<AnagraficaTerzePartiDO> isTrasportato = e -> e.getCodRuolo().equals(MsaCostanti.COD_RUOLO_TERZO_TRASPORTATO_CONTROPARTE.toString());
         final Predicate<AnagraficaTerzePartiDO> concat = hasLesioni.and(isTrasportato);
         return anags.stream().anyMatch(concat);
     };

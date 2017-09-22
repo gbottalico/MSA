@@ -1,16 +1,80 @@
-{ "_id" : 0, "codErrore" : "MSA001", "testo" : "Attenzione: Errore durante il recupero del dominio" }
-{ "_id" : 1, "codErrore" : "MSA000", "testo" : "Attenzione: Errore durante creazione chiamata HTTP" }
-{ "_id" : 2, "codErrore" : "MSA002", "testo" : "Attenzione: Errore interno a Response HTTP" }
-{ "_id" : 4, "codErrore" : "MSA003", "testo" : "Attenzione: Errore durante la ricerca: dataEvento o Compagnia non validi" }
-{ "_id" : 5, "codErrore" : "MSA004", "testo" : "Attenzione: Errore durante l'inserimento del sinistro. " }
-{ "_id" : 6, "codErrore" : "MSA005", "testo" : "Attenzione: Errore durante il salvataggio configurazione sinistro." }
-{ "_id" : 7, "codErrore" : "MSA006", "testo" : "Attenzione: Errore durante la scrittura del file" }
-{ "_id" : 8, "codErrore" : "MSA007", "testo" : "Attenzione: Errore durante il salvataggio dei dati di documento" }
-{ "_id" : 9, "codErrore" : "MSA008", "testo" : "Attenzione: Errore durante il recupero del documento" }
-{ "_id" : 10, "codErrore" : "MSA009", "testo" : "Attenzione: Errore durante il recupero del sinistro provvisorio" }
-{ "_id" : 11, "codErrore" : "MSA010", "testo" : "Attenzione: Errore durante il recupero della prossima schermata" }
-{ "_id" : 12, "codErrore" : "MSA011", "testo" : "Attenzione: Errore durante il recupero delle schermate già navigate" }
-{ "_id" : 13, "codErrore" : "MSA012", "testo" : "Attenzione: Errore durante il recupero sinistro per il salvataggio" }
-{ "_id" : 14, "codErrore" : "MSA013", "testo" : "Attenzione: Errore durante il calcolo della colpa" }
-{ "_id" : 15, "codErrore" : "MSA014", "testo" : "Attenzione: Errore durante il recupero della polizza" }
-{ "_id" : 16, "codErrore" : "MSA015", "testo" : "Attenzione: Errore durante il recupero del tipo sinistro" }
+{ 
+    "_id" : NumberInt(0), 
+    "codErrore" : "MSA001", 
+    "testo" : "Attenzione: Errore durante il recupero del dominio"
+}
+{ 
+    "_id" : NumberInt(1), 
+    "codErrore" : "MSA000", 
+    "testo" : "Attenzione: Errore durante creazione chiamata HTTP"
+}
+{ 
+    "_id" : NumberInt(2), 
+    "codErrore" : "MSA002", 
+    "testo" : "Attenzione: Errore interno a Response HTTP"
+}
+{ 
+    "_id" : NumberInt(4), 
+    "codErrore" : "MSA003", 
+    "testo" : "Attenzione: Errore durante la ricerca: dataEvento o Compagnia non validi"
+}
+{ 
+    "_id" : NumberInt(5), 
+    "codErrore" : "MSA004", 
+    "testo" : "Attenzione: Errore durante l'inserimento del sinistro. "
+}
+{ 
+    "_id" : NumberInt(6), 
+    "codErrore" : "MSA005", 
+    "testo" : "Attenzione: Errore durante il salvataggio configurazione sinistro."
+}
+{ 
+    "_id" : NumberInt(7), 
+    "codErrore" : "MSA006", 
+    "testo" : "Attenzione: Errore durante la scrittura del file"
+}
+{ 
+    "_id" : NumberInt(8), 
+    "codErrore" : "MSA007", 
+    "testo" : "Attenzione: Errore durante il salvataggio dei dati di documento"
+}
+{ 
+    "_id" : NumberInt(9), 
+    "codErrore" : "MSA008", 
+    "testo" : "Attenzione: Errore durante il recupero del documento"
+}
+{ 
+    "_id" : NumberInt(10), 
+    "codErrore" : "MSA009", 
+    "testo" : "Attenzione: Errore durante il recupero del sinistro provvisorio"
+}
+{ 
+    "_id" : NumberInt(11), 
+    "codErrore" : "MSA010", 
+    "testo" : "Attenzione: Errore durante il recupero della prossima schermata"
+}
+{ 
+    "_id" : NumberInt(12), 
+    "codErrore" : "MSA011", 
+    "testo" : "Attenzione: Errore durante il recupero delle schermate già navigate"
+}
+{ 
+    "_id" : NumberInt(13), 
+    "codErrore" : "MSA012", 
+    "testo" : "Attenzione: Errore durante il recupero sinistro per il salvataggio"
+}
+{ 
+    "_id" : NumberInt(14), 
+    "codErrore" : "MSA013", 
+    "testo" : "Attenzione: Errore durante il calcolo della colpa"
+}
+{ 
+    "_id" : NumberInt(15), 
+    "codErrore" : "MSA014", 
+    "testo" : "Attenzione: Errore durante il recupero della polizza"
+}
+{ 
+    "_id" : NumberInt(16), 
+    "codErrore" : "MSA015", 
+    "testo" : "Attenzione: Errore durante il recupero del tipo sinistro"
+}

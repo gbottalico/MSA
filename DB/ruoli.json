@@ -64,7 +64,7 @@
 { 
     "_id" : NumberInt(10), 
     "raggruppamento" : "ASSICURATO / CONTROPARTE", 
-    "descrizione" : "CORRISPONDENTE (società delegata da UCI)", 
+    "descrizione" : "CORRISPONDENTE (societ� delegata da UCI)", 
     "Partita Danno - ASSociato" : "ASS", 
     "lesioni" : false
 }
@@ -163,6 +163,20 @@
     "_id" : NumberInt(24), 
     "raggruppamento" : "ASSICURATO / CONTROPARTE", 
     "descrizione" : "PROPRIETARIO NON CONTRAENTE", 
+    "Partita Danno - ASSociato" : "PD", 
+    "lesioni" : true
+}
+{ 
+    "_id" : NumberInt(25), 
+    "raggruppamento" : "ASSICURATO / CONTROPARTE", 
+    "descrizione" : "TRASPORTATO ASSICURATO", 
+    "Partita Danno - ASSociato" : "PD", 
+    "lesioni" : true
+}
+{ 
+    "_id" : NumberInt(26), 
+    "raggruppamento" : "ASSICURATO / CONTROPARTE", 
+    "descrizione" : "TRASPORTATO CONTROPARTE", 
     "Partita Danno - ASSociato" : "PD", 
     "lesioni" : true
 }
