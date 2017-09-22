@@ -11,7 +11,7 @@
         <div class="col-lg-12" ng-if="$ctrl.hasCompagnia">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputText"
-                     ng-class="{'has-error': anagraficaForm.compagnia.$invalid && !anagraficaForm.compagnia.$pristine}">
+                     ng-class="{'has-error': anagraficaForm.compagnia.$invalid}">
                     <input name="compagnia" type="text" ng-model="$ctrl.compagniaSelezionata"
                            uib-typeahead="compagnia as compagnia.descrizione for compagnia in $ctrl.getCompagnie($viewValue)"
                            ng-required="true" autocomplete="off">
@@ -25,7 +25,7 @@
         </div>
 
         <div class="col-lg-12"><span class="subsectionTitle">{{'global.people.tipologia' | translate}}</span></div>
-        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 classicInputRadio">
+        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 classicInputRadio" ng-class="{'has-error': anagraficaForm.tipologia.$invalid}">
             <div class="col-lg-6 noPaddingLeft">
                 <input type="radio" value="PF" name="tipologia" ng-model="$ctrl.anagrafica.tipoPersona"
                        ng-required="true">
@@ -39,7 +39,8 @@
         </div>
 
         <div ng-hide="$ctrl.hasRole" class="col-lg-4 col-md-4 hidden-sm hidden-xs">&nbsp;</div>
-        <div ng-if="$ctrl.hasRole" class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputText">
+        <div ng-if="$ctrl.hasRole" class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputText"
+             ng-class="{'has-error': anagraficaForm.ruolo.$invalid}">
             <select name="ruolo" ng-model="$ctrl.anagrafica.ruolo" ng-required="true">
                 <option ng-repeat="ruolo in $ctrl.ruoli" value="{{ruolo.id}}">
                     {{ruolo.descrizione}}
@@ -49,7 +50,7 @@
         </div>
 
         <div ng-if="$ctrl.isAssociatoVisible()"
-             class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputText">
+             class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputText" ng-class="{'has-error': anagraficaForm.associato.$invalid}">
             <select name="associato" ng-model="$ctrl.anagrafica.associato" ng-required="true"
                 ng-options="associato as $ctrl.getNomeFromAssociato(associato) for associato in $ctrl.anagraficheAssociabili track by (associato.nome + associato.cognome)">
             </select>
@@ -61,23 +62,23 @@
         <div class="col-lg-12">
             <hr class="blueLine"/>
         </div>
-        <div class="col-lg-12"><span class="subsectionTitle">Generalità</span></div>
+        <div class="col-lg-12"><span class="subsectionTitle">Generalità</span></div> <!-- TODO: stringhe scolpite -->
 
         <!-- SE PERSONA FISICA -->
         <div class="col-lg-12" ng-if="$ctrl.anagrafica.tipoPersona === $ctrl.TipologiaEnum.FISICA">
             <div class="row">
                 <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 classicInputText"
-                     ng-class="{'has-error': anagraficaForm.cognome.$invalid && !anagraficaForm.cognome.$pristine}">
+                     ng-class="{'has-error': anagraficaForm.cognome.$invalid}">
                     <input type="text" name="cognome" ng-model="$ctrl.anagrafica.cognome" ng-required="true">
                     <label>{{'global.people.cognome' | translate}}</label>
                 </div>
                 <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 classicInputText"
-                     ng-class="{'has-error': anagraficaForm.nome.$invalid && !anagraficaForm.nome.$pristine}">
+                     ng-class="{'has-error': anagraficaForm.nome.$invalid}">
                     <input type="text" name="nome" ng-model="$ctrl.anagrafica.nome" ng-required="true">
                     <label>{{'global.people.nome' | translate}}</label>
                 </div>
 
-                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 classicInputRadio">
+                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 classicInputRadio" ng-class="{'has-error': anagraficaForm.sesso.$invalid}">
                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 noPaddingLeft">
                         <input type="radio" value="m" name="sesso" ng-model="$ctrl.anagrafica.sesso" ng-required="false">
                         <label class="rightLabel">{{'global.generic.male' | translate}}</label>
@@ -93,7 +94,8 @@
         </div>
         <!-- SE PERSONA GIURIDICA -->
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputText"
-             ng-if="$ctrl.anagrafica.tipoPersona === $ctrl.TipologiaEnum.GIURIDICA">
+             ng-if="$ctrl.anagrafica.tipoPersona === $ctrl.TipologiaEnum.GIURIDICA"
+             ng-class="{'has-error': anagraficaForm.ragionesociale.$invalid}">
             <input type="text" name="ragionesociale" ng-model="$ctrl.anagrafica.ragioneSociale" ng-required="true">
             <label>{{'global.people.ragionesociale' | translate}}</label>
         </div>
@@ -110,7 +112,7 @@
                         input="$ctrl.persistence.luogoNascita"
                         result="$ctrl.anagrafica.nascita"
                         required="false"></msa-place>
-                <div class="col-lg-12 classicInputText">
+                <div class="col-lg-12 classicInputText" ng-class="{'has-error': anagraficaForm.dataNascita.$invalid}">
                     <p class="input-group">
                         <input datetimepicker-neutral-timezone type="text"
                                uib-datepicker-popup="{{$MSAC.DEFAULT_DATE_OPTIONS.format}}"
@@ -151,11 +153,11 @@
                 </div>
 
                 <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 classicInputText"
-                     ng-class="{'has-error': anagraficaForm.cf.$invalid && !anagraficaForm.cf.$pristine}">
+                     ng-class="{'has-error': anagraficaForm.cf.$invalid}">
                     <input type="text"
                            name="cf"
                            ng-model="$ctrl.anagrafica.cf"
-                           ng-required="false"
+                           ng-required="true"
                            ng-pattern="$regex.reCodiceFiscale">
                     <label>{{'global.people.cf' | translate}}</label>
                 </div>
@@ -179,8 +181,8 @@
                 </div>
 
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputText"
-                     ng-class="{'has-error': anagraficaForm.cf.$invalid && !anagraficaForm.cf.$pristine}">
-                    <input type="text" name="cf" ng-model="$ctrl.anagrafica.cf" ng-pattern="$regex.rePartitaIva" ng-required="false">
+                     ng-class="{'has-error': anagraficaForm.cf.$invalid}">
+                    <input type="text" name="cf" ng-model="$ctrl.anagrafica.cf" ng-pattern="$regex.rePartitaIva" ng-required="true">
                     <label>{{'global.people.piva' | translate}}</label>
                 </div>
             </div>
@@ -196,12 +198,12 @@
         </div>
 
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicInputText"
-             ng-class="{'has-error': anagraficaForm.telefono.$invalid && !anagraficaForm.telefono.$pristine}">
+             ng-class="{'has-error': anagraficaForm.telefono.$invalid}">
             <input type="text" name="telefono" ng-model="$ctrl.anagrafica.telefono" ng-pattern="$regex.reTelefono" ng-required="false">
             <label>{{'global.people.telefono' | translate}}</label>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicInputText"
-             ng-class="{'has-error': anagraficaForm.mail.$invalid && !anagraficaForm.mail.$pristine}">
+             ng-class="{'has-error': anagraficaForm.mail.$invalid}">
             <input type="text" name="mail" ng-model="$ctrl.anagrafica.mail" ng-pattern="$regex.reEmail" ng-required="false">
             <label>{{'global.people.email' | translate}}</label>
         </div>
@@ -220,7 +222,7 @@
                 result="$ctrl.anagrafica.residenza"
                 required="false"></msa-place>
 
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputText">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputText" ng-class="{'has-error': anagraficaForm.denominazioneStrada.$invalid}">
             <input type="text" name="denominazioneStrada" ng-model="$ctrl.anagrafica.residenza.indirizzo"
                    ng-required="false">
             <label>{{'global.denunciasinitro.labels.indirizzo' | translate}}</label>
