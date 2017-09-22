@@ -271,9 +271,16 @@
       }
     },
     "furtoTotale": {
-      "title": "Furto del veicolo",
+      "title": "Furto del Veicolo",
       "labels": {
         "descrizionedanno": "Descrizione danno"
+      }
+    },
+    "furtoParziale": {
+      "title": "Furto Parziale del Veicolo",
+      "labels": {
+        "descrizionedanno": "Descrizione danno",
+        "osservazioniCliente": "Ulteriori osservazioni del cliente sulle circostanze del sinistro"
       }
     },
     "riepilogo": {
@@ -330,6 +337,7 @@
         "M27": "Riepilogo",
         "M28": "Incendio Veicolo",
         "M30": "Furto del Veicolo",
+        "M31": "Furto Parziale del Veicolo",
         "M33": "Cristalli"
       }
     },

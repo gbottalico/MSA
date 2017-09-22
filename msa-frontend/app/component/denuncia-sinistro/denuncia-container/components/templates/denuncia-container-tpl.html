@@ -65,6 +65,16 @@
         </msa-furto-totale>
         <!-- END FURTO TOTALE -->
 
+        <!-- FURTO PARZIALE -->
+        <msa-furto-parziale
+              id="M31"
+              ng-if="$ctrl.isMappaVisibile('M31')"
+              numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
+              sinistro-provvisorio="$ctrl.sinistroProvvisorio"
+              temp-segnalazione="$ctrl.tempSegnalazione">
+        </msa-furto-parziale>
+        <!-- END FURTO PARZIALE -->
+
         <!-- INCENDIO -->
         <msa-incendio-veicolo
                 id="M28"

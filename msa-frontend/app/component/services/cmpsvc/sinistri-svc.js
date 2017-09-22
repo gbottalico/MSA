@@ -154,24 +154,27 @@ angular.module('msa').service(
 
             };
 
-            $svc.salvaFurtoTotale = function (numeroSinistroProvvisorio, furtoTotale) {
+            $svc.salvaFurto = function (numeroSinistroProvvisorio, furto) {
                 var dataObj = {
 
-                    descrizioneDanni: furtoTotale.descrizioneDanni,
-                    interventoAutorita: !!furtoTotale.interventoAutorita,
+                    descrizioneDanni: furto.descrizioneDanni,
+                    osservazioniCliente: furto.osservazioniCliente,
+                    interventoAutorita: !!furto.interventoAutorita,
 
                 };
 
-                if (furtoTotale.interventoAutorita) {
-                    dataObj.codAutorita = furtoTotale.autoritaIntervenuta;
-                    dataObj.comandoAutorita = furtoTotale.comandoAutorita;
-                    dataObj.dataDenuncia = furtoTotale.dataDenuncia;
+                if (furto.interventoAutorita) {
+                    dataObj.codAutorita = furto.autoritaIntervenuta;
+                    dataObj.comandoAutorita = furto.comandoAutorita;
+                    dataObj.dataDenuncia = furto.dataDenuncia;
                 }
 
                 var url = UtilSvc.stringFormat(msaServicesApiUrls.furtoincendio, numeroSinistroProvvisorio);
                 return $http.post(url, dataObj);
 
             };
+
+
             $svc.salvaDannoRcaCliente = function (idSinistroProvvisorio, dannoRca) {
 
                 var dataObj = {};
