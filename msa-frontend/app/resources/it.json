@@ -27,9 +27,9 @@
       "incorso": "In Corso",
       "completato": "Completato",
       "errore": "Errore",
-      "veicolicoinvolti":"Veicoli Coinvolti",
-      "particoinvolte":"Parti Coinvolte",
-      "mostrajson":"Mostra JSON"
+      "veicolicoinvolti": "Veicoli Coinvolti",
+      "particoinvolte": "Parti Coinvolte",
+      "mostrajson": "Mostra JSON"
     },
     "people": {
       "anagrafica": "Anagrafica",
@@ -63,12 +63,11 @@
       "tipologia": "Tipologia",
       "scadenzapatente": "Data di Scadenza Patente",
       "nessunrecapito": "Nessun recapito.",
-      "nomecognome":"Nome e Cognome",
-      "associatoa":"Associato a",
-      "patrocinantedi":"Patrocinante di",
-      "lesioni":"Lesioni",
-      "presenzalesioni":"Il soggetto ha riportato lesioni?"
-
+      "nomecognome": "Nome e Cognome",
+      "associatoa": "Associato a",
+      "patrocinantedi": "Patrocinante di",
+      "lesioni": "Lesioni",
+      "presenzalesioni": "Il soggetto ha riportato lesioni?"
     },
     "docs": {
       "documento": "Documento",
@@ -81,7 +80,7 @@
       "estera": "Estera",
       "immatricolazione": "Data immatricolazione",
       "marca": "Marca",
-      "modello":"Modello"
+      "modello": "Modello"
     },
     "header": {
       "labels": {
@@ -147,22 +146,21 @@
         "evento": "Evento",
         "denunciatoda": "Denunciato da",
         "consultapolizza": "Consulta polizza",
-        "consulta":"Consulta",
-        "clearbox":"Clear Box",
+        "consulta": "Consulta",
+        "clearbox": "Clear Box",
         "denunciasinistro": "Denuncia sinistro",
-        "dativeicolo":"Dati Veicolo",
-        "beneassicurato":"Bene Assicurato",
-        "telaio":"Telaio",
-        "datesospensione":"Date sospensione",
+        "dativeicolo": "Dati Veicolo",
+        "beneassicurato": "Bene Assicurato",
+        "telaio": "Telaio",
+        "datesospensione": "Date sospensione",
         "da": "da",
         "a": "a",
-        "elencogp" :"Elenco garanzie e prestazioni",
-        "garanzia":"Garanzia",
-        "prestazione":"Prestazione",
-        "franchigia":"Franchigia",
-        "scoperto":"Scoperto",
-        "massimale":"Massimale"
-
+        "elencogp": "Elenco garanzie e prestazioni",
+        "garanzia": "Garanzia",
+        "prestazione": "Prestazione",
+        "franchigia": "Franchigia",
+        "scoperto": "Scoperto",
+        "massimale": "Massimale"
       }
     },
     "denunciasinitro": {
@@ -205,7 +203,7 @@
         "qualiautorita": "Quali autorità sono intervenute?",
         "comando": "Di quale comando?",
         "datadenuncia": "Data Denuncia Autorità",
-        "intervento":"Intervento Autorita"
+        "intervento": "Intervento Autorita"
       }
     },
     "ca": {
@@ -269,13 +267,28 @@
     "perito": {
       "title": "Perito",
       "labels": {
-        "denominazione":"Denominazione"
+        "denominazione": "Denominazione"
       }
     },
-    "furtoTotale":{
-      "title":"Furto del veicolo",
-      "labels":{
-      "descrizionedanno": "Descrizione danno"}
+    "furtoTotale": {
+      "title": "Furto del Veicolo",
+      "labels": {
+        "descrizionedanno": "Descrizione danno"
+      }
+    },
+    "furtoParziale": {
+      "title": "Furto Parziale del Veicolo",
+      "labels": {
+        "descrizionedanno": "Descrizione danno",
+        "osservazioniCliente": "Ulteriori osservazioni del cliente sulle circostanze del sinistro"
+      }
+    },
+    "kasko": {
+      "title": "Kasko",
+      "labels": {
+        "descrizionedanno": "Descrizione danno",
+        "osservazioniCliente": "Ulteriori osservazioni del cliente sulle circostanze del sinistro"
+      }
     },
     "riepilogo": {
       "title": "Riepilogo",
@@ -330,6 +343,9 @@
         "M26": "Documenti",
         "M27": "Riepilogo",
         "M28": "Incendio Veicolo",
+        "M30": "Furto del Veicolo",
+        "M31": "Furto Parziale del Veicolo",
+        "M32": "Kasko",
         "M33": "Cristalli"
       }
     },

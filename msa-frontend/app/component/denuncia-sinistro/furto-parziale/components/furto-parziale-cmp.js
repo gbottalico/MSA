@@ -1,40 +1,41 @@
 (function () {
     "use strict";
 
-    app.component('msaFurtoTotale', {
-        templateUrl: '../../app/component/denuncia-sinistro/furto-totale/components/templates/furto-totale-tpl.html',
+    app.component('msaFurtoParziale', {
+        templateUrl: '../../app/component/denuncia-sinistro/furto-parziale/components/templates/furto-parziale-tpl.html',
         bindings: {
             numeroSinistroProvvisorio: "=",
             sinistroProvvisorio: "=",
             tempSegnalazione: "="
         },
-        controller: ("furtoTotaleController", ['_', '$rootScope', '$scope', '$debugMode', '$filter', '$timeout', 'toastr', 'DomainSvc', 'SinistriSvc', 'DebugSvc',
+        controller: ("furtoParzialeController", ['_', '$rootScope', '$scope', '$debugMode', '$filter', '$timeout', 'toastr', 'DomainSvc', 'SinistriSvc', 'DebugSvc',
             function (_, $rootScope, $scope, $debugMode, $filter, $timeout, toastr, DomainSvc, SinistriSvc, DebugSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
                 var parent = $scope.$parent;
                 $scope.$debugMode = $debugMode;
-                $ctrl.mapId = 'M30';
+                $ctrl.mapId = 'M31';
 
 
-                $ctrl.furtoTotale = {};
+                $ctrl.furtoParziale = {};
 
-                $ctrl.bindFurtoTotale = function () {
-                    $ctrl.furtoTotale.descrizioneDanni = $ctrl.sinistroProvvisorio.descrizioneDanni;
-                    $ctrl.furtoTotale.interventoAutorita = $ctrl.sinistroProvvisorio.interventoAutorita;
-                    $ctrl.furtoTotale.autoritaIntervenuta = $ctrl.sinistroProvvisorio.codAutorita;
-                    $ctrl.furtoTotale.comandoAutorita = $ctrl.sinistroProvvisorio.comandoAutorita;
-                    $ctrl.furtoTotale.dataDenuncia = $ctrl.sinistroProvvisorio.dataDenuncia;
+                $ctrl.bindFurtoParziale = function () {
+                    $ctrl.furtoParziale.descrizioneDanni = $ctrl.sinistroProvvisorio.descrizioneDanni;
+                    $ctrl.furtoParziale.osservazioniCliente = $ctrl.sinistroProvvisorio.osservazioniCliente;
+                    $ctrl.furtoParziale.interventoAutorita = $ctrl.sinistroProvvisorio.interventoAutorita;
+                    $ctrl.furtoParziale.autoritaIntervenuta = $ctrl.sinistroProvvisorio.codAutorita;
+                    $ctrl.furtoParziale.comandoAutorita = $ctrl.sinistroProvvisorio.comandoAutorita;
+                    $ctrl.furtoParziale.dataDenuncia = $ctrl.sinistroProvvisorio.dataDenuncia;
                 };
 
-                $ctrl.salvaFurtoTotale = function () {
-                    SinistriSvc.salvaFurto($ctrl.numeroSinistroProvvisorio, $ctrl.furtoTotale).then(function (response) {
+                $ctrl.salvaFurtoParziale = function () {
+                    SinistriSvc.salvaFurto($ctrl.numeroSinistroProvvisorio, $ctrl.furtoParziale).then(function (response) {
                         DebugSvc.log("salvaFurto", response);
                         if (response.status === 200 && _.isObject(response.data) && response.data.status === 200) {
                             parent.aggiornaMappe($ctrl.mapId);
                             toastr.success($translate('global.generic.saveok'));
-                            $scope.furtoTotaleForm.$setPristine();
+                            $scope.furtoParzialeForm.$setPristine();
                         } else {
                             toastr.error($translate('global.generic.saveko'));
                         }
@@ -50,7 +51,7 @@
                     function handleChanges(newValues, oldValues) {
 
                         if (_.isObject(newValues.sinistroProvvisorio) && !$ctrl.isInputConsumed) {
-                            $ctrl.bindFurtoTotale();
+                            $ctrl.bindFurtoParziale();
                             $ctrl.isInputConsumed = true;
                         }
 

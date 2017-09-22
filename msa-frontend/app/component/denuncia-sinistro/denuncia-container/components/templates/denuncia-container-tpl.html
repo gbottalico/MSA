@@ -57,21 +57,41 @@
 
         <!-- FURTO TOTALE -->
         <msa-furto-totale
-                      id="M30"
-                      ng-if="false"
-                      numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
-                      sinistro-provvisorio="$ctrl.sinistroProvvisorio"
-                      temp-segnalazione="$ctrl.tempSegnalazione">
-
+              id="M30"
+              ng-if="$ctrl.isMappaVisibile('M30')"
+              numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
+              sinistro-provvisorio="$ctrl.sinistroProvvisorio"
+              temp-segnalazione="$ctrl.tempSegnalazione">
         </msa-furto-totale>
         <!-- END FURTO TOTALE -->
 
+        <!-- FURTO PARZIALE -->
+        <msa-furto-parziale
+              id="M31"
+              ng-if="$ctrl.isMappaVisibile('M31')"
+              numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
+              sinistro-provvisorio="$ctrl.sinistroProvvisorio"
+              temp-segnalazione="$ctrl.tempSegnalazione">
+        </msa-furto-parziale>
+        <!-- END FURTO PARZIALE -->
+
+        <!-- KASKO -->
+        <msa-kasko
+              id="M32"
+              ng-if="$ctrl.isMappaVisibile('M32')"
+              numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
+              sinistro-provvisorio="$ctrl.sinistroProvvisorio"
+              temp-segnalazione="$ctrl.tempSegnalazione">
+        </msa-kasko>
+        <!-- END KASKO -->
+
         <!-- INCENDIO -->
-        <msa-incendio-veicolo id="M28"
-                              ng-if="$ctrl.isMappaVisibile('M28')"
-                              numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
-                              sinistro-provvisorio="$ctrl.sinistroProvvisorio"
-                              temp-segnalazione="$ctrl.tempSegnalazione">
+        <msa-incendio-veicolo
+                id="M28"
+                ng-if="$ctrl.isMappaVisibile('M28')"
+                numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
+                sinistro-provvisorio="$ctrl.sinistroProvvisorio"
+                temp-segnalazione="$ctrl.tempSegnalazione">
         </msa-incendio-veicolo>
 
         <!-- //INCENDIO -->
