@@ -356,7 +356,34 @@ public class SinistriService extends BaseSinistroService {
     public BaseDTO salvaDannoRcaConducente(DannoRcaDTO input, Integer numSinistro) throws InternalMsaException {
 
         SinistroRcaDO sinistroRcaDOByDTO = getSinistroDOByDTO(input, numSinistro);
-        if (!input.getConducenteDiverso()) {
+        if (sinistroRcaDOByDTO.getNumeroPolizza() != null) {
+            if (!input.getConducenteDiverso()) {
+                sinistroRcaDOByDTO.getDannoRca()
+                        .getAnagraficaDanniCliente()
+                        .setAnagrafica(converter.convertObject(sinistroRcaDOByDTO.getContraente(), FullAnagraficaControparteDO.class));
+                sinistroRcaDOByDTO.getDannoRca()
+                        .getAnagraficaDanniCliente().getAnagrafica().setCodRuolo(MsaCostanti.COD_RUOLO_CONDUCENTE_PROPR.toString());
+            } else {
+                sinistroRcaDOByDTO.getDannoRca()
+                        .getAnagraficaDanniCliente()
+                        .setAnagrafica(converter.biConvertObject(sinistroRcaDOByDTO
+                                        .getDannoRca()
+                                        .getAnagraficaDanniCliente().getAnagrafica(), sinistroRcaDOByDTO.getContraente(),
+                                (conducente, contraente) -> {
+                                    conducente.setTarga(contraente.getTarga());
+                                    conducente.setVeicolo(contraente.getVeicolo());
+                                    conducente.setTargaEstera(contraente.getTargaEstera());
+                                    conducente.setTargaSpeciale(contraente.getTargaSpeciale());
+                                    return conducente;
+                                }));
+                sinistroRcaDOByDTO
+                        .getDannoRca()
+                        .getAnagraficaDanniCliente()
+                        .getAnagrafica()
+                        .setCodRuolo(MsaCostanti.COD_RUOLO_CONDUCENTE_NO_PROPR.toString());
+            }
+        }
+        /*if (!input.getConducenteDiverso()) {
             sinistroRcaDOByDTO.getDannoRca()
                     .getAnagraficaDanniCliente()
                     .setAnagrafica(converter.convertObject(sinistroRcaDOByDTO.getContraente(), FullAnagraficaControparteDO.class));
@@ -381,14 +408,10 @@ public class SinistriService extends BaseSinistroService {
                             return conducente;
                         });
             }
-        }
+        }*/
 
-        if (sinistroRcaDOByDTO.getEventoRca().getNumVeicoli() == 2) {
-            Boolean isCard = getFlagIsCardCompagnia(sinistroRcaDOByDTO.getCompagnia());
-            sinistroRcaDOByDTO.getDannoRca().getAnagraficaDanniCliente().getAnagrafica().setFlagCard(isCard);
-        } else {
-            sinistroRcaDOByDTO.getDannoRca().getAnagraficaDanniCliente().getAnagrafica().setFlagCard(Boolean.FALSE);
-        }
+        final Boolean isCard = getFlagIsCardCompagnia(FunctionUtils.numberConverter(sinistroRcaDOByDTO.getContraente().getCompagnia(), Integer::valueOf));
+        sinistroRcaDOByDTO.getDannoRca().getAnagraficaDanniCliente().getAnagrafica().setFlagCard(isCard);
 
         if (salvaSinistro(sinistroRcaDOByDTO)) {
             return new BaseDTO<>();

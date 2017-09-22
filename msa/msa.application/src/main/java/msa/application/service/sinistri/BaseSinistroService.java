@@ -150,6 +150,11 @@ public class BaseSinistroService extends BaseService {
                     final SinistroRcaDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv, SinistroRcaDO.class);
                     if (sinistroByNumProvv.getDannoRca() == null) {
                         sinistroByNumProvv.setDannoRca(converter.convertObject(o, DannoRcaDO.class));
+                        sinistroByNumProvv
+                                .getDannoRca()
+                                .getAnagraficaDanniCliente()
+                                .getAnagrafica()
+                                .setCodRuolo(MsaCostanti.COD_RUOLO_CONDUCENTE_NO_PROPR.toString());
                     } else {
                         final DannoRcaDO dannoRcaDO = converter.convertObject(o, DannoRcaDO.class);
                         sinistroByNumProvv.getDannoRca().setLesioniConducente(dannoRcaDO.getLesioniConducente());
@@ -300,7 +305,7 @@ public class BaseSinistroService extends BaseService {
             final Map<SinistroRcaDO, List<Function<SinistroRcaDO, Stream<FullAnagraficaControparteDO>>>> mapRca = new HashMap<>();
             final List<Function<SinistroRcaDO, Stream<FullAnagraficaControparteDO>>> functionsRca = new ArrayList<>();
             functionsRca.add(e -> {
-                final Boolean sameproprietario = e.getContraente().getCf().equalsIgnoreCase(e.getProprietario().getCf());
+                final Boolean sameproprietario = e.getProprietario() == null ? Boolean.TRUE : e.getContraente().getCf().equalsIgnoreCase(e.getProprietario().getCf());
                 if (sameproprietario) {
                     return Stream.of(e.getContraente());
                 } else {
