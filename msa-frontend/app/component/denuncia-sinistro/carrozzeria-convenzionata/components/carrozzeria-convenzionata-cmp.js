@@ -73,15 +73,25 @@
                     PlacesSvc.getGeoconding(indirizzo).then(function (response) {
                         DebugSvc.log("Geocoding", response);
                         try {
+
                             var lat = response.data.results["0"].geometry.location.lat;
                             var lng = response.data.results["0"].geometry.location.lng;
-                            var bounds = response.data.results["0"].geometry.bounds;
                             $scope.map.center.latitude = lat;
                             $scope.map.center.longitude = lng;
                             $scope.search.center.latitude = lat;
                             $scope.search.center.longitude = lng;
-                            $scope.map.zoom = PlacesSvc.getZoomLevel(bounds.northeast, bounds.southwest);
-                            DebugSvc.log("zoomLevel", $scope.map.zoom);
+
+
+                            var bounds = response.data.results["0"].geometry.bounds;
+                            var viewport = response.data.results["0"].geometry.viewport;
+                            bounds = bounds || viewport;
+                            if (_.isObject(bounds)) {
+                                $scope.map.zoom = PlacesSvc.getZoomLevel(bounds.northeast, bounds.southwest);
+                                DebugSvc.log("zoomLevel", $scope.map.zoom);
+                            } else {
+                                $scope.map.zoom = 11;
+                            }
+
                             $ctrl.indirizzo = response.data.results["0"].formatted_address;
 
                             return SinistriSvc.getCarrozzerie(response.data.results["0"].formatted_address);
@@ -174,21 +184,11 @@
                 $ctrl.bindCarrozzeriaConvenzionata = function () {
                     if (_.isObject($ctrl.sinistroProvvisorio.contraente) && _.isObject($ctrl.sinistroProvvisorio.contraente.tracking)) {
 
-                        var promise = undefined;
-
-                        //FIXME
-                        if (_.isObject($ctrl.sinistroProvvisorio.contraente.tracking.comune)) {
-                            promise = PlacesSvc.getComuneById($ctrl.sinistroProvvisorio.contraente.tracking.comune);
-                        } else {
-                            promise = PlacesSvc.getNazioneById($ctrl.sinistroProvvisorio.contraente.tracking.nazione);
-                        }
-                        promise.then(function (response) {
-                            $ctrl.indirizzo = $ctrl.sinistroProvvisorio.contraente.tracking.indirizzo + ", " + response.data.result;
-                            $ctrl.cerca($ctrl.indirizzo);
-                        });
+                        $ctrl.indirizzo = PlacesSvc.buildIndirizzo($ctrl.sinistroProvvisorio.contraente.tracking.residenza, $ctrl.sinistroProvvisorio.contraente.tracking.indirizzo);
+                        $ctrl.cerca($ctrl.indirizzo);
                     }
 
-                    if(_.isObject($ctrl.sinistroProvvisorio.centroConvenzionato)) {
+                    if (_.isObject($ctrl.sinistroProvvisorio.centroConvenzionato)) {
                         $ctrl.carrozzeriaSelezionata = $ctrl.sinistroProvvisorio.centroConvenzionato;
                         $ctrl.peritoAssociato = $ctrl.sinistroProvvisorio.centroConvenzionato.perito;
                     }

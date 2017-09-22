@@ -80,7 +80,7 @@
                         $ctrl.autorita = true;
                     }
 
-                    $ctrl.constatazione = $ctrl.sinistroProvvisorio.constatazioneAmichevole.caCompilata;
+                    //$ctrl.constatazione = $ctrl.sinistroProvvisorio.constatazioneAmichevole.caCompilata;
 
                     $ctrl.legali = $ctrl.sinistroProvvisorio.legali;
 

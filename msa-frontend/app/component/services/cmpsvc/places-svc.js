@@ -94,6 +94,22 @@ angular.module('msa').service(
                 return Math.min(latZoom, lngZoom, ZOOM_MAX);
             };
 
+            $svc.buildIndirizzo = function (luogoDto, indirizzo) {
+                
+                var via = indirizzo || "";
+                var location = "";
+
+                if (_.isObject(luogoDto)) {
+                    if (luogoDto.descrizioneComune) {
+                        location = luogoDto.descrizioneComune;
+                    } else {
+                        location = luogoDto.descrizioneNazione;
+                    }
+                }
+
+                return (via ? via + ", " + location : location);
+                
+            };
 
         }
     ]
