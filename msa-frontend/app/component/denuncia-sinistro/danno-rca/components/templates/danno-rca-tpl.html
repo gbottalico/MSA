@@ -55,134 +55,11 @@
                         </div>
                     </div>
 
-                    <!-- FORM CONDUCENTE -->
-                    <div class="row" ng-if="$ctrl.dannoRca.conducenteIsNotContraente">
-
-                        <div class="col-lg-12">
-                            <div class="row">
-                                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 classicInputText">
-                                    <input type="text" name="cognome" ng-model="$ctrl.dannoRca.conducente.cognome" ng-required="true">
-                                    <label>{{'global.people.cognome' | translate}}</label>
-                                </div>
-                                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 classicInputText">
-                                    <input type="text" name="nome" ng-model="$ctrl.dannoRca.conducente.nome" ng-required="true">
-                                    <label>{{'global.people.nome' | translate}}</label>
-                                </div>
-
-                                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 classicInputRadio">
-                                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 noPaddingLeft">
-                                        <input type="radio" value="M" name="sesso" ng-model="$ctrl.dannoRca.conducente.sesso" ng-required="false">
-                                        <label class="rightLabel">{{'global.generic.male' | translate}}</label>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 noPaddingRight">
-                                        <input type="radio" value="F" name="sesso" ng-model="$ctrl.dannoRca.conducente.sesso" ng-required="false">
-                                        <label class="rightLabel">{{'global.generic.female' | translate}}</label>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 hidden-sm hidden-xs noPaddingRight">&nbsp;</div>
-                                    <label>{{'global.people.sesso' | translate}}</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-12">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <hr class="blueLine" />
-                                </div>
-                                <div class="col-lg-12"><span class="subsectionTitle">{{'global.people.luogodatanascita' | translate}}</span></div>
-
-                                <msa-place
-                                        result="$ctrl.dannoRca.conducente.nascita"
-                                        data-input="$ctrl.persistence.luogoNascita"
-                                        name="'luogoNascita'"
-                                        required="false"></msa-place>
-                                <div class="col-lg-12 classicInputText">
-                                    <p class="input-group">
-                                        <input datetimepicker-neutral-timezone type="text"
-                                               uib-datepicker-popup="{{$MSAC.DEFAULT_DATE_OPTIONS.format}}"
-                                               ng-model="$ctrl.dannoRca.conducente.nascita.data"
-                                               is-open="openedDataNascita"
-                                               datepicker-options="$MSAC.DEFAULT_DATE_OPTIONS.options"
-                                               show-button-bar="{{$MSAC.DEFAULT_DATE_OPTIONS.showButtonBar}}"
-                                               placeholder="{{$MSAC.DEFAULT_DATE_OPTIONS.placeholder}}"
-                                               ng-required="false"
-                                               name="dataNascita"
-                                        />
-
-                                        <span class="input-group-btn">
-                                            <button type="button"
-                                                    class="btn btn-default btn-special"
-                                                    ng-click="openedDataNascita = !openedDataNascita">
-                                                <i class="fa fa-calendar-o" aria-hidden="true"></i>
-                                            </button>
-                                        </span>
-                                    </p>
-                                    <label>{{'global.people.datanascita' | translate}}</label>
-                                </div>
-
-                            </div>
-                        </div>
-
-
-                        <div class="col-lg-12">
-                            <hr class="blueLine" />
-                        </div>
-
-                        <div class="col-lg-12">
-
-                            <div class="row">
-
-                                <div class="col-lg-12">
-                                    <span class="subsectionTitle">{{'global.people.cf' | translate}}</span>
-                                </div>
-
-                                <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 classicInputText">
-                                    <input type="text" name="cf" ng-model="$ctrl.dannoRca.conducente.cf" ng-required="false">
-                                    <label>{{'global.people.cf' | translate}}</label>
-                                </div>
-                                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 classicInputText">
-                                    <button class="btn lightGrayButton formButton" ng-click="$ctrl.calcolaCf()" ng-disabled="$ctrl.isCalcolaCfDisabled()">
-                                        {{'global.generic.calcola' | translate}}
-                                    </button>
-                                </div>
-
-                            </div>
-                        </div>
-
-
-                        <div class="col-lg-12">
-                            <hr class="blueLine" />
-                        </div>
-                        <div class="col-lg-12">
-                            <span class="subsectionTitle">{{'global.people.tracking' | translate}}</span>
-                        </div>
-
-                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicInputText" ng-class="{'has-error' : dannoRcaForm.telefono.$invalid && !dannoRcaForm.telefono.$pristine}">
-                            <input type="text" name="telefono" ng-model="$ctrl.dannoRca.conducente.telefono" ng-pattern="$regex.reTelefono" ng-required="false">
-                            <label>{{'global.people.telefono' | translate}}</label>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicInputText" ng-class="{'has-error' : dannoRcaForm.mail.$invalid && !dannoRcaForm.mail.$pristine}">
-                            <input type="text" name="mail" ng-model="$ctrl.dannoRca.conducente.mail" ng-pattern="$regex.reEmail" ng-required="false">
-                            <label>{{'global.people.email' | translate}}</label>
-                        </div>
-
-
-                        <div class="col-lg-12">
-                            <hr class="blueLine" />
-                        </div>
-                        <div class="col-lg-12">
-                            <span class="subsectionTitle">{{'global.people.residenza' | translate}}</span>
-                        </div>
-
-                        <msa-place result="$ctrl.dannoRca.conducente.residenza"
-                                   data-input="$ctrl.persistence.residenza"
-                                   name="'luogoResidenza'"
-                                   required="false"></msa-place>
-
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputText">
-                            <input type="text" name="denominazioneStrada" ng-model="$ctrl.dannoRca.conducente.residenza.indirizzo" ng-required="false">
-                            <label>{{'global.denunciasinitro.labels.indirizzo' | translate}}</label>
-                        </div>
+                    <div class="row">
+                        <msa-anagrafica-conducente ng-if="$ctrl.dannoRca.conducenteIsNotContraente"
+                            input="$ctrl.dannoRca.conducente"
+                            result="$ctrl.dannoRca.conducente">
+                        </msa-anagrafica-conducente>
                     </div>
 
                     <div class="row">
@@ -190,8 +67,6 @@
                             <hr class="blueLine"/>
                         </div>
                     </div>
-
-
 
                     <!-- SEZIONE AUTO -->
                     <div class="row">
