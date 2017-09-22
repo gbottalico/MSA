@@ -4,18 +4,10 @@ import msa.application.dto.sinistro.anagrafica.FullAnagraficaDTO;
 
 public class SinistroInfortuniConducenteDTO extends SinistroNoRcaDTO {
     private static final long serialVersionUID = 3026178539055839655L;
-    private Boolean conducenteDiversoContraente;
     private String descrizioneDanni;
     private String osservazioniInfortunato;
-    private FullAnagraficaDTO anagraficaInfortunato;
-
-    public Boolean getConducenteDiversoContraente() {
-        return conducenteDiversoContraente;
-    }
-
-    public void setConducenteDiversoContraente(Boolean conducenteDiversoContraente) {
-        this.conducenteDiversoContraente = conducenteDiversoContraente;
-    }
+    private Boolean conducenteDiverso;
+    private FullAnagraficaDTO conducente;
 
     public String getDescrizioneDanni() {
         return descrizioneDanni;
@@ -33,11 +25,19 @@ public class SinistroInfortuniConducenteDTO extends SinistroNoRcaDTO {
         this.osservazioniInfortunato = osservazioniInfortunato;
     }
 
-    public FullAnagraficaDTO getAnagraficaInfortunato() {
-        return anagraficaInfortunato;
+    public Boolean getConducenteDiverso() {
+        return conducenteDiverso;
     }
 
-    public void setAnagraficaInfortunato(FullAnagraficaDTO anagraficaInfortunato) {
-        this.anagraficaInfortunato = anagraficaInfortunato;
+    public void setConducenteDiverso(Boolean conducenteDiverso) {
+        this.conducenteDiverso = conducenteDiverso;
+    }
+
+    public FullAnagraficaDTO getConducente() {
+        return conducente;
+    }
+
+    public void setConducente(FullAnagraficaDTO conducente) {
+        this.conducente = conducente;
     }
 }

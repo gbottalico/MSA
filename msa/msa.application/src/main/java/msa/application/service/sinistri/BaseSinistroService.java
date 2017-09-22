@@ -246,7 +246,12 @@ public class BaseSinistroService extends BaseService {
                     sinistroByNumProvv.setCodAutorita(o.getCodAutorita());
                     sinistroByNumProvv.setComandoAutorita(o.getComandoAutorita());
                     sinistroByNumProvv.setDataDenuncia(o.getDataDenuncia());
-
+                    if(o.getConducenteDiverso()) {
+                        sinistroByNumProvv.setConducente(sinistroByNumProvv.getContraente());
+                    } else {
+                        sinistroByNumProvv.setConducente(converter.convertObject(o.getConducente(),FullAnagraficaDO.class));
+                    }
+                    sinistroByNumProvv.setConducenteDiverso(o.getConducenteDiverso());
                     return sinistroByNumProvv;
                 } catch (Exception e) {
                     throw new InternalMsaException();

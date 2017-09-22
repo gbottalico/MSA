@@ -1,18 +1,10 @@
 package msa.domain.object.sinistro;
 
 public class SinistroInfortuniConducenteDO extends SinistroNoRcaDO{
-    private Boolean conducenteDiversoContraente;
     private String descrizioneDanni;
     private String osservazioniInfortunato;
-    private FullAnagraficaDO anagraficaInfortunato;
-
-    public Boolean getConducenteDiversoContraente() {
-        return conducenteDiversoContraente;
-    }
-
-    public void setConducenteDiversoContraente(Boolean conducenteDiversoContraente) {
-        this.conducenteDiversoContraente = conducenteDiversoContraente;
-    }
+    private Boolean conducenteDiverso;
+    private FullAnagraficaDO conducente;
 
     public String getDescrizioneDanni() {
         return descrizioneDanni;
@@ -30,11 +22,19 @@ public class SinistroInfortuniConducenteDO extends SinistroNoRcaDO{
         this.osservazioniInfortunato = osservazioniInfortunato;
     }
 
-    public FullAnagraficaDO getAnagraficaInfortunato() {
-        return anagraficaInfortunato;
+    public Boolean getConducenteDiverso() {
+        return conducenteDiverso;
     }
 
-    public void setAnagraficaInfortunato(FullAnagraficaDO anagraficaInfortunato) {
-        this.anagraficaInfortunato = anagraficaInfortunato;
+    public void setConducenteDiverso(Boolean conducenteDiverso) {
+        this.conducenteDiverso = conducenteDiverso;
+    }
+
+    public FullAnagraficaDO getConducente() {
+        return conducente;
+    }
+
+    public void setConducente(FullAnagraficaDO conducente) {
+        this.conducente = conducente;
     }
 }

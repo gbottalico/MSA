@@ -5,6 +5,8 @@ import msa.domain.object.sinistro.rca.DanniDO;
 public class SinistroKaskoDO extends SinistroNoRcaDO{
     private DanniDO danniKasko;
     private String osservazioniCliente;
+    private Boolean conducenteDiverso;
+    private FullAnagraficaDO conducente;
 
     public DanniDO getDanniKasko() {
         return danniKasko;
@@ -22,4 +24,19 @@ public class SinistroKaskoDO extends SinistroNoRcaDO{
         this.osservazioniCliente = osservazioniCliente;
     }
 
+    public Boolean getConducenteDiverso() {
+        return conducenteDiverso;
+    }
+
+    public void setConducenteDiverso(Boolean conducenteDiverso) {
+        this.conducenteDiverso = conducenteDiverso;
+    }
+
+    public FullAnagraficaDO getConducente() {
+        return conducente;
+    }
+
+    public void setConducente(FullAnagraficaDO conducente) {
+        this.conducente = conducente;
+    }
 }

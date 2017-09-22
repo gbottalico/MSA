@@ -72,6 +72,10 @@ public class SinistroDBO extends AbstractDBO {
     //INIZIO KASKO
     @Field("danniKasko")
     private DanniDBO danniKasko;
+    @Field("conducenteDiverso")
+    private Boolean conducenteDiverso;
+    @Field("conducente")
+    private FullAnagraficaDBO conducente;
     //FINE KASKO
     //INIZIO CRISTALLI
     @Field("desCristalloRotto")
@@ -84,15 +88,11 @@ public class SinistroDBO extends AbstractDBO {
     private Boolean flagFattura;
     //FINE CRISTALLI
     //INFORTUNI CONDUCENTE
-    @Field("conducenteDiversoContraente")
-    private Boolean conducenteDiversoContraente;
     //IN COMUNE FRA RCA ED INFORTUNI CONDUCENTE
     @Field("descrizioneDanni")
     private String descrizioneDanni;
     @Field("osservazioniInfortunato")
     private String osservazioniInfortunato;
-    @Field("anagrafica")
-    private FullAnagraficaDBO anagrafica;
 
     @Field("tipoSinistro")
     private TipiSinisto tipoSinisto;
@@ -105,13 +105,6 @@ public class SinistroDBO extends AbstractDBO {
         this.flagSinistroCard = flagSinistroCard;
     }
 
-    public Boolean getConducenteDiversoContraente() {
-        return conducenteDiversoContraente;
-    }
-
-    public void setConducenteDiversoContraente(Boolean conducenteDiversoContraente) {
-        this.conducenteDiversoContraente = conducenteDiversoContraente;
-    }
 
     public String getOsservazioniInfortunato() {
         return osservazioniInfortunato;
@@ -119,14 +112,6 @@ public class SinistroDBO extends AbstractDBO {
 
     public void setOsservazioniInfortunato(String osservazioniInfortunato) {
         this.osservazioniInfortunato = osservazioniInfortunato;
-    }
-
-    public FullAnagraficaDBO getAnagrafica() {
-        return anagrafica;
-    }
-
-    public void setAnagrafica(FullAnagraficaDBO anagrafica) {
-        this.anagrafica = anagrafica;
     }
 
     public FullAnagraficaControparteDBO getProprietario() {
@@ -361,5 +346,21 @@ public class SinistroDBO extends AbstractDBO {
 
     public void setTipoSinisto(TipiSinisto tipoSinisto) {
         this.tipoSinisto = tipoSinisto;
+    }
+
+    public Boolean getConducenteDiverso() {
+        return conducenteDiverso;
+    }
+
+    public void setConducenteDiverso(Boolean conducenteDiverso) {
+        this.conducenteDiverso = conducenteDiverso;
+    }
+
+    public FullAnagraficaDBO getConducente() {
+        return conducente;
+    }
+
+    public void setConducente(FullAnagraficaDBO conducente) {
+        this.conducente = conducente;
     }
 }
