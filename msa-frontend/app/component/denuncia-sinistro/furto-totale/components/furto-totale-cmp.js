@@ -23,22 +23,42 @@
                     autorita: undefined
                 };
 
+                $ctrl.bindFurtoTotale = function () {
+                    $ctrl.furtoTotale.descrizioneDanni = $ctrl.sinistroProvvisorio.descrizioneDanni;
+                    $ctrl.furtoTotale.interventoAutorita = $ctrl.sinistroProvvisorio.interventoAutorita;
+                    $ctrl.furtoTotale.autoritaIntervenuta = $ctrl.sinistroProvvisorio.codAutorita;
+                    $ctrl.furtoTotale.comandoAutorita = $ctrl.sinistroProvvisorio.comandoAutorita;
+                    $ctrl.furtoTotale.dataDenuncia = $ctrl.sinistroProvvisorio.dataDenuncia;
+                };
 
                 $ctrl.salvaFurtoTotale = function () {
                     SinistriSvc.salvaFurtoTotale($ctrl.numeroSinistroProvvisorio, $ctrl.furtoTotale).then(function (response) {
-
                         DebugSvc.log("salvaFurtoTotale", response);
                         if (response.status === 200 && _.isObject(response.data) && response.data.status === 200) {
-
                             parent.aggiornaMappe($ctrl.mapId);
                             toastr.success($translate('global.generic.saveok'));
-                            $scope.formIncendioVeicolo.$setPristine();
+                            $scope.furtoTotaleForm.$setPristine();
                         } else {
                             toastr.error($translate('global.generic.saveko'));
                         }
                     });
                 };
 
+                $scope.$watch(
+                    function watchScope(scope) {
+                        return {
+                            sinistroProvvisorio: $ctrl.sinistroProvvisorio,
+                        };
+                    },
+                    function handleChanges(newValues, oldValues) {
+
+                        if (_.isObject(newValues.sinistroProvvisorio) && !$ctrl.isInputConsumed) {
+                            $ctrl.bindFurtoTotale();
+                            $ctrl.isInputConsumed = true;
+                        }
+
+                    }, true
+                );
 
             }])
     });

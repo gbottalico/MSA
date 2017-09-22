@@ -57,21 +57,21 @@
 
         <!-- FURTO TOTALE -->
         <msa-furto-totale
-                      id="M30"
-                      ng-if="false"
-                      numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
-                      sinistro-provvisorio="$ctrl.sinistroProvvisorio"
-                      temp-segnalazione="$ctrl.tempSegnalazione">
-
+              id="M30"
+              ng-if="$ctrl.isMappaVisibile('M30')"
+              numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
+              sinistro-provvisorio="$ctrl.sinistroProvvisorio"
+              temp-segnalazione="$ctrl.tempSegnalazione">
         </msa-furto-totale>
         <!-- END FURTO TOTALE -->
 
         <!-- INCENDIO -->
-        <msa-incendio-veicolo id="M28"
-                              ng-if="$ctrl.isMappaVisibile('M28')"
-                              numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
-                              sinistro-provvisorio="$ctrl.sinistroProvvisorio"
-                              temp-segnalazione="$ctrl.tempSegnalazione">
+        <msa-incendio-veicolo
+                id="M28"
+                ng-if="$ctrl.isMappaVisibile('M28')"
+                numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
+                sinistro-provvisorio="$ctrl.sinistroProvvisorio"
+                temp-segnalazione="$ctrl.tempSegnalazione">
         </msa-incendio-veicolo>
 
         <!-- //INCENDIO -->

@@ -1,7 +1,7 @@
 <div class="containerHeader">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container boxShadow">
         <div class="header"
-             ng-class="{'is-ok': caiForm.$pristine && caiForm.$valid && $ctrl.isSaved, 'has-error': !caiForm.$pristine || !caiForm.$valid || !$ctrl.isSaved}">
+             ng-class="{'is-ok': furtoTotaleForm.$pristine && furtoTotaleForm.$valid, 'has-error': !furtoTotaleForm.$pristine || !furtoTotaleForm.$valid}">
             <h1 class="titleSection">{{'global.furtoTotale.title' | translate}}</h1>
         </div>
     </div>
@@ -13,40 +13,30 @@
         <div class="body">
             <pre ng-if="$debugMode">{{$ctrl.furtoTotale}}</pre>
 
-            <div class="col-lg-12">
-                <div class="margin-top-1 margin-bottom-2 col-lg-12">
-                    <span class="subsectionTitle">{{'global.furtoTotale.title' | translate}}</span>
+            <div class="margin-top-1 margin-bottom-2 col-lg-12">
+                <span class="subsectionTitle">{{'global.furtoTotale.title' | translate}}</span>
+            </div>
+
+            <form name="furtoTotaleForm" novalidate>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicTextArea">
+                    <textarea class="textauto" ng-model="$ctrl.furtoTotale.descrizioneDanni" ng-required="true"></textarea>
+                    <label>{{'global.furtoTotale.labels.descrizionedanno' | translate}}</label>
                 </div>
 
-                <form name="furtototaleForm" novalidate>
-                    <div class="row">
+                <msa-autorita
+                        result="$ctrl.furtoTotale"
+                        name="'interventoAutorita'">
+                </msa-autorita>
 
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicTextArea">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicButton">
+                    <button class="blueButton"
+                            ng-click=" $ctrl.salvaFurtoTotale()">
+                        <a><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;{{'global.generic.salvaprocedi' | translate}}</a>
+                    </button>
+                </div>
+            </form>
 
-
-                            <textarea name="descrizionedanni" ng-model="$ctrl.furtoTotale.descrizionedanni" ng-required="true"
-                                      rows="6"></textarea>
-                            <label class="rightLabel">{{'global.furtoTotale.labels.descrizionedanno' |
-                                translate}}</label>
-
-                        </div>
-
-                        <msa-autorita
-                                input=""
-                                result="$ctrl.furtoTotale.autorita"
-                                name="'interventoAutorita'">
-
-                        </msa-autorita>
-                    </div>
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicButton">
-                        <button class="blueButton"
-                                ng-click=" $ctrl.salvaFurtoTotale()">
-                            <a><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;{{'global.generic.salvaprocedi' |
-                                translate}}</a>
-                        </button>
-                    </div>
-                </form>
-            </div>
         </div>
     </div>
 </div>
