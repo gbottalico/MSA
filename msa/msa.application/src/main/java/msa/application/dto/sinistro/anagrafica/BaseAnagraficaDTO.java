@@ -3,6 +3,7 @@ package msa.application.dto.sinistro.anagrafica;
 import msa.application.config.enumerator.TipoPersona;
 import msa.application.dto.sinistro.AbstractDTO;
 import msa.application.dto.sinistro.LuogoDTO;
+import msa.domain.object.enums.TipoGestione;
 
 import java.util.Date;
 
@@ -20,6 +21,7 @@ public class BaseAnagraficaDTO extends AbstractDTO {
     private String ragioneSociale;
     private LuogoDTO luogoNascita;
     private Date dataNascita;
+    private TipoGestione tipologiaGestione;
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -97,4 +99,11 @@ public class BaseAnagraficaDTO extends AbstractDTO {
         this.ragioneSociale = ragioneSociale;
     }
 
+    public TipoGestione getTipologiaGestione() {
+        return tipologiaGestione;
+    }
+
+    public void setTipologiaGestione(TipoGestione tipologiaGestione) {
+        this.tipologiaGestione = tipologiaGestione;
+    }
 }

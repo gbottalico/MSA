@@ -209,7 +209,28 @@ public class BaseService {
     }
 
     protected List<Object> execInParallel(Callable<Object>... callables) throws InternalMsaException {
-        ExecutorService executor = Executors.newFixedThreadPool(callables.length);
+        final ExecutorService executor = Executors.newFixedThreadPool(callables.length);
+        try {
+            return executor.invokeAll(Arrays.stream(callables).collect(Collectors.toList())).stream().reduce(new ArrayList<>(), (a, b) -> {
+                try {
+                    a.add(b.get());
+                } catch (InterruptedException | ExecutionException e) {
+                    LOGGER.error(e.getMessage());
+                }
+                return a;
+            }, (a, b) -> b);
+        } catch (InterruptedException e) {
+            throw new InternalMsaException();
+        }
+    }
+
+    protected <T> List<T> execInParallelTypized(List<Callable<T>> callables) throws InternalMsaException {
+        Callable<T>[] callableArray = new Callable[callables.size()];
+        return execInParallelTypized(callables.toArray(callableArray));
+    }
+
+    protected <T> List<T> execInParallelTypized(Callable<T>... callables) throws InternalMsaException {
+        final ExecutorService executor = Executors.newFixedThreadPool(callables.length);
         try {
             return executor.invokeAll(Arrays.stream(callables).collect(Collectors.toList())).stream().reduce(new ArrayList<>(), (a, b) -> {
                 try {

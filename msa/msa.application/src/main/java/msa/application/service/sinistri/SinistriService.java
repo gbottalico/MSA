@@ -1,14 +1,12 @@
 package msa.application.service.sinistri;
 
 import msa.application.commons.Constants;
-import msa.application.commons.SuperConverter;
 import msa.application.config.BaseDTO;
 import msa.application.config.enumerator.MessageType;
 import msa.application.dto.ricerca.FullPolizzaDTO;
 import msa.application.dto.ricerca.InputRicercaDTO;
 import msa.application.dto.ricerca.OutputRicercaDTO;
 import msa.application.dto.sinistro.*;
-import msa.application.dto.sinistro.anagrafica.AnagraficaTerzePartiDTO;
 import msa.application.dto.sinistro.anagrafica.FullAnagraficaControparteDTO;
 import msa.application.dto.sinistro.rca.cai.CaiDTO;
 import msa.application.dto.sinistro.rca.constatazioneAmichevole.ConstatazioneAmichevoleDTO;
@@ -19,11 +17,13 @@ import msa.application.dto.sinistro.segnalazione.SegnalazioneDTO;
 import msa.application.dto.user.UserLoggedDTO;
 import msa.application.exceptions.InternalMsaException;
 import msa.application.service.interfaceDispatcher.DispatcherService;
+import msa.application.service.sinistri.tipoSinistro.TipoGestioneTreeMap;
 import msa.application.service.sinistri.tipoSinistro.TipoSinistroTreeMap;
 import msa.domain.Converter.FunctionUtils;
 import msa.domain.Converter.commonObject.GenericTupla;
 import msa.domain.object.dominio.*;
 import msa.domain.object.enums.TipiSinisto;
+import msa.domain.object.enums.TipoGestione;
 import msa.domain.object.ricerca.FullPolizzaDO;
 import msa.domain.object.sinistro.*;
 import msa.domain.object.sinistro.rca.AnagraficaDanniDO;
@@ -33,7 +33,6 @@ import msa.infrastructure.costanti.MsaCostanti;
 import msa.infrastructure.repository.DomainRepository;
 import msa.infrastructure.repository.PolizzeRepository;
 
-import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang3.BooleanUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,7 +43,6 @@ import org.springframework.stereotype.Service;
 import java.io.Serializable;
 import java.util.*;
 import java.util.function.Function;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -59,6 +57,10 @@ public class SinistriService extends BaseSinistroService {
 
     @Autowired
     private PolizzeRepository polizzeRepository;
+
+    @Autowired
+    private TipoSinistroTreeMap<? super BaseSinistroDO> tipoSinistroTreeMap;
+
 
     @SuppressWarnings("unchecked")
     public BaseDTO<OutputRicercaDTO> ricerca(InputRicercaDTO input) throws InternalMsaException {
@@ -450,11 +452,16 @@ public class SinistriService extends BaseSinistroService {
         }
     }
 
-    public BaseDTO salvaDannoRcaTerzeParti(List<AnagraficaTerzePartiDTO> input, Integer numSinistro) throws InternalMsaException {
+    public BaseDTO salvaDannoRcaTerzeParti(List<FullAnagraficaControparteDTO> input, Integer numSinistro) throws InternalMsaException {
         if (input.stream().anyMatch(e -> e.getCodRuolo() == null))
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat(" Il codice ruolo di ogni terza parte deve essere valorizzato. ")));
-        SinistroRcaDO sinistroDOByDTO = getSinistroDOByDTO(new AnagraficaTerzePartiDTO(), numSinistro);
-        List<AnagraficaTerzePartiDO> filteredList = converter.convertList(FunctionUtils.dinstictList(input, AnagraficaTerzePartiDTO::getCf), AnagraficaTerzePartiDO.class);
+        SinistroRcaDO sinistroDOByDTO = getSinistroDOByDTO(new FullAnagraficaControparteDTO(), numSinistro);
+        List<FullAnagraficaControparteDO> filteredList = converter.convertList(FunctionUtils.dinstictList(input,
+                FullAnagraficaControparteDTO::getCf), FullAnagraficaControparteDO.class,
+                e -> {
+                    e.setTipologiaGestione(TipoGestione.NC);
+                    return e;
+                });
         sinistroDOByDTO.getDannoRca().setTerzeParti(filteredList);
         Boolean insertResult = salvaSinistro(sinistroDOByDTO);
         if (insertResult) {
@@ -467,15 +474,15 @@ public class SinistriService extends BaseSinistroService {
     }
 
 
-    public <K extends BaseSinistroDO> BaseDTO salvaDannoRcaLegale(List<AnagraficaTerzePartiDTO> input, Integer numeroSinistro) throws InternalMsaException {
+    public <K extends BaseSinistroDO> BaseDTO salvaDannoRcaLegale(List<FullAnagraficaControparteDTO> input, Integer numeroSinistro) throws InternalMsaException {
         //BaseSinistroDO sinistroDOByDTO = LEGALE.apply(input, numeroSinistro);
         final K sinistroDOByDTO;
         final Boolean insertResult;
-        final List<AnagraficaTerzePartiDO> filteredList;
+        final List<FullAnagraficaControparteDO> filteredList;
         try {
             sinistroDOByDTO = sinistriRepository.getSinistroByNumProvv(numeroSinistro);
-            final List<AnagraficaTerzePartiDTO> listaFiltrata = FunctionUtils.dinstictList(input, AnagraficaTerzePartiDTO::getCf);
-            filteredList = converter.convertList(listaFiltrata, AnagraficaTerzePartiDO.class)
+            final List<FullAnagraficaControparteDTO> listaFiltrata = FunctionUtils.dinstictList(input, FullAnagraficaControparteDTO::getCf);
+            filteredList = converter.convertList(listaFiltrata, FullAnagraficaControparteDO.class)
                     .stream()
                     .map(e -> {
                         e.setCodRuolo(MsaCostanti.COD_RUOLO_LEGALE.toString());
@@ -661,9 +668,6 @@ public class SinistriService extends BaseSinistroService {
         }
     }
 
-    @Autowired
-    private TipoSinistroTreeMap<? super BaseSinistroDO> tipoSinistroTreeMap;
-
     public <T extends BaseSinistroDO> TipiSinisto getTipoSinistro(final Integer numSinistroProvv) throws InternalMsaException {
         try {
             final T sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv);
@@ -677,6 +681,63 @@ public class SinistriService extends BaseSinistroService {
         } catch (Exception e) {
             throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA015"));
 
+        }
+    }
+
+    /**
+     * che per ogni anag calcola la sua tipologia e la aggiunge all' oggetto durante la conversione
+     *
+     * @param numSinistroProvv
+     * @param <T>
+     * @return
+     * @throws InternalMsaException
+     */
+    public <T extends BaseSinistroDO> BaseDTO setTipologiaGestione(final Integer numSinistroProvv) throws InternalMsaException {
+        try {
+            final T sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv);
+            if (isRca(sinistroByNumProvv)) {
+                final TipoGestioneTreeMap ob = new TipoGestioneTreeMap<>();
+                final SinistroRcaDO sinistroRcaDO = (SinistroRcaDO) sinistroByNumProvv;
+                final List<AnagraficaDanniDO> anagraficaDanniControparte = sinistroRcaDO.getDannoRca().getAnagraficaDanniControparte();
+
+                final Function<AnagraficaDanniDO,AnagraficaDanniDO> enrichPartiDannoRca = e -> {
+                    e.setAnagrafica(ob.calcolaTipoGestione(sinistroRcaDO.getTipoSinisto(), e.getAnagrafica()));
+                    return e;
+                };
+
+
+                sinistroRcaDO.setContraente(converter.convertObject(sinistroRcaDO.getContraente(),
+                        e -> ob.calcolaTipoGestione(sinistroRcaDO.getTipoSinisto(),e)));
+
+                if (sinistroRcaDO.getProprietario() != null && sinistroRcaDO.getContraente().getCf().equals(sinistroRcaDO.getProprietario().getCf())) {
+                    sinistroRcaDO.setProprietario(converter.convertObject(sinistroRcaDO.getProprietario(),e -> ob.calcolaTipoGestione(sinistroRcaDO.getTipoSinisto(),e)));
+                }
+                sinistroRcaDO
+                        .getDannoRca()
+                        .setAnagraficaDanniCliente(converter.convertObject(sinistroRcaDO.getDannoRca().getAnagraficaDanniCliente(), enrichPartiDannoRca));
+                sinistroRcaDO
+                        .getDannoRca()
+                        .setAnagraficaDanniControparte(
+                                sinistroRcaDO
+                                        .getDannoRca()
+                                        .getAnagraficaDanniControparte()
+                                .stream()
+                                .map(enrichPartiDannoRca)
+                                .collect(Collectors.toList())
+                        );
+                sinistroRcaDO.getDannoRca().setTerzeParti(
+                        sinistroRcaDO
+                                .getDannoRca()
+                                .getTerzeParti()
+                                .stream()
+                                .map(e -> ob.calcolaTipoGestione(sinistroRcaDO.getTipoSinisto(),e))
+                                .collect(Collectors.toList())
+                );
+                salvaSinistro(sinistroRcaDO);
+            }
+            return new BaseDTO();
+        } catch (Exception e) {
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA016"));
         }
     }
 

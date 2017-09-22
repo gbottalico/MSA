@@ -32,9 +32,9 @@ public class SinistroDBO extends AbstractDBO {
     @Field("flagIsCard")
     private Boolean flagSinistroCard;
     @Field("terzeParti")
-    private List<AnagraficaTerzePartiDBO> anagraficaTerzeParti;
+    private List<FullAnagraficaControparteDBO> anagraficaTerzeParti;
     @Field("legali")
-    private List<AnagraficaTerzePartiDBO> legali;
+    private List<FullAnagraficaControparteDBO> legali;
 
     @Field("contraente")
     private FullAnagraficaControparteDBO contraente;
@@ -130,11 +130,11 @@ public class SinistroDBO extends AbstractDBO {
         this.contraente = contraente;
     }
 
-    public List<AnagraficaTerzePartiDBO> getAnagraficaTerzeParti() {
+    public List<FullAnagraficaControparteDBO> getAnagraficaTerzeParti() {
         return anagraficaTerzeParti;
     }
 
-    public void setAnagraficaTerzeParti(List<AnagraficaTerzePartiDBO> anagraficaTerzeParti) {
+    public void setAnagraficaTerzeParti(List<FullAnagraficaControparteDBO> anagraficaTerzeParti) {
         this.anagraficaTerzeParti = anagraficaTerzeParti;
     }
 
@@ -308,11 +308,11 @@ public class SinistroDBO extends AbstractDBO {
         this.centroConvenzionato = centroConvenzionato;
     }
 
-    public List<AnagraficaTerzePartiDBO> getLegali() {
+    public List<FullAnagraficaControparteDBO> getLegali() {
         return legali;
     }
 
-    public void setLegali(List<AnagraficaTerzePartiDBO> legali) {
+    public void setLegali(List<FullAnagraficaControparteDBO> legali) {
         this.legali = legali;
     }
 

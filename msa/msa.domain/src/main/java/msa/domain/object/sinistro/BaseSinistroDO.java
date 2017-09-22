@@ -16,7 +16,7 @@ public class BaseSinistroDO extends AbstractDO  {
     private Integer compagnia;
     private String targa;
     private SegnalazioneDO segnalazione;
-    private List<AnagraficaTerzePartiDO> legali;
+    private List<FullAnagraficaControparteDO> legali;
     private PeritoDO perito;
     private Integer numSinistroProvv;
     private CentroConvenzionatoDO centroConvenzionato;
@@ -78,11 +78,11 @@ public class BaseSinistroDO extends AbstractDO  {
         this.segnalazione = segnalazione;
     }
 
-    public List<AnagraficaTerzePartiDO> getLegali() {
+    public List<FullAnagraficaControparteDO> getLegali() {
         return legali;
     }
 
-    public void setLegali(List<AnagraficaTerzePartiDO> legali) {
+    public void setLegali(List<FullAnagraficaControparteDO> legali) {
         this.legali = legali;
     }
 

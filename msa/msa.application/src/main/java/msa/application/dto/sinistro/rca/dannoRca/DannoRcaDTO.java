@@ -1,7 +1,7 @@
 package msa.application.dto.sinistro.rca.dannoRca;
 
 import msa.application.dto.sinistro.AbstractDTO;
-import msa.application.dto.sinistro.anagrafica.AnagraficaTerzePartiDTO;
+import msa.application.dto.sinistro.anagrafica.FullAnagraficaControparteDTO;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ public class DannoRcaDTO  extends AbstractDTO {
     private Boolean conducenteDiverso;
     private AnagraficaDanniDTO anagraficaDanniCliente;
     private List<AnagraficaDanniDTO> anagraficaDanniControparte;
-    private List<AnagraficaTerzePartiDTO> terzeParti;
+    private List<FullAnagraficaControparteDTO> terzeParti;
 
 
     public Boolean getLesioniConducente() {
@@ -48,11 +48,11 @@ public class DannoRcaDTO  extends AbstractDTO {
 
 
 
-    public List<AnagraficaTerzePartiDTO> getTerzeParti() {
+    public List<FullAnagraficaControparteDTO> getTerzeParti() {
         return terzeParti;
     }
 
-    public void setTerzeParti(List<AnagraficaTerzePartiDTO> terzeParti) {
+    public void setTerzeParti(List<FullAnagraficaControparteDTO> terzeParti) {
         this.terzeParti = terzeParti;
     }
 

@@ -1,5 +1,7 @@
 package msa.domain.object.sinistro;
 
+import msa.domain.object.enums.TipoGestione;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -13,6 +15,7 @@ public class BaseAnagraficaDO implements Serializable{
     private String tipoPersona;
     private String ragioneSociale;
     private Character sesso;
+    private TipoGestione tipologiaGestione;
 
 
     public String getNome() {
@@ -85,6 +88,14 @@ public class BaseAnagraficaDO implements Serializable{
 
     public void setSesso(Character sesso) {
         this.sesso = sesso;
+    }
+
+    public void setTipologiaGestione(TipoGestione tipologiaGestione) {
+        this.tipologiaGestione = tipologiaGestione;
+    }
+
+    public TipoGestione getTipologiaGestione() {
+        return tipologiaGestione;
     }
 }
 

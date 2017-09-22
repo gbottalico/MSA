@@ -3,7 +3,6 @@ package msa.application.service.sinistri.tipoSinistro;
 import msa.domain.Converter.FunctionUtils;
 import msa.domain.object.dominio.TipoVeicoloDO;
 import msa.domain.object.enums.TipiSinisto;
-import msa.domain.object.sinistro.AnagraficaTerzePartiDO;
 import msa.domain.object.sinistro.BaseSinistroDO;
 import msa.domain.object.sinistro.FullAnagraficaControparteDO;
 import msa.domain.object.sinistro.SinistroRcaDO;
@@ -26,7 +25,7 @@ abstract class CalcoloTipoSinistroFunctions<T extends BaseSinistroDO> {
     @Autowired
     private DomainRepository domainRepository;
 
-    private final Predicate<AnagraficaTerzePartiDO> hasLesioni = AnagraficaTerzePartiDO::getLesioni;
+    private final Predicate<FullAnagraficaControparteDO> hasLesioni = FullAnagraficaControparteDO::getLesioni;
 
     private final Function<FullAnagraficaControparteDO, Boolean> isConvenzioneCTT = anagrafica -> {
         final Boolean flagGestioneCTTVeicolo = domainRepository.getElencoTipoVeicoli()
@@ -44,16 +43,16 @@ abstract class CalcoloTipoSinistroFunctions<T extends BaseSinistroDO> {
             FunctionUtils.numberConverter(sinis.getSegnalazione().getLuogoSinistro().getCodNazione(),Integer::valueOf),
             MsaCostanti.COD_NAZIONE_ITALIA) == 0;
 
-    private final Function<List<AnagraficaTerzePartiDO>, Boolean> nostroTrasportatoCliente = (anags) -> {
-        final Predicate<AnagraficaTerzePartiDO> isTrasportato = e -> e.getCodRuolo().equals(MsaCostanti.COD_RUOLO_TERZO_TRASPORTATO_CLIENTE.toString());
-        final Predicate<AnagraficaTerzePartiDO> concat = hasLesioni.and(isTrasportato);
+    private final Function<List<FullAnagraficaControparteDO>, Boolean> nostroTrasportatoCliente = (anags) -> {
+        final Predicate<FullAnagraficaControparteDO> isTrasportato = e -> e.getCodRuolo().equals(MsaCostanti.COD_RUOLO_TERZO_TRASPORTATO_CLIENTE.toString());
+        final Predicate<FullAnagraficaControparteDO> concat = hasLesioni.and(isTrasportato);
 
         return anags.stream().anyMatch(concat);
     };
 
-    private final Function<List<AnagraficaTerzePartiDO>, Boolean> nostroTrasportatoControparte = (anags) -> {
-        final Predicate<AnagraficaTerzePartiDO> isTrasportato = e -> e.getCodRuolo().equals(MsaCostanti.COD_RUOLO_TERZO_TRASPORTATO_CONTROPARTE.toString());
-        final Predicate<AnagraficaTerzePartiDO> concat = hasLesioni.and(isTrasportato);
+    private final Function<List<FullAnagraficaControparteDO>, Boolean> nostroTrasportatoControparte = (anags) -> {
+        final Predicate<FullAnagraficaControparteDO> isTrasportato = e -> e.getCodRuolo().equals(MsaCostanti.COD_RUOLO_TERZO_TRASPORTATO_CONTROPARTE.toString());
+        final Predicate<FullAnagraficaControparteDO> concat = hasLesioni.and(isTrasportato);
         return anags.stream().anyMatch(concat);
     };
 
@@ -170,5 +169,5 @@ abstract class CalcoloTipoSinistroFunctions<T extends BaseSinistroDO> {
         }
     };
 
-    protected Function<BaseSinistroDO, Boolean> isRca = sinistro -> sinistro.getSegnalazione().getGaranziaSelected().equals(MsaCostanti.COD_GARANZIA_RCA);
+    public Function<BaseSinistroDO, Boolean> isRca = sinistro -> sinistro.getSegnalazione().getGaranziaSelected().equals(MsaCostanti.COD_GARANZIA_RCA);
 }

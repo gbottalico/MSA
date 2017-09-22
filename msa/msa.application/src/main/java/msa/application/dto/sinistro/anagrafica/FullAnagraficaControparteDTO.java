@@ -9,6 +9,9 @@ public class FullAnagraficaControparteDTO extends FullAnagraficaDTO {
     private Boolean targaEstera;
     private Boolean targaSpeciale;
     private TipoGestione tipoGestione;
+    private String note;
+    private Boolean lesioni;
+    private FullAnagraficaControparteDTO associato;
 
 
     public Boolean getTargaEstera() {
@@ -65,5 +68,29 @@ public class FullAnagraficaControparteDTO extends FullAnagraficaDTO {
 
     public void setTipoGestione(TipoGestione tipoGestione) {
         this.tipoGestione = tipoGestione;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public Boolean getLesioni() {
+        return lesioni;
+    }
+
+    public void setLesioni(Boolean lesioni) {
+        this.lesioni = lesioni;
+    }
+
+    public FullAnagraficaControparteDTO getAssociato() {
+        return associato;
+    }
+
+    public void setAssociato(FullAnagraficaControparteDTO associato) {
+        this.associato = associato;
     }
 }

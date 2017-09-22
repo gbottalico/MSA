@@ -1,5 +1,6 @@
 package msa.infrastructure.persistence.sinistro;
 
+import msa.domain.object.enums.TipoGestione;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -26,6 +27,8 @@ public class BaseAnagraficaDBO {
     private String ragioneSociale;
     @Field("sesso")
     private Character sesso;
+    @Field("tipologiaGestione")
+    private TipoGestione tipologiaGestione;
 
 
     public String getNome() {
@@ -98,5 +101,13 @@ public class BaseAnagraficaDBO {
 
     public void setSesso(Character sesso) {
         this.sesso = sesso;
+    }
+
+    public TipoGestione getTipologiaGestione() {
+        return tipologiaGestione;
+    }
+
+    public void setTipologiaGestione(TipoGestione tipologiaGestione) {
+        this.tipologiaGestione = tipologiaGestione;
     }
 }

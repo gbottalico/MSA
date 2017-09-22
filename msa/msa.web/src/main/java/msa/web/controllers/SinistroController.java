@@ -4,7 +4,7 @@ import io.swagger.annotations.ApiOperation;
 import msa.application.config.BaseDTO;
 import msa.application.dto.ricerca.InputRicercaDTO;
 import msa.application.dto.sinistro.*;
-import msa.application.dto.sinistro.anagrafica.AnagraficaTerzePartiDTO;
+import msa.application.dto.sinistro.anagrafica.FullAnagraficaControparteDTO;
 import msa.application.dto.sinistro.rca.cai.CaiDTO;
 import msa.application.dto.sinistro.rca.constatazioneAmichevole.ConstatazioneAmichevoleDTO;
 import msa.application.dto.sinistro.rca.dannoRca.AnagraficaDanniDTO;
@@ -146,13 +146,13 @@ public class SinistroController extends BaseController {
 
     @ApiOperation(value = "Metodo che salva i dati delle terze parti")
     @RequestMapping(value = "/{numero}/dannoRCA/terzeParti", method = RequestMethod.POST)
-    public BaseDTO salvaDanniRcaTerzeParti(@RequestBody List<AnagraficaTerzePartiDTO> input, @PathVariable("numero") Integer numeroSinistro) throws InternalMsaException {
+    public BaseDTO salvaDanniRcaTerzeParti(@RequestBody List<FullAnagraficaControparteDTO> input, @PathVariable("numero") Integer numeroSinistro) throws InternalMsaException {
         return sinistriService.salvaDannoRcaTerzeParti(input, numeroSinistro);
     }
 
     @ApiOperation(value = "Metodo che salva il legale incaricato")
     @RequestMapping(value = "/{numero}/dannoRCA/legale", method = RequestMethod.POST)
-    public BaseDTO salvaDanniRcaLegale(@RequestBody List<AnagraficaTerzePartiDTO> input, @PathVariable("numero") Integer numeroSinistro) throws InternalMsaException {
+    public BaseDTO salvaDanniRcaLegale(@RequestBody List<FullAnagraficaControparteDTO> input, @PathVariable("numero") Integer numeroSinistro) throws InternalMsaException {
 
         return sinistriService.salvaDannoRcaLegale(input, numeroSinistro);
 

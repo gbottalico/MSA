@@ -6,9 +6,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.function.BiFunction;
+import java.util.function.BinaryOperator;
 import java.util.function.Function;
+import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
 
 @Component
@@ -27,6 +31,14 @@ public class MsaConverter {
         return convertObject(source, (S s) -> convertObject(s,claz));
     }
 
+    public <T,S> List<T> convertList(List<S> source, final Class<T> claz, UnaryOperator<T> postConverted) {
+        final List<T> t = new LinkedList<>();
+        source.stream()
+                .parallel()
+                .map(e -> convertObject(e,claz)).forEach(e -> t.add(postConverted.apply(e)));
+        return t;
+    }
+
     public <T, S> List<T> convertList(List<S> source, Function<S,Class<T>> getClassFunction) {
         return convertObject(source, (S s) -> convertObject(s,getClassFunction.apply(s)));
     }
@@ -40,7 +52,7 @@ public class MsaConverter {
     }
 
     public <T, S> List<T> convertObject(List<S> source, Function<S, T> conversionFunction) {
-        return source.stream().map(e -> convertObject(e, conversionFunction)).collect(Collectors.toList());
+        return source.stream().parallel().map(conversionFunction).collect(Collectors.toList());
     }
     public <T, U, S> T biConvertObject(S sourceA, U sourceB, BiFunction<S,U,T> biMapper) {
         return biMapper.apply(sourceA,sourceB);

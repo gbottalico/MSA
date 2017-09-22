@@ -1,6 +1,5 @@
 package msa.application.dto.sinistro;
 
-import msa.application.dto.sinistro.anagrafica.AnagraficaTerzePartiDTO;
 import msa.application.dto.sinistro.anagrafica.FullAnagraficaControparteDTO;
 import msa.application.dto.sinistro.segnalazione.SegnalazioneDTO;
 import msa.domain.object.enums.TipiSinisto;
@@ -20,7 +19,7 @@ public class BaseSinistroDTO extends AbstractDTO {
     private String compagnia;
     private String targa;
     private SegnalazioneDTO segnalazione;
-    private List<AnagraficaTerzePartiDTO> legali;
+    private List<FullAnagraficaControparteDTO> legali;
     private PeritoDTO perito;
     private Integer numSinistroProvv;
     private CentroConvenzionatoDTO centroConvenzionato;
@@ -82,11 +81,11 @@ public class BaseSinistroDTO extends AbstractDTO {
         this.segnalazione = segnalazione;
     }
 
-    public List<AnagraficaTerzePartiDTO> getLegali() {
+    public List<FullAnagraficaControparteDTO> getLegali() {
         return legali;
     }
 
-    public void setLegali(List<AnagraficaTerzePartiDTO> legali) {
+    public void setLegali(List<FullAnagraficaControparteDTO> legali) {
         this.legali = legali;
     }
 

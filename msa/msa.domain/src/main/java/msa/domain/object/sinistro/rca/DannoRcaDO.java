@@ -1,6 +1,6 @@
 package msa.domain.object.sinistro.rca;
 
-import msa.domain.object.sinistro.AnagraficaTerzePartiDO;
+import msa.domain.object.sinistro.FullAnagraficaControparteDO;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ public class DannoRcaDO {
     private Boolean conducenteDiverso;
     private AnagraficaDanniDO anagraficaDanniCliente;
     private List<AnagraficaDanniDO> anagraficaDanniControparte;
-    private List<AnagraficaTerzePartiDO> terzeParti;
+    private List<FullAnagraficaControparteDO> terzeParti;
 
     public Boolean getLesioniConducente() {
         return lesioniConducente;
@@ -35,11 +35,11 @@ public class DannoRcaDO {
         this.anagraficaDanniControparte = anagraficaDanniControparte;
     }
 
-    public List<AnagraficaTerzePartiDO> getTerzeParti() {
+    public List<FullAnagraficaControparteDO> getTerzeParti() {
         return terzeParti;
     }
 
-    public void setTerzeParti(List<AnagraficaTerzePartiDO> terzeParti) {
+    public void setTerzeParti(List<FullAnagraficaControparteDO> terzeParti) {
         this.terzeParti = terzeParti;
     }
 

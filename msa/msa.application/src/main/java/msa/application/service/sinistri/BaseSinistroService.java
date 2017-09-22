@@ -2,7 +2,7 @@ package msa.application.service.sinistri;
 
 import msa.application.config.enumerator.MessageType;
 import msa.application.dto.sinistro.*;
-import msa.application.dto.sinistro.anagrafica.AnagraficaTerzePartiDTO;
+import msa.application.dto.sinistro.anagrafica.FullAnagraficaControparteDTO;
 import msa.application.dto.sinistro.rca.cai.CaiDTO;
 import msa.application.dto.sinistro.rca.constatazioneAmichevole.ConstatazioneAmichevoleDTO;
 import msa.application.dto.sinistro.rca.dannoRca.AnagraficaDanniDTO;
@@ -12,9 +12,7 @@ import msa.application.dto.sinistro.segnalazione.SegnalazioneDTO;
 import msa.application.exceptions.InternalMsaException;
 import msa.application.service.base.BaseService;
 import msa.domain.Converter.FunctionUtils;
-import msa.domain.Converter.MsaConverter;
 import msa.domain.object.dominio.BaremesDO;
-import msa.domain.object.dominio.TipoVeicoloDO;
 import msa.domain.object.sinistro.*;
 import msa.domain.object.sinistro.rca.*;
 import msa.infrastructure.costanti.MsaCostanti;
@@ -22,10 +20,8 @@ import msa.infrastructure.repository.DomainRepository;
 import msa.infrastructure.repository.SinistriRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.math.BigDecimal;
 import java.util.*;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -63,7 +59,7 @@ public class BaseSinistroService extends BaseService {
         coupleSinistroFunctions.add(new SinistroFunction<>(DannoRcaDTO.class, DANNORCA_CONDUCENTE));
         coupleSinistroFunctions.add(new SinistroFunction<>(AnagraficaDanniDTO.class, DANNORCA_CONTROPARTE));
         coupleSinistroFunctions.add(new SinistroFunction<>(ConstatazioneAmichevoleDTO.class, CONSTATAZIONE_AMICHEVOLE));
-        coupleSinistroFunctions.add(new SinistroFunction<>(AnagraficaTerzePartiDTO.class, TERZE_PARTI));
+        coupleSinistroFunctions.add(new SinistroFunction<>(FullAnagraficaControparteDTO.class, TERZE_PARTI));
         coupleSinistroFunctions.add(new SinistroFunction<>(CaiDTO.class, CAI));
 /*
         coupleSinistroFunctions.add(new SinistroFunction<>(PeritoDTO.class, PERITO));
@@ -184,7 +180,7 @@ public class BaseSinistroService extends BaseService {
                     throw new InternalMsaException();
                 }
             };
-    private final MsaBiFunction<AnagraficaTerzePartiDTO, Integer, SinistroRcaDO> TERZE_PARTI =
+    private final MsaBiFunction<FullAnagraficaControparteDTO, Integer, SinistroRcaDO> TERZE_PARTI =
             (O, numSinistroProvv) -> {
                 try {
                     final SinistroRcaDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv, SinistroRcaDO.class);
@@ -246,7 +242,7 @@ public class BaseSinistroService extends BaseService {
                     sinistroByNumProvv.setCodAutorita(o.getCodAutorita());
                     sinistroByNumProvv.setComandoAutorita(o.getComandoAutorita());
                     sinistroByNumProvv.setDataDenuncia(o.getDataDenuncia());
-                    if(o.getConducenteDiverso()) {
+                    if(!o.getConducenteDiverso()) {
                         sinistroByNumProvv.setConducente(sinistroByNumProvv.getContraente());
                     } else {
                         sinistroByNumProvv.setConducente(converter.convertObject(o.getConducente(),FullAnagraficaDO.class));
@@ -288,7 +284,7 @@ public class BaseSinistroService extends BaseService {
                     sinistroByNumProvv.setCodAutorita(o.getCodAutorita());
                     sinistroByNumProvv.setComandoAutorita(o.getComandoAutorita());
                     sinistroByNumProvv.setDataDenuncia(o.getDataDenuncia());
-                    if(o.getConducenteDiverso()) {
+                    if(!o.getConducenteDiverso()) {
                         sinistroByNumProvv.setConducente(sinistroByNumProvv.getContraente());
                     } else {
                         sinistroByNumProvv.setConducente(converter.convertObject(o.getConducente(),FullAnagraficaDO.class));
@@ -300,6 +296,9 @@ public class BaseSinistroService extends BaseService {
 
             };
 
+    protected<T extends BaseSinistroDO> Boolean isRca(T sinis) {
+        return MsaCostanti.COD_GARANZIA_RCA.equals(sinis.getSegnalazione().getGaranziaSelected());
+    }
 
     protected<T extends BaseSinistroDO> Stream<FullAnagraficaControparteDO> getStreamPd(Integer numSinistroProvv) throws Exception {
         T sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv);
