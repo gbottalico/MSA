@@ -17,7 +17,7 @@ public class IncrociBaremesDBO {
     private Integer codBaremesControparte;
     @Field(value = "Cod_responsabilita")
     private String codResponsabilita;
-    @Field("Per_resp_cliente")
+    @Field("Perc_resp_cliente")
     private Integer percRespCliente;
 
     public Integer getId() {
