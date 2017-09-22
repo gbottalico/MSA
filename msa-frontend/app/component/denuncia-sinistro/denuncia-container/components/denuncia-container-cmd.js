@@ -179,6 +179,7 @@
                         $ctrl.tempSegnalazione.garanzia = $ctrl.tempSegnalazione.garanzia || (_.isObject($ctrl.sinistroProvvisorio.segnalazione) ? $ctrl.sinistroProvvisorio.segnalazione.garanziaSelected : null);
                         $ctrl.aggiornaPercentuale();
                         $ctrl.tempSegnalazione.numeroPolizza = $ctrl.sinistroProvvisorio.numeroPolizza;
+                        $ctrl.tempSegnalazione.dataEvento = $ctrl.sinistroProvvisorio.segnalazione.dataOraSinistro;
                         $ctrl.setScrollabile();
                         $ctrl.tempSegnalazione.lastSearch = $scope.$storage.lastSearch;
                     });
