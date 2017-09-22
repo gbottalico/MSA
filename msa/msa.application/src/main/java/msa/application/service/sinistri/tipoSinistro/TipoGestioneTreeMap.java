@@ -11,14 +11,11 @@ import java.util.Optional;
  */
 public class TipoGestioneTreeMap<T extends BaseSinistroDO> extends CalcoloTipoSinistroFunctions {
     public TipoGestione calcolaTipoGestione(T sinistro) throws Throwable {
-        if (Optional.ofNullable(sinistro)
-                .map(isRca)
-                .orElseThrow(InternalMsaException::new).equals(Boolean.TRUE)) {
-            //getTipoSinistro;
-        } else {
-            return null;
-        }
 
         return null;
+    }
+
+    private void getAllAnagrafiche(){
+
     }
 }

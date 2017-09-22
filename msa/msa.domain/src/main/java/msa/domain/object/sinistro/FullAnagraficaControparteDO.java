@@ -1,5 +1,7 @@
 package msa.domain.object.sinistro;
 
+import msa.domain.object.enums.TipoGestione;
+
 public class FullAnagraficaControparteDO extends FullAnagraficaDO {
     private String compagnia;
     private String veicolo;
@@ -7,6 +9,7 @@ public class FullAnagraficaControparteDO extends FullAnagraficaDO {
     private Boolean targaEstera;
     private Boolean targaSpeciale;
     private Boolean flagCard;
+    private TipoGestione tipoGestione;
 
 
     public String getCompagnia() {
@@ -55,5 +58,13 @@ public class FullAnagraficaControparteDO extends FullAnagraficaDO {
 
     public void setFlagCard(Boolean flagCard) {
         this.flagCard = flagCard;
+    }
+
+    public TipoGestione getTipoGestione() {
+        return tipoGestione;
+    }
+
+    public void setTipoGestione(TipoGestione tipoGestione) {
+        this.tipoGestione = tipoGestione;
     }
 }

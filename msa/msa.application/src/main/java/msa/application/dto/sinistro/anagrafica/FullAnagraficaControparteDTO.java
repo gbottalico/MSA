@@ -1,11 +1,14 @@
 package msa.application.dto.sinistro.anagrafica;
 
+import msa.domain.object.enums.TipoGestione;
+
 public class FullAnagraficaControparteDTO extends FullAnagraficaDTO {
     private String compagnia;
     private String veicolo; //codice tipo veicolo
     private String targa;
     private Boolean targaEstera;
     private Boolean targaSpeciale;
+    private TipoGestione tipoGestione;
 
 
     public Boolean getTargaEstera() {
@@ -54,5 +57,13 @@ public class FullAnagraficaControparteDTO extends FullAnagraficaDTO {
 
     public void setTargaSpeciale(Boolean targaSpeciale) {
         this.targaSpeciale = targaSpeciale;
+    }
+
+    public TipoGestione getTipoGestione() {
+        return tipoGestione;
+    }
+
+    public void setTipoGestione(TipoGestione tipoGestione) {
+        this.tipoGestione = tipoGestione;
     }
 }

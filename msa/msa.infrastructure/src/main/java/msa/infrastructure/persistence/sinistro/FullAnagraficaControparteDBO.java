@@ -1,5 +1,6 @@
 package msa.infrastructure.persistence.sinistro;
 
+import msa.domain.object.enums.TipoGestione;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 public class FullAnagraficaControparteDBO extends FullAnagraficaDBO {
@@ -17,6 +18,8 @@ public class FullAnagraficaControparteDBO extends FullAnagraficaDBO {
 
     @Field("flagCard")
     private Boolean flagCard;
+    @Field("tipologiaGestione")
+    private TipoGestione tipoGestione;
 
 
     public String getCompagnia() {
@@ -65,5 +68,13 @@ public class FullAnagraficaControparteDBO extends FullAnagraficaDBO {
 
     public void setFlagCard(Boolean flagCard) {
         this.flagCard = flagCard;
+    }
+
+    public TipoGestione getTipoGestione() {
+        return tipoGestione;
+    }
+
+    public void setTipoGestione(TipoGestione tipoGestione) {
+        this.tipoGestione = tipoGestione;
     }
 }

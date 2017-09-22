@@ -426,6 +426,7 @@
 
                     modalInstance.result.then(function (contraente, compagnia) {
                         DebugSvc.log("openAnagrafica", contraente);
+                        contraente.compagnia = {id: "38"};
                         $ctrl.apriSinistroProvvisorio(contraente, compagnia, null);
                     }, function () {
                         DebugSvc.log("openAnagrafica dismiss.");
