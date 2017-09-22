@@ -241,12 +241,14 @@ public class BaseSinistroService extends BaseService {
 
                     SinistroKaskoDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistro, SinistroKaskoDO.class);
                     sinistroByNumProvv.setDanniKasko(converter.convertObject(o.getDanniKasko(), DanniDO.class));
+                    sinistroByNumProvv.setDescrizioneDanni(o.getDescrizioneDanni());
                     sinistroByNumProvv.setOsservazioniCliente(o.getOsservazioniCliente());
+                    sinistroByNumProvv.setLesioniConducente(o.getLesioniConducente());
                     sinistroByNumProvv.setInterventoAutorita(o.getInterventoAutorita());
                     sinistroByNumProvv.setCodAutorita(o.getCodAutorita());
                     sinistroByNumProvv.setComandoAutorita(o.getComandoAutorita());
                     sinistroByNumProvv.setDataDenuncia(o.getDataDenuncia());
-                    if(o.getConducenteDiverso()) {
+                    if(!o.getConducenteDiverso()) {
                         sinistroByNumProvv.setConducente(sinistroByNumProvv.getContraente());
                     } else {
                         sinistroByNumProvv.setConducente(converter.convertObject(o.getConducente(),FullAnagraficaDO.class));
@@ -288,7 +290,7 @@ public class BaseSinistroService extends BaseService {
                     sinistroByNumProvv.setCodAutorita(o.getCodAutorita());
                     sinistroByNumProvv.setComandoAutorita(o.getComandoAutorita());
                     sinistroByNumProvv.setDataDenuncia(o.getDataDenuncia());
-                    if(o.getConducenteDiverso()) {
+                    if(!o.getConducenteDiverso()) {
                         sinistroByNumProvv.setConducente(sinistroByNumProvv.getContraente());
                     } else {
                         sinistroByNumProvv.setConducente(converter.convertObject(o.getConducente(),FullAnagraficaDO.class));

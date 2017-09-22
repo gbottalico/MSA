@@ -76,6 +76,8 @@ public class SinistroDBO extends AbstractDBO {
     private Boolean conducenteDiverso;
     @Field("conducente")
     private FullAnagraficaDBO conducente;
+    @Field("lesioniConducente")
+    private Boolean lesioniConducente;
     //FINE KASKO
     //INIZIO CRISTALLI
     @Field("desCristalloRotto")
@@ -363,4 +365,13 @@ public class SinistroDBO extends AbstractDBO {
     public void setConducente(FullAnagraficaDBO conducente) {
         this.conducente = conducente;
     }
+
+	public Boolean getLesioniConducente() {
+		return lesioniConducente;
+	}
+
+	public void setLesioniConducente(Boolean lesioniConducente) {
+		this.lesioniConducente = lesioniConducente;
+	}
+    
 }
