@@ -281,15 +281,17 @@ public class BaseSinistroService extends BaseService {
                 try {
 
                     SinistroInfortuniConducenteDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistro, SinistroInfortuniConducenteDO.class);
-                    sinistroByNumProvv.setConducenteDiversoContraente(o.getConducenteDiversoContraente());
+                    sinistroByNumProvv.setConducenteDiverso(o.getConducenteDiverso());
                     sinistroByNumProvv.setDescrizioneDanni(o.getDescrizioneDanni());
                     sinistroByNumProvv.setOsservazioniInfortunato(o.getOsservazioniInfortunato());
                     sinistroByNumProvv.setInterventoAutorita(o.getInterventoAutorita());
                     sinistroByNumProvv.setCodAutorita(o.getCodAutorita());
                     sinistroByNumProvv.setComandoAutorita(o.getComandoAutorita());
                     sinistroByNumProvv.setDataDenuncia(o.getDataDenuncia());
-                    if (o.getAnagraficaInfortunato() != null) {
-                        sinistroByNumProvv.setAnagraficaInfortunato(converter.convertObject(o.getAnagraficaInfortunato(), FullAnagraficaDO.class));
+                    if(o.getConducenteDiverso()) {
+                        sinistroByNumProvv.setConducente(sinistroByNumProvv.getContraente());
+                    } else {
+                        sinistroByNumProvv.setConducente(converter.convertObject(o.getConducente(),FullAnagraficaDO.class));
                     }
                     return sinistroByNumProvv;
                 } catch (Exception e) {
