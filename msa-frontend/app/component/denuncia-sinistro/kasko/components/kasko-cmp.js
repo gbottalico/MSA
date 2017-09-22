@@ -19,6 +19,7 @@
                 $scope.$regex = RegexSvc;
                 $ctrl.mapId = 'M32';
 
+                $ctrl.persistence = {};
                 $ctrl.kasko = {};
                 $ctrl.isInputConsumed = false;
 
@@ -27,30 +28,40 @@
                     parent.mappaCaricata($ctrl.mapId);
                 });
 
-                $ctrl.calcolaCf = function () {
-                    var luogoNascita = $ctrl.kasko.conducente.nascita.comune ?
-                        $ctrl.kasko.conducente.nascita.comune.descrizione :
-                        $ctrl.kasko.conducente.nascita.nazione.descrizione;
 
-                    UtilSvc.calcolaCf($ctrl.kasko.conducente.cognome, $ctrl.kasko.conducente.nome, $ctrl.kasko.conducente.sesso, $ctrl.kasko.conducente.nascita.data, luogoNascita).then(function (response) {
-                        DebugSvc.log("calcolaCf", response);
-                        if (response.data.status === 200) {
-                            $ctrl.kasko.conducente.cf = response.data.result;
+                $ctrl.salvaKasko = function () {
+                    SinistriSvc.salvaKasko($ctrl.numeroSinistroProvvisorio, $ctrl.kasko).then(function (response) {
+                        DebugSvc.log("salvaKasko", response);
+                        if (response.status === 200 && _.isObject(response.data) && response.data.status === 200) {
+                            parent.aggiornaMappe($ctrl.mapId);
+                            toastr.success($translate('global.generic.saveok'));
+                            $scope.kaskoForm.$setPristine();
                         } else {
-                            toastr.error($translate('global.generic.cfko'));
+                            toastr.error($translate('global.generic.saveko'));
                         }
                     });
                 };
 
-                $ctrl.isCalcolaCfDisabled = function () {
-                    try {
-                        return !($ctrl.kasko.conducente &&
-                            $ctrl.kasko.conducente.cognome &&
-                            $ctrl.kasko.conducente.nome &&
-                            $ctrl.kasko.conducente.sesso &&
-                            $ctrl.kasko.conducente.nascita.data);
-                    } catch (error) {
-                        return false;
+                $ctrl.bindKasko = function () {
+
+                    $ctrl.persistence.danniKasko = $ctrl.sinistroProvvisorio.danniKasko;
+
+                    $ctrl.kasko.conducenteIsNotContraente = $ctrl.sinistroProvvisorio.conducenteDiverso;
+                    $ctrl.kasko.lesioniConducente = $ctrl.sinistroProvvisorio.lesioniConducente;
+
+                    if ($ctrl.kasko.conducenteIsNotContraente) {
+                        $ctrl.kasko.conducente = $ctrl.sinistroProvvisorio.conducente;
+                    }
+
+                    $ctrl.kasko.descrizioneDanni = $ctrl.sinistroProvvisorio.descrizioneDanni;
+                    $ctrl.kasko.osservazioniCliente = $ctrl.sinistroProvvisorio.osservazioniCliente;
+                    $ctrl.kasko.interventoAutorita = $ctrl.sinistroProvvisorio.interventoAutorita;
+
+                    if ($ctrl.kasko.interventoAutorita) {
+                        $ctrl.kasko.autoritaIntervenuta = $ctrl.sinistroProvvisorio.codAutorita;
+                        $ctrl.kasko.comandoAutorita = $ctrl.sinistroProvvisorio.comandoAutorita;
+                        $ctrl.kasko.dataDenuncia = new Date($ctrl.sinistroProvvisorio.dataDenuncia);
+
                     }
                 };
 
@@ -63,7 +74,7 @@
                     function handleChanges(newValues, oldValues) {
 
                         if (_.isObject(newValues.sinistroProvvisorio) && !$ctrl.isInputConsumed) {
-
+                            $ctrl.bindKasko();
                             $ctrl.isInputConsumed = true;
                         }
 

@@ -47,6 +47,7 @@ app.service('msaServicesApiUrls', function ($MSAC) {
     this.salvacarrozzeria       = apiPath + "/sinistro/{0}/centroConvenzionato/";   //0: indirizzo
     this.furtoincendio          = apiPath + "/sinistro/{0}/furtoIncendio";          //0: indirizzo
     this.cristalli              = apiPath + "/sinistro/{0}/cristalli";              //0: indirizzo
+    this.kasko                  = apiPath + "/sinistro/{0}/kasko";                  //0: indirizzo
 
     this.tipoSinistro           = apiPath + "/sinistro/{0}/getTipoSinistro";        //0: numero sinistro provvisorio
 

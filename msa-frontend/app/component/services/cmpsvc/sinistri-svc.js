@@ -1,3 +1,4 @@
+
 angular.module('msa').service(
     'SinistriSvc',
     [
@@ -240,9 +241,6 @@ angular.module('msa').service(
 
             };
 
-
-
-
             $svc.salvaDannoRcaControparti = function (idSinistroProvvisorio, dannoRca) {
 
                 var dataObj = [];
@@ -354,6 +352,33 @@ angular.module('msa').service(
 
                 var url = UtilSvc.stringFormat(msaServicesApiUrls.cristalli, idSinistroProvvisorio);
                 return $http.post(url, dataObj);
+            };
+
+            $svc.salvaKasko = function (idSinistroProvvisorio, kasko) {
+
+                var dataObj = {
+                    descrizioneDanni: kasko.descrizioneDanni,
+                    osservazioniCliente: kasko.osservazioniCliente,
+                    interventoAutorita: kasko.interventoAutorita,
+                };
+
+                if (kasko.interventoAutorita) {
+                    dataObj.codAutorita = kasko.autoritaIntervenuta;
+                    dataObj.comandoAutorita = kasko.comandoAutorita;
+                    dataObj.dataDenuncia = kasko.dataDenuncia;
+                }
+
+                dataObj.danniKasko = ConvertSvc.danniAutoToDTO(kasko.danniKasko);
+                dataObj.lesioniConducente = kasko.lesioniConducente;
+                dataObj.conducenteDiverso = kasko.conducenteIsNotContraente;
+
+                if (kasko.conducente) {
+                    dataObj.conducente = ConvertSvc.anagraficaToDTO(kasko.conducente);
+                }
+
+                var url = UtilSvc.stringFormat(msaServicesApiUrls.kasko, idSinistroProvvisorio);
+                return $http.post(url, dataObj);
+
             };
 
             $svc.getPartiteDanno = function (idSinistroProvvisorio) {
