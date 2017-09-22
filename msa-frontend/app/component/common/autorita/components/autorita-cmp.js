@@ -1,13 +1,6 @@
 (function () {
     "use strict";
 
-    /**
-     * Selettore di data.
-     * Permette la selezione di date solamente nel passato, ma il comportamento è evitabile omettendo
-     * il campo maxDate.
-     *
-     */
-
     app.component('msaAutorita', {
         templateUrl: '../../app/component/common/autorita/components/templates/autorita-tpl.html',
         bindings: {
