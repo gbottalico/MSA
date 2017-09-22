@@ -75,6 +75,16 @@
         </msa-furto-parziale>
         <!-- END FURTO PARZIALE -->
 
+        <!-- KASKO -->
+        <msa-kasko
+              id="M32"
+              ng-if="$ctrl.isMappaVisibile('M32')"
+              numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
+              sinistro-provvisorio="$ctrl.sinistroProvvisorio"
+              temp-segnalazione="$ctrl.tempSegnalazione">
+        </msa-kasko>
+        <!-- END KASKO -->
+
         <!-- INCENDIO -->
         <msa-incendio-veicolo
                 id="M28"
