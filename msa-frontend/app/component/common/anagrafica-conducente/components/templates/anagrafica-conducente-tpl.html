@@ -2,21 +2,21 @@
     <div class="col-lg-12">
         <div class="row">
             <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 classicInputText">
-                <input type="text" name="cognome" ng-model="$ctrl.cognome" ng-required="true">
+                <input type="text" name="cognome" ng-model="$ctrl.result.cognome" ng-required="true">
                 <label>{{'global.people.cognome' | translate}}</label>
             </div>
             <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 classicInputText">
-                <input type="text" name="nome" ng-model="$ctrl.nome" ng-required="true">
+                <input type="text" name="nome" ng-model="$ctrl.result.nome" ng-required="true">
                 <label>{{'global.people.nome' | translate}}</label>
             </div>
 
             <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 classicInputRadio">
                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 noPaddingLeft">
-                    <input type="radio" value="M" name="sesso" ng-model="$ctrl.sesso" ng-required="false">
+                    <input type="radio" value="M" name="sesso" ng-model="$ctrl.result.sesso" ng-required="false">
                     <label class="rightLabel">{{'global.generic.male' | translate}}</label>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 noPaddingRight">
-                    <input type="radio" value="F" name="sesso" ng-model="$ctrl.sesso" ng-required="false">
+                    <input type="radio" value="F" name="sesso" ng-model="$ctrl.result.sesso" ng-required="false">
                     <label class="rightLabel">{{'global.generic.female' | translate}}</label>
                 </div>
                 <div class="col-lg-4 col-md-4 hidden-sm hidden-xs noPaddingRight">&nbsp;</div>
@@ -33,7 +33,7 @@
             <div class="col-lg-12"><span class="subsectionTitle">{{'global.people.luogodatanascita' | translate}}</span></div>
 
             <msa-place
-                    result="$ctrl.nascita"
+                    result="$ctrl.result.nascita"
                     data-input="$ctrl.persistence.luogoNascita"
                     name="'luogoNascita'"
                     required="false"></msa-place>
@@ -41,7 +41,7 @@
                 <p class="input-group">
                     <input datetimepicker-neutral-timezone type="text"
                            uib-datepicker-popup="{{$MSAC.DEFAULT_DATE_OPTIONS.format}}"
-                           ng-model="$ctrl.nascita.data"
+                           ng-model="$ctrl.result.nascita.data"
                            is-open="openedDataNascita"
                            datepicker-options="$MSAC.DEFAULT_DATE_OPTIONS.options"
                            show-button-bar="{{$MSAC.DEFAULT_DATE_OPTIONS.showButtonBar}}"
@@ -78,7 +78,7 @@
             </div>
 
             <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 classicInputText">
-                <input type="text" name="cf" ng-model="$ctrl.cf" ng-required="false">
+                <input type="text" name="cf" ng-model="$ctrl.result.cf" ng-required="false">
                 <label>{{'global.people.cf' | translate}}</label>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 classicInputText">
@@ -99,11 +99,11 @@
     </div>
 
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicInputText">
-        <input type="text" name="telefono" ng-model="$ctrl.telefono" ng-pattern="$regex.reTelefono" ng-required="false">
+        <input type="text" name="telefono" ng-model="$ctrl.result.telefono" ng-pattern="$regex.reTelefono" ng-required="false">
         <label>{{'global.people.telefono' | translate}}</label>
     </div>
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicInputText">
-        <input type="text" name="mail" ng-model="$ctrl.mail" ng-pattern="$regex.reEmail" ng-required="false">
+        <input type="text" name="mail" ng-model="$ctrl.result.mail" ng-pattern="$regex.reEmail" ng-required="false">
         <label>{{'global.people.email' | translate}}</label>
     </div>
 
@@ -115,13 +115,13 @@
         <span class="subsectionTitle">{{'global.people.residenza' | translate}}</span>
     </div>
 
-    <msa-place result="$ctrl.residenza"
+    <msa-place result="$ctrl.result.residenza"
                data-input="$ctrl.persistence.residenza"
                name="'luogoResidenza'"
                required="false"></msa-place>
 
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputText">
-        <input type="text" name="denominazioneStrada" ng-model="$ctrl.residenza.indirizzo" ng-required="false">
+        <input type="text" name="denominazioneStrada" ng-model="$ctrl.result.residenza.indirizzo" ng-required="false">
         <label>{{'global.denunciasinitro.labels.indirizzo' | translate}}</label>
     </div>
 </ng-form>
