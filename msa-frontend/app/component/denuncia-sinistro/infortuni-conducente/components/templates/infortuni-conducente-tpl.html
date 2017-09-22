@@ -1,8 +1,8 @@
 <div class="containerHeader">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container boxShadow">
         <div class="header"
-             ng-class="{'is-ok': kaskoForm.$pristine && kaskoForm.$valid, 'has-error': !kaskoForm.$pristine || !kaskoForm.$valid}">
-            <h1 class="titleSection">{{'global.kasko.title' | translate}}</h1>
+             ng-class="{'is-ok': infortuniForm.$pristine && infortuniForm.$valid, 'has-error': !infortuniForm.$pristine || !infortuniForm.$valid}">
+            <h1 class="titleSection">{{'global.infortuni.title' | translate}}</h1>
         </div>
     </div>
 </div>
@@ -11,40 +11,26 @@
 
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container boxShadow">
         <div class="body">
-            <pre ng-if="$debugMode">{{$ctrl.kasko}}</pre>
+            <pre ng-if="$debugMode">{{$ctrl.infortuni}}</pre>
 
             <div class="margin-top-1 margin-bottom-2 col-lg-12">
-                <span class="subsectionTitle">{{'global.kasko.title' | translate}}</span>
+                <span class="subsectionTitle">{{'global.infortuni.title' | translate}}</span>
             </div>
 
-            <form name="kaskoForm" novalidate>
+            <form name="infortuniForm" novalidate>
 
                 <div class="col-lg-12">
 
                     <div class="row">
-                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputRadio">
-                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingLeft">
-                                <input type="radio" ng-value="true" name="lesioniConducente"
-                                       ng-model="$ctrl.kasko.lesioniConducente" ng-required="true">
-                                <label class="rightLabel">{{'global.generic.si' | translate}}</label>
-                            </div>
-                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingRight">
-                                <input type="radio" ng-value="false" name="lesioniConducente"
-                                       ng-model="$ctrl.kasko.lesioniConducente" ng-required="true">
-                                <label class="rightLabel">{{'global.generic.no' | translate}}</label>
-                            </div>
-                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 noPaddingRight">&nbsp;</div>
-                            <label>{{'global.dannorca.labels.lesioniconducente' | translate}}</label>
-                        </div>
                         <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 classicInputRadio">
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingLeft">
                                 <input type="radio" ng-value="true" name="conducenteIsNotContraente"
-                                       ng-model="$ctrl.kasko.conducenteIsNotContraente" ng-required="true">
+                                       ng-model="$ctrl.infortuni.conducenteIsNotContraente" ng-required="true">
                                 <label class="rightLabel">{{'global.generic.si' | translate}}</label>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingLeft" ng-required="true">
                                 <input type="radio" ng-value="false" name="conducenteIsNotContraente"
-                                       ng-model="$ctrl.kasko.conducenteIsNotContraente">
+                                       ng-model="$ctrl.infortuni.conducenteIsNotContraente">
                                 <label class="rightLabel">{{'global.generic.no' | translate}}</label>
                             </div>
                             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 noPaddingRight">&nbsp;</div>
@@ -55,9 +41,9 @@
                     <!-- FORM CONDUCENTE -->
                     <div class="row">
                         <msa-anagrafica-conducente
-                                ng-if="$ctrl.kasko.conducenteIsNotContraente"
-                                input="$ctrl.kasko.conducente"
-                                result="$ctrl.kasko.conducente">
+                                ng-if="$ctrl.infortuni.conducenteIsNotContraente"
+                                input="$ctrl.infortuni.conducente"
+                                result="$ctrl.infortuni.conducente">
 
                         </msa-anagrafica-conducente>
                     </div>
@@ -72,17 +58,12 @@
 
                 <!-- AUTO -->
 
-                <div class="col-lg-12 classicTextArea">
-                    <span class="subsectionTitle">{{'global.dannorca.labels.dannicliente' | translate}}</span>
-                    <msa-auto data-auto="$ctrl.kasko.danniKasko" data-input="$ctrl.persistence.danniKasko"></msa-auto>
-                </div>
-
 
                 <!-- DANNO -->
 
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicTextArea">
                     <textarea class="textauto"
-                              ng-model="$ctrl.kasko.descrizioneDanni"
+                              ng-model="$ctrl.infortuni.descrizioneDanni"
                               name="descrizioneDanno"
                               ng-required="false">
 
@@ -93,20 +74,20 @@
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicTextArea">
                     <textarea class="textauto"
                               name="osservazioniCliente"
-                              ng-model="$ctrl.kasko.osservazioniCliente"
+                              ng-model="$ctrl.infortuni.osservazioniCliente"
                               ng-required="false"></textarea>
                     <label>{{'global.kasko.labels.osservazioniCliente' | translate}}</label>
                 </div>
 
                 <msa-autorita
-                        result="$ctrl.kasko"
+                        result="$ctrl.infortuni"
                         name="'interventoAutorita'">
                 </msa-autorita>
 
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicButton">
                     <button class="blueButton"
-                            ng-click=" $ctrl.salvaKasko()"
-                            ng-disabled="kaskoForm.$invalid">
+                            ng-click=" $ctrl.salvaInfortuni()"
+                            ng-disabled="infortuniForm.$invalid">
                         <a><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;{{'global.generic.salvaprocedi' | translate}}</a>
                     </button>
                 </div>

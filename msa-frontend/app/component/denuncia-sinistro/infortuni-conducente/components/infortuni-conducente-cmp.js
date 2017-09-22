@@ -1,14 +1,14 @@
 (function () {
     "use strict";
 
-    app.component('msaKasko', {
-        templateUrl: '../../app/component/denuncia-sinistro/kasko/components/templates/kasko-tpl.html',
+    app.component('msaInfortuniConducente', {
+        templateUrl: '../../app/component/denuncia-sinistro/infortuni-conducente/components/templates/infortuni-conducente-tpl.html',
         bindings: {
             numeroSinistroProvvisorio: "<",
             sinistroProvvisorio: "<",
             tempSegnalazione: "="
         },
-        controller: ("kaskoController", ['_', '$MSAC', '$rootScope', '$scope', '$debugMode', '$filter', '$location', '$timeout', 'toastr', 'SinistriSvc', 'DebugSvc', 'RegexSvc',
+        controller: ("msaInfortuniConducente", ['_', '$MSAC', '$rootScope', '$scope', '$debugMode', '$filter', '$location', '$timeout', 'toastr', 'SinistriSvc', 'DebugSvc', 'RegexSvc',
             function (_, $MSAC, $rootScope, $scope, $debugMode, $filter, $location, $timeout, toastr, SinistriSvc, DebugSvc, RegexSvc) {
 
                 var $ctrl = this;
@@ -17,10 +17,10 @@
                 $scope.$debugMode = $debugMode;
                 $scope.$MSAC = $MSAC;
                 $scope.$regex = RegexSvc;
-                $ctrl.mapId = 'M32';
+                $ctrl.mapId = 'M34';
 
                 $ctrl.persistence = {};
-                $ctrl.kasko = {};
+                $ctrl.infortuni = {};
                 $ctrl.isInputConsumed = false;
 
 
@@ -29,38 +29,35 @@
                 });
 
 
-                $ctrl.salvaKasko = function () {
-                    SinistriSvc.salvaKasko($ctrl.numeroSinistroProvvisorio, $ctrl.kasko).then(function (response) {
-                        DebugSvc.log("salvaKasko", response);
+                $ctrl.salvaInfortuni = function () {
+                    SinistriSvc.salvaInfortuni($ctrl.numeroSinistroProvvisorio, $ctrl.infortuni).then(function (response) {
+                        DebugSvc.log("salvaInfortuni", response);
                         if (response.status === 200 && _.isObject(response.data) && response.data.status === 200) {
                             parent.aggiornaMappe($ctrl.mapId);
                             toastr.success($translate('global.generic.saveok'));
-                            $scope.kaskoForm.$setPristine();
+                            $scope.infortuniForm.$setPristine();
                         } else {
                             toastr.error($translate('global.generic.saveko'));
                         }
                     });
                 };
 
-                $ctrl.bindKasko = function () {
+                $ctrl.bindInfortuni = function () {
 
-                    $ctrl.persistence.danniKasko = $ctrl.sinistroProvvisorio.danniKasko;
+                    $ctrl.infortuni.conducenteIsNotContraente = $ctrl.sinistroProvvisorio.conducenteDiverso;
 
-                    $ctrl.kasko.conducenteIsNotContraente = $ctrl.sinistroProvvisorio.conducenteDiverso;
-                    $ctrl.kasko.lesioniConducente = $ctrl.sinistroProvvisorio.lesioniConducente;
-
-                    if ($ctrl.kasko.conducenteIsNotContraente) {
-                        $ctrl.kasko.conducente = $ctrl.sinistroProvvisorio.conducente;
+                    if ($ctrl.infortuni.conducenteIsNotContraente) {
+                        $ctrl.infortuni.conducente = $ctrl.sinistroProvvisorio.conducente;
                     }
 
-                    $ctrl.kasko.descrizioneDanni = $ctrl.sinistroProvvisorio.descrizioneDanni;
-                    $ctrl.kasko.osservazioniCliente = $ctrl.sinistroProvvisorio.osservazioniCliente;
-                    $ctrl.kasko.interventoAutorita = $ctrl.sinistroProvvisorio.interventoAutorita;
+                    $ctrl.infortuni.descrizioneDanni = $ctrl.sinistroProvvisorio.descrizioneDanni;
+                    $ctrl.infortuni.osservazioniCliente = $ctrl.sinistroProvvisorio.osservazioniCliente;
+                    $ctrl.infortuni.interventoAutorita = $ctrl.sinistroProvvisorio.interventoAutorita;
 
-                    if ($ctrl.kasko.interventoAutorita) {
-                        $ctrl.kasko.autoritaIntervenuta = $ctrl.sinistroProvvisorio.codAutorita;
-                        $ctrl.kasko.comandoAutorita = $ctrl.sinistroProvvisorio.comandoAutorita;
-                        $ctrl.kasko.dataDenuncia = new Date($ctrl.sinistroProvvisorio.dataDenuncia);
+                    if ($ctrl.infortuni.interventoAutorita) {
+                        $ctrl.infortuni.autoritaIntervenuta = $ctrl.sinistroProvvisorio.codAutorita;
+                        $ctrl.infortuni.comandoAutorita = $ctrl.sinistroProvvisorio.comandoAutorita;
+                        $ctrl.infortuni.dataDenuncia = new Date($ctrl.sinistroProvvisorio.dataDenuncia);
 
                     }
                 };
@@ -74,7 +71,7 @@
                     function handleChanges(newValues, oldValues) {
 
                         if (_.isObject(newValues.sinistroProvvisorio) && !$ctrl.isInputConsumed) {
-                            $ctrl.bindKasko();
+                            $ctrl.bindInfortuni();
                             $ctrl.isInputConsumed = true;
                         }
 

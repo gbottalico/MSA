@@ -290,6 +290,13 @@
         "osservazioniCliente": "Ulteriori osservazioni del cliente sulle circostanze del sinistro"
       }
     },
+    "infortuni": {
+      "title": "Infortuni Conducente",
+      "labels": {
+        "descrizionedanno": "Descrizione danno",
+        "osservazioniCliente": "Ulteriori osservazioni del cliente sulle circostanze del sinistro"
+      }
+    },
     "riepilogo": {
       "title": "Riepilogo",
       "labels": {}
@@ -346,7 +353,8 @@
         "M30": "Furto del Veicolo",
         "M31": "Furto Parziale del Veicolo",
         "M32": "Kasko",
-        "M33": "Cristalli"
+        "M33": "Cristalli",
+        "M34": "Infortuni Conducente"
       }
     },
     "auto": {

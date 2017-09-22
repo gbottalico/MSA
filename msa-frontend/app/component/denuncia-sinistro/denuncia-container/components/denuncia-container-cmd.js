@@ -131,6 +131,8 @@
                             return $ctrl.mappe.indexOf('M32') > -1;
                         case 'M33':
                             return $ctrl.mappe.indexOf('M33') > -1;
+                        case 'M34':
+                            return $ctrl.mappe.indexOf('M34') > -1;
                         default:
                             return false;
                     }
@@ -177,6 +179,7 @@
                         $ctrl.tempSegnalazione.garanzia = $ctrl.tempSegnalazione.garanzia || (_.isObject($ctrl.sinistroProvvisorio.segnalazione) ? $ctrl.sinistroProvvisorio.segnalazione.garanziaSelected : null);
                         $ctrl.aggiornaPercentuale();
                         $ctrl.tempSegnalazione.numeroPolizza = $ctrl.sinistroProvvisorio.numeroPolizza;
+                        $ctrl.tempSegnalazione.dataEvento = $ctrl.sinistroProvvisorio.segnalazione.dataOraSinistro;
                         $ctrl.setScrollabile();
                         $ctrl.tempSegnalazione.lastSearch = $scope.$storage.lastSearch;
                     });

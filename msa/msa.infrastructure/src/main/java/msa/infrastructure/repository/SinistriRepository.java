@@ -51,6 +51,7 @@ public class SinistriRepository extends BaseRepository {
         classiGaranzieMap.put("furto_parziale", SinistroFurtoIncendioDO.class);
         classiGaranzieMap.put("kasko", SinistroKaskoDO.class);
         classiGaranzieMap.put("cristalli", SinistroCristalliDO.class);
+        classiGaranzieMap.put("inf_conducente", SinistroInfortuniConducenteDO.class);
     }
 
     private Query getQueryFromNotNullValues(InputRicercaDO inputRicerca) {

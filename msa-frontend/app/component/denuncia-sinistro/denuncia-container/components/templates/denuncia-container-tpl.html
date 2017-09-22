@@ -106,6 +106,16 @@
         </msa-cristalli>
         <!-- //CRISTALLI -->
 
+        <!-- Inf Conducente -->
+        <msa-infortuni-conducente id="M34"
+              ng-if="$ctrl.isMappaVisibile('M34')"
+              numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"
+              sinistro-provvisorio="$ctrl.sinistroProvvisorio"
+              temp-segnalazione="$ctrl.tempSegnalazione">
+
+        </msa-infortuni-conducente>
+        <!-- END Inf Conducente -->
+
         <msa-terze-parti id="M18"
                          ng-if="$ctrl.isMappaVisibile('M18')"
                          numero-sinistro-provvisorio="$ctrl.numeroSinistroProvvisorio"

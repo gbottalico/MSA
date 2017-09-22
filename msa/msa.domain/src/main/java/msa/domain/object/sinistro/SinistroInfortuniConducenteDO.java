@@ -4,6 +4,7 @@ public class SinistroInfortuniConducenteDO extends SinistroNoRcaDO{
     private String descrizioneDanni;
     private String osservazioniInfortunato;
     private Boolean conducenteDiverso;
+    private Boolean lesioniConducente;
     private FullAnagraficaDO conducente;
 
     public String getDescrizioneDanni() {
@@ -37,4 +38,14 @@ public class SinistroInfortuniConducenteDO extends SinistroNoRcaDO{
     public void setConducente(FullAnagraficaDO conducente) {
         this.conducente = conducente;
     }
+
+	public Boolean getLesioniConducente() {
+		return lesioniConducente;
+	}
+
+	public void setLesioniConducente(Boolean lesioniConducente) {
+		this.lesioniConducente = lesioniConducente;
+	}
+    
+    
 }

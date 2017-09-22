@@ -46,6 +46,8 @@ public class BaseSinistroService extends BaseService {
         classiGaranzieMap.put("furto_parziale", SinistroFurtoIncendioDTO.class);
         classiGaranzieMap.put("kasko", SinistroKaskoDTO.class);
         classiGaranzieMap.put("cristalli", SinistroCristalliDTO.class);
+        classiGaranzieMap.put("inf_conducente", SinistroInfortuniConducenteDTO.class);
+
     }
 
     protected <T extends BaseSinistroDTO> Class<T> getClassByGaranzia(final String garanziaSelected) {
@@ -237,7 +239,9 @@ public class BaseSinistroService extends BaseService {
 
                     SinistroKaskoDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistro, SinistroKaskoDO.class);
                     sinistroByNumProvv.setDanniKasko(converter.convertObject(o.getDanniKasko(), DanniDO.class));
+                    sinistroByNumProvv.setDescrizioneDanni(o.getDescrizioneDanni());
                     sinistroByNumProvv.setOsservazioniCliente(o.getOsservazioniCliente());
+                    sinistroByNumProvv.setLesioniConducente(o.getLesioniConducente());
                     sinistroByNumProvv.setInterventoAutorita(o.getInterventoAutorita());
                     sinistroByNumProvv.setCodAutorita(o.getCodAutorita());
                     sinistroByNumProvv.setComandoAutorita(o.getComandoAutorita());

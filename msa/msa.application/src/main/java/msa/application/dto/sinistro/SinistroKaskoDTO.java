@@ -6,8 +6,10 @@ import msa.application.dto.sinistro.rca.dannoRca.DanniDTO;
 
 public class SinistroKaskoDTO extends  SinistroNoRcaDTO {
     private DanniDTO danniKasko;
+    private String descrizioneDanni;
     private String osservazioniCliente;
     private Boolean conducenteDiverso;
+    private Boolean lesioniConducente;
     private FullAnagraficaDTO conducente;
 
     public DanniDTO getDanniKasko() {
@@ -41,4 +43,23 @@ public class SinistroKaskoDTO extends  SinistroNoRcaDTO {
     public void setConducente(FullAnagraficaDTO conducente) {
         this.conducente = conducente;
     }
+
+	public Boolean getLesioniConducente() {
+		return lesioniConducente;
+	}
+
+	public void setLesioniConducente(Boolean lesioniConducente) {
+		this.lesioniConducente = lesioniConducente;
+	}
+
+	public String getDescrizioneDanni() {
+		return descrizioneDanni;
+	}
+
+	public void setDescrizioneDanni(String descrizioneDanni) {
+		this.descrizioneDanni = descrizioneDanni;
+	}
+    
+	
+	
 }

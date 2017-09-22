@@ -53,6 +53,7 @@
                         if (response.data.status === 200) {
                             $ctrl.tempSegnalazione.tipoSinistro = response.data.result;
                             $ctrl.tempSegnalazione.garanzia = $ctrl.sinistro.garanzia;
+                            $ctrl.tempSegnalazione.dataEvento = $ctrl.sinistro.provenienza.dataSinistro;
                             parent.aggiornaMappe($ctrl.mapId);
                             toastr.success($translate('global.generic.saveok'));
                             $scope.segnalazioneForm.$setPristine();
