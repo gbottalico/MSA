@@ -18,11 +18,6 @@ public class BaseException extends Exception {
     private static final Logger LOGGER = LoggerFactory.getLogger(BaseException.class);
 
     public BaseException(Exception exceptionThrowed, List<Message> messages) {
-        LOGGER.error(exceptionThrowed != null ? Arrays.stream(exceptionThrowed
-                .getStackTrace())
-                .map(StackTraceElement::toString)
-                .collect(Collectors.joining(",\n"))
-                : "");
         this.exceptionThrowed = exceptionThrowed;
         this.messages = messages;
 

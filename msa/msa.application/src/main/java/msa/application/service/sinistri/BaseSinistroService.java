@@ -50,6 +50,8 @@ public class BaseSinistroService extends BaseService {
         classiGaranzieMap.put("furto_parziale", SinistroFurtoIncendioDTO.class);
         classiGaranzieMap.put("kasko", SinistroKaskoDTO.class);
         classiGaranzieMap.put("cristalli", SinistroCristalliDTO.class);
+        classiGaranzieMap.put("inf_conducente", SinistroInfortuniConducenteDTO.class);
+
     }
 
     protected <T extends BaseSinistroDTO> Class<T> getClassByGaranzia(final String garanziaSelected) {
