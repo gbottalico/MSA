@@ -1,5 +1,6 @@
 package msa.infrastructure.persistence.sinistro;
 
+import msa.domain.object.enums.TipoConvensioneCard;
 import msa.domain.object.enums.TipoGestione;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -20,6 +21,8 @@ public class FullAnagraficaControparteDBO extends FullAnagraficaDBO {
     private Boolean flagCard;
     @Field("tipologiaGestione")
     private TipoGestione tipoGestione;
+    @Field("tipoConvensioneCard")
+    private TipoConvensioneCard tipoConvensioneCard;
     @Field("note")
     private String note;
     @Field("lesioni")
@@ -106,5 +109,13 @@ public class FullAnagraficaControparteDBO extends FullAnagraficaDBO {
 
     public void setAssociato(FullAnagraficaControparteDBO associato) {
         this.associato = associato;
+    }
+
+    public TipoConvensioneCard getTipoConvensioneCard() {
+        return tipoConvensioneCard;
+    }
+
+    public void setTipoConvensioneCard(TipoConvensioneCard tipoConvensioneCard) {
+        this.tipoConvensioneCard = tipoConvensioneCard;
     }
 }

@@ -1,5 +1,6 @@
 package msa.application.dto.sinistro.anagrafica;
 
+import msa.domain.object.enums.TipoConvensioneCard;
 import msa.domain.object.enums.TipoGestione;
 
 public class FullAnagraficaControparteDTO extends FullAnagraficaDTO {
@@ -9,6 +10,7 @@ public class FullAnagraficaControparteDTO extends FullAnagraficaDTO {
     private Boolean targaEstera;
     private Boolean targaSpeciale;
     private TipoGestione tipoGestione;
+    private TipoConvensioneCard tipoConvensioneCard;
     private String note;
     private Boolean lesioni;
     private FullAnagraficaControparteDTO associato;
@@ -92,5 +94,13 @@ public class FullAnagraficaControparteDTO extends FullAnagraficaDTO {
 
     public void setAssociato(FullAnagraficaControparteDTO associato) {
         this.associato = associato;
+    }
+
+    public TipoConvensioneCard getTipoConvensioneCard() {
+        return tipoConvensioneCard;
+    }
+
+    public void setTipoConvensioneCard(TipoConvensioneCard tipoConvensioneCard) {
+        this.tipoConvensioneCard = tipoConvensioneCard;
     }
 }

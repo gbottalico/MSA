@@ -6,6 +6,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -38,9 +39,9 @@ public final class FunctionUtils {
     }
 
     public static LocalDate dateToLocalDate(final Date date) {
-    	return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
     }
-    
+
     /**
      * between NOT inclusive
      *
@@ -63,21 +64,20 @@ public final class FunctionUtils {
      * @return is between or not
      */
     public static Boolean between(Date toEvaluate, Date dateStart, Date dateEnd, Boolean isInclusive) {
-        if(isInclusive == null || !isInclusive) {
-        	return dateToLocalDate(toEvaluate).compareTo(dateToLocalDate(dateStart)) == 1
-        			&& dateToLocalDate(toEvaluate).compareTo(dateToLocalDate(dateEnd)) == -1;
+        if (isInclusive == null || !isInclusive) {
+            return dateToLocalDate(toEvaluate).compareTo(dateToLocalDate(dateStart)) == 1
+                    && dateToLocalDate(toEvaluate).compareTo(dateToLocalDate(dateEnd)) == -1;
         } else {
-        	return dateToLocalDate(toEvaluate).compareTo(dateToLocalDate(dateStart)) >= 0
-        			&& dateToLocalDate(toEvaluate).compareTo(dateToLocalDate(dateEnd)) <= 0;
+            return dateToLocalDate(toEvaluate).compareTo(dateToLocalDate(dateStart)) >= 0
+                    && dateToLocalDate(toEvaluate).compareTo(dateToLocalDate(dateEnd)) <= 0;
         }
     }
 
-    public static<T extends Comparable<T>> Boolean genericBetween(T left,T right,T evaluate,Boolean isIncl) {
+    public static <T extends Comparable<T>> Boolean genericBetween(T left, T right, T evaluate, Boolean isIncl) {
         return isIncl
-                ? left.compareTo(evaluate) <= 0  && right.compareTo(evaluate) >= 0
+                ? left.compareTo(evaluate) <= 0 && right.compareTo(evaluate) >= 0
                 : left.compareTo(evaluate) == -1 && right.compareTo(evaluate) == 1;
     }
-
 
 
     public final static Function<String, Date> convertStringToLocaldate = s -> {
@@ -114,22 +114,30 @@ public final class FunctionUtils {
     }
 
     @SuppressWarnings("unchecked")
-    public static<T> T castValueByClass(Object elem, Class<T> clazz) {
+    public static <T> T castValueByClass(Object elem, Class<T> clazz) {
         return (T) elem;
     }
 
-    public static<T> List<T> castValueByClass(List<Object> elems, Class<T> clazz) {
-        return elems.stream().map(e -> castValueByClass(e,clazz)).collect(Collectors.toList());
+    public static <T> List<T> castValueByClass(List<Object> elems, Class<T> clazz) {
+        return elems.stream().map(e -> castValueByClass(e, clazz)).collect(Collectors.toList());
     }
 
     //ritorna il frutto della funzione se l' optional è pieno altrimenti null
-    public static<T,U> U execIfIsPresent(final Optional<T> optional, final Function<T,U> mapper) {
+    public static <T, U> U execIfIsPresent(final Optional<T> optional, final Function<T, U> mapper) {
         return optional.map(mapper).orElse(null);
     }
 
     //ritorna il frutto della funzione se l' optional è pieno altrimenti null solo se soddisfa la condizione del predicate
-    public static<T,U> U execIfIsPresent(final Optional<T> optional, final Function<T,U> mapper, final Predicate<T> condition) {
+    public static <T, U> U execIfIsPresent(final Optional<T> optional, final Function<T, U> mapper, final Predicate<T> condition) {
         return optional.filter(condition).map(mapper).orElse(null);
+    }
+
+
+    public static <A, C> C supplyByPredicates(A toEval, Supplier<C> supply, Predicate<A>... predicates) {
+        return Arrays.stream(predicates).reduce(Predicate::or)
+                .map(predicate -> predicate.test(toEval))
+                .map(e -> e ? supply.get() : null)
+                .orElse(null);
     }
 
     public static class StreamBuilder<T> {
@@ -138,15 +146,15 @@ public final class FunctionUtils {
         public StreamBuilder() {
         }
 
-        public <U> StreamBuilder<T> of(Map<U,List<Function<U,Stream<T>>>> map) {
+        public <U> StreamBuilder<T> of(Map<U, List<Function<U, Stream<T>>>> map) {
             this.stream = map.entrySet()
                     .stream()
                     .flatMap(e -> e.getValue()
                             .stream()
                             .map(elem -> elem.apply(e.getKey())))
                     .reduce(null,
-                            (a,b) -> Optional.ofNullable(a).map(e -> Stream.concat(e, b)).orElseGet(() -> b),
-                            (a,b) -> a);
+                            (a, b) -> Optional.ofNullable(a).map(e -> Stream.concat(e, b)).orElseGet(() -> b),
+                            (a, b) -> a);
             return this;
         }
 

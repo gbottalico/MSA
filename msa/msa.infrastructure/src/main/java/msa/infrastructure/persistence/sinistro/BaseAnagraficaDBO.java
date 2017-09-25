@@ -27,9 +27,6 @@ public class BaseAnagraficaDBO {
     private String ragioneSociale;
     @Field("sesso")
     private Character sesso;
-    @Field("tipologiaGestione")
-    private TipoGestione tipologiaGestione;
-
 
     public String getNome() {
         return nome;
@@ -101,13 +98,5 @@ public class BaseAnagraficaDBO {
 
     public void setSesso(Character sesso) {
         this.sesso = sesso;
-    }
-
-    public TipoGestione getTipologiaGestione() {
-        return tipologiaGestione;
-    }
-
-    public void setTipologiaGestione(TipoGestione tipologiaGestione) {
-        this.tipologiaGestione = tipologiaGestione;
     }
 }
