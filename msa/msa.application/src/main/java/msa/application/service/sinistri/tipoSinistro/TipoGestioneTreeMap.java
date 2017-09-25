@@ -105,6 +105,7 @@ public class TipoGestioneTreeMap {
                 .filter(e -> e.getKey().equals(anag.getCodRuolo()))
                 .map(Pair::getValue)
                 .findFirst().orElseGet(() -> Pair.of(TipoGestione.NC, TipoConvensioneCard.NC));
+
         anag.setTipoGestione(result.getKey());
         anag.setTipoConvensioneCard(result.getValue());
         return anag;
