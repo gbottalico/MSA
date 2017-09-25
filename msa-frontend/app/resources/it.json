@@ -261,7 +261,7 @@
       }
     },
     "partitedanno": {
-      "title": "Sinistri e Partite Danno",
+      "title": "Sinistro e Partite Danno",
       "labels": {}
     },
     "perito": {
@@ -344,7 +344,7 @@
         "M15": "Danno RCA",
         "M18": "Terze Parti",
         "M20": "Legale",
-        "M22": "Sinistri e Partite Danno",
+        "M22": "Sinistro e Partite Danno",
         "M23": "Carrozzeria",
         "M25": "Perito",
         "M26": "Documenti",
