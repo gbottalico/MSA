@@ -2,6 +2,10 @@ package msa.domain.object.enums;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static msa.domain.object.enums.TipiSinisto.*;
 
 /**
  * Created by simon.calabrese on 15/09/2017.
@@ -27,4 +31,13 @@ public enum TipoGestione {
     public List<TipoConvensioneCard> getTipiConvensioni() {
         return tipiConvensioni;
     }
+    public static final List<TipiSinisto> ACCEPTED = Stream.of(CTT_PURO_GESTIONARIO,
+            CTT_PURO_CONCORSUALE,
+            CTT_PURO_DEBITORIO,
+            CID_GESTIONARIO,
+            CID_CTT_GESTIONARIO,
+            CID_CONCORSUALE,
+            CID_CTT_CONCORSUALE,
+            CID_DEBITORIO,
+            CID_CTT_DEBITORIO).collect(Collectors.toList());
 }

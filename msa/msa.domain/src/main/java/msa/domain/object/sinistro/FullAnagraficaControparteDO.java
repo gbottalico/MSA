@@ -1,5 +1,6 @@
 package msa.domain.object.sinistro;
 
+import msa.domain.object.enums.TipoConvensioneCard;
 import msa.domain.object.enums.TipoGestione;
 
 public class FullAnagraficaControparteDO extends FullAnagraficaDO {
@@ -13,6 +14,7 @@ public class FullAnagraficaControparteDO extends FullAnagraficaDO {
     private Boolean lesioni;
     private FullAnagraficaControparteDO associato;
     private TipoGestione tipoGestione;
+    private TipoConvensioneCard tipoConvensioneCard;
 
 
     public String getCompagnia() {
@@ -93,5 +95,13 @@ public class FullAnagraficaControparteDO extends FullAnagraficaDO {
 
     public void setAssociato(FullAnagraficaControparteDO associato) {
         this.associato = associato;
+    }
+
+    public TipoConvensioneCard getTipoConvensioneCard() {
+        return tipoConvensioneCard;
+    }
+
+    public void setTipoConvensioneCard(TipoConvensioneCard tipoConvensioneCard) {
+        this.tipoConvensioneCard = tipoConvensioneCard;
     }
 }

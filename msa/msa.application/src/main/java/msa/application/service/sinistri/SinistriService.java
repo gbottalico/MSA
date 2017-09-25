@@ -361,7 +361,7 @@ public class SinistriService extends BaseSinistroService {
         if (sinistroRcaDOByDTO.getNumeroPolizza() != null && !input.getConducenteDiverso()) {
             sinistroRcaDOByDTO.getDannoRca()
                     .getAnagraficaDanniCliente()
-                    .setAnagrafica(converter.convertObject(sinistroRcaDOByDTO.getContraente(), FullAnagraficaControparteDO.class));
+                    .setAnagrafica(converter.clone(sinistroRcaDOByDTO.getContraente()));
             sinistroRcaDOByDTO.getDannoRca()
                     .getAnagraficaDanniCliente().getAnagrafica().setCodRuolo(MsaCostanti.COD_RUOLO_CONDUCENTE_PROPR.toString());
         } else if (sinistroRcaDOByDTO.getNumeroPolizza() != null && input.getConducenteDiverso()) {
@@ -672,6 +672,9 @@ public class SinistriService extends BaseSinistroService {
         try {
             final T sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv);
             final TipiSinisto tipiSinisto = tipoSinistroTreeMap.calcolaTipoSinistro(sinistroByNumProvv);
+            if(TipoGestione.ACCEPTED.contains(tipiSinisto)) {
+                setTipologiaGestione(tipiSinisto, sinistroByNumProvv);
+            }
             sinistroByNumProvv.setTipoSinisto(tipiSinisto);
             if (salvaSinistro(sinistroByNumProvv)) {
                 return tipiSinisto;
@@ -684,33 +687,24 @@ public class SinistriService extends BaseSinistroService {
         }
     }
 
-    /**
-     * che per ogni anag calcola la sua tipologia e la aggiunge all' oggetto durante la conversione
-     *
-     * @param numSinistroProvv
-     * @param <T>
-     * @return
-     * @throws InternalMsaException
-     */
-    public <T extends BaseSinistroDO> BaseDTO setTipologiaGestione(final Integer numSinistroProvv) throws InternalMsaException {
+    public <T extends BaseSinistroDO> BaseDTO setTipologiaGestione(final TipiSinisto tipiSinisto,final T sinistroByNumProvv) throws InternalMsaException {
         try {
-            final T sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv);
             if (isRca(sinistroByNumProvv)) {
-                final TipoGestioneTreeMap ob = new TipoGestioneTreeMap<>();
+                final TipoGestioneTreeMap ob = new TipoGestioneTreeMap();
                 final SinistroRcaDO sinistroRcaDO = (SinistroRcaDO) sinistroByNumProvv;
                 final List<AnagraficaDanniDO> anagraficaDanniControparte = sinistroRcaDO.getDannoRca().getAnagraficaDanniControparte();
 
                 final Function<AnagraficaDanniDO,AnagraficaDanniDO> enrichPartiDannoRca = e -> {
-                    e.setAnagrafica(ob.calcolaTipoGestione(sinistroRcaDO.getTipoSinisto(), e.getAnagrafica()));
+                    e.setAnagrafica(ob.calcolaTipoGestione(tipiSinisto, e.getAnagrafica()));
                     return e;
                 };
 
 
                 sinistroRcaDO.setContraente(converter.convertObject(sinistroRcaDO.getContraente(),
-                        e -> ob.calcolaTipoGestione(sinistroRcaDO.getTipoSinisto(),e)));
+                        e -> ob.calcolaTipoGestione(tipiSinisto,e)));
 
-                if (sinistroRcaDO.getProprietario() != null && sinistroRcaDO.getContraente().getCf().equals(sinistroRcaDO.getProprietario().getCf())) {
-                    sinistroRcaDO.setProprietario(converter.convertObject(sinistroRcaDO.getProprietario(),e -> ob.calcolaTipoGestione(sinistroRcaDO.getTipoSinisto(),e)));
+                if (sinistroRcaDO.getProprietario() != null && !sinistroRcaDO.getContraente().getCf().equals(sinistroRcaDO.getProprietario().getCf())) {
+                    sinistroRcaDO.setProprietario(converter.convertObject(sinistroRcaDO.getProprietario(),e -> ob.calcolaTipoGestione(tipiSinisto,e)));
                 }
                 sinistroRcaDO
                         .getDannoRca()
@@ -730,7 +724,7 @@ public class SinistriService extends BaseSinistroService {
                                 .getDannoRca()
                                 .getTerzeParti()
                                 .stream()
-                                .map(e -> ob.calcolaTipoGestione(sinistroRcaDO.getTipoSinisto(),e))
+                                .map(e -> ob.calcolaTipoGestione(tipiSinisto,e))
                                 .collect(Collectors.toList())
                 );
                 salvaSinistro(sinistroRcaDO);
