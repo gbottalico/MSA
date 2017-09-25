@@ -210,7 +210,7 @@
                                         <td>&nbsp;</td>
                                         <td>&nbsp;</td>
                                         <td ng-click="$ctrl.aggiungiControparte()">
-                                            <i class="fa fa-plus" aria-hidden="true"></i>
+                                            <i ng-if="$ctrl.dannoRca.controparti.length < ($ctrl.tempSegnalazione.nveicoli - 1)" class="fa fa-plus" aria-hidden="true"></i>
                                         </td>
                                     </tr>
                                 </tfoot>
