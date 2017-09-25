@@ -5,6 +5,7 @@ import msa.domain.object.enums.TipoGestione;
 
 public class FullAnagraficaControparteDO extends FullAnagraficaDO {
     private String compagnia;
+    private String desCompagnia;
     private String veicolo;
     private String targa;
     private Boolean targaEstera;
@@ -104,4 +105,14 @@ public class FullAnagraficaControparteDO extends FullAnagraficaDO {
     public void setTipoConvensioneCard(TipoConvensioneCard tipoConvensioneCard) {
         this.tipoConvensioneCard = tipoConvensioneCard;
     }
+
+	public String getDesCompagnia() {
+		return desCompagnia;
+	}
+
+	public void setDesCompagnia(String desCompagnia) {
+		this.desCompagnia = desCompagnia;
+	}
+    
+    
 }

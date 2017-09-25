@@ -8,6 +8,8 @@ public class FullAnagraficaControparteDBO extends FullAnagraficaDBO {
 
     @Field("compagnia")
     private String compagnia;
+    @Field("desCompagnia")
+    private String desCompagnia;
     @Field("veicolo")
     private String veicolo;
     @Field("targa")
@@ -118,4 +120,13 @@ public class FullAnagraficaControparteDBO extends FullAnagraficaDBO {
     public void setTipoConvensioneCard(TipoConvensioneCard tipoConvensioneCard) {
         this.tipoConvensioneCard = tipoConvensioneCard;
     }
+
+	public String getDesCompagnia() {
+		return desCompagnia;
+	}
+
+	public void setDesCompagnia(String desCompagnia) {
+		this.desCompagnia = desCompagnia;
+	}
+    
 }
