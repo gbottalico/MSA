@@ -107,6 +107,14 @@
                 };
 
                 $ctrl.ok = function () {
+                    if($ctrl.anagrafica.tipoPersona === 'PF') {
+                        $ctrl.anagrafica.ragioneSociale = null;
+                    } else {
+                        $ctrl.anagrafica.cognome = null;
+                        $ctrl.anagrafica.nome = null;
+                        $ctrl.anagrafica.sesso = null;
+                        $ctrl.anagrafica.nascita = null;
+                    }
                     $ctrl.close({$value: $ctrl.anagrafica});
                 };
 

@@ -589,6 +589,18 @@ table.dettagliopolizzatable {
       color: $gray;
       border-top: none;
     }
+
+    .modal-footer {
+      .btn {
+        &[disabled] {
+          background: $gray;
+        }
+        font-size: 1.8rem;
+        padding: 10px 20px;
+      }
+
+    }
+
   }
 
   .btn:not(.btn-special, .btn-sm) {
