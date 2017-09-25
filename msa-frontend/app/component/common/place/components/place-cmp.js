@@ -139,14 +139,19 @@
                                 codNazione: newValue.input.codNazione,
                                 descrizione: newValue.input.descrizioneNazione
                             };
+                            nazione = newValue.input.codNazione ? nazione : null;
+
                             var provincia = {
                                 codProvincia: newValue.input.codProvincia,
                                 descProvincia: newValue.input.descrizioneProvincia
                             };
+                            provincia = newValue.input.codProvincia ? provincia : null;
+
                             var comune = {
                                 codComune: newValue.input.codComune,
                                 descrizione: newValue.input.descrizioneComune
                             };
+                            comune = newValue.input.codComune ? comune : null;
 
                             var q = newValue.input.cap ? PlacesSvc.getCapsByIdComune(newValue.input.codComune) : UtilSvc.createPromise([]);
                             q.then(function (response) {
