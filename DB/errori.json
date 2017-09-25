@@ -78,3 +78,8 @@
     "codErrore" : "MSA015", 
     "testo" : "Attenzione: Errore durante il recupero del tipo sinistro"
 }
+{ 
+    "_id" : NumberInt(17), 
+    "codErrore" : "MSA016", 
+    "testo" : "Attenzione: Errore durante il calcolo della tipologia di gestione"
+}
