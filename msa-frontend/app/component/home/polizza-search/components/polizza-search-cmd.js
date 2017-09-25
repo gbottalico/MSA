@@ -16,6 +16,7 @@
                 $ctrl.ricerca = false;
 
                 $scope.$MSAC = $MSAC;
+                $ctrl.today = new Date();
 
                 $ctrl.casaRegole = undefined;
                 $ctrl.numSinistroProvv = undefined;
@@ -58,9 +59,9 @@
                 };
 
                 $ctrl.checkCompagnia = function () {
-                    return ($scope.polizzaSearchForm.compagnia.$invalid || !_.isObject($ctrl.ricercapolizza.compagniaSelezionata)) &&
-                        !$scope.polizzaSearchForm.compagnia.$pristine;
+                    return ($scope.polizzaSearchForm.compagnia.$invalid && !$scope.polizzaSearchForm.compagnia.$pristine);
                 };
+                
 
                 $scope.$watch(
                     function watch(scope) {
@@ -73,7 +74,7 @@
                         if (newValue.compagniaSelezionata !== oldValue.compagniaSelezionata) {
                             if (newValue.compagniaSelezionata instanceof Object &&
                                 newValue.compagniaSelezionata !== null) {
-
+                            	
                                 // Eseguo il binding dei campi obbligatori.
                                 var campiObbligatoriRicerca = newValue.compagniaSelezionata.campiObbligatoriRicerca;
                                 for (var i = 0; i < campiObbligatoriRicerca.length; i++) {
