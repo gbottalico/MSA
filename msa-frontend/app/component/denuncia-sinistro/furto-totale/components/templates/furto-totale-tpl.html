@@ -19,8 +19,8 @@
 
             <form name="furtoTotaleForm" novalidate>
 
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicTextArea">
-                    <textarea class="textauto" ng-model="$ctrl.furtoTotale.descrizioneDanni" ng-required="true"></textarea>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicTextArea" ng-class="{'has-error' : dannoRcaForm.descrizioneDanno.$invalid}">
+                    <textarea class="textauto" ng-model="$ctrl.furtoTotale.descrizioneDanni" name="descrizioneDanno" ng-required="true"></textarea>
                     <label>{{'global.furtoTotale.labels.descrizionedanno' | translate}}</label>
                 </div>
 
