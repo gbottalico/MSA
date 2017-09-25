@@ -12,6 +12,8 @@
 
             var $ctrl = this;
             $scope.$MSAC = $MSAC;
+            $scope.name = $ctrl.name || "autorita" + Date.now();
+            $ctrl.$form = $scope[$scope.name];
 
             DomainSvc.getAutorita().then(function (response) {
                 $ctrl.autorita = response.data.result;

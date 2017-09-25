@@ -62,7 +62,7 @@
                         $ctrl.anagrafica = $ctrl.resolve.input;
                         $ctrl.persistence.luogoNascita = ConvertSvc.luogoToDTO($ctrl.resolve.input.nascita);
                         $ctrl.persistence.residenza = ConvertSvc.luogoToDTO($ctrl.resolve.input.residenza);
-
+                        $ctrl.compagniaSelezionata = $ctrl.resolve.input.compagnia;
                     }
 
                 };

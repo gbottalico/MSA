@@ -21,7 +21,8 @@
 
                     <pre ng-if="$debugMode">{{$ctrl.eventoRca}}</pre>
 
-                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 classicInputRadio">
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 classicInputRadio"
+                         ng-class="{'has-error': eventoRcaForm.collisione.$invalid}">
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 noPaddingLeft">
                             <input name="collisione"
                                    type="radio"
@@ -43,7 +44,8 @@
                     <!--END INPUT RADIO-->
 
                     <!--INPUT TEXT-->
-                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 classicInputText">
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 classicInputText"
+                         ng-class="{'has-error': eventoRcaForm.numVeicoli.$invalid}">
                         <input name="numVeicoli"
                                type="number"
                                ng-model="$ctrl.eventoRca.nveicoli"

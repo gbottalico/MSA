@@ -32,6 +32,7 @@ angular.module('msa').service('ConvertSvc',
 
                 if (_.isObject(anagrafica.compagnia)) {
                     dto.compagnia = anagrafica.compagnia.id;
+                    dto.desCompagnia = anagrafica.compagnia.descrizione;
                 }
 
                 dto.luogoNascita = {};
@@ -71,7 +72,8 @@ angular.module('msa').service('ConvertSvc',
                         nazione: {},
                         provincia: {},
                         comune: {},
-                    }
+                    },
+                    compagnia: {}
                 };
 
                 anagrafica.tipoPersona = dto.tipoPersona;
@@ -83,7 +85,8 @@ angular.module('msa').service('ConvertSvc',
                 anagrafica.ruolo = dto.codRuolo;
                 anagrafica.lesioni = dto.lesioni;
                 anagrafica.compagnia = {
-                    id: dto.compagnia
+                    id: dto.compagnia,
+                    descrizione: dto.desCompagnia
                 };
 
                 if (_.isObject(dto.luogoNascita)) {
