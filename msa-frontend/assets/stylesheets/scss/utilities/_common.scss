@@ -66,8 +66,14 @@ section {
 }
 
 .sticky {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: -ms-autohiding-scrollbar;
   position: sticky;
   top: 0;
+  height: 100vh;
+  overflow-y: auto;
 }
 
 .force-text-left {
