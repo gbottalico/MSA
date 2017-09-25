@@ -130,6 +130,7 @@
                            ng-pattern="$regex.reOra"
                            placeholder="HH:MM"
                            ng-required="true"
+                           ng-blur="$ctrl.formatHour()"
                            >
                     <label>{{'global.denunciasinitro.labels.oraSinistro' | translate}}</label>
                 </div>

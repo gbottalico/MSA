@@ -122,6 +122,19 @@
 
                 };
 
+                $ctrl.formatHour = function () {
+                    if($scope.segnalazioneForm.orasinistro.$valid && $ctrl.sinistro.provenienza.oraSinistro) {
+                        var pieces = $ctrl.sinistro.provenienza.oraSinistro.split(":");
+                        if(pieces[0].length === 1) {
+                            var hh = parseInt(pieces[0]);
+                            if(!_.isNaN(hh) && hh >= 0 && hh <= 9){
+                                var newTime = "0" + hh.toString() + ":" + pieces[1];
+                                $ctrl.sinistro.provenienza.oraSinistro = newTime;
+                            }
+                        }
+                    }
+                };
+
                 $timeout(function () {
                     parent.mappaCaricata($ctrl.mapId);
                 });
