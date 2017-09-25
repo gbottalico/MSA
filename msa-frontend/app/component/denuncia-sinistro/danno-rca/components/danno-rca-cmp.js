@@ -92,23 +92,6 @@
                     }
                 };
 
-                $ctrl.selectPattern = (function () {
-                    return {
-                        test: function () {
-                            if ($ctrl.dannoRca.veicoloControparte.veicolo === TIPO_AUTOVEICOLO) {
-                                return RegexSvc.getTargaRegex().test($ctrl.dannoRca.veicoloControparte.veicolo);
-                            }
-                            else if ($ctrl.dannoRca.veicoloControparte.veicolo === TIPO_CICLOMOTORE) {
-                                return RegexSvc.getCiclomotoreRegex().test($ctrl.dannoRca.veicoloControparte.veicolo);
-                            }
-                            else if ($ctrl.dannoRca.veicoloControparte.veicolo === TIPO_MOTOCICLO) {
-                                return RegexSvc.getMotocicloRegex().test($ctrl.dannoRca.veicoloControparte.veicolo);
-                            }
-                            else return true;
-                        }
-                    };
-                })();
-
                 $ctrl.salvaDannoRca = function () {
 
                     var dannoRca = $ctrl.dannoRca;
@@ -180,32 +163,36 @@
                     $scope.dannoRcaForm.$setDirty();
                 };
 
-                $ctrl.calcolaCf = function () {
-                    var luogoNascita = $ctrl.dannoRca.conducente.nascita.comune ?
-                        $ctrl.dannoRca.conducente.nascita.comune.descrizione :
-                        $ctrl.dannoRca.conducente.nascita.nazione.descrizione;
-
-                    UtilSvc.calcolaCf($ctrl.dannoRca.conducente.cognome, $ctrl.dannoRca.conducente.nome, $ctrl.dannoRca.conducente.sesso, $ctrl.dannoRca.conducente.nascita.data, luogoNascita).then(function (response) {
-                        DebugSvc.log("calcolaCf", response);
-                        if (response.data.status === 200) {
-                            $ctrl.dannoRca.conducente.cf = response.data.result;
-                        } else {
-                            toastr.error($translate('global.generic.cfko'));
+                var testFunction = function (veicolo, targaInputName) {
+                    /* Metodo per risolvere gli ng-pattern a runtime.
+                    *  I chiamanti di questa funzione sono IIFE, quindi è importante che il veicolo passato sia un oggetto,
+                    *  in modo che venga passato il riferimento.
+                    *  Per lo stesso motivo è importante passare il nome del campo nella form e non il riferimento,
+                    *  perché la form potrebbe non essere inizializzata al momento dell'esecuzione della IIFE.
+                    * */
+                    return {
+                        test: function () {
+                            if (veicolo.veicolo.toString() === TIPO_AUTOVEICOLO.toString()) {
+                                return RegexSvc.getTargaRegex().test($scope.dannoRcaForm[targaInputName].$viewValue);
+                            }
+                            else if (veicolo.veicolo.toString() === TIPO_CICLOMOTORE.toString()) {
+                                return RegexSvc.getCiclomotoreRegex().test($scope.dannoRcaForm[targaInputName].$viewValue);
+                            }
+                            else if (veicolo.veicolo.toString() === TIPO_MOTOCICLO.toString()) {
+                                return RegexSvc.getMotocicloRegex().test($scope.dannoRcaForm[targaInputName].$viewValue);
+                            }
+                            else return true;
                         }
-                    });
+                    };
                 };
 
-                $ctrl.isCalcolaCfDisabled = function () {
-                    try {
-                        return !($ctrl.dannoRca.conducente &&
-                            $ctrl.dannoRca.conducente.cognome &&
-                            $ctrl.dannoRca.conducente.nome &&
-                            $ctrl.dannoRca.conducente.sesso &&
-                            $ctrl.dannoRca.conducente.nascita.data);
-                    } catch (error) {
-                        return false;
-                    }
-                };
+                $ctrl.targaContropartePattern = (() => {
+                    return testFunction($ctrl.dannoRca.veicoloControparte, "inputTargaControparte");
+                })();
+
+                $ctrl.targaClientePattern = (() => {
+                    return testFunction($ctrl.dannoRca.veicoloCliente, "inputTargaCliente");
+                })();
 
                 $timeout(function () {
                     parent.mappaCaricata($ctrl.mapId);
@@ -230,11 +217,6 @@
 
                         if (newValues.targa !== undefined) {
                             $ctrl.tempSegnalazione.targa = newValues.targa;
-                        }
-
-                        if ((_.isObject(newValues.danniCliente) && newValues.danniCliente !== oldValues.danniCliente) ||
-                            (_.isObject(newValues.danniControparte) && newValues.danniControparte !== oldValues.danniControparte)) {
-                            // $scope.dannoRcaForm.$setDirty();
                         }
 
                     }, true

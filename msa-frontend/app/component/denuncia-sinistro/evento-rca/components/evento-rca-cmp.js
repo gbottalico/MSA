@@ -42,6 +42,7 @@
                             parent.aggiornaMappe($ctrl.mapId);
                             toastr.success($translate('global.generic.saveok'));
                             $scope.eventoRcaForm.$setPristine();
+                            $ctrl.tempSegnalazione.nveicoli = $ctrl.eventoRca.nveicoli;
                         } else {
                             toastr.error($translate('global.generic.saveko'));
                         }
@@ -72,6 +73,7 @@
                                 $ctrl.eventoRca.collisione = newValues.sinistroProvvisorio.eventoRca.collisione;
                                 $ctrl.eventoRca.interventoAutorita = newValues.sinistroProvvisorio.eventoRca.interventoAutorita;
                                 $ctrl.eventoRca.nveicoli = newValues.sinistroProvvisorio.eventoRca.numVeicoli;
+                                $ctrl.tempSegnalazione.nveicoli = $ctrl.eventoRca.nveicoli
                                 $ctrl.eventoRca.autoritaIntervenuta = newValues.sinistroProvvisorio.eventoRca.codAutorita;
                                 $ctrl.eventoRca.comandoAutorita = newValues.sinistroProvvisorio.eventoRca.comandoAutorita;
                                 $ctrl.eventoRca.dataDenuncia = newValues.sinistroProvvisorio.eventoRca.dataDenuncia ? new Date(newValues.sinistroProvvisorio.eventoRca.dataDenuncia) : undefined;
@@ -85,9 +87,9 @@
                             $ctrl.eventoRca.comandoAutorita = undefined;
                         }
 
-                        if (newValues.nveicoli !== undefined) {
-                            $ctrl.tempSegnalazione.nveicoli = newValues.nveicoli;
-                        }
+                        // if (newValues.nveicoli !== undefined) {
+                        //     $ctrl.tempSegnalazione.nveicoli = newValues.nveicoli;
+                        // }
 
                     }, true
                 );
