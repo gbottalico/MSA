@@ -692,7 +692,7 @@ public class SinistriService extends BaseSinistroService {
 
     public <T extends BaseSinistroDO> BaseDTO setTipologiaGestione(final TipiSinisto tipiSinisto,final T sinistroByNumProvv) throws InternalMsaException {
         try {
-            if (isRca(sinistroByNumProvv)) {
+            if (isRca(sinistroByNumProvv) && tipiSinisto != TipiSinisto.RCA) {
                 final TipoGestioneTreeMap ob = new TipoGestioneTreeMap();
                 final SinistroRcaDO sinistroRcaDO = (SinistroRcaDO) sinistroByNumProvv;
                 final List<AnagraficaDanniDO> anagraficaDanniControparte = sinistroRcaDO.getDannoRca().getAnagraficaDanniControparte();
