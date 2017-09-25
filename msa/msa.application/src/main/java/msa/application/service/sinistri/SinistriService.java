@@ -465,6 +465,7 @@ public class SinistriService extends BaseSinistroService {
         sinistroDOByDTO.getDannoRca().setTerzeParti(filteredList);
         Boolean insertResult = salvaSinistro(sinistroDOByDTO);
         if (insertResult) {
+            calcolaTipoSinistroAndTipoGestione(numSinistro); //Async
             return new BaseDTO<>(null, addWarningMessageByCondition(() -> "Sono stati inseriti codici fiscali o partite iva duplicati",
                     FunctionUtils.equalsListSize(input, filteredList)));
         } else {
@@ -735,6 +736,15 @@ public class SinistriService extends BaseSinistroService {
         }
     }
 
+    @Async
+    public void calcolaTipoSinistroAndTipoGestione(final Integer numSinistroProvv) throws InternalMsaException {
+        try {
+            final TipiSinisto tipoSinistro = getTipoSinistro(numSinistroProvv);
+            setTipologiaGestione(tipoSinistro, sinistriRepository.getSinistroByNumProvv(numSinistroProvv));
+        } catch (Exception e) {
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA016"));
+        }
+    }
 
 }
 
