@@ -71,7 +71,8 @@
     },
     "docs": {
       "documento": "Documento",
-      "tipo": "Tipo"
+      "tipo": "Tipo",
+      "dataRicezione": "Data Ricezione"
     },
     "veicolo": {
       "tipo": "Tipo",
