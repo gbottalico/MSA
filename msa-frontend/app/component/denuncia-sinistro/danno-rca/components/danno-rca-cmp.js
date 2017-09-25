@@ -30,6 +30,7 @@
                     danniControparte: undefined,
                     conducente: {},
                     veicoloControparte: {},
+                    veicoloCliente: {},
                     controparti: []
                 };
                 $ctrl.dannoRca.lesioniConducente = undefined;
@@ -47,23 +48,22 @@
                         $ctrl.dannoRca.lesioniConducente = $ctrl.sinistroProvvisorio.dannoRca.lesioniConducente;
                         $ctrl.dannoRca.conducenteIsNotContraente = $ctrl.sinistroProvvisorio.dannoRca.conducenteDiverso;
                         if (_.isObject($ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente)) {
+
                             $ctrl.persistence.dannoCliente = $ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente.danni;
                             $ctrl.dannoRca.descrizioneDannoCliente = $ctrl.persistence.dannoCliente.descrizioneDanno;
-                            if ($ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente.anagrafica && $ctrl.dannoRca.conducenteIsNotContraente === true) {
 
+                            $ctrl.dannoRca.conducenteIsNotContraente = $ctrl.sinistroProvvisorio.dannoRca.conducenteDiverso;
+
+                            if ($ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente.anagrafica) {
                                 var anagrafica = _.cloneDeep($ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente.anagrafica);
                                 $ctrl.dannoRca.conducente = anagrafica;
 
-                                $ctrl.dannoRca.veicoloCliente = {};
                                 if (anagrafica.veicolo) {
                                     $ctrl.dannoRca.veicoloCliente.veicolo = anagrafica.veicolo;
                                     $ctrl.dannoRca.veicoloCliente.targa = anagrafica.targa;
                                     $ctrl.dannoRca.veicoloCliente.speciale = anagrafica.targaEstera.toString();
                                     $ctrl.dannoRca.veicoloCliente.estera = anagrafica.targaSpeciale.toString();
                                 }
-
-                            } else {
-                                $ctrl.dannoRca.conducenteIsNotContraente = false;
                             }
 
                         }
