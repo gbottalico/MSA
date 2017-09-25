@@ -168,6 +168,8 @@ public class SinistriService extends BaseSinistroService {
                         .map(Object::toString)
                         .orElse(null));
                 input.setProprietario(getProprietarioIfIsDifferent(input));
+            } else {
+                input.setProprietario(converter.clone(input.getContraente()));
             }
             input.getContraente().setCodRuolo(MsaCostanti.COD_RUOLO_CONTRAENTE.toString());
             input.getContraente().setCompagnia(input.getCompagnia());
