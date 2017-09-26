@@ -1,16 +1,16 @@
 <ng-form name="{{name}}">
     <div class="col-lg-12">
         <div class="row">
-            <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 classicInputText">
+            <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 classicInputText" ng-class="{'has-error': this[name].cognome.$invalid}">
                 <input type="text" name="cognome" ng-model="$ctrl.result.cognome" ng-required="true">
                 <label>{{'global.people.cognome' | translate}}</label>
             </div>
-            <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 classicInputText">
+            <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 classicInputText" ng-class="{'has-error': this[name].cognome.$invalid}">
                 <input type="text" name="nome" ng-model="$ctrl.result.nome" ng-required="true">
                 <label>{{'global.people.nome' | translate}}</label>
             </div>
 
-            <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 classicInputRadio">
+            <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 classicInputRadio" ng-class="{'has-error': this[name].sesso.$invalid}">
                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 noPaddingLeft">
                     <input type="radio" value="M" name="sesso" ng-model="$ctrl.result.sesso" ng-required="false">
                     <label class="rightLabel">{{'global.generic.male' | translate}}</label>
@@ -77,7 +77,7 @@
                 <span class="subsectionTitle">{{'global.people.cf' | translate}}</span>
             </div>
 
-            <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 classicInputText">
+            <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 classicInputText" ng-class="{'has-error': this[name].cf.$invalid}">
                 <input type="text" name="cf" ng-model="$ctrl.result.cf" ng-required="false">
                 <label>{{'global.people.cf' | translate}}</label>
             </div>
@@ -98,11 +98,11 @@
         <span class="subsectionTitle">{{'global.people.tracking' | translate}}</span>
     </div>
 
-    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicInputText">
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicInputText" ng-class="{'has-error': this[name].telefono.$invalid}">
         <input type="text" name="telefono" ng-model="$ctrl.result.telefono" ng-pattern="$regex.reTelefono" ng-required="false">
         <label>{{'global.people.telefono' | translate}}</label>
     </div>
-    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicInputText">
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicInputText" ng-class="{'has-error': this[name].mail.$invalid}">
         <input type="text" name="mail" ng-model="$ctrl.result.mail" ng-pattern="$regex.reEmail" ng-required="false">
         <label>{{'global.people.email' | translate}}</label>
     </div>
@@ -120,7 +120,7 @@
                name="'luogoResidenza'"
                required="false"></msa-place>
 
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputText">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputText" ng-class="{'has-error': this[name].denominazioneStrada.$invalid}">
         <input type="text" name="denominazioneStrada" ng-model="$ctrl.result.residenza.indirizzo" ng-required="false">
         <label>{{'global.denunciasinitro.labels.indirizzo' | translate}}</label>
     </div>

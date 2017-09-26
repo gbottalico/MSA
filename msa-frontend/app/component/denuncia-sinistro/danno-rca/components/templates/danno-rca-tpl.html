@@ -25,7 +25,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputRadio">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputRadio" ng-class="{'has-error' : dannoRcaForm.lesioniConducente.$invalid}">
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingLeft">
                                 <input type="radio" ng-value="true" name="lesioniConducente"
                                        ng-model="$ctrl.dannoRca.lesioniConducente" ng-required="true">
@@ -39,7 +39,7 @@
                             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 noPaddingRight">&nbsp;</div>
                             <label>{{'global.dannorca.labels.lesioniconducente' | translate}}</label>
                         </div>
-                        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 classicInputRadio">
+                        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 classicInputRadio" ng-class="{'has-error' : dannoRcaForm.conducenteIsNotContraente.$invalid}">
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingLeft">
                                 <input type="radio" ng-value="true" name="conducenteIsNotContraente"
                                        ng-model="$ctrl.dannoRca.conducenteIsNotContraente" ng-required="true">
