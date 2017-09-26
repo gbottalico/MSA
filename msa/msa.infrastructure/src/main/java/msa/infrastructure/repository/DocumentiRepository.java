@@ -4,6 +4,7 @@ import msa.domain.object.documenti.DocumentoDO;
 import msa.infrastructure.base.repository.domain.BaseRepository;
 import msa.infrastructure.persistence.documenti.DocumentoDBO;
 import org.apache.commons.lang3.tuple.Pair;
+import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Repository;
 
 import java.util.Comparator;
@@ -46,6 +47,11 @@ public class DocumentiRepository extends BaseRepository {
     public Boolean deleteDoc(DocumentoDO documentoDO) {
         delete(converter.convertObject(documentoDO, DocumentoDBO.class));
         return Boolean.TRUE;
+    }
+
+    public Boolean deleteDocByNumSinistro(Integer numSinistro) {
+        return findAndDelete(getCriteriaQueryBuilder().addCriteria(Criteria.where(getMongoNameByAttributeName("numSinistro",DocumentoDBO.class)).is(numSinistro)),DocumentoDBO.class)
+                .stream().count() > 0;
     }
 
     public void persistDocsMsa(final List<String> idDocsMsa, final Integer numSinistroProvv) {

@@ -242,7 +242,8 @@ public class SinistriService extends BaseSinistroService {
                         newSinistro.setPerito(null);
                         return salvaSinistro(converter.convertObject(newSinistro, BaseSinistroDO.class));
                     },
-                    () -> dispatcherService.resetView(input.getGaranziaSelected(), numSinistroProvv)
+                    () -> dispatcherService.resetView(input.getGaranziaSelected(), numSinistroProvv),
+                    () -> documentiRepository.deleteDocByNumSinistro(numSinistroProvv)
             );
             final Optional<Boolean> conditions = Optional.of(objects.stream().filter(e -> e.getClass().isAssignableFrom(Boolean.class))
                     .findFirst().map(e -> {
