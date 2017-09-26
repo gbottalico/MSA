@@ -37,8 +37,12 @@ angular.module('msa').service(
             };
 
             $svc.getName = function (documento) {
-                documento.name = documento.path.split("\\");
-                documento.name = documento.name[documento.name.length - 1];
+                if(documento.path) {
+                    documento.name = documento.path.split("\\");
+                    documento.name = documento.name[documento.name.length - 1];
+                } else {
+                    documento.name = documento.idDocumento || documento.idDocumentoMsa || "";
+                }
                 return documento;
             };
 

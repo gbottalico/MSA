@@ -27,7 +27,7 @@
         <label>{{'global.denunciasinitro.labels.comune' | translate}}</label>
     </div>
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 classicInputText" ng-class="{'has-error': !$ctrl.$valid}">
-        <select ng-disabled="$ctrl.nazioneSelezionata.codNazione > $ctrl.options.ID_ITALIA" ng-model="$ctrl.capSelezionato">
+        <select ng-disabled="$ctrl.nazioneSelezionata.codNazione > $ctrl.options.ID_ITALIA" ng-model="$ctrl.capSelezionato" ng-required="false">
             <option ng-repeat="cap in $ctrl.caps" value="{{cap}}">{{cap}}</option>
         </select>
         <label>{{'global.denunciasinitro.labels.cap' | translate}}</label>
