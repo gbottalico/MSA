@@ -1,6 +1,6 @@
 <div class="containerHeader">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container boxShadow">
-        <div class="header" ng-class="{'is-ok': cercaCarrozzeriaForm.$pristine && cercaCarrozzeriaForm.$valid, 'has-error': !cercaCarrozzeriaForm.$pristine || !cercaCarrozzeriaForm.$valid}">
+        <div class="header" ng-class="{'is-ok': cercaCarrozzeriaForm.$pristine && cercaCarrozzeriaForm.$valid && $ctrl.isSaved, 'has-error': !cercaCarrozzeriaForm.$pristine || !cercaCarrozzeriaForm.$valid || !$ctrl.isSaved}">
             <h1 class="titleSection">{{'global.carrozzeria.title' | translate}}</h1>
         </div>
     </div>

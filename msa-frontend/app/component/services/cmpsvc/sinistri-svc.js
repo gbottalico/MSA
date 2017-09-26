@@ -209,8 +209,13 @@ angular.module('msa').service(
                 data.noteCliente = cai.osservazioniAssicurato;
                 data.noteControparte = cai.osservazioniControparte;
 
-                data.caCompilata = cai.constatazioneAmichevole;
-                data.caCompilataControparte = cai.constatazioneAmichevoleControparte;
+                if (nveicoli > 1) {
+                    data.caCompilata = cai.constatazioneAmichevole;
+                    data.caCompilataControparte = cai.constatazioneAmichevoleControparte;
+                } else {
+                    data.caCompilata = null;
+                    data.caCompilataControparte = null;
+                }
 
                 var url = UtilSvc.stringFormat(msaServicesApiUrls.cai, numeroSinistroProvvisorio);
 

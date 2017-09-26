@@ -32,6 +32,7 @@
                 };
 
                 $ctrl.isInputConsumed = false;
+                $ctrl.isSaved = false;
 
                 DomainSvc.getBaremes().then(function (response) {
                     $ctrl.baremes = response.data.result;
@@ -48,6 +49,8 @@
                             }
                             parent.aggiornaMappe($ctrl.mapId);
                             toastr.success($translate('global.generic.saveok'));
+
+                            $ctrl.isSaved = true;
                             $scope.caiForm.$setPristine();
                         } else {
                             toastr.error($translate('global.generic.saveko'));
@@ -118,6 +121,7 @@
                         $ctrl.cai.constatazioneAmichevole = $ctrl.sinistroProvvisorio.constatazioneAmichevole.caCompilata;
                         $ctrl.cai.constatazioneAmichevoleControparte = $ctrl.sinistroProvvisorio.constatazioneAmichevole.caCompilataControparte;
 
+                        $ctrl.isSaved = true;
                     }
                 };
 

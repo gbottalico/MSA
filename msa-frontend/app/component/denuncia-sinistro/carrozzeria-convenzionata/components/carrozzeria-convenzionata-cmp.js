@@ -16,6 +16,7 @@
                 var parent = $scope.$parent;
                 $ctrl.mapId = 'M23';
                 $ctrl.isInputConsumed = false;
+                $ctrl.isSaved = false;
 
                 $ctrl.homeIcon = $MSAC.RESOURCES.HOME_ICON;
                 $ctrl.wrenchIcon = $MSAC.RESOURCES.WRENCH_ICON;
@@ -61,7 +62,7 @@
                 $ctrl.markers = [];
                 $ctrl.visibleMarkers = [];
                 $ctrl.indirizzo = undefined;
-                $ctrl.carrozzeriaSelezionata = undefined;
+                $ctrl.carrozzeriaSelezionata = {};
                 $ctrl.peritoAssociato = undefined;
                 $ctrl.mapInstance = undefined;
 
@@ -174,6 +175,7 @@
                             parent.aggiornaMappe($ctrl.mapId);
                             toastr.success($translate('global.generic.saveok'));
                             $scope.cercaCarrozzeriaForm.$setPristine();
+                            $ctrl.isSaved = true;
                         } else {
                             toastr.error($translate('global.generic.saveko'));
                         }
@@ -192,6 +194,8 @@
                         $ctrl.carrozzeriaSelezionata = $ctrl.sinistroProvvisorio.centroConvenzionato;
                         $ctrl.peritoAssociato = $ctrl.sinistroProvvisorio.centroConvenzionato.perito;
                     }
+
+                    $ctrl.isSaved = true;
 
                 };
 

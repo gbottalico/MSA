@@ -1,7 +1,9 @@
 <div class="containerHeader">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container boxShadow">
-        <div class="header" ng-class="{'is-ok': cercaPeritoForm.$pristine, 'has-error': !cercaPeritoForm.$pristine}">
-            <h1 class="titleSection">{{'global.perito.title' | translate}}</h1>
+        <div class="header"
+             ng-class="{'is-ok': cercaPeritoForm.$pristine && cercaPeritoForm.$valid && $ctrl.isSaved, 'has-error': !cercaPeritoForm.$pristine || !cercaPeritoForm.$valid || !$ctrl.isSaved}">
+
+        <h1 class="titleSection">{{'global.perito.title' | translate}}</h1>
         </div>
     </div>
 </div>
@@ -31,7 +33,7 @@
             </form>
 
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputTextDisabled">
-                <input type="text" name="denominazione" ng-model="$ctrl.perito.denominazione" ng-readonly="true">
+                <input type="text" name="denominazione" ng-model="$ctrl.perito.denominazione" ng-readonly="true" placeholder="{{'global.generic.nessuna' | translate}}">
                 <label>{{'global.people.denominazione' | translate}}</label>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputTextDisabled">
@@ -43,7 +45,7 @@
                 <label>{{'global.people.telefono' | translate}}</label>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputTextDisabled">
-                <input type="text" name="targa" ng-model="$ctrl.perito.targaDaPerizare" ng-readonly="true">
+                <input type="text" name="targa" ng-model="$ctrl.perito.targaDaPerizare" ng-readonly="true" placeholder="{{'global.generic.nessuna' | translate}}">
                 <label>{{'global.veicolo.targa' | translate}}</label>
             </div>
             <div class="col-lg-12 classicTextArea margin-top-2">
