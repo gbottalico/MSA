@@ -11,6 +11,7 @@
 
 			$ctrl.reloadRoute = function() {
 				var path = $MSAC.PATHS.HOME;
+				$location.search({});
 				$location.path(path);
 			};
 

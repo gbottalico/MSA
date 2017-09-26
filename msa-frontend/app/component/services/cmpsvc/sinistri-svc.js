@@ -28,7 +28,7 @@ angular.module('msa').service(
 
             };
 
-            $svc.apriSinistroProvvisorio = function (datiContraente, compagnia, polizza) {
+            $svc.apriSinistroProvvisorio = function (datiContraente, compagnia, polizza, idDocsMsa) {
 
                 var dataObj = {};
                 dataObj.compagnia = compagnia;
@@ -52,6 +52,7 @@ angular.module('msa').service(
                         }
                     };
                 }
+                dataObj.idDocsMsa = idDocsMsa;
 
                 //TODO fix
                 return $http({

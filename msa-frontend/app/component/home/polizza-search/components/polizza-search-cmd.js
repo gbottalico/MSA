@@ -62,6 +62,9 @@
                     return ($scope.polizzaSearchForm.compagnia.$invalid && !$scope.polizzaSearchForm.compagnia.$pristine);
                 };
                 
+                $scope.getIdDocsMsa = function () {
+                    return parent.getIdDocsMsa();
+                };
 
                 $scope.$watch(
                     function watch(scope) {

@@ -14,7 +14,6 @@
                 var $translate = $filter('translate');
                 $ctrl.numeroSinistroProvvisorio = undefined;
 
-                $ctrl.clearbox = "clear box"; //TODO capire utilizzo e rimuovere
                 $ctrl.polizze = [
                 	{
                 		"copertura" : true,
@@ -436,10 +435,11 @@
                 //FIXME rimuovere 37, mockup
                 $ctrl.apriSinistroProvvisorio = function (datiContraente, codiceCompagnia, datiPolizza) {
                     codiceCompagnia = codiceCompagnia || 37;
-                    SinistriSvc.apriSinistroProvvisorio(datiContraente, codiceCompagnia, datiPolizza).then(function (response) {
+                    SinistriSvc.apriSinistroProvvisorio(datiContraente, codiceCompagnia, datiPolizza, parent.getIdDocsMsa()).then(function (response) {
                         DebugSvc.log("apriSinistroProvvisorio", response);
                         if(response.status === 200 && response.data.status === 200) {
 
+                            //Todo spostare nel parent la navigazione
                             $ctrl.numeroSinistroProvvisorio = response.data.result.numSinistroProvvisorio;
                             var path = $MSAC.PATHS.DENUNCIA;
                             path = path + "/" + $ctrl.numeroSinistroProvvisorio;
