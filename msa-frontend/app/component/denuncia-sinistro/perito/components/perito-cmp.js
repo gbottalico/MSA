@@ -18,27 +18,34 @@
                 $ctrl.mapId = 'M25';
 
                 $ctrl.isInputConsumed = false;
-                $ctrl.isIndirizzoLoaded = false;
                 $ctrl.perito = undefined;
                 $ctrl.indirizzo = undefined;
 
                 $ctrl.bindPerito = function (perito) {
                     $ctrl.perito = perito;
-
                 };
 
                 $ctrl.cercaPerito = function () {
                     SinistriSvc.getPerito($ctrl.indirizzo).then(function (response) {
-                        //TODO Checcare errori
-                        $ctrl.bindPerito(response.data.result);
+                        DebugSvc.log("getPerito", response);
+                        if(response.status === 200 && _.isObject(response.data) && response.data.status === 200) {
+                            $ctrl.bindPerito(response.data.result);
+                            $ctrl.perito.telefono = parseInt($ctrl.perito.telefono) + Date.now(); //FIXME mock
+                            $scope.cercaPeritoForm.$setDirty();
+                        }
                     });
                 };
 
                 $ctrl.salvaPerito = function () {
                     SinistriSvc.salvaPerito($ctrl.numeroSinistroProvvisorio, $ctrl.perito).then(function (response) {
-                        //TODO Checcare errori
-                        DebugSvc.log("salvaPerito", response);
-                        parent.aggiornaMappe($ctrl.mapId);
+                        if(response.status === 200 && _.isObject(response.data) && response.data.status === 200) {
+                            DebugSvc.log("salvaPerito", response);
+                            parent.aggiornaMappe($ctrl.mapId);
+                            toastr.success($translate('global.generic.saveok'));
+                            $scope.cercaPeritoForm.$setPristine();
+                        } else {
+                            toastr.error($translate('global.generic.saveko'));
+                        }
                     });
                 };
 
@@ -73,18 +80,9 @@
 
                         if (_.isObject(newValues.sinistroProvvisorio) &&
                             _.isObject(newValues.sinistroProvvisorio.contraente) &&
-                            _.isObject(newValues.sinistroProvvisorio.contraente.tracking) &&
-                            !$ctrl.isIndirizzoLoaded) {
-                            var promise = undefined;
-                            if (_.isObject(newValues.sinistroProvvisorio.contraente.tracking.comune)) {
-                                promise = PlacesSvc.getComuneById(newValues.sinistroProvvisorio.contraente.tracking.comune);
-                            } else {
-                                promise = PlacesSvc.getNazioneById(newValues.sinistroProvvisorio.contraente.tracking.nazione);
-                            }
-                            promise.then(function (response) {
-                                $ctrl.indirizzo = newValues.sinistroProvvisorio.contraente.tracking.indirizzo + ", " + response.data.result;
-                                $ctrl.isIndirizzoLoaded = true;
-                            });
+                            _.isObject(newValues.sinistroProvvisorio.contraente.tracking)) {
+
+                            $ctrl.indirizzo = PlacesSvc.buildIndirizzo(newValues.sinistroProvvisorio.contraente.tracking.residenza, newValues.sinistroProvvisorio.contraente.tracking.indirizzo)
                         }
 
 

@@ -29,7 +29,9 @@
       "errore": "Errore",
       "veicolicoinvolti": "Veicoli Coinvolti",
       "particoinvolte": "Parti Coinvolte",
-      "mostrajson": "Mostra JSON"
+      "mostrajson": "Mostra JSON",
+      "nessuna": "Nessuna",
+      "nessuno": "Nessuno"
     },
     "people": {
       "anagrafica": "Anagrafica",
