@@ -9,6 +9,17 @@
             tempSegnalazione: "=",
             callback: "@"
         },
+        compile: function(element, attributes){
+
+            return {
+                pre: function(scope, element, attributes, controller, transcludeFn){
+                    console.log("pre");
+                },
+                post: function(scope, element, attributes, controller, transcludeFn){
+                    console.log("post");
+                }
+            }
+        },
         controller: ("eventoRcaController", ['_', '$MSAC', '$rootScope', '$scope', '$filter', '$debugMode', '$location', '$timeout', 'toastr', 'SinistriSvc', 'DomainSvc', 'DebugSvc', 'PathSvc',
             function (_, $MSAC, $rootScope, $scope, $filter, $debugMode, $location, $timeout, toastr, SinistriSvc, DomainSvc, DebugSvc, PathSvc) {
 
@@ -49,11 +60,7 @@
                     });
                 };
 
-                $timeout(function () {
-                    //parent.mappaCaricata($ctrl.mapId);
-                });
-
-                $scope.callback = function () {
+                $ctrl.$postLink = function () {
                     parent.mappaCaricata($ctrl.mapId);
                 };
 
