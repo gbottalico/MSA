@@ -682,7 +682,7 @@ public class SinistriService extends BaseSinistroService {
 
     public <T extends BaseSinistroDO> BaseDTO setTipologiaGestione(final TipiSinisto tipiSinisto, final T sinistroByNumProvv) throws InternalMsaException {
         try {
-            if (isRca(sinistroByNumProvv) && tipiSinisto != TipiSinisto.RCA) {
+            if (isRca(sinistroByNumProvv)) {
                 final TipoGestioneTreeMap ob = new TipoGestioneTreeMap();
                 final SinistroRcaDO sinistroRcaDO = (SinistroRcaDO) sinistroByNumProvv;
                 final List<AnagraficaDanniDO> anagraficaDanniControparte = sinistroRcaDO.getDannoRca().getAnagraficaDanniControparte();
@@ -702,24 +702,28 @@ public class SinistriService extends BaseSinistroService {
                 sinistroRcaDO
                         .getDannoRca()
                         .setAnagraficaDanniCliente(converter.convertObject(sinistroRcaDO.getDannoRca().getAnagraficaDanniCliente(), enrichPartiDannoRca));
-                sinistroRcaDO
+                if (sinistroRcaDO
                         .getDannoRca()
-                        .setAnagraficaDanniControparte(
-                                sinistroRcaDO
-                                        .getDannoRca()
-                                        .getAnagraficaDanniControparte()
-                                        .stream()
-                                        .map(enrichPartiDannoRca)
-                                        .collect(Collectors.toList())
-                        );
-                sinistroRcaDO.getDannoRca().setTerzeParti(
-                        sinistroRcaDO
-                                .getDannoRca()
-                                .getTerzeParti()
-                                .stream()
-                                .map(e -> ob.calcolaTipoGestione(tipiSinisto, e))
-                                .collect(Collectors.toList())
-                );
+                        .getAnagraficaDanniControparte() != null) {
+                    sinistroRcaDO.getDannoRca()
+                            .setAnagraficaDanniControparte(
+                                    sinistroRcaDO
+                                            .getDannoRca()
+                                            .getAnagraficaDanniControparte()
+                                            .stream()
+                                            .map(enrichPartiDannoRca)
+                                            .collect(Collectors.toList())
+                            );
+                }
+                if (sinistroRcaDO.getDannoRca().getTerzeParti() != null)
+                    sinistroRcaDO.getDannoRca().setTerzeParti(
+                            sinistroRcaDO
+                                    .getDannoRca()
+                                    .getTerzeParti()
+                                    .stream()
+                                    .map(e -> ob.calcolaTipoGestione(tipiSinisto, e))
+                                    .collect(Collectors.toList())
+                    );
                 salvaSinistro(sinistroRcaDO);
             }
             return new BaseDTO();

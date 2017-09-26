@@ -7,11 +7,9 @@ import msa.domain.object.sinistro.FullAnagraficaControparteDO;
 import msa.infrastructure.costanti.MsaCostanti;
 import org.apache.commons.lang3.tuple.Pair;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 import java.util.function.Function;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 import static msa.domain.object.enums.TipiSinisto.*;
@@ -99,12 +97,16 @@ public class TipoGestioneTreeMap {
         tabellaCalcoloTipoGestione.put(CID_CTT_DEBITORIO, CID_CTT_DEBITORIO_ROW);
     }
 
+    private static final Supplier<Pair<TipoGestione, TipoConvensioneCard>> def = () -> Pair.of(TipoGestione.NC, TipoConvensioneCard.NC);
+
     public FullAnagraficaControparteDO calcolaTipoGestione(final TipiSinisto tipoSinisto, FullAnagraficaControparteDO anag) {
-        final Pair<TipoGestione, TipoConvensioneCard> result = tabellaCalcoloTipoGestione.get(tipoSinisto)
-                .parallelStream()
-                .filter(e -> e.getKey().equals(anag.getCodRuolo()))
-                .map(Pair::getValue)
-                .findFirst().orElseGet(() -> Pair.of(TipoGestione.NC, TipoConvensioneCard.NC));
+        final Pair<TipoGestione, TipoConvensioneCard> result = Optional.ofNullable(tabellaCalcoloTipoGestione.get(tipoSinisto))
+                .map(row -> row
+                        .parallelStream()
+                        .filter(e -> e.getKey().equals(anag.getCodRuolo()))
+                        .map(Pair::getValue)
+                        .findFirst().orElseGet(def))
+                .orElseGet(def);
 
         anag.setTipoGestione(result.getKey());
         anag.setTipoConvensioneCard(result.getValue());
