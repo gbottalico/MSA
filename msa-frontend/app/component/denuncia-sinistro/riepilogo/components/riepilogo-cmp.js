@@ -6,8 +6,8 @@
         bindings: {
             numeroSinistroProvvisorio: "<"
         },
-        controller: ("riepilogoController", ['_', '$MSAC', '$rootScope', '$scope', '$routeParams', '$debugMode', '$timeout', '$filter', '$location', '$uibModal', 'toastr', 'SinistriSvc', 'DebugSvc', 'PathSvc', 'PlacesSvc',
-            function (_, $MSAC, $rootScope, $scope, $routeParams, $debugMode, $timeout, $filter, $location, $uibModal, toastr, SinistriSvc, DebugSvc, PathSvc, PlacesSvc) {
+        controller: ("riepilogoController", ['_', '$MSAC', '$rootScope', '$scope', '$routeParams', '$debugMode', '$timeout', '$filter', '$location', '$uibModal', 'toastr', 'SinistriSvc', 'DebugSvc', 'PathSvc',
+            function (_, $MSAC, $rootScope, $scope, $routeParams, $debugMode, $timeout, $filter, $location, $uibModal, toastr, SinistriSvc, DebugSvc, PathSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
@@ -19,10 +19,7 @@
                 $ctrl.tipoSinistro = undefined;
 
                 $ctrl.getNomeComune = function (codComune) {
-                    PlacesSvc.getComuneById(codComune).then(function (response) {
-                        var result = response.data.result;
-                        $ctrl.nomeComune = result;
-                    });
+                    $ctrl.nomeComune = "";
                 };
 
                 $ctrl.getSinistroProvvisorio = function (numeroSinistroProvvisorio) {
