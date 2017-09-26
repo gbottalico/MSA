@@ -178,7 +178,7 @@ public class SinistriService extends BaseSinistroService {
             input.getContraente().setCodRuolo(MsaCostanti.COD_RUOLO_CONTRAENTE.toString());
             input.getContraente().setCompagnia(input.getCompagnia());
             final Integer numSinis = sinistriRepository.insertSinistroProvvisorioAndGetNum(converter.convertObject(input, BaseSinistroDO.class));
-            salvaDocumentiMsaApertura(input.getIdDocsMsa());
+            salvaDocumentiMsaApertura(numSinis, input.getIdDocsMsa());
             return new BaseDTO(Stream.of(numSinis).collect(Collectors.toMap(e -> "numSinistroProvvisorio", Integer::valueOf)));
         } catch (Exception e) {
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA004"));
@@ -680,7 +680,7 @@ public class SinistriService extends BaseSinistroService {
         try {
             final T sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv);
             final TipiSinisto tipiSinisto = tipoSinistroTreeMap.calcolaTipoSinistro(sinistroByNumProvv);
-            if(TipoGestione.ACCEPTED.contains(tipiSinisto)) {
+            if (TipoGestione.ACCEPTED.contains(tipiSinisto)) {
                 setTipologiaGestione(tipiSinisto, sinistroByNumProvv);
             }
             sinistroByNumProvv.setTipoSinisto(tipiSinisto);
@@ -695,24 +695,24 @@ public class SinistriService extends BaseSinistroService {
         }
     }
 
-    public <T extends BaseSinistroDO> BaseDTO setTipologiaGestione(final TipiSinisto tipiSinisto,final T sinistroByNumProvv) throws InternalMsaException {
+    public <T extends BaseSinistroDO> BaseDTO setTipologiaGestione(final TipiSinisto tipiSinisto, final T sinistroByNumProvv) throws InternalMsaException {
         try {
             if (isRca(sinistroByNumProvv) && tipiSinisto != TipiSinisto.RCA) {
                 final TipoGestioneTreeMap ob = new TipoGestioneTreeMap();
                 final SinistroRcaDO sinistroRcaDO = (SinistroRcaDO) sinistroByNumProvv;
                 final List<AnagraficaDanniDO> anagraficaDanniControparte = sinistroRcaDO.getDannoRca().getAnagraficaDanniControparte();
 
-                final Function<AnagraficaDanniDO,AnagraficaDanniDO> enrichPartiDannoRca = e -> {
+                final Function<AnagraficaDanniDO, AnagraficaDanniDO> enrichPartiDannoRca = e -> {
                     e.setAnagrafica(ob.calcolaTipoGestione(tipiSinisto, e.getAnagrafica()));
                     return e;
                 };
 
 
                 sinistroRcaDO.setContraente(converter.convertObject(sinistroRcaDO.getContraente(),
-                        e -> ob.calcolaTipoGestione(tipiSinisto,e)));
+                        e -> ob.calcolaTipoGestione(tipiSinisto, e)));
 
                 if (sinistroRcaDO.getProprietario() != null && !sinistroRcaDO.getContraente().getCf().equals(sinistroRcaDO.getProprietario().getCf())) {
-                    sinistroRcaDO.setProprietario(converter.convertObject(sinistroRcaDO.getProprietario(),e -> ob.calcolaTipoGestione(tipiSinisto,e)));
+                    sinistroRcaDO.setProprietario(converter.convertObject(sinistroRcaDO.getProprietario(), e -> ob.calcolaTipoGestione(tipiSinisto, e)));
                 }
                 sinistroRcaDO
                         .getDannoRca()
@@ -723,16 +723,16 @@ public class SinistriService extends BaseSinistroService {
                                 sinistroRcaDO
                                         .getDannoRca()
                                         .getAnagraficaDanniControparte()
-                                .stream()
-                                .map(enrichPartiDannoRca)
-                                .collect(Collectors.toList())
+                                        .stream()
+                                        .map(enrichPartiDannoRca)
+                                        .collect(Collectors.toList())
                         );
                 sinistroRcaDO.getDannoRca().setTerzeParti(
                         sinistroRcaDO
                                 .getDannoRca()
                                 .getTerzeParti()
                                 .stream()
-                                .map(e -> ob.calcolaTipoGestione(tipiSinisto,e))
+                                .map(e -> ob.calcolaTipoGestione(tipiSinisto, e))
                                 .collect(Collectors.toList())
                 );
                 salvaSinistro(sinistroRcaDO);
@@ -754,8 +754,10 @@ public class SinistriService extends BaseSinistroService {
     }
 
     @Async
-    public void salvaDocumentiMsaApertura(final List<String> docIds) {
-        documentiRepository.persistDocsMsa(docIds);
+    public void salvaDocumentiMsaApertura(final Integer numSinistroProvv, final List<String> docIds) {
+        if (docIds != null) {
+            documentiRepository.persistDocsMsa(docIds, numSinistroProvv);
+        }
     }
 
 }

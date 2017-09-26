@@ -4,7 +4,6 @@ import msa.domain.object.documenti.DocumentoDO;
 import msa.infrastructure.base.repository.domain.BaseRepository;
 import msa.infrastructure.persistence.documenti.DocumentoDBO;
 import org.apache.commons.lang3.tuple.Pair;
-import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Repository;
 
 import java.util.Comparator;
@@ -49,12 +48,13 @@ public class DocumentiRepository extends BaseRepository {
         return Boolean.TRUE;
     }
 
-    public void persistDocsMsa(final List<String> idDocsMsa) {
+    public void persistDocsMsa(final List<String> idDocsMsa, final Integer numSinistroProvv) {
         idDocsMsa.forEach(id -> {
             final Integer nextIdDoc = getNextIdDoc();
             DocumentoDO documentoDO = new DocumentoDO();
             documentoDO.setIdDocumentoMsa(id);
             documentoDO.setIdDocumento(nextIdDoc);
+            documentoDO.setNumSinistro(numSinistroProvv);
             insertDocumento(documentoDO);
         });
     }
