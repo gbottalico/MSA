@@ -60,9 +60,8 @@ public class BaseSinistroService extends BaseService {
         coupleSinistroFunctions.add(new SinistroFunction<>(EventoRcaDTO.class, EVENTORCA));
         coupleSinistroFunctions.add(new SinistroFunction<>(DannoRcaDTO.class, DANNORCA_CONDUCENTE));
         coupleSinistroFunctions.add(new SinistroFunction<>(AnagraficaDanniDTO.class, DANNORCA_CONTROPARTE));
-        coupleSinistroFunctions.add(new SinistroFunction<>(ConstatazioneAmichevoleDTO.class, CONSTATAZIONE_AMICHEVOLE));
+        coupleSinistroFunctions.add(new SinistroFunction<>(ConstatazioneAmichevoleDTO.class, CAI));
         coupleSinistroFunctions.add(new SinistroFunction<>(FullAnagraficaControparteDTO.class, TERZE_PARTI));
-        coupleSinistroFunctions.add(new SinistroFunction<>(CaiDTO.class, CAI));
 /*
         coupleSinistroFunctions.add(new SinistroFunction<>(PeritoDTO.class, PERITO));
 */
@@ -193,22 +192,22 @@ public class BaseSinistroService extends BaseService {
             };
     private final MsaFunction<SinistroRcaDO, SinistroRcaDO> ADD_DES_TO_CAI = cai -> {
         try {
-            cai.getCai().getBaremesCliente().setDescrizione(domainRepository.getDesbaremesById(cai.getCai().getBaremesCliente().getId()).getDescrizione());
-            final BaremesDO controparte = cai.getCai().getBaremesControparte();
+            cai.getConstatazioneAmichevole().getBaremesCliente().setDescrizione(domainRepository.getDesbaremesById(cai.getConstatazioneAmichevole().getBaremesCliente().getId()).getDescrizione());
+            final BaremesDO controparte = cai.getConstatazioneAmichevole().getBaremesControparte();
             if (controparte != null) {
-                controparte.setDescrizione(domainRepository.getDesbaremesById(cai.getCai().getBaremesControparte().getId()).getDescrizione());
+                controparte.setDescrizione(domainRepository.getDesbaremesById(cai.getConstatazioneAmichevole().getBaremesControparte().getId()).getDescrizione());
             }
             return cai;
         } catch (Exception e) {
             throw new InternalMsaException();
         }
     };
-    private final MsaBiFunction<CaiDTO, Integer, SinistroRcaDO> CAI =
+    private final MsaBiFunction<ConstatazioneAmichevoleDTO, Integer, SinistroRcaDO> CAI =
             (O, numSinistroProvv) -> {
                 try {
                     final SinistroRcaDO sinistroByNumProvv = sinistriRepository.getSinistroByNumProvv(numSinistroProvv, SinistroRcaDO.class);
-                    CaiDO caiDO = converter.convertObject(O, CaiDO.class);
-                    sinistroByNumProvv.setCai(caiDO);
+                    ConstatazioneAmichevoleDO caiDO = converter.convertObject(O, ConstatazioneAmichevoleDO.class);
+                    sinistroByNumProvv.setConstatazioneAmichevole(caiDO);
                     return ADD_DES_TO_CAI.apply(sinistroByNumProvv);
                 } catch (Exception e) {
                     throw new InternalMsaException();

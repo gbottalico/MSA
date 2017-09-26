@@ -2,7 +2,7 @@ package msa.infrastructure.persistence.sinistro;
 
 import org.springframework.data.mongodb.core.mapping.Field;
 
-public class ConstatazioneAmichevoleDBO {
+public class ConstatazioneAmichevoleDBO extends CaiDBO{
     @Field("caCompilata")
     private Boolean caCompilata;
     @Field("caCompilataControparte")

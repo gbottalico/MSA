@@ -91,18 +91,6 @@ public class SinistroController extends BaseController {
     }
 
     /**
-     * Metodo che salva i dati della constatazione amichevole
-     *
-     * @param input
-     * @return
-     */
-    @ApiOperation(value = "Metoto che salva i dati della constatazione amichevole")
-    @RequestMapping(value = "/{numero}/CA", method = RequestMethod.POST)
-    public BaseDTO salvaConstatazioneAmichevole(@RequestBody ConstatazioneAmichevoleDTO input, @PathVariable("numero") Integer numeroSinistro) throws InternalMsaException {
-        return sinistriService.salvaConstatazioneAmichevole(input, numeroSinistro);
-    }
-
-    /**
      * Metodo che calcola la responsabilità in base ai baremes e salva i dati
      *
      * @param input
@@ -111,7 +99,7 @@ public class SinistroController extends BaseController {
      */
     @ApiOperation(value = "Metodo che calcola la responsabilità e salva il CAI in base ai baremes inseriti")
     @RequestMapping(value = "/{numero}/CAI", method = RequestMethod.POST)
-    public BaseDTO<Map<String, String>> salvaCAI(@RequestBody CaiDTO input, @PathVariable("numero") Integer numeroSinistro) throws InternalMsaException {
+    public BaseDTO<Map<String, String>> salvaCAI(@RequestBody ConstatazioneAmichevoleDTO input, @PathVariable("numero") Integer numeroSinistro) throws InternalMsaException {
         return sinistriService.salvaCAI(input, numeroSinistro);
 
     }

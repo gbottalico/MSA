@@ -24,8 +24,6 @@ public class SinistroDBO extends AbstractDBO {
     private EventoRcaDBO eventoRCA;
     @Field("constatazioneAmichevole")
     private ConstatazioneAmichevoleDBO constatazioneAmichevole;
-    @Field("cai")
-    private CaiDBO cai;
     @Field("dannoRCA")
     private DannoRcaDBO dannoRca;
 
@@ -188,14 +186,6 @@ public class SinistroDBO extends AbstractDBO {
 
     public void setConstatazioneAmichevole(ConstatazioneAmichevoleDBO constatazioneAmichevole) {
         this.constatazioneAmichevole = constatazioneAmichevole;
-    }
-
-    public CaiDBO getCai() {
-        return cai;
-    }
-
-    public void setCai(CaiDBO cai) {
-        this.cai = cai;
     }
 
     public DannoRcaDBO getDannoRca() {

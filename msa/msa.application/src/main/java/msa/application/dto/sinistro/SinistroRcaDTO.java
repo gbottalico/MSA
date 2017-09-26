@@ -11,7 +11,6 @@ public class SinistroRcaDTO extends BaseSinistroDTO {
 
     private EventoRcaDTO eventoRca;
     private ConstatazioneAmichevoleDTO constatazioneAmichevole;
-    private CaiDTO cai;
     private DannoRcaDTO dannoRca;
 
     public EventoRcaDTO getEventoRca() {
@@ -28,14 +27,6 @@ public class SinistroRcaDTO extends BaseSinistroDTO {
 
     public void setConstatazioneAmichevole(ConstatazioneAmichevoleDTO constatazioneAmichevole) {
         this.constatazioneAmichevole = constatazioneAmichevole;
-    }
-
-    public CaiDTO getCai() {
-        return cai;
-    }
-
-    public void setCai(CaiDTO cai) {
-        this.cai = cai;
     }
 
     public DannoRcaDTO getDannoRca() {

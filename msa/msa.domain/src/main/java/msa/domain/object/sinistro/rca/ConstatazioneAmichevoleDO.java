@@ -1,6 +1,6 @@
 package msa.domain.object.sinistro.rca;
 
-public class ConstatazioneAmichevoleDO {
+public class ConstatazioneAmichevoleDO extends CaiDO{
     private Boolean caCompilata;
     private Boolean caCompilataControparte;
 

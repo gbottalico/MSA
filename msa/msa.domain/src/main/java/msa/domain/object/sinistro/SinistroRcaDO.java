@@ -9,7 +9,6 @@ public class SinistroRcaDO extends BaseSinistroDO {
     private static final long serialVersionUID = 1665918958997727249L;
     private EventoRcaDO eventoRca;
     private ConstatazioneAmichevoleDO constatazioneAmichevole;
-    private CaiDO cai;
     private DannoRcaDO dannoRca;
     private Boolean flagSinistroCard;
 
@@ -27,14 +26,6 @@ public class SinistroRcaDO extends BaseSinistroDO {
 
     public void setConstatazioneAmichevole(ConstatazioneAmichevoleDO constatazioneAmichevole) {
         this.constatazioneAmichevole = constatazioneAmichevole;
-    }
-
-    public CaiDO getCai() {
-        return cai;
-    }
-
-    public void setCai(CaiDO cai) {
-        this.cai = cai;
     }
 
     public DannoRcaDO getDannoRca() {

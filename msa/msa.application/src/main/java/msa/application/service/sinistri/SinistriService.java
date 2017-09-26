@@ -30,6 +30,7 @@ import msa.domain.object.sinistro.rca.AnagraficaDanniDO;
 import msa.domain.object.sinistro.rca.IncrociBaremesDO;
 import msa.domain.object.sinistro.rca.SegnalazioneDO;
 import msa.infrastructure.costanti.MsaCostanti;
+import msa.infrastructure.persistence.sinistro.ConstatazioneAmichevoleDBO;
 import msa.infrastructure.repository.DocumentiRepository;
 import msa.infrastructure.repository.DomainRepository;
 import msa.infrastructure.repository.PolizzeRepository;
@@ -297,32 +298,16 @@ public class SinistriService extends BaseSinistroService {
         if (toUpdateByNumVeicoli) {
             sinistroRcaDOByDTO.setConstatazioneAmichevole(null);
         }
-        if (sinistroRcaDOByDTO.getCai() != null
+        if (sinistroRcaDOByDTO.getConstatazioneAmichevole() != null
                 && toUpdateByNumVeicoli) {
-            sinistroRcaDOByDTO.getCai().setBaremesControparte(null);
-            sinistroRcaDOByDTO.getCai().setNoteControparte(null);
-            sinistroRcaDOByDTO.getCai().setColpa(null);
+            sinistroRcaDOByDTO.getConstatazioneAmichevole().setBaremesControparte(null);
+            sinistroRcaDOByDTO.getConstatazioneAmichevole().setNoteControparte(null);
+            sinistroRcaDOByDTO.getConstatazioneAmichevole().setColpa(null);
         }
         if (salvaSinistro(sinistroRcaDOByDTO)) {
             return new BaseDTO<>();
         } else
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione Evento RCA")));
-    }
-
-    /**
-     * Metodo che salva i dati della constatazione amichevole nel caso in cui i veicoli coinvolti siano più di 2
-     *
-     * @param input
-     * @param numSinistroProvv
-     * @return
-     */
-    public BaseDTO salvaConstatazioneAmichevole(ConstatazioneAmichevoleDTO input, Integer numSinistroProvv) throws InternalMsaException {
-        Boolean res = salvaSinistro(getSinistroDOByDTO(input, numSinistroProvv));
-        if (res) {
-            return new BaseDTO<>();
-        } else {
-            throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione Constatazione Amichevole")));
-        }
     }
 
     /**
@@ -332,13 +317,13 @@ public class SinistriService extends BaseSinistroService {
      * @param numSInistroProvv
      * @return
      */
-    public BaseDTO<Map<String, String>> salvaCAI(CaiDTO input, Integer numSInistroProvv) throws InternalMsaException {
+    public BaseDTO<Map<String, String>> salvaCAI(ConstatazioneAmichevoleDTO input, Integer numSInistroProvv) throws InternalMsaException {
         SinistroRcaDO sinistroRcaDOByDTO = getSinistroDOByDTO(input, numSInistroProvv);
         final Boolean existControparte = input.getBaremesControparte() != null;
         final String codColpa;
         if (existControparte) {
             codColpa = calcolaColpaBaremes(input);
-            sinistroRcaDOByDTO.getCai().setColpa(codColpa);
+            sinistroRcaDOByDTO.getConstatazioneAmichevole().setColpa(codColpa);
         } else {
             codColpa = null;
         }

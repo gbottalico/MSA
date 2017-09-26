@@ -1,8 +1,8 @@
 package msa.application.dto.sinistro.rca.constatazioneAmichevole;
 
-import msa.application.dto.sinistro.AbstractDTO;
+import msa.application.dto.sinistro.rca.cai.CaiDTO;
 
-public class ConstatazioneAmichevoleDTO extends AbstractDTO {
+public class ConstatazioneAmichevoleDTO extends CaiDTO {
     private static final long serialVersionUID = 8823486816446117120L;
     private Boolean caCompilata;
     private Boolean caCompilataControparte;
