@@ -44,7 +44,7 @@
                     <!--END INPUT TEXT-->
 
                     <!--INPUT RADIO-->
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 classicInputRadio" ng-class="{'has-error':  polizzaSearchForm.cognome.$invalid}">
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 classicInputRadio" ng-class="{'has-error':  polizzaSearchForm.tipoPersona.$invalid}">
                         <label>{{'global.polizzasearch.labels.persona' | translate}}</label>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 noPaddingLeft">
                             <input name="tipoPersona" type="radio" ng-model="$ctrl.ricercapolizza.tipoPersona" value="fisica"  ng-required="$ctrl.campiObbligatori.tipoPersona && !$ctrl.ricercapolizza.tipopersona">

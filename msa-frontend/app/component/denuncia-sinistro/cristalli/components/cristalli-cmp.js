@@ -20,7 +20,8 @@
                 $ctrl.isInputConsumed = false;
                 $ctrl.causeRotturaCristalli = undefined;
 
-                $ctrl.cristalli = {};
+                $ctrl.cristalli = {
+                };
 
                 DomainSvc.getCauseRotturaCristalli().then(function (response) {
                    $ctrl.causeRotturaCristalli = response.data.result;

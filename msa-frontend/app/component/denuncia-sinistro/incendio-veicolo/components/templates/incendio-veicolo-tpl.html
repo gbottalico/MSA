@@ -14,7 +14,7 @@
             <pre ng-if="$debugMode">{{$ctrl.incendio}}</pre>
 
             <form name="formIncendioVeicolo" novalidate>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputRadio">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputRadio" ng-class="{'has-error' : formIncendioVeicolo.sviluppoFiamme.$invalid}">
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingLeft">
                         <input type="radio" ng-value="true" name="sviluppoFiamme"
                                ng-model="$ctrl.incendio.sviluppoFiamme" ng-required="true">
@@ -31,7 +31,7 @@
                 <!--END INPUT RADIO-->
 
                 <!--INPUT RADIO-->
-                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 classicInputRadio">
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 classicInputRadio" ng-class="{'has-error' : formIncendioVeicolo.responsabilitaTerzi.$invalid}">
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingLeft">
                         <input type="radio" ng-value="true" name="responsabilitaTerzi"
                                ng-model="$ctrl.incendio.responsabilitaTerzi"
@@ -49,17 +49,16 @@
                 </div>
                 <!--END INPUT RADIO-->
 
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicTextArea">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicTextArea" ng-class="{'has-error' : formIncendioVeicolo.descrizioneDanni.$invalid}">
                     <textarea class="textauto" name="descrizioneDanni" ng-model="$ctrl.incendio.descrizioneDanni" ng-required="false"></textarea>
                     <label>{{'global.incendio.labels.descrizioneDanni' | translate}}</label>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicTextArea">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicTextArea" ng-class="{'has-error' : formIncendioVeicolo.osservazioniCliente.$invalid}">
                     <textarea class="textauto" name="osservazioniCliente" ng-model="$ctrl.incendio.osservazioniCliente" ng-required="false"></textarea>
                     <label>{{'global.incendio.labels.osservazioniCliente' | translate}}</label>
                 </div>
 
                 <msa-autorita
-                    input=""
                     result="$ctrl.incendio"
                     name="'interventoAutorita'">
 

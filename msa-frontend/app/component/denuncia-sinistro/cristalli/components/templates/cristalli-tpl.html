@@ -19,13 +19,13 @@
                     <span class="subsectionTitle">{{'global.cristalli.title' | translate}}</span>
                 </div>
 
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicTextArea">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicTextArea" ng-class="{'has-error' : cristalliForm.cristalloDanneggiato.$invalid}">
                     <textarea class="textauto" name="cristalloDanneggiato" ng-model="$ctrl.cristalli.desCristalloRotto" ng-required="true"></textarea>
                     <label>{{'global.cristalli.labels.cristalloDanneggiato' | translate}}</label>
                 </div>
 
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputText">
-                    <select name="causaRottura"
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputText" ng-class="{'has-error' : cristalliForm.causa.$invalid}">
+                    <select name="causa"
                             ng-model="$ctrl.cristalli.codRotturaCristalli"
                             ng-required="true">
                         <option ng-repeat="causa in $ctrl.causeRotturaCristalli" ng-value="{{causa.codRottura}}">{{causa.descrizioneRottura}}</option>
@@ -34,7 +34,7 @@
                 </div>
 
                 <!--INPUT RADIO-->
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputRadio">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputRadio" ng-class="{'has-error' : cristalliForm.riparato.$invalid}">
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingLeft">
                         <input type="radio" ng-value="true" name="riparato" ng-model="$ctrl.cristalli.flagRiparazione" ng-required="true">
                         <label class="rightLabel">{{'global.generic.si' | translate}}</label>
@@ -49,7 +49,7 @@
                 <!--END INPUT RADIO-->
 
                 <!--INPUT RADIO-->
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputRadio">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 classicInputRadio" ng-class="{'has-error' : cristalliForm.fattura.$invalid}">
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingLeft">
                         <input type="radio" ng-value="true" name="fattura"
                                ng-model="$ctrl.cristalli.flagFattura"

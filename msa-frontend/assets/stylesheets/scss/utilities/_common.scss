@@ -183,6 +183,12 @@ section {
 }
 
 .classicTextArea {
+  &.has-error {
+    textarea {
+      border: 2px solid $badred;
+    }
+  }
+
   textarea {
     width: 100%;
     height: 180px;

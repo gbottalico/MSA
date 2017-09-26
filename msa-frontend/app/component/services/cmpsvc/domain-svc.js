@@ -1,15 +1,50 @@
 angular.module('msa').service(
     'DomainSvc',
-    [
+    [   '_',
         '$http',
         '$rootScope',
         '$q',
+        '$localStorage',
         'DebugSvc',
         'UtilSvc',
         'msaServicesApiUrls',
-        function ($http, $rootScope, $q, DebugSvc, UtilSvc, msaServicesApiUrls) {
+        function (_, $http, $rootScope, $q, $localStorage, DebugSvc, UtilSvc, msaServicesApiUrls) {
 
             var $svc = this;
+
+            const KEYS = {
+                ELENCO_REGOLE: {name: "elencoRegole", url: msaServicesApiUrls.casaregole},
+                AUTORITA: {name: "autorita", url: msaServicesApiUrls.autorita},
+                BAREMES: {name: "baremes", url: msaServicesApiUrls.baremes},
+                MEZZI_COMUNICAZIONE: {name: "mezziComunicazione", url: msaServicesApiUrls.mezzicomunicazione},
+                RUOLI: {name: "ruoli", url: msaServicesApiUrls.ruoli},
+                TIPO_TARGHE: {name: "tipoTarghe", url: msaServicesApiUrls.tipotarghe},
+                TIPO_VEICOLI: {name: "tipoVeicoli", url: msaServicesApiUrls.tipoveicoli},
+                CAUSE_ROTTURA_CRISTALLI: {name: "causeRotturaCristalli", url: msaServicesApiUrls.causerotturacristalli},
+            };
+
+            var process = function (key) {
+                var deferred = $q.defer();
+                if ($localStorage[key.name]) {
+                    deferred.resolve($localStorage[key.name]);
+                    DebugSvc.log("DomainSvc: " + key.name + ", returing cached.", $localStorage[key.name]);
+                    return deferred.promise;
+                }
+
+                $http.get(key.url).then(function (response) {
+                    DebugSvc.log("DomainSvc: " + key.name + ", returing $http", response.data);
+                    if (response.status === 200 && _.isObject(response.data) && response.data.status === 200) {
+                        deferred.resolve(response);
+                        $localStorage[key.name] = response;
+                    } else {
+                        deferred.reject("DomainSvc error, " + [key.name]);
+                    }
+                }, function (data, status, headers, config) {
+                    deferred.reject("Error: request returned status " + status);
+                });
+
+                return deferred.promise;
+            };
 
             $svc.getAutorita = function () {
                 return $http.get(msaServicesApiUrls.autorita);
@@ -18,28 +53,11 @@ angular.module('msa').service(
             $svc.getBaremes = function () {
                 return $http.get(msaServicesApiUrls.baremes);
             };
+
             $svc.getElencoRegole = function () {
-                // TODO estendere a tutti la cache.
-                var deferred = $q.defer();
-                if ($rootScope.domain.casaRegole) {
-                    deferred.resolve($rootScope.domain.casaRegole);
-                    DebugSvc.log("getElencoRegole, returing cached.", $rootScope.domain.casaRegole);
-                    return deferred.promise;
-                }
-
-                $http.get(msaServicesApiUrls.casaregole).then(function (response) {
-                    DebugSvc.log("getElencoRegole, returing $http", response.data);
-                    if (response.status === 200 && response.data.status === 200) {
-                        deferred.resolve(response.data);
-                        $rootScope.domain.casaRegole = response.data;
-                    }
-                }, function (data, status, headers, config) {
-                    deferred.reject("Error: request returned status " + status);
-                });
-
-                return deferred.promise;
-
+                return process(KEYS.ELENCO_REGOLE);
             };
+
             $svc.getCompagnie = function (desc) {
                 var url = UtilSvc.stringFormat(msaServicesApiUrls.compagnia, desc);
                 return $http.get(url);
@@ -63,26 +81,6 @@ angular.module('msa').service(
             $svc.getCauseRotturaCristalli = function () {
                 return $http.get(msaServicesApiUrls.causerotturacristalli);
             };
-
-
-            //TODO MOCKUP
-            $svc.successCall = function () {
-                var deferred = $q.defer();
-                if ($rootScope.domain.casaRegole) {
-                    deferred.resolve($rootScope.domain.casaRegole);
-                    DebugSvc.log("Returning cached.");
-                    return deferred.promise;
-                }
-                $http.get(msaServicesApiUrls.casaregole + "GGGGG").then(function (data) {
-                    deferred.resolve(data.result);
-                    $rootScope.domain.casaRegole = data.result;
-                }, function (data, status, headers, config) {
-                    deferred.reject("Error: request returned status " + status);
-                });
-
-                return deferred.promise;
-            };
-
 
         }
     ]

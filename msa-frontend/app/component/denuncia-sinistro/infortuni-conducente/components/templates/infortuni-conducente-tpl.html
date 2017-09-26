@@ -22,14 +22,14 @@
                 <div class="col-lg-12">
 
                     <div class="row">
-                        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 classicInputRadio">
+                        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 classicInputRadio" ng-class="{'has-error' : infortuniForm.conducenteIsNotContraente.$invalid}">
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingLeft">
                                 <input type="radio" ng-value="true" name="conducenteIsNotContraente"
                                        ng-model="$ctrl.infortuni.conducenteIsNotContraente" ng-required="true">
                                 <label class="rightLabel">{{'global.generic.si' | translate}}</label>
                             </div>
-                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingLeft" ng-required="true">
-                                <input type="radio" ng-value="false" name="conducenteIsNotContraente"
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 noPaddingLeft">
+                                <input type="radio" ng-value="false" name="conducenteIsNotContraente" ng-required="true"
                                        ng-model="$ctrl.infortuni.conducenteIsNotContraente">
                                 <label class="rightLabel">{{'global.generic.no' | translate}}</label>
                             </div>
@@ -61,7 +61,7 @@
 
                 <!-- DANNO -->
 
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicTextArea">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicTextArea" ng-class="{'has-error' : infortuniForm.descrizioneDanno.$invalid}">
                     <textarea class="textauto"
                               ng-model="$ctrl.infortuni.descrizioneDanni"
                               name="descrizioneDanno"
@@ -71,7 +71,7 @@
                     <label>{{'global.kasko.labels.descrizionedanno' | translate}}</label>
                 </div>
 
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicTextArea">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 classicTextArea" ng-class="{'has-error' : infortuniForm.osservazioniCliente.$invalid}">
                     <textarea class="textauto"
                               name="osservazioniCliente"
                               ng-model="$ctrl.infortuni.osservazioniCliente"

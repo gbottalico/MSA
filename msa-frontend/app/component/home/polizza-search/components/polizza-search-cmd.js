@@ -36,8 +36,8 @@
                 };
 
                 $ctrl.$onInit = function () {
-                    DomainSvc.getElencoRegole().then(function (data) {
-                        $ctrl.casaRegole = data.result;
+                    DomainSvc.getElencoRegole().then(function (response) {
+                        $ctrl.casaRegole = response.data.result;
                     });
 
                 };
@@ -59,7 +59,7 @@
                 };
 
                 $ctrl.checkCompagnia = function () {
-                    return ($scope.polizzaSearchForm.compagnia.$invalid && !$scope.polizzaSearchForm.compagnia.$pristine);
+                    return ($scope.polizzaSearchForm.compagnia.$invalid);
                 };
                 
                 $scope.getIdDocsMsa = function () {
