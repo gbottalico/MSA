@@ -526,7 +526,7 @@ public class SinistriService extends BaseSinistroService {
         final K sinistroDOByDTO;
         try {
             sinistroDOByDTO = sinistriRepository.getSinistroByNumProvv(numSinistro);
-            sinistroDOByDTO.setPerito(converter.convertObject(input, PeritoDO.class));
+            sinistroDOByDTO.setPerito(Optional.ofNullable(input).map(e -> converter.convertObject(e, PeritoDO.class)).orElseGet(() -> new PeritoDO()));
         } catch (Exception ex) {
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione Salvataggio Legale")));
         }
@@ -612,7 +612,7 @@ public class SinistriService extends BaseSinistroService {
         final K sinistroDOByDTO;
         try {
             sinistroDOByDTO = sinistriRepository.getSinistroByNumProvv(numSinistro);
-            sinistroDOByDTO.setCentroConvenzionato(converter.convertObject(input, CentroConvenzionatoDO.class));
+            sinistroDOByDTO.setCentroConvenzionato(Optional.ofNullable(input).map(e -> converter.convertObject(e, CentroConvenzionatoDO.class)).orElseGet(() -> new CentroConvenzionatoDO()));
         } catch (Exception ex) {
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA005", (String e) -> e.concat("Sezione Salvataggio dati centro convenzionato")));
         }
