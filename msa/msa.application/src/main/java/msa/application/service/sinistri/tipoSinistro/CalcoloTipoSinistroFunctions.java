@@ -57,7 +57,7 @@ abstract class CalcoloTipoSinistroFunctions<T extends BaseSinistroDO> {
     };
 
     private final Function<SinistroRcaDO, Integer> getPercCID = sinis -> {
-        final IncrociBaremesDO incrocio = domainRepository.getColpaByBaremes(sinis.getCai().getBaremesCliente(), sinis.getCai().getBaremesControparte());
+        final IncrociBaremesDO incrocio = domainRepository.getColpaByBaremes(sinis.getConstatazioneAmichevole().getBaremesCliente(), sinis.getConstatazioneAmichevole().getBaremesControparte());
         return incrocio.getPercRespCliente();
     };
 
