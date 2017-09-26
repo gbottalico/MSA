@@ -62,7 +62,8 @@ angular.module('msa').service(
                     if (nazione.codNazione > 1) {
                         return true;
                     } else {
-                        return !!(_.isObject(provincia) && provincia.codProvincia && _.isObject(comune) && comune.codComune && cap);
+                        // Per validare la presenza del cap, basta aggiungere && cap a questa espressione.
+                        return !!(_.isObject(provincia) && provincia.codProvincia && _.isObject(comune) && comune.codComune);
                     }
                 } else {
                     return false;
