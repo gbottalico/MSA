@@ -554,6 +554,7 @@ table.dettagliopolizzatable {
   font-size: 2rem;
   .modal-content {
     border-radius: 0;
+    border: 0;
     .modal-header {
       /* IE10 */
       background-image: -ms-linear-gradient(top right, $light_blue 0%, $blue 100%);
@@ -587,6 +588,9 @@ table.dettagliopolizzatable {
         right: 2rem;
         cursor: pointer;
       }
+      .bootbox-close-button {
+        display: none;
+      }
 
     }
     .modal-body, .modal-footer {
@@ -597,6 +601,7 @@ table.dettagliopolizzatable {
     }
 
     .modal-footer {
+      border-top: 1px solid $light_gray;
       .btn {
         &[disabled] {
           background: $gray;
