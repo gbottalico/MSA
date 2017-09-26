@@ -95,47 +95,7 @@
                 };
 
                 $ctrl.isMappaVisibile = function (nomeMappa) {
-                    // TODO ad un certo punto, escluso m13, gli altri potrebbero essere case default
-                    switch (nomeMappa) {
-                        case 'M11':
-                            return $ctrl.mappe.indexOf('M11') > -1;
-                        case 'M12':
-                            return $ctrl.mappe.indexOf('M12') > -1;
-                        case 'M13':
-                            return $ctrl.mappe.indexOf('M14') > -1 && $ctrl.tempSegnalazione.nveicoli > 1;
-                        case 'M14':
-                            return $ctrl.mappe.indexOf('M14') > -1;
-                        case 'M15':
-                            return $ctrl.mappe.indexOf('M15') > -1;
-                        case 'M18':
-                            return $ctrl.mappe.indexOf('M18') > -1;
-                        case 'M20':
-                            return $ctrl.mappe.indexOf('M20') > -1;
-                        case 'M22':
-                            return $ctrl.mappe.indexOf('M22') > -1;
-                        case 'M23':
-                            return $ctrl.mappe.indexOf('M23') > -1;
-                        case 'M25':
-                            return $ctrl.mappe.indexOf('M25') > -1;
-                        case 'M26':
-                            return $ctrl.mappe.indexOf('M26') > -1;
-                        case 'M27':
-                            return $ctrl.mappe.indexOf('M27') > -1;
-                        case 'M28':
-                            return $ctrl.mappe.indexOf('M28') > -1;
-                        case 'M30':
-                            return $ctrl.mappe.indexOf('M30') > -1;
-                        case 'M31':
-                            return $ctrl.mappe.indexOf('M31') > -1;
-                        case 'M32':
-                            return $ctrl.mappe.indexOf('M32') > -1;
-                        case 'M33':
-                            return $ctrl.mappe.indexOf('M33') > -1;
-                        case 'M34':
-                            return $ctrl.mappe.indexOf('M34') > -1;
-                        default:
-                            return false;
-                    }
+                    return $ctrl.mappe.indexOf(nomeMappa) > -1;
                 };
 
                 $ctrl.scrollTo = function (divId) {

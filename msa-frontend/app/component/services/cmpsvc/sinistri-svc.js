@@ -144,18 +144,6 @@ angular.module('msa').service(
                 });
             };
 
-            $svc.salvaCa = function (idSinistroProvvisorio, ca) {
-
-                var data = {};
-                data.caCompilata = ca.constatazioneAmichevole;
-                data.caCompilataControparte = ca.constatazioneAmichevoleControparte;
-
-                var url = UtilSvc.stringFormat(msaServicesApiUrls.ca, idSinistroProvvisorio);
-
-                return $http.post(url, data);
-
-            };
-
             $svc.salvaFurto = function (numeroSinistroProvvisorio, furto) {
                 var dataObj = {
 
@@ -220,6 +208,9 @@ angular.module('msa').service(
 
                 data.noteCliente = cai.osservazioniAssicurato;
                 data.noteControparte = cai.osservazioniControparte;
+
+                data.caCompilata = cai.constatazioneAmichevole;
+                data.caCompilataControparte = cai.constatazioneAmichevoleControparte;
 
                 var url = UtilSvc.stringFormat(msaServicesApiUrls.cai, numeroSinistroProvvisorio);
 

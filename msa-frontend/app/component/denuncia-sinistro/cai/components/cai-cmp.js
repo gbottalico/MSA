@@ -31,7 +31,6 @@
                     nonClassificabile: false
                 };
 
-                $ctrl.isSaved = false;
                 $ctrl.isInputConsumed = false;
 
                 DomainSvc.getBaremes().then(function (response) {
@@ -50,7 +49,6 @@
                             parent.aggiornaMappe($ctrl.mapId);
                             toastr.success($translate('global.generic.saveok'));
                             $scope.caiForm.$setPristine();
-                            $ctrl.isSaved = true;
                         } else {
                             toastr.error($translate('global.generic.saveko'));
                         }
@@ -107,16 +105,19 @@
                 };
 
                 $ctrl.bindCai = function () {
-                    if (_.isObject($ctrl.sinistroProvvisorio.cai)) {
+                    if (_.isObject($ctrl.sinistroProvvisorio.constatazioneAmichevole)) {
 
-                        $ctrl.cai.baremeAssicurato = $ctrl.sinistroProvvisorio.cai.baremesCliente.id;
-                        $ctrl.cai.osservazioniAssicurato = $ctrl.sinistroProvvisorio.cai.noteCliente;
+                        $ctrl.cai.baremeAssicurato = $ctrl.sinistroProvvisorio.constatazioneAmichevole.baremesCliente.id;
+                        $ctrl.cai.osservazioniAssicurato = $ctrl.sinistroProvvisorio.constatazioneAmichevole.noteCliente;
 
-                        if (_.isObject($ctrl.sinistroProvvisorio.cai.baremesControparte)) {
-                            $ctrl.cai.baremeControparte = $ctrl.sinistroProvvisorio.cai.baremesControparte.id;
-                            $ctrl.cai.osservazioniControparte = $ctrl.sinistroProvvisorio.cai.noteControparte;
+                        if (_.isObject($ctrl.sinistroProvvisorio.constatazioneAmichevole.baremesControparte)) {
+                            $ctrl.cai.baremeControparte = $ctrl.sinistroProvvisorio.constatazioneAmichevole.baremesControparte.id;
+                            $ctrl.cai.osservazioniControparte = $ctrl.sinistroProvvisorio.constatazioneAmichevole.noteControparte;
                         }
-                        $ctrl.isSaved = true;
+
+                        $ctrl.cai.constatazioneAmichevole = $ctrl.sinistroProvvisorio.constatazioneAmichevole.caCompilata;
+                        $ctrl.cai.constatazioneAmichevoleControparte = $ctrl.sinistroProvvisorio.constatazioneAmichevole.caCompilataControparte;
+
                     }
                 };
 
@@ -134,7 +135,7 @@
                     },
                     function handleChanges(newValues, oldValues) {
 
-                        if (newValues.sinistroProvvisorio !== undefined && !$ctrl.isInputConsumed) {
+                        if (_.isObject(newValues.sinistroProvvisorio) && !$ctrl.isInputConsumed) {
                             $ctrl.bindCai();
                             $ctrl.isInputConsumed = true;
                         }
