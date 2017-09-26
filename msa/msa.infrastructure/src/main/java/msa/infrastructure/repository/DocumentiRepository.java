@@ -48,4 +48,14 @@ public class DocumentiRepository extends BaseRepository {
         delete(converter.convertObject(documentoDO, DocumentoDBO.class));
         return Boolean.TRUE;
     }
+
+    public void persistDocsMsa(final List<String> idDocsMsa) {
+        idDocsMsa.forEach(id -> {
+            final Integer nextIdDoc = getNextIdDoc();
+            DocumentoDO documentoDO = new DocumentoDO();
+            documentoDO.setIdDocumentoMsa(id);
+            documentoDO.setIdDocumento(nextIdDoc);
+            insertDocumento(documentoDO);
+        });
+    }
 }

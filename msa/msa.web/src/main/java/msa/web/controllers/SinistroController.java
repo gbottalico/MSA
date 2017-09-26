@@ -36,7 +36,7 @@ public class SinistroController extends BaseController {
      */
     @ApiOperation(value = "Metodo che effettua l'apertura di un sinistro in base ai dati ricevuti in input")
     @RequestMapping(value = "/apertura", method = RequestMethod.PUT)
-    public BaseDTO apriSinistro(@RequestBody BaseSinistroDTO input,
+    public BaseDTO apriSinistro(@RequestBody AperturaSinistroDocsMsaDTO input,
                                 @RequestHeader(name = "user") final String userHeader) throws InternalMsaException {
         input.parseUserLogged(userHeader);
         return sinistriService.salvaSinistro(input);

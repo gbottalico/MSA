@@ -23,6 +23,8 @@ public class DocumentoDBO extends AbstractDBO {
     private Integer codTipoDocumento;
     @Field(value = "dataRicezione")
     private Date dataRicezione;
+    @Field("idDocumentoMsa")
+    private String idDocumentoMsa;
 
     public Integer getNumSinistro() {
         return numSinistro;
@@ -62,5 +64,13 @@ public class DocumentoDBO extends AbstractDBO {
 
     public void setDataRicezione(Date dataRicezione) {
         this.dataRicezione = dataRicezione;
+    }
+
+    public String getIdDocumentoMsa() {
+        return idDocumentoMsa;
+    }
+
+    public void setIdDocumentoMsa(String idDocumentoMsa) {
+        this.idDocumentoMsa = idDocumentoMsa;
     }
 }

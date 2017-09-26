@@ -14,6 +14,7 @@ public class DocumentoDTO extends AbstractDTO {
     private String path;
     private Integer codTipoDocumento;
     private Date dataRicezione;
+    private String idDocumentoMsa;
 
     public Integer getNumSinistro() {
         return numSinistro;
@@ -53,5 +54,13 @@ public class DocumentoDTO extends AbstractDTO {
 
     public void setDataRicezione(Date dataRicezione) {
         this.dataRicezione = dataRicezione;
+    }
+
+    public String getIdDocumentoMsa() {
+        return idDocumentoMsa;
+    }
+
+    public void setIdDocumentoMsa(String idDocumentoMsa) {
+        this.idDocumentoMsa = idDocumentoMsa;
     }
 }

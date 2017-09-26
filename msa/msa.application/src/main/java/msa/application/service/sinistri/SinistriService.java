@@ -30,6 +30,7 @@ import msa.domain.object.sinistro.rca.AnagraficaDanniDO;
 import msa.domain.object.sinistro.rca.IncrociBaremesDO;
 import msa.domain.object.sinistro.rca.SegnalazioneDO;
 import msa.infrastructure.costanti.MsaCostanti;
+import msa.infrastructure.repository.DocumentiRepository;
 import msa.infrastructure.repository.DomainRepository;
 import msa.infrastructure.repository.PolizzeRepository;
 
@@ -60,6 +61,9 @@ public class SinistriService extends BaseSinistroService {
 
     @Autowired
     private TipoSinistroTreeMap<? super BaseSinistroDO> tipoSinistroTreeMap;
+
+    @Autowired
+    private DocumentiRepository documentiRepository;
 
 
     @SuppressWarnings("unchecked")
@@ -157,7 +161,7 @@ public class SinistriService extends BaseSinistroService {
      * @return
      * @throws InternalMsaException
      */
-    public BaseDTO<Map<String, Integer>> salvaSinistro(BaseSinistroDTO input) throws InternalMsaException {
+    public BaseDTO<Map<String, Integer>> salvaSinistro(AperturaSinistroDocsMsaDTO input) throws InternalMsaException {
         try {
             if (input.getNumeroPolizza() != null) {
                 input.getContraente().setVeicolo(domainRepository.getElencoTipoVeicoli()
@@ -174,6 +178,7 @@ public class SinistriService extends BaseSinistroService {
             input.getContraente().setCodRuolo(MsaCostanti.COD_RUOLO_CONTRAENTE.toString());
             input.getContraente().setCompagnia(input.getCompagnia());
             final Integer numSinis = sinistriRepository.insertSinistroProvvisorioAndGetNum(converter.convertObject(input, BaseSinistroDO.class));
+            salvaDocumentiMsaApertura(input.getIdDocsMsa());
             return new BaseDTO(Stream.of(numSinis).collect(Collectors.toMap(e -> "numSinistroProvvisorio", Integer::valueOf)));
         } catch (Exception e) {
             throw new InternalMsaException(getErrorMessagesByCodErrore(MessageType.ERROR, "MSA004"));
@@ -746,6 +751,11 @@ public class SinistriService extends BaseSinistroService {
         } catch (Exception e) {
             throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA016"));
         }
+    }
+
+    @Async
+    public void salvaDocumentiMsaApertura(final List<String> docIds) {
+        documentiRepository.persistDocsMsa(docIds);
     }
 
 }
