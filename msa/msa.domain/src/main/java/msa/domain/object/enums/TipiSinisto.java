@@ -1,5 +1,7 @@
 package msa.domain.object.enums;
 
+import java.util.Arrays;
+
 /**
  * Created by simon.calabrese on 11/09/2017.
  */
@@ -30,5 +32,11 @@ public enum TipiSinisto {
 
     public String getDes() {
         return des;
+    }
+
+    public static TipiSinisto getByDes(final String des) {
+        return Arrays.stream(TipiSinisto.values())
+                .filter(e -> e.getDes().equals(des))
+                .findFirst().orElse(null);
     }
 }
