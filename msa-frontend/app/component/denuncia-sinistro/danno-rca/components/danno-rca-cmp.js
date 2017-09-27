@@ -61,8 +61,8 @@
                                 if (anagrafica.veicolo) {
                                     $ctrl.dannoRca.veicoloCliente.veicolo = anagrafica.veicolo;
                                     $ctrl.dannoRca.veicoloCliente.targa = anagrafica.targa;
-                                    $ctrl.dannoRca.veicoloCliente.speciale = anagrafica.targaEstera.toString();
-                                    $ctrl.dannoRca.veicoloCliente.estera = anagrafica.targaSpeciale.toString();
+                                    $ctrl.dannoRca.veicoloCliente.speciale = _.toString(anagrafica.targaEstera);
+                                    $ctrl.dannoRca.veicoloCliente.estera = _.toString(anagrafica.targaSpeciale);
                                 }
                             }
 
@@ -75,8 +75,8 @@
                             $ctrl.dannoRca.descrizioneDannoControparte = firstElem.danni.descrizioneDanno;
                             $ctrl.dannoRca.veicoloControparte.veicolo = firstElem.anagrafica.veicolo;
                             $ctrl.dannoRca.veicoloControparte.targa = firstElem.anagrafica.targa;
-                            $ctrl.dannoRca.veicoloControparte.estera = firstElem.anagrafica.targaEstera.toString();
-                            $ctrl.dannoRca.veicoloControparte.speciale = firstElem.anagrafica.targaSpeciale.toString();
+                            $ctrl.dannoRca.veicoloControparte.estera = _.toString(firstElem.anagrafica.targaEstera);
+                            $ctrl.dannoRca.veicoloControparte.speciale = _.toString(firstElem.anagrafica.targaSpeciale);
 
 
                             $ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniControparte.forEach(function (element, index) {
