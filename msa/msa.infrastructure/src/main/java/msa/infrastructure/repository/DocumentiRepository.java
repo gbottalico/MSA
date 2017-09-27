@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by simon.calabrese on 11/08/2017.
@@ -49,19 +50,17 @@ public class DocumentiRepository extends BaseRepository {
         return Boolean.TRUE;
     }
 
-    public Boolean deleteDocByNumSinistro(Integer numSinistro) {
-        return findAndDelete(getCriteriaQueryBuilder().addCriteria(Criteria.where(getMongoNameByAttributeName("numSinistro",DocumentoDBO.class)).is(numSinistro)),DocumentoDBO.class)
-                .stream().count() > 0;
+    public List<DocumentoDO> deleteDocByNumSinistro(Integer numSinistro) {
+        return Optional.ofNullable(findAndDelete(getCriteriaQueryBuilder()
+                .addCriteria(
+                        Criteria.where(getMongoNameByAttributeName("numSinistro", DocumentoDBO.class))
+                                .is(numSinistro)), DocumentoDBO.class))
+                .map(e -> converter.convertList(e, DocumentoDO.class)).orElse(null);
     }
 
-    public void persistDocsMsa(final List<String> idDocsMsa, final Integer numSinistroProvv) {
-        idDocsMsa.forEach(id -> {
-            final Integer nextIdDoc = getNextIdDoc();
-            DocumentoDO documentoDO = new DocumentoDO();
-            documentoDO.setIdDocumentoMsa(id);
-            documentoDO.setIdDocumento(nextIdDoc);
-            documentoDO.setNumSinistro(numSinistroProvv);
-            insertDocumento(documentoDO);
-        });
+    public void persistDocsMsa(final DocumentoDO documentoDO) {
+        final Integer nextIdDoc = getNextIdDoc();
+        documentoDO.setIdDocumento(nextIdDoc);
+        insertDocumento(documentoDO);
     }
 }
