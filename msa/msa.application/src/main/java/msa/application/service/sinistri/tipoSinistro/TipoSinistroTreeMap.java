@@ -16,7 +16,7 @@ public class TipoSinistroTreeMap<T extends BaseSinistroDO> extends CalcoloTipoSi
        if(isRca.apply(sinistro).equals(Boolean.TRUE)) {
            return (TipiSinisto) NUM_VEICOLI_OR_COLLISIONE.apply(sinistro);
        } else {
-           return null;
+           return TipiSinisto.getByDes(sinistro.getSegnalazione().getGaranziaSelected());
        }
     }
 

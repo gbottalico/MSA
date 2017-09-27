@@ -9,7 +9,6 @@ import msa.application.exceptions.InternalMsaException;
 import msa.application.service.base.BaseService;
 import msa.domain.object.documenti.DocumentoDO;
 import msa.infrastructure.repository.DocumentiRepository;
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
@@ -20,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -83,24 +83,61 @@ public class DocumentiService extends BaseService {
      */
     private void rollbackDocumento(final String pathAsString) throws InternalMsaException {
         try {
-            final String[] split = pathAsString.split("\\\\");
-            if(!pathAsString.equalsIgnoreCase(properties.getPathDocumenti())) {
-                Path path = Paths.get(pathAsString);
-                Files.delete(path);
-                rollbackDocumento(Arrays.stream(split).limit((long) (split.length - 1)).collect(Collectors.joining("\\")));
+            if (!pathAsString.equalsIgnoreCase(properties.getPathDocumenti())) {
+                DocumentiService.deleteByPath(pathAsString);
+                rollbackDocumento(splitAndParent(pathAsString));
             }
         } catch (Exception e) {
-            throw new InternalMsaException(e,getErrorMessagesByCodErrore(MessageType.ERROR, "MSA007"));
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA007"));
         }
 
     }
 
-    public BaseDTO deleteDoc(final Integer idDoc) throws InternalMsaException {
-        DocumentoDO documentoDO = documentiRepository.find(idDoc);
-        if(documentiRepository.deleteDoc(documentoDO)) {
-            rollbackDocumento(documentoDO.getPath());
+    private String splitAndParent(final String pathAsString) {
+        final String[] split = pathAsString.split("\\\\");
+        return Arrays.stream(split).limit((long) (split.length - 1)).collect(Collectors.joining("\\"));
+    }
+
+    private static void deleteByPath(final String pathAsString) throws IOException {
+        Path path = Paths.get(pathAsString);
+        Files.delete(path);
+    }
+
+    private void rollbackDocumento(final String pathAsString, final Boolean withDirectorty) throws InternalMsaException {
+        try {
+            if (withDirectorty) {
+                rollbackDocumento(pathAsString);
+            } else {
+                DocumentiService.deleteByPath(pathAsString);
+            }
+        } catch (Exception e) {
+            throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA007"));
         }
+    }
+
+    public BaseDTO deleteDocFromFileSystem(final Integer idDoc) throws InternalMsaException {
+        DocumentoDO documentoDO = documentiRepository.find(idDoc);
+        deleteDocFromFileSystem(documentoDO, Boolean.TRUE);
         return new BaseDTO<>();
+    }
+
+    private void deleteDocFromFileSystem(final DocumentoDO documentoDO, final Boolean withDirectorty) throws InternalMsaException {
+        if (documentiRepository.deleteDoc(documentoDO)) {
+            rollbackDocumento(documentoDO.getPath(), withDirectorty);
+        }
+    }
+
+    public Boolean deleteDocByNumProvv(final Integer numSinistroProvv) throws InternalMsaException {
+        final List<DocumentoDO> documenti = documentiRepository.deleteDocByNumSinistro(numSinistroProvv);
+        final DocumentoDO documentoDO = documenti.stream().findFirst().orElse(null);
+        for (DocumentoDO d : documenti) {
+            deleteDocFromFileSystem(d, Boolean.FALSE);
+        }
+        deleteDocFromFileSystem(converter.enrichObject(documentoDO, (DocumentoDO e) -> {
+            e.setPath(splitAndParent(e.getPath()));
+            return e;
+        }), Boolean.TRUE);
+        return Boolean.TRUE;
     }
 
     /**
@@ -116,7 +153,7 @@ public class DocumentiService extends BaseService {
      */
     private String saveFileOnDirectory(final MultipartFile file, final Integer numSinistro) throws InternalMsaException {
         try {
-            if(!Files.exists(Paths.get(properties.getPathDocumenti())))
+            if (!Files.exists(Paths.get(properties.getPathDocumenti())))
                 Files.createDirectories(Paths.get(properties.getPathDocumenti()));
 
             if (!Files.exists(Paths.get(properties.getPathDocumenti() + "\\" + numSinistro + "\\"))) {
@@ -165,5 +202,14 @@ public class DocumentiService extends BaseService {
         } catch (Exception e) {
             throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA008"));
         }
+    }
+
+    public void persistDocsMsa(final List<String> idDocsMsa, final Integer numSinistroProvv) {
+        idDocsMsa.parallelStream().map(id -> {
+            DocumentoDO documentoDO = new DocumentoDO();
+            documentoDO.setIdDocumentoMsa(id);
+            documentoDO.setNumSinistro(numSinistroProvv);
+            return documentoDO;
+        }).forEach(e -> documentiRepository.persistDocsMsa(e));
     }
 }

@@ -52,7 +52,7 @@ public class DocumentiController extends BaseController {
     @ApiOperation(value = "Metodo che elimina un documento tramite il suo id")
     @RequestMapping(value = "/{idDoc}/delete", method = RequestMethod.GET)
     public BaseDTO deleteDoc(@PathVariable(value = "idDoc") final Integer idDoc) throws InternalMsaException {
-        return documentiService.deleteDoc(idDoc);
+        return documentiService.deleteDocFromFileSystem(idDoc);
     }
 
 

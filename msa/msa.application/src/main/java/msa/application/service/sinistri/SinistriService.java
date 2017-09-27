@@ -16,6 +16,7 @@ import msa.application.dto.sinistro.rca.eventoRca.EventoRcaDTO;
 import msa.application.dto.sinistro.segnalazione.SegnalazioneDTO;
 import msa.application.dto.user.UserLoggedDTO;
 import msa.application.exceptions.InternalMsaException;
+import msa.application.service.documenti.DocumentiService;
 import msa.application.service.interfaceDispatcher.DispatcherService;
 import msa.application.service.sinistri.tipoSinistro.TipoGestioneTreeMap;
 import msa.application.service.sinistri.tipoSinistro.TipoSinistroTreeMap;
@@ -63,8 +64,11 @@ public class SinistriService extends BaseSinistroService {
     @Autowired
     private TipoSinistroTreeMap<? super BaseSinistroDO> tipoSinistroTreeMap;
 
+   /* @Autowired
+    private DocumentiRepository documentiRepository;*/
+
     @Autowired
-    private DocumentiRepository documentiRepository;
+    private DocumentiService documentiService;
 
 
     @SuppressWarnings("unchecked")
@@ -243,7 +247,7 @@ public class SinistriService extends BaseSinistroService {
                         return salvaSinistro(converter.convertObject(newSinistro, BaseSinistroDO.class));
                     },
                     () -> dispatcherService.resetView(input.getGaranziaSelected(), numSinistroProvv),
-                    () -> documentiRepository.deleteDocByNumSinistro(numSinistroProvv)
+                    () -> documentiService.deleteDocByNumProvv(numSinistroProvv)
             );
             final Optional<Boolean> conditions = Optional.of(objects.stream().filter(e -> e.getClass().isAssignableFrom(Boolean.class))
                     .findFirst().map(e -> {
@@ -746,7 +750,7 @@ public class SinistriService extends BaseSinistroService {
     @Async
     public void salvaDocumentiMsaApertura(final Integer numSinistroProvv, final List<String> docIds) {
         if (docIds != null) {
-            documentiRepository.persistDocsMsa(docIds, numSinistroProvv);
+            documentiService.persistDocsMsa(docIds, numSinistroProvv);
         }
     }
 
