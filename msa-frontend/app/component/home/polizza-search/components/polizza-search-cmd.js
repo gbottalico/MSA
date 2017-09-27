@@ -13,6 +13,7 @@
                 var $translate = $filter('translate');
                 var parent = $scope.$parent;
                 $scope.$storage = $sessionStorage;
+                $scope.$MSAC = $MSAC;
                 $ctrl.ricerca = false;
 
                 $scope.$MSAC = $MSAC;
