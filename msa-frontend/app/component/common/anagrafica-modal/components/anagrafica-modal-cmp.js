@@ -70,7 +70,7 @@
 
                 $ctrl.getCompagnie = function (desc) {
                     return DomainSvc.getCompagnie(desc).then(function (response) {
-                        return _.slice(response.data.result, 0 , 8);
+                        return _.slice(response.data.result, 0, 8);
                     });
                 };
 
@@ -107,11 +107,14 @@
                 };
 
                 $ctrl.compagniaValid = function (compagnia) {
+                    if (!$ctrl.hasCompagnia) {
+                        return true;
+                    }
                     return (_.isObject($ctrl.compagniaSelezionata));
                 };
 
                 $ctrl.ok = function () {
-                    if($ctrl.anagrafica.tipoPersona === 'PF') {
+                    if ($ctrl.anagrafica.tipoPersona === 'PF') {
                         $ctrl.anagrafica.ragioneSociale = null;
                     } else {
                         $ctrl.anagrafica.cognome = null;

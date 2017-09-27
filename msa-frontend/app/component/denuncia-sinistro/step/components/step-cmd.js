@@ -8,8 +8,8 @@
             mappe: '<',
             percentuale: '<'
         },
-        controller: ("stepController", ['_', '$rootScope', '$scope', '$filter', '$document', '$location', '$anchorScroll', 'UtilSvc', 'DebugSvc',
-            function (_, $rootScope, $scope, $filter, $document, $location, $anchorScroll, UtilSvc, DebugSvc) {
+        controller: ("stepController", ['_', '$rootScope', '$scope', '$filter', '$document', '$location', '$anchorScroll', 'UtilSvc', 'DebugSvc', 'PlacesSvc',
+            function (_, $rootScope, $scope, $filter, $document, $location, $anchorScroll, UtilSvc, DebugSvc, PlacesSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
@@ -26,31 +26,23 @@
 
                 $ctrl.bindUser = function () {
 
-                    $ctrl.user.nome = $ctrl.datiContraente.nome + " " + $ctrl.datiContraente.cognome;
+                    if($ctrl.datiContraente.nome) {
+                        $ctrl.user.nome = $ctrl.datiContraente.nome + " " + $ctrl.datiContraente.cognome;
+                    } else {
+                        $ctrl.user.nome = $ctrl.datiContraente.ragioneSociale;
+                    }
+
                     $ctrl.user.cf = $ctrl.datiContraente.cf;
 
-                    if ($ctrl.datiContraente.luogoNascita !== undefined && $ctrl.datiContraente.luogoNascita !== null) {
-                        if ($ctrl.datiContraente.luogoNascita.descrizioneComune !== undefined &&
-                            $ctrl.datiContraente.luogoNascita.descrizioneComune !== null) {
-                            $ctrl.user.nascita = $ctrl.datiContraente.luogoNascita.descrizioneComune;
-                        } else {
-                            $ctrl.user.nascita = $ctrl.datiContraente.luogoNascita.descrizioneNazione;
-                        }
-                    }
-
-                    if ($ctrl.datiContraente.dataNascita !== undefined && $ctrl.datiContraente.dataNascita !== null) {
+                    $ctrl.user.nascita = PlacesSvc.buildIndirizzo($ctrl.datiContraente.luogoNascita, null);
+                    if ($ctrl.datiContraente.dataNascita) {
                         $ctrl.user.nascita = $ctrl.user.nascita + ", " + UtilSvc.dateFormat($ctrl.datiContraente.dataNascita);
                     }
+                    $ctrl.user.nascita = $ctrl.user.nascita || $translate("global.people.nondisponibile");
 
-                    var citta = undefined;
-                    if(_.isObject($ctrl.datiContraente.tracking.residenza)) {
-                        citta = $ctrl.datiContraente.tracking.residenza.descrizioneComune ?
-                                $ctrl.datiContraente.tracking.residenza.descrizioneComune :
-                                $ctrl.datiContraente.tracking.residenza.descrizioneNazione;
-                    }
-
-                    //TODO creare metodo
-                    $ctrl.user.residenza = $ctrl.datiContraente.tracking.indirizzo + (citta ? ", " + citta : "");
+                    $ctrl.user.residenza =
+                        PlacesSvc.buildIndirizzo($ctrl.datiContraente.tracking.residenza, $ctrl.datiContraente.tracking.indirizzo) ||
+                        $translate("global.people.nondisponibile");
 
                     $ctrl.user.recapiti = [$ctrl.datiContraente.tracking.cellulare, $ctrl.datiContraente.tracking.telefono, $ctrl.datiContraente.tracking.mail];
                     $ctrl.user.recapiti = $ctrl.user.recapiti.filter(function (e) {
