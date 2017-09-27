@@ -6,6 +6,8 @@
         <input type="text"
                ng-model="$ctrl.nazioneSelezionata"
                uib-typeahead="nazione as nazione.descrizione for nazione in $ctrl.getNazioni($viewValue)"
+               typeahead-select-on-exact="true"
+               typeahead-min-length="3"
                autocomplete="off"
                ng-required="$ctrl.required">
         <label>{{'global.denunciasinitro.labels.nazione' | translate}}</label>
@@ -14,6 +16,8 @@
         <input type="text"
                ng-model="$ctrl.provinciaSelezionata"
                uib-typeahead="provincia as provincia.descProvincia for provincia in $ctrl.getProvince($viewValue)"
+               typeahead-select-on-exact="true"
+               typeahead-min-length="3"
                ng-disabled="$ctrl.nazioneSelezionata.codNazione > $ctrl.options.ID_ITALIA"
                autocomplete="off">
         <label>{{'global.denunciasinitro.labels.provincia' | translate}}</label>
@@ -22,6 +26,8 @@
         <input type="text"
                ng-model="$ctrl.comuneSelezionato"
                uib-typeahead="comune as comune.descrizione for comune in $ctrl.getComuni($viewValue)"
+               typeahead-select-on-exact="true"
+               typeahead-min-length="3"
                ng-disabled="$ctrl.nazioneSelezionata.codNazione > $ctrl.options.ID_ITALIA"
                autocomplete="off">
         <label>{{'global.denunciasinitro.labels.comune' | translate}}</label>

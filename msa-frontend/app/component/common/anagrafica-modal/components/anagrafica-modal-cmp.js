@@ -70,7 +70,7 @@
 
                 $ctrl.getCompagnie = function (desc) {
                     return DomainSvc.getCompagnie(desc).then(function (response) {
-                        return response.data.result;
+                        return _.slice(response.data.result, 0 , 8);
                     });
                 };
 
@@ -104,6 +104,10 @@
 
                 $ctrl.getNomeFromAssociato = function (associato) {
                     return (associato.nome ? associato.nome + " " + associato.cognome : associato.ragioneSociale) + (associato.cf ? ", " + associato.cf : "");
+                };
+
+                $ctrl.compagniaValid = function (compagnia) {
+                    return (_.isObject($ctrl.compagniaSelezionata));
                 };
 
                 $ctrl.ok = function () {
@@ -141,11 +145,6 @@
                     }, true
                 );
 
-                $ctrl.compagniaValid = function (compagnia) {
-                    return (_.isObject(compagnia));
-                };
-
-                $ctrl.$valid = $ctrl.compagniaValid($ctrl.compagniaSelezionata);
             }])
     });
 

@@ -6,12 +6,10 @@
 
     <form name="anagraficaForm" novalidate>
 
-        <!-- TODO: recuperare la compagnia -->
-
         <div class="col-lg-12" ng-if="$ctrl.hasCompagnia">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 classicInputText"
-                     ng-class="{'has-error': anagraficaForm.compagnia.$invalid}">
+                     ng-class="{'has-error': anagraficaForm.compagnia.$invalid || !$ctrl.compagniaValid()}">
                     <input name="compagnia" type="text" ng-model="$ctrl.compagniaSelezionata"
                            uib-typeahead="compagnia as compagnia.descrizione for compagnia in $ctrl.getCompagnie($viewValue)"
                            ng-required="true" autocomplete="off">
@@ -260,6 +258,6 @@
 <div class="modal-footer">
     <div class="col-lg-12">
         <button class="btn grayButton" type="button" ng-click="$ctrl.cancel()">{{'global.generic.annulla' | translate}}</button>
-        <button class="btn blueButton" type="button" ng-click="$ctrl.ok()" ng-disabled="anagraficaForm.$invalid">OK</button>
+        <button class="btn blueButton" type="button" ng-click="$ctrl.ok()" ng-disabled="anagraficaForm.$invalid || !$ctrl.compagniaValid()">OK</button>
     </div>
 </div>
