@@ -56,9 +56,10 @@
                 $ctrl.bindRiepilogo = function () {
                     $ctrl.nomeCognome = $ctrl.sinistroProvvisorio.segnalazione.denunciante.nome + " " + $ctrl.sinistroProvvisorio.segnalazione.denunciante.cognome;
                     $ctrl.luogoSinistro = PlacesSvc.buildIndirizzo($ctrl.sinistroProvvisorio.segnalazione.luogoSinistro, $ctrl.sinistroProvvisorio.segnalazione.indirizzo);
-
-                    $ctrl.cellulare = $ctrl.sinistroProvvisorio.segnalazione.denunciante.tracking.cellulare;
-                    $ctrl.email = $ctrl.sinistroProvvisorio.segnalazione.denunciante.tracking.mail;
+                    if (_.isObject($ctrl.sinistroProvvisorio.segnalazione.denunciante.tracking)) {
+                        $ctrl.cellulare = $ctrl.sinistroProvvisorio.segnalazione.denunciante.tracking.cellulare;
+                        $ctrl.email = $ctrl.sinistroProvvisorio.segnalazione.denunciante.tracking.mail;
+                    }
                     $ctrl.numveicoli = $ctrl.sinistroProvvisorio.eventoRca.numVeicoli;
                     $ctrl.garanzia = $ctrl.sinistroProvvisorio.segnalazione.garanziaSelected;
                     $ctrl.autorita = !!$ctrl.sinistroProvvisorio.eventoRca.codAutorita;
