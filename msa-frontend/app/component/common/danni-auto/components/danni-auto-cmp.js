@@ -2,7 +2,7 @@
     "use strict";
 
     app.component('msaAuto', {
-        templateUrl: '../../app/component/denuncia-sinistro/danni-auto/components/templates/danni-auto-tpl.html',
+        templateUrl: '../../app/component/common/danni-auto/components/templates/danni-auto-tpl.html',
         bindings: {
             auto: "=",
             input: "="
