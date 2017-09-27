@@ -20,15 +20,21 @@
             });
 
             $ctrl.dateOptions = _.cloneDeep($MSAC.DEFAULT_DATE_OPTIONS.options);
-            if($ctrl.minDate) {
+            if ($ctrl.minDate) {
                 $ctrl.dateOptions.minDate = new Date($ctrl.minDate);
             }
 
             $scope.$watch(
                 function watchScope(scope) {
-                    return {};
+                    return {
+                        minDate: $ctrl.minDate
+                    };
                 },
-                function handleChanges(newValues, oldValues) {},
+                function handleChanges(newValues, oldValues) {
+                    if (newValues.minDate) {
+                        $ctrl.dateOptions.minDate = new Date($ctrl.minDate);
+                    }
+                },
                 true
             );
 

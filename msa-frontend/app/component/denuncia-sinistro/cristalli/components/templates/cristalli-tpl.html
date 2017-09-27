@@ -28,7 +28,7 @@
                     <select name="causa"
                             ng-model="$ctrl.cristalli.codRotturaCristalli"
                             ng-required="true">
-                        <option ng-repeat="causa in $ctrl.causeRotturaCristalli" ng-value="{{causa.codRottura}}">{{causa.descrizioneRottura}}</option>
+                        <option ng-repeat="causa in $ctrl.causeRotturaCristalli" ng-value="causa.codRottura.toString()">{{causa.descrizioneRottura}}</option>
                     </select>
                     <label>{{'global.cristalli.labels.causaRottura' | translate}}</label>
                 </div>

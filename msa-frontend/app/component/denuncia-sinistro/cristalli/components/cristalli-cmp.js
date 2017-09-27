@@ -20,8 +20,7 @@
                 $ctrl.isInputConsumed = false;
                 $ctrl.causeRotturaCristalli = undefined;
 
-                $ctrl.cristalli = {
-                };
+                $ctrl.cristalli = {};
 
                 DomainSvc.getCauseRotturaCristalli().then(function (response) {
                    $ctrl.causeRotturaCristalli = response.data.result;
@@ -42,7 +41,7 @@
 
                 $ctrl.bindCristalli = function () {
                     $ctrl.cristalli.desCristalloRotto = $ctrl.sinistroProvvisorio.desCristalloRotto;
-                    $ctrl.cristalli.codRotturaCristalli = parseInt($ctrl.sinistroProvvisorio.codRotturaCristalli);
+                    $ctrl.cristalli.codRotturaCristalli = _.toString($ctrl.sinistroProvvisorio.codRotturaCristalli);
                     $ctrl.cristalli.flagRiparazione = $ctrl.sinistroProvvisorio.flagRiparazione;
                     $ctrl.cristalli.flagFattura = $ctrl.sinistroProvvisorio.flagFattura;
                     $ctrl.cristalli.interventoAutorita = $ctrl.sinistroProvvisorio.interventoAutorita;

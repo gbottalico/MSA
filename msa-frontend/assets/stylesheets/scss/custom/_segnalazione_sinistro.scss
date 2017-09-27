@@ -3,6 +3,13 @@
 /* BOX Garanzie Disponibili */
 
 .garanzieDisponibili {
+
+  &.has-error {
+    label:before {
+      border: 2px solid $badred;
+    }
+  }
+
   .garanziaBox {
     width: 100px;
     height: 100px;
