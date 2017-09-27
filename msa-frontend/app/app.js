@@ -190,7 +190,7 @@ function getMSAC() {
  * Definizione delle costanti
  */
 app.constant('$MSAC', getMSAC());
-app.constant('$debugMode', true);
+app.constant('$debugMode', false);
 app.constant('_', window._);
 
 /*
