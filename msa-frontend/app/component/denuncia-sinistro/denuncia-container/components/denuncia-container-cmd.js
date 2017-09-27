@@ -131,17 +131,21 @@
 
                 $ctrl.getSinistroProvvisorio = function (numeroSinistroProvvisorio) {
                     SinistriSvc.cercaSinistroProvvisorio(numeroSinistroProvvisorio).then(function (response) {
-                        //TODO check che il sinistro sia caricato correttamente
-                        var result = response.data.result;
                         DebugSvc.log("getSinistroProvvisorio", response);
-                        $ctrl.sinistroProvvisorio = result;
-                        $ctrl.caricaMappe();
-                        $ctrl.tempSegnalazione.garanzia = $ctrl.tempSegnalazione.garanzia || (_.isObject($ctrl.sinistroProvvisorio.segnalazione) ? $ctrl.sinistroProvvisorio.segnalazione.garanziaSelected : null);
-                        $ctrl.aggiornaPercentuale();
-                        $ctrl.tempSegnalazione.numeroPolizza = $ctrl.sinistroProvvisorio.numeroPolizza;
-                        $ctrl.tempSegnalazione.dataEvento = $ctrl.sinistroProvvisorio.segnalazione.dataOraSinistro;
-                        $ctrl.setScrollabile();
-                        $ctrl.tempSegnalazione.lastSearch = $scope.$storage.lastSearch;
+                        if(response.status === 200 && _.isObject(response.data) && response.data.result) {
+                            var result = response.data.result;
+                            $ctrl.sinistroProvvisorio = result;
+                            $ctrl.caricaMappe();
+                            $ctrl.aggiornaPercentuale();
+                            $ctrl.setScrollabile();
+
+                            $ctrl.tempSegnalazione.garanzia = $ctrl.tempSegnalazione.garanzia || (_.isObject($ctrl.sinistroProvvisorio.segnalazione) ? $ctrl.sinistroProvvisorio.segnalazione.garanziaSelected : null);
+                            $ctrl.tempSegnalazione.numeroPolizza = $ctrl.sinistroProvvisorio.numeroPolizza;
+                            $ctrl.tempSegnalazione.lastSearch = $scope.$storage.lastSearch;
+                            if(_.isObject($ctrl.sinistroProvvisorio.segnalazione)) {
+                                $ctrl.tempSegnalazione.dataEvento = new Date($ctrl.sinistroProvvisorio.segnalazione.dataOraSinistro);
+                            }
+                        }
                     });
                 };
 

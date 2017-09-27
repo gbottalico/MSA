@@ -166,49 +166,49 @@
                 <!-- Garanzie Disponibili -->
                 <div class="col-lg-12"><span class="subsectionTitle">{{'global.denunciasinitro.labels.garanzieDisponibili' | translate}}</span>
                 </div>
-                <div class="garanzieDisponibili col-lg-2">
+                <div class="garanzieDisponibili col-lg-2" ng-class="{'has-error' : segnalazioneForm.garanzie.$invalid}">
                     <div class="garanziaBox noPadding">
                         <input id="rca" type="radio" name="garanzie" value="rca" ng-model="$ctrl.sinistro.garanzia" ng-required="true">
                         <label for="rca"><p>Rca</p></label>
                     </div>
                     <p>RCA</p>
                 </div>
-                <div class="garanzieDisponibili col-lg-2">
+                <div class="garanzieDisponibili col-lg-2" ng-class="{'has-error' : segnalazioneForm.garanzie.$invalid}">
                     <div class="garanziaBox noPadding">
                         <input id="fei" type="radio" name="garanzie" value="incendio" ng-model="$ctrl.sinistro.garanzia" ng-required="true">
-                        <label for="fei"><p>F&amp;I</p></label>
+                        <label for="fei"><p>Inc</p></label>
                     </div>
-                    <p>Furto e Incendio</p>
+                    <p>Incendio</p>
                 </div>
-                <div class="garanzieDisponibili col-lg-2">
+                <div class="garanzieDisponibili col-lg-2" ng-class="{'has-error' : segnalazioneForm.garanzie.$invalid}">
                     <div class="garanziaBox noPadding">
                         <input id="van" type="radio" name="garanzie" value="furto_totale" ng-model="$ctrl.sinistro.garanzia" ng-required="true">
                         <label for="van"><p>FuT</p></label>
                     </div>
                     <p>Furto Totale</p>
                 </div>
-                <div class="garanzieDisponibili col-lg-2">
+                <div class="garanzieDisponibili col-lg-2" ng-class="{'has-error' : segnalazioneForm.garanzie.$invalid}">
                     <div class="garanziaBox noPadding">
                         <input id="nat" type="radio" name="garanzie" value="furto_parziale" ng-model="$ctrl.sinistro.garanzia" ng-required="true">
                         <label for="nat"><p>FuP</p></label>
                     </div>
                     <p>Furto Parziale</p>
                 </div>
-                <div class="garanzieDisponibili col-lg-2">
+                <div class="garanzieDisponibili col-lg-2" ng-class="{'has-error' : segnalazioneForm.garanzie.$invalid}">
                     <div class="garanziaBox noPadding">
                         <input id="col" type="radio" name="garanzie" value="kasko" ng-model="$ctrl.sinistro.garanzia" ng-required="true">
                         <label for="col"><p>Kas</p></label>
                     </div>
                     <p>Kasko</p>
                 </div>
-                <div class="garanzieDisponibili col-lg-2">
+                <div class="garanzieDisponibili col-lg-2" ng-class="{'has-error' : segnalazioneForm.garanzie.$invalid}">
                     <div class="garanziaBox noPadding">
                         <input id="kas" type="radio" name="garanzie" value="cristalli" ng-model="$ctrl.sinistro.garanzia" ng-required="true">
                         <label for="kas"><p>Cri</p></label>
                     </div>
                     <p>Cristalli</p>
                 </div>
-                <div class="garanzieDisponibili col-lg-2">
+                <div class="garanzieDisponibili col-lg-2" ng-class="{'has-error' : segnalazioneForm.garanzie.$invalid}">
                     <div class="garanziaBox noPadding">
                         <input id="inf" type="radio" name="garanzie" value="inf_conducente" ng-model="$ctrl.sinistro.garanzia" ng-required="true">
                         <label for="inf"><p>Inf</p></label>
