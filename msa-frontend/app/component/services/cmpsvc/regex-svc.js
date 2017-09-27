@@ -9,7 +9,8 @@ angular.module('msa').service(
             $svc.rePartitaIva = /^[0-9]{11}$/;
             $svc.reEmail = /^[\w\-\.]*[\w\.]\@[\w\.]*[\w\-\.]+[\w\-]+[\w]\.+[\w]+[\w $]/;
             $svc.reTelefono = /^[+]{0,1}[0-9 -]{5,20}$/;
-            $svc.reTarga = /^(([a-zA-Z]{2}\d{3}[a-zA-Z]{2})|(([a-zA-Z]{2}|[a-zA-Z]{2}|roma)(\d{5}|[a-zA-Z]\d{5}|\d{5}[a-zA-Z]|\d{6})))$/;
+            //$svc.reTarga = /^(([a-zA-Z]{2}\d{3}[a-zA-Z]{2})|(([a-zA-Z]{2}|[a-zA-Z]{2}|roma)(\d{5}|[a-zA-Z]\d{5}|\d{5}[a-zA-Z]|\d{6})))$/;
+            $svc.reTarga = /^(([a-pr-zA-PR-Z]{2}\d{3}[a-pr-zA-PR-Z]{2})|(([a-pr-zA-PR-Z]{2}|[a-pr-zA-PR-Z]{2}|roma)(\d{5}|[a-pr-zA-PR-Z]\d{5}|\d{5}[a-pr-zA-PR-Z]|\d{6})))$/;
             $svc.reOra = /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/;
             $svc.reCiclomotore = /^(([a-zA-Z]\d[a-zA-Z]\d[a-zA-Z])|([a-zA-Z]\d{3}[a-zA-Z]{2}))$/;
             $svc.reMotociclo = /^((([a-zA-Z]{2}|roma)\d{5,6})|([a-zA-Z]\d{3}[a-zA-Z]{2}))$/;
