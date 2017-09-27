@@ -34,6 +34,7 @@ angular.module('msa').service(
                 $http.get(key.url).then(function (response) {
                     DebugSvc.log("DomainSvc: " + key.name + ", returing $http", response.data);
                     if (response.status === 200 && _.isObject(response.data) && response.data.status === 200) {
+                        response.config = undefined;
                         deferred.resolve(response);
                         $localStorage[key.name] = response;
                     } else {
@@ -47,39 +48,40 @@ angular.module('msa').service(
             };
 
             $svc.getAutorita = function () {
-                return $http.get(msaServicesApiUrls.autorita);
+                return process(KEYS.AUTORITA);
             };
 
             $svc.getBaremes = function () {
-                return $http.get(msaServicesApiUrls.baremes);
+                return process(KEYS.BAREMES);
             };
 
             $svc.getElencoRegole = function () {
                 return process(KEYS.ELENCO_REGOLE);
             };
 
-            $svc.getCompagnie = function (desc) {
-                var url = UtilSvc.stringFormat(msaServicesApiUrls.compagnia, desc);
-                return $http.get(url);
-            };
             $svc.getMezziComunicazione = function () {
-                return $http.get(msaServicesApiUrls.mezzicomunicazione);
+                return process(KEYS.MEZZI_COMUNICAZIONE);
             };
 
             $svc.getRuoli = function () {
-                return $http.get(msaServicesApiUrls.ruoli);
+                return process(KEYS.RUOLI);
             };
 
             $svc.getTipoTarghe = function () {
-                return $http.get(msaServicesApiUrls.tipotarghe);
+                return process(KEYS.TIPO_TARGHE);
             };
 
             $svc.getTipoVeicoli = function () {
-                return $http.get(msaServicesApiUrls.tipoveicoli);
+                return process(KEYS.TIPO_VEICOLI);
             };
 
             $svc.getCauseRotturaCristalli = function () {
-                return $http.get(msaServicesApiUrls.causerotturacristalli);
+                return process(KEYS.CAUSE_ROTTURA_CRISTALLI);
+            };
+
+            $svc.getCompagnie = function (desc) {
+                var url = UtilSvc.stringFormat(msaServicesApiUrls.compagnia, desc);
+                return $http.get(url);
             };
 
         }
