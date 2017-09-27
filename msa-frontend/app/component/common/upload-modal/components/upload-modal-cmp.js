@@ -15,6 +15,7 @@
                 var $translate = $filter('translate');
                 var parent = $scope.$parent;
                 $ctrl.file = undefined;
+                $ctrl.isFile = false;
                 $ctrl.error = false;
                 $ctrl.success = false;
                 $ctrl.inProgress = false;
@@ -35,7 +36,7 @@
                             toastr.success($translate('global.generic.saveok'));
                             $ctrl.success = true;
                             $timeout(function () {
-                                $ctrl.ok(response.data.result); //TODO restituire la roba.
+                                $ctrl.ok(response.data.result);
                             }, 1500);
                         } else {
                             toastr.error($translate('global.generic.saveko'));
@@ -64,6 +65,7 @@
                     },
                     function handleChanges(newValues, oldValues) {
                         DebugSvc.log("fileChanged", newValues);
+                        $ctrl.isFile = !!newValues.file;
                         $ctrl.error = false;
                     }, true
                 );
