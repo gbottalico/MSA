@@ -6,8 +6,8 @@
         bindings: {
             numeroSinistroProvvisorio: "<"
         },
-        controller: ("riepilogoController", ['_', '$MSAC', '$rootScope', '$scope', '$routeParams', '$debugMode', '$timeout', '$filter', '$location', '$uibModal', 'toastr', 'SinistriSvc', 'DebugSvc', 'PathSvc',
-            function (_, $MSAC, $rootScope, $scope, $routeParams, $debugMode, $timeout, $filter, $location, $uibModal, toastr, SinistriSvc, DebugSvc, PathSvc) {
+        controller: ("riepilogoController", ['_', '$MSAC', '$rootScope', '$scope', '$routeParams', '$debugMode', '$timeout', '$filter', '$location', '$uibModal', 'toastr', 'SinistriSvc', 'DebugSvc', 'PlacesSvc',
+            function (_, $MSAC, $rootScope, $scope, $routeParams, $debugMode, $timeout, $filter, $location, $uibModal, toastr, SinistriSvc, DebugSvc, PlacesSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
@@ -18,9 +18,6 @@
                 $ctrl.sinistroProvvisorio = undefined;
                 $ctrl.tipoSinistro = undefined;
 
-                $ctrl.getNomeComune = function (codComune) {
-                    $ctrl.nomeComune = "";
-                };
 
                 $ctrl.getSinistroProvvisorio = function (numeroSinistroProvvisorio) {
                     SinistriSvc.cercaSinistroProvvisorio(numeroSinistroProvvisorio).then(function (response) {
@@ -28,9 +25,7 @@
                         var result = response.data.result;
                         if (_.isObject(result)) {
                             $ctrl.sinistroProvvisorio = result;
-                            $ctrl.getNomeComune(result.segnalazione.codComune); //TODO refactor
                             $ctrl.bindRiepilogo();
-
                         }
 
                     });
@@ -60,45 +55,33 @@
 
                 $ctrl.bindRiepilogo = function () {
                     $ctrl.nomeCognome = $ctrl.sinistroProvvisorio.segnalazione.denunciante.nome + " " + $ctrl.sinistroProvvisorio.segnalazione.denunciante.cognome;
-                    $ctrl.luogoSinistro = $ctrl.sinistroProvvisorio.segnalazione.indirizzo;
-                    //TODO VEDERE PERCHE E UNDEFINED
-                    if ($ctrl.nomeComune !== undefined) {
-                        $ctrl.luogoSinistro = $ctrl.luogoSinistro + ", " + $ctrl.nomeComune;
-                    }
+                    $ctrl.luogoSinistro = PlacesSvc.buildIndirizzo($ctrl.sinistroProvvisorio.segnalazione.luogoSinistro, $ctrl.sinistroProvvisorio.segnalazione.indirizzo);
+
                     $ctrl.cellulare = $ctrl.sinistroProvvisorio.segnalazione.denunciante.tracking.cellulare;
                     $ctrl.email = $ctrl.sinistroProvvisorio.segnalazione.denunciante.tracking.mail;
                     $ctrl.numveicoli = $ctrl.sinistroProvvisorio.eventoRca.numVeicoli;
-                    //TODO PER LA GARANZIA BISOGNA VEDERE LATO MSA COME VERRA' GESTITA
                     $ctrl.garanzia = $ctrl.sinistroProvvisorio.segnalazione.garanziaSelected;
-                    if ($ctrl.sinistroProvvisorio.eventoRca.codAutorita === null) {
-                        $ctrl.autorita = false;
-                    }
-                    else {
-                        $ctrl.autorita = true;
-                    }
+                    $ctrl.autorita = !!$ctrl.sinistroProvvisorio.eventoRca.codAutorita;
+                    $ctrl.constatazione = $ctrl.sinistroProvvisorio.constatazioneAmichevole.caCompilata;
 
-                    //$ctrl.constatazione = $ctrl.sinistroProvvisorio.constatazioneAmichevole.caCompilata;
-
-                    $ctrl.legali = $ctrl.sinistroProvvisorio.legali;
-
-
-                    if ($ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente === undefined) {
+                    if (!_.isObject($ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente)) {
                         $ctrl.conducente = $ctrl.sinistroProvvisorio.contraente;
-                        $ctrl.targaConducente = $ctrl.sinistroProvvisorio.targa;
+                    } else {
+                        $ctrl.conducente = $ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente;
+                        $ctrl.conducente.targa = $ctrl.conducente.anagrafica.targa;
                     }
-                    else $ctrl.conducente = $ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniCliente;
-
 
                     if ($ctrl.sinistroProvvisorio.eventoRca.numVeicoli > 1) {
                         $ctrl.contropartePresente = true;
                         $ctrl.controparti = $ctrl.sinistroProvvisorio.dannoRca.anagraficaDanniControparte;
+                    } else {
+                        $ctrl.contropartePresente = false;
                     }
-                    else $ctrl.contropartePresente = false;
 
-
+                    $ctrl.legali = $ctrl.sinistroProvvisorio.legali;
                     $ctrl.perito = $ctrl.sinistroProvvisorio.perito;
 
-                    $ctrl.centroconv = $ctrl.sinistroProvvisorio.centroConvenzionato;
+                    $ctrl.carrozzeria = $ctrl.sinistroProvvisorio.centroConvenzionato;
                 };
 
                 $timeout(function () {
