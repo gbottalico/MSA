@@ -8,8 +8,8 @@
             sinistroProvvisorio: "<",
             tempSegnalazione: "="
         },
-        controller: ("dannoRcaContoller", ['_', '$MSAC', '$rootScope', '$scope', '$debugMode', '$filter', '$uibModal', '$timeout', 'toastr', 'DomainSvc', 'SinistriSvc', 'DebugSvc', 'UtilSvc', 'ConvertSvc', 'RegexSvc',
-            function (_, $MSAC, $rootScope, $scope, $debugMode, $filter, $uibModal, $timeout, toastr, DomainSvc, SinistriSvc, DebugSvc, UtilSvc, ConvertSvc, RegexSvc) {
+        controller: ("dannoRcaContoller", ['_', '$MSAC', '$rootScope', '$scope', '$debugMode', '$filter', '$uibModal', '$timeout', '$ngBootbox', 'toastr', 'DomainSvc', 'SinistriSvc', 'DebugSvc', 'UtilSvc', 'ConvertSvc', 'RegexSvc',
+            function (_, $MSAC, $rootScope, $scope, $debugMode, $filter, $uibModal, $timeout, $ngBootbox, toastr, DomainSvc, SinistriSvc, DebugSvc, UtilSvc, ConvertSvc, RegexSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
@@ -41,6 +41,20 @@
                 DomainSvc.getTipoVeicoli().then(function (response) {
                     $ctrl.tipoVeicoli = response.data.result;
                 });
+
+                $ctrl.checkConducenteIsNotContraente = function () {
+                    DebugSvc.log("conducenteIsNotContraente", !!$ctrl.dannoRca.conducenteIsNotContraente);
+                    if(!$ctrl.dannoRca.conducenteIsNotContraente && ($ctrl.dannoRca.conducente.nome || $ctrl.dannoRca.conducente.cognome)) {
+                        $ngBootbox.confirm('Sei sicuro di voler tornare continuare? I dati del conducente andranno persi.').then(function () {
+                            //TODO formattare.
+                            $ctrl.dannoRca.conducente = {};
+                        }, function () {
+                            $ctrl.dannoRca.conducenteIsNotContraente = true;
+                        });
+                    }
+
+                };
+
 
                 $ctrl.bindDannoRca = function () {
 
