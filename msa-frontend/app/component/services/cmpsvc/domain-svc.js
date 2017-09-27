@@ -4,11 +4,11 @@ angular.module('msa').service(
         '$http',
         '$rootScope',
         '$q',
-        '$localStorage',
+        '$sessionStorage',
         'DebugSvc',
         'UtilSvc',
         'msaServicesApiUrls',
-        function (_, $http, $rootScope, $q, $localStorage, DebugSvc, UtilSvc, msaServicesApiUrls) {
+        function (_, $http, $rootScope, $q, $sessionStorage, DebugSvc, UtilSvc, msaServicesApiUrls) {
 
             var $svc = this;
 
@@ -25,9 +25,9 @@ angular.module('msa').service(
 
             var process = function (key) {
                 var deferred = $q.defer();
-                if ($localStorage[key.name]) {
-                    deferred.resolve($localStorage[key.name]);
-                    DebugSvc.log("DomainSvc: " + key.name + ", returing cached.", $localStorage[key.name]);
+                if ($sessionStorage[key.name]) {
+                    deferred.resolve($sessionStorage[key.name]);
+                    DebugSvc.log("DomainSvc: " + key.name + ", returing cached.", $sessionStorage[key.name]);
                     return deferred.promise;
                 }
 
@@ -36,7 +36,7 @@ angular.module('msa').service(
                     if (response.status === 200 && _.isObject(response.data) && response.data.status === 200) {
                         response.config = undefined;
                         deferred.resolve(response);
-                        $localStorage[key.name] = response;
+                        $sessionStorage[key.name] = response;
                     } else {
                         deferred.reject("DomainSvc error, " + [key.name]);
                     }
