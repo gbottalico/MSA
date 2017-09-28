@@ -12,6 +12,7 @@
                 var parent = $scope.$parent;
                 $scope.$storage = $sessionStorage;
                 $ctrl.ricercaPolizza = undefined;
+                $ctrl.risultati = undefined;
 
                 const DOC_ID_KEY = "docId";
 
@@ -26,8 +27,20 @@
                 DebugSvc.log("docIds", docIds);
 
                 $scope.cerca = function(ricercaPolizza) {
+                    SinistriSvc.cerca(ricercaPolizza).then(function (response) {
+                        DebugSvc.log("cerca", response);
+                        if(response.status === 200 && _.isObject(response.data) && response.data.status === 200) {
+                            $ctrl.risultati = response.data.result;
+                        }
+                    });
                     $ctrl.ricercaPolizza = ricercaPolizza;
                     $scope.$storage.lastSearch = ricercaPolizza;
+                };
+
+                $scope.navigaAlSinistro = function (numeroSinistro) {
+                    var path = $MSAC.PATHS.DENUNCIA;
+                    path = path + "/" + numeroSinistro;
+                    $location.path(path);
                 };
 
                 $scope.getIdDocsMsa = function () {

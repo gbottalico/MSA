@@ -27,6 +27,7 @@ public class FullPolizzaDTO extends BasePolizzaDTO {
     private String progVeicolo; // da verificare
     private String codFiscContraente;
     private String cognomeContraente;
+    private String nomeContraente;
     private String indirizzoContraente;
     private String capContraente;
     private String cittaContraente;
@@ -53,8 +54,16 @@ public class FullPolizzaDTO extends BasePolizzaDTO {
     private String brokerProvincia;
     private String utilizzatore;    // DA verificare perchè nel JSON sono NULL
     private List<GaranziaDTO> listaGaranzie;
+    
+    public String getNomeContraente() {
+		return nomeContraente;
+	}
 
-    public String getTelaio() {
+	public void setNomeContraente(String nomeContraente) {
+		this.nomeContraente = nomeContraente;
+	}
+
+	public String getTelaio() {
         return telaio;
     }
 

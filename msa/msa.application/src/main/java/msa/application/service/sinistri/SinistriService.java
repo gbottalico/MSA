@@ -43,6 +43,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.*;
 import java.util.function.Function;
@@ -109,18 +113,142 @@ public class SinistriService extends BaseSinistroService {
         //Todo MOCK
         //Todo Add polizze mock
 
-        final FullPolizzaDTO polizza1 = new FullPolizzaDTO();
-        polizza1.setNumeroPolizza("abc");
-        polizza1.setTarga("ab123cd");
-        polizza1.setNominativoContraente("ciao ciao");
-        polizza1.setStato("stato");
-        polizza1.setDataVariazione(FunctionUtils.nowAsDate());
-        polizza1.setDataAttivazione(FunctionUtils.nowAsDate());
-        polizza1.setDataScadenza(FunctionUtils.nowAsDate());
+//        final FullPolizzaDTO polizza1 = new FullPolizzaDTO();
+//        polizza1.setNominativoContraente("Fabio Angelini");
+//        polizza1.setNumeroPolizza("123456789");
+//        polizza1.setTarga("ab123cd");
+//        polizza1.setStato("BUONO");
+//        polizza1.setDataVariazione(FunctionUtils.nowAsDate());
+//        polizza1.setDataAttivazione(FunctionUtils.nowAsDate());
+//        polizza1.setDataScadenza(FunctionUtils.nowAsDate());
+    	
+    	FullPolizzaDTO polizza1 = null;
+    	
+    	try {
+    		ObjectMapper objectMapper = new ObjectMapper();
+    		objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+    		polizza1 = objectMapper.readValue("{\r\n" + 
+					"                        \"copertura\": true,\r\n" + 
+					"                        \"id\": 601569,\r\n" + 
+					"                        \"codErr\": 0,\r\n" + 
+					"                        \"errore\": \"\",\r\n" + 
+					"                        \"numeroPolizza\": \"PRP8821973\",\r\n" + 
+					"                        \"prodotto\": null,\r\n" + 
+					"                        \"dataCopertura\": \"2016-11-06T00:00:00+0100\",\r\n" + 
+					"                        \"dataScadenza\": \"2017-11-06T00:00:00+0100\",\r\n" + 
+					"                        \"frazionamento\": \"ANNUALE\",\r\n" + 
+					"                        \"dataImmatricolazione\": \"2009-07-23T00:00:00+0200\",\r\n" + 
+					"                        \"dataAcquisto\": \"2009-07-23T00:00:00+0200\",\r\n" + 
+					"                        \"classeVeicolo\": \"AUTOVETTURA\",\r\n" + 
+					"                        \"targa\": \"DW192RT\",\r\n" + 
+					"                        \"telaio\": null,\r\n" + 
+					"                        \"marca\": \"OPEL\",\r\n" + 
+					"                        \"modello\": \"Zafira 2Âª Serie\",\r\n" + 
+					"                        \"allestimento\": \"Zafira 1.6 ecoM 94 CV Cosmo\",\r\n" + 
+					"                        \"hp\": 94,\r\n" + 
+					"                        \"ql\": 1590,\r\n" + 
+					"                        \"cc\": 1598,\r\n" + 
+					"                        \"valoreAssicurato\": 5200,\r\n" + 
+					"                        \"tipoGuida\": \"Guida esperta - tutti i guidatori hanno piÃ¹ di 26 anni\",\r\n" + 
+					"                        \"progVeicolo\": null,\r\n" + 
+					"                        \"codfiscContraente\": \"NGLFBA53E16L736S\",\r\n" + 
+					"                        \"cognomeContraente\": \"Fabio Angelini\",\r\n" + 
+					"                        \"nomeContraente\": \"Fabio\",\r\n" + 
+					"                        \"indirizzoContraente\": \"Via Berchet 10/A\",\r\n" + 
+					"                        \"capContraente\": \"30175\",\r\n" + 
+					"                        \"cittaContraente\": \"Venezia\",\r\n" + 
+					"                        \"provinciaContraente\": \"VE\",\r\n" + 
+					"                        \"codfiscProprietario\": \"NGLFBA53E16L736S\",\r\n" + 
+					"                        \"cognomeProprietario\": \"Angelini\",\r\n" + 
+					"                        \"nomeProprietario\": \"Fabio\",\r\n" + 
+					"                        \"indirizzoProprietario\": \"Via Berchet 10/A\",\r\n" + 
+					"                        \"capProprietario\": \"30175\",\r\n" + 
+					"                        \"cittaProprietario\": \"Venezia\",\r\n" + 
+					"                        \"provinciaProprietario\": \"VE\",\r\n" + 
+					"                        \"codPacchetto\": null,\r\n" + 
+					"                        \"codPacchetto2\": null,\r\n" + 
+					"                        \"cellulare\": \"3881824740\",\r\n" + 
+					"                        \"email\": \"angelini.alvise@hotmail.it\",\r\n" + 
+					"                        \"brokerAgenzia\": null,\r\n" + 
+					"                        \"collabor\": null,\r\n" + 
+					"                        \"brokerAnagrafica\": null,\r\n" + 
+					"                        \"brokerIndirizzo\": null,\r\n" + 
+					"                        \"brokerCap\": null,\r\n" + 
+					"                        \"brokerCitta\": null,\r\n" + 
+					"                        \"brokerProvincia\": null,\r\n" + 
+					"                        \"utilizzatore\": null,\r\n" + 
+					"                        \"listaGaranzie\": [{\r\n" + 
+					"                            \"codice\": \"rca\",\r\n" + 
+					"                            \"descrizione\": \"rca\",\r\n" + 
+					"                            \"sommaAssicurata\": 0.0,\r\n" + 
+					"                            \"franchigia\": 0.0,\r\n" + 
+					"                            \"scoperto\": 0.0,\r\n" + 
+					"                            \"massimalePersone\": 1.0E7,\r\n" + 
+					"                            \"massimaleCose\": 5000000.0,\r\n" + 
+					"                            \"massimaleVeicolo\": 0.0,\r\n" + 
+					"                            \"dataCoperturaGaranzia\": null,\r\n" + 
+					"                            \"dataScadenzaGaranzia\": null,\r\n" + 
+					"                            \"isRcaConFranchigia\": false\r\n" + 
+					"                        }, {\r\n" + 
+					"                            \"codice\": \"furto_incendio\",\r\n" + 
+					"                            \"descrizione\": \"furto_incendio\",\r\n" + 
+					"                            \"sommaAssicurata\": 0.0,\r\n" + 
+					"                            \"franchigia\": 200.0,\r\n" + 
+					"                            \"scoperto\": 10.0,\r\n" + 
+					"                            \"massimalePersone\": 0.0,\r\n" + 
+					"                            \"massimaleCose\": 0.0,\r\n" + 
+					"                            \"massimaleVeicolo\": 0.0,\r\n" + 
+					"                            \"dataCoperturaGaranzia\": null,\r\n" + 
+					"                            \"dataScadenzaGaranzia\": null,\r\n" + 
+					"                            \"isRcaConFranchigia\": false\r\n" + 
+					"                        }, {\r\n" + 
+					"                            \"codice\": \"assistenza_stradale\",\r\n" + 
+					"                            \"descrizione\": \"assistenza_stradale\",\r\n" + 
+					"                            \"sommaAssicurata\": 0.0,\r\n" + 
+					"                            \"franchigia\": 0.0,\r\n" + 
+					"                            \"scoperto\": 0.0,\r\n" + 
+					"                            \"massimalePersone\": 0.0,\r\n" + 
+					"                            \"massimaleCose\": 0.0,\r\n" + 
+					"                            \"massimaleVeicolo\": 0.0,\r\n" + 
+					"                            \"dataCoperturaGaranzia\": null,\r\n" + 
+					"                            \"dataScadenzaGaranzia\": null,\r\n" + 
+					"                            \"isRcaConFranchigia\": false\r\n" + 
+					"                        }, {\r\n" + 
+					"                            \"codice\": \"eventi_naturali\",\r\n" + 
+					"                            \"descrizione\": \"eventi_naturali\",\r\n" + 
+					"                            \"sommaAssicurata\": 0.0,\r\n" + 
+					"                            \"franchigia\": 500.0,\r\n" + 
+					"                            \"scoperto\": 10.0,\r\n" + 
+					"                            \"massimalePersone\": 0.0,\r\n" + 
+					"                            \"massimaleCose\": 0.0,\r\n" + 
+					"                            \"massimaleVeicolo\": 0.0,\r\n" + 
+					"                            \"dataCoperturaGaranzia\": null,\r\n" + 
+					"                            \"dataScadenzaGaranzia\": null,\r\n" + 
+					"                            \"isRcaConFranchigia\": false\r\n" + 
+					"                        }, {\r\n" + 
+					"                            \"codice\": \"eventi_sociopolitici\",\r\n" + 
+					"                            \"descrizione\": \"eventi_sociopolitici\",\r\n" + 
+					"                            \"sommaAssicurata\": 0.0,\r\n" + 
+					"                            \"franchigia\": 500.0,\r\n" + 
+					"                            \"scoperto\": 10.0,\r\n" + 
+					"                            \"massimalePersone\": 0.0,\r\n" + 
+					"                            \"massimaleCose\": 0.0,\r\n" + 
+					"                            \"massimaleVeicolo\": 0.0,\r\n" + 
+					"                            \"dataCoperturaGaranzia\": null,\r\n" + 
+					"                            \"dataScadenzaGaranzia\": null,\r\n" + 
+					"                            \"isRcaConFranchigia\": false\r\n" + 
+					"                        }\r\n" + 
+					"                        ]\r\n" + 
+					"                    }", FullPolizzaDTO.class);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
         final FullPolizzaDTO polizza2 = new FullPolizzaDTO();
+        polizza2.setNominativoContraente("Fabio Angelini");
         polizza2.setNumeroPolizza("abcd");
         polizza2.setTarga("ab123cd");
-        polizza2.setNominativoContraente("ciao ciao");
         polizza2.setStato("stato");
         polizza2.setDataVariazione(FunctionUtils.nowAsDate());
         polizza2.setDataAttivazione(FunctionUtils.nowAsDate());

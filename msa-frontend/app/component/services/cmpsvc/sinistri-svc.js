@@ -30,6 +30,20 @@ angular.module('msa').service(
             };
 
             $svc.cerca = function (ricerca) {
+                var dataObj = _.cloneDeep(ricerca);
+                dataObj.compagnia = parseInt(dataObj.compagniaSelezionata.idCompagnia);
+                dataObj.compagniaSelezionata = undefined;
+                dataObj.tipoPersona = null; //FIXME!!!!
+                dataObj.dataEvento = null; //FIXME!!!!
+                return $http({
+                    method: 'POST',
+                    url: msaServicesApiUrls.ricercasinitro,
+                    data: dataObj,
+                    headers: {
+                        "Content-Type": "application/json",
+                        "user": '{"idUser": 1,"amministratore": true}'
+                    }
+                });
 
             };
 

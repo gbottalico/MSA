@@ -6,8 +6,15 @@
 		<msa-polizza-search data-valori-ricerca="$ctrl.valoriRicerca"></msa-polizza-search>
 	</div>
 
+    <!--<msa-polizza-result></msa-polizza-result>-->
+
+
     <div class="col-lg-12 container">
-        <msa-polizze-sinistri data-valori-ricerca="$ctrl.ricercaPolizza" ng-if="$ctrl.ricercaPolizza"></msa-polizze-sinistri>
+        <msa-polizze-sinistri
+                ng-if="$ctrl.risultati"
+                data-risultati="$ctrl.risultati"
+                data-valori-ricerca="$ctrl.ricercaPolizza"
+        ></msa-polizze-sinistri>
     </div>
 
 </section>
