@@ -46,7 +46,6 @@
                 };
 
                 $ctrl.aggiornaMappe = function (callerMapId) {
-                    //TODO se qualcuno cambia il tipo di garanzia in corso d'opera, probabilmente va scelto $ctrl.tempSegnalazione.garanzia.
                     var garanzia = $ctrl.sinistroProvvisorio.segnalazione ?
                         $ctrl.sinistroProvvisorio.segnalazione.garanziaSelected :
                         $ctrl.tempSegnalazione.garanzia;
@@ -107,7 +106,7 @@
 
                 $ctrl.setScrollabile = function () {
                     $timeout(function () {
-                        //TODO assumiamo che dopo 10 secondi la pagina sia caricata
+                        //TODO assumiamo che dopo 5 secondi la pagina sia caricata
                         $ctrl.scrollable = true;
                         DebugSvc.log("Setting scrollable to true");
                     }, 5000);

@@ -60,7 +60,7 @@
         <div class="col-lg-12">
             <hr class="blueLine"/>
         </div>
-        <div class="col-lg-12"><span class="subsectionTitle">Generalità</span></div> <!-- TODO: stringhe scolpite -->
+        <div class="col-lg-12"><span class="subsectionTitle">{{'global.people.generalita' | translate}}</span></div>
 
         <!-- SE PERSONA FISICA -->
         <div class="col-lg-12" ng-if="$ctrl.anagrafica.tipoPersona === $ctrl.TipologiaEnum.FISICA">
@@ -238,7 +238,6 @@
 
                 <div class="col-lg-12">
                     <span class="subsectionTitle">{{'global.people.lesioni' | translate}}</span>
-                    <pre>{{$ctrl.anagrafica.lesioni}}</pre>
                 </div>
 
                 <div class="col-lg-12 classicInputCheckBox margin-top-1">
