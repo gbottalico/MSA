@@ -8,6 +8,7 @@ import msa.infrastructure.base.repository.sinistri.SinistriBaseRepository;
 import msa.infrastructure.persistence.ricerca.FullPolizzaDBO;
 import msa.infrastructure.persistence.sinistro.SinistroDBO;
 import org.apache.commons.beanutils.PropertyUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -59,7 +60,8 @@ public class SinistriRepository extends BaseRepository {
                 .filter(e -> {
                     try {
                         e.setAccessible(true);
-                        return PropertyUtils.getProperty(inputRicerca, e.getName()) != null;
+                        final Object elem = PropertyUtils.getProperty(inputRicerca, e.getName());
+                        return elem != null && StringUtils.isNotBlank(elem.toString());
                     } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e1) {
                         return Boolean.FALSE;
                     }
