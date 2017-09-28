@@ -433,6 +433,10 @@
                     });
                 };
 
+                $ctrl.navigaSinistroProvvisorio = function (index) {
+                    parent.navigaAlSinistro($ctrl.sinistriProvvisori[index].numSinistroProvv);
+                };
+
                 //FIXME rimuovere 37, mockup
                 $ctrl.apriSinistroProvvisorio = function (datiContraente, codiceCompagnia, datiPolizza) {
                     codiceCompagnia = codiceCompagnia || 37;
@@ -451,7 +455,7 @@
                 $ctrl.$doCheck = function () {
                     DebugSvc.log('checkRisultati', $ctrl.risultati);
                     $ctrl.polizze = $ctrl.risultati.polizze;
-                    $ctrl.sinistriProvvisori = $ctrl.risultati.sinistroProvvisori;
+                    $ctrl.sinistriProvvisori = $ctrl.risultati.sinistriProvvisori;
                 };
 
             }])

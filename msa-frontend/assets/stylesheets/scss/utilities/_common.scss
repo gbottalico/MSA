@@ -108,6 +108,10 @@ section {
   opacity: 0.3;
 }
 
+.half-opacity {
+  opacity: 0.5;
+}
+
 .classicInputText {
   margin-top: 15px;
   margin-bottom: 15px;
@@ -840,6 +844,10 @@ button.formButton {
 
   td.has-error {
     color: $badred;
+  }
+
+  .fa {
+    cursor: pointer;
   }
 
   .fa-trash-o {
