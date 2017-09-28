@@ -32,7 +32,9 @@
       "particoinvolte": "Parti Coinvolte",
       "mostrajson": "Mostra JSON",
       "nessuna": "Nessuna",
-      "nessuno": "Nessuno"
+      "nessuno": "Nessuno",
+      "attenzione": "Attenzione!",
+      "navigazionehome": "Sei sicuro di voler tornare alla homepage? i dati non salvati andranno persi."
     },
     "people": {
       "anagrafica": "Anagrafica",

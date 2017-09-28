@@ -1,8 +1,9 @@
 angular.module('msa').service(
     'UtilSvc',
-    ['$http', '$q', 'msaServicesApiUrls', function ($http, $q, msaServicesApiUrls) {
+    ['$http', '$q', '$filter', 'msaServicesApiUrls', function ($http, $q, $filter, msaServicesApiUrls) {
 
         var $svc = this;
+        var $translate = $filter('translate');
 
         $svc.calcolaCf = function (nome, cognome, sesso, isoDataNascita, descrizioneComune) {
 
@@ -67,7 +68,7 @@ angular.module('msa').service(
          */
         $svc.arrayWithIdToMap = function (array) {
             var temp = {};
-            if($svc.arrayHasElements(array)) {
+            if ($svc.arrayHasElements(array)) {
                 array.forEach(function (element, index) {
                     temp[element.id] = element;
                 });
@@ -143,6 +144,27 @@ angular.module('msa').service(
             console.log("date", date);
             console.log("toDateString", date.toLocaleDateString());
             return new Date(date.toLocaleDateString());
+        };
+
+        $svc.buildBootBoxOptions = function (title, message, callbackSuccess, callBackCancel) {
+            var options = {
+                message: message,
+                title: title,
+                className: 'msaModal',
+                buttons: {
+                    cancel: {
+                        label: $translate('global.generic.annulla'),
+                        className: "grayButton",
+                        callback: callBackCancel || angular.noop
+                    },
+                    success: {
+                        label: "OK",
+                        className: "blueButton",
+                        callback: callbackSuccess || angular.noop
+                    }
+                }
+            };
+            return options;
         };
 
         $svc.createPromise = function (valueToReturn) {

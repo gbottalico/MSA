@@ -4,25 +4,32 @@
     app.component('msaHeader', {
         templateUrl: '../../app/component/common/header/components/templates/header-tpl.html',
         bindings: {},
-        controller: ("headerController", ['$MSAC', '$location', '$ngBootbox', 'DebugSvc',
-            function ($MSAC, $location, $ngBootbox, DebugSvc) {
+        controller: ("headerController", ['$MSAC', '$location', '$ngBootbox', '$filter', 'DebugSvc', 'UtilSvc',
+            function ($MSAC, $location, $ngBootbox, $filter, DebugSvc, UtilSvc) {
 
                 var $ctrl = this;
+                var $translate = $filter('translate');
+                var homePath = $MSAC.PATHS.HOME;
+
+                $ctrl.navigateHome = function () {
+                    $location.search({});
+                    $location.path(homePath);
+                };
 
                 $ctrl.reloadRoute = function () {
-                    var homePath = $MSAC.PATHS.HOME;
                     var path = $location.path();
                     if (homePath !== path) {
-                        $ngBootbox.confirm('Sei sicuro di voler tornare alla homepage? i dati non salvati andranno persi.').then(function () {
-                            //TODO formattare + numero sinistro.
-                            $location.search({});
-                            $location.path(homePath);
-                        }, function () {/* NOPE */});
+                        var opts = UtilSvc.buildBootBoxOptions(
+                            $translate('global.generic.attenzione'),
+                            $translate('global.generic.navigazionehome'),
+                            function success() {
+                                $ctrl.navigateHome();
+                            }
+                        );
+                        $ngBootbox.customDialog(opts);
                     } else {
-                        $location.search({});
-                        $location.path(homePath);
+                        $ctrl.navigateHome();
                     }
-
                 };
 
             }])
