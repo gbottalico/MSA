@@ -6,8 +6,8 @@
         bindings: {
             valoriRicerca: "="
         },
-        controller: ("polizzaSearchController", ['_', '$MSAC', '$scope', '$rootScope', '$filter', 'DomainSvc', '$sessionStorage',
-            function (_, $MSAC, $scope, $rootScope, $filter, DomainSvc, $sessionStorage) {
+        controller: ("polizzaSearchController", ['_', '$MSAC', '$scope', '$rootScope', '$filter', 'DomainSvc', 'SinistriSvc', '$sessionStorage',
+            function (_, $MSAC, $scope, $rootScope, $filter, DomainSvc, SinistriSvc, $sessionStorage) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
@@ -23,24 +23,12 @@
                 $ctrl.numSinistroProvv = undefined;
 
                 
-                $ctrl.ricercapolizza = {
-	                compagniaSelezionata: '',
-                    cognome: '',
-                    nome: '',
-                    tipoPersona: undefined,
-                    numeroPolizza: '',
-                    numeroSinistro: '',
-                    dataEvento: '',
-                    targa: '',
-                    numeroProvvisorio: '',
-                    numeroPreapertura: ''
-                };
+                $ctrl.ricercaPolizza = SinistriSvc.getOggettoRicerca();
 
                 $ctrl.$onInit = function () {
                     DomainSvc.getElencoRegole().then(function (response) {
                         $ctrl.casaRegole = response.data.result;
                     });
-
                 };
 
                 $ctrl.campiObbligatori = {
@@ -56,21 +44,21 @@
                 };
 
                 $ctrl.isSearchDisabled = function () {
-                    return $scope.polizzaSearchForm.$invalid || !_.isObject($ctrl.ricercapolizza.compagniaSelezionata);
+                    return $scope.polizzaSearchForm.$invalid || !_.isObject($ctrl.ricercaPolizza.compagniaSelezionata);
                 };
 
                 $ctrl.checkCompagnia = function () {
                     return ($scope.polizzaSearchForm.compagnia.$invalid);
                 };
                 
-                $scope.getIdDocsMsa = function () {
-                    return parent.getIdDocsMsa();
+                $ctrl.cerca = function () {
+                    parent.cerca($ctrl.ricercaPolizza);
                 };
 
                 $scope.$watch(
                     function watch(scope) {
                         return {
-                            compagniaSelezionata: $ctrl.ricercapolizza.compagniaSelezionata
+                            compagniaSelezionata: $ctrl.ricercaPolizza.compagniaSelezionata
                         };
                     },
                     function handleChanges(newValue, oldValue) {
@@ -118,12 +106,6 @@
 
                     }, true
                 );
-
-                $ctrl.cerca = function () {
-                	$ctrl.ricerca = true;
-                    $scope.$storage.lastSearch = $ctrl.ricercapolizza;
-                };
-
 
             }])
     });
