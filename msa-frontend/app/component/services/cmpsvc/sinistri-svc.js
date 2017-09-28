@@ -11,20 +11,25 @@ angular.module('msa').service(
         function (_, $http, msaServicesApiUrls, UtilSvc, DebugSvc, ConvertSvc) {
 
             var $svc = this;
-            var getOggettoRicerca = function () {
+
+            $svc.getOggettoRicerca = function () {
 
                 return {
-                    "cognome": undefined,
-                    "nome": undefined,
-                    "tipoPersona": undefined,
-                    "numeroPolizza": undefined,
-                    "numeroSinistro": undefined,
-                    "dataEvento": undefined,
-                    "targa": undefined,
-                    "numeroProvvisorio": undefined,
-                    "numeroPreapertura": undefined,
-                    "compagnia": undefined
+                    "cognome": null,
+                    "nome": null,
+                    "tipoPersona": null,
+                    "numeroPolizza": null,
+                    "numeroSinistro": null,
+                    "dataEvento": null,
+                    "targa": null,
+                    "numeroProvvisorio": null,
+                    "numeroPreapertura": null,
+                    "compagnia": null
                 };
+
+            };
+
+            $svc.cerca = function (ricerca) {
 
             };
 
@@ -69,7 +74,7 @@ angular.module('msa').service(
 
             $svc.cercaSinistroProvvisorio = function (numeroSinistroProvvisorio) {
 
-                var dataObj = getOggettoRicerca();
+                var dataObj = $svc.getOggettoRicerca();
                 dataObj.numeroProvvisorio = numeroSinistroProvvisorio;
 
                 var stringUrl = UtilSvc.stringFormat(msaServicesApiUrls.ricercaprovvisorio, numeroSinistroProvvisorio);
@@ -164,7 +169,6 @@ angular.module('msa').service(
 
             };
 
-
             $svc.salvaDannoRcaCliente = function (idSinistroProvvisorio, dannoRca) {
 
                 var dataObj = {};
@@ -192,6 +196,7 @@ angular.module('msa').service(
                 return $http.post(url, dataObj);
 
             };
+
             $svc.saveCai = function (numeroSinistroProvvisorio, cai, nveicoli) {
 
                 var data = {};
