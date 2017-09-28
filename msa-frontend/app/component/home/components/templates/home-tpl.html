@@ -1,10 +1,13 @@
 
-<!--msa-banner-search ng-if="$ctrl.bannerSearch == true && $ctrl.bannerDenuncia == false"></msa-banner-search-->
 <msa-banner-search></msa-banner-search>
 
 <section class="row homeContainer">
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container">
 		<msa-polizza-search data-valori-ricerca="$ctrl.valoriRicerca"></msa-polizza-search>
 	</div>
+
+    <div class="col-lg-12 container">
+        <msa-polizze-sinistri data-valori-ricerca="$ctrl.ricercaPolizza" ng-if="$ctrl.ricercaPolizza"></msa-polizze-sinistri>
+    </div>
 
 </section>
