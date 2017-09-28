@@ -15,7 +15,7 @@ public class InputRicercaDO extends AbstractDO {
     private String targa;
     private Integer numeroProvvisorio;
     private String numeroPreapertura;
-    private Integer compagnia;
+    private String compagnia;
 
 
     public String getCognome() {
@@ -90,11 +90,11 @@ public class InputRicercaDO extends AbstractDO {
         this.numeroPreapertura = numeroPreapertura;
     }
 
-    public Integer getCompagnia() {
+    public String getCompagnia() {
         return compagnia;
     }
 
-    public void setCompagnia(Integer compagnia) {
+    public void setCompagnia(String compagnia) {
         this.compagnia = compagnia;
     }
 }

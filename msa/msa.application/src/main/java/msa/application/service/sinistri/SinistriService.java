@@ -81,7 +81,6 @@ public class SinistriService extends BaseSinistroService {
         toReturn.setSinistriProvvisori((List<? extends BaseSinistroDTO>) objects.get(0));
         toReturn.setPolizze(FunctionUtils.castValueByClass((List) objects.get(1), FullPolizzaDTO.class));
 
-
         //TODO SALVARE LA POLIZZA IN MONGO
         return new BaseDTO<>(toReturn);
     }
@@ -127,7 +126,7 @@ public class SinistriService extends BaseSinistroService {
         polizza2.setDataAttivazione(FunctionUtils.nowAsDate());
         polizza2.setDataScadenza(FunctionUtils.nowAsDate());
         List<FullPolizzaDTO> collect = Stream.of(polizza1, polizza2).collect(Collectors.toList());
-        asyncSavePolizzeInMongo(collect, input.getUserLogged());
+        //asyncSavePolizzeInMongo(collect, input.getUserLogged());
         return converter.convertList(collect, FullPolizzaDTO.class);
     }
 

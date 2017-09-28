@@ -72,7 +72,7 @@ public class SinistriRepository extends BaseRepository {
                         return null;
                     }
                 }));
-        final Criteria criteria = Criteria.where("compagnia").is(fields.remove("compagnia"));
+        final Criteria criteria = Criteria.where("contraente.compagnia").is(fields.remove("compagnia"));
         return getCriteriaQueryBuilder().addCriteria(fields.entrySet()
                 .stream()
                 .reduce(criteria,
