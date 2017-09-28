@@ -34,7 +34,9 @@
       "nessuna": "Nessuna",
       "nessuno": "Nessuno",
       "attenzione": "Attenzione!",
-      "navigazionehome": "Sei sicuro di voler tornare alla homepage? i dati non salvati andranno persi."
+      "navigazionehome": "Sei sicuro di voler tornare alla homepage? i dati non salvati andranno persi.",
+      "cambiogaranzia": "Attenzione, cambiando il tipo di garanzia tutti i danni andranno persi.",
+      "daticonducente": "Sei sicuro di voler continuare? I dati del conducente andranno persi."
     },
     "people": {
       "anagrafica": "Anagrafica",

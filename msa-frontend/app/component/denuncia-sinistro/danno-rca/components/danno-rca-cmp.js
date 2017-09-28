@@ -45,12 +45,17 @@
                 $ctrl.checkConducenteIsNotContraente = function () {
                     DebugSvc.log("conducenteIsNotContraente", !!$ctrl.dannoRca.conducenteIsNotContraente);
                     if(!$ctrl.dannoRca.conducenteIsNotContraente && ($ctrl.dannoRca.conducente.nome || $ctrl.dannoRca.conducente.cognome)) {
-                        $ngBootbox.confirm('Sei sicuro di voler tornare continuare? I dati del conducente andranno persi.').then(function () {
-                            //TODO formattare.
-                            $ctrl.dannoRca.conducente = {};
-                        }, function () {
-                            $ctrl.dannoRca.conducenteIsNotContraente = true;
-                        });
+
+                        var opts = UtilSvc.buildBootBoxOptions(
+                            $translate('global.generic.attenzione'),
+                            $translate('global.generic.daticonducente'),
+                            function success() {
+                                $ctrl.dannoRca.conducente = {};
+                            }, function cancel () {
+                                $ctrl.dannoRca.conducenteIsNotContraente = true;
+                            }
+                        );
+                        $ngBootbox.customDialog(opts);
                     }
 
                 };

@@ -70,15 +70,19 @@
                     if (!$ctrl.tempSegnalazione.garanzia || $ctrl.tempSegnalazione.garanzia === $ctrl.sinistro.garanzia) {
                         $ctrl.apriSegnalazione();
                     } else {
-                        $ngBootbox.confirm('Attenzione, cambiando il tipo di garanzia tutti i danni inputati andranno persi.').then(function () {
-                            var result = $ctrl.apriSegnalazione();
-                            result.then(function (response) {
-                                if (response === true) {
-                                    $window.location.reload();
-                                }
-                            });
-                        }, function () {/*NOPE*/
-                        });
+                        var opts = UtilSvc.buildBootBoxOptions(
+                            $translate('global.generic.attenzione'),
+                            $translate('global.generic.cambiogaranzia'),
+                            function success() {
+                                var result = $ctrl.apriSegnalazione();
+                                result.then(function (response) {
+                                    if (response === true) {
+                                        $window.location.reload();
+                                    }
+                                });
+                            }
+                        );
+                        $ngBootbox.customDialog(opts);
                     }
                 };
 
@@ -123,11 +127,11 @@
                 };
 
                 $ctrl.formatHour = function () {
-                    if($scope.segnalazioneForm.orasinistro.$valid && $ctrl.sinistro.provenienza.oraSinistro) {
+                    if ($scope.segnalazioneForm.orasinistro.$valid && $ctrl.sinistro.provenienza.oraSinistro) {
                         var pieces = $ctrl.sinistro.provenienza.oraSinistro.split(":");
-                        if(pieces[0].length === 1) {
+                        if (pieces[0].length === 1) {
                             var hh = parseInt(pieces[0]);
-                            if(!_.isNaN(hh) && hh >= 0 && hh <= 9){
+                            if (!_.isNaN(hh) && hh >= 0 && hh <= 9) {
                                 var newTime = "0" + hh.toString() + ":" + pieces[1];
                                 $ctrl.sinistro.provenienza.oraSinistro = newTime;
                             }
