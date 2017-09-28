@@ -36,7 +36,7 @@ public class SinistriRepository extends BaseRepository {
         doToJson.put("nome", new AbstractMap.SimpleEntry<>(false, "contraente.nome"));
         //doToJson.put("numeroPolizza", new AbstractMap.SimpleEntry<>(false, "numeroPolizza"));
         //doToJson.put("numeroSinistro", "numSinistroProvv");
-        doToJson.put("targa", new AbstractMap.SimpleEntry<>(false, "targa"));
+        doToJson.put("targa", new AbstractMap.SimpleEntry<>(false, "contraente.targa"));
         doToJson.put("numeroProvvisorio", new AbstractMap.SimpleEntry<>(true, "numSinistroProvv"));
         //doToJson.put("numeroPreapertura", "numeroPreapertura");
         //doToJson.put("tipoPersona", "tipoPersona");
