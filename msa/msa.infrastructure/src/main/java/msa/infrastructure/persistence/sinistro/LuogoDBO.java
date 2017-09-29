@@ -1,5 +1,7 @@
 package msa.infrastructure.persistence.sinistro;
 
+import java.util.List;
+
 import org.springframework.data.mongodb.core.mapping.Field;
 
 public class LuogoDBO {
@@ -17,6 +19,8 @@ public class LuogoDBO {
     private String descrizioneComune;
     @Field("cap")
     private String cap;
+    @Field("caps")
+    private List<String> caps;
 
     public String getCodNazione() {
         return codNazione;
@@ -73,4 +77,15 @@ public class LuogoDBO {
     public void setCap(String cap) {
         this.cap = cap;
     }
+
+	public List<String> getCaps() {
+		return caps;
+	}
+
+	public void setCaps(List<String> caps) {
+		this.caps = caps;
+	}
+
+    
+    
 }

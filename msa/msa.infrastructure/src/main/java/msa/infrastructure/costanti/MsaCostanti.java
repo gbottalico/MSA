@@ -13,6 +13,7 @@ public final class MsaCostanti {
         public static final Character PARAM_CAP ='A';
 
         public static final Integer COD_NAZIONE_ITALIA = 1;
+        public static final String NAZIONE_ITALIA = "ITALIA";
         public static final Integer COD_NAZIONE_SAN_MARINO = 272;
         public static final Integer COD_NAZIONE_VATICANO = 72;
         public static final Integer COD_RUOLO_TERZO_TRASPORTATO_CLIENTE = 25;

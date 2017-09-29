@@ -16,6 +16,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Repository
 public class DomainRepository extends BaseRepository {
@@ -94,6 +95,17 @@ public class DomainRepository extends BaseRepository {
                         .and(getMongoNameByAttributeName("descrizione", ComuneDBO.class))
                         .regex(desc,"i"));
         return converter.convertList(findAll(ComuneDBO.class,query), ComuneDO.class);
+    }
+
+    /**
+     * 
+     * @param desc
+     * @return
+     */
+    public List<ComuneDO> getElencoComuni(String desc) {
+    	final Query query = getCriteriaQueryBuilder().addCriteria(
+    			Criteria.where(getMongoNameByAttributeName("descrizione", ComuneDBO.class)).regex(desc,"i"));
+    	return converter.convertList(findAll(ComuneDBO.class,query), ComuneDO.class);
     }
 
     /**
@@ -228,7 +240,7 @@ public class DomainRepository extends BaseRepository {
     }
 
     public Optional<ProvinciaDO> getProvinciaById(final String id) {
-        return Optional.ofNullable(converter.convertObject(findById(ProvinciaDBO.class, id), ProvinciaDO.class));
+        return Optional.ofNullable(converter.convertObject(findById(ProvinciaDBO.class,FunctionUtils.numberConverter(id,Integer::valueOf)), ProvinciaDO.class));
     }
 
     public Optional<ProvinciaDO> getProvinviaBySiglaProvincia(final String provincia) {

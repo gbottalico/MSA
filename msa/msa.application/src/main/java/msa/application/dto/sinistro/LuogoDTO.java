@@ -1,5 +1,7 @@
 package msa.application.dto.sinistro;
 
+import java.util.List;
+
 public class LuogoDTO {
     private String codNazione;
     private String codProvincia;
@@ -8,6 +10,7 @@ public class LuogoDTO {
     private String descrizioneProvincia;
     private String descrizioneComune;
     private String cap;
+    private List<String> caps;
     
     public String getCodNazione() {
         return codNazione;
@@ -65,4 +68,12 @@ public class LuogoDTO {
 		this.cap = cap;
 	}
 
+	public List<String> getCaps() {
+		return caps;
+	}
+
+	public void setCaps(List<String> caps) {
+		this.caps = caps;
+	}
+	
 }

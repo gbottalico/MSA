@@ -1,5 +1,7 @@
 package msa.domain.object.sinistro;
 
+import java.util.List;
+
 public class LuogoDO {
     private String codNazione;
     private String codProvincia;
@@ -8,6 +10,7 @@ public class LuogoDO {
     private String descrizioneProvincia;
     private String descrizioneComune;
     private String cap;
+    private List<String> caps;
 
     public String getCodNazione() {
         return codNazione;
@@ -64,4 +67,14 @@ public class LuogoDO {
     public void setCap(String cap) {
         this.cap = cap;
     }
+
+	public List<String> getCaps() {
+		return caps;
+	}
+
+	public void setCaps(List<String> caps) {
+		this.caps = caps;
+	}
+    
+    
 }

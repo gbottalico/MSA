@@ -77,6 +77,19 @@ public class DomainController extends BaseController {
     }
 
     /**
+     * Ottiene la lista dei comuni il cui nome inizia con la stringa passata.
+     * 
+     * @param desComune
+     * @return
+     * @throws InternalMsaException
+     */
+    @ApiOperation(value = "Metodo che recupera l'elenco dei comuni alla descrizione")
+    @RequestMapping(value = "/comuneByDesc/{desComune}", method = RequestMethod.GET)
+    public BaseDTO getElencoComuniByDesc(@PathVariable("desComune") String desComune) throws InternalMsaException {
+    	return new BaseDTO<>(domainService.getElencoComuni(desComune));
+    }
+
+    /**
      * Ottiene la lista delle autorità
      *
      * @return un BaseDTO contenente le informazioni richieste

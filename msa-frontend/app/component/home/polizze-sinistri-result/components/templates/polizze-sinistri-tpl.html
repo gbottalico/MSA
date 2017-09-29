@@ -17,7 +17,6 @@
 
                 <div class="col-lg-12 margin-top-2"><span class="subsectionTitle">Polizze</span></div>
                 <!-- TODO: stringhe scalpite -->
-
                 <div class="col-lg-12">
                     <div class="table-responsive">
                         <table class="table msa-table">
@@ -104,67 +103,6 @@
                         </table>
                     </div>
                 </div>
-                <div class="col-lg-12">
-                    <hr class="blueLine"/>
-                </div>
-                <div class="col-lg-12"><span class="subsectionTitle">Sinistri Provvisori</span></div>
-                <!-- TODO: stringhe scalpite-->
-                <div class="col-lg-12">
-                    <div class="table-responsive">
-                        <table class="table msa-table">
-
-                            <thead>
-                            <tr>
-                                <th></th>
-                                <th>
-                                    <p class="noMargin">{{'global.polizzesinistri.labels.numpoli' | translate}}</p>
-                                </th>
-                                <th>
-                                    <p class="noMargin">Tipo Sinistro</p>
-                                </th>
-                                <th>
-                                    <p class="noMargin">{{'global.polizzesinistri.labels.contraente' | translate}}</p>
-                                </th>
-                                <th>
-                                    <p class="noMargin">{{'global.polizzesinistri.labels.targabene' | translate}}</p>
-                                </th>
-                                <th>
-                                    <p class="noMargin">Numero Sinistro Provvisorio</p>
-                                </th>
-                                <th>
-                                    <p class="noMargin">{{'global.polizzesinistri.labels.consulta' | translate}}</p>
-                                </th>
-                            </tr>
-                            </thead>
-
-                            <tbody>
-                            <tr ng-repeat="sinistro in $ctrl.sinistriProvvisori">
-                                <td>
-                                    <i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;
-                                </td>
-                                <td>
-                                    <p class="noMargin">{{sinistro.numeroPolizza}}</p>
-                                </td>
-                                <td ng-class="{'half-opacity': !sinistro.tipoSinisto}">
-                                    <p class="noMargin">{{sinistro.tipoSinisto || ("global.people.nondisponibile" | translate)}}</p>
-                                </td>
-                                <td>
-                                    <p class="noMargin">{{sinistro.contraente.nome + " " + sinistro.contraente.cognome}}</p>
-                                </td>
-                                <td>
-                                    <p class="noMargin">{{sinistro.contraente.targa | uppercase}}</p>
-                                </td>
-                                <td>
-                                    <p class="noMargin">#{{sinistro.numSinistroProvv}}</p>
-                                </td>
-                                <td ng-click="$ctrl.navigaSinistroProvvisorio($index)">
-                                    <p class="noMargin"><i class="fa fa-arrow-right lightblue" aria-hidden="true"></i></p>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
 
                 <div class="col-lg-12">
                     <hr class="blueLine"/>
@@ -228,6 +166,67 @@
                     </div>
                 </div>
 
+                <div class="col-lg-12">
+                    <hr class="blueLine"/>
+                </div>
+                <div class="col-lg-12"><span class="subsectionTitle">Sinistri Provvisori</span></div>
+                <!-- TODO: stringhe scalpite-->
+                <div class="col-lg-12">
+                    <div class="table-responsive">
+                        <table class="table msa-table">
+
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th>
+                                    <p class="noMargin">{{'global.polizzesinistri.labels.numpoli' | translate}}</p>
+                                </th>
+                                <th>
+                                    <p class="noMargin">Tipo Sinistro</p>
+                                </th>
+                                <th>
+                                    <p class="noMargin">{{'global.polizzesinistri.labels.contraente' | translate}}</p>
+                                </th>
+                                <th>
+                                    <p class="noMargin">{{'global.polizzesinistri.labels.targabene' | translate}}</p>
+                                </th>
+                                <th>
+                                    <p class="noMargin">Numero Sinistro Provvisorio</p>
+                                </th>
+                                <th>
+                                    <p class="noMargin">{{'global.polizzesinistri.labels.consulta' | translate}}</p>
+                                </th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr ng-repeat="sinistro in $ctrl.sinistriProvvisori">
+                                <td>
+                                    <i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;
+                                </td>
+                                <td>
+                                    <p class="noMargin">{{sinistro.numeroPolizza}}</p>
+                                </td>
+                                <td ng-class="{'half-opacity': !sinistro.tipoSinisto}">
+                                    <p class="noMargin">{{sinistro.tipoSinisto || ("global.people.nondisponibile" | translate)}}</p>
+                                </td>
+                                <td>
+                                    <p class="noMargin">{{sinistro.contraente.nome + " " + sinistro.contraente.cognome}}</p>
+                                </td>
+                                <td>
+                                    <p class="noMargin">{{sinistro.contraente.targa | uppercase}}</p>
+                                </td>
+                                <td>
+                                    <p class="noMargin">#{{sinistro.numSinistroProvv}}</p>
+                                </td>
+                                <td ng-click="$ctrl.navigaSinistroProvvisorio($index)">
+                                    <p class="noMargin"><i class="fa fa-arrow-right lightblue" aria-hidden="true"></i></p>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
 
             </div>
         </div>

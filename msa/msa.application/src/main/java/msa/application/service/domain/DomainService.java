@@ -3,10 +3,14 @@ package msa.application.service.domain;
 import msa.application.config.enumerator.MessageType;
 import msa.application.dto.domain.*;
 import msa.application.dto.domain.baremes.BaremesDTO;
+import msa.application.dto.sinistro.LuogoDTO;
 import msa.application.exceptions.InternalMsaException;
 import msa.application.service.base.BaseService;
 import msa.domain.object.dominio.ComuneDO;
+import msa.domain.object.dominio.ProvinciaDO;
+import msa.domain.object.sinistro.LuogoDO;
 import msa.infrastructure.costanti.MsaCostanti;
+import msa.infrastructure.persistence.domain.ComuneDBO;
 import msa.infrastructure.repository.DomainRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +18,7 @@ import org.springframework.stereotype.Service;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import static msa.application.commons.Constants.ID_BAREMES_NON_CLASSIFICABILE;
 
@@ -71,11 +76,38 @@ public class DomainService extends BaseService {
      */
     public List<ComuneDTO> getElencoComuni(String idNazione, String idProvincia, String desc) throws InternalMsaException {
         try {
-
             return converter.convertList(domainRepository.getElencoComuni(idNazione, idProvincia, desc), ComuneDTO.class);
         } catch (Exception e) {
             throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA001"));
         }
+    }
+    
+    /**
+     * Utilizza il DomainRepository per ottenere la lista dei comuni il cui nome inizia con la stringa data
+     * 
+     * @param desc
+     * @return
+     * @throws InternalMsaException
+     */
+    public List<LuogoDTO> getElencoComuni(String desc) throws InternalMsaException {
+    	try {
+    		final List<LuogoDO> comuni = domainRepository.getElencoComuni(desc).parallelStream().map(e -> {
+    			final LuogoDO luogo = new LuogoDO();
+    			luogo.setCodComune(e.getCodComune());
+    			luogo.setDescrizioneComune(e.getDescrizione());
+    			luogo.setCodProvincia(e.getCodProvincia());
+    			luogo.setCodNazione(e.getCodNazione());
+    			luogo.setDescrizioneNazione(MsaCostanti.NAZIONE_ITALIA); //TODO strinhe schiantate top
+    			luogo.setCaps(e.getCap());
+    			return luogo;
+    		}).map(e -> {
+    			e.setDescrizioneProvincia(domainRepository.getProvinciaById(e.getCodProvincia()).map(ProvinciaDO::getDescProvincia).orElse(null));
+    			return e;
+    		}).collect(Collectors.toList());
+    		return converter.convertList(comuni, LuogoDTO.class);
+    	} catch (Exception e) {
+    		throw new InternalMsaException(e, getErrorMessagesByCodErrore(MessageType.ERROR, "MSA001"));
+    	}
     }
 
     /**
