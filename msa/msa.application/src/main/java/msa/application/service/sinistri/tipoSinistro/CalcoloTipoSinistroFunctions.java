@@ -131,11 +131,10 @@ abstract class CalcoloTipoSinistroFunctions<T extends BaseSinistroDO> {
     protected Function<SinistroRcaDO, TipiSinisto> IS_IN_ITALIA_AND_CARD_CONTRAENTE_CONTROPARTE = sinis -> {
         final Boolean isCard = isInItalia.apply(sinis)
                 && isConvenzioneCARD.apply(sinis.getDannoRca().getAnagraficaDanniCliente().getAnagrafica())
-                && sinis.getDannoRca().getAnagraficaDanniControparte()
-                .stream()
+                && Optional.ofNullable(sinis.getDannoRca().getAnagraficaDanniControparte()).map(e -> e.stream()
                 .map(AnagraficaDanniDO::getAnagrafica)
                 .map(isConvenzioneCARD)
-                .anyMatch(e -> Boolean.TRUE);
+                .anyMatch(elem -> elem.equals(Boolean.TRUE))).orElse(Boolean.FALSE);
 
         if(isCard) {
             return GET_BY_CID_PRESENTE_FULL.apply(sinis);
@@ -147,11 +146,10 @@ abstract class CalcoloTipoSinistroFunctions<T extends BaseSinistroDO> {
     protected Function<SinistroRcaDO,TipiSinisto> IS_IN_ITALIA_AND_CTT_CONTRAENTE_CONTROPARTE = sinis -> {
         final Boolean result = isInItalia.apply(sinis)
                 && isConvenzioneCTT.apply(sinis.getDannoRca().getAnagraficaDanniCliente().getAnagrafica())
-                && sinis.getDannoRca().getAnagraficaDanniControparte()
-                .stream()
+                && Optional.ofNullable(sinis.getDannoRca().getAnagraficaDanniControparte()).map(e -> e.stream()
                 .map(AnagraficaDanniDO::getAnagrafica)
                 .map(isConvenzioneCTT)
-                .anyMatch(e -> Boolean.TRUE);
+                .anyMatch(elem -> elem.equals(Boolean.TRUE))).orElse(Boolean.FALSE);
 
         if(result) {
             return GET_BY_CID_AND_PRESENTE.apply(sinis);

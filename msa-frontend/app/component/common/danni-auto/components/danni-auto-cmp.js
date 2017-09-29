@@ -9,8 +9,8 @@
             required: "<",
             name: "<"
         },
-        controller: ("autoController", ['$rootScope', '$scope',
-            function ($rootScope, $scope) {
+        controller: ("autoController", ['_', '$rootScope', '$scope', '$timeout', 'ConvertSvc',
+            function (_, $rootScope, $scope, $timeout, ConvertSvc) {
 
                 var $ctrl = this;
                 $ctrl.error = false;
@@ -32,51 +32,68 @@
                 $ctrl.indicatoretopleft = function (lato) {
                     $ctrl.auto.topleft = !lato;
                     $ctrl.hasError();
+                    $scope[$scope.name].$setDirty();
                 };
+
                 $ctrl.indicatoretopcenter = function (lato) {
                     $ctrl.auto.topcenter = !lato;
                     $ctrl.hasError();
+                    $scope[$scope.name].$setDirty();
                 };
+
                 $ctrl.indicatoretopright = function (lato) {
                     $ctrl.auto.topright = !lato;
                     $ctrl.hasError();
+                    $scope[$scope.name].$setDirty();
                 };
+
                 $ctrl.indicatoremiddleleft = function (lato) {
                     $ctrl.auto.middleleft = !lato;
                     $ctrl.hasError();
+                    $scope[$scope.name].$setDirty();
                 };
+
                 $ctrl.indicatoremiddleright = function (lato) {
                     $ctrl.auto.middleright = !lato;
                     $ctrl.hasError();
+                    $scope[$scope.name].$setDirty();
                 };
+
                 $ctrl.indicatorebottomleft = function (lato) {
                     $ctrl.auto.bottomleft = !lato;
                     $ctrl.hasError();
+                    $scope[$scope.name].$setDirty();
                 };
+
                 $ctrl.indicatorebottomcenter = function (lato) {
                     $ctrl.auto.bottomcenter = !lato;
                     $ctrl.hasError();
+                    $scope[$scope.name].$setDirty();
                 };
+
                 $ctrl.indicatorebottomright = function (lato) {
                     $ctrl.auto.bottomright = !lato;
                     $ctrl.hasError();
-                };
-                
-                $ctrl.hasError = function () {
-                    if(!$ctrl.required){
-                        return true;
-                    }
-                    // TODO gestire validità della form
-                    $ctrl.error = !($ctrl.auto.topleft || $ctrl.auto.topcenter ||
-                    $ctrl.auto.topright || 
-                    $ctrl.auto.middleleft || 
-                    $ctrl.auto.middleright || 
-                    $ctrl.auto.bottomleft || 
-                    $ctrl.auto.bottomcenter || 
-                    $ctrl.auto.bottomright);
-                    return $ctrl.error;
+                    $scope[$scope.name].$setDirty();
                 };
 
+                $ctrl.hasError = function () {
+                    var error;
+                    if (!$ctrl.required) {
+                        error = false;
+                    } else {
+                        error = !($ctrl.auto.topleft || $ctrl.auto.topcenter ||
+                            $ctrl.auto.topright ||
+                            $ctrl.auto.middleleft ||
+                            $ctrl.auto.middleright ||
+                            $ctrl.auto.bottomleft ||
+                            $ctrl.auto.bottomcenter ||
+                            $ctrl.auto.bottomright);
+                    }
+
+                    $scope[$scope.name].$setValidity($scope.name, !error);
+                    $ctrl.error = error;
+                };
 
                 $ctrl.$onInit = function () {
                     $ctrl.hasError();
@@ -90,20 +107,9 @@
                     },
                     function handleChanges(newValues, oldValues) {
 
-                        if (newValues.input !== undefined && newValues.input !== null && !$ctrl.isInputConsumed) {
-                            // todo fare un convert 
-                            $ctrl.auto = {
-                                topleft: newValues.input.adx,
-                                topcenter: newValues.input.cdx,
-                                topright: newValues.input.ddx,
-                                middleleft: newValues.input.a,
-                                middleright: newValues.input.d,
-                                bottomleft: newValues.input.asx,
-                                bottomcenter: newValues.input.csx,
-                                bottomright: newValues.input.dsx
-
-                            };
-
+                        if (!$ctrl.isInputConsumed && _.isObject(newValues.input)) {
+                            // todo eventualmente spostarlo fuori di qui. Non urgente.
+                            $ctrl.auto = ConvertSvc.dtoToDanniAuto(newValues.input);
                             $ctrl.hasError();
                             $ctrl.isInputConsumed = true;
 

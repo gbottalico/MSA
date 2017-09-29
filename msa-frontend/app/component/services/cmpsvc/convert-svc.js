@@ -170,8 +170,27 @@ angular.module('msa').service('ConvertSvc',
                 };
 
                 return dto;
-
             };
+
+            /**
+             * Converte il DTO nell'oggetto Danni Auto.
+             * @param dto
+             * @returns {{topleft: (*|boolean), topcenter: (*|boolean), topright: (*|boolean), middleleft: (*|boolean), middleright: (*|boolean), bottomleft: (*|boolean), bottomcenter: (*|boolean), bottomright: (*|boolean)}}
+             */
+
+            $svc.dtoToDanniAuto = function (dto) {
+                var auto = {
+                    topleft: dto.adx,
+                    topcenter: dto.cdx,
+                    topright: dto.ddx,
+                    middleleft: dto.a,
+                    middleright: dto.d,
+                    bottomleft: dto.asx,
+                    bottomcenter: dto.csx,
+                    bottomright: dto.dsx
+                };
+                return auto;
+            }
 
         }
     ]
