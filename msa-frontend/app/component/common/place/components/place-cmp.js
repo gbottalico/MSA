@@ -109,7 +109,7 @@
                         $ctrl.comuneSelezionato = comune;
 
                         // TODO RIVEDERE
-                        $ctrl.caps = response.data.result || place.caps || [];
+                        $ctrl.caps = place.caps || response.data.result;
                         $ctrl.capSelezionato = place.cap;
 
                     });
