@@ -9,6 +9,7 @@ app.service('msaServicesApiUrls', function ($MSAC) {
     this.nazione                = apiPath + "/dominio/nazione/";
     this.provincia              = apiPath + "/dominio/provincia/";
     this.comune                 = apiPath + "/dominio/comune/";
+    this.comuneByDesc                 = apiPath + "/dominio/comuneByDesc/";
     this.luogoById              = apiPath + "/dominio/desLuogoById?id={0}&codLuogo={1}&param";  //0: idLuogo.
     this.autorita               = apiPath + "/dominio/autorita/";
     this.mezzicomunicazione     = apiPath + "/dominio/mezzicomunicazione/";

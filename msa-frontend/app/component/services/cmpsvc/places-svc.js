@@ -33,6 +33,10 @@ angular.module('msa').service(
                 return $http.get(msaServicesApiUrls.comune + idNazione + "/" + idProvincia + "/" + nomeComune);
             };
 
+            $svc.getComuniByDescrizione = function (nomeComune) {
+                return $http.get(msaServicesApiUrls.comuneByDesc + nomeComune);
+            };
+
             $svc.getNazioneById = function (id) {
                 var url = UtilSvc.stringFormat(msaServicesApiUrls.luogoById, id, codice.nazione);
                 return $http.get(url);
