@@ -82,7 +82,7 @@ public class SinistriRepository extends BaseRepository {
                             if (doToJson.get(set.getKey()).getKey()) {
                                 crit.and(doToJson.get(set.getKey()).getValue()).is(set.getValue());
                             } else {
-                                return crit.and(doToJson.get(set.getKey()).getValue()).regex(Objects.toString(set.getValue()));
+                                crit.and(doToJson.get(set.getKey()).getValue()).regex(Objects.toString(set.getValue()), "i");
                             }
                             return crit;
                         },
