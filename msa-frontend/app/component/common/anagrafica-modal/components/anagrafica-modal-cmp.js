@@ -43,7 +43,7 @@
 
                     $ctrl.hasRole = $ctrl.resolve.hasRole;
                     $ctrl.hasCompagnia = $ctrl.resolve.hasCompagnia;
-                    $ctrl.anagrafica.tipoPersona = $ctrl.TipologiaEnum.FISICA;
+                    //$ctrl.anagrafica.tipoPersona = $ctrl.TipologiaEnum.FISICA;
 
                     $ctrl.hasPatrocinante = $ctrl.resolve.hasPatrocinante;
 
