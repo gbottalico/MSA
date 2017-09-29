@@ -110,6 +110,16 @@ angular.module('msa').service(
 
         };
 
+        /**
+         * Angular non è sempre d'accordo sul fatto che qualcuno chiami apply.
+         * Questo metodo lo fa in modo che non sollevi eccezioni.
+         *
+         * @param scope
+         */
+        $svc.safeApply = function (scope) {
+            if(!scope.$$phase) scope.$apply();
+        };
+
         $svc.dateFormat = function (dateInMillis, format) {
 
             Date.prototype.customFormat = Date.prototype.customFormat || function (formatString) {

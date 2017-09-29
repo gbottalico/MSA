@@ -4,8 +4,8 @@
     app.component('msaHeader', {
         templateUrl: '../../app/component/common/header/components/templates/header-tpl.html',
         bindings: {},
-        controller: ("headerController", ['$MSAC', '$location', '$ngBootbox', '$filter', 'DebugSvc', 'UtilSvc',
-            function ($MSAC, $location, $ngBootbox, $filter, DebugSvc, UtilSvc) {
+        controller: ("headerController", ['$MSAC', '$scope','$location', '$ngBootbox', '$filter', 'DebugSvc', 'UtilSvc',
+            function ($MSAC, $scope, $location, $ngBootbox, $filter, DebugSvc, UtilSvc) {
 
                 var $ctrl = this;
                 var $translate = $filter('translate');
@@ -14,6 +14,7 @@
                 $ctrl.navigateHome = function () {
                     $location.search({});
                     $location.path(homePath);
+                    UtilSvc.safeApply($scope);
                 };
 
                 $ctrl.reloadRoute = function () {
@@ -22,9 +23,7 @@
                         var opts = UtilSvc.buildBootBoxOptions(
                             $translate('global.generic.attenzione'),
                             $translate('global.generic.navigazionehome'),
-                            function success() {
-                                $ctrl.navigateHome();
-                            }
+                            $ctrl.navigateHome
                         );
                         $ngBootbox.customDialog(opts);
                     } else {

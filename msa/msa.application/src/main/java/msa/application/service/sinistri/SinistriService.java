@@ -152,7 +152,7 @@ public class SinistriService extends BaseSinistroService {
 					"                        \"tipoGuida\": \"Guida esperta - tutti i guidatori hanno piÃ¹ di 26 anni\",\r\n" + 
 					"                        \"progVeicolo\": null,\r\n" + 
 					"                        \"codfiscContraente\": \"NGLFBA53E16L736S\",\r\n" + 
-					"                        \"cognomeContraente\": \"Fabio Angelini\",\r\n" + 
+					"                        \"cognomeContraente\": \"Angelini\",\r\n" + 
 					"                        \"nomeContraente\": \"Fabio\",\r\n" + 
 					"                        \"indirizzoContraente\": \"Via Berchet 10/A\",\r\n" + 
 					"                        \"capContraente\": \"30175\",\r\n" + 

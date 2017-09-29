@@ -14,11 +14,16 @@
                 var $ctrl = this;
                 $scope.$MSAC = $MSAC;
 
-                $ctrl.anagrafica = {
-                    ruolo: undefined,
-                    lesioni: false,
-                    compagnia: undefined
+                var initAnagrafica = function () {
+                    $ctrl.anagrafica = {
+                        ruolo: undefined,
+                        lesioni: false,
+                        compagnia: undefined
+                    };
                 };
+
+                initAnagrafica();
+
                 $ctrl.persistence = {};
                 $ctrl.ruoli = [];
                 $ctrl.anagraficheAssociabili = [];
@@ -59,10 +64,10 @@
                     }
 
                     if ($ctrl.resolve.input) {
-                        $ctrl.anagrafica = $ctrl.resolve.input;
+                        $ctrl.anagrafica = _.cloneDeep($ctrl.resolve.input);
                         $ctrl.persistence.luogoNascita = ConvertSvc.luogoToDTO($ctrl.resolve.input.nascita);
                         $ctrl.persistence.residenza = ConvertSvc.luogoToDTO($ctrl.resolve.input.residenza);
-                        $ctrl.compagniaSelezionata = $ctrl.resolve.input.compagnia;
+                        $ctrl.compagniaSelezionata = _.cloneDeep($ctrl.resolve.input.compagnia);
                     }
 
                 };
@@ -122,10 +127,13 @@
                         $ctrl.anagrafica.sesso = null;
                         $ctrl.anagrafica.nascita = null;
                     }
-                    $ctrl.close({$value: $ctrl.anagrafica});
+                    var returnValue = _.cloneDeep($ctrl.anagrafica);
+                    initAnagrafica();
+                    $ctrl.close({$value: returnValue});
                 };
 
                 $ctrl.cancel = function () {
+                    initAnagrafica();
                     $ctrl.dismiss({$value: undefined});
                 };
 

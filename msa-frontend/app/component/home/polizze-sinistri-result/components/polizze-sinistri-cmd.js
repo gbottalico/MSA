@@ -13,8 +13,10 @@
                 var $ctrl = this;
                 var parent = $scope.$parent;
                 var $translate = $filter('translate');
-                $ctrl.numeroSinistroProvvisorio = undefined;
 
+                $scope.nuovoSinitroDisabled = false;
+
+                $ctrl.numeroSinistroProvvisorio = undefined;
                 $ctrl.polizze = [
                     {
                         "copertura": true,
@@ -390,7 +392,12 @@
                 };
 
                 $ctrl.openSinistro = function () {
+
+                    DebugSvc.log("Click nuovo sinistro");
                     if ($ctrl.polizzaSelected !== undefined) {
+
+                        $scope.nuovoSinitroDisabled = true;
+
                         var contraente = {};
                         contraente.cf = $ctrl.polizzaSelected.codfiscContraente;
                         contraente.cognome = $ctrl.polizzaSelected.cognomeContraente;
@@ -454,7 +461,7 @@
 
                 $ctrl.$doCheck = function () {
                     DebugSvc.log('checkRisultati', $ctrl.risultati);
-                    $ctrl.polizze = $ctrl.risultati.polizze;
+                    //$ctrl.polizze = $ctrl.risultati.polizze; //FIXME
                     $ctrl.sinistriProvvisori = $ctrl.risultati.sinistriProvvisori;
                 };
 

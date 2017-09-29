@@ -22,13 +22,18 @@
                 $ctrl.casaRegole = undefined;
                 $ctrl.numSinistroProvv = undefined;
 
-                
+
                 $ctrl.ricercaPolizza = SinistriSvc.getOggettoRicerca();
 
                 $ctrl.$onInit = function () {
                     DomainSvc.getElencoRegole().then(function (response) {
                         $ctrl.casaRegole = response.data.result;
                     });
+
+                    //FIXME rimuovere
+                    // if ($scope.$storage.lastSearch) {
+                    //     $ctrl.ricercaPolizza = $scope.$storage.lastSearch;
+                    // }
                 };
 
                 $ctrl.campiObbligatori = {
@@ -50,7 +55,7 @@
                 $ctrl.checkCompagnia = function () {
                     return ($scope.polizzaSearchForm.compagnia.$invalid);
                 };
-                
+
                 $ctrl.cerca = function () {
                     parent.cerca($ctrl.ricercaPolizza);
                 };
@@ -66,7 +71,7 @@
                         if (newValue.compagniaSelezionata !== oldValue.compagniaSelezionata) {
                             if (newValue.compagniaSelezionata instanceof Object &&
                                 newValue.compagniaSelezionata !== null) {
-                            	
+
                                 // Eseguo il binding dei campi obbligatori.
                                 var campiObbligatoriRicerca = newValue.compagniaSelezionata.campiObbligatoriRicerca;
                                 for (var i = 0; i < campiObbligatoriRicerca.length; i++) {

@@ -24,6 +24,7 @@
 
                             <thead>
                             <tr>
+                                <th></th>
                                 <th>
                                     <p class="noMargin">{{'global.polizzesinistri.labels.numpoli' | translate}}</p>
                                 </th>
@@ -59,8 +60,10 @@
                                 ng-class="{selezionata: polizza == $ctrl.polizzaSelected}"
                                 ng-click="$ctrl.selezionaPolizza(polizza)">
                                 <td>
-                                    <p class="noMargin"><i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;{{polizza.numeroPolizza}}
-                                    </p>
+                                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                </td>
+                                <td>
+                                    <p class="noMargin">{{polizza.numeroPolizza}}</p>
                                 </td>
                                 <td>
                                     <p class="noMargin">{{polizza.dataCopertura | date:'dd/MM/yyyy'}}</p>
@@ -90,9 +93,9 @@
 
                             </tbody>
                             <tfoot>
-                            <td colspan="9">
-                                <button class="btn btn-white margin-top-2" ng-click="$ctrl.openSinistro()"><i
-                                        class="fa fa-plus" aria-hidden="true"></i>&nbsp;Nuovo Sinistro
+                            <td colspan="10">
+                                <button class="btn btn-white margin-top-2" ng-click="$ctrl.openSinistro()" ng-disabled="nuovoSinistroDisabled">
+                                    <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;Nuovo Sinistro
                                 </button> <!-- TODO: stringhe scolpite -->
                             </td>
                             </tfoot>
@@ -113,6 +116,7 @@
 
                             <thead>
                             <tr>
+                                <th></th>
                                 <th>
                                     <p class="noMargin">{{'global.polizzesinistri.labels.numpoli' | translate}}</p>
                                 </th>
@@ -137,7 +141,10 @@
                             <tbody>
                             <tr ng-repeat="sinistro in $ctrl.sinistriProvvisori">
                                 <td>
-                                    <p class="noMargin"><i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;{{sinistro.numeroPolizza}}</p>
+                                    <i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;
+                                </td>
+                                <td>
+                                    <p class="noMargin">{{sinistro.numeroPolizza}}</p>
                                 </td>
                                 <td ng-class="{'half-opacity': !sinistro.tipoSinisto}">
                                     <p class="noMargin">{{sinistro.tipoSinisto || ("global.people.nondisponibile" | translate)}}</p>
